@@ -12,7 +12,7 @@ namespace CrmAppSchool.Controllers
         protected MySqlConnection conn;
         public DatabaseController()
         {
-            conn = new MySqlConnection("Server=172.98.192.163;Database=localhost;Uid=crmapp;Pwd=1234");
+            conn = new MySqlConnection("Server=127.0.0.1;Database=crmapp;Uid=root;Pwd=root");
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrmAppSchool.Controllers;
 
 namespace CrmAppSchool.Views.Login
 {
@@ -16,5 +17,25 @@ namespace CrmAppSchool.Views.Login
         {
             InitializeComponent();
         }
+
+        private void inlogBtn_Click(object sender, EventArgs e)
+        {
+            string gebruikersnaam = gebruikersnaamTxb.Text;
+            string wachtwoord = wachtwoordTxb.Text;
+            LoginController logincontroller = new LoginController();
+            bool resultaat = logincontroller.VerifieerGebruiker(gebruikersnaam, wachtwoord);
+            if(resultaat == false)
+            {
+                errortitelLbl.Visible = true;
+                errordescLbl.Visible = true;
+            }
+            else
+            {
+                CrmAppSchool.Views.Hoofdmenu.Hoofdmenu hoofdmenu = new Hoofdmenu.Hoofdmenu();
+                this.Hide();
+                hoofdmenu.Show();
+            }
+        }
+
     }
 }
