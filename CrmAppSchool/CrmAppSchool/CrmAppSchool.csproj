@@ -51,12 +51,13 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Docent.cs" />
+    <Compile Include="Models\Gebruiker.cs" />
     <Compile Include="Models\Student.cs" />
-    <Compile Include="Views\Hoofdmenu\Hoofdmenu.cs">
+    <Compile Include="Views\Hoofdmenu\HoofdmenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Hoofdmenu\Hoofdmenu.Designer.cs">
-      <DependentUpon>Hoofdmenu.cs</DependentUpon>
+    <Compile Include="Views\Hoofdmenu\HoofdmenuForm.Designer.cs">
+      <DependentUpon>HoofdmenuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login\InlogForm.cs">
       <SubType>Form</SubType>
@@ -66,8 +67,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Views\Hoofdmenu\Hoofdmenu.resx">
-      <DependentUpon>Hoofdmenu.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Hoofdmenu\HoofdmenuForm.resx">
+      <DependentUpon>HoofdmenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login\InlogForm.resx">
       <DependentUpon>InlogForm.cs</DependentUpon>

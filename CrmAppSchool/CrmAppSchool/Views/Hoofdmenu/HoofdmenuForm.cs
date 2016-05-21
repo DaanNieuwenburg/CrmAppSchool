@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CrmAppSchool.Views.Hoofdmenu
 {
-    public partial class Hoofdmenu : Form
+    public partial class HoofdmenuForm : Form
     {
-        public Hoofdmenu()
+        public HoofdmenuForm()
         {
             InitializeComponent();
         }

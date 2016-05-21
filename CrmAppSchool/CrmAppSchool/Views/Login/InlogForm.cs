@@ -31,7 +31,7 @@ namespace CrmAppSchool.Views.Login
             }
             else
             {
-                CrmAppSchool.Views.Hoofdmenu.Hoofdmenu hoofdmenu = new Hoofdmenu.Hoofdmenu();
+                CrmAppSchool.Views.Hoofdmenu.HoofdmenuForm hoofdmenu = new Hoofdmenu.HoofdmenuForm();
                 this.Hide();
                 hoofdmenu.Show();
             }

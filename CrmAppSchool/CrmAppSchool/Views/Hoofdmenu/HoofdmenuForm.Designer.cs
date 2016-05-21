@@ -1,6 +1,6 @@
 ﻿namespace CrmAppSchool.Views.Hoofdmenu
 {
-    partial class Hoofdmenu
+    partial class HoofdmenuForm
     {
         /// <summary>
         /// Required designer variable.

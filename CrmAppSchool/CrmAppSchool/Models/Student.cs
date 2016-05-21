@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace CrmAppSchool.Models
 {
-    public class Student
+    public class Student : Gebruiker
     {
-        public string Gebruikersnaam { get; set; }
         public Student(string _gebruikersnaam)
         {
             Gebruikersnaam = _gebruikersnaam;
