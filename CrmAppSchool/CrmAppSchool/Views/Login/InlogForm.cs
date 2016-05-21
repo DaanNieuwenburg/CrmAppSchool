@@ -22,7 +22,7 @@ namespace CrmAppSchool.Views.Login
         {
             string gebruikersnaam = gebruikersnaamTxb.Text;
             string wachtwoord = wachtwoordTxb.Text;
-            LoginController logincontroller = new LoginController();
+            GebruikerController logincontroller = new GebruikerController();
             bool resultaat = logincontroller.VerifieerGebruiker(gebruikersnaam, wachtwoord);
             if(resultaat == false)
             {

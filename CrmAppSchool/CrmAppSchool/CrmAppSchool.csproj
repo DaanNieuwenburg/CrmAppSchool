@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DatabaseController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -59,6 +60,12 @@
     <Compile Include="Views\Hoofdmenu\HoofdmenuForm.Designer.cs">
       <DependentUpon>HoofdmenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Hoofdmenu\voegGebruikerToeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Hoofdmenu\voegGebruikerToeForm.Designer.cs">
+      <DependentUpon>voegGebruikerToeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login\InlogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +76,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Views\Hoofdmenu\HoofdmenuForm.resx">
       <DependentUpon>HoofdmenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Hoofdmenu\voegGebruikerToeForm.resx">
+      <DependentUpon>voegGebruikerToeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login\InlogForm.resx">
       <DependentUpon>InlogForm.cs</DependentUpon>

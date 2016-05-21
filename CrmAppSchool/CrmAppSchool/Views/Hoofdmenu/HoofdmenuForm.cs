@@ -36,5 +36,11 @@ namespace CrmAppSchool.Views.Hoofdmenu
                 gebruikerLbl.Text = gebruikerLbl.Text + " " + gebruiker.Gebruikersnaam;
             }
         }
+
+        private void voegGebruikerToeBtn_Click(object sender, EventArgs e)
+        {
+            voegGebruikerToeForm voegGebruikerToe = new voegGebruikerToeForm();
+            voegGebruikerToe.ShowDialog();
+        }
     }
 }

@@ -9,5 +9,6 @@ namespace CrmAppSchool.Models
     public abstract class Gebruiker
     {
         public string Gebruikersnaam { get; set; }
+        public string Wachtwoord { get; set; }
     }
 }
