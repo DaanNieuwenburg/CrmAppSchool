@@ -7,14 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrmAppSchool.Models;
 
 namespace CrmAppSchool.Views.Hoofdmenu
 {
     public partial class HoofdmenuForm : Form
     {
-        public HoofdmenuForm()
+        public Gebruiker gebruiker;
+        public HoofdmenuForm(Gebruiker _gebruiker)
         {
+            gebruiker = _gebruiker;
             InitializeComponent();
+            toonGebruikersnaam();
+        }
+
+        private void toonGebruikersnaam()
+        {
+            if(gebruiker is Admin)
+            {
+                gebruikerLbl.Text = gebruikerLbl.Text + " " + gebruiker.Gebruikersnaam;
+            }
+            else if(gebruiker is Student)
+            {
+                gebruikerLbl.Text = gebruikerLbl.Text + " " + gebruiker.Gebruikersnaam;
+            }
+            else if(gebruiker is Docent)
+            {
+                gebruikerLbl.Text = gebruikerLbl.Text + " " + gebruiker.Gebruikersnaam;
+            }
         }
     }
 }

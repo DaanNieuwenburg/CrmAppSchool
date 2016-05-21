@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using CrmAppSchool.Models;
+using CrmAppSchool.Views.Hoofdmenu;
 
 namespace CrmAppSchool.Controllers
 {
@@ -31,21 +32,26 @@ namespace CrmAppSchool.Controllers
 
                 // Haalt de data op uit de database en vult het model met data
                 bool isnull = true;
+                Gebruiker gebruiker = null;
                 while (datalezer.Read())
                 {
                     if (datalezer.GetBoolean("isadmin") == true)
                     {
-                        Admin admin = new Admin(datalezer.GetString("gebruikersnaam"));
+                        gebruiker = new Admin(datalezer.GetString("gebruikersnaam"));
                     }
                     else if (datalezer.GetBoolean("isdocent") == true)
                     {
-                        Docent docent = new Docent(datalezer.GetString("gebruikersnaam"));
+                        gebruiker = new Docent(datalezer.GetString("gebruikersnaam"));
                     }
                     else if (datalezer.GetBoolean("isstudent") == true)
                     {
-                        Student student = new Student(datalezer.GetString("gebruikersnaam"));
+                        gebruiker = new Student(datalezer.GetString("gebruikersnaam"));
                     }
                     isnull = false;
+
+                    // Roept het hoofdmenu aan
+                    HoofdmenuForm hoofdmenu = new HoofdmenuForm(gebruiker);
+                    hoofdmenu.Show();
                 }
 
                 // Null checkt 
