@@ -54,6 +54,17 @@
     <Compile Include="Models\Docent.cs" />
     <Compile Include="Models\Gebruiker.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contacten\ContactenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Contacten\ContactenForm.Designer.cs">
+      <DependentUpon>ContactenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Hoofdmenu\HoofdmenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +85,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Zoeken\ZoekenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Zoeken\ZoekenForm.Designer.cs">
+      <DependentUpon>ZoekenForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\Contacten\ContactenForm.resx">
+      <DependentUpon>ContactenForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Hoofdmenu\HoofdmenuForm.resx">
       <DependentUpon>HoofdmenuForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,13 +105,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="Views\Zoeken\ZoekenForm.resx">
+      <DependentUpon>ZoekenForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -105,7 +124,34 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Opdrachten\" />
+    <Folder Include="Views\Profiel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnOpdrachten.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_Contacten2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_Profiel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_Zoeken.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnOpdrachten1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_Contacten21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_Profiel1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_Zoeken1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
