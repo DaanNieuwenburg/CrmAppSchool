@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.gebruikerLbl = new System.Windows.Forms.Label();
-            this.voegGebruikerToeBtn = new System.Windows.Forms.Button();
             this.btnOpdrachten = new System.Windows.Forms.Button();
             this.btnProfiel = new System.Windows.Forms.Button();
             this.btnZoeken = new System.Windows.Forms.Button();
             this.btnContacten = new System.Windows.Forms.Button();
+            this.voegGebruikerToeBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gebruikerLbl
@@ -44,16 +44,6 @@
             this.gebruikerLbl.Size = new System.Drawing.Size(101, 13);
             this.gebruikerLbl.TabIndex = 0;
             this.gebruikerLbl.Text = "U bent ingelogd als:";
-            // 
-            // voegGebruikerToeBtn
-            // 
-            this.voegGebruikerToeBtn.Location = new System.Drawing.Point(28, 332);
-            this.voegGebruikerToeBtn.Name = "voegGebruikerToeBtn";
-            this.voegGebruikerToeBtn.Size = new System.Drawing.Size(123, 23);
-            this.voegGebruikerToeBtn.TabIndex = 1;
-            this.voegGebruikerToeBtn.Text = "Voeg gebruiker toe";
-            this.voegGebruikerToeBtn.UseVisualStyleBackColor = true;
-            this.voegGebruikerToeBtn.Click += new System.EventHandler(this.voegGebruikerToeBtn_Click);
             // 
             // btnOpdrachten
             // 
@@ -109,6 +99,21 @@
             this.btnContacten.TabIndex = 2;
             this.btnContacten.UseVisualStyleBackColor = false;
             this.btnContacten.Click += new System.EventHandler(this.btnContacten_Click);
+            // 
+            // voegGebruikerToeBtn
+            // 
+            this.voegGebruikerToeBtn.BackColor = System.Drawing.Color.Transparent;
+            this.voegGebruikerToeBtn.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_RegistreerPersoon;
+            this.voegGebruikerToeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.voegGebruikerToeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.voegGebruikerToeBtn.FlatAppearance.BorderSize = 0;
+            this.voegGebruikerToeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.voegGebruikerToeBtn.Location = new System.Drawing.Point(342, 39);
+            this.voegGebruikerToeBtn.Name = "voegGebruikerToeBtn";
+            this.voegGebruikerToeBtn.Size = new System.Drawing.Size(140, 115);
+            this.voegGebruikerToeBtn.TabIndex = 1;
+            this.voegGebruikerToeBtn.UseVisualStyleBackColor = false;
+            this.voegGebruikerToeBtn.Click += new System.EventHandler(this.voegGebruikerToeBtn_Click);
             // 
             // HoofdmenuForm
             // 

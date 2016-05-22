@@ -36,17 +36,20 @@
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(39, 48);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(262, 20);
+            this.textBox1.Size = new System.Drawing.Size(262, 25);
             this.textBox1.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.label1.Location = new System.Drawing.Point(39, 92);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.Size = new System.Drawing.Size(54, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "Filter op:";
             // 
@@ -88,7 +91,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnZoek);
             this.Name = "ZoekenForm";
-            this.Text = "ZoekenForm";
+            this.Text = "Zoeken";
             this.ResumeLayout(false);
             this.PerformLayout();
 
