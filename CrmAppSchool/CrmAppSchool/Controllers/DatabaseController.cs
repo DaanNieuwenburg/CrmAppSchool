@@ -12,7 +12,9 @@ namespace CrmAppSchool.Controllers
         protected MySqlConnection conn;
         public DatabaseController()
         {
-            conn = new MySqlConnection("Server=127.0.0.1;Database=crmapp;Uid=root;Pwd=root");
+            // DB is ook te bereiken met deze credentials via MySql Workbench
+            conn = new MySqlConnection("Server=database.asuscomm.com;Database=crmapp;Uid=school;Pwd=1234");
+
         }
     }
 }
