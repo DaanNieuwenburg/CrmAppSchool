@@ -49,5 +49,12 @@ namespace CrmAppSchool.Views.Hoofdmenu
             Zoeken.ZoekenForm Zoeken= new Zoeken.ZoekenForm();
             Zoeken.Show();
         }
+
+        private void btnContacten_Click(object sender, EventArgs e)
+        {
+            this.btnContacten.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
+            Contacten.ContactenForm Contacten = new Contacten.ContactenForm();
+            Contacten.Show();
+        }
     }
 }

@@ -30,9 +30,9 @@
         {
             this.gebruikerLbl = new System.Windows.Forms.Label();
             this.voegGebruikerToeBtn = new System.Windows.Forms.Button();
-            this.btnZoeken = new System.Windows.Forms.Button();
-            this.btnProfiel = new System.Windows.Forms.Button();
             this.btnOpdrachten = new System.Windows.Forms.Button();
+            this.btnProfiel = new System.Windows.Forms.Button();
+            this.btnZoeken = new System.Windows.Forms.Button();
             this.btnContacten = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -55,19 +55,18 @@
             this.voegGebruikerToeBtn.UseVisualStyleBackColor = true;
             this.voegGebruikerToeBtn.Click += new System.EventHandler(this.voegGebruikerToeBtn_Click);
             // 
-            // btnZoeken
+            // btnOpdrachten
             // 
-            this.btnZoeken.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Zoeken;
-            this.btnZoeken.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnZoeken.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnZoeken.FlatAppearance.BorderSize = 0;
-            this.btnZoeken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnZoeken.Location = new System.Drawing.Point(188, 39);
-            this.btnZoeken.Name = "btnZoeken";
-            this.btnZoeken.Size = new System.Drawing.Size(139, 115);
-            this.btnZoeken.TabIndex = 3;
-            this.btnZoeken.UseVisualStyleBackColor = true;
-            this.btnZoeken.Click += new System.EventHandler(this.btnZoeken_Click);
+            this.btnOpdrachten.BackgroundImage = global::CrmAppSchool.Properties.Resources.btnOpdrachten;
+            this.btnOpdrachten.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnOpdrachten.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpdrachten.FlatAppearance.BorderSize = 0;
+            this.btnOpdrachten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpdrachten.Location = new System.Drawing.Point(188, 173);
+            this.btnOpdrachten.Name = "btnOpdrachten";
+            this.btnOpdrachten.Size = new System.Drawing.Size(139, 115);
+            this.btnOpdrachten.TabIndex = 5;
+            this.btnOpdrachten.UseVisualStyleBackColor = true;
             // 
             // btnProfiel
             // 
@@ -82,18 +81,19 @@
             this.btnProfiel.TabIndex = 4;
             this.btnProfiel.UseVisualStyleBackColor = true;
             // 
-            // btnOpdrachten
+            // btnZoeken
             // 
-            this.btnOpdrachten.BackgroundImage = global::CrmAppSchool.Properties.Resources.btnOpdrachten;
-            this.btnOpdrachten.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnOpdrachten.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpdrachten.FlatAppearance.BorderSize = 0;
-            this.btnOpdrachten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpdrachten.Location = new System.Drawing.Point(188, 173);
-            this.btnOpdrachten.Name = "btnOpdrachten";
-            this.btnOpdrachten.Size = new System.Drawing.Size(139, 115);
-            this.btnOpdrachten.TabIndex = 5;
-            this.btnOpdrachten.UseVisualStyleBackColor = true;
+            this.btnZoeken.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Zoeken;
+            this.btnZoeken.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnZoeken.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnZoeken.FlatAppearance.BorderSize = 0;
+            this.btnZoeken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZoeken.Location = new System.Drawing.Point(188, 39);
+            this.btnZoeken.Name = "btnZoeken";
+            this.btnZoeken.Size = new System.Drawing.Size(139, 115);
+            this.btnZoeken.TabIndex = 3;
+            this.btnZoeken.UseVisualStyleBackColor = true;
+            this.btnZoeken.Click += new System.EventHandler(this.btnZoeken_Click);
             // 
             // btnContacten
             // 
@@ -108,6 +108,7 @@
             this.btnContacten.Size = new System.Drawing.Size(139, 115);
             this.btnContacten.TabIndex = 2;
             this.btnContacten.UseVisualStyleBackColor = false;
+            this.btnContacten.Click += new System.EventHandler(this.btnContacten_Click);
             // 
             // HoofdmenuForm
             // 
