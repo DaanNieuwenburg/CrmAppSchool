@@ -34,6 +34,8 @@ namespace CrmAppSchool.Views.Hoofdmenu
 
             AdminController admincontroller = new AdminController();
             admincontroller.voegGebruikerToe(gebruiker);
+
+            this.Close();
         }
     }
 }
