@@ -45,6 +45,7 @@ namespace CrmAppSchool.Views.Hoofdmenu
 
         private void btnZoeken_Click(object sender, EventArgs e)
         {
+            this.btnZoeken.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
             Zoeken.ZoekenForm Zoeken= new Zoeken.ZoekenForm();
             Zoeken.Show();
         }
