@@ -25,7 +25,8 @@ namespace CrmAppSchool.Controllers
 
                 gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
                 wachtwoordParam.Value = _gebruiker.Wachtwoord;
-                if(_gebruiker is Admin)
+
+                if (_gebruiker is Admin)
                 {
                     isadminParam.Value = 1;
                 }
@@ -52,8 +53,14 @@ namespace CrmAppSchool.Controllers
                     isstudentParam.Value = 0;
                 }
 
+                command.Parameters.Add(gebruikersnaamParam);
+                command.Parameters.Add(wachtwoordParam);
+                command.Parameters.Add(isadminParam);
+                command.Parameters.Add(isdocentParam);
+                command.Parameters.Add(isstudentParam);
+
                 command.Prepare();
-                command.BeginExecuteNonQuery();
+                command.ExecuteNonQuery();
             }
             catch(MySqlException e)
             {
