@@ -28,20 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnZoek = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(372, 48);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 57);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -53,7 +44,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 97);
+            this.label1.Location = new System.Drawing.Point(39, 92);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 2;
@@ -69,20 +60,33 @@
             "Organisatie",
             "Locatie",
             "Functie"});
-            this.comboBox1.Location = new System.Drawing.Point(42, 114);
+            this.comboBox1.Location = new System.Drawing.Point(39, 118);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 3;
+            // 
+            // btnZoek
+            // 
+            this.btnZoek.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Zoeken2;
+            this.btnZoek.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnZoek.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnZoek.FlatAppearance.BorderSize = 0;
+            this.btnZoek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZoek.Location = new System.Drawing.Point(344, 48);
+            this.btnZoek.Name = "btnZoek";
+            this.btnZoek.Size = new System.Drawing.Size(75, 57);
+            this.btnZoek.TabIndex = 0;
+            this.btnZoek.UseVisualStyleBackColor = true;
             // 
             // ZoekenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 167);
+            this.ClientSize = new System.Drawing.Size(459, 164);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnZoek);
             this.Name = "ZoekenForm";
             this.Text = "ZoekenForm";
             this.ResumeLayout(false);
@@ -92,7 +96,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnZoek;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;

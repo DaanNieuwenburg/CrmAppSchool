@@ -42,5 +42,11 @@ namespace CrmAppSchool.Views.Hoofdmenu
             voegGebruikerToeForm voegGebruikerToe = new voegGebruikerToeForm();
             voegGebruikerToe.ShowDialog();
         }
+
+        private void btnZoeken_Click(object sender, EventArgs e)
+        {
+            Zoeken.ZoekenForm Zoeken= new Zoeken.ZoekenForm();
+            Zoeken.Show();
+        }
     }
 }
