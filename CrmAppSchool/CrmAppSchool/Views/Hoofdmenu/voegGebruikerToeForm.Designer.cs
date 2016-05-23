@@ -29,35 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(voegGebruikerToeForm));
-            this.voegToeBtn = new System.Windows.Forms.Button();
             this.gebruikersnaamTxb = new System.Windows.Forms.TextBox();
             this.wachtwoordTxb = new System.Windows.Forms.TextBox();
             this.gebruikersnaamLbl = new System.Windows.Forms.Label();
             this.wachtwoordLbl = new System.Windows.Forms.Label();
             this.soortGebruikerCbx = new System.Windows.Forms.ComboBox();
             this.gebruikerLbl = new System.Windows.Forms.Label();
-            this.pbHome = new System.Windows.Forms.PictureBox();
             this.lblGebruiker = new System.Windows.Forms.Label();
+            this.voegToeBtn = new System.Windows.Forms.Button();
+            this.pbHome = new System.Windows.Forms.PictureBox();
             this.pbHeader = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
-            // 
-            // voegToeBtn
-            // 
-            this.voegToeBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.voegToeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.voegToeBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("voegToeBtn.BackgroundImage")));
-            this.voegToeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.voegToeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.voegToeBtn.FlatAppearance.BorderSize = 0;
-            this.voegToeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.voegToeBtn.Location = new System.Drawing.Point(199, 2);
-            this.voegToeBtn.Name = "voegToeBtn";
-            this.voegToeBtn.Size = new System.Drawing.Size(59, 50);
-            this.voegToeBtn.TabIndex = 0;
-            this.voegToeBtn.UseVisualStyleBackColor = false;
-            this.voegToeBtn.Click += new System.EventHandler(this.voegToeBtn_Click);
             // 
             // gebruikersnaamTxb
             // 
@@ -99,13 +83,14 @@
             // soortGebruikerCbx
             // 
             this.soortGebruikerCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.soortGebruikerCbx.Font = new System.Drawing.Font("Arial", 10F);
             this.soortGebruikerCbx.FormattingEnabled = true;
             this.soortGebruikerCbx.Items.AddRange(new object[] {
             "Docent",
             "Student"});
-            this.soortGebruikerCbx.Location = new System.Drawing.Point(182, 86);
+            this.soortGebruikerCbx.Location = new System.Drawing.Point(184, 86);
             this.soortGebruikerCbx.Name = "soortGebruikerCbx";
-            this.soortGebruikerCbx.Size = new System.Drawing.Size(100, 21);
+            this.soortGebruikerCbx.Size = new System.Drawing.Size(132, 24);
             this.soortGebruikerCbx.TabIndex = 6;
             // 
             // gebruikerLbl
@@ -117,19 +102,6 @@
             this.gebruikerLbl.Size = new System.Drawing.Size(100, 16);
             this.gebruikerLbl.TabIndex = 7;
             this.gebruikerLbl.Text = "Soort gebruiker:";
-            // 
-            // pbHome
-            // 
-            this.pbHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.pbHome.BackgroundImage = global::CrmAppSchool.Properties.Resources.picture_Home;
-            this.pbHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHome.Location = new System.Drawing.Point(-2, 2);
-            this.pbHome.Name = "pbHome";
-            this.pbHome.Size = new System.Drawing.Size(61, 50);
-            this.pbHome.TabIndex = 10;
-            this.pbHome.TabStop = false;
-            this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
             // 
             // lblGebruiker
             // 
@@ -144,6 +116,35 @@
             this.lblGebruiker.TabIndex = 8;
             this.lblGebruiker.Text = "U bent ingelogd als:";
             this.lblGebruiker.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // voegToeBtn
+            // 
+            this.voegToeBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.voegToeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.voegToeBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("voegToeBtn.BackgroundImage")));
+            this.voegToeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.voegToeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.voegToeBtn.FlatAppearance.BorderSize = 0;
+            this.voegToeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.voegToeBtn.Location = new System.Drawing.Point(199, 2);
+            this.voegToeBtn.Name = "voegToeBtn";
+            this.voegToeBtn.Size = new System.Drawing.Size(59, 50);
+            this.voegToeBtn.TabIndex = 0;
+            this.voegToeBtn.UseVisualStyleBackColor = false;
+            this.voegToeBtn.Click += new System.EventHandler(this.voegToeBtn_Click);
+            // 
+            // pbHome
+            // 
+            this.pbHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.pbHome.BackgroundImage = global::CrmAppSchool.Properties.Resources.picture_Home;
+            this.pbHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbHome.Location = new System.Drawing.Point(-2, 2);
+            this.pbHome.Name = "pbHome";
+            this.pbHome.Size = new System.Drawing.Size(61, 50);
+            this.pbHome.TabIndex = 10;
+            this.pbHome.TabStop = false;
+            this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
             // 
             // pbHeader
             // 
@@ -173,6 +174,7 @@
             this.Controls.Add(this.gebruikersnaamTxb);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "voegGebruikerToeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Voeg gebruiker toe";
             this.Load += new System.EventHandler(this.voegGebruikerToeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
