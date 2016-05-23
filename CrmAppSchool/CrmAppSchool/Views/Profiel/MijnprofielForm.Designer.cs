@@ -388,9 +388,12 @@
             // cbPriveVN
             // 
             this.cbPriveVN.AutoSize = true;
-            this.cbPriveVN.Location = new System.Drawing.Point(361, 79);
+            this.cbPriveVN.FlatAppearance.BorderSize = 0;
+            this.cbPriveVN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbPriveVN.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPriveVN.Location = new System.Drawing.Point(361, 77);
             this.cbPriveVN.Name = "cbPriveVN";
-            this.cbPriveVN.Size = new System.Drawing.Size(69, 17);
+            this.cbPriveVN.Size = new System.Drawing.Size(70, 19);
             this.cbPriveVN.TabIndex = 29;
             this.cbPriveVN.Text = "Zet Privé";
             this.cbPriveVN.UseVisualStyleBackColor = true;
@@ -399,9 +402,12 @@
             // cbPriveAN
             // 
             this.cbPriveAN.AutoSize = true;
-            this.cbPriveAN.Location = new System.Drawing.Point(361, 111);
+            this.cbPriveAN.FlatAppearance.BorderSize = 0;
+            this.cbPriveAN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbPriveAN.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPriveAN.Location = new System.Drawing.Point(361, 109);
             this.cbPriveAN.Name = "cbPriveAN";
-            this.cbPriveAN.Size = new System.Drawing.Size(69, 17);
+            this.cbPriveAN.Size = new System.Drawing.Size(70, 19);
             this.cbPriveAN.TabIndex = 30;
             this.cbPriveAN.Text = "Zet Privé";
             this.cbPriveAN.UseVisualStyleBackColor = true;
@@ -410,9 +416,12 @@
             // cbPriveBD
             // 
             this.cbPriveBD.AutoSize = true;
-            this.cbPriveBD.Location = new System.Drawing.Point(361, 141);
+            this.cbPriveBD.FlatAppearance.BorderSize = 0;
+            this.cbPriveBD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbPriveBD.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPriveBD.Location = new System.Drawing.Point(361, 139);
             this.cbPriveBD.Name = "cbPriveBD";
-            this.cbPriveBD.Size = new System.Drawing.Size(69, 17);
+            this.cbPriveBD.Size = new System.Drawing.Size(70, 19);
             this.cbPriveBD.TabIndex = 31;
             this.cbPriveBD.Text = "Zet Privé";
             this.cbPriveBD.UseVisualStyleBackColor = true;
@@ -421,9 +430,12 @@
             // cbPriveLO
             // 
             this.cbPriveLO.AutoSize = true;
-            this.cbPriveLO.Location = new System.Drawing.Point(361, 176);
+            this.cbPriveLO.FlatAppearance.BorderSize = 0;
+            this.cbPriveLO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbPriveLO.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPriveLO.Location = new System.Drawing.Point(361, 174);
             this.cbPriveLO.Name = "cbPriveLO";
-            this.cbPriveLO.Size = new System.Drawing.Size(69, 17);
+            this.cbPriveLO.Size = new System.Drawing.Size(70, 19);
             this.cbPriveLO.TabIndex = 32;
             this.cbPriveLO.Text = "Zet Privé";
             this.cbPriveLO.UseVisualStyleBackColor = true;
@@ -432,9 +444,12 @@
             // cbPriveFU
             // 
             this.cbPriveFU.AutoSize = true;
-            this.cbPriveFU.Location = new System.Drawing.Point(361, 211);
+            this.cbPriveFU.FlatAppearance.BorderSize = 0;
+            this.cbPriveFU.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbPriveFU.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPriveFU.Location = new System.Drawing.Point(361, 209);
             this.cbPriveFU.Name = "cbPriveFU";
-            this.cbPriveFU.Size = new System.Drawing.Size(69, 17);
+            this.cbPriveFU.Size = new System.Drawing.Size(70, 19);
             this.cbPriveFU.TabIndex = 33;
             this.cbPriveFU.Text = "Zet Privé";
             this.cbPriveFU.UseVisualStyleBackColor = true;
@@ -443,9 +458,12 @@
             // cbPriveKW
             // 
             this.cbPriveKW.AutoSize = true;
-            this.cbPriveKW.Location = new System.Drawing.Point(361, 245);
+            this.cbPriveKW.FlatAppearance.BorderSize = 0;
+            this.cbPriveKW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbPriveKW.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPriveKW.Location = new System.Drawing.Point(361, 243);
             this.cbPriveKW.Name = "cbPriveKW";
-            this.cbPriveKW.Size = new System.Drawing.Size(69, 17);
+            this.cbPriveKW.Size = new System.Drawing.Size(70, 19);
             this.cbPriveKW.TabIndex = 34;
             this.cbPriveKW.Text = "Zet Privé";
             this.cbPriveKW.UseVisualStyleBackColor = true;
