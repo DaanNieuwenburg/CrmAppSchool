@@ -23,7 +23,7 @@ namespace CrmAppSchool.Controllers
                 while(lezer.Read())
                 {
                     Profiel profiel = new Profiel();
-                    resultatenLijst.Add(new Profiel { Gebruikersnaam = lezer.GetString("gebruikersnaam"), Voornaam = lezer.GetString("voornaam"), Achternaam = lezer.GetString("achternaam"), Bedrijf = lezer.GetString("bedrijf"), Locatie = lezer.GetString("functie"), Kwaliteit = lezer.GetString("kwaliteit") });
+                    resultatenLijst.Add(new Profiel { Gebruikersnaam = lezer.GetString("gebruikersnaam"), Voornaam = lezer.GetString("voornaam"), Achternaam = lezer.GetString("achternaam"), Bedrijf = lezer.GetString("bedrijf"), Functie = lezer.GetString("functie"), Kwaliteit = lezer.GetString("kwaliteit") });
                 }
                 return resultatenLijst;
             }
