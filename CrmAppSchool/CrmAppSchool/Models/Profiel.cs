@@ -8,6 +8,7 @@ namespace CrmAppSchool.Models
 {
     public class profiel
     {
+        public string gebruikersnaam { get; set; }
         public string voornaam { get; set; }
         public string achternaam { get; set; }
         public string bedrijf { get; set; }
