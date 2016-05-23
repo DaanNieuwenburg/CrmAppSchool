@@ -46,16 +46,18 @@
             this.lblWachtwoord = new System.Windows.Forms.Label();
             this.lblGebruikersnaam = new System.Windows.Forms.Label();
             this.lblGebruiker = new System.Windows.Forms.Label();
-            this.pbHome = new System.Windows.Forms.PictureBox();
-            this.pbHeader = new System.Windows.Forms.PictureBox();
-            this.btnPrive = new System.Windows.Forms.Button();
-            this.btnBewerk = new System.Windows.Forms.Button();
             this.voornaamTxb = new System.Windows.Forms.TextBox();
             this.achternaamTxb = new System.Windows.Forms.TextBox();
             this.bedrijfTxb = new System.Windows.Forms.TextBox();
             this.locatieTxb = new System.Windows.Forms.TextBox();
             this.functieTxb = new System.Windows.Forms.TextBox();
             this.kwaliteitTxb = new System.Windows.Forms.TextBox();
+            this.btnOpslaan = new System.Windows.Forms.Button();
+            this.btnAnnuleer = new System.Windows.Forms.Button();
+            this.btnBewerk = new System.Windows.Forms.Button();
+            this.btnPrive = new System.Windows.Forms.Button();
+            this.pbHome = new System.Windows.Forms.PictureBox();
+            this.pbHeader = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
@@ -233,61 +235,6 @@
             this.lblGebruiker.TabIndex = 18;
             this.lblGebruiker.Text = "U bent ingelogd als:";
             // 
-            // pbHome
-            // 
-            this.pbHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.pbHome.BackgroundImage = global::CrmAppSchool.Properties.Resources.picture_Home;
-            this.pbHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHome.Location = new System.Drawing.Point(-1, 2);
-            this.pbHome.Name = "pbHome";
-            this.pbHome.Size = new System.Drawing.Size(61, 50);
-            this.pbHome.TabIndex = 20;
-            this.pbHome.TabStop = false;
-            this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
-            // 
-            // pbHeader
-            // 
-            this.pbHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.pbHeader.Location = new System.Drawing.Point(-1, 2);
-            this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(839, 50);
-            this.pbHeader.TabIndex = 19;
-            this.pbHeader.TabStop = false;
-            // 
-            // btnPrive
-            // 
-            this.btnPrive.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnPrive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.btnPrive.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Prive_Wit;
-            this.btnPrive.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPrive.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPrive.FlatAppearance.BorderSize = 0;
-            this.btnPrive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrive.Location = new System.Drawing.Point(361, 3);
-            this.btnPrive.Name = "btnPrive";
-            this.btnPrive.Size = new System.Drawing.Size(63, 49);
-            this.btnPrive.TabIndex = 17;
-            this.btnPrive.UseVisualStyleBackColor = false;
-            // 
-            // btnBewerk
-            // 
-            this.btnBewerk.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnBewerk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.btnBewerk.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Bewerken_Wit;
-            this.btnBewerk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBewerk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBewerk.FlatAppearance.BorderSize = 0;
-            this.btnBewerk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBewerk.Location = new System.Drawing.Point(293, 2);
-            this.btnBewerk.Name = "btnBewerk";
-            this.btnBewerk.Size = new System.Drawing.Size(63, 49);
-            this.btnBewerk.TabIndex = 0;
-            this.btnBewerk.UseVisualStyleBackColor = false;
-            this.btnBewerk.Click += new System.EventHandler(this.btnBewerk_Click);
-            // 
             // voornaamTxb
             // 
             this.voornaamTxb.Location = new System.Drawing.Point(361, 75);
@@ -336,11 +283,102 @@
             this.kwaliteitTxb.TabIndex = 26;
             this.kwaliteitTxb.Visible = false;
             // 
+            // btnOpslaan
+            // 
+            this.btnOpslaan.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnOpslaan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.btnOpslaan.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Opslaan2_Wit;
+            this.btnOpslaan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnOpslaan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpslaan.FlatAppearance.BorderSize = 0;
+            this.btnOpslaan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpslaan.Location = new System.Drawing.Point(361, 3);
+            this.btnOpslaan.Name = "btnOpslaan";
+            this.btnOpslaan.Size = new System.Drawing.Size(63, 49);
+            this.btnOpslaan.TabIndex = 28;
+            this.btnOpslaan.UseVisualStyleBackColor = false;
+            this.btnOpslaan.Visible = false;
+            this.btnOpslaan.Click += new System.EventHandler(this.btnOpslaan_Click);
+            // 
+            // btnAnnuleer
+            // 
+            this.btnAnnuleer.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnAnnuleer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.btnAnnuleer.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Annuleren_Wit;
+            this.btnAnnuleer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAnnuleer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnnuleer.FlatAppearance.BorderSize = 0;
+            this.btnAnnuleer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnnuleer.Location = new System.Drawing.Point(293, 2);
+            this.btnAnnuleer.Name = "btnAnnuleer";
+            this.btnAnnuleer.Size = new System.Drawing.Size(63, 49);
+            this.btnAnnuleer.TabIndex = 27;
+            this.btnAnnuleer.UseVisualStyleBackColor = false;
+            this.btnAnnuleer.Visible = false;
+            this.btnAnnuleer.Click += new System.EventHandler(this.btnAnnuleer_Click);
+            // 
+            // btnBewerk
+            // 
+            this.btnBewerk.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnBewerk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.btnBewerk.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Bewerken_Wit;
+            this.btnBewerk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBewerk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBewerk.FlatAppearance.BorderSize = 0;
+            this.btnBewerk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBewerk.Location = new System.Drawing.Point(293, 2);
+            this.btnBewerk.Name = "btnBewerk";
+            this.btnBewerk.Size = new System.Drawing.Size(63, 49);
+            this.btnBewerk.TabIndex = 0;
+            this.btnBewerk.UseVisualStyleBackColor = false;
+            this.btnBewerk.Click += new System.EventHandler(this.btnBewerk_Click);
+            // 
+            // btnPrive
+            // 
+            this.btnPrive.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnPrive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.btnPrive.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Prive_Wit;
+            this.btnPrive.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPrive.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrive.FlatAppearance.BorderSize = 0;
+            this.btnPrive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrive.Location = new System.Drawing.Point(361, 3);
+            this.btnPrive.Name = "btnPrive";
+            this.btnPrive.Size = new System.Drawing.Size(63, 49);
+            this.btnPrive.TabIndex = 17;
+            this.btnPrive.UseVisualStyleBackColor = false;
+            // 
+            // pbHome
+            // 
+            this.pbHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.pbHome.BackgroundImage = global::CrmAppSchool.Properties.Resources.picture_Home;
+            this.pbHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbHome.Location = new System.Drawing.Point(-1, 2);
+            this.pbHome.Name = "pbHome";
+            this.pbHome.Size = new System.Drawing.Size(61, 50);
+            this.pbHome.TabIndex = 20;
+            this.pbHome.TabStop = false;
+            this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
+            // 
+            // pbHeader
+            // 
+            this.pbHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.pbHeader.Location = new System.Drawing.Point(-1, 2);
+            this.pbHeader.Name = "pbHeader";
+            this.pbHeader.Size = new System.Drawing.Size(839, 50);
+            this.pbHeader.TabIndex = 19;
+            this.pbHeader.TabStop = false;
+            // 
             // MijnprofielForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 343);
+            this.Controls.Add(this.btnOpslaan);
+            this.Controls.Add(this.btnAnnuleer);
             this.Controls.Add(this.kwaliteitTxb);
             this.Controls.Add(this.functieTxb);
             this.Controls.Add(this.locatieTxb);
@@ -409,5 +447,7 @@
         private System.Windows.Forms.TextBox locatieTxb;
         private System.Windows.Forms.TextBox functieTxb;
         private System.Windows.Forms.TextBox kwaliteitTxb;
+        private System.Windows.Forms.Button btnAnnuleer;
+        private System.Windows.Forms.Button btnOpslaan;
     }
 }

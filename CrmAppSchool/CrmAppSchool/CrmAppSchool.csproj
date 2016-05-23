@@ -193,6 +193,15 @@
   <ItemGroup>
     <None Include="Resources\Logo_HHS3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_Annuleren_Wit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_Opslaan_Wit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_Opslaan2_Wit.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

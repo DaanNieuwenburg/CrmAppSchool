@@ -22,6 +22,7 @@ namespace CrmAppSchool.Views.Profiel
         public string Functie { get; set; }
         public string Kwaliteit { get; set; }
         public bool ShowMenu { get; set; }
+        private bool EditMode { get; set; }
         public MijnprofielForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace CrmAppSchool.Views.Profiel
             lblGebruikerWaarde.Text = gebruiker.Gebruikersnaam;
             lblWachtwoordWaarde.Text = gebruiker.Wachtwoord;
             ShowMenu = false;
+            EditMode = false;
         }
 
         private void pbHome_Click(object sender, EventArgs e)
@@ -50,19 +52,57 @@ namespace CrmAppSchool.Views.Profiel
 
         private void btnBewerk_Click(object sender, EventArgs e)
         {
-            voornaamTxb.Visible = true;
-            voornaamTxb.Text = lblVoornaamWaarde.Text;
-            achternaamTxb.Visible = true;
+            EditMode = true;
+            
+            voornaamTxb.Text = lblVoornaamWaarde.Text;         
             achternaamTxb.Text = lblAchternaamWaarde.Text;
-            bedrijfTxb.Visible = true;
             bedrijfTxb.Text = lblBedrijfWaarde.Text;
-            locatieTxb.Visible = true;
             locatieTxb.Text = lblLocatieWaarde.Text;
-            functieTxb.Visible = true;
             functieTxb.Text = lblFunctieWaarde.Text;
-            kwaliteitTxb.Visible = true;
             kwaliteitTxb.Text = lblKwaliteitWaarde.Text;
+            Updatebuttons();
+        }
+        private void Updatebuttons()
+        {
+            if (EditMode == true)
+            {
+                btnBewerk.Visible = false;
+                btnPrive.Visible = false;
+                btnOpslaan.Visible = true;
+                btnAnnuleer.Visible = true;
 
+                voornaamTxb.Visible = true;
+                achternaamTxb.Visible = true;
+                bedrijfTxb.Visible = true;
+                locatieTxb.Visible = true;
+                functieTxb.Visible = true;
+                kwaliteitTxb.Visible = true;
+            }
+            else
+            {
+                btnBewerk.Visible = true;
+                btnPrive.Visible = true;
+                btnOpslaan.Visible = false;
+                btnAnnuleer.Visible = false;
+                voornaamTxb.Visible = false;
+                achternaamTxb.Visible = false;
+                bedrijfTxb.Visible = false;
+                locatieTxb.Visible = false;
+                functieTxb.Visible = false;
+                kwaliteitTxb.Visible = false;
+            }
+        }
+
+        private void btnAnnuleer_Click(object sender, EventArgs e)
+        {
+            EditMode = false;
+            Updatebuttons();
+        }
+
+        private void btnOpslaan_Click(object sender, EventArgs e)
+        {
+            EditMode = false;
+            Updatebuttons();
         }
     }
 }
