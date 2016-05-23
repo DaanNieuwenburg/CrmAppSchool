@@ -172,7 +172,9 @@
             this.Controls.Add(this.gebruikersnaamTxb);
             this.Controls.Add(this.inlogBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "InlogForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inloggen";
             this.Load += new System.EventHandler(this.InlogForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
