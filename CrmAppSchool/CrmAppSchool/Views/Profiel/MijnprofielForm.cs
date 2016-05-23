@@ -23,6 +23,7 @@ namespace CrmAppSchool.Views.Profiel
         public string Kwaliteit { get; set; }
         public bool ShowMenu { get; set; }
         private bool EditMode { get; set; }
+        private bool PriveMode { get; set; }
         public MijnprofielForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace CrmAppSchool.Views.Profiel
             lblWachtwoordWaarde.Text = gebruiker.Wachtwoord;
             ShowMenu = false;
             EditMode = false;
+            PriveMode = false;
         }
 
         private void pbHome_Click(object sender, EventArgs e)
@@ -77,6 +79,8 @@ namespace CrmAppSchool.Views.Profiel
                 locatieTxb.Visible = true;
                 functieTxb.Visible = true;
                 kwaliteitTxb.Visible = true;
+
+                
             }
             else
             {
@@ -95,14 +99,83 @@ namespace CrmAppSchool.Views.Profiel
 
         private void btnAnnuleer_Click(object sender, EventArgs e)
         {
-            EditMode = false;
-            Updatebuttons();
+            if (EditMode == true)
+            {
+                EditMode = false;
+                Updatebuttons();
+            }
+            else if (PriveMode == true)
+            {
+                PriveMode = false;
+                UpdatePrive();
+            }
         }
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            EditMode = false;
-            Updatebuttons();
+            if (EditMode == true)
+            {
+                EditMode = false;
+                Updatebuttons();
+            }
+            else if(PriveMode == true)
+            {
+                PriveMode = false;
+                UpdatePrive();
+            }
+            
+            
+        }
+
+        private void btnPrive_Click(object sender, EventArgs e)
+        {
+            PriveMode = true;
+            UpdatePrive();
+        }
+        private void UpdatePrive()
+        {
+            if (PriveMode == true)
+            {
+                btnBewerk.Visible = false;
+                btnPrive.Visible = false;
+                btnOpslaan.Visible = true;
+                btnAnnuleer.Visible = true;
+
+                cbPriveAN.Visible = true;
+                cbPriveBD.Visible = true;
+                cbPriveFU.Visible = true;
+                cbPriveKW.Visible = true;
+                cbPriveLO.Visible = true;
+                cbPriveVN.Visible = true;
+
+                lblAchternaamWaarde.Visible = false;
+                lblVoornaamWaarde.Visible = false;
+                lblLocatieWaarde.Visible = false;
+                lblKwaliteitWaarde.Visible = false;
+                lblFunctieWaarde.Visible = false;
+                lblBedrijfWaarde.Visible = false;
+            }
+            else
+            {
+                btnBewerk.Visible = true;
+                btnPrive.Visible = true;
+                btnOpslaan.Visible = false;
+                btnAnnuleer.Visible = false;
+
+                cbPriveAN.Visible = false;
+                cbPriveBD.Visible = false;
+                cbPriveFU.Visible = false;
+                cbPriveKW.Visible = false;
+                cbPriveLO.Visible = false;
+                cbPriveVN.Visible = false;
+
+                lblAchternaamWaarde.Visible = true;
+                lblVoornaamWaarde.Visible = true;
+                lblLocatieWaarde.Visible = true;
+                lblKwaliteitWaarde.Visible = true;
+                lblFunctieWaarde.Visible = true;
+                lblBedrijfWaarde.Visible = true;
+            }
         }
     }
 }

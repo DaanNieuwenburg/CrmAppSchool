@@ -58,6 +58,12 @@
             this.btnPrive = new System.Windows.Forms.Button();
             this.pbHome = new System.Windows.Forms.PictureBox();
             this.pbHeader = new System.Windows.Forms.PictureBox();
+            this.cbPriveVN = new System.Windows.Forms.CheckBox();
+            this.cbPriveAN = new System.Windows.Forms.CheckBox();
+            this.cbPriveBD = new System.Windows.Forms.CheckBox();
+            this.cbPriveLO = new System.Windows.Forms.CheckBox();
+            this.cbPriveFU = new System.Windows.Forms.CheckBox();
+            this.cbPriveKW = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
@@ -237,49 +243,55 @@
             // 
             // voornaamTxb
             // 
+            this.voornaamTxb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.voornaamTxb.Location = new System.Drawing.Point(361, 75);
             this.voornaamTxb.Name = "voornaamTxb";
-            this.voornaamTxb.Size = new System.Drawing.Size(100, 20);
+            this.voornaamTxb.Size = new System.Drawing.Size(100, 22);
             this.voornaamTxb.TabIndex = 21;
             this.voornaamTxb.Visible = false;
             // 
             // achternaamTxb
             // 
+            this.achternaamTxb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.achternaamTxb.Location = new System.Drawing.Point(361, 106);
             this.achternaamTxb.Name = "achternaamTxb";
-            this.achternaamTxb.Size = new System.Drawing.Size(100, 20);
+            this.achternaamTxb.Size = new System.Drawing.Size(100, 22);
             this.achternaamTxb.TabIndex = 22;
             this.achternaamTxb.Visible = false;
             // 
             // bedrijfTxb
             // 
+            this.bedrijfTxb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bedrijfTxb.Location = new System.Drawing.Point(361, 139);
             this.bedrijfTxb.Name = "bedrijfTxb";
-            this.bedrijfTxb.Size = new System.Drawing.Size(100, 20);
+            this.bedrijfTxb.Size = new System.Drawing.Size(100, 22);
             this.bedrijfTxb.TabIndex = 23;
             this.bedrijfTxb.Visible = false;
             // 
             // locatieTxb
             // 
+            this.locatieTxb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.locatieTxb.Location = new System.Drawing.Point(361, 174);
             this.locatieTxb.Name = "locatieTxb";
-            this.locatieTxb.Size = new System.Drawing.Size(100, 20);
+            this.locatieTxb.Size = new System.Drawing.Size(100, 22);
             this.locatieTxb.TabIndex = 24;
             this.locatieTxb.Visible = false;
             // 
             // functieTxb
             // 
+            this.functieTxb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.functieTxb.Location = new System.Drawing.Point(361, 209);
             this.functieTxb.Name = "functieTxb";
-            this.functieTxb.Size = new System.Drawing.Size(100, 20);
+            this.functieTxb.Size = new System.Drawing.Size(100, 22);
             this.functieTxb.TabIndex = 25;
             this.functieTxb.Visible = false;
             // 
             // kwaliteitTxb
             // 
+            this.kwaliteitTxb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kwaliteitTxb.Location = new System.Drawing.Point(361, 243);
             this.kwaliteitTxb.Name = "kwaliteitTxb";
-            this.kwaliteitTxb.Size = new System.Drawing.Size(100, 20);
+            this.kwaliteitTxb.Size = new System.Drawing.Size(100, 22);
             this.kwaliteitTxb.TabIndex = 26;
             this.kwaliteitTxb.Visible = false;
             // 
@@ -347,6 +359,7 @@
             this.btnPrive.Size = new System.Drawing.Size(63, 49);
             this.btnPrive.TabIndex = 17;
             this.btnPrive.UseVisualStyleBackColor = false;
+            this.btnPrive.Click += new System.EventHandler(this.btnPrive_Click);
             // 
             // pbHome
             // 
@@ -372,12 +385,84 @@
             this.pbHeader.TabIndex = 19;
             this.pbHeader.TabStop = false;
             // 
+            // cbPriveVN
+            // 
+            this.cbPriveVN.AutoSize = true;
+            this.cbPriveVN.Location = new System.Drawing.Point(361, 79);
+            this.cbPriveVN.Name = "cbPriveVN";
+            this.cbPriveVN.Size = new System.Drawing.Size(69, 17);
+            this.cbPriveVN.TabIndex = 29;
+            this.cbPriveVN.Text = "Zet Privé";
+            this.cbPriveVN.UseVisualStyleBackColor = true;
+            this.cbPriveVN.Visible = false;
+            // 
+            // cbPriveAN
+            // 
+            this.cbPriveAN.AutoSize = true;
+            this.cbPriveAN.Location = new System.Drawing.Point(361, 111);
+            this.cbPriveAN.Name = "cbPriveAN";
+            this.cbPriveAN.Size = new System.Drawing.Size(69, 17);
+            this.cbPriveAN.TabIndex = 30;
+            this.cbPriveAN.Text = "Zet Privé";
+            this.cbPriveAN.UseVisualStyleBackColor = true;
+            this.cbPriveAN.Visible = false;
+            // 
+            // cbPriveBD
+            // 
+            this.cbPriveBD.AutoSize = true;
+            this.cbPriveBD.Location = new System.Drawing.Point(361, 141);
+            this.cbPriveBD.Name = "cbPriveBD";
+            this.cbPriveBD.Size = new System.Drawing.Size(69, 17);
+            this.cbPriveBD.TabIndex = 31;
+            this.cbPriveBD.Text = "Zet Privé";
+            this.cbPriveBD.UseVisualStyleBackColor = true;
+            this.cbPriveBD.Visible = false;
+            // 
+            // cbPriveLO
+            // 
+            this.cbPriveLO.AutoSize = true;
+            this.cbPriveLO.Location = new System.Drawing.Point(361, 176);
+            this.cbPriveLO.Name = "cbPriveLO";
+            this.cbPriveLO.Size = new System.Drawing.Size(69, 17);
+            this.cbPriveLO.TabIndex = 32;
+            this.cbPriveLO.Text = "Zet Privé";
+            this.cbPriveLO.UseVisualStyleBackColor = true;
+            this.cbPriveLO.Visible = false;
+            // 
+            // cbPriveFU
+            // 
+            this.cbPriveFU.AutoSize = true;
+            this.cbPriveFU.Location = new System.Drawing.Point(361, 211);
+            this.cbPriveFU.Name = "cbPriveFU";
+            this.cbPriveFU.Size = new System.Drawing.Size(69, 17);
+            this.cbPriveFU.TabIndex = 33;
+            this.cbPriveFU.Text = "Zet Privé";
+            this.cbPriveFU.UseVisualStyleBackColor = true;
+            this.cbPriveFU.Visible = false;
+            // 
+            // cbPriveKW
+            // 
+            this.cbPriveKW.AutoSize = true;
+            this.cbPriveKW.Location = new System.Drawing.Point(361, 245);
+            this.cbPriveKW.Name = "cbPriveKW";
+            this.cbPriveKW.Size = new System.Drawing.Size(69, 17);
+            this.cbPriveKW.TabIndex = 34;
+            this.cbPriveKW.Text = "Zet Privé";
+            this.cbPriveKW.UseVisualStyleBackColor = true;
+            this.cbPriveKW.Visible = false;
+            // 
             // MijnprofielForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 343);
             this.Controls.Add(this.btnOpslaan);
+            this.Controls.Add(this.cbPriveKW);
+            this.Controls.Add(this.cbPriveFU);
+            this.Controls.Add(this.cbPriveLO);
+            this.Controls.Add(this.cbPriveBD);
+            this.Controls.Add(this.cbPriveAN);
+            this.Controls.Add(this.cbPriveVN);
             this.Controls.Add(this.btnAnnuleer);
             this.Controls.Add(this.kwaliteitTxb);
             this.Controls.Add(this.functieTxb);
@@ -449,5 +534,11 @@
         private System.Windows.Forms.TextBox kwaliteitTxb;
         private System.Windows.Forms.Button btnAnnuleer;
         private System.Windows.Forms.Button btnOpslaan;
+        private System.Windows.Forms.CheckBox cbPriveVN;
+        private System.Windows.Forms.CheckBox cbPriveAN;
+        private System.Windows.Forms.CheckBox cbPriveBD;
+        private System.Windows.Forms.CheckBox cbPriveLO;
+        private System.Windows.Forms.CheckBox cbPriveFU;
+        private System.Windows.Forms.CheckBox cbPriveKW;
     }
 }
