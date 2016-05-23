@@ -63,6 +63,12 @@ namespace CrmAppSchool.Views.Hoofdmenu
             this.btnProfiel.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
             Profiel.MijnprofielForm Profiel = new Profiel.MijnprofielForm(gebruiker);
             Profiel.Show();
+            Hide();
+            if(Profiel.ShowMenu == true)
+            {
+                Show();
+                Profiel.ShowMenu = false;
+            }
         }
     }
 }

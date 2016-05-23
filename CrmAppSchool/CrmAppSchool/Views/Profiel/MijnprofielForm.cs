@@ -14,12 +14,20 @@ namespace CrmAppSchool.Views.Profiel
     public partial class MijnprofielForm : Form
     {
         private Gebruiker gebruiker { get; set; }
+        public bool ShowMenu { get; set; }
         public MijnprofielForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
             gebruiker = _gebruiker;
             lblGebruikerWaarde.Text = gebruiker.Gebruikersnaam;
             lblWachtwoordWaarde.Text = gebruiker.Wachtwoord;
+            ShowMenu = false;
+        }
+
+        private void pbHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ShowMenu = true;
         }
     }
 }
