@@ -47,5 +47,22 @@ namespace CrmAppSchool.Views.Profiel
             lblKwaliteitWaarde.Text = Kwaliteit;
             lblFunctieWaarde.Text = Functie;
         }
+
+        private void btnBewerk_Click(object sender, EventArgs e)
+        {
+            voornaamTxb.Visible = true;
+            voornaamTxb.Text = lblVoornaamWaarde.Text;
+            achternaamTxb.Visible = true;
+            achternaamTxb.Text = lblAchternaamWaarde.Text;
+            bedrijfTxb.Visible = true;
+            bedrijfTxb.Text = lblBedrijfWaarde.Text;
+            locatieTxb.Visible = true;
+            locatieTxb.Text = lblLocatieWaarde.Text;
+            functieTxb.Visible = true;
+            functieTxb.Text = lblFunctieWaarde.Text;
+            kwaliteitTxb.Visible = true;
+            kwaliteitTxb.Text = lblKwaliteitWaarde.Text;
+
+        }
     }
 }

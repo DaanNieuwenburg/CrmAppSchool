@@ -50,6 +50,12 @@
             this.pbHeader = new System.Windows.Forms.PictureBox();
             this.btnPrive = new System.Windows.Forms.Button();
             this.btnBewerk = new System.Windows.Forms.Button();
+            this.voornaamTxb = new System.Windows.Forms.TextBox();
+            this.achternaamTxb = new System.Windows.Forms.TextBox();
+            this.bedrijfTxb = new System.Windows.Forms.TextBox();
+            this.locatieTxb = new System.Windows.Forms.TextBox();
+            this.functieTxb = new System.Windows.Forms.TextBox();
+            this.kwaliteitTxb = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
@@ -280,12 +286,67 @@
             this.btnBewerk.Size = new System.Drawing.Size(63, 49);
             this.btnBewerk.TabIndex = 0;
             this.btnBewerk.UseVisualStyleBackColor = false;
+            this.btnBewerk.Click += new System.EventHandler(this.btnBewerk_Click);
+            // 
+            // voornaamTxb
+            // 
+            this.voornaamTxb.Location = new System.Drawing.Point(361, 75);
+            this.voornaamTxb.Name = "voornaamTxb";
+            this.voornaamTxb.Size = new System.Drawing.Size(100, 20);
+            this.voornaamTxb.TabIndex = 21;
+            this.voornaamTxb.Visible = false;
+            // 
+            // achternaamTxb
+            // 
+            this.achternaamTxb.Location = new System.Drawing.Point(361, 106);
+            this.achternaamTxb.Name = "achternaamTxb";
+            this.achternaamTxb.Size = new System.Drawing.Size(100, 20);
+            this.achternaamTxb.TabIndex = 22;
+            this.achternaamTxb.Visible = false;
+            // 
+            // bedrijfTxb
+            // 
+            this.bedrijfTxb.Location = new System.Drawing.Point(361, 139);
+            this.bedrijfTxb.Name = "bedrijfTxb";
+            this.bedrijfTxb.Size = new System.Drawing.Size(100, 20);
+            this.bedrijfTxb.TabIndex = 23;
+            this.bedrijfTxb.Visible = false;
+            // 
+            // locatieTxb
+            // 
+            this.locatieTxb.Location = new System.Drawing.Point(361, 174);
+            this.locatieTxb.Name = "locatieTxb";
+            this.locatieTxb.Size = new System.Drawing.Size(100, 20);
+            this.locatieTxb.TabIndex = 24;
+            this.locatieTxb.Visible = false;
+            // 
+            // functieTxb
+            // 
+            this.functieTxb.Location = new System.Drawing.Point(361, 209);
+            this.functieTxb.Name = "functieTxb";
+            this.functieTxb.Size = new System.Drawing.Size(100, 20);
+            this.functieTxb.TabIndex = 25;
+            this.functieTxb.Visible = false;
+            // 
+            // kwaliteitTxb
+            // 
+            this.kwaliteitTxb.Location = new System.Drawing.Point(361, 243);
+            this.kwaliteitTxb.Name = "kwaliteitTxb";
+            this.kwaliteitTxb.Size = new System.Drawing.Size(100, 20);
+            this.kwaliteitTxb.TabIndex = 26;
+            this.kwaliteitTxb.Visible = false;
             // 
             // MijnprofielForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 343);
+            this.Controls.Add(this.kwaliteitTxb);
+            this.Controls.Add(this.functieTxb);
+            this.Controls.Add(this.locatieTxb);
+            this.Controls.Add(this.bedrijfTxb);
+            this.Controls.Add(this.achternaamTxb);
+            this.Controls.Add(this.voornaamTxb);
             this.Controls.Add(this.btnBewerk);
             this.Controls.Add(this.btnPrive);
             this.Controls.Add(this.pbHome);
@@ -342,5 +403,11 @@
         private System.Windows.Forms.PictureBox pbHome;
         private System.Windows.Forms.Label lblGebruiker;
         private System.Windows.Forms.PictureBox pbHeader;
+        private System.Windows.Forms.TextBox voornaamTxb;
+        private System.Windows.Forms.TextBox achternaamTxb;
+        private System.Windows.Forms.TextBox bedrijfTxb;
+        private System.Windows.Forms.TextBox locatieTxb;
+        private System.Windows.Forms.TextBox functieTxb;
+        private System.Windows.Forms.TextBox kwaliteitTxb;
     }
 }
