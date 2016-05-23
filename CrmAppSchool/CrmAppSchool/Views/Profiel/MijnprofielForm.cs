@@ -26,8 +26,8 @@ namespace CrmAppSchool.Views.Profiel
 
         private void pbHome_Click(object sender, EventArgs e)
         {
-            this.Close();
             ShowMenu = true;
+            this.Hide();
         }
     }
 }
