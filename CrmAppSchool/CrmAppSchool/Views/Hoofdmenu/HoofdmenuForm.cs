@@ -19,6 +19,7 @@ namespace CrmAppSchool.Views.Hoofdmenu
             gebruiker = _gebruiker;
             InitializeComponent();
             toonGebruikersnaam();
+            bepaalMenu();
         }
 
         private void toonGebruikersnaam()
@@ -34,6 +35,23 @@ namespace CrmAppSchool.Views.Hoofdmenu
             else if(gebruiker is Docent)
             {
                 gebruikerLbl.Text = gebruikerLbl.Text + " " + gebruiker.Gebruikersnaam;
+            }
+        }
+
+        private void bepaalMenu()
+        {
+            if(gebruiker is Docent)
+            {
+                voegGebruikerToeBtn.Visible = false;
+            }
+            else if(gebruiker is Student)
+            {
+                voegGebruikerToeBtn.Visible = false;
+                btnOpdrachten.Visible = false;
+                btnProfiel.Visible = false;
+                btnContacten.Visible = false;
+                btnZoeken.Location = new Point(24, 75);
+                btnUitloggen.Location = new Point(28, 231);
             }
         }
 
