@@ -173,6 +173,26 @@ namespace CrmAppSchool.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo_HHS {
+            get {
+                object obj = ResourceManager.GetObject("Logo_HHS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo_HHS3 {
+            get {
+                object obj = ResourceManager.GetObject("Logo_HHS3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap picture_Home {
             get {
                 object obj = ResourceManager.GetObject("picture_Home", resourceCulture);

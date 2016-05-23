@@ -121,14 +121,14 @@
   <data name="button_Prive_Wit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_Prive_Wit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="button_Uitloggen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_Uitloggen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="btnOpdrachten" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnOpdrachten1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button_RegistreerPersoon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_RegistreerPersoon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="button_Bewerken_Wit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_Bewerken_Wit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button_Prive" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_Prive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,13 +145,19 @@
   <data name="button_Zoeken2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_Zoeken2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="button_Bewerken" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_Bewerken.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="button_Bewerken_Wit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_Bewerken_Wit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button_Zoeken" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_Zoeken1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="button_Uitloggen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_Uitloggen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="button_Bewerken" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_Bewerken.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo_HHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo_HHS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo_HHS3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo_HHS3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
