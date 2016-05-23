@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrmAppSchool.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,14 @@ namespace CrmAppSchool.Views.Zoeken
 {
     public partial class ZoekenForm : Form
     {
+        private Gebruiker gebruiker { get; set; }
         public bool ShowMenu { get; set; }
-        public ZoekenForm()
+        public ZoekenForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
             ShowMenu = false;
+            gebruiker = _gebruiker;
+            lblgebruiker.Text = lblgebruiker.Text + " " + gebruiker.Gebruikersnaam;
         }
 
         private void pbHome_Click(object sender, EventArgs e)

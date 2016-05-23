@@ -37,7 +37,7 @@
             this.soortGebruikerCbx = new System.Windows.Forms.ComboBox();
             this.gebruikerLbl = new System.Windows.Forms.Label();
             this.pbHome = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblGebruiker = new System.Windows.Forms.Label();
             this.pbHeader = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
@@ -45,6 +45,7 @@
             // 
             // voegToeBtn
             // 
+            this.voegToeBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.voegToeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.voegToeBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("voegToeBtn.BackgroundImage")));
             this.voegToeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -130,21 +131,24 @@
             this.pbHome.TabStop = false;
             this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
             // 
-            // label1
+            // lblGebruiker
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(293, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 16);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "U bent ingelogd als:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblGebruiker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblGebruiker.AutoSize = true;
+            this.lblGebruiker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lblGebruiker.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGebruiker.ForeColor = System.Drawing.Color.White;
+            this.lblGebruiker.Location = new System.Drawing.Point(293, 25);
+            this.lblGebruiker.Name = "lblGebruiker";
+            this.lblGebruiker.Size = new System.Drawing.Size(123, 16);
+            this.lblGebruiker.TabIndex = 8;
+            this.lblGebruiker.Text = "U bent ingelogd als:";
+            this.lblGebruiker.Click += new System.EventHandler(this.label1_Click);
             // 
             // pbHeader
             // 
+            this.pbHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.pbHeader.Location = new System.Drawing.Point(-2, 2);
             this.pbHeader.Name = "pbHeader";
@@ -159,7 +163,7 @@
             this.ClientSize = new System.Drawing.Size(515, 213);
             this.Controls.Add(this.voegToeBtn);
             this.Controls.Add(this.pbHome);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblGebruiker);
             this.Controls.Add(this.pbHeader);
             this.Controls.Add(this.gebruikerLbl);
             this.Controls.Add(this.soortGebruikerCbx);
@@ -188,7 +192,7 @@
         private System.Windows.Forms.ComboBox soortGebruikerCbx;
         private System.Windows.Forms.Label gebruikerLbl;
         private System.Windows.Forms.PictureBox pbHome;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblGebruiker;
         private System.Windows.Forms.PictureBox pbHeader;
     }
 }

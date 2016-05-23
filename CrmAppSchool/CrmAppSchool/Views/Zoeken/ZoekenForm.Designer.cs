@@ -34,7 +34,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnZoek = new System.Windows.Forms.Button();
             this.pbHome = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblgebruiker = new System.Windows.Forms.Label();
             this.pbHeader = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
@@ -100,17 +100,17 @@
             this.pbHome.TabStop = false;
             this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
             // 
-            // label2
+            // lblgebruiker
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(233, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 16);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "U bent ingelogd als:";
+            this.lblgebruiker.AutoSize = true;
+            this.lblgebruiker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lblgebruiker.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblgebruiker.ForeColor = System.Drawing.Color.White;
+            this.lblgebruiker.Location = new System.Drawing.Point(233, 21);
+            this.lblgebruiker.Name = "lblgebruiker";
+            this.lblgebruiker.Size = new System.Drawing.Size(123, 16);
+            this.lblgebruiker.TabIndex = 12;
+            this.lblgebruiker.Text = "U bent ingelogd als:";
             // 
             // pbHeader
             // 
@@ -127,7 +127,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(459, 208);
             this.Controls.Add(this.pbHome);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblgebruiker);
             this.Controls.Add(this.pbHeader);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
@@ -150,7 +150,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.PictureBox pbHome;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblgebruiker;
         private System.Windows.Forms.PictureBox pbHeader;
     }
 }

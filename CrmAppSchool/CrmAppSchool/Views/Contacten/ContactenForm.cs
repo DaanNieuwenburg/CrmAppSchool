@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrmAppSchool.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace CrmAppSchool.Views.Contacten
 {
     public partial class ContactenForm : Form
     {
-        public ContactenForm()
+        private Gebruiker gebruiker { get; set; }
+        public ContactenForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
+            gebruiker = _gebruiker;
+            lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
         }
     }
 }

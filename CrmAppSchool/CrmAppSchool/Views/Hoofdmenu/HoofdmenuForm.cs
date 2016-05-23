@@ -40,7 +40,7 @@ namespace CrmAppSchool.Views.Hoofdmenu
         private void voegGebruikerToeBtn_Click(object sender, EventArgs e)
         {
             this.voegGebruikerToeBtn.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
-            voegGebruikerToeForm voegGebruikerToe = new voegGebruikerToeForm();
+            voegGebruikerToeForm voegGebruikerToe = new voegGebruikerToeForm(gebruiker);
             voegGebruikerToe.ShowDialog();
             if (voegGebruikerToe.ShowMenu == true)
             {
@@ -52,7 +52,7 @@ namespace CrmAppSchool.Views.Hoofdmenu
         private void btnZoeken_Click(object sender, EventArgs e)
         {
             this.btnZoeken.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
-            Zoeken.ZoekenForm Zoeken= new Zoeken.ZoekenForm();
+            Zoeken.ZoekenForm Zoeken= new Zoeken.ZoekenForm(gebruiker);
             Zoeken.Show();
             if (Zoeken.ShowMenu == true)
             {
@@ -64,7 +64,7 @@ namespace CrmAppSchool.Views.Hoofdmenu
         private void btnContacten_Click(object sender, EventArgs e)
         {
             this.btnContacten.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
-            Contacten.ContactenForm Contacten = new Contacten.ContactenForm();
+            Contacten.ContactenForm Contacten = new Contacten.ContactenForm(gebruiker);
             Contacten.Show();
         }
 

@@ -19,6 +19,7 @@ namespace CrmAppSchool.Views.Profiel
         {
             InitializeComponent();
             gebruiker = _gebruiker;
+            lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
             lblGebruikerWaarde.Text = gebruiker.Gebruikersnaam;
             lblWachtwoordWaarde.Text = gebruiker.Wachtwoord;
             ShowMenu = false;

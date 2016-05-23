@@ -15,10 +15,13 @@ namespace CrmAppSchool.Views.Hoofdmenu
     public partial class voegGebruikerToeForm : Form
     {
         public bool ShowMenu { get; set; }
-        public voegGebruikerToeForm()
+        private Gebruiker gebruiker { get; set; }
+        public voegGebruikerToeForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
             ShowMenu = false;
+            gebruiker = _gebruiker;
+            lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
         }
 
         private void voegToeBtn_Click(object sender, EventArgs e)
