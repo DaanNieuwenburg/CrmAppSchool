@@ -41,6 +41,7 @@ namespace CrmAppSchool.Views.Hoofdmenu
         {
             this.voegGebruikerToeBtn.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
             voegGebruikerToeForm voegGebruikerToe = new voegGebruikerToeForm(gebruiker);
+            voegGebruikerToe.Text = "Registreer Gebruiker";
             voegGebruikerToe.ShowDialog();
             if (voegGebruikerToe.ShowMenu == true)
             {
@@ -53,6 +54,7 @@ namespace CrmAppSchool.Views.Hoofdmenu
         {
             this.btnZoeken.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
             Zoeken.ZoekenForm Zoeken= new Zoeken.ZoekenForm(gebruiker);
+            Zoeken.Text = "Zoeken";
             Zoeken.Show();
             if (Zoeken.ShowMenu == true)
             {
@@ -65,7 +67,13 @@ namespace CrmAppSchool.Views.Hoofdmenu
         {
             this.btnContacten.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
             Contacten.ContactenForm Contacten = new Contacten.ContactenForm(gebruiker);
+            Contacten.Text = "Contacten";
             Contacten.Show();
+            if (Contacten.ShowMenu == true)
+            {
+                Show();
+                Contacten.ShowMenu = false;
+            }
         }
 
         private void btnProfiel_Click(object sender, EventArgs e)
@@ -73,6 +81,7 @@ namespace CrmAppSchool.Views.Hoofdmenu
             this.btnProfiel.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
             Profiel.MijnprofielForm Profiel = new Profiel.MijnprofielForm(gebruiker);
             this.Hide();
+            Profiel.Text = "Profiel";
             Profiel.ShowDialog();
             if(Profiel.ShowMenu == true)
             {
