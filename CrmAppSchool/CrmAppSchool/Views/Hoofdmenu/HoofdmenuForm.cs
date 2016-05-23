@@ -57,5 +57,12 @@ namespace CrmAppSchool.Views.Hoofdmenu
             Contacten.ContactenForm Contacten = new Contacten.ContactenForm();
             Contacten.Show();
         }
+
+        private void btnProfiel_Click(object sender, EventArgs e)
+        {
+            this.btnProfiel.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
+            Profiel.MijnprofielForm Profiel = new Profiel.MijnprofielForm(gebruiker);
+            Profiel.Show();
+        }
     }
 }

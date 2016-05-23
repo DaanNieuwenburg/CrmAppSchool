@@ -85,6 +85,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Profiel\MijnprofielForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Profiel\MijnprofielForm.Designer.cs">
+      <DependentUpon>MijnprofielForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Zoeken\ZoekenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Profiel\MijnprofielForm.resx">
+      <DependentUpon>MijnprofielForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Zoeken\ZoekenForm.resx">
       <DependentUpon>ZoekenForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,7 +135,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Opdrachten\" />
-    <Folder Include="Views\Profiel\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btnOpdrachten.png" />

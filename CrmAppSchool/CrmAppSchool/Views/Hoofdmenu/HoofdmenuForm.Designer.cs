@@ -71,6 +71,7 @@
             this.btnProfiel.Size = new System.Drawing.Size(139, 115);
             this.btnProfiel.TabIndex = 4;
             this.btnProfiel.UseVisualStyleBackColor = true;
+            this.btnProfiel.Click += new System.EventHandler(this.btnProfiel_Click);
             // 
             // btnZoeken
             // 
