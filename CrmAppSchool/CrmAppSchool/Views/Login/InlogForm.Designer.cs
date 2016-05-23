@@ -141,6 +141,7 @@
             this.Controls.Add(this.wachtwoordTxb);
             this.Controls.Add(this.gebruikersnaamTxb);
             this.Controls.Add(this.inlogBtn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InlogForm";
             this.Text = "Inloggen";
             this.ResumeLayout(false);

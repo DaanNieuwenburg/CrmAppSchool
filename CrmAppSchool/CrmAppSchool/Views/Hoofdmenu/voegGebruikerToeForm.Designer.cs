@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(voegGebruikerToeForm));
             this.voegToeBtn = new System.Windows.Forms.Button();
             this.gebruikersnaamTxb = new System.Windows.Forms.TextBox();
             this.wachtwoordTxb = new System.Windows.Forms.TextBox();
@@ -112,6 +113,7 @@
             this.Controls.Add(this.wachtwoordTxb);
             this.Controls.Add(this.gebruikersnaamTxb);
             this.Controls.Add(this.voegToeBtn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "voegGebruikerToeForm";
             this.Text = "Voeg gebruiker toe";
             this.ResumeLayout(false);
