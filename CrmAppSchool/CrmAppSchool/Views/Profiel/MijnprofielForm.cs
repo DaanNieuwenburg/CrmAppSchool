@@ -14,6 +14,13 @@ namespace CrmAppSchool.Views.Profiel
     public partial class MijnprofielForm : Form
     {
         private Gebruiker gebruiker { get; set; }
+        public string Gebruikersnaam { get; set; }
+        public string Voornaam { get; set; }
+        public string Achternaam { get; set; }
+        public string Bedrijf { get; set; }
+        public string Locatie { get; set; }
+        public string Functie { get; set; }
+        public string Kwaliteit { get; set; }
         public bool ShowMenu { get; set; }
         public MijnprofielForm(Gebruiker _gebruiker)
         {
@@ -29,6 +36,16 @@ namespace CrmAppSchool.Views.Profiel
         {
             ShowMenu = true;
             this.Hide();
+        }
+
+        private void MijnprofielForm_Load(object sender, EventArgs e)
+        {
+            lblVoornaamWaarde.Text = Voornaam;
+            lblAchternaamWaarde.Text = Achternaam;
+            lblBedrijfWaarde.Text = Bedrijf;
+            lblLocatieWaarde.Text = Locatie;
+            lblKwaliteitWaarde.Text = Kwaliteit;
+            lblFunctieWaarde.Text = Functie;
         }
     }
 }

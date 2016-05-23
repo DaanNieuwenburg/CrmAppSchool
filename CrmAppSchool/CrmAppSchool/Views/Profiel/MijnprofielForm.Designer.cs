@@ -37,9 +37,9 @@
             this.lblBedrijfWaarde = new System.Windows.Forms.Label();
             this.lblAchternaamWaarde = new System.Windows.Forms.Label();
             this.lblVoornaamWaarde = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblKwaliteitWaarde = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblFunctieWaarde = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblWachtwoordWaarde = new System.Windows.Forms.Label();
             this.lblGebruikerWaarde = new System.Windows.Forms.Label();
@@ -134,15 +134,15 @@
             this.lblVoornaamWaarde.TabIndex = 5;
             this.lblVoornaamWaarde.Text = "xx";
             // 
-            // label1
+            // lblKwaliteitWaarde
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(358, 244);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(22, 16);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "xx";
+            this.lblKwaliteitWaarde.AutoSize = true;
+            this.lblKwaliteitWaarde.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKwaliteitWaarde.Location = new System.Drawing.Point(358, 244);
+            this.lblKwaliteitWaarde.Name = "lblKwaliteitWaarde";
+            this.lblKwaliteitWaarde.Size = new System.Drawing.Size(22, 16);
+            this.lblKwaliteitWaarde.TabIndex = 10;
+            this.lblKwaliteitWaarde.Text = "xx";
             // 
             // label2
             // 
@@ -154,15 +154,15 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Kwaliteit:";
             // 
-            // label3
+            // lblFunctieWaarde
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(358, 210);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(22, 16);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "xx";
+            this.lblFunctieWaarde.AutoSize = true;
+            this.lblFunctieWaarde.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFunctieWaarde.Location = new System.Drawing.Point(358, 210);
+            this.lblFunctieWaarde.Name = "lblFunctieWaarde";
+            this.lblFunctieWaarde.Size = new System.Drawing.Size(22, 16);
+            this.lblFunctieWaarde.TabIndex = 12;
+            this.lblFunctieWaarde.Text = "xx";
             // 
             // label4
             // 
@@ -295,9 +295,9 @@
             this.Controls.Add(this.lblGebruikerWaarde);
             this.Controls.Add(this.lblWachtwoord);
             this.Controls.Add(this.lblGebruikersnaam);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblFunctieWaarde);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblKwaliteitWaarde);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblLocatieWaarde);
             this.Controls.Add(this.lblBedrijfWaarde);
@@ -311,6 +311,7 @@
             this.Name = "MijnprofielForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Mijn Profiel";
+            this.Load += new System.EventHandler(this.MijnprofielForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             this.ResumeLayout(false);
@@ -329,9 +330,9 @@
         private System.Windows.Forms.Label lblBedrijfWaarde;
         private System.Windows.Forms.Label lblAchternaamWaarde;
         private System.Windows.Forms.Label lblVoornaamWaarde;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblKwaliteitWaarde;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblFunctieWaarde;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblWachtwoordWaarde;
         private System.Windows.Forms.Label lblGebruikerWaarde;
