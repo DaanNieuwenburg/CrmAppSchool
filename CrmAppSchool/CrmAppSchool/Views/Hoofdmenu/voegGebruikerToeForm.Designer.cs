@@ -170,6 +170,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "voegGebruikerToeForm";
             this.Text = "Voeg gebruiker toe";
+            this.Load += new System.EventHandler(this.voegGebruikerToeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             this.ResumeLayout(false);

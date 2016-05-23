@@ -12,9 +12,17 @@ namespace CrmAppSchool.Views.Zoeken
 {
     public partial class ZoekenForm : Form
     {
+        public bool ShowMenu { get; set; }
         public ZoekenForm()
         {
             InitializeComponent();
+            ShowMenu = false;
+        }
+
+        private void pbHome_Click(object sender, EventArgs e)
+        {
+            ShowMenu = true;
+            this.Hide();
         }
     }
 }

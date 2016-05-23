@@ -55,5 +55,10 @@ namespace CrmAppSchool.Views.Hoofdmenu
             ShowMenu = true;
             this.Hide();
         }
+
+        private void voegGebruikerToeForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
