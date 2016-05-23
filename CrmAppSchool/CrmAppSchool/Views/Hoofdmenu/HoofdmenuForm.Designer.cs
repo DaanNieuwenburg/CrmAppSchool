@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HoofdmenuForm));
             this.gebruikerLbl = new System.Windows.Forms.Label();
+            this.btnUitloggen = new System.Windows.Forms.Button();
             this.pbHome = new System.Windows.Forms.PictureBox();
             this.pbHeader = new System.Windows.Forms.PictureBox();
             this.btnOpdrachten = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.btnZoeken = new System.Windows.Forms.Button();
             this.btnContacten = new System.Windows.Forms.Button();
             this.voegGebruikerToeBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +54,21 @@
             this.gebruikerLbl.Size = new System.Drawing.Size(145, 18);
             this.gebruikerLbl.TabIndex = 0;
             this.gebruikerLbl.Text = "U bent ingelogd als:";
+            // 
+            // btnUitloggen
+            // 
+            this.btnUitloggen.BackColor = System.Drawing.Color.Transparent;
+            this.btnUitloggen.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Uitloggen;
+            this.btnUitloggen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnUitloggen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUitloggen.FlatAppearance.BorderSize = 0;
+            this.btnUitloggen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUitloggen.Location = new System.Drawing.Point(383, 231);
+            this.btnUitloggen.Name = "btnUitloggen";
+            this.btnUitloggen.Size = new System.Drawing.Size(169, 139);
+            this.btnUitloggen.TabIndex = 8;
+            this.btnUitloggen.UseVisualStyleBackColor = false;
+            this.btnUitloggen.Click += new System.EventHandler(this.btnUitloggen_Click);
             // 
             // pbHome
             // 
@@ -149,26 +164,12 @@
             this.voegGebruikerToeBtn.UseVisualStyleBackColor = false;
             this.voegGebruikerToeBtn.Click += new System.EventHandler(this.voegGebruikerToeBtn_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_RegistreerPersoon;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(383, 231);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 139);
-            this.button1.TabIndex = 8;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // HoofdmenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 428);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnUitloggen);
             this.Controls.Add(this.pbHome);
             this.Controls.Add(this.gebruikerLbl);
             this.Controls.Add(this.pbHeader);
@@ -197,6 +198,6 @@
         private System.Windows.Forms.Button btnOpdrachten;
         private System.Windows.Forms.PictureBox pbHeader;
         private System.Windows.Forms.PictureBox pbHome;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUitloggen;
     }
 }

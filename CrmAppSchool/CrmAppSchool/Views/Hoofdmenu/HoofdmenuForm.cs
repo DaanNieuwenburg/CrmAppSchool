@@ -80,5 +80,12 @@ namespace CrmAppSchool.Views.Hoofdmenu
                 Profiel.ShowMenu = false;
             }
         }
+
+        private void btnUitloggen_Click(object sender, EventArgs e)
+        {
+            Close();
+            Login.InlogForm login = new Login.InlogForm();
+            login.Show();
+        }
     }
 }
