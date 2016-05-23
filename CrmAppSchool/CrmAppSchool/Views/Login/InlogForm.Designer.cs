@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InlogForm));
-            this.inlogBtn = new System.Windows.Forms.Button();
             this.gebruikersnaamTxb = new System.Windows.Forms.TextBox();
             this.wachtwoordTxb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,21 +36,8 @@
             this.errordescLbl = new System.Windows.Forms.Label();
             this.errortitelLbl = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.inlogBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // inlogBtn
-            // 
-            this.inlogBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("inlogBtn.BackgroundImage")));
-            this.inlogBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.inlogBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.inlogBtn.FlatAppearance.BorderSize = 0;
-            this.inlogBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inlogBtn.Location = new System.Drawing.Point(129, 169);
-            this.inlogBtn.Name = "inlogBtn";
-            this.inlogBtn.Size = new System.Drawing.Size(91, 45);
-            this.inlogBtn.TabIndex = 0;
-            this.inlogBtn.UseVisualStyleBackColor = true;
-            this.inlogBtn.Click += new System.EventHandler(this.inlogBtn_Click);
             // 
             // gebruikersnaamTxb
             // 
@@ -126,6 +112,21 @@
             this.checkBox1.TabIndex = 7;
             this.checkBox1.Text = "Remember Me";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // inlogBtn
+            // 
+            this.inlogBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("inlogBtn.BackgroundImage")));
+            this.inlogBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.inlogBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.inlogBtn.FlatAppearance.BorderSize = 0;
+            this.inlogBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inlogBtn.Location = new System.Drawing.Point(129, 169);
+            this.inlogBtn.Name = "inlogBtn";
+            this.inlogBtn.Size = new System.Drawing.Size(91, 45);
+            this.inlogBtn.TabIndex = 0;
+            this.inlogBtn.UseVisualStyleBackColor = true;
+            this.inlogBtn.Click += new System.EventHandler(this.inlogBtn_Click);
             // 
             // InlogForm
             // 
@@ -144,6 +145,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InlogForm";
             this.Text = "Inloggen";
+            this.Load += new System.EventHandler(this.InlogForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

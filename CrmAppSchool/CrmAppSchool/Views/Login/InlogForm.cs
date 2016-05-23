@@ -20,6 +20,7 @@ namespace CrmAppSchool.Views.Login
 
         private void inlogBtn_Click(object sender, EventArgs e)
         {
+            
             string gebruikersnaam = gebruikersnaamTxb.Text;
             string wachtwoord = wachtwoordTxb.Text;
             GebruikerController logincontroller = new GebruikerController();
@@ -31,9 +32,43 @@ namespace CrmAppSchool.Views.Login
             }
             else
             {
+                SaveRemember();
                 this.Hide();
             }
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InlogForm_Load(object sender, EventArgs e)
+        {
+            if(Properties.Settings.Default.Remember == "True")
+            {
+                checkBox1.CheckState = CheckState.Checked;
+                gebruikersnaamTxb.Text = Properties.Settings.Default.Username;
+                wachtwoordTxb.Text = Properties.Settings.Default.Password;
+            }
+            else if (Properties.Settings.Default.Remember == "False")
+            {         
+                
+                checkBox1.CheckState = CheckState.Unchecked;
+            }
+        }
+        private void SaveRemember()
+        {
+            if (checkBox1.Checked)
+            {
+                Properties.Settings.Default.Remember = "True";
+                Properties.Settings.Default.Username = gebruikersnaamTxb.Text;
+                Properties.Settings.Default.Password = wachtwoordTxb.Text;
+            }
+            else
+            {
+                Properties.Settings.Default.Remember = "False";
+            }
+            Properties.Settings.Default.Save();
+        }
     }
 }
