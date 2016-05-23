@@ -86,6 +86,7 @@
             this.btnZoek.Size = new System.Drawing.Size(75, 57);
             this.btnZoek.TabIndex = 0;
             this.btnZoek.UseVisualStyleBackColor = true;
+            this.btnZoek.Click += new System.EventHandler(this.btnZoek_Click);
             // 
             // pbHome
             // 

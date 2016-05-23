@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace CrmAppSchool.Models
 {
-    public class profiel
+    public class Profiel
     {
-        public string gebruikersnaam { get; set; }
-        public string voornaam { get; set; }
-        public string achternaam { get; set; }
-        public string bedrijf { get; set; }
-        public string locatie { get; set; }
-        public string functie { get; set; }
-        public string kwaliteit { get; set; }
+        public string Gebruikersnaam { get; set; }
+        public string Voornaam { get; set; }
+        public string Achternaam { get; set; }
+        public string Bedrijf { get; set; }
+        public string Locatie { get; set; }
+        public string Functie { get; set; }
+        public string Kwaliteit { get; set; }
     }
 }

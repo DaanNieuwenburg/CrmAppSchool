@@ -100,6 +100,12 @@
     <Compile Include="Views\Zoeken\ZoekenForm.Designer.cs">
       <DependentUpon>ZoekenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Zoeken\ZoekOverzichtForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Zoeken\ZoekOverzichtForm.Designer.cs">
+      <DependentUpon>ZoekOverzichtForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\Contacten\ContactenForm.resx">
       <DependentUpon>ContactenForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Zoeken\ZoekenForm.resx">
       <DependentUpon>ZoekenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Zoeken\ZoekOverzichtForm.resx">
+      <DependentUpon>ZoekOverzichtForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

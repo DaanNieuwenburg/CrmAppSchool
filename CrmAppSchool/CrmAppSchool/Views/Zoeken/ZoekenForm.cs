@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrmAppSchool.Controllers;
+using CrmAppSchool.Models;
 
 namespace CrmAppSchool.Views.Zoeken
 {
@@ -27,6 +29,14 @@ namespace CrmAppSchool.Views.Zoeken
         {
             ShowMenu = true;
             this.Hide();
+        }
+
+        private void btnZoek_Click(object sender, EventArgs e)
+        {
+            ZoekController zoekController = new ZoekController();
+            List<Models.Profiel> resultaatLijst = zoekController.zoekOpKwaliteit();
+            ZoekOverzichtForm zoekOverzichtForm = new ZoekOverzichtForm(resultaatLijst);
+            zoekOverzichtForm.ShowDialog();
         }
     }
 }
