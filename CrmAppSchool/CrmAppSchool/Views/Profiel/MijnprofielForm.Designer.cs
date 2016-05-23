@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MijnprofielForm));
-            this.btnBewerk = new System.Windows.Forms.Button();
             this.lblVoornaam = new System.Windows.Forms.Label();
             this.lblAchternaam = new System.Windows.Forms.Label();
             this.lblBedrijf = new System.Windows.Forms.Label();
@@ -46,20 +45,9 @@
             this.lblGebruikerWaarde = new System.Windows.Forms.Label();
             this.lblWachtwoord = new System.Windows.Forms.Label();
             this.lblGebruiker = new System.Windows.Forms.Label();
+            this.btnBewerk = new System.Windows.Forms.Button();
+            this.btnPrive = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnBewerk
-            // 
-            this.btnBewerk.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Bewerken;
-            this.btnBewerk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBewerk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBewerk.FlatAppearance.BorderSize = 0;
-            this.btnBewerk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBewerk.Location = new System.Drawing.Point(281, 12);
-            this.btnBewerk.Name = "btnBewerk";
-            this.btnBewerk.Size = new System.Drawing.Size(63, 49);
-            this.btnBewerk.TabIndex = 0;
-            this.btnBewerk.UseVisualStyleBackColor = true;
             // 
             // lblVoornaam
             // 
@@ -221,11 +209,38 @@
             this.lblGebruiker.TabIndex = 13;
             this.lblGebruiker.Text = "Gebruiker:";
             // 
+            // btnBewerk
+            // 
+            this.btnBewerk.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Bewerken;
+            this.btnBewerk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBewerk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBewerk.FlatAppearance.BorderSize = 0;
+            this.btnBewerk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBewerk.Location = new System.Drawing.Point(317, 12);
+            this.btnBewerk.Name = "btnBewerk";
+            this.btnBewerk.Size = new System.Drawing.Size(63, 49);
+            this.btnBewerk.TabIndex = 0;
+            this.btnBewerk.UseVisualStyleBackColor = true;
+            // 
+            // btnPrive
+            // 
+            this.btnPrive.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Prive;
+            this.btnPrive.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPrive.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrive.FlatAppearance.BorderSize = 0;
+            this.btnPrive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrive.Location = new System.Drawing.Point(248, 12);
+            this.btnPrive.Name = "btnPrive";
+            this.btnPrive.Size = new System.Drawing.Size(63, 49);
+            this.btnPrive.TabIndex = 17;
+            this.btnPrive.UseVisualStyleBackColor = true;
+            // 
             // MijnprofielForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 343);
+            this.Controls.Add(this.btnPrive);
             this.Controls.Add(this.lblWachtwoordWaarde);
             this.Controls.Add(this.lblGebruikerWaarde);
             this.Controls.Add(this.lblWachtwoord);
@@ -271,5 +286,6 @@
         private System.Windows.Forms.Label lblGebruikerWaarde;
         private System.Windows.Forms.Label lblWachtwoord;
         private System.Windows.Forms.Label lblGebruiker;
+        private System.Windows.Forms.Button btnPrive;
     }
 }
