@@ -36,47 +36,62 @@
             this.wachtwoordLbl = new System.Windows.Forms.Label();
             this.soortGebruikerCbx = new System.Windows.Forms.ComboBox();
             this.gebruikerLbl = new System.Windows.Forms.Label();
+            this.pbHome = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pbHeader = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
             // 
             // voegToeBtn
             // 
-            this.voegToeBtn.Location = new System.Drawing.Point(197, 226);
+            this.voegToeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.voegToeBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("voegToeBtn.BackgroundImage")));
+            this.voegToeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.voegToeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.voegToeBtn.FlatAppearance.BorderSize = 0;
+            this.voegToeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.voegToeBtn.Location = new System.Drawing.Point(199, 2);
             this.voegToeBtn.Name = "voegToeBtn";
-            this.voegToeBtn.Size = new System.Drawing.Size(75, 23);
+            this.voegToeBtn.Size = new System.Drawing.Size(59, 50);
             this.voegToeBtn.TabIndex = 0;
-            this.voegToeBtn.Text = "Voeg toe";
-            this.voegToeBtn.UseVisualStyleBackColor = true;
+            this.voegToeBtn.UseVisualStyleBackColor = false;
             this.voegToeBtn.Click += new System.EventHandler(this.voegToeBtn_Click);
             // 
             // gebruikersnaamTxb
             // 
-            this.gebruikersnaamTxb.Location = new System.Drawing.Point(172, 114);
+            this.gebruikersnaamTxb.Font = new System.Drawing.Font("Arial", 10F);
+            this.gebruikersnaamTxb.Location = new System.Drawing.Point(12, 86);
             this.gebruikersnaamTxb.Name = "gebruikersnaamTxb";
-            this.gebruikersnaamTxb.Size = new System.Drawing.Size(100, 20);
+            this.gebruikersnaamTxb.Size = new System.Drawing.Size(148, 23);
             this.gebruikersnaamTxb.TabIndex = 1;
             // 
             // wachtwoordTxb
             // 
-            this.wachtwoordTxb.Location = new System.Drawing.Point(172, 140);
+            this.wachtwoordTxb.Font = new System.Drawing.Font("Arial", 10F);
+            this.wachtwoordTxb.Location = new System.Drawing.Point(12, 141);
             this.wachtwoordTxb.Name = "wachtwoordTxb";
-            this.wachtwoordTxb.Size = new System.Drawing.Size(100, 20);
+            this.wachtwoordTxb.Size = new System.Drawing.Size(148, 23);
             this.wachtwoordTxb.TabIndex = 2;
             // 
             // gebruikersnaamLbl
             // 
             this.gebruikersnaamLbl.AutoSize = true;
-            this.gebruikersnaamLbl.Location = new System.Drawing.Point(79, 117);
+            this.gebruikersnaamLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gebruikersnaamLbl.Location = new System.Drawing.Point(12, 60);
             this.gebruikersnaamLbl.Name = "gebruikersnaamLbl";
-            this.gebruikersnaamLbl.Size = new System.Drawing.Size(87, 13);
+            this.gebruikersnaamLbl.Size = new System.Drawing.Size(107, 16);
             this.gebruikersnaamLbl.TabIndex = 3;
             this.gebruikersnaamLbl.Text = "Gebruikersnaam:";
+            this.gebruikersnaamLbl.Click += new System.EventHandler(this.gebruikersnaamLbl_Click);
             // 
             // wachtwoordLbl
             // 
             this.wachtwoordLbl.AutoSize = true;
-            this.wachtwoordLbl.Location = new System.Drawing.Point(79, 143);
+            this.wachtwoordLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wachtwoordLbl.Location = new System.Drawing.Point(12, 118);
             this.wachtwoordLbl.Name = "wachtwoordLbl";
-            this.wachtwoordLbl.Size = new System.Drawing.Size(71, 13);
+            this.wachtwoordLbl.Size = new System.Drawing.Size(84, 16);
             this.wachtwoordLbl.TabIndex = 4;
             this.wachtwoordLbl.Text = "Wachtwoord:";
             // 
@@ -87,7 +102,7 @@
             this.soortGebruikerCbx.Items.AddRange(new object[] {
             "Docent",
             "Student"});
-            this.soortGebruikerCbx.Location = new System.Drawing.Point(172, 166);
+            this.soortGebruikerCbx.Location = new System.Drawing.Point(182, 86);
             this.soortGebruikerCbx.Name = "soortGebruikerCbx";
             this.soortGebruikerCbx.Size = new System.Drawing.Size(100, 21);
             this.soortGebruikerCbx.TabIndex = 6;
@@ -95,27 +110,68 @@
             // gebruikerLbl
             // 
             this.gebruikerLbl.AutoSize = true;
-            this.gebruikerLbl.Location = new System.Drawing.Point(79, 169);
+            this.gebruikerLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gebruikerLbl.Location = new System.Drawing.Point(181, 59);
             this.gebruikerLbl.Name = "gebruikerLbl";
-            this.gebruikerLbl.Size = new System.Drawing.Size(82, 13);
+            this.gebruikerLbl.Size = new System.Drawing.Size(100, 16);
             this.gebruikerLbl.TabIndex = 7;
             this.gebruikerLbl.Text = "Soort gebruiker:";
+            // 
+            // pbHome
+            // 
+            this.pbHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.pbHome.BackgroundImage = global::CrmAppSchool.Properties.Resources.picture_Home;
+            this.pbHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbHome.Location = new System.Drawing.Point(-2, 2);
+            this.pbHome.Name = "pbHome";
+            this.pbHome.Size = new System.Drawing.Size(61, 50);
+            this.pbHome.TabIndex = 10;
+            this.pbHome.TabStop = false;
+            this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(293, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 16);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "U bent ingelogd als:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // pbHeader
+            // 
+            this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.pbHeader.Location = new System.Drawing.Point(-2, 2);
+            this.pbHeader.Name = "pbHeader";
+            this.pbHeader.Size = new System.Drawing.Size(519, 50);
+            this.pbHeader.TabIndex = 9;
+            this.pbHeader.TabStop = false;
             // 
             // voegGebruikerToeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(515, 213);
+            this.Controls.Add(this.voegToeBtn);
+            this.Controls.Add(this.pbHome);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pbHeader);
             this.Controls.Add(this.gebruikerLbl);
             this.Controls.Add(this.soortGebruikerCbx);
             this.Controls.Add(this.wachtwoordLbl);
             this.Controls.Add(this.gebruikersnaamLbl);
             this.Controls.Add(this.wachtwoordTxb);
             this.Controls.Add(this.gebruikersnaamTxb);
-            this.Controls.Add(this.voegToeBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "voegGebruikerToeForm";
             this.Text = "Voeg gebruiker toe";
+            ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,5 +186,8 @@
         private System.Windows.Forms.Label wachtwoordLbl;
         private System.Windows.Forms.ComboBox soortGebruikerCbx;
         private System.Windows.Forms.Label gebruikerLbl;
+        private System.Windows.Forms.PictureBox pbHome;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pbHeader;
     }
 }

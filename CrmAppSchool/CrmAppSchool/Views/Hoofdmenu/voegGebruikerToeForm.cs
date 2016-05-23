@@ -14,9 +14,11 @@ namespace CrmAppSchool.Views.Hoofdmenu
 {
     public partial class voegGebruikerToeForm : Form
     {
+        public bool ShowMenu { get; set; }
         public voegGebruikerToeForm()
         {
             InitializeComponent();
+            ShowMenu = false;
         }
 
         private void voegToeBtn_Click(object sender, EventArgs e)
@@ -36,6 +38,22 @@ namespace CrmAppSchool.Views.Hoofdmenu
             admincontroller.voegGebruikerToe(gebruiker);
 
             this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gebruikersnaamLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbHome_Click(object sender, EventArgs e)
+        {
+            ShowMenu = true;
+            this.Hide();
         }
     }
 }

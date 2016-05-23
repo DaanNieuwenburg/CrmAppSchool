@@ -42,6 +42,11 @@ namespace CrmAppSchool.Views.Hoofdmenu
             this.voegGebruikerToeBtn.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
             voegGebruikerToeForm voegGebruikerToe = new voegGebruikerToeForm();
             voegGebruikerToe.ShowDialog();
+            if (voegGebruikerToe.ShowMenu == true)
+            {
+                Show();
+                voegGebruikerToe.ShowMenu = false;
+            }
         }
 
         private void btnZoeken_Click(object sender, EventArgs e)
