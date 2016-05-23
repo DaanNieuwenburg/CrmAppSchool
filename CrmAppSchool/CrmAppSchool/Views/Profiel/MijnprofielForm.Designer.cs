@@ -50,11 +50,15 @@
             // 
             // btnBewerk
             // 
-            this.btnBewerk.Location = new System.Drawing.Point(305, 12);
+            this.btnBewerk.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Bewerken;
+            this.btnBewerk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBewerk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBewerk.FlatAppearance.BorderSize = 0;
+            this.btnBewerk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBewerk.Location = new System.Drawing.Point(281, 12);
             this.btnBewerk.Name = "btnBewerk";
-            this.btnBewerk.Size = new System.Drawing.Size(75, 23);
+            this.btnBewerk.Size = new System.Drawing.Size(63, 49);
             this.btnBewerk.TabIndex = 0;
-            this.btnBewerk.Text = "bewerken";
             this.btnBewerk.UseVisualStyleBackColor = true;
             // 
             // lblVoornaam
