@@ -1,5 +1,4 @@
-﻿using CrmAppSchool.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,29 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrmAppSchool.Models;
 
 namespace CrmAppSchool.Views.Profiel
 {
     public partial class MijnprofielForm : Form
     {
         private Gebruiker gebruiker { get; set; }
-        public string Gebruikersnaam { get; set; }
-        public string Voornaam { get; set; }
-        public string Achternaam { get; set; }
-        public string Bedrijf { get; set; }
-        public string Locatie { get; set; }
-        public string Functie { get; set; }
-        public string Kwaliteit { get; set; }
+        private Models.Profiel profiel { get; set; }
         public bool ShowMenu { get; set; }
         private bool EditMode { get; set; }
         private bool PriveMode { get; set; }
-        public MijnprofielForm(Gebruiker _gebruiker)
+
+        public MijnprofielForm(Gebruiker _gebruiker, Models.Profiel _profiel)
         {
             InitializeComponent();
             gebruiker = _gebruiker;
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
             lblGebruikerWaarde.Text = gebruiker.Gebruikersnaam;
             lblWachtwoordWaarde.Text = gebruiker.Wachtwoord;
+
+            // Bind model aan form
+            profiel = _profiel;
+
             ShowMenu = false;
             EditMode = false;
             PriveMode = false;
@@ -44,19 +43,19 @@ namespace CrmAppSchool.Views.Profiel
 
         private void MijnprofielForm_Load(object sender, EventArgs e)
         {
-            lblVoornaamWaarde.Text = Voornaam;
-            lblAchternaamWaarde.Text = Achternaam;
-            lblBedrijfWaarde.Text = Bedrijf;
-            lblLocatieWaarde.Text = Locatie;
-            lblKwaliteitWaarde.Text = Kwaliteit;
-            lblFunctieWaarde.Text = Functie;
+            lblVoornaamWaarde.Text = profiel.Voornaam;
+            lblAchternaamWaarde.Text = profiel.Achternaam;
+            lblBedrijfWaarde.Text = profiel.Bedrijf;
+            lblLocatieWaarde.Text = profiel.Locatie;
+            lblKwaliteitWaarde.Text = profiel.Kwaliteit;
+            lblFunctieWaarde.Text = profiel.Functie;
         }
 
         private void btnBewerk_Click(object sender, EventArgs e)
         {
             EditMode = true;
-            
-            voornaamTxb.Text = lblVoornaamWaarde.Text;         
+
+            voornaamTxb.Text = lblVoornaamWaarde.Text;
             achternaamTxb.Text = lblAchternaamWaarde.Text;
             bedrijfTxb.Text = lblBedrijfWaarde.Text;
             locatieTxb.Text = lblLocatieWaarde.Text;
@@ -80,7 +79,7 @@ namespace CrmAppSchool.Views.Profiel
                 functieTxb.Visible = true;
                 kwaliteitTxb.Visible = true;
 
-                
+
             }
             else
             {
@@ -118,13 +117,13 @@ namespace CrmAppSchool.Views.Profiel
                 EditMode = false;
                 Updatebuttons();
             }
-            else if(PriveMode == true)
+            else if (PriveMode == true)
             {
                 PriveMode = false;
                 UpdatePrive();
             }
-            
-            
+
+
         }
 
         private void btnPrive_Click(object sender, EventArgs e)

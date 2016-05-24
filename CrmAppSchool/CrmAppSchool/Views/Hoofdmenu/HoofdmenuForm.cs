@@ -98,17 +98,10 @@ namespace CrmAppSchool.Views.Hoofdmenu
         {
             this.btnProfiel.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
             Controllers.ProfielController profiel = new Controllers.ProfielController();
-            profiel.Get_Pofiel(gebruiker);
-            Profiel.MijnprofielForm Profiel = new Profiel.MijnprofielForm(gebruiker);
+            Models.Profiel profielModel = profiel.Get_Pofiel(gebruiker);
+            Profiel.MijnprofielForm Profiel = new Profiel.MijnprofielForm(gebruiker, profielModel);
             this.Hide();
             Profiel.Text = "Profiel";
-            Profiel.Gebruikersnaam = profiel.Gebruikersnaam;
-            Profiel.Voornaam = profiel.Voornaam;
-            Profiel.Achternaam = profiel.Achternaam;
-            Profiel.Bedrijf = profiel.Bedrijf;
-            Profiel.Locatie = profiel.Locatie;
-            Profiel.Functie = profiel.Functie;
-            Profiel.Kwaliteit = profiel.Kwaliteit;
             Profiel.ShowDialog();
             if(Profiel.ShowMenu == true)
             {

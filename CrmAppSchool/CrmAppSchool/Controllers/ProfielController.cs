@@ -10,7 +10,6 @@ namespace CrmAppSchool.Controllers
 {
     class ProfielController : DatabaseController
     {
-        private Gebruiker gebruiker { get; set; }
         public string Gebruikersnaam { get; set; }
         public string Voornaam { get; set; }
         public string Achternaam { get; set; }
@@ -19,9 +18,8 @@ namespace CrmAppSchool.Controllers
         public string Functie { get; set; }
         public string Kwaliteit { get; set; }
 
-        public void Get_Pofiel(Gebruiker _gebruiker)
+        public Profiel Get_Pofiel(Gebruiker _gebruiker)
         {
-            gebruiker = _gebruiker;
             try
             {
                 conn.Open();
@@ -33,25 +31,25 @@ namespace CrmAppSchool.Controllers
                 UN_PARAM.Value = _gebruiker.Gebruikersnaam;
 
                 command.Parameters.Add(UN_PARAM);
-
+                Profiel profiel = new Profiel();
                 MySqlDataReader datalezer = command.ExecuteReader();
-
-                bool isnull = true;
-                Gebruiker gebruiker = null;
+                
                 while (datalezer.Read())
                 {
-                    Gebruikersnaam = datalezer.GetString("gebruikersnaam");
-                    Voornaam = datalezer.GetString("voornaam");
-                    Achternaam = datalezer.GetString("Achternaam");
-                    Bedrijf = datalezer.GetString("bedrijf");
-                    Locatie = datalezer.GetString("locatie");
-                    Functie = datalezer.GetString("functie");
-                    Kwaliteit = datalezer.GetString("kwaliteit");
+                    profiel.Gebruikersnaam = datalezer.GetString("gebruikersnaam");
+                    profiel.Voornaam = datalezer.GetString("voornaam");
+                    profiel.Achternaam = datalezer.GetString("Achternaam");
+                    profiel.Bedrijf = datalezer.GetString("bedrijf");
+                    profiel.Locatie = datalezer.GetString("locatie");
+                    profiel.Functie = datalezer.GetString("functie");
+                    profiel.Kwaliteit = datalezer.GetString("kwaliteit");
                 }
+                return profiel;
             }
             catch (MySqlException e)
             {
                 Console.WriteLine("ERROR! EXCEPTION! ARGHHH! : " + e);
+                return null;
             }
             finally
             {
