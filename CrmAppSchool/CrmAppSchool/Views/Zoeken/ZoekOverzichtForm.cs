@@ -38,12 +38,12 @@ namespace CrmAppSchool.Views.Zoeken
 
         private void btnSorteer_Click(object sender, EventArgs e)
         {
-            UpdateSorteerMenu();
-            if (Sorteermenu == false)
+            
+            if (Sorteermenu == true)
             {
                 // Sorteer met behulp van input van comboboxen
             }
-
+            UpdateSorteerMenu();
         }
         private void UpdateSorteerMenu()
         {
@@ -57,12 +57,19 @@ namespace CrmAppSchool.Views.Zoeken
             }
             else
             {
-                
                 cbSorteerOp.Visible = false;
                 cbSorteerVolgorde.Visible = false;
                 Sorteermenu = false;
                 btnCancel.Visible = false;
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            cbSorteerOp.Visible = false;
+            cbSorteerVolgorde.Visible = false;
+            Sorteermenu = false;
+            btnCancel.Visible = false;
         }
     }
 }

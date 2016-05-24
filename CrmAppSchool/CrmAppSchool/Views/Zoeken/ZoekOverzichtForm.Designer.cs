@@ -201,6 +201,7 @@
             this.btnCancel.TabIndex = 24;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Visible = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // ZoekOverzichtForm
             // 
