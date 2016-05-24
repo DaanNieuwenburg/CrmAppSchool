@@ -47,11 +47,11 @@ namespace CrmAppSchool.Views.Hoofdmenu
             else if(gebruiker is Student)
             {
                 voegGebruikerToeBtn.Visible = false;
-                btnOpdrachten.Visible = false;
                 btnProfiel.Visible = false;
                 btnContacten.Visible = false;
                 btnZoeken.Location = new Point(24, 75);
-                btnUitloggen.Location = new Point(28, 231);
+                btnOpdrachten.Location = new Point(28, 231);
+                btnUitloggen.Location = new Point(203, 231);
             }
         }
 
