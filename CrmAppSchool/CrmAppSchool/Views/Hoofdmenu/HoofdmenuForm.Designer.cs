@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HoofdmenuForm));
             this.gebruikerLbl = new System.Windows.Forms.Label();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.btnContacten = new System.Windows.Forms.Button();
             this.pbLogo2 = new System.Windows.Forms.PictureBox();
             this.pbLogo1 = new System.Windows.Forms.PictureBox();
             this.btnUitloggen = new System.Windows.Forms.Button();
@@ -40,7 +42,12 @@
             this.btnZoeken = new System.Windows.Forms.Button();
             this.voegGebruikerToeBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnContacten = new System.Windows.Forms.Button();
+            this.lblContacten = new System.Windows.Forms.Label();
+            this.lblZoeken = new System.Windows.Forms.Label();
+            this.lblRegistreer = new System.Windows.Forms.Label();
+            this.lblProfiel = new System.Windows.Forms.Label();
+            this.lblOpdrachten = new System.Windows.Forms.Label();
+            this.lblUitloggen = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
@@ -60,6 +67,35 @@
             this.gebruikerLbl.Size = new System.Drawing.Size(145, 18);
             this.gebruikerLbl.TabIndex = 0;
             this.gebruikerLbl.Text = "U bent ingelogd als:";
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Help1;
+            this.btnHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnHelp.FlatAppearance.BorderSize = 0;
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.Location = new System.Drawing.Point(559, 57);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(55, 51);
+            this.btnHelp.TabIndex = 12;
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // btnContacten
+            // 
+            this.btnContacten.AutoSize = true;
+            this.btnContacten.BackColor = System.Drawing.Color.Transparent;
+            this.btnContacten.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Contacten2;
+            this.btnContacten.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnContacten.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnContacten.FlatAppearance.BorderSize = 0;
+            this.btnContacten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContacten.Location = new System.Drawing.Point(24, 75);
+            this.btnContacten.Name = "btnContacten";
+            this.btnContacten.Size = new System.Drawing.Size(168, 139);
+            this.btnContacten.TabIndex = 2;
+            this.btnContacten.UseVisualStyleBackColor = false;
+            this.btnContacten.Click += new System.EventHandler(this.btnContacten_Click);
             // 
             // pbLogo2
             // 
@@ -94,7 +130,7 @@
             this.btnUitloggen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUitloggen.FlatAppearance.BorderSize = 0;
             this.btnUitloggen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUitloggen.Location = new System.Drawing.Point(383, 231);
+            this.btnUitloggen.Location = new System.Drawing.Point(395, 240);
             this.btnUitloggen.MinimumSize = new System.Drawing.Size(169, 139);
             this.btnUitloggen.Name = "btnUitloggen";
             this.btnUitloggen.Size = new System.Drawing.Size(169, 139);
@@ -177,7 +213,7 @@
             this.voegGebruikerToeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.voegGebruikerToeBtn.FlatAppearance.BorderSize = 0;
             this.voegGebruikerToeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.voegGebruikerToeBtn.Location = new System.Drawing.Point(383, 75);
+            this.voegGebruikerToeBtn.Location = new System.Drawing.Point(395, 75);
             this.voegGebruikerToeBtn.Name = "voegGebruikerToeBtn";
             this.voegGebruikerToeBtn.Size = new System.Drawing.Size(169, 139);
             this.voegGebruikerToeBtn.TabIndex = 1;
@@ -194,21 +230,77 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // btnContacten
+            // lblContacten
             // 
-            this.btnContacten.AutoSize = true;
-            this.btnContacten.BackColor = System.Drawing.Color.Transparent;
-            this.btnContacten.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Contacten2;
-            this.btnContacten.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnContacten.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnContacten.FlatAppearance.BorderSize = 0;
-            this.btnContacten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContacten.Location = new System.Drawing.Point(24, 75);
-            this.btnContacten.Name = "btnContacten";
-            this.btnContacten.Size = new System.Drawing.Size(168, 139);
-            this.btnContacten.TabIndex = 2;
-            this.btnContacten.UseVisualStyleBackColor = false;
-            this.btnContacten.Click += new System.EventHandler(this.btnContacten_Click);
+            this.lblContacten.AutoSize = true;
+            this.lblContacten.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContacten.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lblContacten.Location = new System.Drawing.Point(76, 215);
+            this.lblContacten.Name = "lblContacten";
+            this.lblContacten.Size = new System.Drawing.Size(67, 16);
+            this.lblContacten.TabIndex = 13;
+            this.lblContacten.Text = "Contacten";
+            this.lblContacten.Visible = false;
+            // 
+            // lblZoeken
+            // 
+            this.lblZoeken.AutoSize = true;
+            this.lblZoeken.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblZoeken.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lblZoeken.Location = new System.Drawing.Point(261, 215);
+            this.lblZoeken.Name = "lblZoeken";
+            this.lblZoeken.Size = new System.Drawing.Size(50, 16);
+            this.lblZoeken.TabIndex = 14;
+            this.lblZoeken.Text = "Zoeken";
+            this.lblZoeken.Visible = false;
+            // 
+            // lblRegistreer
+            // 
+            this.lblRegistreer.AutoSize = true;
+            this.lblRegistreer.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistreer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lblRegistreer.Location = new System.Drawing.Point(422, 217);
+            this.lblRegistreer.Name = "lblRegistreer";
+            this.lblRegistreer.Size = new System.Drawing.Size(124, 16);
+            this.lblRegistreer.TabIndex = 15;
+            this.lblRegistreer.Text = "Registreer gebruiker";
+            this.lblRegistreer.Visible = false;
+            // 
+            // lblProfiel
+            // 
+            this.lblProfiel.AutoSize = true;
+            this.lblProfiel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProfiel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lblProfiel.Location = new System.Drawing.Point(74, 373);
+            this.lblProfiel.Name = "lblProfiel";
+            this.lblProfiel.Size = new System.Drawing.Size(72, 16);
+            this.lblProfiel.TabIndex = 16;
+            this.lblProfiel.Text = "Mijn Profiel";
+            this.lblProfiel.Visible = false;
+            // 
+            // lblOpdrachten
+            // 
+            this.lblOpdrachten.AutoSize = true;
+            this.lblOpdrachten.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOpdrachten.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lblOpdrachten.Location = new System.Drawing.Point(249, 373);
+            this.lblOpdrachten.Name = "lblOpdrachten";
+            this.lblOpdrachten.Size = new System.Drawing.Size(75, 16);
+            this.lblOpdrachten.TabIndex = 17;
+            this.lblOpdrachten.Text = "Opdrachten";
+            this.lblOpdrachten.Visible = false;
+            // 
+            // lblUitloggen
+            // 
+            this.lblUitloggen.AutoSize = true;
+            this.lblUitloggen.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUitloggen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lblUitloggen.Location = new System.Drawing.Point(444, 382);
+            this.lblUitloggen.Name = "lblUitloggen";
+            this.lblUitloggen.Size = new System.Drawing.Size(62, 16);
+            this.lblUitloggen.TabIndex = 18;
+            this.lblUitloggen.Text = "Uitloggen";
+            this.lblUitloggen.Visible = false;
             // 
             // HoofdmenuForm
             // 
@@ -216,6 +308,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(840, 428);
+            this.Controls.Add(this.lblUitloggen);
+            this.Controls.Add(this.lblOpdrachten);
+            this.Controls.Add(this.lblProfiel);
+            this.Controls.Add(this.lblRegistreer);
+            this.Controls.Add(this.lblZoeken);
+            this.Controls.Add(this.lblContacten);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnContacten);
             this.Controls.Add(this.pbLogo2);
             this.Controls.Add(this.pbLogo1);
@@ -256,5 +355,12 @@
         private System.Windows.Forms.PictureBox pbLogo1;
         private System.Windows.Forms.PictureBox pbLogo2;
         private System.Windows.Forms.Button btnContacten;
+        private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.Label lblContacten;
+        private System.Windows.Forms.Label lblZoeken;
+        private System.Windows.Forms.Label lblRegistreer;
+        private System.Windows.Forms.Label lblProfiel;
+        private System.Windows.Forms.Label lblOpdrachten;
+        private System.Windows.Forms.Label lblUitloggen;
     }
 }

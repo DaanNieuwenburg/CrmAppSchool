@@ -14,12 +14,15 @@ namespace CrmAppSchool.Views.Hoofdmenu
     public partial class HoofdmenuForm : Form
     {
         public Gebruiker gebruiker;
+        private bool ShowHelp { get; set; }
         public HoofdmenuForm(Gebruiker _gebruiker)
         {
             gebruiker = _gebruiker;
             InitializeComponent();
             toonGebruikersnaam();
             bepaalMenu();
+            ShowHelp = false;
+
         }
 
         private void toonGebruikersnaam()
@@ -115,6 +118,31 @@ namespace CrmAppSchool.Views.Hoofdmenu
             Close();
             Login.InlogForm login = new Login.InlogForm();
             login.Show();
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            if (ShowHelp == false)
+            {
+                lblContacten.Visible = true;
+                lblOpdrachten.Visible = true;
+                lblProfiel.Visible = true;
+                lblRegistreer.Visible = true;
+                lblUitloggen.Visible = true;
+                lblZoeken.Visible = true;
+                ShowHelp = true;
+            }
+            else
+            {
+                lblContacten.Visible = false;
+                lblOpdrachten.Visible = false;
+                lblProfiel.Visible = false;
+                lblRegistreer.Visible = false;
+                lblUitloggen.Visible = false;
+                lblZoeken.Visible = false;
+                ShowHelp = false;
+            }
+
         }
     }
 }

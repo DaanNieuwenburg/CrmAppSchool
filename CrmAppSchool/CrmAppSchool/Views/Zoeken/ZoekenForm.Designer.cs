@@ -58,7 +58,7 @@
             this.filterLbl.Name = "filterLbl";
             this.filterLbl.Size = new System.Drawing.Size(54, 15);
             this.filterLbl.TabIndex = 2;
-            this.filterLbl.Text = "Filter op:";
+            this.filterLbl.Text = "Zoek op:";
             // 
             // zoekfilterCbx
             // 
