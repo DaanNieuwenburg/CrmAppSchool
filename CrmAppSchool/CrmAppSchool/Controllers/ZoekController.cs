@@ -57,7 +57,7 @@ namespace CrmAppSchool.Controllers
             }
             else if (zoekquery == "Organisatie")
             {
-                return "SELECT * FROM profiel WHERE organisatie = @zoekParam";
+                return "SELECT * FROM profiel WHERE bedrijf = @zoekParam";
             }
             else if (zoekquery == "Locatie")
             {

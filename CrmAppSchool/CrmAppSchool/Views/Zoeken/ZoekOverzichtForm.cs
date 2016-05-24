@@ -17,7 +17,7 @@ namespace CrmAppSchool.Views.Zoeken
         {
             InitializeComponent();
 
-            if (resultaatLijst.Count() > 0)
+            if (resultaatLijst != null && resultaatLijst.Count() > 0)
             {
                 foreach (Models.Profiel profiel in resultaatLijst)
                 {
