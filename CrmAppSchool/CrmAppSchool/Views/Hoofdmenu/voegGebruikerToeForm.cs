@@ -15,7 +15,7 @@ namespace CrmAppSchool.Views.Hoofdmenu
     public partial class voegGebruikerToeForm : Form
     {
         public bool ShowMenu { get; set; }
-        
+
         private Gebruiker gebruiker { get; set; }
         public voegGebruikerToeForm(Gebruiker _gebruiker)
         {
@@ -27,21 +27,29 @@ namespace CrmAppSchool.Views.Hoofdmenu
 
         private void voegToeBtn_Click(object sender, EventArgs e)
         {
-            Gebruiker gebruiker = null;
-            if (Convert.ToString(soortGebruikerCbx.SelectedItem) == "Docent")
+            // valideert of alle gegevens zijn en ingevuld, zo ja roept de controller aan
+            if (gebruikersnaamTxb.Text == "" || wachtwoordTxb.Text == "" || Convert.ToString(soortGebruikerCbx.SelectedItem) == "")
             {
-                gebruiker = new Docent(gebruikersnaamTxb.Text);
+                errorLbl.Visible = true;
             }
-            else if(Convert.ToString(soortGebruikerCbx.SelectedItem) == "Student")
+            else
             {
-                gebruiker = new Student(gebruikersnaamTxb.Text);
+                Gebruiker gebruiker = null;
+                if (Convert.ToString(soortGebruikerCbx.SelectedItem) == "Docent")
+                {
+                    gebruiker = new Docent(gebruikersnaamTxb.Text);
+                }
+                else if (Convert.ToString(soortGebruikerCbx.SelectedItem) == "Student")
+                {
+                    gebruiker = new Student(gebruikersnaamTxb.Text);
+                }
+                gebruiker.Wachtwoord = wachtwoordTxb.Text;
+
+                AdminController admincontroller = new AdminController();
+                admincontroller.voegGebruikerToe(gebruiker);
+
+                this.Close();
             }
-            gebruiker.Wachtwoord = wachtwoordTxb.Text;
-
-            AdminController admincontroller = new AdminController();
-            admincontroller.voegGebruikerToe(gebruiker);
-
-            this.Close();
         }
 
         private void label1_Click(object sender, EventArgs e)
