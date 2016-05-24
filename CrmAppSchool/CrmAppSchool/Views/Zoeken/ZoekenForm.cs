@@ -33,10 +33,24 @@ namespace CrmAppSchool.Views.Zoeken
         private void btnZoek_Click(object sender, EventArgs e)
         {
             string zoekquery = Convert.ToString(zoekfilterCbx.SelectedItem);
-            ZoekController zoekController = new ZoekController();
-            List<Models.Profiel> resultaatLijst = zoekController.zoekMetFilter(zoekquery, zoekcriteriaTxb.Text);
-            ZoekOverzichtForm zoekOverzichtForm = new ZoekOverzichtForm(resultaatLijst);
-            zoekOverzichtForm.ShowDialog();
+            if (zoekcriteriaTxb.Text == "")
+            {
+                errorLbl.Text = "Geef a.ub. een zoekcriteria op";
+                errorLbl.Visible = true;
+            }
+            else if (Convert.ToString(zoekfilterCbx.SelectedItem) == "")
+            {
+                errorLbl.Text = "Geef a.ub. een zoekfilter op";
+                errorLbl.Visible = true;
+            }
+
+            else
+            {
+                ZoekController zoekController = new ZoekController();
+                List<Models.Profiel> resultaatLijst = zoekController.zoekMetFilter(zoekquery, zoekcriteriaTxb.Text);
+                ZoekOverzichtForm zoekOverzichtForm = new ZoekOverzichtForm(resultaatLijst);
+                zoekOverzichtForm.ShowDialog();
+            }
         }
     }
 }
