@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZoekenForm));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.zoekcriteriaTxb = new System.Windows.Forms.TextBox();
+            this.filterLbl = new System.Windows.Forms.Label();
+            this.zoekfilterCbx = new System.Windows.Forms.ComboBox();
             this.btnZoek = new System.Windows.Forms.Button();
             this.pbHome = new System.Windows.Forms.PictureBox();
             this.lblgebruiker = new System.Windows.Forms.Label();
@@ -40,39 +40,39 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // zoekcriteriaTxb
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(39, 96);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(262, 25);
-            this.textBox1.TabIndex = 1;
+            this.zoekcriteriaTxb.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.zoekcriteriaTxb.Location = new System.Drawing.Point(39, 96);
+            this.zoekcriteriaTxb.Name = "zoekcriteriaTxb";
+            this.zoekcriteriaTxb.Size = new System.Drawing.Size(262, 25);
+            this.zoekcriteriaTxb.TabIndex = 1;
             // 
-            // label1
+            // filterLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.label1.Location = new System.Drawing.Point(36, 136);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Filter op:";
+            this.filterLbl.AutoSize = true;
+            this.filterLbl.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filterLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.filterLbl.Location = new System.Drawing.Point(36, 136);
+            this.filterLbl.Name = "filterLbl";
+            this.filterLbl.Size = new System.Drawing.Size(54, 15);
+            this.filterLbl.TabIndex = 2;
+            this.filterLbl.Text = "Filter op:";
             // 
-            // comboBox1
+            // zoekfilterCbx
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.zoekfilterCbx.FormattingEnabled = true;
+            this.zoekfilterCbx.Items.AddRange(new object[] {
             "Voornaam",
             "Achternaam",
             "Kwaliteit",
             "Organisatie",
             "Locatie",
             "Functie"});
-            this.comboBox1.Location = new System.Drawing.Point(36, 162);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 3;
+            this.zoekfilterCbx.Location = new System.Drawing.Point(36, 162);
+            this.zoekfilterCbx.Name = "zoekfilterCbx";
+            this.zoekfilterCbx.Size = new System.Drawing.Size(121, 21);
+            this.zoekfilterCbx.TabIndex = 3;
             // 
             // btnZoek
             // 
@@ -130,9 +130,9 @@
             this.Controls.Add(this.pbHome);
             this.Controls.Add(this.lblgebruiker);
             this.Controls.Add(this.pbHeader);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.zoekfilterCbx);
+            this.Controls.Add(this.filterLbl);
+            this.Controls.Add(this.zoekcriteriaTxb);
             this.Controls.Add(this.btnZoek);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ZoekenForm";
@@ -148,9 +148,9 @@
         #endregion
 
         private System.Windows.Forms.Button btnZoek;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox zoekcriteriaTxb;
+        private System.Windows.Forms.Label filterLbl;
+        private System.Windows.Forms.ComboBox zoekfilterCbx;
         private System.Windows.Forms.PictureBox pbHome;
         private System.Windows.Forms.Label lblgebruiker;
         private System.Windows.Forms.PictureBox pbHeader;

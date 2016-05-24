@@ -10,16 +10,19 @@ namespace CrmAppSchool.Controllers
 {
     public class ZoekController : DatabaseController
     {
-        public List<Profiel> zoekOpKwaliteit()
+        public List<Profiel> zoekMetFilter(string zoekquery, string zoekcriteria)
         {
             try
             {
                 conn.Open();
-                string query = "SELECT * FROM profiel";
+                string query = bepaalFilterQuery(zoekquery);
                 MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter zoekParam = new MySqlParameter("@zoekParam", MySqlDbType.VarChar);
+                zoekParam.Value = zoekcriteria;
+                command.Parameters.Add(zoekParam);
                 MySqlDataReader lezer = command.ExecuteReader();
                 List<Profiel> resultatenLijst = new List<Profiel>();
-
+                Console.WriteLine("HOI " + query);
                 while(lezer.Read())
                 {
                     Profiel profiel = new Profiel();
@@ -38,5 +41,36 @@ namespace CrmAppSchool.Controllers
             }
         }
 
+        public string bepaalFilterQuery(string zoekquery)
+        {
+            if(zoekquery == "Voornaam")
+            {
+                return "SELECT * FROM profiel WHERE voornaam = @zoekParam";
+            }
+            else if(zoekquery == "Achternaam")
+            {
+                return "SELECT * FROM profiel WHERE achternaam = @zoekParam";
+            }
+            else if(zoekquery == "Kwaliteit")
+            {
+                return "SELECT * FROM profiel WHERE kwaliteit = @zoekParam";
+            }
+            else if (zoekquery == "Organisatie")
+            {
+                return "SELECT * FROM profiel WHERE organisatie = @zoekParam";
+            }
+            else if (zoekquery == "Locatie")
+            {
+                return "SELECT * FROM profiel WHERE locatie = @zoekParam";
+            }
+            else if (zoekquery == "Functie")
+            {
+                return "SELECT * FROM profiel WHERE functie = @zoekParam";
+            }
+            else
+            {
+                return "SELECT * FROM profiel";
+            }
+        }
     }
 }

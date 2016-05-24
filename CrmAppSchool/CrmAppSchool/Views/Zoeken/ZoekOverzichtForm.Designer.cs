@@ -37,6 +37,7 @@
             this.pbHeader = new System.Windows.Forms.PictureBox();
             this.pbHome = new System.Windows.Forms.PictureBox();
             this.lblGebruiker = new System.Windows.Forms.Label();
+            this.errorLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             this.SuspendLayout();
@@ -117,11 +118,22 @@
             this.lblGebruiker.TabIndex = 19;
             this.lblGebruiker.Text = "U bent ingelogd als:";
             // 
+            // errorLbl
+            // 
+            this.errorLbl.AutoSize = true;
+            this.errorLbl.Location = new System.Drawing.Point(100, 94);
+            this.errorLbl.Name = "errorLbl";
+            this.errorLbl.Size = new System.Drawing.Size(382, 13);
+            this.errorLbl.TabIndex = 20;
+            this.errorLbl.Text = "Helaas kon het systeem geen resultaten vinden die aan de zoekcriteria voldoen";
+            this.errorLbl.Visible = false;
+            // 
             // ZoekOverzichtForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 429);
+            this.Controls.Add(this.errorLbl);
             this.Controls.Add(this.lblGebruiker);
             this.Controls.Add(this.pbHome);
             this.Controls.Add(this.resultatenLvw);
@@ -146,5 +158,6 @@
         private System.Windows.Forms.ColumnHeader kwaliteitHeader;
         private System.Windows.Forms.PictureBox pbHome;
         private System.Windows.Forms.Label lblGebruiker;
+        private System.Windows.Forms.Label errorLbl;
     }
 }

@@ -1,5 +1,4 @@
-﻿using CrmAppSchool.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,8 +32,9 @@ namespace CrmAppSchool.Views.Zoeken
 
         private void btnZoek_Click(object sender, EventArgs e)
         {
+            string zoekquery = Convert.ToString(zoekfilterCbx.SelectedItem);
             ZoekController zoekController = new ZoekController();
-            List<Models.Profiel> resultaatLijst = zoekController.zoekOpKwaliteit();
+            List<Models.Profiel> resultaatLijst = zoekController.zoekMetFilter(zoekquery, zoekcriteriaTxb.Text);
             ZoekOverzichtForm zoekOverzichtForm = new ZoekOverzichtForm(resultaatLijst);
             zoekOverzichtForm.ShowDialog();
         }

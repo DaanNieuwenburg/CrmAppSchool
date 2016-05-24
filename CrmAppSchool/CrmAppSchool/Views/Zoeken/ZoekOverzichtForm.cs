@@ -16,14 +16,22 @@ namespace CrmAppSchool.Views.Zoeken
         public ZoekOverzichtForm(List<Models.Profiel> resultaatLijst)
         {
             InitializeComponent();
-            foreach(Models.Profiel profiel in resultaatLijst)
+
+            if (resultaatLijst.Count() > 0)
             {
-                ListViewItem lvw = new ListViewItem(profiel.Voornaam);
-                lvw.SubItems.Add(profiel.Achternaam);
-                lvw.SubItems.Add(profiel.Bedrijf);
-                lvw.SubItems.Add(profiel.Functie);
-                lvw.SubItems.Add(profiel.Kwaliteit);
-                resultatenLvw.Items.Add(lvw);
+                foreach (Models.Profiel profiel in resultaatLijst)
+                {
+                    ListViewItem lvw = new ListViewItem(profiel.Voornaam);
+                    lvw.SubItems.Add(profiel.Achternaam);
+                    lvw.SubItems.Add(profiel.Bedrijf);
+                    lvw.SubItems.Add(profiel.Functie);
+                    lvw.SubItems.Add(profiel.Kwaliteit);
+                    resultatenLvw.Items.Add(lvw);
+                }
+            }
+            else
+            {
+                errorLbl.Visible = true;
             }
         }
     }
