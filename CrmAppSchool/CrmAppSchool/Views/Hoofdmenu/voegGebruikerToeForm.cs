@@ -15,6 +15,7 @@ namespace CrmAppSchool.Views.Hoofdmenu
     public partial class voegGebruikerToeForm : Form
     {
         public bool ShowMenu { get; set; }
+        
         private Gebruiker gebruiker { get; set; }
         public voegGebruikerToeForm(Gebruiker _gebruiker)
         {

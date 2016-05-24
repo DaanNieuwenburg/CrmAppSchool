@@ -42,6 +42,7 @@ namespace CrmAppSchool.Views.Zoeken
             if (Sorteermenu == true)
             {
                 // Sorteer met behulp van input van comboboxen
+                resultatenLvw.Sorting = SortOrder.Ascending;
             }
             UpdateSorteerMenu();
         }
