@@ -15,6 +15,7 @@ namespace CrmAppSchool.Views.Profiel
     {
         private Gebruiker gebruiker { get; set; }
         private Models.Profiel profiel { get; set; }
+        public bool[] Bewerkt { get; private set; }
         public bool ShowMenu { get; set; }
         private bool EditMode { get; set; }
         private bool PriveMode { get; set; }
@@ -22,6 +23,7 @@ namespace CrmAppSchool.Views.Profiel
         public MijnprofielForm(Gebruiker _gebruiker, Models.Profiel _profiel)
         {
             InitializeComponent();
+            Bewerkt = new bool[6] { false, false, false, false, false, false };
             gebruiker = _gebruiker;
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
             lblGebruikerWaarde.Text = gebruiker.Gebruikersnaam;
@@ -55,12 +57,12 @@ namespace CrmAppSchool.Views.Profiel
         {
             EditMode = true;
 
-            voornaamTxb.Text = lblVoornaamWaarde.Text;
-            achternaamTxb.Text = lblAchternaamWaarde.Text;
-            bedrijfTxb.Text = lblBedrijfWaarde.Text;
-            locatieTxb.Text = lblLocatieWaarde.Text;
-            functieTxb.Text = lblFunctieWaarde.Text;
-            kwaliteitTxb.Text = lblKwaliteitWaarde.Text;
+            tbVoornaam.Text = lblVoornaamWaarde.Text;
+            tbAchternaam.Text = lblAchternaamWaarde.Text;
+            tbBedrijf.Text = lblBedrijfWaarde.Text;
+            tbLocatie.Text = lblLocatieWaarde.Text;
+            tbFunctie.Text = lblFunctieWaarde.Text;
+            tbKwaliteit.Text = lblKwaliteitWaarde.Text;
             Updatebuttons();
         }
         private void Updatebuttons()
@@ -72,12 +74,12 @@ namespace CrmAppSchool.Views.Profiel
                 btnOpslaan.Visible = true;
                 btnAnnuleer.Visible = true;
 
-                voornaamTxb.Visible = true;
-                achternaamTxb.Visible = true;
-                bedrijfTxb.Visible = true;
-                locatieTxb.Visible = true;
-                functieTxb.Visible = true;
-                kwaliteitTxb.Visible = true;
+                tbVoornaam.Visible = true;
+                tbAchternaam.Visible = true;
+                tbBedrijf.Visible = true;
+                tbLocatie.Visible = true;
+                tbFunctie.Visible = true;
+                tbKwaliteit.Visible = true;
 
 
             }
@@ -87,12 +89,12 @@ namespace CrmAppSchool.Views.Profiel
                 btnPrive.Visible = true;
                 btnOpslaan.Visible = false;
                 btnAnnuleer.Visible = false;
-                voornaamTxb.Visible = false;
-                achternaamTxb.Visible = false;
-                bedrijfTxb.Visible = false;
-                locatieTxb.Visible = false;
-                functieTxb.Visible = false;
-                kwaliteitTxb.Visible = false;
+                tbVoornaam.Visible = false;
+                tbAchternaam.Visible = false;
+                tbBedrijf.Visible = false;
+                tbLocatie.Visible = false;
+                tbFunctie.Visible = false;
+                tbKwaliteit.Visible = false;
             }
         }
 
@@ -112,18 +114,48 @@ namespace CrmAppSchool.Views.Profiel
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            if (EditMode == true)
+            for (int i = 0; i < 6; i++)
             {
-                EditMode = false;
-                Updatebuttons();
-            }
-            else if (PriveMode == true)
-            {
-                PriveMode = false;
-                UpdatePrive();
-            }
+                if (Bewerkt[i] == true)
+                {
+                    if (i == 0)
+                    {
+                        lblVoornaamWaarde.Text = tbVoornaam.Text;
+                    }
+                    else if (i == 1)
+                    {
+                        lblAchternaamWaarde.Text = tbAchternaam.Text;
+                    }
+                    else if (i == 2)
+                    {
+                        lblBedrijfWaarde.Text = tbBedrijf.Text;
+                    }
+                    else if (i == 3)
+                    {
+                        lblLocatieWaarde.Text = tbLocatie.Text;
+                    }
+                    else if (i == 4)
+                    {
+                        lblFunctieWaarde.Text = tbFunctie.Text;
+                    }
+                    else if (i == 5)
+                    {
+                        lblKwaliteitWaarde.Text = tbKwaliteit.Text;
+                    }
+                }
+                if (EditMode == true)
+                {
+                    EditMode = false;
+                    Updatebuttons();
+                }
+                else if (PriveMode == true)
+                {
+                    PriveMode = false;
+                    UpdatePrive();
+                }
 
 
+            }
         }
 
         private void btnPrive_Click(object sender, EventArgs e)
@@ -175,6 +207,36 @@ namespace CrmAppSchool.Views.Profiel
                 lblFunctieWaarde.Visible = true;
                 lblBedrijfWaarde.Visible = true;
             }
+        }
+
+        private void voornaamTxb_TextChanged(object sender, EventArgs e)
+        {
+            Bewerkt[0] = true;
+        }
+
+        private void achternaamTxb_TextChanged(object sender, EventArgs e)
+        {
+            Bewerkt[1] = true;
+        }
+
+        private void bedrijfTxb_TextChanged(object sender, EventArgs e)
+        {
+            Bewerkt[2] = true;
+        }
+
+        private void locatieTxb_TextChanged(object sender, EventArgs e)
+        {
+            Bewerkt[3] = true;
+        }
+
+        private void functieTxb_TextChanged(object sender, EventArgs e)
+        {
+            Bewerkt[4] = true;
+        }
+
+        private void kwaliteitTxb_TextChanged(object sender, EventArgs e)
+        {
+            Bewerkt[5] = true;
         }
     }
 }

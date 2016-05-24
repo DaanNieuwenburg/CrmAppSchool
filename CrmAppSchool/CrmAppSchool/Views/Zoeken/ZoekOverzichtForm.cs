@@ -13,6 +13,7 @@ namespace CrmAppSchool.Views.Zoeken
 {
     public partial class ZoekOverzichtForm : Form
     {
+        private bool Sorteermenu { get; set; }
         public ZoekOverzichtForm(List<Models.Profiel> resultaatLijst)
         {
             InitializeComponent();
@@ -31,8 +32,45 @@ namespace CrmAppSchool.Views.Zoeken
             }
             else
             {
-                errorLbl.Visible = true;
+                MessageBox.Show("Geen Resultaten gevonden");
             }
+        }
+
+        private void btnSorteer_Click(object sender, EventArgs e)
+        {
+            
+            if (Sorteermenu == true)
+            {
+                // Sorteer met behulp van input van comboboxen
+                resultatenLvw.Sorting = SortOrder.Ascending;
+            }
+            UpdateSorteerMenu();
+        }
+        private void UpdateSorteerMenu()
+        {
+            // Zodra sorteermenu true word, worden ook de invoermogelijkheden zichtbaar
+            if (Sorteermenu == false)
+            {
+                cbSorteerOp.Visible = true;
+                cbSorteerVolgorde.Visible = true;
+                Sorteermenu = true;
+                btnCancel.Visible = true;
+            }
+            else
+            {
+                cbSorteerOp.Visible = false;
+                cbSorteerVolgorde.Visible = false;
+                Sorteermenu = false;
+                btnCancel.Visible = false;
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            cbSorteerOp.Visible = false;
+            cbSorteerVolgorde.Visible = false;
+            Sorteermenu = false;
+            btnCancel.Visible = false;
         }
     }
 }

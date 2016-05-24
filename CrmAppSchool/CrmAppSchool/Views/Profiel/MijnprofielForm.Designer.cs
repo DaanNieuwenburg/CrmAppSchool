@@ -46,12 +46,12 @@
             this.lblWachtwoord = new System.Windows.Forms.Label();
             this.lblGebruikersnaam = new System.Windows.Forms.Label();
             this.lblGebruiker = new System.Windows.Forms.Label();
-            this.voornaamTxb = new System.Windows.Forms.TextBox();
-            this.achternaamTxb = new System.Windows.Forms.TextBox();
-            this.bedrijfTxb = new System.Windows.Forms.TextBox();
-            this.locatieTxb = new System.Windows.Forms.TextBox();
-            this.functieTxb = new System.Windows.Forms.TextBox();
-            this.kwaliteitTxb = new System.Windows.Forms.TextBox();
+            this.tbVoornaam = new System.Windows.Forms.TextBox();
+            this.tbAchternaam = new System.Windows.Forms.TextBox();
+            this.tbBedrijf = new System.Windows.Forms.TextBox();
+            this.tbLocatie = new System.Windows.Forms.TextBox();
+            this.tbFunctie = new System.Windows.Forms.TextBox();
+            this.tbKwaliteit = new System.Windows.Forms.TextBox();
             this.btnOpslaan = new System.Windows.Forms.Button();
             this.btnAnnuleer = new System.Windows.Forms.Button();
             this.btnBewerk = new System.Windows.Forms.Button();
@@ -241,59 +241,65 @@
             this.lblGebruiker.TabIndex = 18;
             this.lblGebruiker.Text = "U bent ingelogd als:";
             // 
-            // voornaamTxb
+            // tbVoornaam
             // 
-            this.voornaamTxb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.voornaamTxb.Location = new System.Drawing.Point(361, 75);
-            this.voornaamTxb.Name = "voornaamTxb";
-            this.voornaamTxb.Size = new System.Drawing.Size(100, 22);
-            this.voornaamTxb.TabIndex = 21;
-            this.voornaamTxb.Visible = false;
+            this.tbVoornaam.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbVoornaam.Location = new System.Drawing.Point(361, 75);
+            this.tbVoornaam.Name = "tbVoornaam";
+            this.tbVoornaam.Size = new System.Drawing.Size(100, 22);
+            this.tbVoornaam.TabIndex = 21;
+            this.tbVoornaam.Visible = false;
+            this.tbVoornaam.TextChanged += new System.EventHandler(this.voornaamTxb_TextChanged);
             // 
-            // achternaamTxb
+            // tbAchternaam
             // 
-            this.achternaamTxb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.achternaamTxb.Location = new System.Drawing.Point(361, 106);
-            this.achternaamTxb.Name = "achternaamTxb";
-            this.achternaamTxb.Size = new System.Drawing.Size(100, 22);
-            this.achternaamTxb.TabIndex = 22;
-            this.achternaamTxb.Visible = false;
+            this.tbAchternaam.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAchternaam.Location = new System.Drawing.Point(361, 106);
+            this.tbAchternaam.Name = "tbAchternaam";
+            this.tbAchternaam.Size = new System.Drawing.Size(100, 22);
+            this.tbAchternaam.TabIndex = 22;
+            this.tbAchternaam.Visible = false;
+            this.tbAchternaam.TextChanged += new System.EventHandler(this.achternaamTxb_TextChanged);
             // 
-            // bedrijfTxb
+            // tbBedrijf
             // 
-            this.bedrijfTxb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bedrijfTxb.Location = new System.Drawing.Point(361, 139);
-            this.bedrijfTxb.Name = "bedrijfTxb";
-            this.bedrijfTxb.Size = new System.Drawing.Size(100, 22);
-            this.bedrijfTxb.TabIndex = 23;
-            this.bedrijfTxb.Visible = false;
+            this.tbBedrijf.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbBedrijf.Location = new System.Drawing.Point(361, 139);
+            this.tbBedrijf.Name = "tbBedrijf";
+            this.tbBedrijf.Size = new System.Drawing.Size(100, 22);
+            this.tbBedrijf.TabIndex = 23;
+            this.tbBedrijf.Visible = false;
+            this.tbBedrijf.TextChanged += new System.EventHandler(this.bedrijfTxb_TextChanged);
             // 
-            // locatieTxb
+            // tbLocatie
             // 
-            this.locatieTxb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.locatieTxb.Location = new System.Drawing.Point(361, 174);
-            this.locatieTxb.Name = "locatieTxb";
-            this.locatieTxb.Size = new System.Drawing.Size(100, 22);
-            this.locatieTxb.TabIndex = 24;
-            this.locatieTxb.Visible = false;
+            this.tbLocatie.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLocatie.Location = new System.Drawing.Point(361, 174);
+            this.tbLocatie.Name = "tbLocatie";
+            this.tbLocatie.Size = new System.Drawing.Size(100, 22);
+            this.tbLocatie.TabIndex = 24;
+            this.tbLocatie.Visible = false;
+            this.tbLocatie.TextChanged += new System.EventHandler(this.locatieTxb_TextChanged);
             // 
-            // functieTxb
+            // tbFunctie
             // 
-            this.functieTxb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.functieTxb.Location = new System.Drawing.Point(361, 209);
-            this.functieTxb.Name = "functieTxb";
-            this.functieTxb.Size = new System.Drawing.Size(100, 22);
-            this.functieTxb.TabIndex = 25;
-            this.functieTxb.Visible = false;
+            this.tbFunctie.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbFunctie.Location = new System.Drawing.Point(361, 209);
+            this.tbFunctie.Name = "tbFunctie";
+            this.tbFunctie.Size = new System.Drawing.Size(100, 22);
+            this.tbFunctie.TabIndex = 25;
+            this.tbFunctie.Visible = false;
+            this.tbFunctie.TextChanged += new System.EventHandler(this.functieTxb_TextChanged);
             // 
-            // kwaliteitTxb
+            // tbKwaliteit
             // 
-            this.kwaliteitTxb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kwaliteitTxb.Location = new System.Drawing.Point(361, 243);
-            this.kwaliteitTxb.Name = "kwaliteitTxb";
-            this.kwaliteitTxb.Size = new System.Drawing.Size(100, 22);
-            this.kwaliteitTxb.TabIndex = 26;
-            this.kwaliteitTxb.Visible = false;
+            this.tbKwaliteit.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbKwaliteit.Location = new System.Drawing.Point(361, 243);
+            this.tbKwaliteit.Name = "tbKwaliteit";
+            this.tbKwaliteit.Size = new System.Drawing.Size(100, 22);
+            this.tbKwaliteit.TabIndex = 26;
+            this.tbKwaliteit.Visible = false;
+            this.tbKwaliteit.TextChanged += new System.EventHandler(this.kwaliteitTxb_TextChanged);
             // 
             // btnOpslaan
             // 
@@ -482,12 +488,12 @@
             this.Controls.Add(this.cbPriveAN);
             this.Controls.Add(this.cbPriveVN);
             this.Controls.Add(this.btnAnnuleer);
-            this.Controls.Add(this.kwaliteitTxb);
-            this.Controls.Add(this.functieTxb);
-            this.Controls.Add(this.locatieTxb);
-            this.Controls.Add(this.bedrijfTxb);
-            this.Controls.Add(this.achternaamTxb);
-            this.Controls.Add(this.voornaamTxb);
+            this.Controls.Add(this.tbKwaliteit);
+            this.Controls.Add(this.tbFunctie);
+            this.Controls.Add(this.tbLocatie);
+            this.Controls.Add(this.tbBedrijf);
+            this.Controls.Add(this.tbAchternaam);
+            this.Controls.Add(this.tbVoornaam);
             this.Controls.Add(this.btnBewerk);
             this.Controls.Add(this.btnPrive);
             this.Controls.Add(this.pbHome);
@@ -544,12 +550,12 @@
         private System.Windows.Forms.PictureBox pbHome;
         private System.Windows.Forms.Label lblGebruiker;
         private System.Windows.Forms.PictureBox pbHeader;
-        private System.Windows.Forms.TextBox voornaamTxb;
-        private System.Windows.Forms.TextBox achternaamTxb;
-        private System.Windows.Forms.TextBox bedrijfTxb;
-        private System.Windows.Forms.TextBox locatieTxb;
-        private System.Windows.Forms.TextBox functieTxb;
-        private System.Windows.Forms.TextBox kwaliteitTxb;
+        private System.Windows.Forms.TextBox tbVoornaam;
+        private System.Windows.Forms.TextBox tbAchternaam;
+        private System.Windows.Forms.TextBox tbBedrijf;
+        private System.Windows.Forms.TextBox tbLocatie;
+        private System.Windows.Forms.TextBox tbFunctie;
+        private System.Windows.Forms.TextBox tbKwaliteit;
         private System.Windows.Forms.Button btnAnnuleer;
         private System.Windows.Forms.Button btnOpslaan;
         private System.Windows.Forms.CheckBox cbPriveVN;

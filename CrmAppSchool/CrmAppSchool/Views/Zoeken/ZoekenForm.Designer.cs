@@ -148,6 +148,7 @@
             this.Controls.Add(this.zoekcriteriaTxb);
             this.Controls.Add(this.btnZoek);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "ZoekenForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Zoeken";
