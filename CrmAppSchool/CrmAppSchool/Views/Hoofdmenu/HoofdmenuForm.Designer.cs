@@ -70,6 +70,7 @@
             // 
             // btnHelp
             // 
+            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnHelp.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Help1;
             this.btnHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnHelp.FlatAppearance.BorderSize = 0;
