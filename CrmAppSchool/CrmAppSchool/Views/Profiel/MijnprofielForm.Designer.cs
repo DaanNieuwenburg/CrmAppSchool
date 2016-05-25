@@ -64,6 +64,7 @@
             this.cbPriveLO = new System.Windows.Forms.CheckBox();
             this.cbPriveFU = new System.Windows.Forms.CheckBox();
             this.cbPriveKW = new System.Windows.Forms.CheckBox();
+            this.btnBewerkLogin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
@@ -475,11 +476,27 @@
             this.cbPriveKW.UseVisualStyleBackColor = true;
             this.cbPriveKW.Visible = false;
             // 
+            // btnBewerkLogin
+            // 
+            this.btnBewerkLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnBewerkLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.btnBewerkLogin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBewerkLogin.BackgroundImage")));
+            this.btnBewerkLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBewerkLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBewerkLogin.FlatAppearance.BorderSize = 0;
+            this.btnBewerkLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBewerkLogin.Location = new System.Drawing.Point(136, 2);
+            this.btnBewerkLogin.Name = "btnBewerkLogin";
+            this.btnBewerkLogin.Size = new System.Drawing.Size(63, 49);
+            this.btnBewerkLogin.TabIndex = 35;
+            this.btnBewerkLogin.UseVisualStyleBackColor = false;
+            // 
             // MijnprofielForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 343);
+            this.Controls.Add(this.btnBewerkLogin);
             this.Controls.Add(this.btnOpslaan);
             this.Controls.Add(this.cbPriveKW);
             this.Controls.Add(this.cbPriveFU);
@@ -564,5 +581,6 @@
         private System.Windows.Forms.CheckBox cbPriveLO;
         private System.Windows.Forms.CheckBox cbPriveFU;
         private System.Windows.Forms.CheckBox cbPriveKW;
+        private System.Windows.Forms.Button btnBewerkLogin;
     }
 }
