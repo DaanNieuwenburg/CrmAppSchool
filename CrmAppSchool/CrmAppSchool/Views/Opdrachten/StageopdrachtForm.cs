@@ -24,7 +24,7 @@ namespace CrmAppSchool.Views.Opdrachten
 
         public void setListBox()
         {
-            List<Stageopdracht> opdrachten = new List<Stageopdracht>();
+            List<Stageopdracht> opdrachten = soc.getOpdrachten();
             foreach(Stageopdracht opdracht in opdrachten)
             {
                 lbStage.Items.Add(opdracht);

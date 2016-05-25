@@ -13,7 +13,7 @@ namespace CrmAppSchool.Models
         public string Naam { get; set; }
         public string Omschrijving { get; set; }
 
-        public string toString()
+        public override string ToString()
         {
             string opdracht = Naam +","+ Omschrijving + "," + Status;
             return opdracht;
