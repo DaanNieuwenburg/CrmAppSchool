@@ -35,15 +35,16 @@ namespace CrmAppSchool.Views.Zoeken
             string zoekquery = Convert.ToString(zoekfilterCbx.SelectedItem);
             if (zoekcriteriaTxb.Text == "")
             {
-                errorLbl.Text = "Geef a.ub. een zoekcriteria op";
-                errorLbl.Visible = true;
+                //errorLbl.Text = "Geef a.ub. een zoekcriteria op";
+                MessageBox.Show("Geef a.u.b. een zoekcriteria op");
+                //errorLbl.Visible = true;
             }
             else if (Convert.ToString(zoekfilterCbx.SelectedItem) == "")
             {
-                errorLbl.Text = "Geef a.ub. een zoekfilter op";
-                errorLbl.Visible = true;
+                MessageBox.Show("Geef a.u.b. een zoekfilter op");
+                //errorLbl.Text = "Geef a.u.b. een zoekfilter op";
+                //errorLbl.Visible = true;
             }
-
             else
             {
                 ZoekController zoekController = new ZoekController();
