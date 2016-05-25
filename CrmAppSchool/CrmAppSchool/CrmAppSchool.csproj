@@ -60,6 +60,7 @@
     <Compile Include="Controllers\ZoekController.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Docent.cs" />
+    <Compile Include="Models\Persooncontact.cs" />
     <Compile Include="Models\Profiel.cs" />
     <Compile Include="Models\Gebruiker.cs" />
     <Compile Include="Models\Stageopdracht.cs" />

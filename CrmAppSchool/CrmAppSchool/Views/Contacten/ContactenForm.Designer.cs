@@ -40,17 +40,18 @@
             this.contactSoortCbx = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.bedrijfPnl = new System.Windows.Forms.Panel();
-            this.bedrijfsnaamTxb = new System.Windows.Forms.TextBox();
             this.bedrijfsnaamLbl = new System.Windows.Forms.Label();
+            this.bedrijfsnaamTxb = new System.Windows.Forms.TextBox();
             this.persoonPnl = new System.Windows.Forms.Panel();
+            this.voegPersoonToeBtn = new System.Windows.Forms.Button();
+            this.emailLbl = new System.Windows.Forms.Label();
+            this.emailTxb = new System.Windows.Forms.TextBox();
+            this.locatieLbl = new System.Windows.Forms.Label();
+            this.locatieTxb = new System.Windows.Forms.TextBox();
+            this.achternaamTxb = new System.Windows.Forms.TextBox();
+            this.achternaamLbl = new System.Windows.Forms.Label();
             this.voornaamLbl = new System.Windows.Forms.Label();
             this.voornaamTxb = new System.Windows.Forms.TextBox();
-            this.achternaamLbl = new System.Windows.Forms.Label();
-            this.achternaamTxb = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.locatieLbl = new System.Windows.Forms.Label();
-            this.emailTxb = new System.Windows.Forms.TextBox();
-            this.emailLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.bedrijfPnl.SuspendLayout();
@@ -202,13 +203,6 @@
             this.bedrijfPnl.TabIndex = 22;
             this.bedrijfPnl.Visible = false;
             // 
-            // bedrijfsnaamTxb
-            // 
-            this.bedrijfsnaamTxb.Location = new System.Drawing.Point(91, 46);
-            this.bedrijfsnaamTxb.Name = "bedrijfsnaamTxb";
-            this.bedrijfsnaamTxb.Size = new System.Drawing.Size(100, 20);
-            this.bedrijfsnaamTxb.TabIndex = 0;
-            // 
             // bedrijfsnaamLbl
             // 
             this.bedrijfsnaamLbl.AutoSize = true;
@@ -218,22 +212,88 @@
             this.bedrijfsnaamLbl.TabIndex = 1;
             this.bedrijfsnaamLbl.Text = "Bedrijfsnaam:";
             // 
+            // bedrijfsnaamTxb
+            // 
+            this.bedrijfsnaamTxb.Location = new System.Drawing.Point(91, 46);
+            this.bedrijfsnaamTxb.Name = "bedrijfsnaamTxb";
+            this.bedrijfsnaamTxb.Size = new System.Drawing.Size(100, 20);
+            this.bedrijfsnaamTxb.TabIndex = 0;
+            // 
             // persoonPnl
             // 
             this.persoonPnl.BackColor = System.Drawing.SystemColors.Window;
+            this.persoonPnl.Controls.Add(this.voegPersoonToeBtn);
             this.persoonPnl.Controls.Add(this.emailLbl);
             this.persoonPnl.Controls.Add(this.emailTxb);
             this.persoonPnl.Controls.Add(this.locatieLbl);
-            this.persoonPnl.Controls.Add(this.textBox1);
+            this.persoonPnl.Controls.Add(this.locatieTxb);
             this.persoonPnl.Controls.Add(this.achternaamTxb);
             this.persoonPnl.Controls.Add(this.achternaamLbl);
             this.persoonPnl.Controls.Add(this.voornaamLbl);
             this.persoonPnl.Controls.Add(this.voornaamTxb);
             this.persoonPnl.Location = new System.Drawing.Point(121, 145);
             this.persoonPnl.Name = "persoonPnl";
-            this.persoonPnl.Size = new System.Drawing.Size(200, 204);
+            this.persoonPnl.Size = new System.Drawing.Size(200, 292);
             this.persoonPnl.TabIndex = 23;
             this.persoonPnl.Visible = false;
+            // 
+            // voegPersoonToeBtn
+            // 
+            this.voegPersoonToeBtn.Location = new System.Drawing.Point(106, 266);
+            this.voegPersoonToeBtn.Name = "voegPersoonToeBtn";
+            this.voegPersoonToeBtn.Size = new System.Drawing.Size(75, 23);
+            this.voegPersoonToeBtn.TabIndex = 8;
+            this.voegPersoonToeBtn.Text = "Voeg toe";
+            this.voegPersoonToeBtn.UseVisualStyleBackColor = true;
+            this.voegPersoonToeBtn.Click += new System.EventHandler(this.voegPersoonToeBtn_Click);
+            // 
+            // emailLbl
+            // 
+            this.emailLbl.AutoSize = true;
+            this.emailLbl.Location = new System.Drawing.Point(15, 128);
+            this.emailLbl.Name = "emailLbl";
+            this.emailLbl.Size = new System.Drawing.Size(35, 13);
+            this.emailLbl.TabIndex = 7;
+            this.emailLbl.Text = "Email:";
+            // 
+            // emailTxb
+            // 
+            this.emailTxb.Location = new System.Drawing.Point(91, 125);
+            this.emailTxb.Name = "emailTxb";
+            this.emailTxb.Size = new System.Drawing.Size(100, 20);
+            this.emailTxb.TabIndex = 6;
+            // 
+            // locatieLbl
+            // 
+            this.locatieLbl.AutoSize = true;
+            this.locatieLbl.Location = new System.Drawing.Point(15, 102);
+            this.locatieLbl.Name = "locatieLbl";
+            this.locatieLbl.Size = new System.Drawing.Size(45, 13);
+            this.locatieLbl.TabIndex = 5;
+            this.locatieLbl.Text = "Locatie:";
+            // 
+            // locatieTxb
+            // 
+            this.locatieTxb.Location = new System.Drawing.Point(91, 99);
+            this.locatieTxb.Name = "locatieTxb";
+            this.locatieTxb.Size = new System.Drawing.Size(100, 20);
+            this.locatieTxb.TabIndex = 4;
+            // 
+            // achternaamTxb
+            // 
+            this.achternaamTxb.Location = new System.Drawing.Point(91, 73);
+            this.achternaamTxb.Name = "achternaamTxb";
+            this.achternaamTxb.Size = new System.Drawing.Size(100, 20);
+            this.achternaamTxb.TabIndex = 3;
+            // 
+            // achternaamLbl
+            // 
+            this.achternaamLbl.AutoSize = true;
+            this.achternaamLbl.Location = new System.Drawing.Point(15, 76);
+            this.achternaamLbl.Name = "achternaamLbl";
+            this.achternaamLbl.Size = new System.Drawing.Size(67, 13);
+            this.achternaamLbl.TabIndex = 2;
+            this.achternaamLbl.Text = "Achternaam:";
             // 
             // voornaamLbl
             // 
@@ -250,54 +310,6 @@
             this.voornaamTxb.Name = "voornaamTxb";
             this.voornaamTxb.Size = new System.Drawing.Size(100, 20);
             this.voornaamTxb.TabIndex = 0;
-            // 
-            // achternaamLbl
-            // 
-            this.achternaamLbl.AutoSize = true;
-            this.achternaamLbl.Location = new System.Drawing.Point(15, 76);
-            this.achternaamLbl.Name = "achternaamLbl";
-            this.achternaamLbl.Size = new System.Drawing.Size(67, 13);
-            this.achternaamLbl.TabIndex = 2;
-            this.achternaamLbl.Text = "Achternaam:";
-            // 
-            // achternaamTxb
-            // 
-            this.achternaamTxb.Location = new System.Drawing.Point(91, 73);
-            this.achternaamTxb.Name = "achternaamTxb";
-            this.achternaamTxb.Size = new System.Drawing.Size(100, 20);
-            this.achternaamTxb.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(91, 99);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
-            // 
-            // locatieLbl
-            // 
-            this.locatieLbl.AutoSize = true;
-            this.locatieLbl.Location = new System.Drawing.Point(15, 102);
-            this.locatieLbl.Name = "locatieLbl";
-            this.locatieLbl.Size = new System.Drawing.Size(45, 13);
-            this.locatieLbl.TabIndex = 5;
-            this.locatieLbl.Text = "Locatie:";
-            // 
-            // emailTxb
-            // 
-            this.emailTxb.Location = new System.Drawing.Point(91, 125);
-            this.emailTxb.Name = "emailTxb";
-            this.emailTxb.Size = new System.Drawing.Size(100, 20);
-            this.emailTxb.TabIndex = 6;
-            // 
-            // emailLbl
-            // 
-            this.emailLbl.AutoSize = true;
-            this.emailLbl.Location = new System.Drawing.Point(15, 128);
-            this.emailLbl.Name = "emailLbl";
-            this.emailLbl.Size = new System.Drawing.Size(35, 13);
-            this.emailLbl.TabIndex = 7;
-            this.emailLbl.Text = "Email:";
             // 
             // ContactenForm
             // 
@@ -352,8 +364,9 @@
         private System.Windows.Forms.Label emailLbl;
         private System.Windows.Forms.TextBox emailTxb;
         private System.Windows.Forms.Label locatieLbl;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox locatieTxb;
         private System.Windows.Forms.TextBox achternaamTxb;
         private System.Windows.Forms.Label achternaamLbl;
+        private System.Windows.Forms.Button voegPersoonToeBtn;
     }
 }

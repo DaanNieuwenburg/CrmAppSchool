@@ -1,5 +1,4 @@
-﻿using CrmAppSchool.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrmAppSchool.Controllers;
+using CrmAppSchool.Models;
 
 namespace CrmAppSchool.Views.Contacten
 {
@@ -89,6 +90,27 @@ namespace CrmAppSchool.Views.Contacten
                 bedrijfPnl.Visible = false;
                 persoonPnl.Visible = true;
             }
+        }
+
+        private void voegPersoonToeBtn_Click(object sender, EventArgs e)
+        {
+            Persooncontact persooncontact = new Persooncontact() {Voornaam = voornaamTxb.Text, Achternaam = achternaamTxb.Text, Locatie = locatieTxb.Text, Email = emailTxb.Text};
+            string contactSoort = Convert.ToString(contactSoortCbx);
+            switch(contactSoort)
+            {
+                case "Stagebegeleider":
+                    persooncontact.Isstagebegeleider = true;
+                    break;
+                case "Gastdocent":
+                    persooncontact.Isgastdocent = true;
+                    break;
+                case "Gastspreker":
+                    persooncontact.Isgastspreker = true;
+                    break;
+            }
+
+            ContactenController contactencontroller = new ContactenController();
+            contactencontroller.voegPersoonToe(persooncontact);
         }
     }
 }
