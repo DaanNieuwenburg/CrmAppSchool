@@ -64,5 +64,31 @@ namespace CrmAppSchool.Views.Contacten
         {
             tbSearch.Text = "";
         }
+
+        private void toonContactenInvoer(object sender, EventArgs e)
+        {
+            // Toont de textboxxes a.d.h.v. contactSoortCbx selectie
+            string invoerKeuze = Convert.ToString(contactSoortCbx.SelectedItem);
+            if(invoerKeuze == "Bedrijf")
+            {
+                persoonPnl.Visible = false;
+                bedrijfPnl.Visible = true;
+            }
+            else if(invoerKeuze == "Stagebegeleider")
+            {
+                bedrijfPnl.Visible = false;
+                persoonPnl.Visible = true;
+            }
+            else if(invoerKeuze == "Gastdocent")
+            {
+                bedrijfPnl.Visible = false;
+                persoonPnl.Visible = true;
+            }
+            else if(invoerKeuze == "Gastspreker")
+            {
+                bedrijfPnl.Visible = false;
+                persoonPnl.Visible = true;
+            }
+        }
     }
 }

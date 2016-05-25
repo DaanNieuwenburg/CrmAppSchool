@@ -37,8 +37,24 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.contactSoortCbx = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.bedrijfPnl = new System.Windows.Forms.Panel();
+            this.bedrijfsnaamTxb = new System.Windows.Forms.TextBox();
+            this.bedrijfsnaamLbl = new System.Windows.Forms.Label();
+            this.persoonPnl = new System.Windows.Forms.Panel();
+            this.voornaamLbl = new System.Windows.Forms.Label();
+            this.voornaamTxb = new System.Windows.Forms.TextBox();
+            this.achternaamLbl = new System.Windows.Forms.Label();
+            this.achternaamTxb = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.locatieLbl = new System.Windows.Forms.Label();
+            this.emailTxb = new System.Windows.Forms.TextBox();
+            this.emailLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
+            this.bedrijfPnl.SuspendLayout();
+            this.persoonPnl.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGebruiker
@@ -145,16 +161,153 @@
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.Location = new System.Drawing.Point(0, 50);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(596, 276);
+            this.listView1.Size = new System.Drawing.Size(596, 434);
             this.listView1.TabIndex = 19;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
+            // 
+            // contactSoortCbx
+            // 
+            this.contactSoortCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.contactSoortCbx.FormattingEnabled = true;
+            this.contactSoortCbx.Items.AddRange(new object[] {
+            "Bedrijf",
+            "Stagebegeleider",
+            "Gastdocent",
+            "Gastspreker"});
+            this.contactSoortCbx.Location = new System.Drawing.Point(121, 95);
+            this.contactSoortCbx.Name = "contactSoortCbx";
+            this.contactSoortCbx.Size = new System.Drawing.Size(121, 21);
+            this.contactSoortCbx.TabIndex = 20;
+            this.contactSoortCbx.SelectedValueChanged += new System.EventHandler(this.toonContactenInvoer);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(118, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Selecteer het soort contact";
+            // 
+            // bedrijfPnl
+            // 
+            this.bedrijfPnl.BackColor = System.Drawing.SystemColors.Window;
+            this.bedrijfPnl.Controls.Add(this.bedrijfsnaamLbl);
+            this.bedrijfPnl.Controls.Add(this.bedrijfsnaamTxb);
+            this.bedrijfPnl.Location = new System.Drawing.Point(121, 145);
+            this.bedrijfPnl.Name = "bedrijfPnl";
+            this.bedrijfPnl.Size = new System.Drawing.Size(200, 105);
+            this.bedrijfPnl.TabIndex = 22;
+            this.bedrijfPnl.Visible = false;
+            // 
+            // bedrijfsnaamTxb
+            // 
+            this.bedrijfsnaamTxb.Location = new System.Drawing.Point(91, 46);
+            this.bedrijfsnaamTxb.Name = "bedrijfsnaamTxb";
+            this.bedrijfsnaamTxb.Size = new System.Drawing.Size(100, 20);
+            this.bedrijfsnaamTxb.TabIndex = 0;
+            // 
+            // bedrijfsnaamLbl
+            // 
+            this.bedrijfsnaamLbl.AutoSize = true;
+            this.bedrijfsnaamLbl.Location = new System.Drawing.Point(15, 49);
+            this.bedrijfsnaamLbl.Name = "bedrijfsnaamLbl";
+            this.bedrijfsnaamLbl.Size = new System.Drawing.Size(70, 13);
+            this.bedrijfsnaamLbl.TabIndex = 1;
+            this.bedrijfsnaamLbl.Text = "Bedrijfsnaam:";
+            // 
+            // persoonPnl
+            // 
+            this.persoonPnl.BackColor = System.Drawing.SystemColors.Window;
+            this.persoonPnl.Controls.Add(this.emailLbl);
+            this.persoonPnl.Controls.Add(this.emailTxb);
+            this.persoonPnl.Controls.Add(this.locatieLbl);
+            this.persoonPnl.Controls.Add(this.textBox1);
+            this.persoonPnl.Controls.Add(this.achternaamTxb);
+            this.persoonPnl.Controls.Add(this.achternaamLbl);
+            this.persoonPnl.Controls.Add(this.voornaamLbl);
+            this.persoonPnl.Controls.Add(this.voornaamTxb);
+            this.persoonPnl.Location = new System.Drawing.Point(121, 145);
+            this.persoonPnl.Name = "persoonPnl";
+            this.persoonPnl.Size = new System.Drawing.Size(200, 204);
+            this.persoonPnl.TabIndex = 23;
+            this.persoonPnl.Visible = false;
+            // 
+            // voornaamLbl
+            // 
+            this.voornaamLbl.AutoSize = true;
+            this.voornaamLbl.Location = new System.Drawing.Point(15, 49);
+            this.voornaamLbl.Name = "voornaamLbl";
+            this.voornaamLbl.Size = new System.Drawing.Size(58, 13);
+            this.voornaamLbl.TabIndex = 1;
+            this.voornaamLbl.Text = "Voornaam:";
+            // 
+            // voornaamTxb
+            // 
+            this.voornaamTxb.Location = new System.Drawing.Point(91, 46);
+            this.voornaamTxb.Name = "voornaamTxb";
+            this.voornaamTxb.Size = new System.Drawing.Size(100, 20);
+            this.voornaamTxb.TabIndex = 0;
+            // 
+            // achternaamLbl
+            // 
+            this.achternaamLbl.AutoSize = true;
+            this.achternaamLbl.Location = new System.Drawing.Point(15, 76);
+            this.achternaamLbl.Name = "achternaamLbl";
+            this.achternaamLbl.Size = new System.Drawing.Size(67, 13);
+            this.achternaamLbl.TabIndex = 2;
+            this.achternaamLbl.Text = "Achternaam:";
+            // 
+            // achternaamTxb
+            // 
+            this.achternaamTxb.Location = new System.Drawing.Point(91, 73);
+            this.achternaamTxb.Name = "achternaamTxb";
+            this.achternaamTxb.Size = new System.Drawing.Size(100, 20);
+            this.achternaamTxb.TabIndex = 3;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(91, 99);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 4;
+            // 
+            // locatieLbl
+            // 
+            this.locatieLbl.AutoSize = true;
+            this.locatieLbl.Location = new System.Drawing.Point(15, 102);
+            this.locatieLbl.Name = "locatieLbl";
+            this.locatieLbl.Size = new System.Drawing.Size(45, 13);
+            this.locatieLbl.TabIndex = 5;
+            this.locatieLbl.Text = "Locatie:";
+            // 
+            // emailTxb
+            // 
+            this.emailTxb.Location = new System.Drawing.Point(91, 125);
+            this.emailTxb.Name = "emailTxb";
+            this.emailTxb.Size = new System.Drawing.Size(100, 20);
+            this.emailTxb.TabIndex = 6;
+            // 
+            // emailLbl
+            // 
+            this.emailLbl.AutoSize = true;
+            this.emailLbl.Location = new System.Drawing.Point(15, 128);
+            this.emailLbl.Name = "emailLbl";
+            this.emailLbl.Size = new System.Drawing.Size(35, 13);
+            this.emailLbl.TabIndex = 7;
+            this.emailLbl.Text = "Email:";
             // 
             // ContactenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 326);
+            this.ClientSize = new System.Drawing.Size(596, 484);
+            this.Controls.Add(this.persoonPnl);
+            this.Controls.Add(this.bedrijfPnl);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.contactSoortCbx);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.tbSearch);
@@ -169,6 +322,10 @@
             this.Text = "ContactenForm";
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
+            this.bedrijfPnl.ResumeLayout(false);
+            this.bedrijfPnl.PerformLayout();
+            this.persoonPnl.ResumeLayout(false);
+            this.persoonPnl.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,5 +341,19 @@
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ComboBox contactSoortCbx;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel bedrijfPnl;
+        private System.Windows.Forms.Label bedrijfsnaamLbl;
+        private System.Windows.Forms.TextBox bedrijfsnaamTxb;
+        private System.Windows.Forms.Panel persoonPnl;
+        private System.Windows.Forms.Label voornaamLbl;
+        private System.Windows.Forms.TextBox voornaamTxb;
+        private System.Windows.Forms.Label emailLbl;
+        private System.Windows.Forms.TextBox emailTxb;
+        private System.Windows.Forms.Label locatieLbl;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox achternaamTxb;
+        private System.Windows.Forms.Label achternaamLbl;
     }
 }
