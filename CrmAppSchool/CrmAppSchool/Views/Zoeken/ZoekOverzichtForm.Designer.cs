@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZoekOverzichtForm));
             this.resultatenLvw = new System.Windows.Forms.ListView();
             this.voornaamHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.achternaamHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -55,13 +56,13 @@
             this.bedrijfHeader,
             this.functieHeader,
             this.kwaliteitHeader});
+            this.resultatenLvw.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resultatenLvw.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultatenLvw.Location = new System.Drawing.Point(12, 65);
+            this.resultatenLvw.Location = new System.Drawing.Point(0, 50);
             this.resultatenLvw.Name = "resultatenLvw";
-            this.resultatenLvw.Size = new System.Drawing.Size(608, 352);
+            this.resultatenLvw.Size = new System.Drawing.Size(632, 379);
             this.resultatenLvw.TabIndex = 15;
             this.resultatenLvw.UseCompatibleStateImageBehavior = false;
-            this.resultatenLvw.View = System.Windows.Forms.View.Details;
             // 
             // voornaamHeader
             // 
@@ -138,13 +139,15 @@
             this.pbHome.Size = new System.Drawing.Size(61, 50);
             this.pbHome.TabIndex = 16;
             this.pbHome.TabStop = false;
+            this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
             // 
             // pbHeader
             // 
             this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.pbHeader.Location = new System.Drawing.Point(-10, -1);
+            this.pbHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pbHeader.Location = new System.Drawing.Point(0, 0);
             this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(664, 50);
+            this.pbHeader.Size = new System.Drawing.Size(632, 50);
             this.pbHeader.TabIndex = 14;
             this.pbHeader.TabStop = false;
             // 
@@ -217,6 +220,7 @@
             this.Controls.Add(this.pbHome);
             this.Controls.Add(this.resultatenLvw);
             this.Controls.Add(this.pbHeader);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ZoekOverzichtForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gevonde resultaten";

@@ -65,6 +65,9 @@
             this.cbPriveFU = new System.Windows.Forms.CheckBox();
             this.cbPriveKW = new System.Windows.Forms.CheckBox();
             this.btnBewerkLogin = new System.Windows.Forms.Button();
+            this.lblBevestig = new System.Windows.Forms.Label();
+            this.tbWachtwoord = new System.Windows.Forms.TextBox();
+            this.tbBevestig = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
@@ -490,12 +493,45 @@
             this.btnBewerkLogin.Size = new System.Drawing.Size(63, 49);
             this.btnBewerkLogin.TabIndex = 35;
             this.btnBewerkLogin.UseVisualStyleBackColor = false;
+            this.btnBewerkLogin.Click += new System.EventHandler(this.btnBewerkLogin_Click);
+            // 
+            // lblBevestig
+            // 
+            this.lblBevestig.AutoSize = true;
+            this.lblBevestig.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBevestig.Location = new System.Drawing.Point(12, 137);
+            this.lblBevestig.Name = "lblBevestig";
+            this.lblBevestig.Size = new System.Drawing.Size(61, 16);
+            this.lblBevestig.TabIndex = 36;
+            this.lblBevestig.Text = "Bevestig:";
+            this.lblBevestig.Visible = false;
+            // 
+            // tbWachtwoord
+            // 
+            this.tbWachtwoord.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbWachtwoord.Location = new System.Drawing.Point(99, 104);
+            this.tbWachtwoord.Name = "tbWachtwoord";
+            this.tbWachtwoord.Size = new System.Drawing.Size(100, 22);
+            this.tbWachtwoord.TabIndex = 38;
+            this.tbWachtwoord.Visible = false;
+            // 
+            // tbBevestig
+            // 
+            this.tbBevestig.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbBevestig.Location = new System.Drawing.Point(99, 134);
+            this.tbBevestig.Name = "tbBevestig";
+            this.tbBevestig.Size = new System.Drawing.Size(100, 22);
+            this.tbBevestig.TabIndex = 39;
+            this.tbBevestig.Visible = false;
             // 
             // MijnprofielForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 343);
+            this.Controls.Add(this.tbBevestig);
+            this.Controls.Add(this.tbWachtwoord);
+            this.Controls.Add(this.lblBevestig);
             this.Controls.Add(this.btnBewerkLogin);
             this.Controls.Add(this.btnOpslaan);
             this.Controls.Add(this.cbPriveKW);
@@ -582,5 +618,8 @@
         private System.Windows.Forms.CheckBox cbPriveFU;
         private System.Windows.Forms.CheckBox cbPriveKW;
         private System.Windows.Forms.Button btnBewerkLogin;
+        private System.Windows.Forms.Label lblBevestig;
+        private System.Windows.Forms.TextBox tbWachtwoord;
+        private System.Windows.Forms.TextBox tbBevestig;
     }
 }

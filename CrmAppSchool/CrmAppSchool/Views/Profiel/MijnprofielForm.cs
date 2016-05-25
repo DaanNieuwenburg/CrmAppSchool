@@ -18,6 +18,7 @@ namespace CrmAppSchool.Views.Profiel
         public bool[] Bewerkt { get; private set; }
         public bool ShowMenu { get; set; }
         private bool EditMode { get; set; }
+        private bool EditWachtwoordMode { get; set; }
         private bool PriveMode { get; set; }
 
         public MijnprofielForm(Gebruiker _gebruiker, Models.Profiel _profiel)
@@ -35,6 +36,7 @@ namespace CrmAppSchool.Views.Profiel
             ShowMenu = false;
             EditMode = false;
             PriveMode = false;
+            EditWachtwoordMode = false;
         }
 
         private void pbHome_Click(object sender, EventArgs e)
@@ -237,6 +239,25 @@ namespace CrmAppSchool.Views.Profiel
         private void kwaliteitTxb_TextChanged(object sender, EventArgs e)
         {
             Bewerkt[5] = true;
+        }
+
+        private void btnBewerkLogin_Click(object sender, EventArgs e)
+        {
+            if(EditWachtwoordMode == false)
+            {
+                tbWachtwoord.Visible = true;
+                tbBevestig.Visible = true;
+                lblBevestig.Visible = true;
+                EditWachtwoordMode = true;
+            }
+            else if(EditWachtwoordMode == true && tbWachtwoord.Text == tbBevestig.Text)
+            {
+                tbWachtwoord.Visible = false;
+                lblBevestig.Visible = false;
+                tbBevestig.Visible = false;
+                EditWachtwoordMode = false;
+                // Set nieuw wachtwoord
+            }
         }
     }
 }

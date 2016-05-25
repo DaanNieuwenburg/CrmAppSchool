@@ -29,6 +29,7 @@ namespace CrmAppSchool.Views.Login
             {
                 errortitelLbl.Visible = true;
                 errordescLbl.Visible = true;
+                wachtwoordTxb.Text = "";
             }
             else
             {
