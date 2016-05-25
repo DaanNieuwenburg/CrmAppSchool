@@ -329,6 +329,7 @@
             this.Controls.Add(this.voegGebruikerToeBtn);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(856, 467);
             this.Name = "HoofdmenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hoofdmenu";
