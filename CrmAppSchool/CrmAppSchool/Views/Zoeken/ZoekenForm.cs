@@ -50,6 +50,7 @@ namespace CrmAppSchool.Views.Zoeken
                 ZoekController zoekController = new ZoekController();
                 List<Models.Profiel> resultaatLijst = zoekController.zoekMetFilter(zoekquery, zoekcriteriaTxb.Text);
                 ZoekOverzichtForm zoekOverzichtForm = new ZoekOverzichtForm(resultaatLijst);
+                this.Hide();
                 zoekOverzichtForm.ShowDialog();
             }
         }

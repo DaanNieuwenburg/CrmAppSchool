@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZoekOverzichtForm));
             this.resultatenLvw = new System.Windows.Forms.ListView();
             this.voornaamHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.achternaamHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -139,6 +140,7 @@
             this.pbHome.Size = new System.Drawing.Size(61, 50);
             this.pbHome.TabIndex = 16;
             this.pbHome.TabStop = false;
+            this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
             // 
             // pbHeader
             // 
@@ -219,6 +221,7 @@
             this.Controls.Add(this.pbHome);
             this.Controls.Add(this.resultatenLvw);
             this.Controls.Add(this.pbHeader);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ZoekOverzichtForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gevonde resultaten";

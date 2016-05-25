@@ -13,10 +13,12 @@ namespace CrmAppSchool.Views.Zoeken
 {
     public partial class ZoekOverzichtForm : Form
     {
+        public bool ShowMenu { get; set; }
         private bool Sorteermenu { get; set; }
         public ZoekOverzichtForm(List<Models.Profiel> resultaatLijst)
         {
             InitializeComponent();
+            ShowMenu = false;
 
             if (resultaatLijst != null && resultaatLijst.Count() > 0)
             {
@@ -78,6 +80,12 @@ namespace CrmAppSchool.Views.Zoeken
             cbSorteerVolgorde.Visible = false;
             Sorteermenu = false;
             btnCancel.Visible = false;
+        }
+
+        private void pbHome_Click(object sender, EventArgs e)
+        {
+            ShowMenu = true;
+            this.Hide();
         }
     }
 }
