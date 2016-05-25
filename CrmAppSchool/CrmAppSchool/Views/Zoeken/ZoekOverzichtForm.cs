@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrmAppSchool.Models;
+using MaterialSkin.Controls;
 
 namespace CrmAppSchool.Views.Zoeken
 {
-    public partial class ZoekOverzichtForm : Form
+    public partial class ZoekOverzichtForm : Form //MaterialForm
     {
         public bool ShowMenu { get; set; }
         private bool Sorteermenu { get; set; }

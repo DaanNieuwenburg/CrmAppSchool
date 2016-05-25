@@ -63,7 +63,6 @@
             this.resultatenLvw.Size = new System.Drawing.Size(632, 379);
             this.resultatenLvw.TabIndex = 15;
             this.resultatenLvw.UseCompatibleStateImageBehavior = false;
-            this.resultatenLvw.View = System.Windows.Forms.View.Details;
             // 
             // voornaamHeader
             // 
