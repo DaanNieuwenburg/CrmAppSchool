@@ -22,7 +22,6 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(zoekParam);
                 MySqlDataReader lezer = command.ExecuteReader();
                 List<Profiel> resultatenLijst = new List<Profiel>();
-                Console.WriteLine("HOI " + query);
                 while(lezer.Read())
                 {
                     Profiel profiel = new Profiel();
@@ -45,27 +44,27 @@ namespace CrmAppSchool.Controllers
         {
             if(zoekquery == "Voornaam")
             {
-                return "SELECT * FROM profiel WHERE voornaam = @zoekParam";
+                return "SELECT * FROM profiel WHERE (voornaam LIKE '%' @zoekParam '%')";
             }
             else if(zoekquery == "Achternaam")
             {
-                return "SELECT * FROM profiel WHERE achternaam = @zoekParam";
+                return "SELECT * FROM profiel WHERE (achternaam LIKE '%' @zoekParam '%')";
             }
             else if(zoekquery == "Kwaliteit")
             {
-                return "SELECT * FROM profiel WHERE kwaliteit = @zoekParam";
+                return "SELECT * FROM profiel WHERE (kwaliteit LIKE '%' @zoekParam '%')";
             }
             else if (zoekquery == "Organisatie")
             {
-                return "SELECT * FROM profiel WHERE bedrijf = @zoekParam";
+                return "SELECT * FROM profiel WHERE (bedrijf LIKE '%' @zoekParam '%')";
             }
             else if (zoekquery == "Locatie")
             {
-                return "SELECT * FROM profiel WHERE locatie = @zoekParam";
+                return "SELECT * FROM profiel WHERE (locatie LIKE '%' @zoekParam '%')";
             }
             else if (zoekquery == "Functie")
             {
-                return "SELECT * FROM profiel WHERE functie = @zoekParam";
+                return "SELECT * FROM profiel WHERE (functie LIKE '%' @zoekParam '%')";
             }
             else
             {
