@@ -53,6 +53,7 @@ namespace CrmAppSchool.Views.Opdrachten
         {
             if (tbZoek.Text.Equals(""))
             {
+                lbStage.Items.Clear();
                 setListBox();
             }
             else
