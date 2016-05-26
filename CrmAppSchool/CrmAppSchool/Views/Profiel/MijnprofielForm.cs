@@ -83,6 +83,13 @@ namespace CrmAppSchool.Views.Profiel
                 tbFunctie.Visible = true;
                 tbKwaliteit.Visible = true;
 
+                lblVoornaamWaarde.Visible = false;
+                lblAchternaamWaarde.Visible = false;
+                lblBedrijfWaarde.Visible = false;
+                lblKwaliteitWaarde.Visible = false;
+                lblLocatieWaarde.Visible = false;
+                lblFunctieWaarde.Visible = false;
+
 
             }
             else
@@ -91,12 +98,20 @@ namespace CrmAppSchool.Views.Profiel
                 btnPrive.Visible = true;
                 btnOpslaan.Visible = false;
                 btnAnnuleer.Visible = false;
+
                 tbVoornaam.Visible = false;
                 tbAchternaam.Visible = false;
                 tbBedrijf.Visible = false;
                 tbLocatie.Visible = false;
                 tbFunctie.Visible = false;
                 tbKwaliteit.Visible = false;
+
+                lblVoornaamWaarde.Visible = true;
+                lblAchternaamWaarde.Visible = true;
+                lblBedrijfWaarde.Visible = true;
+                lblKwaliteitWaarde.Visible = true;
+                lblLocatieWaarde.Visible = true;
+                lblFunctieWaarde.Visible = true;
             }
         }
 
@@ -145,6 +160,8 @@ namespace CrmAppSchool.Views.Profiel
                         lblKwaliteitWaarde.Text = tbKwaliteit.Text;
                     }
                 }
+                Controllers.ProfielController _profiel = new Controllers.ProfielController();
+                _profiel.Update_Profiel(gebruiker, lblVoornaamWaarde.Text, lblAchternaamWaarde.Text, lblBedrijfWaarde.Text, lblLocatieWaarde.Text, lblFunctieWaarde.Text, lblKwaliteitWaarde.Text);
                 if (EditMode == true)
                 {
                     EditMode = false;
@@ -249,6 +266,10 @@ namespace CrmAppSchool.Views.Profiel
                 tbBevestig.Visible = true;
                 lblBevestig.Visible = true;
                 EditWachtwoordMode = true;
+            }
+            else if(tbWachtwoord.Text != tbBevestig.Text)
+            {
+                MessageBox.Show("De wachtwoorden komen niet overeen", "Waarschuwing");
             }
             else if(EditWachtwoordMode == true && tbWachtwoord.Text == tbBevestig.Text)
             {

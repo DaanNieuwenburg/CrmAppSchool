@@ -73,6 +73,7 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Close();
             }
+
         }
     }
 }
