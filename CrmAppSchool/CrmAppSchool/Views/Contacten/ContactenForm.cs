@@ -15,6 +15,7 @@ namespace CrmAppSchool.Views.Contacten
     public partial class ContactenForm : Form
     {
         public bool ShowMenu { get; set; }
+        private bool ShowSave { get; set; }
         private bool ShowZoeken { get; set; }
         private Gebruiker gebruiker { get; set; }
         public ContactenForm(Gebruiker _gebruiker)
@@ -22,6 +23,7 @@ namespace CrmAppSchool.Views.Contacten
             InitializeComponent();
             ShowMenu = false;
             ShowZoeken = false;
+            ShowSave = false;
             gebruiker = _gebruiker;
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
         }
@@ -111,6 +113,17 @@ namespace CrmAppSchool.Views.Contacten
 
             ContactenController contactencontroller = new ContactenController();
             contactencontroller.voegPersoonToe(persooncontact);
+        }
+
+        private void btnVoegtoe_Click(object sender, EventArgs e)
+        {
+            ShowSave = true;
+            if (ShowSave == true)
+            {
+                btnVoegtoe.Visible = false;
+                btnAnnuleer.Visible = true;
+                btnOpslaan.Visible = true;
+            }
         }
     }
 }

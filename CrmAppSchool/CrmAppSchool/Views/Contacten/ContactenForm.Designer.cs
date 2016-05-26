@@ -52,6 +52,8 @@
             this.achternaamLbl = new System.Windows.Forms.Label();
             this.voornaamLbl = new System.Windows.Forms.Label();
             this.voornaamTxb = new System.Windows.Forms.TextBox();
+            this.btnOpslaan = new System.Windows.Forms.Button();
+            this.btnAnnuleer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.bedrijfPnl.SuspendLayout();
@@ -101,6 +103,7 @@
             this.btnVoegtoe.Size = new System.Drawing.Size(59, 50);
             this.btnVoegtoe.TabIndex = 15;
             this.btnVoegtoe.UseVisualStyleBackColor = false;
+            this.btnVoegtoe.Click += new System.EventHandler(this.btnVoegtoe_Click);
             // 
             // pbHome
             // 
@@ -311,11 +314,45 @@
             this.voornaamTxb.Size = new System.Drawing.Size(100, 20);
             this.voornaamTxb.TabIndex = 0;
             // 
+            // btnOpslaan
+            // 
+            this.btnOpslaan.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnOpslaan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.btnOpslaan.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Opslaan2_Wit;
+            this.btnOpslaan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnOpslaan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpslaan.FlatAppearance.BorderSize = 0;
+            this.btnOpslaan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpslaan.Location = new System.Drawing.Point(335, 1);
+            this.btnOpslaan.Name = "btnOpslaan";
+            this.btnOpslaan.Size = new System.Drawing.Size(63, 49);
+            this.btnOpslaan.TabIndex = 30;
+            this.btnOpslaan.UseVisualStyleBackColor = false;
+            this.btnOpslaan.Visible = false;
+            // 
+            // btnAnnuleer
+            // 
+            this.btnAnnuleer.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnAnnuleer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.btnAnnuleer.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Annuleren_Wit;
+            this.btnAnnuleer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAnnuleer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnnuleer.FlatAppearance.BorderSize = 0;
+            this.btnAnnuleer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnnuleer.Location = new System.Drawing.Point(267, 0);
+            this.btnAnnuleer.Name = "btnAnnuleer";
+            this.btnAnnuleer.Size = new System.Drawing.Size(63, 49);
+            this.btnAnnuleer.TabIndex = 29;
+            this.btnAnnuleer.UseVisualStyleBackColor = false;
+            this.btnAnnuleer.Visible = false;
+            // 
             // ContactenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(596, 484);
+            this.Controls.Add(this.btnOpslaan);
+            this.Controls.Add(this.btnAnnuleer);
             this.Controls.Add(this.persoonPnl);
             this.Controls.Add(this.bedrijfPnl);
             this.Controls.Add(this.label1);
@@ -368,5 +405,7 @@
         private System.Windows.Forms.TextBox achternaamTxb;
         private System.Windows.Forms.Label achternaamLbl;
         private System.Windows.Forms.Button voegPersoonToeBtn;
+        private System.Windows.Forms.Button btnOpslaan;
+        private System.Windows.Forms.Button btnAnnuleer;
     }
 }
