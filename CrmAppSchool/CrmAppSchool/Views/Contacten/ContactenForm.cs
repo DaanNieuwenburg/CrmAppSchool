@@ -54,7 +54,7 @@ namespace CrmAppSchool.Views.Contacten
             ShowZoeken = false;
             btnVoegtoe.Visible = true;
             tbSearch.Visible = false;
-            btnCancel.Visible = false;  
+            btnCancel.Visible = false;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -72,52 +72,35 @@ namespace CrmAppSchool.Views.Contacten
         {
             // Toont de textboxxes a.d.h.v. contactSoortCbx selectie
             string invoerKeuze = Convert.ToString(contactSoortCbx.SelectedItem);
-            if(invoerKeuze == "Bedrijf")
+            if (invoerKeuze == "Bedrijf")
             {
                 persoonPnl.Visible = false;
+                pnOptioneel.Visible = false;
                 bedrijfPnl.Visible = true;
             }
-            else if(invoerKeuze == "Stagebegeleider")
+            else if (invoerKeuze == "Stagebegeleider")
             {
                 bedrijfPnl.Visible = false;
                 persoonPnl.Visible = true;
+                pnOptioneel.Visible = true;
             }
-            else if(invoerKeuze == "Gastdocent")
+            else if (invoerKeuze == "Gastdocent")
             {
                 bedrijfPnl.Visible = false;
+                pnOptioneel.Visible = true;
                 persoonPnl.Visible = true;
             }
-            else if(invoerKeuze == "Gastspreker")
+            else if (invoerKeuze == "Gastspreker")
             {
                 bedrijfPnl.Visible = false;
+                pnOptioneel.Visible = true;
                 persoonPnl.Visible = true;
             }
-        }
-
-        private void voegPersoonToeBtn_Click(object sender, EventArgs e)
-        {
-            Persooncontact persooncontact = new Persooncontact() {Voornaam = voornaamTxb.Text, Achternaam = achternaamTxb.Text, Locatie = locatieTxb.Text, Email = emailTxb.Text};
-            string contactSoort = Convert.ToString(contactSoortCbx);
-            switch(contactSoort)
-            {
-                case "Stagebegeleider":
-                    persooncontact.Isstagebegeleider = true;
-                    break;
-                case "Gastdocent":
-                    persooncontact.Isgastdocent = true;
-                    break;
-                case "Gastspreker":
-                    persooncontact.Isgastspreker = true;
-                    break;
-            }
-
-            ContactenController contactencontroller = new ContactenController();
-            contactencontroller.voegPersoonToe(persooncontact);
         }
 
         private void btnVoegtoe_Click(object sender, EventArgs e)
         {
-            
+
             if (ShowSave == false)
             {
                 lblSoort.Visible = true;
@@ -144,8 +127,29 @@ namespace CrmAppSchool.Views.Contacten
             btnOpslaan.Visible = false;
             contactSoortCbx.Visible = false;
             persoonPnl.Visible = false;
+            pnOptioneel.Visible = false;
             lblSoort.Visible = false;
             ShowSave = false;
+        }
+
+        private void btnOpslaan_Click(object sender, EventArgs e)
+        {
+            Persooncontact persooncontact = new Persooncontact() { Voornaam = voornaamTxb.Text, Achternaam = achternaamTxb.Text, Locatie = locatieTxb.Text, Email = emailTxb.Text };
+            string contactSoort = Convert.ToString(contactSoortCbx);
+            switch (contactSoort)
+            {
+                case "Stagebegeleider":
+                    persooncontact.Isstagebegeleider = true;
+                    break;
+                case "Gastdocent":
+                    persooncontact.Isgastdocent = true;
+                    break;
+                case "Gastspreker":
+                    persooncontact.Isgastspreker = true;
+                    break;
+            }
+            ContactenController contactencontroller = new ContactenController();
+            contactencontroller.voegPersoonToe(persooncontact);
         }
     }
 }

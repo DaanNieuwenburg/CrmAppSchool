@@ -20,7 +20,6 @@ namespace CrmAppSchool.Views.Login
 
         private void inlogBtn_Click(object sender, EventArgs e)
         {
-            
             string gebruikersnaam = gebruikersnaamTxb.Text;
             string wachtwoord = wachtwoordTxb.Text;
             LoginController logincontroller = new LoginController();

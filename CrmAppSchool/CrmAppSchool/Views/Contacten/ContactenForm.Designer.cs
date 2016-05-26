@@ -43,7 +43,7 @@
             this.bedrijfsnaamLbl = new System.Windows.Forms.Label();
             this.bedrijfsnaamTxb = new System.Windows.Forms.TextBox();
             this.persoonPnl = new System.Windows.Forms.Panel();
-            this.voegPersoonToeBtn = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.emailLbl = new System.Windows.Forms.Label();
             this.emailTxb = new System.Windows.Forms.TextBox();
             this.locatieLbl = new System.Windows.Forms.Label();
@@ -54,10 +54,20 @@
             this.voornaamTxb = new System.Windows.Forms.TextBox();
             this.btnOpslaan = new System.Windows.Forms.Button();
             this.btnAnnuleer = new System.Windows.Forms.Button();
+            this.pnOptioneel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.bedrijfPnl.SuspendLayout();
             this.persoonPnl.SuspendLayout();
+            this.pnOptioneel.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGebruiker
@@ -181,7 +191,7 @@
             "Stagebegeleider",
             "Gastdocent",
             "Gastspreker"});
-            this.contactSoortCbx.Location = new System.Drawing.Point(121, 95);
+            this.contactSoortCbx.Location = new System.Drawing.Point(39, 83);
             this.contactSoortCbx.Name = "contactSoortCbx";
             this.contactSoortCbx.Size = new System.Drawing.Size(121, 24);
             this.contactSoortCbx.TabIndex = 20;
@@ -193,7 +203,7 @@
             this.lblSoort.AutoSize = true;
             this.lblSoort.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblSoort.Font = new System.Drawing.Font("Arial", 9F);
-            this.lblSoort.Location = new System.Drawing.Point(118, 79);
+            this.lblSoort.Location = new System.Drawing.Point(36, 63);
             this.lblSoort.Name = "lblSoort";
             this.lblSoort.Size = new System.Drawing.Size(152, 15);
             this.lblSoort.TabIndex = 21;
@@ -205,7 +215,7 @@
             this.bedrijfPnl.BackColor = System.Drawing.SystemColors.Window;
             this.bedrijfPnl.Controls.Add(this.bedrijfsnaamLbl);
             this.bedrijfPnl.Controls.Add(this.bedrijfsnaamTxb);
-            this.bedrijfPnl.Location = new System.Drawing.Point(121, 145);
+            this.bedrijfPnl.Location = new System.Drawing.Point(75, 145);
             this.bedrijfPnl.Name = "bedrijfPnl";
             this.bedrijfPnl.Size = new System.Drawing.Size(200, 105);
             this.bedrijfPnl.TabIndex = 22;
@@ -230,7 +240,7 @@
             // persoonPnl
             // 
             this.persoonPnl.BackColor = System.Drawing.SystemColors.Window;
-            this.persoonPnl.Controls.Add(this.voegPersoonToeBtn);
+            this.persoonPnl.Controls.Add(this.label5);
             this.persoonPnl.Controls.Add(this.emailLbl);
             this.persoonPnl.Controls.Add(this.emailTxb);
             this.persoonPnl.Controls.Add(this.locatieLbl);
@@ -239,56 +249,55 @@
             this.persoonPnl.Controls.Add(this.achternaamLbl);
             this.persoonPnl.Controls.Add(this.voornaamLbl);
             this.persoonPnl.Controls.Add(this.voornaamTxb);
-            this.persoonPnl.Location = new System.Drawing.Point(121, 145);
+            this.persoonPnl.Location = new System.Drawing.Point(39, 123);
             this.persoonPnl.Name = "persoonPnl";
             this.persoonPnl.Size = new System.Drawing.Size(273, 292);
             this.persoonPnl.TabIndex = 23;
             this.persoonPnl.Visible = false;
             // 
-            // voegPersoonToeBtn
+            // label5
             // 
-            this.voegPersoonToeBtn.Location = new System.Drawing.Point(106, 266);
-            this.voegPersoonToeBtn.Name = "voegPersoonToeBtn";
-            this.voegPersoonToeBtn.Size = new System.Drawing.Size(75, 23);
-            this.voegPersoonToeBtn.TabIndex = 8;
-            this.voegPersoonToeBtn.Text = "Voeg toe";
-            this.voegPersoonToeBtn.UseVisualStyleBackColor = true;
-            this.voegPersoonToeBtn.Click += new System.EventHandler(this.voegPersoonToeBtn_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(15, 185);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "* Verplichte velden";
             // 
             // emailLbl
             // 
             this.emailLbl.AutoSize = true;
             this.emailLbl.Font = new System.Drawing.Font("Arial", 10F);
-            this.emailLbl.Location = new System.Drawing.Point(15, 128);
+            this.emailLbl.Location = new System.Drawing.Point(3, 128);
             this.emailLbl.Name = "emailLbl";
-            this.emailLbl.Size = new System.Drawing.Size(46, 16);
+            this.emailLbl.Size = new System.Drawing.Size(55, 16);
             this.emailLbl.TabIndex = 7;
-            this.emailLbl.Text = "Email:";
+            this.emailLbl.Text = "* Email:";
             // 
             // emailTxb
             // 
             this.emailTxb.Font = new System.Drawing.Font("Arial", 10F);
             this.emailTxb.Location = new System.Drawing.Point(106, 125);
             this.emailTxb.Name = "emailTxb";
-            this.emailTxb.Size = new System.Drawing.Size(100, 23);
+            this.emailTxb.Size = new System.Drawing.Size(149, 23);
             this.emailTxb.TabIndex = 6;
             // 
             // locatieLbl
             // 
             this.locatieLbl.AutoSize = true;
             this.locatieLbl.Font = new System.Drawing.Font("Arial", 10F);
-            this.locatieLbl.Location = new System.Drawing.Point(15, 102);
+            this.locatieLbl.Location = new System.Drawing.Point(3, 102);
             this.locatieLbl.Name = "locatieLbl";
-            this.locatieLbl.Size = new System.Drawing.Size(58, 16);
+            this.locatieLbl.Size = new System.Drawing.Size(67, 16);
             this.locatieLbl.TabIndex = 5;
-            this.locatieLbl.Text = "Locatie:";
+            this.locatieLbl.Text = "* Locatie:";
             // 
             // locatieTxb
             // 
             this.locatieTxb.Font = new System.Drawing.Font("Arial", 10F);
             this.locatieTxb.Location = new System.Drawing.Point(106, 99);
             this.locatieTxb.Name = "locatieTxb";
-            this.locatieTxb.Size = new System.Drawing.Size(100, 23);
+            this.locatieTxb.Size = new System.Drawing.Size(149, 23);
             this.locatieTxb.TabIndex = 4;
             // 
             // achternaamTxb
@@ -296,35 +305,35 @@
             this.achternaamTxb.Font = new System.Drawing.Font("Arial", 10F);
             this.achternaamTxb.Location = new System.Drawing.Point(106, 73);
             this.achternaamTxb.Name = "achternaamTxb";
-            this.achternaamTxb.Size = new System.Drawing.Size(100, 23);
+            this.achternaamTxb.Size = new System.Drawing.Size(149, 23);
             this.achternaamTxb.TabIndex = 3;
             // 
             // achternaamLbl
             // 
             this.achternaamLbl.AutoSize = true;
             this.achternaamLbl.Font = new System.Drawing.Font("Arial", 10F);
-            this.achternaamLbl.Location = new System.Drawing.Point(15, 76);
+            this.achternaamLbl.Location = new System.Drawing.Point(3, 76);
             this.achternaamLbl.Name = "achternaamLbl";
-            this.achternaamLbl.Size = new System.Drawing.Size(88, 16);
+            this.achternaamLbl.Size = new System.Drawing.Size(96, 16);
             this.achternaamLbl.TabIndex = 2;
-            this.achternaamLbl.Text = "Achternaam:";
+            this.achternaamLbl.Text = "* Achternaam:";
             // 
             // voornaamLbl
             // 
             this.voornaamLbl.AutoSize = true;
             this.voornaamLbl.Font = new System.Drawing.Font("Arial", 10F);
-            this.voornaamLbl.Location = new System.Drawing.Point(15, 49);
+            this.voornaamLbl.Location = new System.Drawing.Point(3, 49);
             this.voornaamLbl.Name = "voornaamLbl";
-            this.voornaamLbl.Size = new System.Drawing.Size(76, 16);
+            this.voornaamLbl.Size = new System.Drawing.Size(85, 16);
             this.voornaamLbl.TabIndex = 1;
-            this.voornaamLbl.Text = "Voornaam:";
+            this.voornaamLbl.Text = "* Voornaam:";
             // 
             // voornaamTxb
             // 
             this.voornaamTxb.Font = new System.Drawing.Font("Arial", 10F);
             this.voornaamTxb.Location = new System.Drawing.Point(106, 46);
             this.voornaamTxb.Name = "voornaamTxb";
-            this.voornaamTxb.Size = new System.Drawing.Size(100, 23);
+            this.voornaamTxb.Size = new System.Drawing.Size(149, 23);
             this.voornaamTxb.TabIndex = 0;
             // 
             // btnOpslaan
@@ -342,6 +351,7 @@
             this.btnOpslaan.TabIndex = 30;
             this.btnOpslaan.UseVisualStyleBackColor = false;
             this.btnOpslaan.Visible = false;
+            this.btnOpslaan.Click += new System.EventHandler(this.btnOpslaan_Click);
             // 
             // btnAnnuleer
             // 
@@ -360,11 +370,101 @@
             this.btnAnnuleer.Visible = false;
             this.btnAnnuleer.Click += new System.EventHandler(this.btnAnnuleer_Click);
             // 
+            // pnOptioneel
+            // 
+            this.pnOptioneel.BackColor = System.Drawing.SystemColors.Window;
+            this.pnOptioneel.Controls.Add(this.label1);
+            this.pnOptioneel.Controls.Add(this.textBox1);
+            this.pnOptioneel.Controls.Add(this.label2);
+            this.pnOptioneel.Controls.Add(this.textBox2);
+            this.pnOptioneel.Controls.Add(this.textBox3);
+            this.pnOptioneel.Controls.Add(this.label3);
+            this.pnOptioneel.Controls.Add(this.label4);
+            this.pnOptioneel.Controls.Add(this.textBox4);
+            this.pnOptioneel.Location = new System.Drawing.Point(311, 123);
+            this.pnOptioneel.Name = "pnOptioneel";
+            this.pnOptioneel.Size = new System.Drawing.Size(273, 292);
+            this.pnOptioneel.TabIndex = 24;
+            this.pnOptioneel.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 10F);
+            this.label1.Location = new System.Drawing.Point(15, 128);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 16);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Privé mail:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Arial", 10F);
+            this.textBox1.Location = new System.Drawing.Point(106, 125);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(152, 23);
+            this.textBox1.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 10F);
+            this.label2.Location = new System.Drawing.Point(15, 102);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 16);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Functie:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Arial", 10F);
+            this.textBox2.Location = new System.Drawing.Point(106, 99);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(152, 23);
+            this.textBox2.TabIndex = 4;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Arial", 10F);
+            this.textBox3.Location = new System.Drawing.Point(106, 73);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(152, 23);
+            this.textBox3.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 10F);
+            this.label3.Location = new System.Drawing.Point(15, 76);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Bedrijf:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 10F);
+            this.label4.Location = new System.Drawing.Point(15, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 16);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Mobiel:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Arial", 10F);
+            this.textBox4.Location = new System.Drawing.Point(106, 46);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(152, 23);
+            this.textBox4.TabIndex = 0;
+            // 
             // ContactenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(596, 484);
+            this.Controls.Add(this.pnOptioneel);
             this.Controls.Add(this.btnOpslaan);
             this.Controls.Add(this.btnAnnuleer);
             this.Controls.Add(this.persoonPnl);
@@ -389,6 +489,8 @@
             this.bedrijfPnl.PerformLayout();
             this.persoonPnl.ResumeLayout(false);
             this.persoonPnl.PerformLayout();
+            this.pnOptioneel.ResumeLayout(false);
+            this.pnOptioneel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,8 +520,17 @@
         private System.Windows.Forms.TextBox locatieTxb;
         private System.Windows.Forms.TextBox achternaamTxb;
         private System.Windows.Forms.Label achternaamLbl;
-        private System.Windows.Forms.Button voegPersoonToeBtn;
         private System.Windows.Forms.Button btnOpslaan;
         private System.Windows.Forms.Button btnAnnuleer;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel pnOptioneel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }
