@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrmAppSchool.Models;
+using CrmAppSchool.Views.Opdrachten;
 
 namespace CrmAppSchool.Views.Hoofdmenu
 {
@@ -165,6 +166,12 @@ namespace CrmAppSchool.Views.Hoofdmenu
                 ShowHelp = false;
             }
 
+        }
+
+        private void btnOpdrachten_Click(object sender, EventArgs e)
+        {
+            StageopdrachtForm soform = new StageopdrachtForm();
+            soform.Show();
         }
     }
 }

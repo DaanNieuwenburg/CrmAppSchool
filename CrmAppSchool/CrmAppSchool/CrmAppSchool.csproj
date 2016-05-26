@@ -51,15 +51,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ContactenController.cs" />
     <Compile Include="Controllers\ProfielController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DatabaseController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\StageopdrachtController.cs" />
     <Compile Include="Controllers\ZoekController.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Docent.cs" />
+    <Compile Include="Models\Persooncontact.cs" />
     <Compile Include="Models\Profiel.cs" />
     <Compile Include="Models\Gebruiker.cs" />
+    <Compile Include="Models\Stageopdracht.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -92,6 +96,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Opdrachten\StageopdrachtForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Opdrachten\StageopdrachtForm.Designer.cs">
+      <DependentUpon>StageopdrachtForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Profiel\MijnprofielForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +137,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Opdrachten\StageopdrachtForm.resx">
+      <DependentUpon>StageopdrachtForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Profiel\MijnprofielForm.resx">
       <DependentUpon>MijnprofielForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,9 +163,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Opdrachten\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\btnOpdrachten.png" />
   </ItemGroup>

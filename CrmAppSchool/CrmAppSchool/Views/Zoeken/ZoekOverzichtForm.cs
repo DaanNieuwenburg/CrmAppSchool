@@ -21,8 +21,8 @@ namespace CrmAppSchool.Views.Zoeken
             InitializeComponent();
             ShowMenu = false;
 
-            if (resultaatLijst != null && resultaatLijst.Count() > 0)
-            {
+            //if (resultaatLijst != null && resultaatLijst.Count() > 0)
+            //{
                 foreach (Models.Profiel profiel in resultaatLijst)
                 {
                     ListViewItem lvw = new ListViewItem(profiel.Voornaam);
@@ -32,11 +32,8 @@ namespace CrmAppSchool.Views.Zoeken
                     lvw.SubItems.Add(profiel.Kwaliteit);
                     resultatenLvw.Items.Add(lvw);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Geen Resultaten gevonden");
-            }
+           // }
+            
         }
 
         private void btnSorteer_Click(object sender, EventArgs e)

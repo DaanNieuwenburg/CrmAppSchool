@@ -513,6 +513,7 @@
             this.tbWachtwoord.Name = "tbWachtwoord";
             this.tbWachtwoord.Size = new System.Drawing.Size(100, 22);
             this.tbWachtwoord.TabIndex = 38;
+            this.tbWachtwoord.UseSystemPasswordChar = true;
             this.tbWachtwoord.Visible = false;
             // 
             // tbBevestig
@@ -522,6 +523,7 @@
             this.tbBevestig.Name = "tbBevestig";
             this.tbBevestig.Size = new System.Drawing.Size(100, 22);
             this.tbBevestig.TabIndex = 39;
+            this.tbBevestig.UseSystemPasswordChar = true;
             this.tbBevestig.Visible = false;
             // 
             // MijnprofielForm
