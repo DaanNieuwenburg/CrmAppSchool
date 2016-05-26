@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -38,7 +39,6 @@ namespace CrmAppSchool.Views.Zoeken
 
         private void btnSorteer_Click(object sender, EventArgs e)
         {
-            
             if (Sorteermenu == true)
             {
                 // Sorteer met behulp van input van comboboxen
