@@ -267,6 +267,10 @@ namespace CrmAppSchool.Views.Profiel
                 lblBevestig.Visible = true;
                 EditWachtwoordMode = true;
             }
+            else if(tbWachtwoord.Text != tbBevestig.Text)
+            {
+                MessageBox.Show("De wachtwoorden komen niet overeen", "Waarschuwing");
+            }
             else if(EditWachtwoordMode == true && tbWachtwoord.Text == tbBevestig.Text)
             {
                 tbWachtwoord.Visible = false;
