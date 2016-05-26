@@ -23,6 +23,7 @@ namespace CrmAppSchool.Views.Hoofdmenu
             ShowMenu = false;
             gebruiker = _gebruiker;
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
+
         }
 
         private void voegToeBtn_Click(object sender, EventArgs e)

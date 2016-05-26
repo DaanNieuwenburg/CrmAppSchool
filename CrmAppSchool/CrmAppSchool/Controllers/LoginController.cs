@@ -9,7 +9,7 @@ using CrmAppSchool.Views.Hoofdmenu;
 
 namespace CrmAppSchool.Controllers
 {
-    class GebruikerController : DatabaseController
+    class LoginController : DatabaseController
     {
 
         public bool VerifieerGebruiker(string _gebruikersnaam, string _wachtwoord)

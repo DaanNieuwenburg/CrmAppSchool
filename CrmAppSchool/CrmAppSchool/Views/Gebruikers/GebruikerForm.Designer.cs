@@ -40,6 +40,9 @@
             this.pbHome = new System.Windows.Forms.PictureBox();
             this.pbHeader = new System.Windows.Forms.PictureBox();
             this.errorLbl = new System.Windows.Forms.Label();
+            this.gebruikerLvw = new System.Windows.Forms.ListView();
+            this.gebruikersnaamHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.soortGebruikerHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
@@ -168,11 +171,32 @@
             this.errorLbl.Text = "Error: Voer a.u.b. alle informatie in";
             this.errorLbl.Visible = false;
             // 
+            // gebruikerLvw
+            // 
+            this.gebruikerLvw.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.gebruikersnaamHeader,
+            this.soortGebruikerHeader});
+            this.gebruikerLvw.Location = new System.Drawing.Point(12, 234);
+            this.gebruikerLvw.Name = "gebruikerLvw";
+            this.gebruikerLvw.Size = new System.Drawing.Size(491, 230);
+            this.gebruikerLvw.TabIndex = 12;
+            this.gebruikerLvw.UseCompatibleStateImageBehavior = false;
+            this.gebruikerLvw.View = System.Windows.Forms.View.List;
+            // 
+            // gebruikersnaamHeader
+            // 
+            this.gebruikersnaamHeader.Text = "Gebruikersnaam";
+            // 
+            // soortGebruikerHeader
+            // 
+            this.soortGebruikerHeader.Text = "Soort gebruiker";
+            // 
             // voegGebruikerToeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 213);
+            this.ClientSize = new System.Drawing.Size(515, 476);
+            this.Controls.Add(this.gebruikerLvw);
             this.Controls.Add(this.errorLbl);
             this.Controls.Add(this.voegToeBtn);
             this.Controls.Add(this.pbHome);
@@ -187,7 +211,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "voegGebruikerToeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Voeg gebruiker toe";
+            this.Text = "Gebruikers";
             this.Load += new System.EventHandler(this.voegGebruikerToeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
@@ -209,5 +233,8 @@
         private System.Windows.Forms.Label lblGebruiker;
         private System.Windows.Forms.PictureBox pbHeader;
         private System.Windows.Forms.Label errorLbl;
+        private System.Windows.Forms.ListView gebruikerLvw;
+        private System.Windows.Forms.ColumnHeader gebruikersnaamHeader;
+        private System.Windows.Forms.ColumnHeader soortGebruikerHeader;
     }
 }

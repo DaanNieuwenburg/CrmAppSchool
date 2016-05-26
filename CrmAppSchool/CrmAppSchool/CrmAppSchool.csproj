@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ContactenController.cs" />
+    <Compile Include="Controllers\GebruikerController.cs" />
     <Compile Include="Controllers\ProfielController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DatabaseController.cs" />
@@ -82,11 +83,11 @@
     <Compile Include="Views\Hoofdmenu\HoofdmenuForm.Designer.cs">
       <DependentUpon>HoofdmenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Hoofdmenu\voegGebruikerToeForm.cs">
+    <Compile Include="Views\Gebruikers\GebruikerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Hoofdmenu\voegGebruikerToeForm.Designer.cs">
-      <DependentUpon>voegGebruikerToeForm.cs</DependentUpon>
+    <Compile Include="Views\Gebruikers\GebruikerForm.Designer.cs">
+      <DependentUpon>GebruikerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login\InlogForm.cs">
       <SubType>Form</SubType>
@@ -126,8 +127,8 @@
     <EmbeddedResource Include="Views\Hoofdmenu\HoofdmenuForm.resx">
       <DependentUpon>HoofdmenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Hoofdmenu\voegGebruikerToeForm.resx">
-      <DependentUpon>voegGebruikerToeForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Gebruikers\GebruikerForm.resx">
+      <DependentUpon>GebruikerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login\InlogForm.resx">
       <DependentUpon>InlogForm.cs</DependentUpon>
