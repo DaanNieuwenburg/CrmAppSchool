@@ -125,13 +125,35 @@ namespace CrmAppSchool.Views.Hoofdmenu
         {
             if (ShowHelp == false)
             {
-                lblContacten.Visible = true;
-                lblOpdrachten.Visible = true;
-                lblProfiel.Visible = true;
-                lblRegistreer.Visible = true;
-                lblUitloggen.Visible = true;
-                lblZoeken.Visible = true;
-                ShowHelp = true;
+                if (gebruiker is Admin)
+                {
+                    lblContacten.Visible = true;
+                    lblOpdrachten.Visible = true;
+                    lblProfiel.Visible = true;
+                    lblRegistreer.Visible = true;
+                    lblUitloggen.Visible = true;
+                    lblZoeken.Visible = true;
+                    ShowHelp = true;
+                }
+                else if (gebruiker is Docent)
+                {
+                    lblContacten.Visible = true;
+                    lblOpdrachten.Visible = true;
+                    lblProfiel.Visible = true;
+                    lblUitloggen.Visible = true;
+                    lblZoeken.Visible = true;
+                }
+                else if (gebruiker is Student)
+                {
+                    lblContacten.Text = "Zoeken";
+                    lblContacten.Visible = true;
+                    lblContacten.Location = new Point(84, 212);
+                    lblProfiel.Text = "Opdrachten";
+                    lblProfiel.Visible = true;
+                    lblOpdrachten.Text = "Uitloggen";
+                    lblOpdrachten.Location = new Point(258, 374);
+                    lblOpdrachten.Visible = true;
+                }
             }
             else
             {
