@@ -38,7 +38,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.contactSoortCbx = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblSoort = new System.Windows.Forms.Label();
             this.bedrijfPnl = new System.Windows.Forms.Panel();
             this.bedrijfsnaamLbl = new System.Windows.Forms.Label();
             this.bedrijfsnaamTxb = new System.Windows.Forms.TextBox();
@@ -185,17 +185,19 @@
             this.contactSoortCbx.Name = "contactSoortCbx";
             this.contactSoortCbx.Size = new System.Drawing.Size(121, 24);
             this.contactSoortCbx.TabIndex = 20;
+            this.contactSoortCbx.Visible = false;
             this.contactSoortCbx.SelectedValueChanged += new System.EventHandler(this.toonContactenInvoer);
             // 
-            // label1
+            // lblSoort
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(118, 79);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 13);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Selecteer het soort contact";
+            this.lblSoort.AutoSize = true;
+            this.lblSoort.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblSoort.Font = new System.Drawing.Font("Arial", 9F);
+            this.lblSoort.Location = new System.Drawing.Point(118, 79);
+            this.lblSoort.Name = "lblSoort";
+            this.lblSoort.Size = new System.Drawing.Size(152, 15);
+            this.lblSoort.TabIndex = 21;
+            this.lblSoort.Text = "Selecteer het soort contact";
             // 
             // bedrijfPnl
             // 
@@ -238,7 +240,7 @@
             this.persoonPnl.Controls.Add(this.voornaamTxb);
             this.persoonPnl.Location = new System.Drawing.Point(121, 145);
             this.persoonPnl.Name = "persoonPnl";
-            this.persoonPnl.Size = new System.Drawing.Size(200, 292);
+            this.persoonPnl.Size = new System.Drawing.Size(273, 292);
             this.persoonPnl.TabIndex = 23;
             this.persoonPnl.Visible = false;
             // 
@@ -255,65 +257,73 @@
             // emailLbl
             // 
             this.emailLbl.AutoSize = true;
+            this.emailLbl.Font = new System.Drawing.Font("Arial", 10F);
             this.emailLbl.Location = new System.Drawing.Point(15, 128);
             this.emailLbl.Name = "emailLbl";
-            this.emailLbl.Size = new System.Drawing.Size(35, 13);
+            this.emailLbl.Size = new System.Drawing.Size(46, 16);
             this.emailLbl.TabIndex = 7;
             this.emailLbl.Text = "Email:";
             // 
             // emailTxb
             // 
-            this.emailTxb.Location = new System.Drawing.Point(91, 125);
+            this.emailTxb.Font = new System.Drawing.Font("Arial", 10F);
+            this.emailTxb.Location = new System.Drawing.Point(106, 125);
             this.emailTxb.Name = "emailTxb";
-            this.emailTxb.Size = new System.Drawing.Size(100, 20);
+            this.emailTxb.Size = new System.Drawing.Size(100, 23);
             this.emailTxb.TabIndex = 6;
             // 
             // locatieLbl
             // 
             this.locatieLbl.AutoSize = true;
+            this.locatieLbl.Font = new System.Drawing.Font("Arial", 10F);
             this.locatieLbl.Location = new System.Drawing.Point(15, 102);
             this.locatieLbl.Name = "locatieLbl";
-            this.locatieLbl.Size = new System.Drawing.Size(45, 13);
+            this.locatieLbl.Size = new System.Drawing.Size(58, 16);
             this.locatieLbl.TabIndex = 5;
             this.locatieLbl.Text = "Locatie:";
             // 
             // locatieTxb
             // 
-            this.locatieTxb.Location = new System.Drawing.Point(91, 99);
+            this.locatieTxb.Font = new System.Drawing.Font("Arial", 10F);
+            this.locatieTxb.Location = new System.Drawing.Point(106, 99);
             this.locatieTxb.Name = "locatieTxb";
-            this.locatieTxb.Size = new System.Drawing.Size(100, 20);
+            this.locatieTxb.Size = new System.Drawing.Size(100, 23);
             this.locatieTxb.TabIndex = 4;
             // 
             // achternaamTxb
             // 
-            this.achternaamTxb.Location = new System.Drawing.Point(91, 73);
+            this.achternaamTxb.Font = new System.Drawing.Font("Arial", 10F);
+            this.achternaamTxb.Location = new System.Drawing.Point(106, 73);
             this.achternaamTxb.Name = "achternaamTxb";
-            this.achternaamTxb.Size = new System.Drawing.Size(100, 20);
+            this.achternaamTxb.Size = new System.Drawing.Size(100, 23);
             this.achternaamTxb.TabIndex = 3;
             // 
             // achternaamLbl
             // 
             this.achternaamLbl.AutoSize = true;
+            this.achternaamLbl.Font = new System.Drawing.Font("Arial", 10F);
             this.achternaamLbl.Location = new System.Drawing.Point(15, 76);
             this.achternaamLbl.Name = "achternaamLbl";
-            this.achternaamLbl.Size = new System.Drawing.Size(67, 13);
+            this.achternaamLbl.Size = new System.Drawing.Size(88, 16);
             this.achternaamLbl.TabIndex = 2;
             this.achternaamLbl.Text = "Achternaam:";
             // 
             // voornaamLbl
             // 
             this.voornaamLbl.AutoSize = true;
+            this.voornaamLbl.Font = new System.Drawing.Font("Arial", 10F);
             this.voornaamLbl.Location = new System.Drawing.Point(15, 49);
             this.voornaamLbl.Name = "voornaamLbl";
-            this.voornaamLbl.Size = new System.Drawing.Size(58, 13);
+            this.voornaamLbl.Size = new System.Drawing.Size(76, 16);
             this.voornaamLbl.TabIndex = 1;
             this.voornaamLbl.Text = "Voornaam:";
             // 
             // voornaamTxb
             // 
-            this.voornaamTxb.Location = new System.Drawing.Point(91, 46);
+            this.voornaamTxb.Font = new System.Drawing.Font("Arial", 10F);
+            this.voornaamTxb.Location = new System.Drawing.Point(106, 46);
             this.voornaamTxb.Name = "voornaamTxb";
-            this.voornaamTxb.Size = new System.Drawing.Size(100, 20);
+            this.voornaamTxb.Size = new System.Drawing.Size(100, 23);
             this.voornaamTxb.TabIndex = 0;
             // 
             // btnOpslaan
@@ -347,6 +357,7 @@
             this.btnAnnuleer.TabIndex = 29;
             this.btnAnnuleer.UseVisualStyleBackColor = false;
             this.btnAnnuleer.Visible = false;
+            this.btnAnnuleer.Click += new System.EventHandler(this.btnAnnuleer_Click);
             // 
             // ContactenForm
             // 
@@ -357,7 +368,7 @@
             this.Controls.Add(this.btnAnnuleer);
             this.Controls.Add(this.persoonPnl);
             this.Controls.Add(this.bedrijfPnl);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblSoort);
             this.Controls.Add(this.contactSoortCbx);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.btnCancel);
@@ -393,7 +404,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ComboBox contactSoortCbx;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSoort;
         private System.Windows.Forms.Panel bedrijfPnl;
         private System.Windows.Forms.Label bedrijfsnaamLbl;
         private System.Windows.Forms.TextBox bedrijfsnaamTxb;

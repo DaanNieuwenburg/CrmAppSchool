@@ -117,14 +117,34 @@ namespace CrmAppSchool.Views.Contacten
 
         private void btnVoegtoe_Click(object sender, EventArgs e)
         {
-            ShowSave = true;
-            if (ShowSave == true)
+            
+            if (ShowSave == false)
             {
                 btnVoegtoe.Visible = false;
                 btnAnnuleer.Visible = true;
                 btnOpslaan.Visible = true;
+                contactSoortCbx.Visible = true;
+                ShowSave = true;
+            }
+            else
+            {
+                btnVoegtoe.Visible = true;
+                btnAnnuleer.Visible = false;
+                btnOpslaan.Visible = false;
+                contactSoortCbx.Visible = false;
                 ShowSave = false;
             }
+        }
+
+        private void btnAnnuleer_Click(object sender, EventArgs e)
+        {
+            btnVoegtoe.Visible = true;
+            btnAnnuleer.Visible = false;
+            btnOpslaan.Visible = false;
+            contactSoortCbx.Visible = false;
+            persoonPnl.Visible = false;
+            lblSoort.Visible = false;
+            ShowSave = false;
         }
     }
 }
