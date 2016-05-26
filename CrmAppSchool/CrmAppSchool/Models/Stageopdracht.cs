@@ -8,7 +8,7 @@ namespace CrmAppSchool.Models
 {
     class Stageopdracht
     {
-        public int Code { get; }
+        public int Code { get; set; }
         public string Status { get; set; }
         public string Naam { get; set; }
         public string Omschrijving { get; set; }
@@ -17,6 +17,11 @@ namespace CrmAppSchool.Models
         {
             string opdracht = Naam +","+ Omschrijving + "," + Status;
             return opdracht;
+        }
+
+        public enum status
+        {
+            test
         }
     }
 }
