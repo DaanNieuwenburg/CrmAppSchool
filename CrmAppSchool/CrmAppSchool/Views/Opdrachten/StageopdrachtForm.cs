@@ -24,6 +24,7 @@ namespace CrmAppSchool.Views.Opdrachten
 
         public void setListBox()
         {
+            lbStage.Items.Clear();
             List<Stageopdracht> opdrachten = soc.getOpdrachten();
             foreach(Stageopdracht opdracht in opdrachten)
             {
@@ -59,6 +60,26 @@ namespace CrmAppSchool.Views.Opdrachten
             else
             {
                 zoek();
+            }
+        }
+
+        private void bVerwijderen_Click(object sender, EventArgs e)
+        {
+            if ((Stageopdracht)lbStage.SelectedItem != null)
+            {
+                soc.deleteStageopdracht(((Stageopdracht)lbStage.SelectedItem).Code);
+                setListBox();
+            }
+        }
+
+        private void bToevoegen_Click(object sender, EventArgs e)
+        {
+
+            opdrachtEditForm form = new opdrachtEditForm();
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.OK)
+            {
+                setListBox();
             }
         }
     }
