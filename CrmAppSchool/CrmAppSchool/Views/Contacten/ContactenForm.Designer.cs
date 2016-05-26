@@ -198,6 +198,7 @@
             this.lblSoort.Size = new System.Drawing.Size(152, 15);
             this.lblSoort.TabIndex = 21;
             this.lblSoort.Text = "Selecteer het soort contact";
+            this.lblSoort.Visible = false;
             // 
             // bedrijfPnl
             // 

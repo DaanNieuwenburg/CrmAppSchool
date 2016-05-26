@@ -120,6 +120,7 @@ namespace CrmAppSchool.Views.Contacten
             
             if (ShowSave == false)
             {
+                lblSoort.Visible = true;
                 btnVoegtoe.Visible = false;
                 btnAnnuleer.Visible = true;
                 btnOpslaan.Visible = true;
