@@ -173,6 +173,8 @@
             // contactSoortCbx
             // 
             this.contactSoortCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.contactSoortCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.contactSoortCbx.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactSoortCbx.FormattingEnabled = true;
             this.contactSoortCbx.Items.AddRange(new object[] {
             "Bedrijf",
@@ -181,7 +183,7 @@
             "Gastspreker"});
             this.contactSoortCbx.Location = new System.Drawing.Point(121, 95);
             this.contactSoortCbx.Name = "contactSoortCbx";
-            this.contactSoortCbx.Size = new System.Drawing.Size(121, 21);
+            this.contactSoortCbx.Size = new System.Drawing.Size(121, 24);
             this.contactSoortCbx.TabIndex = 20;
             this.contactSoortCbx.SelectedValueChanged += new System.EventHandler(this.toonContactenInvoer);
             // 

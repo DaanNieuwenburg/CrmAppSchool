@@ -123,6 +123,7 @@ namespace CrmAppSchool.Views.Contacten
                 btnVoegtoe.Visible = false;
                 btnAnnuleer.Visible = true;
                 btnOpslaan.Visible = true;
+                ShowSave = false;
             }
         }
     }
