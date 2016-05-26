@@ -38,9 +38,27 @@ namespace CrmAppSchool.Views.Opdrachten
 
         }
 
+        public void zoek()
+        {
+            lbStage.Items.Clear();
+            string input = "%" + tbZoek.Text + "%";
+            List<Stageopdracht> opdrachten = soc.ZoekOpdrachten(input);
+            foreach (Stageopdracht opdracht in opdrachten)
+            {
+                lbStage.Items.Add(opdracht);
+            }
+        }
+
         private void bZoek_Click(object sender, EventArgs e)
         {
-
+            if (tbZoek.Text.Equals(""))
+            {
+                setListBox();
+            }
+            else
+            {
+                zoek();
+            }
         }
     }
 }

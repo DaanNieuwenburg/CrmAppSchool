@@ -52,11 +52,12 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
 
-                string selectQuery = @"SELECT * FROM stageopdracht where naam like '%@naam%'";
+                string selectQuery = @"SELECT * FROM stageopdracht where naam like @naam";
                 MySqlCommand cmd = new MySqlCommand(selectQuery, conn);
-                MySqlParameter naamParam = new MySqlParameter("@naam", MySqlDbType.Int32);
+                MySqlParameter naamParam = new MySqlParameter("@naam", MySqlDbType.String);
                 naamParam.Value = tekst;
                 cmd.Parameters.Add(naamParam);
+
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
                 while (dataReader.Read())
