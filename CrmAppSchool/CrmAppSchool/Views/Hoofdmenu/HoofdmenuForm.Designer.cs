@@ -236,7 +236,7 @@
             this.lblContacten.AutoSize = true;
             this.lblContacten.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContacten.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblContacten.Location = new System.Drawing.Point(76, 215);
+            this.lblContacten.Location = new System.Drawing.Point(74, 214);
             this.lblContacten.Name = "lblContacten";
             this.lblContacten.Size = new System.Drawing.Size(67, 16);
             this.lblContacten.TabIndex = 13;
@@ -248,7 +248,7 @@
             this.lblZoeken.AutoSize = true;
             this.lblZoeken.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblZoeken.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblZoeken.Location = new System.Drawing.Point(261, 215);
+            this.lblZoeken.Location = new System.Drawing.Point(264, 214);
             this.lblZoeken.Name = "lblZoeken";
             this.lblZoeken.Size = new System.Drawing.Size(50, 16);
             this.lblZoeken.TabIndex = 14;
@@ -284,7 +284,7 @@
             this.lblOpdrachten.AutoSize = true;
             this.lblOpdrachten.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOpdrachten.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblOpdrachten.Location = new System.Drawing.Point(249, 373);
+            this.lblOpdrachten.Location = new System.Drawing.Point(252, 373);
             this.lblOpdrachten.Name = "lblOpdrachten";
             this.lblOpdrachten.Size = new System.Drawing.Size(75, 16);
             this.lblOpdrachten.TabIndex = 17;
