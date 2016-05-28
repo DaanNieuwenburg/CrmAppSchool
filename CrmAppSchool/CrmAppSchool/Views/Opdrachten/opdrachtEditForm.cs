@@ -89,5 +89,10 @@ namespace CrmAppSchool.Views.Opdrachten
                 MessageBox.Show("je hebt geen status geslecteerd");
             }
         }
+
+        private void btnAnnuleer_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -49,7 +49,7 @@
             this.tbNaam.Location = new System.Drawing.Point(104, 62);
             this.tbNaam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbNaam.Name = "tbNaam";
-            this.tbNaam.Size = new System.Drawing.Size(142, 26);
+            this.tbNaam.Size = new System.Drawing.Size(280, 26);
             this.tbNaam.TabIndex = 0;
             // 
             // tbOmschrijving
@@ -57,15 +57,16 @@
             this.tbOmschrijving.Font = new System.Drawing.Font("Arial", 10F);
             this.tbOmschrijving.Location = new System.Drawing.Point(104, 118);
             this.tbOmschrijving.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbOmschrijving.Multiline = true;
             this.tbOmschrijving.Name = "tbOmschrijving";
-            this.tbOmschrijving.Size = new System.Drawing.Size(142, 23);
+            this.tbOmschrijving.Size = new System.Drawing.Size(280, 104);
             this.tbOmschrijving.TabIndex = 1;
             // 
             // cbStatus
             // 
             this.cbStatus.Font = new System.Drawing.Font("Arial", 11F);
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(104, 174);
+            this.cbStatus.Location = new System.Drawing.Point(104, 254);
             this.cbStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(142, 25);
@@ -95,7 +96,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 177);
+            this.label3.Location = new System.Drawing.Point(17, 257);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
@@ -104,7 +105,7 @@
             // 
             // bOpslaan
             // 
-            this.bOpslaan.Location = new System.Drawing.Point(190, 213);
+            this.bOpslaan.Location = new System.Drawing.Point(190, 290);
             this.bOpslaan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bOpslaan.Name = "bOpslaan";
             this.bOpslaan.Size = new System.Drawing.Size(56, 19);
@@ -127,6 +128,7 @@
             this.btnAnnuleer.Size = new System.Drawing.Size(59, 50);
             this.btnAnnuleer.TabIndex = 10;
             this.btnAnnuleer.UseVisualStyleBackColor = false;
+            this.btnAnnuleer.Click += new System.EventHandler(this.btnAnnuleer_Click);
             // 
             // lblGebruiker
             // 
