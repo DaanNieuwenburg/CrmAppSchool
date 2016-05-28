@@ -36,13 +36,13 @@
             this.soortGebruikerCbx = new System.Windows.Forms.ComboBox();
             this.gebruikerLbl = new System.Windows.Forms.Label();
             this.lblGebruiker = new System.Windows.Forms.Label();
-            this.voegToeBtn = new System.Windows.Forms.Button();
-            this.pbHome = new System.Windows.Forms.PictureBox();
-            this.pbHeader = new System.Windows.Forms.PictureBox();
             this.errorLbl = new System.Windows.Forms.Label();
             this.gebruikerLvw = new System.Windows.Forms.ListView();
             this.gebruikersnaamHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.soortGebruikerHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.voegToeBtn = new System.Windows.Forms.Button();
+            this.pbHome = new System.Windows.Forms.PictureBox();
+            this.pbHeader = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
@@ -121,6 +121,36 @@
             this.lblGebruiker.Text = "U bent ingelogd als:";
             this.lblGebruiker.Click += new System.EventHandler(this.label1_Click);
             // 
+            // errorLbl
+            // 
+            this.errorLbl.AutoSize = true;
+            this.errorLbl.Location = new System.Drawing.Point(181, 151);
+            this.errorLbl.Name = "errorLbl";
+            this.errorLbl.Size = new System.Drawing.Size(165, 13);
+            this.errorLbl.TabIndex = 11;
+            this.errorLbl.Text = "Error: Voer a.u.b. alle informatie in";
+            this.errorLbl.Visible = false;
+            // 
+            // gebruikerLvw
+            // 
+            this.gebruikerLvw.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.gebruikersnaamHeader,
+            this.soortGebruikerHeader});
+            this.gebruikerLvw.Location = new System.Drawing.Point(12, 234);
+            this.gebruikerLvw.Name = "gebruikerLvw";
+            this.gebruikerLvw.Size = new System.Drawing.Size(491, 230);
+            this.gebruikerLvw.TabIndex = 12;
+            this.gebruikerLvw.UseCompatibleStateImageBehavior = false;
+            this.gebruikerLvw.View = System.Windows.Forms.View.List;
+            // 
+            // gebruikersnaamHeader
+            // 
+            this.gebruikersnaamHeader.Text = "Gebruikersnaam";
+            // 
+            // soortGebruikerHeader
+            // 
+            this.soortGebruikerHeader.Text = "Soort gebruiker";
+            // 
             // voegToeBtn
             // 
             this.voegToeBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -160,36 +190,6 @@
             this.pbHeader.Size = new System.Drawing.Size(519, 50);
             this.pbHeader.TabIndex = 9;
             this.pbHeader.TabStop = false;
-            // 
-            // errorLbl
-            // 
-            this.errorLbl.AutoSize = true;
-            this.errorLbl.Location = new System.Drawing.Point(196, 151);
-            this.errorLbl.Name = "errorLbl";
-            this.errorLbl.Size = new System.Drawing.Size(165, 13);
-            this.errorLbl.TabIndex = 11;
-            this.errorLbl.Text = "Error: Voer a.u.b. alle informatie in";
-            this.errorLbl.Visible = false;
-            // 
-            // gebruikerLvw
-            // 
-            this.gebruikerLvw.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.gebruikersnaamHeader,
-            this.soortGebruikerHeader});
-            this.gebruikerLvw.Location = new System.Drawing.Point(12, 234);
-            this.gebruikerLvw.Name = "gebruikerLvw";
-            this.gebruikerLvw.Size = new System.Drawing.Size(491, 230);
-            this.gebruikerLvw.TabIndex = 12;
-            this.gebruikerLvw.UseCompatibleStateImageBehavior = false;
-            this.gebruikerLvw.View = System.Windows.Forms.View.List;
-            // 
-            // gebruikersnaamHeader
-            // 
-            this.gebruikersnaamHeader.Text = "Gebruikersnaam";
-            // 
-            // soortGebruikerHeader
-            // 
-            this.soortGebruikerHeader.Text = "Soort gebruiker";
             // 
             // voegGebruikerToeForm
             // 

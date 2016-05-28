@@ -77,7 +77,7 @@ namespace CrmAppSchool.Views.Hoofdmenu
             this.btnZoeken.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
             Zoeken.ZoekenForm Zoeken= new Zoeken.ZoekenForm(gebruiker);
             Zoeken.Text = "Zoeken";
-            Zoeken.Show();
+            Zoeken.ShowDialog();
             if (Zoeken.ShowMenu == true)
             {
                 Show();
@@ -90,7 +90,7 @@ namespace CrmAppSchool.Views.Hoofdmenu
             this.btnContacten.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
             Contacten.ContactenForm Contacten = new Contacten.ContactenForm(gebruiker);
             Contacten.Text = "Contacten";
-            Contacten.Show();
+            Contacten.ShowDialog();
             if (Contacten.ShowMenu == true)
             {
                 Show();
@@ -171,7 +171,7 @@ namespace CrmAppSchool.Views.Hoofdmenu
         private void btnOpdrachten_Click(object sender, EventArgs e)
         {
             StageopdrachtForm soform = new StageopdrachtForm();
-            soform.Show();
+            soform.ShowDialog();
         }
     }
 }

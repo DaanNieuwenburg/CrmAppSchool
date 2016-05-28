@@ -173,7 +173,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\button_Delete_Wit.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btnOpdrachten.png" />
   </ItemGroup>

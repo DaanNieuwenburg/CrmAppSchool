@@ -35,28 +35,29 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.bOpslaan = new System.Windows.Forms.Button();
-            this.btnAnnuleer = new System.Windows.Forms.Button();
             this.lblGebruiker = new System.Windows.Forms.Label();
-            this.pbHeader = new System.Windows.Forms.PictureBox();
             this.btnOpslaan = new System.Windows.Forms.Button();
+            this.btnAnnuleer = new System.Windows.Forms.Button();
+            this.pbHeader = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
             // 
             // tbNaam
             // 
+            this.tbNaam.BackColor = System.Drawing.Color.White;
             this.tbNaam.Font = new System.Drawing.Font("Arial", 12F);
             this.tbNaam.Location = new System.Drawing.Point(104, 62);
-            this.tbNaam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbNaam.Margin = new System.Windows.Forms.Padding(2);
             this.tbNaam.Name = "tbNaam";
             this.tbNaam.Size = new System.Drawing.Size(280, 26);
             this.tbNaam.TabIndex = 0;
             // 
             // tbOmschrijving
             // 
+            this.tbOmschrijving.BackColor = System.Drawing.Color.White;
             this.tbOmschrijving.Font = new System.Drawing.Font("Arial", 10F);
             this.tbOmschrijving.Location = new System.Drawing.Point(104, 118);
-            this.tbOmschrijving.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbOmschrijving.Margin = new System.Windows.Forms.Padding(2);
             this.tbOmschrijving.Multiline = true;
             this.tbOmschrijving.Name = "tbOmschrijving";
             this.tbOmschrijving.Size = new System.Drawing.Size(280, 104);
@@ -64,10 +65,12 @@
             // 
             // cbStatus
             // 
+            this.cbStatus.BackColor = System.Drawing.Color.White;
+            this.cbStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbStatus.Font = new System.Drawing.Font("Arial", 11F);
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(104, 254);
-            this.cbStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbStatus.Margin = new System.Windows.Forms.Padding(2);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(142, 25);
             this.cbStatus.TabIndex = 2;
@@ -103,33 +106,6 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "status";
             // 
-            // bOpslaan
-            // 
-            this.bOpslaan.Location = new System.Drawing.Point(190, 290);
-            this.bOpslaan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.bOpslaan.Name = "bOpslaan";
-            this.bOpslaan.Size = new System.Drawing.Size(56, 19);
-            this.bOpslaan.TabIndex = 6;
-            this.bOpslaan.Text = "Opslaan";
-            this.bOpslaan.UseVisualStyleBackColor = true;
-            this.bOpslaan.Click += new System.EventHandler(this.bOpslaan_Click);
-            // 
-            // btnAnnuleer
-            // 
-            this.btnAnnuleer.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnAnnuleer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.btnAnnuleer.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Annuleren_Wit;
-            this.btnAnnuleer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAnnuleer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnnuleer.FlatAppearance.BorderSize = 0;
-            this.btnAnnuleer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnnuleer.Location = new System.Drawing.Point(165, -3);
-            this.btnAnnuleer.Name = "btnAnnuleer";
-            this.btnAnnuleer.Size = new System.Drawing.Size(59, 50);
-            this.btnAnnuleer.TabIndex = 10;
-            this.btnAnnuleer.UseVisualStyleBackColor = false;
-            this.btnAnnuleer.Click += new System.EventHandler(this.btnAnnuleer_Click);
-            // 
             // lblGebruiker
             // 
             this.lblGebruiker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -142,17 +118,6 @@
             this.lblGebruiker.Size = new System.Drawing.Size(123, 16);
             this.lblGebruiker.TabIndex = 11;
             this.lblGebruiker.Text = "U bent ingelogd als:";
-            // 
-            // pbHeader
-            // 
-            this.pbHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.pbHeader.Location = new System.Drawing.Point(-74, -3);
-            this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(620, 50);
-            this.pbHeader.TabIndex = 12;
-            this.pbHeader.TabStop = false;
             // 
             // btnOpslaan
             // 
@@ -170,16 +135,42 @@
             this.btnOpslaan.UseVisualStyleBackColor = false;
             this.btnOpslaan.Click += new System.EventHandler(this.btnOpslaan_Click);
             // 
+            // btnAnnuleer
+            // 
+            this.btnAnnuleer.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnAnnuleer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.btnAnnuleer.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Annuleren_Wit;
+            this.btnAnnuleer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAnnuleer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnnuleer.FlatAppearance.BorderSize = 0;
+            this.btnAnnuleer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnnuleer.Location = new System.Drawing.Point(165, -3);
+            this.btnAnnuleer.Name = "btnAnnuleer";
+            this.btnAnnuleer.Size = new System.Drawing.Size(59, 50);
+            this.btnAnnuleer.TabIndex = 10;
+            this.btnAnnuleer.UseVisualStyleBackColor = false;
+            this.btnAnnuleer.Click += new System.EventHandler(this.btnAnnuleer_Click);
+            // 
+            // pbHeader
+            // 
+            this.pbHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.pbHeader.Location = new System.Drawing.Point(-74, -3);
+            this.pbHeader.Name = "pbHeader";
+            this.pbHeader.Size = new System.Drawing.Size(620, 50);
+            this.pbHeader.TabIndex = 12;
+            this.pbHeader.TabStop = false;
+            // 
             // opdrachtEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 340);
+            this.ClientSize = new System.Drawing.Size(452, 332);
             this.Controls.Add(this.btnOpslaan);
             this.Controls.Add(this.btnAnnuleer);
             this.Controls.Add(this.lblGebruiker);
             this.Controls.Add(this.pbHeader);
-            this.Controls.Add(this.bOpslaan);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -187,7 +178,7 @@
             this.Controls.Add(this.tbOmschrijving);
             this.Controls.Add(this.tbNaam);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "opdrachtEditForm";
             this.Text = "Bewerk Opdracht";
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
@@ -204,7 +195,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button bOpslaan;
         private System.Windows.Forms.Button btnAnnuleer;
         private System.Windows.Forms.Label lblGebruiker;
         private System.Windows.Forms.PictureBox pbHeader;

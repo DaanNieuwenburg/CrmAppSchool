@@ -96,5 +96,38 @@ namespace CrmAppSchool.Views.Opdrachten
                 }
             }
         }
+
+        private void btnVoegtoe_Click(object sender, EventArgs e)
+        {
+            opdrachtEditForm form = new opdrachtEditForm();
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.OK)
+            {
+                setListBox();
+            }
+        }
+
+        private void btnWijzig_Click(object sender, EventArgs e)
+        {
+            if (lbStage.SelectedItem != null)
+            {
+                opdrachtEditForm OEF = new opdrachtEditForm();
+                OEF.Editopdracht((Stageopdracht)lbStage.SelectedItem);
+                OEF.ShowDialog();
+                if (OEF.DialogResult == DialogResult.OK)
+                {
+                    setListBox();
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if ((Stageopdracht)lbStage.SelectedItem != null)
+            {
+                soc.deleteStageopdracht(((Stageopdracht)lbStage.SelectedItem).Code);
+                setListBox();
+            }
+        }
     }
 }
