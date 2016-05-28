@@ -153,9 +153,56 @@ namespace CrmAppSchool.Controllers
             {
                 if (trans != null)
                 {
-                    trans.Rollback();   //FIXME: This will be a problem!
+                    trans.Rollback();
                 }
-                Console.WriteLine("Genre niet toegeveogd: " + ex);
+                Console.WriteLine("Opdracht niet toegeveogd: " + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void updateStageopdracht(int code, string status, string naam, string omschrijving)
+        {
+
+            MySqlTransaction trans = null;
+            try
+            {
+                conn.Open();
+                trans = conn.BeginTransaction();
+                string insertString = @"UPDATE stageopdracht SET status = @status, naam = @naam, omschrijving = @omschrijving WHERE code= @code";
+
+                MySqlCommand cmd = new MySqlCommand(insertString, conn);
+                MySqlParameter codeParam = new MySqlParameter("@code", MySqlDbType.Bit);
+                MySqlParameter statusParam = new MySqlParameter("@status", MySqlDbType.VarChar);
+                MySqlParameter naamParam = new MySqlParameter("@naam", MySqlDbType.VarChar);
+                MySqlParameter omschrijvingParam = new MySqlParameter("@omschrijving", MySqlDbType.VarChar);
+
+                statusParam.Value = status;
+                naamParam.Value = naam;
+                omschrijvingParam.Value = omschrijving;
+                codeParam.Value = code;
+
+                cmd.Parameters.Add(codeParam);
+                cmd.Parameters.Add(statusParam);
+                cmd.Parameters.Add(naamParam);
+                cmd.Parameters.Add(omschrijvingParam);
+
+
+                cmd.Prepare();
+
+                cmd.ExecuteNonQuery();
+
+                trans.Commit();
+            }
+            catch (Exception ex)
+            {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Opdracht niet toegeveogd: " + ex);
             }
             finally
             {

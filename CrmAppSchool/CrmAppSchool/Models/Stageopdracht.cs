@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CrmAppSchool.Models
 {
-    class Stageopdracht
+    public class Stageopdracht
     {
         public int Code { get; set; }
         public string Status { get; set; }
@@ -17,11 +17,6 @@ namespace CrmAppSchool.Models
         {
             string opdracht = Naam +","+ Omschrijving + "," + Status;
             return opdracht;
-        }
-
-        public enum status
-        {
-            test
         }
     }
 }
