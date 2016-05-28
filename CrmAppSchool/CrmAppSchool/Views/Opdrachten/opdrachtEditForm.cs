@@ -59,5 +59,24 @@ namespace CrmAppSchool.Views.Opdrachten
                 MessageBox.Show("je hebt geen status geslecteerd");
             }
         }
+
+        private void btnOpslaan_Click(object sender, EventArgs e)
+        {
+            if (cbStatus.SelectedItem != null)
+            {
+                if (opdracht.Naam == null)
+                {
+                    nieuweOpdracht();
+                }
+                else
+                {
+                    DialogResult = DialogResult.OK;
+                }
+            }
+            else
+            {
+                MessageBox.Show("je hebt geen status geslecteerd");
+            }
+        }
     }
 }
