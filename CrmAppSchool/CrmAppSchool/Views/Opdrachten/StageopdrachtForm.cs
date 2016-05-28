@@ -82,5 +82,19 @@ namespace CrmAppSchool.Views.Opdrachten
                 setListBox();
             }
         }
+
+        private void bAanpassen_Click(object sender, EventArgs e)
+        {
+            if (lbStage.SelectedItem != null)
+            {
+                opdrachtEditForm OEF = new opdrachtEditForm();
+                OEF.Editopdracht((Stageopdracht)lbStage.SelectedItem);
+                OEF.ShowDialog();
+                if (OEF.DialogResult == DialogResult.OK)
+                {
+                    setListBox();
+                }
+            }
+        }
     }
 }

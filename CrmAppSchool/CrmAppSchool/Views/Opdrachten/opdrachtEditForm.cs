@@ -24,7 +24,9 @@ namespace CrmAppSchool.Views.Opdrachten
 
         public void getStatus()
         {
-                cbStatus.Items.Add(Stageopdracht.status.test);
+                cbStatus.Items.Add("test");
+                cbStatus.Items.Add("beschikbaar");
+                cbStatus.Items.Add("afgerond");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -41,6 +43,14 @@ namespace CrmAppSchool.Views.Opdrachten
             DialogResult = DialogResult.OK;
         }
 
+        public void Editopdracht(Stageopdracht huidigeopdracht)
+        {
+            opdracht = huidigeopdracht;
+            tbNaam.Text = opdracht.Naam;
+            tbOmschrijving.Text = opdracht.Omschrijving;
+            cbStatus.Text = opdracht.Status;
+        }
+
         private void bOpslaan_Click(object sender, EventArgs e)
         {
             if (cbStatus.SelectedItem != null)
@@ -51,7 +61,8 @@ namespace CrmAppSchool.Views.Opdrachten
                 }
                 else
                 {
-                        DialogResult = DialogResult.OK;
+                    soc.updateStageopdracht(opdracht.Code, cbStatus.Text, tbNaam.Text, tbOmschrijving.Text);
+                    DialogResult = DialogResult.OK;
                 }
             }
             else
