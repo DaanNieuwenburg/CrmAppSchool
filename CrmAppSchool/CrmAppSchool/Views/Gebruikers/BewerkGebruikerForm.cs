@@ -46,5 +46,29 @@ namespace CrmAppSchool.Views.Gebruikers
                 this.DialogResult = DialogResult.OK;
             }
         }
+
+        private void btnWijzig_Click(object sender, EventArgs e)
+        {
+            gebruiker.Wachtwoord = nieuwWachtwoordTxb.Text;
+
+            GebruikerController gebruikercontroller = new GebruikerController();
+            gebruikercontroller.veranderWachtwoordGebruiker(gebruiker);
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (gebruiker is Admin)
+            {
+                errorLbl.Text = "Het is niet mogelijk om een admin te verwijderen";
+                errorLbl.Visible = true;
+            }
+            else
+            {
+                GebruikerController gebruikercontroller = new GebruikerController();
+                gebruikercontroller.verwijderGebruiker(gebruiker);
+                this.DialogResult = DialogResult.OK;
+            }
+        }
     }
 }

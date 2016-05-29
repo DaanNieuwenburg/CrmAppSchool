@@ -61,7 +61,7 @@ namespace CrmAppSchool.Views.Gebruikers
             // valideert of alle gegevens zijn en ingevuld, zo ja roept de controller aan
             if (gebruikersnaamTxb.Text == "" || wachtwoordTxb.Text == "" || Convert.ToString(soortGebruikerCbx.SelectedItem) == "")
             {
-                errorLbl.Visible = true;
+                MessageBox.Show("Voer a.u.b.alle informatie in", "Error");
             }
             else
             {

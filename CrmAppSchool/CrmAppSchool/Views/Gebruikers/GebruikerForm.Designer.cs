@@ -36,7 +36,6 @@
             this.soortGebruikerCbx = new System.Windows.Forms.ComboBox();
             this.gebruikerLbl = new System.Windows.Forms.Label();
             this.lblGebruiker = new System.Windows.Forms.Label();
-            this.errorLbl = new System.Windows.Forms.Label();
             this.gebruikerLvw = new System.Windows.Forms.ListView();
             this.gebruikersnaamHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.soortGebruikerHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -119,25 +118,17 @@
             this.lblGebruiker.TabIndex = 8;
             this.lblGebruiker.Text = "U bent ingelogd als:";
             // 
-            // errorLbl
-            // 
-            this.errorLbl.AutoSize = true;
-            this.errorLbl.Location = new System.Drawing.Point(181, 151);
-            this.errorLbl.Name = "errorLbl";
-            this.errorLbl.Size = new System.Drawing.Size(165, 13);
-            this.errorLbl.TabIndex = 11;
-            this.errorLbl.Text = "Error: Voer a.u.b. alle informatie in";
-            this.errorLbl.Visible = false;
-            // 
             // gebruikerLvw
             // 
+            this.gebruikerLvw.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gebruikerLvw.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.gebruikersnaamHeader,
             this.soortGebruikerHeader});
-            this.gebruikerLvw.Location = new System.Drawing.Point(13, 236);
+            this.gebruikerLvw.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gebruikerLvw.Location = new System.Drawing.Point(12, 200);
             this.gebruikerLvw.MultiSelect = false;
             this.gebruikerLvw.Name = "gebruikerLvw";
-            this.gebruikerLvw.Size = new System.Drawing.Size(245, 230);
+            this.gebruikerLvw.Size = new System.Drawing.Size(503, 276);
             this.gebruikerLvw.TabIndex = 12;
             this.gebruikerLvw.UseCompatibleStateImageBehavior = false;
             this.gebruikerLvw.View = System.Windows.Forms.View.Details;
@@ -198,7 +189,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(515, 476);
             this.Controls.Add(this.gebruikerLvw);
-            this.Controls.Add(this.errorLbl);
             this.Controls.Add(this.voegToeBtn);
             this.Controls.Add(this.pbHome);
             this.Controls.Add(this.lblGebruiker);
@@ -232,7 +222,6 @@
         private System.Windows.Forms.PictureBox pbHome;
         private System.Windows.Forms.Label lblGebruiker;
         private System.Windows.Forms.PictureBox pbHeader;
-        private System.Windows.Forms.Label errorLbl;
         private System.Windows.Forms.ListView gebruikerLvw;
         private System.Windows.Forms.ColumnHeader gebruikersnaamHeader;
         private System.Windows.Forms.ColumnHeader soortGebruikerHeader;
