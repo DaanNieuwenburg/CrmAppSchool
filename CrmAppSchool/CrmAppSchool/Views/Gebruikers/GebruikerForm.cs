@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrmAppSchool.Models;
 using CrmAppSchool.Controllers;
+using CrmAppSchool.Views.Gebruikers;
 
-namespace CrmAppSchool.Views.Hoofdmenu
+namespace CrmAppSchool.Views.Gebruikers
 {
     public partial class voegGebruikerToeForm : Form
     {
@@ -86,6 +87,39 @@ namespace CrmAppSchool.Views.Hoofdmenu
         {
             ShowMenu = true;
             this.Hide();
+        }
+
+        private void gebruikerLvw_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Gebruiker nieuweGebruiker = null;
+            // Omdat deselecteren ook deze event uitvoert, is er het if statement
+            if (gebruikerLvw.SelectedIndices.Count > 0)
+            {
+                Console.WriteLine(gebruikerLvw.SelectedIndices.Count);
+                // Bepaal gebruiker
+                if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Admin")
+                {
+                    nieuweGebruiker = new Admin(gebruikerLvw.SelectedItems[0].Text);
+                }
+                else if(gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Docent")
+                {
+                    nieuweGebruiker = new Docent(gebruikerLvw.SelectedItems[0].Text);
+                }
+                else if(gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Student")
+                {
+                    nieuweGebruiker = new Student(gebruikerLvw.SelectedItems[0].Text);
+                }
+
+                // Open bewerk gebruiker form
+                BewerkGebruikerForm bewerkgebruikerform = new BewerkGebruikerForm(nieuweGebruiker);
+                bewerkgebruikerform.ShowDialog();
+
+                // Reset de listview
+                gebruikerLvw.Items.Clear();
+                vulListView();
+                gebruikerLvw.Items[0].Selected = false;
+                gebruikerLvw.Items[0].Focused = false;
+            }
         }
     }
 }

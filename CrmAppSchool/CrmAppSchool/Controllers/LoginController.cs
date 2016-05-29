@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using CrmAppSchool.Models;
-using CrmAppSchool.Views.Hoofdmenu;
+using CrmAppSchool.Views.Gebruikers;
 
 namespace CrmAppSchool.Controllers
 {

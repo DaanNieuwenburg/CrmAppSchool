@@ -77,6 +77,12 @@
     <Compile Include="Views\Contacten\ContactenForm.Designer.cs">
       <DependentUpon>ContactenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Gebruikers\BewerkGebruikerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Gebruikers\BewerkGebruikerForm.Designer.cs">
+      <DependentUpon>BewerkGebruikerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Hoofdmenu\HoofdmenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Contacten\ContactenForm.resx">
       <DependentUpon>ContactenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Gebruikers\BewerkGebruikerForm.resx">
+      <DependentUpon>BewerkGebruikerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Hoofdmenu\HoofdmenuForm.resx">
       <DependentUpon>HoofdmenuForm.cs</DependentUpon>

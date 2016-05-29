@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using CrmAppSchool.Models;
 using CrmAppSchool.Views.Opdrachten;
 
-namespace CrmAppSchool.Views.Hoofdmenu
+namespace CrmAppSchool.Views.Gebruikers
 {
     public partial class HoofdmenuForm : Form
     {

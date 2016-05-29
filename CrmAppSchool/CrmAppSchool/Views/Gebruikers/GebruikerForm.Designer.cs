@@ -1,4 +1,4 @@
-﻿namespace CrmAppSchool.Views.Hoofdmenu
+﻿namespace CrmAppSchool.Views.Gebruikers
 {
     partial class voegGebruikerToeForm
     {
@@ -135,11 +135,13 @@
             this.gebruikersnaamHeader,
             this.soortGebruikerHeader});
             this.gebruikerLvw.Location = new System.Drawing.Point(13, 236);
+            this.gebruikerLvw.MultiSelect = false;
             this.gebruikerLvw.Name = "gebruikerLvw";
-            this.gebruikerLvw.Size = new System.Drawing.Size(491, 230);
+            this.gebruikerLvw.Size = new System.Drawing.Size(245, 230);
             this.gebruikerLvw.TabIndex = 12;
             this.gebruikerLvw.UseCompatibleStateImageBehavior = false;
             this.gebruikerLvw.View = System.Windows.Forms.View.Details;
+            this.gebruikerLvw.SelectedIndexChanged += new System.EventHandler(this.gebruikerLvw_SelectedIndexChanged);
             // 
             // gebruikersnaamHeader
             // 
@@ -149,7 +151,7 @@
             // soortGebruikerHeader
             // 
             this.soortGebruikerHeader.Text = "Soort gebruiker";
-            this.soortGebruikerHeader.Width = 120;
+            this.soortGebruikerHeader.Width = 100;
             // 
             // voegToeBtn
             // 

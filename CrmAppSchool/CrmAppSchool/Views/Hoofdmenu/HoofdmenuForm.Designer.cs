@@ -1,4 +1,4 @@
-﻿namespace CrmAppSchool.Views.Hoofdmenu
+﻿namespace CrmAppSchool.Views.Gebruikers
 {
     partial class HoofdmenuForm
     {

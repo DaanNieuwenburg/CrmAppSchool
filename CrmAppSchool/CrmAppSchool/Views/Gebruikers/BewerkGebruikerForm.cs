@@ -1,0 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using CrmAppSchool.Models;
+using CrmAppSchool.Controllers;
+
+namespace CrmAppSchool.Views.Gebruikers
+{
+    public partial class BewerkGebruikerForm : Form
+    {
+        private Gebruiker gebruiker { get; set; }
+
+        public BewerkGebruikerForm(Gebruiker _gebruiker)
+        {
+            InitializeComponent();
+            gebruiker = _gebruiker;
+            this.Text = "Gebruiker: " + gebruiker.Gebruikersnaam;
+        }
+
+        private void veranderBtn_Click(object sender, EventArgs e)
+        {
+            gebruiker.Wachtwoord = nieuwWachtwoordTxb.Text;
+
+            GebruikerController gebruikercontroller = new GebruikerController();
+            gebruikercontroller.veranderWachtwoordGebruiker(gebruiker);
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void verwijderBtn_Click(object sender, EventArgs e)
+        {
+            if (gebruiker is Admin)
+            {
+                errorLbl.Text = "Het is niet mogelijk om een admin te verwijderen";
+                errorLbl.Visible = true;
+            }
+            else
+            {
+                GebruikerController gebruikercontroller = new GebruikerController();
+                gebruikercontroller.verwijderGebruiker(gebruiker);
+                this.DialogResult = DialogResult.OK;
+            }
+        }
+    }
+}
