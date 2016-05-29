@@ -48,6 +48,7 @@
             // 
             // gebruikersnaamTxb
             // 
+            this.gebruikersnaamTxb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gebruikersnaamTxb.Font = new System.Drawing.Font("Arial", 10F);
             this.gebruikersnaamTxb.Location = new System.Drawing.Point(12, 86);
             this.gebruikersnaamTxb.Name = "gebruikersnaamTxb";
@@ -56,6 +57,7 @@
             // 
             // wachtwoordTxb
             // 
+            this.wachtwoordTxb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.wachtwoordTxb.Font = new System.Drawing.Font("Arial", 10F);
             this.wachtwoordTxb.Location = new System.Drawing.Point(12, 141);
             this.wachtwoordTxb.Name = "wachtwoordTxb";
@@ -85,6 +87,7 @@
             // soortGebruikerCbx
             // 
             this.soortGebruikerCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.soortGebruikerCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.soortGebruikerCbx.Font = new System.Drawing.Font("Arial", 10F);
             this.soortGebruikerCbx.FormattingEnabled = true;
             this.soortGebruikerCbx.Items.AddRange(new object[] {
