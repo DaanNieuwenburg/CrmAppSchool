@@ -41,9 +41,13 @@ namespace CrmAppSchool.Views.Gebruikers
             }
             else
             {
-                GebruikerController gebruikercontroller = new GebruikerController();
-                gebruikercontroller.verwijderGebruiker(gebruiker);
-                this.DialogResult = DialogResult.OK;
+                DialogResult dialoogResultaat = MessageBox.Show("Wilt u gebruiker " + gebruiker.Gebruikersnaam + " echt verwijderen?", "Verwijderen gebruiker", MessageBoxButtons.YesNo);
+                if (dialoogResultaat == DialogResult.Yes)
+                {
+                    GebruikerController gebruikercontroller = new GebruikerController();
+                    gebruikercontroller.verwijderGebruiker(gebruiker);
+                    this.DialogResult = DialogResult.OK;
+                }
             }
         }
 
@@ -65,9 +69,13 @@ namespace CrmAppSchool.Views.Gebruikers
             }
             else
             {
-                GebruikerController gebruikercontroller = new GebruikerController();
-                gebruikercontroller.verwijderGebruiker(gebruiker);
-                this.DialogResult = DialogResult.OK;
+                DialogResult dialoogResultaat = MessageBox.Show("Wilt u gebruiker " + gebruiker.Gebruikersnaam + " echt verwijderen?", "Verwijderen gebruiker", MessageBoxButtons.YesNo);
+                if (dialoogResultaat == DialogResult.Yes)
+                {
+                    GebruikerController gebruikercontroller = new GebruikerController();
+                    gebruikercontroller.verwijderGebruiker(gebruiker);
+                    this.DialogResult = DialogResult.OK;
+                }
             }
         }
     }
