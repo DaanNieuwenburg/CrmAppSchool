@@ -23,7 +23,12 @@ namespace CrmAppSchool.Views.Hoofdmenu
             ShowMenu = false;
             gebruiker = _gebruiker;
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
+            vulListView();
+        }
 
+        private void vulListView()
+        {
+            // Deze methode vult het listview met alle gebruikers van het systeem
             GebruikerController gebruikercontroller = new GebruikerController();
             List<Gebruiker> gebruikersLijst = gebruikercontroller.haalGebruikersOp();
 
@@ -36,11 +41,11 @@ namespace CrmAppSchool.Views.Hoofdmenu
                 {
                     lvw.SubItems.Add("Admin");
                 }
-                else if(gebruiker is Docent)
+                else if (gebruiker is Docent)
                 {
                     lvw.SubItems.Add("Docent");
                 }
-                else if(gebruiker is Student)
+                else if (gebruiker is Student)
                 {
                     lvw.SubItems.Add("Student");
                 }
@@ -77,25 +82,10 @@ namespace CrmAppSchool.Views.Hoofdmenu
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gebruikersnaamLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pbHome_Click(object sender, EventArgs e)
         {
             ShowMenu = true;
             this.Hide();
-        }
-
-        private void voegGebruikerToeForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

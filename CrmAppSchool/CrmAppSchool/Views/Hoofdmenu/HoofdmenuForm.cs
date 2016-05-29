@@ -63,19 +63,13 @@ namespace CrmAppSchool.Views.Hoofdmenu
         {
             this.voegGebruikerToeBtn.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
             voegGebruikerToeForm voegGebruikerToe = new voegGebruikerToeForm(gebruiker);
-            voegGebruikerToe.Text = "Registreer Gebruiker";
             voegGebruikerToe.ShowDialog();
-            if (voegGebruikerToe.ShowMenu == true)
-            {
-                Show();
-                voegGebruikerToe.ShowMenu = false;
-            }
         }
 
         private void btnZoeken_Click(object sender, EventArgs e)
         {
             this.btnZoeken.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
-            Zoeken.ZoekenForm Zoeken= new Zoeken.ZoekenForm(gebruiker);
+            Zoeken.ZoekenForm Zoeken = new Zoeken.ZoekenForm(gebruiker);
             Zoeken.Text = "Zoeken";
             Zoeken.ShowDialog();
             if (Zoeken.ShowMenu == true)

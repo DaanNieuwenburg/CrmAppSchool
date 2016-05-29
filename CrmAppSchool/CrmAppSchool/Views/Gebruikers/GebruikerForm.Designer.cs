@@ -72,7 +72,6 @@
             this.gebruikersnaamLbl.Size = new System.Drawing.Size(107, 16);
             this.gebruikersnaamLbl.TabIndex = 3;
             this.gebruikersnaamLbl.Text = "Gebruikersnaam:";
-            this.gebruikersnaamLbl.Click += new System.EventHandler(this.gebruikersnaamLbl_Click);
             // 
             // wachtwoordLbl
             // 
@@ -119,7 +118,6 @@
             this.lblGebruiker.Size = new System.Drawing.Size(123, 16);
             this.lblGebruiker.TabIndex = 8;
             this.lblGebruiker.Text = "U bent ingelogd als:";
-            this.lblGebruiker.Click += new System.EventHandler(this.label1_Click);
             // 
             // errorLbl
             // 
@@ -136,7 +134,7 @@
             this.gebruikerLvw.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.gebruikersnaamHeader,
             this.soortGebruikerHeader});
-            this.gebruikerLvw.Location = new System.Drawing.Point(12, 234);
+            this.gebruikerLvw.Location = new System.Drawing.Point(13, 236);
             this.gebruikerLvw.Name = "gebruikerLvw";
             this.gebruikerLvw.Size = new System.Drawing.Size(491, 230);
             this.gebruikerLvw.TabIndex = 12;
@@ -213,8 +211,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "voegGebruikerToeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Gebruikers";
-            this.Load += new System.EventHandler(this.voegGebruikerToeForm_Load);
+            this.Text = "Gebruikersbeheer";
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             this.ResumeLayout(false);
