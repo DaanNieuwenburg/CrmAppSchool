@@ -16,12 +16,14 @@ namespace CrmAppSchool.Views.Gebruikers
     public partial class voegGebruikerToeForm : Form
     {
         public bool ShowMenu { get; set; }
+        public bool tweedeSelectie { get; set; }
 
         private Gebruiker gebruiker { get; set; }
         public voegGebruikerToeForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
             ShowMenu = false;
+            tweedeSelectie = false;
             gebruiker = _gebruiker;
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
             vulListView();
@@ -89,23 +91,22 @@ namespace CrmAppSchool.Views.Gebruikers
             this.Hide();
         }
 
-        private void gebruikerLvw_SelectedIndexChanged(object sender, EventArgs e)
+        private void gebruikerLvw_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             Gebruiker nieuweGebruiker = null;
-            // Omdat deselecteren ook deze event uitvoert, is er het if statement
-            if (gebruikerLvw.SelectedIndices.Count > 0)
+            // Omdat deselecteren ook deze event uitvoert, is er het if statement en de boolean
+            if (gebruikerLvw.SelectedIndices.Count > 0 && tweedeSelectie == false)
             {
-                Console.WriteLine(gebruikerLvw.SelectedIndices.Count);
                 // Bepaal gebruiker
                 if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Admin")
                 {
                     nieuweGebruiker = new Admin(gebruikerLvw.SelectedItems[0].Text);
                 }
-                else if(gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Docent")
+                else if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Docent")
                 {
                     nieuweGebruiker = new Docent(gebruikerLvw.SelectedItems[0].Text);
                 }
-                else if(gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Student")
+                else if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Student")
                 {
                     nieuweGebruiker = new Student(gebruikerLvw.SelectedItems[0].Text);
                 }
@@ -117,8 +118,13 @@ namespace CrmAppSchool.Views.Gebruikers
                 // Reset de listview
                 gebruikerLvw.Items.Clear();
                 vulListView();
-                gebruikerLvw.Items[0].Selected = false;
-                gebruikerLvw.Items[0].Focused = false;
+
+                // Hierna ziet de app weer een selectie.. daarom is deze boolean er.
+                tweedeSelectie = true;
+            }
+            else
+            {
+                tweedeSelectie = false;
             }
         }
     }
