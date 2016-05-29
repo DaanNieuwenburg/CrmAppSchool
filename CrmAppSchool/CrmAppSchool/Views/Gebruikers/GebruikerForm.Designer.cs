@@ -132,7 +132,7 @@
             this.gebruikerLvw.TabIndex = 12;
             this.gebruikerLvw.UseCompatibleStateImageBehavior = false;
             this.gebruikerLvw.View = System.Windows.Forms.View.Details;
-            this.gebruikerLvw.SelectedIndexChanged += new System.EventHandler(this.gebruikerLvw_SelectedIndexChanged);
+            this.gebruikerLvw.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.gebruikerLvw_ItemSelectionChanged);
             // 
             // gebruikersnaamHeader
             // 
