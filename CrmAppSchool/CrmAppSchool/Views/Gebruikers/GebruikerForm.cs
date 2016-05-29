@@ -24,6 +24,30 @@ namespace CrmAppSchool.Views.Hoofdmenu
             gebruiker = _gebruiker;
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
 
+            GebruikerController gebruikercontroller = new GebruikerController();
+            List<Gebruiker> gebruikersLijst = gebruikercontroller.haalGebruikersOp();
+
+            // Zet alle gebruikers in de lijst
+            foreach (Models.Gebruiker gebruiker in gebruikersLijst)
+            {
+                ListViewItem lvw = new ListViewItem(gebruiker.Gebruikersnaam);
+                // Bepaal het soort gebruiker
+                if (gebruiker is Admin)
+                {
+                    lvw.SubItems.Add("Admin");
+                }
+                else if(gebruiker is Docent)
+                {
+                    lvw.SubItems.Add("Docent");
+                }
+                else if(gebruiker is Student)
+                {
+                    lvw.SubItems.Add("Student");
+                }
+
+                // Voegt gegevens aan listview toe
+                gebruikerLvw.Items.Add(lvw);
+            }
         }
 
         private void voegToeBtn_Click(object sender, EventArgs e)

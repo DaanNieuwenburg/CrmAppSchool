@@ -141,15 +141,17 @@
             this.gebruikerLvw.Size = new System.Drawing.Size(491, 230);
             this.gebruikerLvw.TabIndex = 12;
             this.gebruikerLvw.UseCompatibleStateImageBehavior = false;
-            this.gebruikerLvw.View = System.Windows.Forms.View.List;
+            this.gebruikerLvw.View = System.Windows.Forms.View.Details;
             // 
             // gebruikersnaamHeader
             // 
             this.gebruikersnaamHeader.Text = "Gebruikersnaam";
+            this.gebruikersnaamHeader.Width = 120;
             // 
             // soortGebruikerHeader
             // 
             this.soortGebruikerHeader.Text = "Soort gebruiker";
+            this.soortGebruikerHeader.Width = 120;
             // 
             // voegToeBtn
             // 
