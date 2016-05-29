@@ -113,7 +113,7 @@
             this.lblGebruiker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lblGebruiker.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGebruiker.ForeColor = System.Drawing.Color.White;
-            this.lblGebruiker.Location = new System.Drawing.Point(293, 25);
+            this.lblGebruiker.Location = new System.Drawing.Point(293, 20);
             this.lblGebruiker.Name = "lblGebruiker";
             this.lblGebruiker.Size = new System.Drawing.Size(123, 16);
             this.lblGebruiker.TabIndex = 8;
@@ -162,7 +162,7 @@
             this.voegToeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.voegToeBtn.FlatAppearance.BorderSize = 0;
             this.voegToeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.voegToeBtn.Location = new System.Drawing.Point(199, 2);
+            this.voegToeBtn.Location = new System.Drawing.Point(199, 0);
             this.voegToeBtn.Name = "voegToeBtn";
             this.voegToeBtn.Size = new System.Drawing.Size(59, 50);
             this.voegToeBtn.TabIndex = 0;
@@ -175,7 +175,7 @@
             this.pbHome.BackgroundImage = global::CrmAppSchool.Properties.Resources.picture_Home;
             this.pbHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHome.Location = new System.Drawing.Point(-2, 2);
+            this.pbHome.Location = new System.Drawing.Point(-2, -1);
             this.pbHome.Name = "pbHome";
             this.pbHome.Size = new System.Drawing.Size(61, 50);
             this.pbHome.TabIndex = 10;
@@ -184,12 +184,11 @@
             // 
             // pbHeader
             // 
-            this.pbHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.pbHeader.Location = new System.Drawing.Point(-2, 2);
+            this.pbHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pbHeader.Location = new System.Drawing.Point(0, 0);
             this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(519, 50);
+            this.pbHeader.Size = new System.Drawing.Size(515, 50);
             this.pbHeader.TabIndex = 9;
             this.pbHeader.TabStop = false;
             // 

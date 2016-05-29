@@ -103,6 +103,7 @@ namespace CrmAppSchool.Views.Contacten
 
             if (ShowSave == false)
             {
+                lvContacten.Visible = false;
                 lblSoort.Visible = true;
                 btnVoegtoe.Visible = false;
                 btnAnnuleer.Visible = true;
@@ -119,7 +120,19 @@ namespace CrmAppSchool.Views.Contacten
                 ShowSave = false;
             }
         }
-
+        private void SaveContact(Persooncontact persoon)
+        {
+            /*ContactPersoon newcontact = new ContactPersoon();
+            newcontact.Voornaam = tbVoornaam.Text;
+            newcontact.Achternaam = tbAchternaam.Text;
+            newcontact.Bedrijf = tbBedrijf.Text;
+            newcontact.Email = tbEmail.Text;
+            newcontact.Functie = tbFunctie.Text;
+            newcontact.Locatie = tbLocatie.Text;
+            newcontact.Mobiel = tbMobiel.Text;
+            newcontact.Privemail = tbPriveMail.Text;*/
+            lvContacten.Items.Add(persoon.Voornaam + " " + persoon.Achternaam);
+        }
         private void btnAnnuleer_Click(object sender, EventArgs e)
         {
             btnVoegtoe.Visible = true;
@@ -134,7 +147,7 @@ namespace CrmAppSchool.Views.Contacten
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            Persooncontact persooncontact = new Persooncontact() { Voornaam = voornaamTxb.Text, Achternaam = achternaamTxb.Text, Locatie = locatieTxb.Text, Email = emailTxb.Text };
+            Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Locatie = tbLocatie.Text, Email = tbEmail.Text };
             string contactSoort = Convert.ToString(contactSoortCbx);
             switch (contactSoort)
             {
@@ -150,6 +163,17 @@ namespace CrmAppSchool.Views.Contacten
             }
             ContactenController contactencontroller = new ContactenController();
             contactencontroller.voegPersoonToe(persooncontact);
+            SaveContact(persooncontact);
+            pnOptioneel.Visible = false;
+            persoonPnl.Visible = false;
+            bedrijfPnl.Visible = false;
+            lblSoort.Visible = false;
+            btnVoegtoe.Visible = true;
+            btnAnnuleer.Visible = false;
+            btnOpslaan.Visible = false;
+            contactSoortCbx.Visible = false;
+            lvContacten.Visible = true;
+            ShowSave = false;
         }
     }
 }

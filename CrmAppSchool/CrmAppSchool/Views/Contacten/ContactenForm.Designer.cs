@@ -36,7 +36,7 @@
             this.pbHeader = new System.Windows.Forms.PictureBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvContacten = new System.Windows.Forms.ListView();
             this.contactSoortCbx = new System.Windows.Forms.ComboBox();
             this.lblSoort = new System.Windows.Forms.Label();
             this.bedrijfPnl = new System.Windows.Forms.Panel();
@@ -45,24 +45,24 @@
             this.persoonPnl = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.emailLbl = new System.Windows.Forms.Label();
-            this.emailTxb = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
             this.locatieLbl = new System.Windows.Forms.Label();
-            this.locatieTxb = new System.Windows.Forms.TextBox();
-            this.achternaamTxb = new System.Windows.Forms.TextBox();
+            this.tbLocatie = new System.Windows.Forms.TextBox();
+            this.tbAchternaam = new System.Windows.Forms.TextBox();
             this.achternaamLbl = new System.Windows.Forms.Label();
             this.voornaamLbl = new System.Windows.Forms.Label();
-            this.voornaamTxb = new System.Windows.Forms.TextBox();
+            this.tbVoornaam = new System.Windows.Forms.TextBox();
             this.btnOpslaan = new System.Windows.Forms.Button();
             this.btnAnnuleer = new System.Windows.Forms.Button();
             this.pnOptioneel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbPriveMail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbFunctie = new System.Windows.Forms.TextBox();
+            this.tbBedrijf = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbMobiel = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.bedrijfPnl.SuspendLayout();
@@ -170,16 +170,16 @@
             this.btnCancel.Visible = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // listView1
+            // lvContacten
             // 
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.Location = new System.Drawing.Point(0, 50);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(596, 434);
-            this.listView1.TabIndex = 19;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
+            this.lvContacten.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvContacten.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvContacten.Location = new System.Drawing.Point(0, 50);
+            this.lvContacten.Name = "lvContacten";
+            this.lvContacten.Size = new System.Drawing.Size(596, 434);
+            this.lvContacten.TabIndex = 19;
+            this.lvContacten.UseCompatibleStateImageBehavior = false;
+            this.lvContacten.View = System.Windows.Forms.View.List;
             // 
             // contactSoortCbx
             // 
@@ -243,13 +243,13 @@
             this.persoonPnl.BackColor = System.Drawing.SystemColors.Window;
             this.persoonPnl.Controls.Add(this.label5);
             this.persoonPnl.Controls.Add(this.emailLbl);
-            this.persoonPnl.Controls.Add(this.emailTxb);
-            this.persoonPnl.Controls.Add(this.locatieLbl);
-            this.persoonPnl.Controls.Add(this.locatieTxb);
-            this.persoonPnl.Controls.Add(this.achternaamTxb);
+            this.persoonPnl.Controls.Add(this.tbEmail);
+            this.persoonPnl.Controls.Add(this.label3);
+            this.persoonPnl.Controls.Add(this.tbBedrijf);
+            this.persoonPnl.Controls.Add(this.tbAchternaam);
             this.persoonPnl.Controls.Add(this.achternaamLbl);
             this.persoonPnl.Controls.Add(this.voornaamLbl);
-            this.persoonPnl.Controls.Add(this.voornaamTxb);
+            this.persoonPnl.Controls.Add(this.tbVoornaam);
             this.persoonPnl.Location = new System.Drawing.Point(39, 123);
             this.persoonPnl.Name = "persoonPnl";
             this.persoonPnl.Size = new System.Drawing.Size(273, 292);
@@ -275,39 +275,39 @@
             this.emailLbl.TabIndex = 7;
             this.emailLbl.Text = "* Email:";
             // 
-            // emailTxb
+            // tbEmail
             // 
-            this.emailTxb.Font = new System.Drawing.Font("Arial", 10F);
-            this.emailTxb.Location = new System.Drawing.Point(106, 125);
-            this.emailTxb.Name = "emailTxb";
-            this.emailTxb.Size = new System.Drawing.Size(149, 23);
-            this.emailTxb.TabIndex = 6;
+            this.tbEmail.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbEmail.Location = new System.Drawing.Point(106, 125);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(149, 23);
+            this.tbEmail.TabIndex = 6;
             // 
             // locatieLbl
             // 
             this.locatieLbl.AutoSize = true;
             this.locatieLbl.Font = new System.Drawing.Font("Arial", 10F);
-            this.locatieLbl.Location = new System.Drawing.Point(3, 102);
+            this.locatieLbl.Location = new System.Drawing.Point(15, 76);
             this.locatieLbl.Name = "locatieLbl";
-            this.locatieLbl.Size = new System.Drawing.Size(67, 16);
+            this.locatieLbl.Size = new System.Drawing.Size(58, 16);
             this.locatieLbl.TabIndex = 5;
-            this.locatieLbl.Text = "* Locatie:";
+            this.locatieLbl.Text = "Locatie:";
             // 
-            // locatieTxb
+            // tbLocatie
             // 
-            this.locatieTxb.Font = new System.Drawing.Font("Arial", 10F);
-            this.locatieTxb.Location = new System.Drawing.Point(106, 99);
-            this.locatieTxb.Name = "locatieTxb";
-            this.locatieTxb.Size = new System.Drawing.Size(149, 23);
-            this.locatieTxb.TabIndex = 4;
+            this.tbLocatie.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbLocatie.Location = new System.Drawing.Point(106, 73);
+            this.tbLocatie.Name = "tbLocatie";
+            this.tbLocatie.Size = new System.Drawing.Size(152, 23);
+            this.tbLocatie.TabIndex = 4;
             // 
-            // achternaamTxb
+            // tbAchternaam
             // 
-            this.achternaamTxb.Font = new System.Drawing.Font("Arial", 10F);
-            this.achternaamTxb.Location = new System.Drawing.Point(106, 73);
-            this.achternaamTxb.Name = "achternaamTxb";
-            this.achternaamTxb.Size = new System.Drawing.Size(149, 23);
-            this.achternaamTxb.TabIndex = 3;
+            this.tbAchternaam.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbAchternaam.Location = new System.Drawing.Point(106, 73);
+            this.tbAchternaam.Name = "tbAchternaam";
+            this.tbAchternaam.Size = new System.Drawing.Size(149, 23);
+            this.tbAchternaam.TabIndex = 3;
             // 
             // achternaamLbl
             // 
@@ -329,13 +329,13 @@
             this.voornaamLbl.TabIndex = 1;
             this.voornaamLbl.Text = "* Voornaam:";
             // 
-            // voornaamTxb
+            // tbVoornaam
             // 
-            this.voornaamTxb.Font = new System.Drawing.Font("Arial", 10F);
-            this.voornaamTxb.Location = new System.Drawing.Point(106, 46);
-            this.voornaamTxb.Name = "voornaamTxb";
-            this.voornaamTxb.Size = new System.Drawing.Size(149, 23);
-            this.voornaamTxb.TabIndex = 0;
+            this.tbVoornaam.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbVoornaam.Location = new System.Drawing.Point(106, 46);
+            this.tbVoornaam.Name = "tbVoornaam";
+            this.tbVoornaam.Size = new System.Drawing.Size(149, 23);
+            this.tbVoornaam.TabIndex = 0;
             // 
             // btnOpslaan
             // 
@@ -375,13 +375,13 @@
             // 
             this.pnOptioneel.BackColor = System.Drawing.SystemColors.Window;
             this.pnOptioneel.Controls.Add(this.label1);
-            this.pnOptioneel.Controls.Add(this.textBox1);
+            this.pnOptioneel.Controls.Add(this.tbPriveMail);
             this.pnOptioneel.Controls.Add(this.label2);
-            this.pnOptioneel.Controls.Add(this.textBox2);
-            this.pnOptioneel.Controls.Add(this.textBox3);
-            this.pnOptioneel.Controls.Add(this.label3);
+            this.pnOptioneel.Controls.Add(this.locatieLbl);
+            this.pnOptioneel.Controls.Add(this.tbFunctie);
+            this.pnOptioneel.Controls.Add(this.tbLocatie);
             this.pnOptioneel.Controls.Add(this.label4);
-            this.pnOptioneel.Controls.Add(this.textBox4);
+            this.pnOptioneel.Controls.Add(this.tbMobiel);
             this.pnOptioneel.Location = new System.Drawing.Point(311, 123);
             this.pnOptioneel.Name = "pnOptioneel";
             this.pnOptioneel.Size = new System.Drawing.Size(273, 292);
@@ -398,13 +398,13 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Privé mail:";
             // 
-            // textBox1
+            // tbPriveMail
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 10F);
-            this.textBox1.Location = new System.Drawing.Point(106, 125);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 23);
-            this.textBox1.TabIndex = 6;
+            this.tbPriveMail.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbPriveMail.Location = new System.Drawing.Point(106, 125);
+            this.tbPriveMail.Name = "tbPriveMail";
+            this.tbPriveMail.Size = new System.Drawing.Size(152, 23);
+            this.tbPriveMail.TabIndex = 6;
             // 
             // label2
             // 
@@ -416,31 +416,31 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Functie:";
             // 
-            // textBox2
+            // tbFunctie
             // 
-            this.textBox2.Font = new System.Drawing.Font("Arial", 10F);
-            this.textBox2.Location = new System.Drawing.Point(106, 99);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(152, 23);
-            this.textBox2.TabIndex = 4;
+            this.tbFunctie.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbFunctie.Location = new System.Drawing.Point(106, 99);
+            this.tbFunctie.Name = "tbFunctie";
+            this.tbFunctie.Size = new System.Drawing.Size(152, 23);
+            this.tbFunctie.TabIndex = 4;
             // 
-            // textBox3
+            // tbBedrijf
             // 
-            this.textBox3.Font = new System.Drawing.Font("Arial", 10F);
-            this.textBox3.Location = new System.Drawing.Point(106, 73);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(152, 23);
-            this.textBox3.TabIndex = 3;
+            this.tbBedrijf.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbBedrijf.Location = new System.Drawing.Point(106, 99);
+            this.tbBedrijf.Name = "tbBedrijf";
+            this.tbBedrijf.Size = new System.Drawing.Size(149, 23);
+            this.tbBedrijf.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 10F);
-            this.label3.Location = new System.Drawing.Point(15, 76);
+            this.label3.Location = new System.Drawing.Point(3, 102);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 16);
+            this.label3.Size = new System.Drawing.Size(61, 16);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Bedrijf:";
+            this.label3.Text = "* Bedrijf:";
             // 
             // label4
             // 
@@ -452,13 +452,13 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Mobiel:";
             // 
-            // textBox4
+            // tbMobiel
             // 
-            this.textBox4.Font = new System.Drawing.Font("Arial", 10F);
-            this.textBox4.Location = new System.Drawing.Point(106, 46);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(152, 23);
-            this.textBox4.TabIndex = 0;
+            this.tbMobiel.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbMobiel.Location = new System.Drawing.Point(106, 46);
+            this.tbMobiel.Name = "tbMobiel";
+            this.tbMobiel.Size = new System.Drawing.Size(152, 23);
+            this.tbMobiel.TabIndex = 0;
             // 
             // ContactenForm
             // 
@@ -472,7 +472,7 @@
             this.Controls.Add(this.bedrijfPnl);
             this.Controls.Add(this.lblSoort);
             this.Controls.Add(this.contactSoortCbx);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lvContacten);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.btnZoeken);
@@ -506,7 +506,7 @@
         private System.Windows.Forms.Button btnZoeken;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvContacten;
         private System.Windows.Forms.ComboBox contactSoortCbx;
         private System.Windows.Forms.Label lblSoort;
         private System.Windows.Forms.Panel bedrijfPnl;
@@ -514,24 +514,24 @@
         private System.Windows.Forms.TextBox bedrijfsnaamTxb;
         private System.Windows.Forms.Panel persoonPnl;
         private System.Windows.Forms.Label voornaamLbl;
-        private System.Windows.Forms.TextBox voornaamTxb;
+        private System.Windows.Forms.TextBox tbVoornaam;
         private System.Windows.Forms.Label emailLbl;
-        private System.Windows.Forms.TextBox emailTxb;
+        private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label locatieLbl;
-        private System.Windows.Forms.TextBox locatieTxb;
-        private System.Windows.Forms.TextBox achternaamTxb;
+        private System.Windows.Forms.TextBox tbLocatie;
+        private System.Windows.Forms.TextBox tbAchternaam;
         private System.Windows.Forms.Label achternaamLbl;
         private System.Windows.Forms.Button btnOpslaan;
         private System.Windows.Forms.Button btnAnnuleer;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel pnOptioneel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbPriveMail;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbFunctie;
+        private System.Windows.Forms.TextBox tbBedrijf;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbMobiel;
     }
 }
