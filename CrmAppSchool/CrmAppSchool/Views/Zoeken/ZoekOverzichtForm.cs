@@ -35,6 +35,7 @@ namespace CrmAppSchool.Views.Zoeken
             imagelist.Images.Add("SB", Properties.Resources.Afbeelding_ContactPersoon_StageBegeleider);
             // tell your ListView to use the new image list
             resultatenLvw.LargeImageList = imagelist;
+            
 
             //if (resultaatLijst != null && resultaatLijst.Count() > 0)
             //{
@@ -46,6 +47,7 @@ namespace CrmAppSchool.Views.Zoeken
                     lvw.SubItems.Add(profiel.Functie);
                     lvw.SubItems.Add(profiel.Kwaliteit);        
                     resultatenLvw.Items.Add(lvw);
+                    imagelist.ImageSize = new Size(50, 50);
                     lvw.ImageKey = "GS";
             }
            // }
