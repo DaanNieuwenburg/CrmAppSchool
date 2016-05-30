@@ -12,9 +12,11 @@ namespace CrmAppSchool.Controllers
     {
         public void voegGebruikerToe(Gebruiker _gebruiker)
         {
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = "INSERT INTO gebruiker (gebruikersnaam, wachtwoord, isadmin, isdocent, isstudent) VALUES (@gebruikersnaam, @wachtwoord, @isadmin, @isdocent, @isstudent)";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
@@ -61,9 +63,15 @@ namespace CrmAppSchool.Controllers
 
                 command.Prepare();
                 command.ExecuteNonQuery();
+
+                trans.Commit();
             }
             catch(MySqlException e)
             {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
                 Console.WriteLine("ERROR! EXCEPTION! ARGHHH! : " + e);
             }
             finally

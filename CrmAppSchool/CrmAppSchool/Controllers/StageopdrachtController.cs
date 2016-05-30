@@ -32,17 +32,19 @@ namespace CrmAppSchool.Controllers
 
                     opdrachten.Add(opdracht);
                 }
+                return opdrachten;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Ophalen van stageopdrachten mislukt" + ex);
+                return null;
             }
             finally
             {
                 conn.Close();
             }
 
-            return opdrachten;
+            
         }
 
         public List<Stageopdracht> ZoekOpdrachten(string tekst)
@@ -71,17 +73,19 @@ namespace CrmAppSchool.Controllers
 
                     opdrachten.Add(opdracht);
                 }
+
+                return opdrachten;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Ophalen van stageopdrachten mislukt" + ex);
+                return null;
             }
             finally
             {
                 conn.Close();
             }
 
-            return opdrachten;
         }
 
         public void deleteStageopdracht(int opdrachtcode)
