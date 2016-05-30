@@ -25,11 +25,19 @@ namespace CrmAppSchool.Views.Gebruikers
 
         private void veranderBtn_Click(object sender, EventArgs e)
         {
-            gebruiker.Wachtwoord = nieuwWachtwoordTxb.Text;
-
-            GebruikerController gebruikercontroller = new GebruikerController();
-            gebruikercontroller.veranderWachtwoordGebruiker(gebruiker);
-            this.DialogResult = DialogResult.OK;
+            // Controleert of wachtwoord niet leeg is
+            if (nieuwWachtwoordTxb.Text == "")
+            {
+                errorLbl.Text = "Het nieuwe wachtwoord mag niet leeg zijn";
+                errorLbl.Visible = true;
+            }
+            else
+            {
+                gebruiker.Wachtwoord = nieuwWachtwoordTxb.Text;
+                GebruikerController gebruikercontroller = new GebruikerController();
+                gebruikercontroller.veranderWachtwoordGebruiker(gebruiker);
+                this.DialogResult = DialogResult.OK;
+            }
         }
 
         private void verwijderBtn_Click(object sender, EventArgs e)
@@ -53,11 +61,19 @@ namespace CrmAppSchool.Views.Gebruikers
 
         private void btnWijzig_Click(object sender, EventArgs e)
         {
-            gebruiker.Wachtwoord = nieuwWachtwoordTxb.Text;
-
-            GebruikerController gebruikercontroller = new GebruikerController();
-            gebruikercontroller.veranderWachtwoordGebruiker(gebruiker);
-            this.DialogResult = DialogResult.OK;
+            // Controleert of wachtwoord niet leeg is
+            if (nieuwWachtwoordTxb.Text == "")
+            {
+                errorLbl.Text = "Het nieuwe wachtwoord mag niet leeg zijn";
+                errorLbl.Visible = true;
+            }
+            else
+            {
+                gebruiker.Wachtwoord = nieuwWachtwoordTxb.Text;
+                GebruikerController gebruikercontroller = new GebruikerController();
+                gebruikercontroller.veranderWachtwoordGebruiker(gebruiker);
+                this.DialogResult = DialogResult.OK;
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
