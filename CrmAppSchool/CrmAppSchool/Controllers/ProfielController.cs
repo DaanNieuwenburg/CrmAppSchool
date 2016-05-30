@@ -23,7 +23,7 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
-                string query = "Select * from profiel where gebruikersnaam = @gebruikersnaam";
+                string query = "SELECT * FROM profiel WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
 
                 MySqlParameter UN_PARAM = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
@@ -87,7 +87,7 @@ namespace CrmAppSchool.Controllers
             }
         }
 
-        public void Update_Profiel(Gebruiker _gebruiker, string voornaam, string achternaam, string bedrijf, string locatie, string functie, string kwaliteit)
+        public void Update_Profiel(Gebruiker _gebruiker, Profiel _profiel)
         {
             MySqlTransaction trans = null;
             try
@@ -95,7 +95,7 @@ namespace CrmAppSchool.Controllers
                 conn.Open();
                 trans = conn.BeginTransaction();
 
-                string query = "Update profiel Set voornaam = @Voornaam, achternaam = @Achternaam, bedrijf = @Bedrijf, locatie = @Locatie, functie = @Functie, kwaliteit = @Kwaliteit where gebruikersnaam = @gebruikersnaam"; // dit moet een UPDATE worden
+                string query = "UPDATE profiel SET voornaam = @Voornaam, achternaam = @Achternaam, bedrijf = @Bedrijf, locatie = @Locatie, functie = @Functie, kwaliteit = @Kwaliteit WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
 
                 MySqlParameter UN_PARAM = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
@@ -108,12 +108,12 @@ namespace CrmAppSchool.Controllers
 
 
                 UN_PARAM.Value = _gebruiker.Gebruikersnaam;
-                VN_PARAM.Value = voornaam;
-                AN_PARAM.Value = achternaam;
-                BD_PARAM.Value = bedrijf;
-                LO_PARAM.Value = locatie;
-                FU_PARAM.Value = functie;
-                KW_PARAM.Value = kwaliteit;
+                VN_PARAM.Value = _profiel.Voornaam;
+                AN_PARAM.Value = _profiel.Achternaam;
+                BD_PARAM.Value = _profiel.Bedrijf;
+                LO_PARAM.Value = _profiel.Locatie;
+                FU_PARAM.Value = _profiel.Functie;
+                KW_PARAM.Value = _profiel.Kwaliteit;
 
                 command.Parameters.Add(UN_PARAM);
                 command.Parameters.Add(VN_PARAM);
@@ -128,20 +128,8 @@ namespace CrmAppSchool.Controllers
                 command.Prepare();
                 command.ExecuteNonQuery();
                 trans.Commit();
-                /*MySqlDataReader datalezer = command.ExecuteReader();
-
-                while (datalezer.Read())
-                {
-                    profiel.Gebruikersnaam = datalezer.GetString("gebruikersnaam");
-                    profiel.Voornaam = datalezer.GetString("voornaam");
-                    profiel.Achternaam = datalezer.GetString("Achternaam");
-                    profiel.Bedrijf = datalezer.GetString("bedrijf");
-                    profiel.Locatie = datalezer.GetString("locatie");
-                    profiel.Functie = datalezer.GetString("functie");
-                    profiel.Kwaliteit = datalezer.GetString("kwaliteit");
-                }
-                return profiel;*/
             }
+
             catch (MySqlException e)
             {
                 if (trans != null)
@@ -149,7 +137,6 @@ namespace CrmAppSchool.Controllers
                     trans.Rollback();
                 }
                 Console.WriteLine("Error in profielcontroller - update_profiel: " + e);
-                //return null;
             }
             finally
             {

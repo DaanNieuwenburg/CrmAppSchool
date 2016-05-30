@@ -167,8 +167,9 @@ namespace CrmAppSchool.Views.Profiel
                 }
 
                 // Schrijf de nieuwe profiel informatie over naar de database
-                Controllers.ProfielController _profiel = new Controllers.ProfielController();
-                _profiel.Update_Profiel(gebruiker, lblVoornaamWaarde.Text, lblAchternaamWaarde.Text, lblBedrijfWaarde.Text, lblLocatieWaarde.Text, lblFunctieWaarde.Text, lblKwaliteitWaarde.Text);
+                Controllers.ProfielController profielController = new Controllers.ProfielController();
+                Models.Profiel profiel = new Models.Profiel() { Voornaam = lblVoornaamWaarde.Text, Achternaam = lblAchternaamWaarde.Text, Bedrijf = lblBedrijfWaarde.Text, Locatie = lblLocatieWaarde.Text, Functie = lblFunctieWaarde.Text, Kwaliteit = lblKwaliteitWaarde.Text };
+                profielController.Update_Profiel(gebruiker, profiel);
                 
                 // Zet de bewerk of prive mode weer uit
                 if (EditMode == true)
