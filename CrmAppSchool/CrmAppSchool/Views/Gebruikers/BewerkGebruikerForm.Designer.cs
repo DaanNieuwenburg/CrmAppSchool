@@ -48,7 +48,7 @@
             this.veranderBtn.Location = new System.Drawing.Point(157, 257);
             this.veranderBtn.Name = "veranderBtn";
             this.veranderBtn.Size = new System.Drawing.Size(75, 23);
-            this.veranderBtn.TabIndex = 0;
+            this.veranderBtn.TabIndex = 16;
             this.veranderBtn.Text = "Verander";
             this.veranderBtn.UseVisualStyleBackColor = true;
             this.veranderBtn.Click += new System.EventHandler(this.veranderBtn_Click);
@@ -112,7 +112,7 @@
             this.btnDelete.Location = new System.Drawing.Point(205, -1);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(59, 48);
-            this.btnDelete.TabIndex = 19;
+            this.btnDelete.TabIndex = 17;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -128,7 +128,7 @@
             this.btnWijzig.Location = new System.Drawing.Point(140, -1);
             this.btnWijzig.Name = "btnWijzig";
             this.btnWijzig.Size = new System.Drawing.Size(59, 48);
-            this.btnWijzig.TabIndex = 18;
+            this.btnWijzig.TabIndex = 16;
             this.btnWijzig.UseVisualStyleBackColor = false;
             this.btnWijzig.Click += new System.EventHandler(this.btnWijzig_Click);
             // 
@@ -146,7 +146,7 @@
             this.textBox1.Location = new System.Drawing.Point(71, 135);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(161, 20);
-            this.textBox1.TabIndex = 20;
+            this.textBox1.TabIndex = 15;
             this.textBox1.UseSystemPasswordChar = true;
             // 
             // lblWachtwoordhead

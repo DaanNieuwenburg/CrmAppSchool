@@ -96,7 +96,7 @@
             this.soortGebruikerCbx.Location = new System.Drawing.Point(184, 86);
             this.soortGebruikerCbx.Name = "soortGebruikerCbx";
             this.soortGebruikerCbx.Size = new System.Drawing.Size(132, 24);
-            this.soortGebruikerCbx.TabIndex = 6;
+            this.soortGebruikerCbx.TabIndex = 3;
             // 
             // gebruikerLbl
             // 

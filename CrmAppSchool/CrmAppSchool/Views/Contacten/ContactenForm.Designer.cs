@@ -281,7 +281,7 @@
             this.tbEmail.Location = new System.Drawing.Point(106, 125);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(149, 23);
-            this.tbEmail.TabIndex = 6;
+            this.tbEmail.TabIndex = 3;
             // 
             // locatieLbl
             // 
@@ -299,7 +299,7 @@
             this.tbLocatie.Location = new System.Drawing.Point(106, 73);
             this.tbLocatie.Name = "tbLocatie";
             this.tbLocatie.Size = new System.Drawing.Size(152, 23);
-            this.tbLocatie.TabIndex = 4;
+            this.tbLocatie.TabIndex = 5;
             // 
             // tbAchternaam
             // 
@@ -307,7 +307,7 @@
             this.tbAchternaam.Location = new System.Drawing.Point(106, 73);
             this.tbAchternaam.Name = "tbAchternaam";
             this.tbAchternaam.Size = new System.Drawing.Size(149, 23);
-            this.tbAchternaam.TabIndex = 3;
+            this.tbAchternaam.TabIndex = 1;
             // 
             // achternaamLbl
             // 
@@ -349,7 +349,7 @@
             this.btnOpslaan.Location = new System.Drawing.Point(335, 1);
             this.btnOpslaan.Name = "btnOpslaan";
             this.btnOpslaan.Size = new System.Drawing.Size(63, 49);
-            this.btnOpslaan.TabIndex = 30;
+            this.btnOpslaan.TabIndex = 8;
             this.btnOpslaan.UseVisualStyleBackColor = false;
             this.btnOpslaan.Visible = false;
             this.btnOpslaan.Click += new System.EventHandler(this.btnOpslaan_Click);
@@ -366,7 +366,7 @@
             this.btnAnnuleer.Location = new System.Drawing.Point(267, 0);
             this.btnAnnuleer.Name = "btnAnnuleer";
             this.btnAnnuleer.Size = new System.Drawing.Size(63, 49);
-            this.btnAnnuleer.TabIndex = 29;
+            this.btnAnnuleer.TabIndex = 9;
             this.btnAnnuleer.UseVisualStyleBackColor = false;
             this.btnAnnuleer.Visible = false;
             this.btnAnnuleer.Click += new System.EventHandler(this.btnAnnuleer_Click);
@@ -404,7 +404,7 @@
             this.tbPriveMail.Location = new System.Drawing.Point(106, 125);
             this.tbPriveMail.Name = "tbPriveMail";
             this.tbPriveMail.Size = new System.Drawing.Size(152, 23);
-            this.tbPriveMail.TabIndex = 6;
+            this.tbPriveMail.TabIndex = 7;
             // 
             // label2
             // 
@@ -422,7 +422,7 @@
             this.tbFunctie.Location = new System.Drawing.Point(106, 99);
             this.tbFunctie.Name = "tbFunctie";
             this.tbFunctie.Size = new System.Drawing.Size(152, 23);
-            this.tbFunctie.TabIndex = 4;
+            this.tbFunctie.TabIndex = 6;
             // 
             // tbBedrijf
             // 
@@ -430,7 +430,7 @@
             this.tbBedrijf.Location = new System.Drawing.Point(106, 99);
             this.tbBedrijf.Name = "tbBedrijf";
             this.tbBedrijf.Size = new System.Drawing.Size(149, 23);
-            this.tbBedrijf.TabIndex = 3;
+            this.tbBedrijf.TabIndex = 2;
             // 
             // label3
             // 
@@ -458,7 +458,7 @@
             this.tbMobiel.Location = new System.Drawing.Point(106, 46);
             this.tbMobiel.Name = "tbMobiel";
             this.tbMobiel.Size = new System.Drawing.Size(152, 23);
-            this.tbMobiel.TabIndex = 0;
+            this.tbMobiel.TabIndex = 4;
             // 
             // ContactenForm
             // 
