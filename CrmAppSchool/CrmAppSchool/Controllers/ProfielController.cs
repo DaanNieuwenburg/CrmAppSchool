@@ -48,7 +48,7 @@ namespace CrmAppSchool.Controllers
             }
             catch (MySqlException e)
             {
-                Console.WriteLine("ERROR! EXCEPTION! ARGHHH! : " + e);
+                Console.WriteLine("Error in profielcontroller - Get_profiel: " + e);
                 return null;
             }
             finally
@@ -78,7 +78,7 @@ namespace CrmAppSchool.Controllers
             }
             catch(MySqlException e)
             {
-                Console.WriteLine("Error in profielcontroller - bestaatprofiel " + e);
+                Console.WriteLine("Error in profielcontroller - bestaatprofiel: " + e);
                 return false;
             }
             finally
@@ -148,7 +148,7 @@ namespace CrmAppSchool.Controllers
                 {
                     trans.Rollback();
                 }
-                Console.WriteLine("ERROR! EXCEPTION! ARGHHH! : " + e);
+                Console.WriteLine("Error in profielcontroller - update_profiel: " + e);
                 //return null;
             }
             finally
@@ -171,7 +171,7 @@ namespace CrmAppSchool.Controllers
             }
             catch (MySqlException e)
             {
-                Console.WriteLine("Error in ProfielController/verwijderGebruiker " + e);
+                Console.WriteLine("Error in profielcontroller - verwijderprofiel: " + e);
             }
             finally
             {

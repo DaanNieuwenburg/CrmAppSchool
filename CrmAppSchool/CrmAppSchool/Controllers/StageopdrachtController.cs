@@ -34,9 +34,9 @@ namespace CrmAppSchool.Controllers
                 }
                 return opdrachten;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                Console.WriteLine("Ophalen van stageopdrachten mislukt" + ex);
+                Console.WriteLine("Error in stageopdrachtcontroller - getopdrachten " + e);
                 return null;
             }
             finally
@@ -76,9 +76,9 @@ namespace CrmAppSchool.Controllers
 
                 return opdrachten;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                Console.WriteLine("Ophalen van stageopdrachten mislukt" + ex);
+                Console.WriteLine("Error in stageopdrachtcontroller - zoekopdrachten: " + e);
                 return null;
             }
             finally
@@ -110,13 +110,13 @@ namespace CrmAppSchool.Controllers
 
                 trans.Commit();
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
                 if (trans != null)
                 {
                     trans.Rollback();
                 }
-                Console.WriteLine("opdracht niet verwijderd: " + ex);
+                Console.WriteLine("Error in stageopdrachtcontroller - deletestageopdracht: " + e);
             }
             finally
             {
@@ -153,13 +153,13 @@ namespace CrmAppSchool.Controllers
 
                 trans.Commit();
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
                 if (trans != null)
                 {
                     trans.Rollback();
                 }
-                Console.WriteLine("Opdracht niet toegeveogd: " + ex);
+                Console.WriteLine("Error in stageopdrachtcontroller - insertstageopdracht: " + e);
             }
             finally
             {
@@ -200,13 +200,13 @@ namespace CrmAppSchool.Controllers
 
                 trans.Commit();
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
                 if (trans != null)
                 {
                     trans.Rollback();
                 }
-                Console.WriteLine("Opdracht niet toegeveogd: " + ex);
+                Console.WriteLine("Error in stageopdrachtcontroller - updatestageopdracht " + e);
             }
             finally
             {

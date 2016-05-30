@@ -41,8 +41,9 @@ namespace CrmAppSchool.Controllers
                 }
                 return gebruikersLijst;
             }
-            catch
+            catch (MySqlException e)
             {
+                Console.WriteLine("Error in gebruikercontroller - haalgebruikersop: " + e);
                 return null;
             }
             finally
@@ -78,7 +79,7 @@ namespace CrmAppSchool.Controllers
                 {
                     trans.Rollback();
                 }
-                Console.WriteLine("Error in Gebruikercontroller/verwijderGebruiker " + e);
+                Console.WriteLine("Error in gebruikercontroller - veranderwachtwoordgebruiker: " + e);
             }
             finally
             {
@@ -121,7 +122,7 @@ namespace CrmAppSchool.Controllers
                 {
                     trans.Rollback();
                 }
-                Console.WriteLine("Error in Gebruikercontroller/verwijderGebruiker " + e);
+                Console.WriteLine("Error in gebruikercontroller - verwijdergebruiker: " + e);
             }
             finally
             {

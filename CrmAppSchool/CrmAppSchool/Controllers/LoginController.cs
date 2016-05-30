@@ -66,7 +66,7 @@ namespace CrmAppSchool.Controllers
             }
             catch (MySqlException e)
             {
-                Console.WriteLine("ERROR! EXCEPTION! ARGHHH! : " + e);
+                Console.WriteLine("Error in logincontroller - verifieergebruiker: " + e);
                 return false;
             }
             finally

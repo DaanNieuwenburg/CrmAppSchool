@@ -62,7 +62,7 @@ namespace CrmAppSchool.Controllers
                 {
                     trans.Rollback();
                 }
-                Console.WriteLine("voegPersoonToe kan helaas geen persoon toevoegen: " + e);
+                Console.WriteLine("Error in contactencontroller - voegpersoontoe: " + e);
             }
             finally
             {

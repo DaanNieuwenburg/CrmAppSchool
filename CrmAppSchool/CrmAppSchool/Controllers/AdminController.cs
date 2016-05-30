@@ -72,7 +72,7 @@ namespace CrmAppSchool.Controllers
                 {
                     trans.Rollback();
                 }
-                Console.WriteLine("ERROR! EXCEPTION! ARGHHH! : " + e);
+                Console.WriteLine("Error in admincontroller - voeggebruikertoe: " + e);
             }
             finally
             {
