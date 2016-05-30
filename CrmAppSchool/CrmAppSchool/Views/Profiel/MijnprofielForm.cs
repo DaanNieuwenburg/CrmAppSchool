@@ -13,13 +13,13 @@ namespace CrmAppSchool.Views.Profiel
 {
     public partial class MijnprofielForm : Form
     {
-        private Gebruiker gebruiker { get; set; }
-        private Models.Profiel profiel { get; set; }
-        public bool[] Bewerkt { get; private set; }
-        public bool ShowMenu { get; set; }
-        private bool EditMode { get; set; }
-        private bool EditWachtwoordMode { get; set; }
-        private bool PriveMode { get; set; }
+        private Gebruiker gebruiker { get; set; }          // De huidige ingelogde gebruiker
+        private Models.Profiel profiel { get; set; }       // De profielinfo van de ingelogde gebruiker
+        public bool[] Bewerkt { get; private set; }        // Bool array om te kijken welke info er is bewerkt
+        public bool ShowMenu { get; set; }                 // Boolean voor het zichtbaar maken van de mainmenu
+        private bool EditMode { get; set; }                // Boolean voor het menu om profiel te bewerken
+        private bool EditWachtwoordMode { get; set; }      // Boolean voor het menu om wachtwoord te veranderen
+        private bool PriveMode { get; set; }               // Boolean voor het menu om info prive te maken
 
         public MijnprofielForm(Gebruiker _gebruiker, Models.Profiel _profiel)
         {
@@ -33,6 +33,7 @@ namespace CrmAppSchool.Views.Profiel
             // Bind model aan form
             profiel = _profiel;
 
+            // Zet alle modes in het begin op false
             ShowMenu = false;
             EditMode = false;
             PriveMode = false;
@@ -47,6 +48,7 @@ namespace CrmAppSchool.Views.Profiel
 
         private void MijnprofielForm_Load(object sender, EventArgs e)
         {
+            // Zet de informatie van het profiel naar de labels
             lblVoornaamWaarde.Text = profiel.Voornaam;
             lblAchternaamWaarde.Text = profiel.Achternaam;
             lblBedrijfWaarde.Text = profiel.Bedrijf;
@@ -69,6 +71,7 @@ namespace CrmAppSchool.Views.Profiel
         }
         private void Updatebuttons()
         {
+            // Zet de knoppen naar edit mode of terug naar beginmode
             if (EditMode == true)
             {
                 btnBewerk.Visible = false;
@@ -117,11 +120,13 @@ namespace CrmAppSchool.Views.Profiel
 
         private void btnAnnuleer_Click(object sender, EventArgs e)
         {
+            // Annuleer bewerk mode
             if (EditMode == true)
             {
                 EditMode = false;
                 Updatebuttons();
             }
+            // annuleer prive mode
             else if (PriveMode == true)
             {
                 PriveMode = false;
@@ -160,8 +165,12 @@ namespace CrmAppSchool.Views.Profiel
                         lblKwaliteitWaarde.Text = tbKwaliteit.Text;
                     }
                 }
+
+                // Schrijf de nieuwe profiel informatie over naar de database
                 Controllers.ProfielController _profiel = new Controllers.ProfielController();
                 _profiel.Update_Profiel(gebruiker, lblVoornaamWaarde.Text, lblAchternaamWaarde.Text, lblBedrijfWaarde.Text, lblLocatieWaarde.Text, lblFunctieWaarde.Text, lblKwaliteitWaarde.Text);
+                
+                // Zet de bewerk of prive mode weer uit
                 if (EditMode == true)
                 {
                     EditMode = false;
@@ -207,6 +216,8 @@ namespace CrmAppSchool.Views.Profiel
             }
             else
             {
+                //Hier moet de code komen voor het prive zetten in de database
+
                 btnBewerk.Visible = true;
                 btnPrive.Visible = true;
                 btnOpslaan.Visible = false;

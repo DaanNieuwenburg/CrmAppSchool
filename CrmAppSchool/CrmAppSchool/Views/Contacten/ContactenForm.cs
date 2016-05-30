@@ -142,6 +142,7 @@ namespace CrmAppSchool.Views.Contacten
             persoonPnl.Visible = false;
             pnOptioneel.Visible = false;
             lblSoort.Visible = false;
+            lvContacten.Visible = true;
             ShowSave = false;
         }
 
