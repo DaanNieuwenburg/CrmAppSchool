@@ -31,11 +31,15 @@ namespace CrmAppSchool.Views.Opdrachten
 
         public void setListBox()
         {
-            lbStage.Items.Clear();
+            lvStage.Items.Clear();
             List<Stageopdracht> opdrachten = soc.getOpdrachten();
-            foreach(Stageopdracht opdracht in opdrachten)
+            foreach (Stageopdracht opdracht in opdrachten)
             {
-                lbStage.Items.Add(opdracht);
+                ListViewItem lvi = new ListViewItem(opdracht.Code.ToString());
+                lvi.SubItems.Add(opdracht.Naam);
+                lvi.SubItems.Add(opdracht.Omschrijving);
+                lvi.SubItems.Add(opdracht.Status);
+                lvStage.Items.Add(lvi);
             }
 
         }
@@ -48,59 +52,16 @@ namespace CrmAppSchool.Views.Opdrachten
 
         public void zoek()
         {
-            lbStage.Items.Clear();
+            lvStage.Items.Clear();
             string input = "%" + tbZoek.Text + "%";
             List<Stageopdracht> opdrachten = soc.ZoekOpdrachten(input);
             foreach (Stageopdracht opdracht in opdrachten)
             {
-                lbStage.Items.Add(opdracht);
-            }
-        }
-
-        private void bZoek_Click(object sender, EventArgs e)
-        {
-            if (tbZoek.Text.Equals(""))
-            {
-                lbStage.Items.Clear();
-                setListBox();
-            }
-            else
-            {
-                zoek();
-            }
-        }
-
-        private void bVerwijderen_Click(object sender, EventArgs e)
-        {
-            if ((Stageopdracht)lbStage.SelectedItem != null)
-            {
-                soc.deleteStageopdracht(((Stageopdracht)lbStage.SelectedItem).Code);
-                setListBox();
-            }
-        }
-
-        private void bToevoegen_Click(object sender, EventArgs e)
-        {
-
-            opdrachtEditForm form = new opdrachtEditForm();
-            form.ShowDialog();
-            if (form.DialogResult == DialogResult.OK)
-            {
-                setListBox();
-            }
-        }
-
-        private void bAanpassen_Click(object sender, EventArgs e)
-        {
-            if (lbStage.SelectedItem != null)
-            {
-                opdrachtEditForm OEF = new opdrachtEditForm();
-                OEF.Editopdracht((Stageopdracht)lbStage.SelectedItem);
-                OEF.ShowDialog();
-                if (OEF.DialogResult == DialogResult.OK)
-                {
-                    setListBox();
-                }
+                ListViewItem lvi = new ListViewItem(opdracht.Code.ToString());
+                lvi.SubItems.Add(opdracht.Naam);
+                lvi.SubItems.Add(opdracht.Omschrijving);
+                lvi.SubItems.Add(opdracht.Status);
+                lvStage.Items.Add(lvi);
             }
         }
 
@@ -116,10 +77,16 @@ namespace CrmAppSchool.Views.Opdrachten
 
         private void btnWijzig_Click(object sender, EventArgs e)
         {
-            if (lbStage.SelectedItem != null)
+            if (lvStage.SelectedItems != null)
             {
+                Stageopdracht opdracht = new Stageopdracht();
+                opdracht.Code = Convert.ToInt32(lvStage.SelectedItems[0].SubItems[0].Text);
+                opdracht.Naam = lvStage.SelectedItems[0].SubItems[1].Text;
+                opdracht.Omschrijving = lvStage.SelectedItems[0].SubItems[2].Text;
+                opdracht.Status = lvStage.SelectedItems[0].SubItems[3].Text;
+
                 opdrachtEditForm OEF = new opdrachtEditForm();
-                OEF.Editopdracht((Stageopdracht)lbStage.SelectedItem);
+                OEF.Editopdracht(opdracht);
                 OEF.ShowDialog();
                 if (OEF.DialogResult == DialogResult.OK)
                 {
@@ -130,9 +97,9 @@ namespace CrmAppSchool.Views.Opdrachten
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if ((Stageopdracht)lbStage.SelectedItem != null)
+            if (lvStage.SelectedItems != null)
             {
-                soc.deleteStageopdracht(((Stageopdracht)lbStage.SelectedItem).Code);
+                soc.deleteStageopdracht(Convert.ToInt32(lvStage.SelectedItems[0].SubItems[0].Text));
                 setListBox();
             }
         }
@@ -160,7 +127,6 @@ namespace CrmAppSchool.Views.Opdrachten
 
                 if (tbZoek.Text.Equals(""))
                 {
-                    lbStage.Items.Clear();
                     setListBox();
                 }
                 else
