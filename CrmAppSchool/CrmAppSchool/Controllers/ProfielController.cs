@@ -56,6 +56,37 @@ namespace CrmAppSchool.Controllers
                 conn.Close();
             }
         }
+
+        public bool bestaatProfiel(Gebruiker _gebruiker)
+        {
+            try
+            {
+                conn.Open();
+                string query = "SELECT * FROM profiel WHERE gebruikersnaam = @gebruikersnaam";
+                MySqlCommand command = new MySqlCommand(query,conn);
+                MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
+                gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
+                command.Parameters.Add(gebruikersnaamParam);
+                MySqlDataReader lezer = command.ExecuteReader();
+
+                bool bestaatProfiel = false;
+                while(lezer.Read())
+                {
+                    bestaatProfiel = true;
+                }
+                return bestaatProfiel;
+            }
+            catch(MySqlException e)
+            {
+                Console.WriteLine("Error in profielcontroller - bestaatprofiel " + e);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public void Update_Profiel(Gebruiker _gebruiker, string voornaam, string achternaam, string bedrijf, string locatie, string functie, string kwaliteit)
         {
             try
@@ -111,6 +142,28 @@ namespace CrmAppSchool.Controllers
             {
                 Console.WriteLine("ERROR! EXCEPTION! ARGHHH! : " + e);
                 //return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void verwijderProfiel(Gebruiker _gebruiker)
+        {
+            try
+            {
+                conn.Open();
+                string query = "DELETE FROM profiel WHERE gebruikersnaam = @gebruikersnaam";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
+                gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
+                command.Parameters.Add(gebruikersnaamParam);
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Error in ProfielController/verwijderGebruiker " + e);
             }
             finally
             {

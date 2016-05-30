@@ -78,6 +78,16 @@ namespace CrmAppSchool.Controllers
 
         public void verwijderGebruiker(Gebruiker _gebruiker)
         {
+            // Controleer of gebruiker over een profiel beschikt
+            ProfielController pfc = new ProfielController();
+            bool bestaatProfiel = pfc.bestaatProfiel(_gebruiker);
+
+            // Zoja verwijder het profiel
+            if (bestaatProfiel == true)
+            {
+                pfc.verwijderProfiel(_gebruiker);
+            }
+
             try
             {
                 conn.Open();
