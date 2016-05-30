@@ -14,11 +14,15 @@ namespace CrmAppSchool.Views.Opdrachten
 {
     public partial class StageopdrachtForm : Form
     {
+        public bool ShowMenu { get; set; }                 // Boolean voor het zichtbaar maken van de mainmenu
         StageopdrachtController soc = new StageopdrachtController();
-        public StageopdrachtForm()
+        public StageopdrachtForm(Gebruiker gebruiker)
         {
             InitializeComponent();
+            lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
+            ShowMenu = false;
             setListBox();
+            
         }
 
 
@@ -128,6 +132,12 @@ namespace CrmAppSchool.Views.Opdrachten
                 soc.deleteStageopdracht(((Stageopdracht)lbStage.SelectedItem).Code);
                 setListBox();
             }
+        }
+
+        private void pbHome_Click(object sender, EventArgs e)
+        {
+            ShowMenu = true;
+            this.Hide();
         }
     }
 }
