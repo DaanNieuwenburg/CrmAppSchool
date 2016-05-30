@@ -63,6 +63,46 @@ namespace CrmAppSchool.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Afbeelding_ContactPersoon_Bedrijf {
+            get {
+                object obj = ResourceManager.GetObject("Afbeelding_ContactPersoon_Bedrijf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Afbeelding_ContactPersoon_GastDocent {
+            get {
+                object obj = ResourceManager.GetObject("Afbeelding_ContactPersoon_GastDocent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Afbeelding_ContactPersoon_GastSpreker {
+            get {
+                object obj = ResourceManager.GetObject("Afbeelding_ContactPersoon_GastSpreker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Afbeelding_ContactPersoon_StageBegeleider {
+            get {
+                object obj = ResourceManager.GetObject("Afbeelding_ContactPersoon_StageBegeleider", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnOpdrachten {
             get {
                 object obj = ResourceManager.GetObject("btnOpdrachten", resourceCulture);

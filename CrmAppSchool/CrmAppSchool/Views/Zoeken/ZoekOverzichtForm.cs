@@ -19,20 +19,35 @@ namespace CrmAppSchool.Views.Zoeken
         private bool Sorteermenu { get; set; }
         public ZoekOverzichtForm(List<Models.Profiel> resultaatLijst)
         {
+
+            
+            // add an item
+           // var listViewItem = listView.Items.Add("Item with image");
+            // and tell the item which image to use
+            //listViewItem.ImageKey = "itemImageKey";
             InitializeComponent();
             ShowMenu = false;
+            // create image list and fill it 
+            var imagelist = new ImageList();
+            imagelist.Images.Add("GS", Properties.Resources.Afbeelding_ContactPersoon_GastSpreker);
+            imagelist.Images.Add("GD", Properties.Resources.Afbeelding_ContactPersoon_GastDocent);
+            imagelist.Images.Add("BD", Properties.Resources.Afbeelding_ContactPersoon_Bedrijf);
+            imagelist.Images.Add("SB", Properties.Resources.Afbeelding_ContactPersoon_StageBegeleider);
+            // tell your ListView to use the new image list
+            resultatenLvw.LargeImageList = imagelist;
 
             //if (resultaatLijst != null && resultaatLijst.Count() > 0)
             //{
-                foreach (Models.Profiel profiel in resultaatLijst)
+            foreach (Models.Profiel profiel in resultaatLijst)
                 {
                     ListViewItem lvw = new ListViewItem(profiel.Voornaam);
                     lvw.SubItems.Add(profiel.Achternaam);
                     lvw.SubItems.Add(profiel.Bedrijf);
                     lvw.SubItems.Add(profiel.Functie);
-                    lvw.SubItems.Add(profiel.Kwaliteit);
+                    lvw.SubItems.Add(profiel.Kwaliteit);        
                     resultatenLvw.Items.Add(lvw);
-                }
+                    lvw.ImageKey = "GS";
+            }
            // }
             
         }
