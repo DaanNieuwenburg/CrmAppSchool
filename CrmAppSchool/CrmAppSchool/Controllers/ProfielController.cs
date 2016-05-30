@@ -89,9 +89,12 @@ namespace CrmAppSchool.Controllers
 
         public void Update_Profiel(Gebruiker _gebruiker, string voornaam, string achternaam, string bedrijf, string locatie, string functie, string kwaliteit)
         {
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
+
                 string query = "Update profiel Set voornaam = @Voornaam, achternaam = @Achternaam, bedrijf = @Bedrijf, locatie = @Locatie, functie = @Functie, kwaliteit = @Kwaliteit where gebruikersnaam = @gebruikersnaam"; // dit moet een UPDATE worden
                 MySqlCommand command = new MySqlCommand(query, conn);
 
@@ -124,6 +127,7 @@ namespace CrmAppSchool.Controllers
 
                 command.Prepare();
                 command.ExecuteNonQuery();
+                trans.Commit();
                 /*MySqlDataReader datalezer = command.ExecuteReader();
 
                 while (datalezer.Read())
@@ -140,6 +144,10 @@ namespace CrmAppSchool.Controllers
             }
             catch (MySqlException e)
             {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
                 Console.WriteLine("ERROR! EXCEPTION! ARGHHH! : " + e);
                 //return null;
             }

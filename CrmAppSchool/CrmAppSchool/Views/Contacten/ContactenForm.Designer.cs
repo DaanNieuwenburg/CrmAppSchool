@@ -46,12 +46,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.emailLbl = new System.Windows.Forms.Label();
             this.tbEmail = new System.Windows.Forms.TextBox();
-            this.locatieLbl = new System.Windows.Forms.Label();
-            this.tbLocatie = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbBedrijf = new System.Windows.Forms.TextBox();
             this.tbAchternaam = new System.Windows.Forms.TextBox();
             this.achternaamLbl = new System.Windows.Forms.Label();
             this.voornaamLbl = new System.Windows.Forms.Label();
             this.tbVoornaam = new System.Windows.Forms.TextBox();
+            this.locatieLbl = new System.Windows.Forms.Label();
+            this.tbLocatie = new System.Windows.Forms.TextBox();
             this.btnOpslaan = new System.Windows.Forms.Button();
             this.btnAnnuleer = new System.Windows.Forms.Button();
             this.pnOptioneel = new System.Windows.Forms.Panel();
@@ -59,8 +61,6 @@
             this.tbPriveMail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbFunctie = new System.Windows.Forms.TextBox();
-            this.tbBedrijf = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tbMobiel = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
@@ -283,23 +283,23 @@
             this.tbEmail.Size = new System.Drawing.Size(149, 23);
             this.tbEmail.TabIndex = 3;
             // 
-            // locatieLbl
+            // label3
             // 
-            this.locatieLbl.AutoSize = true;
-            this.locatieLbl.Font = new System.Drawing.Font("Arial", 10F);
-            this.locatieLbl.Location = new System.Drawing.Point(15, 76);
-            this.locatieLbl.Name = "locatieLbl";
-            this.locatieLbl.Size = new System.Drawing.Size(58, 16);
-            this.locatieLbl.TabIndex = 5;
-            this.locatieLbl.Text = "Locatie:";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 10F);
+            this.label3.Location = new System.Drawing.Point(3, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "* Bedrijf:";
             // 
-            // tbLocatie
+            // tbBedrijf
             // 
-            this.tbLocatie.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbLocatie.Location = new System.Drawing.Point(106, 73);
-            this.tbLocatie.Name = "tbLocatie";
-            this.tbLocatie.Size = new System.Drawing.Size(152, 23);
-            this.tbLocatie.TabIndex = 5;
+            this.tbBedrijf.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbBedrijf.Location = new System.Drawing.Point(106, 99);
+            this.tbBedrijf.Name = "tbBedrijf";
+            this.tbBedrijf.Size = new System.Drawing.Size(149, 23);
+            this.tbBedrijf.TabIndex = 2;
             // 
             // tbAchternaam
             // 
@@ -336,6 +336,24 @@
             this.tbVoornaam.Name = "tbVoornaam";
             this.tbVoornaam.Size = new System.Drawing.Size(149, 23);
             this.tbVoornaam.TabIndex = 0;
+            // 
+            // locatieLbl
+            // 
+            this.locatieLbl.AutoSize = true;
+            this.locatieLbl.Font = new System.Drawing.Font("Arial", 10F);
+            this.locatieLbl.Location = new System.Drawing.Point(15, 76);
+            this.locatieLbl.Name = "locatieLbl";
+            this.locatieLbl.Size = new System.Drawing.Size(58, 16);
+            this.locatieLbl.TabIndex = 5;
+            this.locatieLbl.Text = "Locatie:";
+            // 
+            // tbLocatie
+            // 
+            this.tbLocatie.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbLocatie.Location = new System.Drawing.Point(106, 73);
+            this.tbLocatie.Name = "tbLocatie";
+            this.tbLocatie.Size = new System.Drawing.Size(152, 23);
+            this.tbLocatie.TabIndex = 5;
             // 
             // btnOpslaan
             // 
@@ -423,24 +441,6 @@
             this.tbFunctie.Name = "tbFunctie";
             this.tbFunctie.Size = new System.Drawing.Size(152, 23);
             this.tbFunctie.TabIndex = 6;
-            // 
-            // tbBedrijf
-            // 
-            this.tbBedrijf.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbBedrijf.Location = new System.Drawing.Point(106, 99);
-            this.tbBedrijf.Name = "tbBedrijf";
-            this.tbBedrijf.Size = new System.Drawing.Size(149, 23);
-            this.tbBedrijf.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 10F);
-            this.label3.Location = new System.Drawing.Point(3, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "* Bedrijf:";
             // 
             // label4
             // 

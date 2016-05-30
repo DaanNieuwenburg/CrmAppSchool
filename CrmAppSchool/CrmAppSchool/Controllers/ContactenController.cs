@@ -13,9 +13,11 @@ namespace CrmAppSchool.Controllers
 
         public void voegPersoonToe(Persooncontact contact)
         {
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = @"INSERT INTO persooncontact (voornaam, achternaam, locatie, email, isgastspreker, isgastdocent, isstagebegeleider, iscontactpersoon, afdelingscode)
                                  VALUES (@voornaam, @achternaam, @locatie, @email, @isgastspreker, @isgastdocent, @isstagebegeleider, @iscontactpersoon, @afdelingscode)";
 
@@ -52,9 +54,14 @@ namespace CrmAppSchool.Controllers
 
                 command.Prepare();
                 command.ExecuteNonQuery();
+                trans.Commit();
             }
             catch(MySqlException e)
             {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
                 Console.WriteLine("voegPersoonToe kan helaas geen persoon toevoegen: " + e);
             }
             finally

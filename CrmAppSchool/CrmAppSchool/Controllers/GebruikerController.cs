@@ -53,9 +53,12 @@ namespace CrmAppSchool.Controllers
 
         public void veranderWachtwoordGebruiker(Gebruiker _gebruiker)
         {
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
+
                 string query = "UPDATE gebruiker SET wachtwoord = @wachtwoord WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
@@ -64,10 +67,17 @@ namespace CrmAppSchool.Controllers
                 wachtwoordParam.Value = _gebruiker.Wachtwoord;
                 command.Parameters.Add(gebruikersnaamParam);
                 command.Parameters.Add(wachtwoordParam);
+
+                command.Prepare();
                 command.ExecuteNonQuery();
+                trans.Commit();
             }
             catch (MySqlException e)
             {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
                 Console.WriteLine("Error in Gebruikercontroller/verwijderGebruiker " + e);
             }
             finally
@@ -88,18 +98,29 @@ namespace CrmAppSchool.Controllers
                 pfc.verwijderProfiel(_gebruiker);
             }
 
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
+
                 string query = "DELETE FROM gebruiker WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
                 gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
                 command.Parameters.Add(gebruikersnaamParam);
+
+                command.Prepare();
                 command.ExecuteNonQuery();
+                trans.Commit();
+
             }
             catch(MySqlException e)
             {
+                if(trans != null)
+                {
+                    trans.Rollback();
+                }
                 Console.WriteLine("Error in Gebruikercontroller/verwijderGebruiker " + e);
             }
             finally

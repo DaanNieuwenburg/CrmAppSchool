@@ -48,8 +48,8 @@
             // 
             // bZoek
             // 
-            this.bZoek.Location = new System.Drawing.Point(523, 114);
-            this.bZoek.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bZoek.Location = new System.Drawing.Point(695, 71);
+            this.bZoek.Margin = new System.Windows.Forms.Padding(2);
             this.bZoek.Name = "bZoek";
             this.bZoek.Size = new System.Drawing.Size(56, 19);
             this.bZoek.TabIndex = 0;
@@ -59,26 +59,32 @@
             // 
             // tbZoek
             // 
-            this.tbZoek.Location = new System.Drawing.Point(221, 113);
-            this.tbZoek.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbZoek.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.tbZoek.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbZoek.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbZoek.ForeColor = System.Drawing.Color.White;
+            this.tbZoek.Location = new System.Drawing.Point(248, 11);
+            this.tbZoek.Margin = new System.Windows.Forms.Padding(2);
             this.tbZoek.Name = "tbZoek";
-            this.tbZoek.Size = new System.Drawing.Size(248, 20);
+            this.tbZoek.Size = new System.Drawing.Size(248, 25);
             this.tbZoek.TabIndex = 1;
+            this.tbZoek.Visible = false;
             // 
             // lbStage
             // 
+            this.lbStage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbStage.FormattingEnabled = true;
-            this.lbStage.Location = new System.Drawing.Point(221, 163);
-            this.lbStage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbStage.Location = new System.Drawing.Point(167, 71);
+            this.lbStage.Margin = new System.Windows.Forms.Padding(2);
             this.lbStage.Name = "lbStage";
-            this.lbStage.Size = new System.Drawing.Size(248, 160);
+            this.lbStage.Size = new System.Drawing.Size(478, 262);
             this.lbStage.TabIndex = 2;
             this.lbStage.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // bToevoegen
             // 
             this.bToevoegen.Location = new System.Drawing.Point(241, 383);
-            this.bToevoegen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bToevoegen.Margin = new System.Windows.Forms.Padding(2);
             this.bToevoegen.Name = "bToevoegen";
             this.bToevoegen.Size = new System.Drawing.Size(70, 19);
             this.bToevoegen.TabIndex = 3;
@@ -89,7 +95,7 @@
             // bVerwijderen
             // 
             this.bVerwijderen.Location = new System.Drawing.Point(492, 383);
-            this.bVerwijderen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bVerwijderen.Margin = new System.Windows.Forms.Padding(2);
             this.bVerwijderen.Name = "bVerwijderen";
             this.bVerwijderen.Size = new System.Drawing.Size(70, 19);
             this.bVerwijderen.TabIndex = 4;
@@ -100,7 +106,7 @@
             // bAanpassen
             // 
             this.bAanpassen.Location = new System.Drawing.Point(361, 383);
-            this.bAanpassen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bAanpassen.Margin = new System.Windows.Forms.Padding(2);
             this.bAanpassen.Name = "bAanpassen";
             this.bAanpassen.Size = new System.Drawing.Size(70, 19);
             this.bAanpassen.TabIndex = 5;
@@ -180,6 +186,7 @@
             this.pbHome.Size = new System.Drawing.Size(61, 50);
             this.pbHome.TabIndex = 14;
             this.pbHome.TabStop = false;
+            this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
             // 
             // pbHeader
             // 
@@ -206,12 +213,14 @@
             this.btnZoeken.Size = new System.Drawing.Size(59, 50);
             this.btnZoeken.TabIndex = 17;
             this.btnZoeken.UseVisualStyleBackColor = false;
+            this.btnZoeken.Click += new System.EventHandler(this.btnZoeken_Click);
             // 
             // StageopdrachtForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 509);
+            this.Controls.Add(this.tbZoek);
             this.Controls.Add(this.btnZoeken);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnWijzig);
@@ -223,10 +232,9 @@
             this.Controls.Add(this.bVerwijderen);
             this.Controls.Add(this.bToevoegen);
             this.Controls.Add(this.lbStage);
-            this.Controls.Add(this.tbZoek);
             this.Controls.Add(this.bZoek);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "StageopdrachtForm";
             this.Text = "StageopdrachtForm";
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
