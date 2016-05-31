@@ -13,6 +13,7 @@ using MaterialSkin.Controls;
 
 namespace CrmAppSchool.Views.Zoeken
 {
+    
     public partial class ZoekOverzichtForm : Form //MaterialForm
     {
         public bool ShowMenu { get; set; }
@@ -45,6 +46,7 @@ namespace CrmAppSchool.Views.Zoeken
                     lvw.SubItems.Add(profiel.Achternaam);
                     lvw.SubItems.Add(profiel.Bedrijf);
                     lvw.SubItems.Add(profiel.Functie);
+                    lvw.SubItems.Add(profiel.Locatie);
                     lvw.SubItems.Add(profiel.Kwaliteit);        
                     resultatenLvw.Items.Add(lvw);
                     imagelist.ImageSize = new Size(50, 50);
@@ -59,14 +61,18 @@ namespace CrmAppSchool.Views.Zoeken
             string a = cbSorteerOp.Text;
             if (Sorteermenu == true)
             {
+                resultatenLvw.ListViewItemSorter = new ListViewItemComparer(cbSorteerOp.SelectedIndex);
                 // Sorteer met behulp van input van comboboxen
-                if(cbSorteerVolgorde.Text == "A→Z")
+                if (cbSorteerVolgorde.Text == "A→Z")
                 {
+                    
                     resultatenLvw.Sorting = SortOrder.Ascending;
+                    resultatenLvw.Sort();
                 }
-                else
+                else if (cbSorteerVolgorde.Text == "Z→A")
                 {
                     resultatenLvw.Sorting = SortOrder.Descending;
+                    resultatenLvw.Sort();
                 }
             }
             UpdateSorteerMenu();
@@ -102,6 +108,22 @@ namespace CrmAppSchool.Views.Zoeken
         {
             ShowMenu = true;
             this.Hide();
+        }
+    }
+    class ListViewItemComparer : IComparer
+    {
+        private int col;
+        public ListViewItemComparer()
+        {
+            col = 0;
+        }
+        public ListViewItemComparer(int column)
+        {
+            col = column;
+        }
+        public int Compare(object x, object y)
+        {
+            return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
         }
     }
 }

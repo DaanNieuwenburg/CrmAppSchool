@@ -34,7 +34,6 @@
             this.achternaamHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bedrijfHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.functieHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.kwaliteitHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblGebruiker = new System.Windows.Forms.Label();
             this.btnSorteer = new System.Windows.Forms.Button();
             this.pbHome = new System.Windows.Forms.PictureBox();
@@ -42,6 +41,8 @@
             this.cbSorteerOp = new System.Windows.Forms.ComboBox();
             this.cbSorteerVolgorde = new System.Windows.Forms.ComboBox();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.locatieHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.kwaliteitHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +55,7 @@
             this.achternaamHeader,
             this.bedrijfHeader,
             this.functieHeader,
+            this.locatieHeader,
             this.kwaliteitHeader});
             this.resultatenLvw.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resultatenLvw.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -83,11 +85,6 @@
             // 
             this.functieHeader.Text = "Functie";
             this.functieHeader.Width = 98;
-            // 
-            // kwaliteitHeader
-            // 
-            this.kwaliteitHeader.Text = "Kwaliteit";
-            this.kwaliteitHeader.Width = 74;
             // 
             // lblGebruiker
             // 
@@ -228,12 +225,13 @@
         private System.Windows.Forms.ColumnHeader achternaamHeader;
         private System.Windows.Forms.ColumnHeader bedrijfHeader;
         private System.Windows.Forms.ColumnHeader functieHeader;
-        private System.Windows.Forms.ColumnHeader kwaliteitHeader;
         private System.Windows.Forms.PictureBox pbHome;
         private System.Windows.Forms.Label lblGebruiker;
         private System.Windows.Forms.Button btnSorteer;
         private System.Windows.Forms.ComboBox cbSorteerOp;
         private System.Windows.Forms.ComboBox cbSorteerVolgorde;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.ColumnHeader locatieHeader;
+        private System.Windows.Forms.ColumnHeader kwaliteitHeader;
     }
 }
