@@ -314,7 +314,7 @@
             this.btnOpslaan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpslaan.FlatAppearance.BorderSize = 0;
             this.btnOpslaan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpslaan.Location = new System.Drawing.Point(361, 3);
+            this.btnOpslaan.Location = new System.Drawing.Point(361, -1);
             this.btnOpslaan.Name = "btnOpslaan";
             this.btnOpslaan.Size = new System.Drawing.Size(63, 49);
             this.btnOpslaan.TabIndex = 28;
@@ -331,7 +331,7 @@
             this.btnAnnuleer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAnnuleer.FlatAppearance.BorderSize = 0;
             this.btnAnnuleer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnnuleer.Location = new System.Drawing.Point(293, 2);
+            this.btnAnnuleer.Location = new System.Drawing.Point(293, 0);
             this.btnAnnuleer.Name = "btnAnnuleer";
             this.btnAnnuleer.Size = new System.Drawing.Size(63, 49);
             this.btnAnnuleer.TabIndex = 27;
@@ -348,7 +348,7 @@
             this.btnBewerk.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBewerk.FlatAppearance.BorderSize = 0;
             this.btnBewerk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBewerk.Location = new System.Drawing.Point(293, 2);
+            this.btnBewerk.Location = new System.Drawing.Point(293, 0);
             this.btnBewerk.Name = "btnBewerk";
             this.btnBewerk.Size = new System.Drawing.Size(63, 49);
             this.btnBewerk.TabIndex = 0;
@@ -364,7 +364,7 @@
             this.btnPrive.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrive.FlatAppearance.BorderSize = 0;
             this.btnPrive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrive.Location = new System.Drawing.Point(361, 3);
+            this.btnPrive.Location = new System.Drawing.Point(361, 1);
             this.btnPrive.Name = "btnPrive";
             this.btnPrive.Size = new System.Drawing.Size(63, 49);
             this.btnPrive.TabIndex = 17;
@@ -377,7 +377,7 @@
             this.pbHome.BackgroundImage = global::CrmAppSchool.Properties.Resources.picture_Home;
             this.pbHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHome.Location = new System.Drawing.Point(-1, 2);
+            this.pbHome.Location = new System.Drawing.Point(-1, 0);
             this.pbHome.Name = "pbHome";
             this.pbHome.Size = new System.Drawing.Size(61, 50);
             this.pbHome.TabIndex = 20;
@@ -386,12 +386,11 @@
             // 
             // pbHeader
             // 
-            this.pbHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.pbHeader.Location = new System.Drawing.Point(-1, 2);
+            this.pbHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pbHeader.Location = new System.Drawing.Point(0, 0);
             this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(839, 50);
+            this.pbHeader.Size = new System.Drawing.Size(681, 50);
             this.pbHeader.TabIndex = 19;
             this.pbHeader.TabStop = false;
             // 
@@ -488,7 +487,7 @@
             this.btnBewerkLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBewerkLogin.FlatAppearance.BorderSize = 0;
             this.btnBewerkLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBewerkLogin.Location = new System.Drawing.Point(136, 2);
+            this.btnBewerkLogin.Location = new System.Drawing.Point(136, 0);
             this.btnBewerkLogin.Name = "btnBewerkLogin";
             this.btnBewerkLogin.Size = new System.Drawing.Size(63, 49);
             this.btnBewerkLogin.TabIndex = 35;
@@ -530,6 +529,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(681, 343);
             this.Controls.Add(this.tbBevestig);
             this.Controls.Add(this.tbWachtwoord);

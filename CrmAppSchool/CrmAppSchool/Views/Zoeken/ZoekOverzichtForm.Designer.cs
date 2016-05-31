@@ -36,7 +36,6 @@
             this.functieHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.kwaliteitHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblGebruiker = new System.Windows.Forms.Label();
-            this.errorLbl = new System.Windows.Forms.Label();
             this.btnSorteer = new System.Windows.Forms.Button();
             this.pbHome = new System.Windows.Forms.PictureBox();
             this.pbHeader = new System.Windows.Forms.PictureBox();
@@ -102,16 +101,6 @@
             this.lblGebruiker.Size = new System.Drawing.Size(123, 16);
             this.lblGebruiker.TabIndex = 19;
             this.lblGebruiker.Text = "U bent ingelogd als:";
-            // 
-            // errorLbl
-            // 
-            this.errorLbl.AutoSize = true;
-            this.errorLbl.Location = new System.Drawing.Point(100, 94);
-            this.errorLbl.Name = "errorLbl";
-            this.errorLbl.Size = new System.Drawing.Size(382, 13);
-            this.errorLbl.TabIndex = 20;
-            this.errorLbl.Text = "Helaas kon het systeem geen resultaten vinden die aan de zoekcriteria voldoen";
-            this.errorLbl.Visible = false;
             // 
             // btnSorteer
             // 
@@ -216,7 +205,6 @@
             this.Controls.Add(this.cbSorteerVolgorde);
             this.Controls.Add(this.cbSorteerOp);
             this.Controls.Add(this.btnSorteer);
-            this.Controls.Add(this.errorLbl);
             this.Controls.Add(this.lblGebruiker);
             this.Controls.Add(this.pbHome);
             this.Controls.Add(this.resultatenLvw);
@@ -243,7 +231,6 @@
         private System.Windows.Forms.ColumnHeader kwaliteitHeader;
         private System.Windows.Forms.PictureBox pbHome;
         private System.Windows.Forms.Label lblGebruiker;
-        private System.Windows.Forms.Label errorLbl;
         private System.Windows.Forms.Button btnSorteer;
         private System.Windows.Forms.ComboBox cbSorteerOp;
         private System.Windows.Forms.ComboBox cbSorteerVolgorde;

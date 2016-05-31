@@ -36,7 +36,6 @@
             this.pbHome = new System.Windows.Forms.PictureBox();
             this.lblgebruiker = new System.Windows.Forms.Label();
             this.pbHeader = new System.Windows.Forms.PictureBox();
-            this.errorLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +61,9 @@
             // 
             // zoekfilterCbx
             // 
-            this.zoekfilterCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.zoekfilterCbx.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.zoekfilterCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.zoekfilterCbx.Font = new System.Drawing.Font("Arial", 10F);
             this.zoekfilterCbx.FormattingEnabled = true;
             this.zoekfilterCbx.Items.AddRange(new object[] {
             "Voornaam",
@@ -73,7 +74,7 @@
             "Functie"});
             this.zoekfilterCbx.Location = new System.Drawing.Point(36, 162);
             this.zoekfilterCbx.Name = "zoekfilterCbx";
-            this.zoekfilterCbx.Size = new System.Drawing.Size(121, 21);
+            this.zoekfilterCbx.Size = new System.Drawing.Size(121, 24);
             this.zoekfilterCbx.TabIndex = 3;
             // 
             // btnZoek
@@ -124,22 +125,12 @@
             this.pbHeader.TabIndex = 13;
             this.pbHeader.TabStop = false;
             // 
-            // errorLbl
-            // 
-            this.errorLbl.AutoSize = true;
-            this.errorLbl.Location = new System.Drawing.Point(195, 170);
-            this.errorLbl.Name = "errorLbl";
-            this.errorLbl.Size = new System.Drawing.Size(150, 13);
-            this.errorLbl.TabIndex = 15;
-            this.errorLbl.Text = "Geef a.ub. een zoekcriteria op";
-            this.errorLbl.Visible = false;
-            // 
             // ZoekenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(459, 208);
-            this.Controls.Add(this.errorLbl);
             this.Controls.Add(this.pbHome);
             this.Controls.Add(this.lblgebruiker);
             this.Controls.Add(this.pbHeader);
@@ -168,6 +159,5 @@
         private System.Windows.Forms.PictureBox pbHome;
         private System.Windows.Forms.Label lblgebruiker;
         private System.Windows.Forms.PictureBox pbHeader;
-        private System.Windows.Forms.Label errorLbl;
     }
 }

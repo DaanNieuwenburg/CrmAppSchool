@@ -17,6 +17,7 @@ namespace CrmAppSchool.Views.Contacten
         public bool ShowMenu { get; set; }
         private bool ShowSave { get; set; }
         private bool ShowZoeken { get; set; }
+        private bool EditMode { get; set; }
         private Gebruiker gebruiker { get; set; }
         public ContactenForm(Gebruiker _gebruiker)
         {
@@ -24,6 +25,7 @@ namespace CrmAppSchool.Views.Contacten
             ShowMenu = false;
             ShowZoeken = false;
             ShowSave = false;
+            EditMode = false;
             gebruiker = _gebruiker;
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
         }
@@ -194,7 +196,7 @@ namespace CrmAppSchool.Views.Contacten
 
         private void btnWijzig_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

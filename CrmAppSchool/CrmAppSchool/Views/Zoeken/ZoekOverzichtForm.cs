@@ -48,7 +48,7 @@ namespace CrmAppSchool.Views.Zoeken
                     lvw.SubItems.Add(profiel.Kwaliteit);        
                     resultatenLvw.Items.Add(lvw);
                     imagelist.ImageSize = new Size(50, 50);
-                    lvw.ImageKey = "GS";
+                    lvw.ImageKey = "GS";        // Stel de afbeelding voor de persoon in
             }
            // }
             
@@ -56,6 +56,7 @@ namespace CrmAppSchool.Views.Zoeken
 
         private void btnSorteer_Click(object sender, EventArgs e)
         {
+            string a = cbSorteerOp.Text;
             if (Sorteermenu == true)
             {
                 // Sorteer met behulp van input van comboboxen
@@ -72,7 +73,7 @@ namespace CrmAppSchool.Views.Zoeken
         }
         private void UpdateSorteerMenu()
         {
-            // Zodra sorteermenu true word, worden ook de invoermogelijkheden zichtbaar
+            // Zodra sorteermenu true wordt, worden ook de invoermogelijkheden zichtbaar
             if (Sorteermenu == false)
             {
                 cbSorteerOp.Visible = true;

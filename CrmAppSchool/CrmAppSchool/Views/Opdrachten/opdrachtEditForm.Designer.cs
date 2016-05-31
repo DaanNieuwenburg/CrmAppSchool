@@ -65,7 +65,7 @@
             // 
             // cbStatus
             // 
-            this.cbStatus.BackColor = System.Drawing.Color.White;
+            this.cbStatus.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbStatus.Font = new System.Drawing.Font("Arial", 11F);
             this.cbStatus.FormattingEnabled = true;
@@ -166,6 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(452, 332);
             this.Controls.Add(this.btnOpslaan);
             this.Controls.Add(this.btnAnnuleer);
