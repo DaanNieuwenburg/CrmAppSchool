@@ -44,7 +44,10 @@ namespace CrmAppSchool.Views.Contacten
             if (ShowZoeken == false)
             {
                 ShowZoeken = true;
+                btnZoeken.Location = new Point(282, 1);
                 btnVoegtoe.Visible = false;
+                btnWijzig.Visible = false;
+                btnDelete.Visible = false;
                 tbSearch.Visible = true;
                 btnCancel.Visible = true;
             }
@@ -53,6 +56,9 @@ namespace CrmAppSchool.Views.Contacten
         {
             ShowZoeken = false;
             btnVoegtoe.Visible = true;
+            btnZoeken.Location = new Point(335, 1);
+            btnWijzig.Visible = true;
+            btnDelete.Visible = true;
             tbSearch.Visible = false;
             btnCancel.Visible = false;
         }
@@ -70,7 +76,7 @@ namespace CrmAppSchool.Views.Contacten
 
         private void toonContactenInvoer(object sender, EventArgs e)
         {
-            // Toont de textboxxes a.d.h.v. contactSoortCbx selectie
+            // Toont de textboxes a.d.h.v. contactSoortCbx selectie
             string invoerKeuze = Convert.ToString(contactSoortCbx.SelectedItem);
             if (invoerKeuze == "Bedrijf")
             {
@@ -109,6 +115,8 @@ namespace CrmAppSchool.Views.Contacten
                 btnAnnuleer.Visible = true;
                 btnOpslaan.Visible = true;
                 contactSoortCbx.Visible = true;
+                btnWijzig.Visible = false;
+                btnDelete.Visible = false;
                 ShowSave = true;
             }
             else
@@ -117,6 +125,8 @@ namespace CrmAppSchool.Views.Contacten
                 btnAnnuleer.Visible = false;
                 btnOpslaan.Visible = false;
                 contactSoortCbx.Visible = false;
+                btnWijzig.Visible = true;
+                btnDelete.Visible = true;
                 ShowSave = false;
             }
         }
@@ -136,6 +146,8 @@ namespace CrmAppSchool.Views.Contacten
         private void btnAnnuleer_Click(object sender, EventArgs e)
         {
             btnVoegtoe.Visible = true;
+            btnWijzig.Visible = true;
+            btnDelete.Visible = true;
             btnAnnuleer.Visible = false;
             btnOpslaan.Visible = false;
             contactSoortCbx.Visible = false;
@@ -170,11 +182,23 @@ namespace CrmAppSchool.Views.Contacten
             bedrijfPnl.Visible = false;
             lblSoort.Visible = false;
             btnVoegtoe.Visible = true;
+            btnWijzig.Visible = true;
+            btnDelete.Visible = true;
             btnAnnuleer.Visible = false;
             btnOpslaan.Visible = false;
             contactSoortCbx.Visible = false;
             lvContacten.Visible = true;
             ShowSave = false;
+        }
+
+        private void btnWijzig_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            lvContacten.Items.Remove(lvContacten.SelectedItems[0]);
         }
     }
 }

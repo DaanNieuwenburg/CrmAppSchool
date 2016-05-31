@@ -63,6 +63,8 @@
             this.tbFunctie = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbMobiel = new System.Windows.Forms.TextBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnWijzig = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.bedrijfPnl.SuspendLayout();
@@ -92,7 +94,7 @@
             this.btnZoeken.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnZoeken.FlatAppearance.BorderSize = 0;
             this.btnZoeken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnZoeken.Location = new System.Drawing.Point(277, 1);
+            this.btnZoeken.Location = new System.Drawing.Point(336, 1);
             this.btnZoeken.Name = "btnZoeken";
             this.btnZoeken.Size = new System.Drawing.Size(59, 50);
             this.btnZoeken.TabIndex = 16;
@@ -108,7 +110,7 @@
             this.btnVoegtoe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVoegtoe.FlatAppearance.BorderSize = 0;
             this.btnVoegtoe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVoegtoe.Location = new System.Drawing.Point(212, 1);
+            this.btnVoegtoe.Location = new System.Drawing.Point(155, 1);
             this.btnVoegtoe.Name = "btnVoegtoe";
             this.btnVoegtoe.Size = new System.Drawing.Size(59, 50);
             this.btnVoegtoe.TabIndex = 15;
@@ -145,7 +147,7 @@
             this.tbSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbSearch.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.ForeColor = System.Drawing.Color.White;
-            this.tbSearch.Location = new System.Drawing.Point(96, 15);
+            this.tbSearch.Location = new System.Drawing.Point(101, 14);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(175, 25);
             this.tbSearch.TabIndex = 17;
@@ -460,11 +462,45 @@
             this.tbMobiel.Size = new System.Drawing.Size(152, 23);
             this.tbMobiel.TabIndex = 4;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.btnDelete.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Delete_Wit;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Location = new System.Drawing.Point(282, 1);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(59, 50);
+            this.btnDelete.TabIndex = 26;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnWijzig
+            // 
+            this.btnWijzig.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnWijzig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.btnWijzig.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Bewerken_Wit;
+            this.btnWijzig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnWijzig.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWijzig.FlatAppearance.BorderSize = 0;
+            this.btnWijzig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWijzig.Location = new System.Drawing.Point(217, 1);
+            this.btnWijzig.Name = "btnWijzig";
+            this.btnWijzig.Size = new System.Drawing.Size(59, 50);
+            this.btnWijzig.TabIndex = 25;
+            this.btnWijzig.UseVisualStyleBackColor = false;
+            this.btnWijzig.Click += new System.EventHandler(this.btnWijzig_Click);
+            // 
             // ContactenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(596, 484);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnWijzig);
             this.Controls.Add(this.pnOptioneel);
             this.Controls.Add(this.btnOpslaan);
             this.Controls.Add(this.btnAnnuleer);
@@ -533,5 +569,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbMobiel;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnWijzig;
     }
 }
