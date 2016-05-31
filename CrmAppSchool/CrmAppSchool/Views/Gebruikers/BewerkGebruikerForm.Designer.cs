@@ -29,29 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BewerkGebruikerForm));
-            this.veranderBtn = new System.Windows.Forms.Button();
             this.pbHeader = new System.Windows.Forms.PictureBox();
             this.nieuwWachtwoordTxb = new System.Windows.Forms.TextBox();
             this.wachtwoordTitelLbl = new System.Windows.Forms.Label();
-            this.verwijderBtn = new System.Windows.Forms.Button();
             this.errorLbl = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnWijzig = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbBevestig = new System.Windows.Forms.TextBox();
             this.lblWachtwoordhead = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
-            // 
-            // veranderBtn
-            // 
-            this.veranderBtn.Location = new System.Drawing.Point(157, 257);
-            this.veranderBtn.Name = "veranderBtn";
-            this.veranderBtn.Size = new System.Drawing.Size(75, 23);
-            this.veranderBtn.TabIndex = 16;
-            this.veranderBtn.Text = "Verander";
-            this.veranderBtn.UseVisualStyleBackColor = true;
-            this.veranderBtn.Click += new System.EventHandler(this.veranderBtn_Click);
             // 
             // pbHeader
             // 
@@ -66,30 +54,22 @@
             // 
             // nieuwWachtwoordTxb
             // 
-            this.nieuwWachtwoordTxb.Location = new System.Drawing.Point(71, 97);
+            this.nieuwWachtwoordTxb.Font = new System.Drawing.Font("Arial", 11F);
+            this.nieuwWachtwoordTxb.Location = new System.Drawing.Point(86, 97);
             this.nieuwWachtwoordTxb.Name = "nieuwWachtwoordTxb";
-            this.nieuwWachtwoordTxb.Size = new System.Drawing.Size(161, 20);
+            this.nieuwWachtwoordTxb.Size = new System.Drawing.Size(161, 24);
             this.nieuwWachtwoordTxb.TabIndex = 14;
             this.nieuwWachtwoordTxb.UseSystemPasswordChar = true;
             // 
             // wachtwoordTitelLbl
             // 
             this.wachtwoordTitelLbl.AutoSize = true;
+            this.wachtwoordTitelLbl.Font = new System.Drawing.Font("Arial", 11F);
             this.wachtwoordTitelLbl.Location = new System.Drawing.Point(12, 100);
             this.wachtwoordTitelLbl.Name = "wachtwoordTitelLbl";
-            this.wachtwoordTitelLbl.Size = new System.Drawing.Size(40, 13);
+            this.wachtwoordTitelLbl.Size = new System.Drawing.Size(52, 17);
             this.wachtwoordTitelLbl.TabIndex = 15;
             this.wachtwoordTitelLbl.Text = "Nieuw:";
-            // 
-            // verwijderBtn
-            // 
-            this.verwijderBtn.Location = new System.Drawing.Point(71, 257);
-            this.verwijderBtn.Name = "verwijderBtn";
-            this.verwijderBtn.Size = new System.Drawing.Size(75, 23);
-            this.verwijderBtn.TabIndex = 16;
-            this.verwijderBtn.Text = "Verwijder";
-            this.verwijderBtn.UseVisualStyleBackColor = true;
-            this.verwijderBtn.Click += new System.EventHandler(this.verwijderBtn_Click);
             // 
             // errorLbl
             // 
@@ -135,19 +115,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 11F);
             this.label1.Location = new System.Drawing.Point(12, 138);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.Size = new System.Drawing.Size(68, 17);
             this.label1.TabIndex = 21;
             this.label1.Text = "Bevestig:";
             // 
-            // textBox1
+            // tbBevestig
             // 
-            this.textBox1.Location = new System.Drawing.Point(71, 135);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(161, 20);
-            this.textBox1.TabIndex = 15;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.tbBevestig.Font = new System.Drawing.Font("Arial", 11F);
+            this.tbBevestig.Location = new System.Drawing.Point(86, 135);
+            this.tbBevestig.Name = "tbBevestig";
+            this.tbBevestig.Size = new System.Drawing.Size(161, 24);
+            this.tbBevestig.TabIndex = 15;
+            this.tbBevestig.UseSystemPasswordChar = true;
             // 
             // lblWachtwoordhead
             // 
@@ -166,15 +148,13 @@
             this.ClientSize = new System.Drawing.Size(284, 301);
             this.Controls.Add(this.lblWachtwoordhead);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbBevestig);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnWijzig);
             this.Controls.Add(this.errorLbl);
-            this.Controls.Add(this.verwijderBtn);
             this.Controls.Add(this.wachtwoordTitelLbl);
             this.Controls.Add(this.nieuwWachtwoordTxb);
             this.Controls.Add(this.pbHeader);
-            this.Controls.Add(this.veranderBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(300, 340);
@@ -189,17 +169,14 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button veranderBtn;
         private System.Windows.Forms.PictureBox pbHeader;
         private System.Windows.Forms.TextBox nieuwWachtwoordTxb;
         private System.Windows.Forms.Label wachtwoordTitelLbl;
-        private System.Windows.Forms.Button verwijderBtn;
         private System.Windows.Forms.Label errorLbl;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnWijzig;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbBevestig;
         private System.Windows.Forms.Label lblWachtwoordhead;
     }
 }

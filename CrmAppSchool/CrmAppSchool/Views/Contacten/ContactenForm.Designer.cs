@@ -79,7 +79,7 @@
             this.lblGebruiker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lblGebruiker.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGebruiker.ForeColor = System.Drawing.Color.White;
-            this.lblGebruiker.Location = new System.Drawing.Point(400, 19);
+            this.lblGebruiker.Location = new System.Drawing.Point(420, 19);
             this.lblGebruiker.Name = "lblGebruiker";
             this.lblGebruiker.Size = new System.Drawing.Size(123, 16);
             this.lblGebruiker.TabIndex = 12;
@@ -94,7 +94,7 @@
             this.btnZoeken.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnZoeken.FlatAppearance.BorderSize = 0;
             this.btnZoeken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnZoeken.Location = new System.Drawing.Point(336, 1);
+            this.btnZoeken.Location = new System.Drawing.Point(356, 1);
             this.btnZoeken.Name = "btnZoeken";
             this.btnZoeken.Size = new System.Drawing.Size(59, 50);
             this.btnZoeken.TabIndex = 16;
@@ -110,7 +110,7 @@
             this.btnVoegtoe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVoegtoe.FlatAppearance.BorderSize = 0;
             this.btnVoegtoe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVoegtoe.Location = new System.Drawing.Point(155, 1);
+            this.btnVoegtoe.Location = new System.Drawing.Point(175, 1);
             this.btnVoegtoe.Name = "btnVoegtoe";
             this.btnVoegtoe.Size = new System.Drawing.Size(59, 50);
             this.btnVoegtoe.TabIndex = 15;
@@ -136,7 +136,7 @@
             this.pbHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbHeader.Location = new System.Drawing.Point(0, 0);
             this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(596, 50);
+            this.pbHeader.Size = new System.Drawing.Size(616, 50);
             this.pbHeader.TabIndex = 13;
             this.pbHeader.TabStop = false;
             // 
@@ -147,7 +147,7 @@
             this.tbSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbSearch.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.ForeColor = System.Drawing.Color.White;
-            this.tbSearch.Location = new System.Drawing.Point(101, 14);
+            this.tbSearch.Location = new System.Drawing.Point(121, 14);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(175, 25);
             this.tbSearch.TabIndex = 17;
@@ -164,7 +164,7 @@
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(335, 1);
+            this.btnCancel.Location = new System.Drawing.Point(355, 1);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(59, 50);
             this.btnCancel.TabIndex = 18;
@@ -178,7 +178,7 @@
             this.lvContacten.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvContacten.Location = new System.Drawing.Point(0, 50);
             this.lvContacten.Name = "lvContacten";
-            this.lvContacten.Size = new System.Drawing.Size(596, 434);
+            this.lvContacten.Size = new System.Drawing.Size(616, 434);
             this.lvContacten.TabIndex = 19;
             this.lvContacten.UseCompatibleStateImageBehavior = false;
             this.lvContacten.View = System.Windows.Forms.View.List;
@@ -252,7 +252,7 @@
             this.persoonPnl.Controls.Add(this.achternaamLbl);
             this.persoonPnl.Controls.Add(this.voornaamLbl);
             this.persoonPnl.Controls.Add(this.tbVoornaam);
-            this.persoonPnl.Location = new System.Drawing.Point(39, 123);
+            this.persoonPnl.Location = new System.Drawing.Point(32, 123);
             this.persoonPnl.Name = "persoonPnl";
             this.persoonPnl.Size = new System.Drawing.Size(273, 292);
             this.persoonPnl.TabIndex = 23;
@@ -366,7 +366,7 @@
             this.btnOpslaan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpslaan.FlatAppearance.BorderSize = 0;
             this.btnOpslaan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpslaan.Location = new System.Drawing.Point(335, 1);
+            this.btnOpslaan.Location = new System.Drawing.Point(345, 1);
             this.btnOpslaan.Name = "btnOpslaan";
             this.btnOpslaan.Size = new System.Drawing.Size(63, 49);
             this.btnOpslaan.TabIndex = 8;
@@ -383,7 +383,7 @@
             this.btnAnnuleer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAnnuleer.FlatAppearance.BorderSize = 0;
             this.btnAnnuleer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnnuleer.Location = new System.Drawing.Point(267, 0);
+            this.btnAnnuleer.Location = new System.Drawing.Point(277, 0);
             this.btnAnnuleer.Name = "btnAnnuleer";
             this.btnAnnuleer.Size = new System.Drawing.Size(63, 49);
             this.btnAnnuleer.TabIndex = 9;
@@ -402,7 +402,7 @@
             this.pnOptioneel.Controls.Add(this.tbLocatie);
             this.pnOptioneel.Controls.Add(this.label4);
             this.pnOptioneel.Controls.Add(this.tbMobiel);
-            this.pnOptioneel.Location = new System.Drawing.Point(311, 123);
+            this.pnOptioneel.Location = new System.Drawing.Point(306, 123);
             this.pnOptioneel.Name = "pnOptioneel";
             this.pnOptioneel.Size = new System.Drawing.Size(273, 292);
             this.pnOptioneel.TabIndex = 24;
@@ -471,7 +471,7 @@
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(282, 1);
+            this.btnDelete.Location = new System.Drawing.Point(292, 1);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(59, 50);
             this.btnDelete.TabIndex = 26;
@@ -487,7 +487,7 @@
             this.btnWijzig.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWijzig.FlatAppearance.BorderSize = 0;
             this.btnWijzig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWijzig.Location = new System.Drawing.Point(217, 1);
+            this.btnWijzig.Location = new System.Drawing.Point(227, 1);
             this.btnWijzig.Name = "btnWijzig";
             this.btnWijzig.Size = new System.Drawing.Size(59, 50);
             this.btnWijzig.TabIndex = 25;
@@ -498,7 +498,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 484);
+            this.ClientSize = new System.Drawing.Size(616, 484);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnWijzig);
             this.Controls.Add(this.pnOptioneel);
