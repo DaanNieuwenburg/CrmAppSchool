@@ -198,7 +198,17 @@ namespace CrmAppSchool.Views.Contacten
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            lvContacten.Items.Remove(lvContacten.SelectedItems[0]);
+            if(lvContacten.SelectedItems.Count == 1)
+            {
+                lvContacten.Items.Remove(lvContacten.SelectedItems[0]);
+            }
+            else if(lvContacten.SelectedItems.Count > 1)
+            {
+                foreach (ListViewItem item in lvContacten.SelectedItems)
+                {
+                    lvContacten.Items.Remove(item);
+                }
+            }
         }
     }
 }
