@@ -117,6 +117,7 @@ namespace CrmAppSchool.Views.Contacten
                 contactSoortCbx.Visible = true;
                 btnWijzig.Visible = false;
                 btnDelete.Visible = false;
+                Makeempty();
                 ShowSave = true;
             }
             else
@@ -209,6 +210,19 @@ namespace CrmAppSchool.Views.Contacten
                     lvContacten.Items.Remove(item);
                 }
             }
+        }
+        private void Makeempty()
+        {
+            contactSoortCbx.Text = "";
+            tbVoornaam.Text = "";
+            tbAchternaam.Text = "";
+            tbBedrijf.Text = "";
+            tbEmail.Text = "";
+            tbFunctie.Text = "";
+            tbLocatie.Text = "";
+            tbMobiel.Text = "";
+            tbPriveMail.Text = "";
+
         }
     }
 }
