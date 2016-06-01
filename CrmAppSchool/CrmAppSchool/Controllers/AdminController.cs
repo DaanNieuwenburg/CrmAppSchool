@@ -70,8 +70,11 @@ namespace CrmAppSchool.Controllers
                 trans.Commit();
 
                 // Voeg profiel toe
-                ProfielController profielcontroller = new ProfielController();
-                profielcontroller.voegProfielToe(_gebruiker.Gebruikersnaam);
+                if (_gebruiker is Docent || _gebruiker is Admin)
+                {
+                    ProfielController profielcontroller = new ProfielController();
+                    profielcontroller.voegProfielToe(_gebruiker.Gebruikersnaam);
+                }
             }
             catch(MySqlException e)
             {
