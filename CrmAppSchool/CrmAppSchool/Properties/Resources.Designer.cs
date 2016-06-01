@@ -103,6 +103,16 @@ namespace CrmAppSchool.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Afbeelding_SecurityWarning {
+            get {
+                object obj = ResourceManager.GetObject("Afbeelding_SecurityWarning", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnOpdrachten {
             get {
                 object obj = ResourceManager.GetObject("btnOpdrachten", resourceCulture);
@@ -186,6 +196,16 @@ namespace CrmAppSchool.Properties {
         internal static System.Drawing.Bitmap button_Opslaan_Wit {
             get {
                 object obj = ResourceManager.GetObject("button_Opslaan_Wit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button_Opslaan2_groen {
+            get {
+                object obj = ResourceManager.GetObject("button_Opslaan2_groen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
