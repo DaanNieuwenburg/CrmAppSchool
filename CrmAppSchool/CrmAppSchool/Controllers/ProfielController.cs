@@ -10,14 +10,6 @@ namespace CrmAppSchool.Controllers
 {
     class ProfielController : DatabaseController
     {
-        public string Gebruikersnaam { get; set; }
-        public string Voornaam { get; set; }
-        public string Achternaam { get; set; }
-        public string Bedrijf { get; set; }
-        public string Locatie { get; set; }
-        public string Functie { get; set; }
-        public string Kwaliteit { get; set; }
-
         public Profiel Get_Pofiel(Gebruiker _gebruiker)
         {
             try
