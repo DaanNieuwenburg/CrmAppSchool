@@ -26,7 +26,7 @@ namespace CrmAppSchool.Views.Gebruikers
 
         private void btnAnnuleer_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Abort;
+            DialogResult = DialogResult.Cancel;
         }
     }
 }
