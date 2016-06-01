@@ -14,6 +14,8 @@ namespace CrmAppSchool.Controllers
 
         public bool VerifieerGebruiker(string _gebruikersnaam, string _wachtwoord)
         {
+            EncryptieController ecr = new EncryptieController();
+            string sha512Wachtwoord = ecr.encrypt(_wachtwoord);
             try
             {
                 conn.Open();
@@ -23,7 +25,7 @@ namespace CrmAppSchool.Controllers
                 MySqlParameter wachtwoordParam = new MySqlParameter("@wachtwoord", MySqlDbType.VarChar);
 
                 gebruikersnaamParam.Value = _gebruikersnaam;
-                wachtwoordParam.Value = _wachtwoord;
+                wachtwoordParam.Value = sha512Wachtwoord;
 
                 command.Parameters.Add(gebruikersnaamParam);
                 command.Parameters.Add(wachtwoordParam);

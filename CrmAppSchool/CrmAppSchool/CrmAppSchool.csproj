@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ContactenController.cs" />
+    <Compile Include="Controllers\EncryptieController.cs" />
     <Compile Include="Controllers\GebruikerController.cs" />
     <Compile Include="Controllers\ProfielController.cs" />
     <Compile Include="Controllers\AdminController.cs" />

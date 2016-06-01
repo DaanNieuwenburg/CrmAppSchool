@@ -13,6 +13,8 @@ namespace CrmAppSchool.Controllers
         public void voegGebruikerToe(Gebruiker _gebruiker)
         {
             MySqlTransaction trans = null;
+            EncryptieController ecr = new EncryptieController();
+            string wachtwoord = ecr.encrypt(_gebruiker.Wachtwoord);
             try
             {
                 conn.Open();
@@ -26,7 +28,7 @@ namespace CrmAppSchool.Controllers
                 MySqlParameter isstudentParam = new MySqlParameter("@isstudent", MySqlDbType.Bit);
 
                 gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
-                wachtwoordParam.Value = _gebruiker.Wachtwoord;
+                wachtwoordParam.Value = wachtwoord;
 
 
                 if (_gebruiker.SoortGebruiker == "Admin")
@@ -68,8 +70,11 @@ namespace CrmAppSchool.Controllers
                 trans.Commit();
 
                 // Voeg profiel toe
-                ProfielController profielcontroller = new ProfielController();
-                profielcontroller.voegProfielToe(_gebruiker.Gebruikersnaam);
+                if (_gebruiker is Docent || _gebruiker is Admin)
+                {
+                    ProfielController profielcontroller = new ProfielController();
+                    profielcontroller.voegProfielToe(_gebruiker.Gebruikersnaam);
+                }
             }
             catch(MySqlException e)
             {
