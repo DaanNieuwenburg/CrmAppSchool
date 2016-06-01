@@ -28,6 +28,7 @@ namespace CrmAppSchool.Controllers
                 gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
                 wachtwoordParam.Value = _gebruiker.Wachtwoord;
 
+
                 if (_gebruiker is Admin)
                 {
                     isadminParam.Value = 1;
@@ -65,6 +66,10 @@ namespace CrmAppSchool.Controllers
                 command.ExecuteNonQuery();
 
                 trans.Commit();
+
+                // Voeg profiel toe
+                ProfielController profielcontroller = new ProfielController();
+                profielcontroller.voegProfielToe(_gebruiker.Gebruikersnaam);
             }
             catch(MySqlException e)
             {
