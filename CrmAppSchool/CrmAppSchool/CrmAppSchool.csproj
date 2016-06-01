@@ -84,6 +84,12 @@
     <Compile Include="Views\Gebruikers\BewerkGebruikerForm.Designer.cs">
       <DependentUpon>BewerkGebruikerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Gebruikers\ValidateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Gebruikers\ValidateForm.Designer.cs">
+      <DependentUpon>ValidateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Hoofdmenu\HoofdmenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Gebruikers\BewerkGebruikerForm.resx">
       <DependentUpon>BewerkGebruikerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Gebruikers\ValidateForm.resx">
+      <DependentUpon>ValidateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Hoofdmenu\HoofdmenuForm.resx">
       <DependentUpon>HoofdmenuForm.cs</DependentUpon>

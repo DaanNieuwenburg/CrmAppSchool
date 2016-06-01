@@ -17,14 +17,23 @@ namespace CrmAppSchool.Views.Gebruikers
     {
         public bool ShowMenu { get; set; }
         public bool tweedeSelectie { get; set; }
+        private bool geverifieerd { get; set; }
+        public int Verkeerdwachtwoord { get; set; }
 
         private Gebruiker gebruiker { get; set; }
+        private List<Form> openForms { get; set; }
         public voegGebruikerToeForm(Gebruiker _gebruiker)
         {
-            InitializeComponent();
-            ShowMenu = false;
+            openForms = new List<Form>();
+            foreach (Form f in Application.OpenForms)
+                openForms.Add(f);
+
             tweedeSelectie = false;
             gebruiker = _gebruiker;
+            Verifieer_login();
+            InitializeComponent();
+            ShowMenu = false;
+            geverifieerd = false;
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
             vulListView();
         }
@@ -93,6 +102,7 @@ namespace CrmAppSchool.Views.Gebruikers
 
         private void gebruikerLvw_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
+
             Gebruiker nieuweGebruiker = null;
             // Omdat deselecteren ook deze event uitvoert, is er het if statement en de boolean
             if (gebruikerLvw.SelectedIndices.Count > 0 && tweedeSelectie == false)
@@ -126,6 +136,54 @@ namespace CrmAppSchool.Views.Gebruikers
             {
                 tweedeSelectie = false;
             }
+
+
+        }
+        private void Verifieer_login()
+        {
+            while (geverifieerd == false)
+            {
+                string gebruikersnaam = gebruiker.Gebruikersnaam;
+                string wachtwoord = "";
+                Gebruikers.ValidateForm _popup = new ValidateForm();
+                _popup.ShowDialog();
+                if (_popup.DialogResult == DialogResult.OK)
+                {
+                    wachtwoord = _popup.password;
+                }
+                LoginController logincontroller = new LoginController();
+                bool resultaat = logincontroller.VerifieerGebruiker(gebruikersnaam, wachtwoord);
+                if (resultaat == false)
+                {
+                    MessageBox.Show("Het wachtwoord is incorrect\nProbeer het opnieuw", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Verkeerdwachtwoord++;
+                    if (Verkeerdwachtwoord == 5)
+                    {
+                        MessageBox.Show("U heeft 5 maal het verkeerde wachtwoord ingevoerd\nU wordt uit veiligheidsoverwegingen uitgelogd", "Te veel pogingen", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        DialogResult = DialogResult.Abort;
+
+                        Login.InlogForm inlog = new Login.InlogForm();
+                        openForms.Add(inlog);                   
+                        foreach (Form f in openForms)
+                        {
+                            if (f.Text != "Inloggen")
+                                f.Close();                      
+                        }
+                        inlog.Show();
+                        break;
+                    }
+                }
+                else
+                {
+                    geverifieerd = true;
+                }
+            }
+            
+        }
+
+        private void voegGebruikerToeForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

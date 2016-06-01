@@ -64,13 +64,13 @@ namespace CrmAppSchool.Views.Zoeken
                 resultatenLvw.ListViewItemSorter = new ListViewItemComparer(cbSorteerOp.SelectedIndex);
                 // Sorteer met behulp van input van comboboxen
                 if (cbSorteerVolgorde.Text == "A→Z")
-                {
-                    
+                {                    
                     resultatenLvw.Sorting = SortOrder.Ascending;
                     resultatenLvw.Sort();
                 }
                 else if (cbSorteerVolgorde.Text == "Z→A")
                 {
+                    
                     resultatenLvw.Sorting = SortOrder.Descending;
                     resultatenLvw.Sort();
                 }
