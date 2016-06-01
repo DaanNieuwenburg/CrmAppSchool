@@ -23,21 +23,9 @@ namespace CrmAppSchool.Controllers
                 while (lezer.Read())
                 {
                     string gebruikersnaam = lezer.GetString("gebruikersnaam");
-                    bool isadmin = lezer.GetBoolean("isadmin");
-                    bool isdocent = lezer.GetBoolean("isdocent");
-                    bool isstudent = lezer.GetBoolean("isstudent");
-                    if (isadmin == true)
-                    {
-                        gebruikersLijst.Add(new Admin(gebruikersnaam));
-                    }
-                    else if (isdocent == true)
-                    {
-                        gebruikersLijst.Add(new Docent(gebruikersnaam));
-                    }
-                    else if (isstudent == true)
-                    {
-                        gebruikersLijst.Add(new Student(gebruikersnaam));
-                    }
+                    string soortgebruiker = lezer.GetString("soortgebruiker");
+                    gebruikersLijst.Add(new Gebruiker() { Gebruikersnaam = gebruikersnaam, SoortGebruiker = soortgebruiker });
+                   
                 }
                 return gebruikersLijst;
             }

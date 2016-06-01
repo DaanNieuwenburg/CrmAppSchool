@@ -29,7 +29,7 @@ namespace CrmAppSchool.Controllers
                 wachtwoordParam.Value = _gebruiker.Wachtwoord;
 
 
-                if (_gebruiker is Admin)
+                if (_gebruiker.SoortGebruiker == "Admin")
                 {
                     isadminParam.Value = 1;
                 }
@@ -38,7 +38,7 @@ namespace CrmAppSchool.Controllers
                     isadminParam.Value = 0;
                 }
 
-                if(_gebruiker is Docent)
+                if(_gebruiker.SoortGebruiker == "Docent")
                 {
                     isdocentParam.Value = 1;
                 }
@@ -47,7 +47,7 @@ namespace CrmAppSchool.Controllers
                     isdocentParam.Value = 0;
                 }
 
-                if(_gebruiker is Student)
+                if(_gebruiker.SoortGebruiker == "Student")
                 {
                     isstudentParam.Value = 1;
                 }

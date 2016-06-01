@@ -36,11 +36,6 @@ namespace CrmAppSchool.Views.Login
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void InlogForm_Load(object sender, EventArgs e)
         {
             if(Properties.Settings.Default.Remember == "True")

@@ -49,15 +49,15 @@ namespace CrmAppSchool.Views.Gebruikers
             {
                 ListViewItem lvw = new ListViewItem(gebruiker.Gebruikersnaam);
                 // Bepaal het soort gebruiker
-                if (gebruiker is Admin)
+                if (gebruiker.SoortGebruiker == "Admin")
                 {
                     lvw.SubItems.Add("Admin");
                 }
-                else if (gebruiker is Docent)
+                else if (gebruiker.SoortGebruiker == "Docent")
                 {
                     lvw.SubItems.Add("Docent");
                 }
-                else if (gebruiker is Student)
+                else if (gebruiker.SoortGebruiker == "Student")
                 {
                     lvw.SubItems.Add("Student");
                 }
@@ -79,11 +79,11 @@ namespace CrmAppSchool.Views.Gebruikers
                 Gebruiker gebruiker = null;
                 if (Convert.ToString(soortGebruikerCbx.SelectedItem) == "Docent")
                 {
-                    gebruiker = new Docent(gebruikersnaamTxb.Text);
+                    gebruiker = new Gebruiker();
                 }
                 else if (Convert.ToString(soortGebruikerCbx.SelectedItem) == "Student")
                 {
-                    gebruiker = new Student(gebruikersnaamTxb.Text);
+                    gebruiker = new Gebruiker();
                 }
                 gebruiker.Wachtwoord = wachtwoordTxb.Text;
 
@@ -110,15 +110,15 @@ namespace CrmAppSchool.Views.Gebruikers
                 // Bepaal gebruiker
                 if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Admin")
                 {
-                    nieuweGebruiker = new Admin(gebruikerLvw.SelectedItems[0].Text);
+                    nieuweGebruiker = new Gebruiker();
                 }
                 else if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Docent")
                 {
-                    nieuweGebruiker = new Docent(gebruikerLvw.SelectedItems[0].Text);
+                    nieuweGebruiker = new Gebruiker();
                 }
                 else if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Student")
                 {
-                    nieuweGebruiker = new Student(gebruikerLvw.SelectedItems[0].Text);
+                    nieuweGebruiker = new Gebruiker();
                 }
 
                 // Open bewerk gebruiker form

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace CrmAppSchool.Models
 {
-    public abstract class Gebruiker
+    public class Gebruiker
     {
         public string Gebruikersnaam { get; set; }
         public string Wachtwoord { get; set; }
+        public string SoortGebruiker { get; set; }
     }
 }

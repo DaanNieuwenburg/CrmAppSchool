@@ -28,15 +28,15 @@ namespace CrmAppSchool.Views.Gebruikers
 
         private void toonGebruikersnaam()
         {
-            if(gebruiker is Admin)
+            if(gebruiker.SoortGebruiker == "Admin")
             {
                 gebruikerLbl.Text = gebruikerLbl.Text + " " + gebruiker.Gebruikersnaam;
             }
-            else if(gebruiker is Student)
+            else if(gebruiker.SoortGebruiker == "Student")
             {
                 gebruikerLbl.Text = gebruikerLbl.Text + " " + gebruiker.Gebruikersnaam;
             }
-            else if(gebruiker is Docent)
+            else if(gebruiker.SoortGebruiker == "Docent")
             {
                 gebruikerLbl.Text = gebruikerLbl.Text + " " + gebruiker.Gebruikersnaam;
             }
@@ -44,11 +44,11 @@ namespace CrmAppSchool.Views.Gebruikers
 
         private void bepaalMenu()
         {
-            if(gebruiker is Docent)
+            if(gebruiker.SoortGebruiker == "Docent")
             {
                 voegGebruikerToeBtn.Visible = false;
             }
-            else if(gebruiker is Student)
+            else if(gebruiker.SoortGebruiker == "Student")
             {
                 voegGebruikerToeBtn.Visible = false;
                 btnProfiel.Visible = false;
@@ -119,7 +119,7 @@ namespace CrmAppSchool.Views.Gebruikers
         {
             if (ShowHelp == false)
             {
-                if (gebruiker is Admin)
+                if (gebruiker.SoortGebruiker == "Admin")
                 {
                     lblContacten.Visible = true;
                     lblOpdrachten.Visible = true;
@@ -129,7 +129,7 @@ namespace CrmAppSchool.Views.Gebruikers
                     lblZoeken.Visible = true;
                     ShowHelp = true;
                 }
-                else if (gebruiker is Docent)
+                else if (gebruiker.SoortGebruiker == "Docent")
                 {
                     lblContacten.Visible = true;
                     lblOpdrachten.Visible = true;
@@ -137,7 +137,7 @@ namespace CrmAppSchool.Views.Gebruikers
                     lblUitloggen.Visible = true;
                     lblZoeken.Visible = true;
                 }
-                else if (gebruiker is Student)
+                else if (gebruiker.SoortGebruiker == "Student")
                 {
                     lblContacten.Text = "Zoeken";
                     lblContacten.Visible = true;
