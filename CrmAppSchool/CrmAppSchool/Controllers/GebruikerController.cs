@@ -94,6 +94,8 @@ namespace CrmAppSchool.Controllers
         public void veranderWachtwoordGebruiker(Gebruiker _gebruiker)
         {
             MySqlTransaction trans = null;
+            EncryptieController ecr = new EncryptieController();
+            _gebruiker.Wachtwoord = ecr.encrypt(_gebruiker.Wachtwoord);
             try
             {
                 conn.Open();
