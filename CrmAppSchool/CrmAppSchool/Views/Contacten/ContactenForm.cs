@@ -40,7 +40,7 @@ namespace CrmAppSchool.Views.Contacten
         private void pbHome_Click(object sender, EventArgs e)
         {
             ShowMenu = true;
-            this.Hide();
+            Close();
         }
 
         private void btnZoeken_Click(object sender, EventArgs e)
@@ -191,7 +191,6 @@ namespace CrmAppSchool.Views.Contacten
             lvContacten.Visible = true;
             ShowSave = false;
         }
-
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
             if (contactSoortCbx.Text != "Bedrijf")

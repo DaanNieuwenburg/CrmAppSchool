@@ -9,11 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrmAppSchool.Controllers;
 using CrmAppSchool.Models;
-using MaterialSkin.Controls;
 
 namespace CrmAppSchool.Views.Zoeken
 {
-    public partial class ZoekenForm : Form //MaterialForm
+    public partial class ZoekenForm : Form
     {
         private Gebruiker gebruiker { get; set; }
         public bool ShowMenu { get; set; }

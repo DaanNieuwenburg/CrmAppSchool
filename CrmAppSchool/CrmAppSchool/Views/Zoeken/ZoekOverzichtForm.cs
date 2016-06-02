@@ -107,7 +107,7 @@ namespace CrmAppSchool.Views.Zoeken
         private void pbHome_Click(object sender, EventArgs e)
         {
             ShowMenu = true;
-            this.Hide();
+            this.Close();
         }
     }
     class ListViewItemComparer : IComparer
