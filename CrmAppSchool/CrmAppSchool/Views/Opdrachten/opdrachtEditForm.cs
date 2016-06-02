@@ -49,26 +49,7 @@ namespace CrmAppSchool.Views.Opdrachten
             tbNaam.Text = opdracht.Naam;
             tbOmschrijving.Text = opdracht.Omschrijving;
             cbStatus.Text = opdracht.Status;
-        }
 
-        private void bOpslaan_Click(object sender, EventArgs e)
-        {
-            if (cbStatus.SelectedItem != null)
-            {
-                if (opdracht.Naam == null)
-                {
-                    nieuweOpdracht();
-                }
-                else
-                {
-                    soc.updateStageopdracht(opdracht.Code, cbStatus.Text, tbNaam.Text, tbOmschrijving.Text);
-                    DialogResult = DialogResult.OK;
-                }
-            }
-            else
-            {
-                MessageBox.Show("je hebt geen status geslecteerd");
-            }
         }
 
         private void btnOpslaan_Click(object sender, EventArgs e)
@@ -81,6 +62,7 @@ namespace CrmAppSchool.Views.Opdrachten
                 }
                 else
                 {
+                    soc.updateStageopdracht(opdracht.Code, cbStatus.Text, tbNaam.Text, tbOmschrijving.Text);
                     DialogResult = DialogResult.OK;
                 }
             }
