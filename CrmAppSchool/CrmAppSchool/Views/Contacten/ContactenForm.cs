@@ -46,7 +46,7 @@ namespace CrmAppSchool.Views.Contacten
             if (ShowZoeken == false)
             {
                 ShowZoeken = true;
-                btnZoeken.Location = new Point(282, 1);
+                btnZoeken.Location = new Point(463, 1);
                 btnVoegtoe.Visible = false;
                 btnWijzig.Visible = false;
                 btnDelete.Visible = false;
@@ -58,7 +58,7 @@ namespace CrmAppSchool.Views.Contacten
         {
             ShowZoeken = false;
             btnVoegtoe.Visible = true;
-            btnZoeken.Location = new Point(335, 1);
+            btnZoeken.Location = new Point(527, 1);
             btnWijzig.Visible = true;
             btnDelete.Visible = true;
             tbSearch.Visible = false;
