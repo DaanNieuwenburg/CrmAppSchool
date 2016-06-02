@@ -16,5 +16,6 @@ namespace CrmAppSchool.Models
         public string Email { get; set; }
         public string[] Kwaliteiten { get; set; }
         public string Telefoonnr { get; set; }
+        public string Omschrijving { get; set; }
     }
 }

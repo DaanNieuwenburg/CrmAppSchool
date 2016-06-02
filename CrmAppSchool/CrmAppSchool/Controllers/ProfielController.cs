@@ -67,7 +67,7 @@ namespace CrmAppSchool.Controllers
                     profiel.Bedrijf = datalezer.GetString("bedrijf");
                     profiel.Locatie = datalezer.GetString("locatie");
                     profiel.Functie = datalezer.GetString("functie");
-                    profiel.Kwaliteit = datalezer.GetString("kwaliteit");
+                    //profiel.Kwaliteit = datalezer.GetString("kwaliteit");
                 }
                 return profiel;
             }
@@ -120,7 +120,7 @@ namespace CrmAppSchool.Controllers
                 conn.Open();
                 trans = conn.BeginTransaction();
 
-                string query = "UPDATE gebruiker_profiel SET voornaam = @Voornaam, achternaam = @Achternaam, bedrijf = @Bedrijf, locatie = @Locatie, functie = @Functie, kwaliteit = @Kwaliteit WHERE gebruikersnaam = @gebruikersnaam";
+                string query = "UPDATE gebruiker_profiel SET voornaam = @Voornaam, achternaam = @Achternaam, bedrijf = @Bedrijf, locatie = @Locatie, functie = @Functie WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
 
                 MySqlParameter UN_PARAM = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
@@ -129,7 +129,6 @@ namespace CrmAppSchool.Controllers
                 MySqlParameter BD_PARAM = new MySqlParameter("@Bedrijf", MySqlDbType.VarChar);
                 MySqlParameter LO_PARAM = new MySqlParameter("@Locatie", MySqlDbType.VarChar);
                 MySqlParameter FU_PARAM = new MySqlParameter("@Functie", MySqlDbType.VarChar);
-                MySqlParameter KW_PARAM = new MySqlParameter("@Kwaliteit", MySqlDbType.VarChar);
 
 
                 UN_PARAM.Value = _gebruiker.Gebruikersnaam;
@@ -138,7 +137,6 @@ namespace CrmAppSchool.Controllers
                 BD_PARAM.Value = _profiel.Bedrijf;
                 LO_PARAM.Value = _profiel.Locatie;
                 FU_PARAM.Value = _profiel.Functie;
-                KW_PARAM.Value = _profiel.Kwaliteit;
 
                 command.Parameters.Add(UN_PARAM);
                 command.Parameters.Add(VN_PARAM);
@@ -146,7 +144,6 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(BD_PARAM);
                 command.Parameters.Add(LO_PARAM);
                 command.Parameters.Add(FU_PARAM);
-                command.Parameters.Add(KW_PARAM);
 
                 Profiel profiel = new Profiel();
 

@@ -11,6 +11,57 @@ namespace CrmAppSchool.Controllers
     class ContactenController : DatabaseController
     {
 
+        public void voegBedrijfToe(Bedrijfcontact contact)
+        {
+            MySqlTransaction trans = null;
+            try
+            {
+                conn.Open();
+                trans = conn.BeginTransaction();
+                string query = @"INSERT INTO bedrijf (bedrijfnaam, hoofdlocatie, website, email, omschrijving)
+                                 VALUES (@bedrijfnaam, @hoofdlocatie, @website, @email, @omschrijving)";
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter bedrijfnaamParam = new MySqlParameter("bedrijfnaam", MySqlDbType.VarChar);
+                MySqlParameter hoofdlocatieParam = new MySqlParameter("hoofdlocatie", MySqlDbType.VarChar);
+                MySqlParameter websiteParam = new MySqlParameter("website", MySqlDbType.VarChar);
+                MySqlParameter emailParam = new MySqlParameter("email", MySqlDbType.VarChar);
+                MySqlParameter telefoonnrParam = new MySqlParameter("telefoonnr", MySqlDbType.VarChar);
+                MySqlParameter omschrijvingParam = new MySqlParameter("omschrijving", MySqlDbType.VarChar);
+
+                bedrijfnaamParam.Value = contact.Bedrijfnaam;
+                hoofdlocatieParam.Value = contact.Hoofdlocatie;
+                websiteParam.Value = contact.Website;
+                emailParam.Value = contact.Email;
+                telefoonnrParam.Value = contact.Telefoonnr;
+                omschrijvingParam.Value = contact.Omschrijving;
+
+                command.Parameters.Add(bedrijfnaamParam);
+                command.Parameters.Add(hoofdlocatieParam);
+                command.Parameters.Add(websiteParam);
+                command.Parameters.Add(emailParam);
+                command.Parameters.Add(telefoonnrParam);
+                command.Parameters.Add(omschrijvingParam);
+
+                command.Prepare();
+                command.ExecuteNonQuery();
+                trans.Commit();
+            }
+            catch (MySqlException e)
+            {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in contactencontroller - voegpersoontoe: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
         public void voegPersoonToe(Persooncontact contact)
         {
             MySqlTransaction trans = null;
@@ -18,7 +69,7 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"INSERT INTO persooncontact (voornaam, achternaam, bedrijf, email, isgastspreker, isgastdocent, isstagebegeleider, iscontactpersoon, afdelingscode)
+                string query = @"INSERT INTO contactpersoon (voornaam, achternaam, bedrijf, email, isgastspreker, isgastdocent, isstagebegeleider, iscontactpersoon, afdelingscode)
                                  VALUES (@voornaam, @achternaam, @bedrijf, @email, @isgastspreker, @isgastdocent, @isstagebegeleider, @iscontactpersoon, @afdelingscode)";
 
                 MySqlCommand command = new MySqlCommand(query, conn);

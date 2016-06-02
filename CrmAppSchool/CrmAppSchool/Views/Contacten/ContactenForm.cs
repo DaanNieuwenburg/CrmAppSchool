@@ -223,6 +223,8 @@ namespace CrmAppSchool.Views.Contacten
                     i++;
                 }
                 Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = bedrijfsnaamTxb.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = a };
+                ContactenController contactencontroller = new ContactenController();
+                contactencontroller.voegBedrijfToe(bedrijfcontact);
                 SaveBedrijf(bedrijfcontact);
             }
 
