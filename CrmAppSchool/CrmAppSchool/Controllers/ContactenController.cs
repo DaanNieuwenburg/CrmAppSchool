@@ -18,13 +18,13 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"INSERT INTO persooncontact (voornaam, achternaam, locatie, email, isgastspreker, isgastdocent, isstagebegeleider, iscontactpersoon, afdelingscode)
-                                 VALUES (@voornaam, @achternaam, @locatie, @email, @isgastspreker, @isgastdocent, @isstagebegeleider, @iscontactpersoon, @afdelingscode)";
+                string query = @"INSERT INTO persooncontact (voornaam, achternaam, bedrijf, email, isgastspreker, isgastdocent, isstagebegeleider, iscontactpersoon, afdelingscode)
+                                 VALUES (@voornaam, @achternaam, @bedrijf, @email, @isgastspreker, @isgastdocent, @isstagebegeleider, @iscontactpersoon, @afdelingscode)";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter voornaamParam = new MySqlParameter("voornaam", MySqlDbType.VarChar);
                 MySqlParameter achternaamParam = new MySqlParameter("achternaam", MySqlDbType.VarChar);
-                MySqlParameter locatieParam = new MySqlParameter("locatie", MySqlDbType.VarChar);
+                MySqlParameter bedrijfParam = new MySqlParameter("bedrijf", MySqlDbType.VarChar);
                 MySqlParameter emailParam = new MySqlParameter("email", MySqlDbType.VarChar);
                 MySqlParameter isgastsprekerParam = new MySqlParameter("isgastspreker", MySqlDbType.Binary);
                 MySqlParameter isgastdocentParam = new MySqlParameter("isgastdocent", MySqlDbType.Binary);
@@ -34,7 +34,7 @@ namespace CrmAppSchool.Controllers
 
                 voornaamParam.Value = contact.Voornaam;
                 achternaamParam.Value = contact.Achternaam;
-                locatieParam.Value = contact.Locatie;
+                bedrijfParam.Value = contact.Bedrijf;
                 emailParam.Value = contact.Email;
                 isgastsprekerParam.Value = contact.Isgastspreker;
                 isgastdocentParam.Value = contact.Isgastdocent;
@@ -44,7 +44,7 @@ namespace CrmAppSchool.Controllers
 
                 command.Parameters.Add(voornaamParam);
                 command.Parameters.Add(achternaamParam);
-                command.Parameters.Add(locatieParam);
+                command.Parameters.Add(bedrijfParam);
                 command.Parameters.Add(emailParam);
                 command.Parameters.Add(isgastsprekerParam);
                 command.Parameters.Add(isgastdocentParam);

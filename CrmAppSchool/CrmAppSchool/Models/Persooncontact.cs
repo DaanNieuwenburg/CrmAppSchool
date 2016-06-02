@@ -11,7 +11,7 @@ namespace CrmAppSchool.Models
         public int Contactcode { get; set; }
         public string Voornaam { get; set; }
         public string Achternaam { get; set; }
-        public string Locatie { get; set; }
+        public string Bedrijf { get; set; }
         public string Email { get; set; }
         public bool Isgastspreker{ get; set; }
         public bool Isgastdocent { get; set; }

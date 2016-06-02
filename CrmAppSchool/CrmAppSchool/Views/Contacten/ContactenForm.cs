@@ -163,23 +163,31 @@ namespace CrmAppSchool.Views.Contacten
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Locatie = tbLocatie.Text, Email = tbEmail.Text };
-            string contactSoort = Convert.ToString(contactSoortCbx);
-            switch (contactSoort)
+            if(contactSoortCbx.Text != "bedrijf")
             {
-                case "Stagebegeleider":
-                    persooncontact.Isstagebegeleider = true;
-                    break;
-                case "Gastdocent":
-                    persooncontact.Isgastdocent = true;
-                    break;
-                case "Gastspreker":
-                    persooncontact.Isgastspreker = true;
-                    break;
+                Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Bedrijf = tbBedrijf.Text, Email = tbEmail.Text };
+                string contactSoort = Convert.ToString(contactSoortCbx);
+                switch (contactSoort)
+                {
+                    case "Stagebegeleider":
+                        persooncontact.Isstagebegeleider = true;
+                        break;
+                    case "Gastdocent":
+                        persooncontact.Isgastdocent = true;
+                        break;
+                    case "Gastspreker":
+                        persooncontact.Isgastspreker = true;
+                        break;
+                }
+                ContactenController contactencontroller = new ContactenController();
+                contactencontroller.voegPersoonToe(persooncontact);
+                SaveContact(persooncontact);
             }
-            ContactenController contactencontroller = new ContactenController();
-            contactencontroller.voegPersoonToe(persooncontact);
-            SaveContact(persooncontact);
+            else
+            {
+               // Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tb}
+            }
+            
             pnOptioneel.Visible = false;
             persoonPnl.Visible = false;
             bedrijfPnl.Visible = false;

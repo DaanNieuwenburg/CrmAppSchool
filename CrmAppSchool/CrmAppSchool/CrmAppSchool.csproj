@@ -60,6 +60,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\StageopdrachtController.cs" />
     <Compile Include="Controllers\ZoekController.cs" />
+    <Compile Include="Models\Bedrijfcontact.cs" />
     <Compile Include="Models\Persooncontact.cs" />
     <Compile Include="Models\Profiel.cs" />
     <Compile Include="Models\Gebruiker.cs" />

@@ -66,6 +66,12 @@
             this.tbMobiel = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnWijzig = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbContact = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbEadres = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbTelefoon = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.bedrijfPnl.SuspendLayout();
@@ -223,33 +229,42 @@
             // bedrijfPnl
             // 
             this.bedrijfPnl.BackColor = System.Drawing.SystemColors.Window;
+            this.bedrijfPnl.Controls.Add(this.label8);
+            this.bedrijfPnl.Controls.Add(this.tbTelefoon);
+            this.bedrijfPnl.Controls.Add(this.label7);
+            this.bedrijfPnl.Controls.Add(this.tbEadres);
+            this.bedrijfPnl.Controls.Add(this.label6);
+            this.bedrijfPnl.Controls.Add(this.tbContact);
             this.bedrijfPnl.Controls.Add(this.bedrijfsnaamLbl);
             this.bedrijfPnl.Controls.Add(this.bedrijfsnaamTxb);
-            this.bedrijfPnl.Location = new System.Drawing.Point(75, 145);
+            this.bedrijfPnl.Location = new System.Drawing.Point(0, 0);
             this.bedrijfPnl.Name = "bedrijfPnl";
-            this.bedrijfPnl.Size = new System.Drawing.Size(200, 105);
+            this.bedrijfPnl.Size = new System.Drawing.Size(325, 148);
             this.bedrijfPnl.TabIndex = 22;
             this.bedrijfPnl.Visible = false;
             // 
             // bedrijfsnaamLbl
             // 
             this.bedrijfsnaamLbl.AutoSize = true;
-            this.bedrijfsnaamLbl.Location = new System.Drawing.Point(15, 49);
+            this.bedrijfsnaamLbl.Font = new System.Drawing.Font("Arial", 10F);
+            this.bedrijfsnaamLbl.Location = new System.Drawing.Point(15, 27);
             this.bedrijfsnaamLbl.Name = "bedrijfsnaamLbl";
-            this.bedrijfsnaamLbl.Size = new System.Drawing.Size(70, 13);
+            this.bedrijfsnaamLbl.Size = new System.Drawing.Size(94, 16);
             this.bedrijfsnaamLbl.TabIndex = 1;
             this.bedrijfsnaamLbl.Text = "Bedrijfsnaam:";
             // 
             // bedrijfsnaamTxb
             // 
-            this.bedrijfsnaamTxb.Location = new System.Drawing.Point(91, 46);
+            this.bedrijfsnaamTxb.Font = new System.Drawing.Font("Arial", 10F);
+            this.bedrijfsnaamTxb.Location = new System.Drawing.Point(128, 24);
             this.bedrijfsnaamTxb.Name = "bedrijfsnaamTxb";
-            this.bedrijfsnaamTxb.Size = new System.Drawing.Size(100, 20);
+            this.bedrijfsnaamTxb.Size = new System.Drawing.Size(149, 23);
             this.bedrijfsnaamTxb.TabIndex = 0;
             // 
             // persoonPnl
             // 
             this.persoonPnl.BackColor = System.Drawing.SystemColors.Window;
+            this.persoonPnl.Controls.Add(this.bedrijfPnl);
             this.persoonPnl.Controls.Add(this.label5);
             this.persoonPnl.Controls.Add(this.emailLbl);
             this.persoonPnl.Controls.Add(this.tbEmail);
@@ -501,6 +516,60 @@
             this.btnWijzig.UseVisualStyleBackColor = false;
             this.btnWijzig.Click += new System.EventHandler(this.btnWijzig_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 10F);
+            this.label6.Location = new System.Drawing.Point(15, 56);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(113, 16);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Contactpersoon:";
+            // 
+            // tbContact
+            // 
+            this.tbContact.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbContact.Location = new System.Drawing.Point(128, 53);
+            this.tbContact.Name = "tbContact";
+            this.tbContact.Size = new System.Drawing.Size(149, 23);
+            this.tbContact.TabIndex = 2;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 10F);
+            this.label7.Location = new System.Drawing.Point(15, 85);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 16);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Emailadres:";
+            // 
+            // tbEadres
+            // 
+            this.tbEadres.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbEadres.Location = new System.Drawing.Point(128, 82);
+            this.tbEadres.Name = "tbEadres";
+            this.tbEadres.Size = new System.Drawing.Size(149, 23);
+            this.tbEadres.TabIndex = 4;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 10F);
+            this.label8.Location = new System.Drawing.Point(15, 114);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 16);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Telefoonnr:";
+            // 
+            // tbTelefoon
+            // 
+            this.tbTelefoon.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbTelefoon.Location = new System.Drawing.Point(128, 111);
+            this.tbTelefoon.Name = "tbTelefoon";
+            this.tbTelefoon.Size = new System.Drawing.Size(149, 23);
+            this.tbTelefoon.TabIndex = 6;
+            // 
             // ContactenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -512,7 +581,6 @@
             this.Controls.Add(this.btnOpslaan);
             this.Controls.Add(this.btnAnnuleer);
             this.Controls.Add(this.persoonPnl);
-            this.Controls.Add(this.bedrijfPnl);
             this.Controls.Add(this.lblSoort);
             this.Controls.Add(this.contactSoortCbx);
             this.Controls.Add(this.lvContacten);
@@ -579,5 +647,11 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnWijzig;
         private System.Windows.Forms.ColumnHeader Contact;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tbEadres;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbContact;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbTelefoon;
     }
 }
