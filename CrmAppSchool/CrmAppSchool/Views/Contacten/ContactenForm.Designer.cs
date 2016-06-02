@@ -245,7 +245,7 @@
             this.bedrijfPnl.Controls.Add(this.tbContact);
             this.bedrijfPnl.Controls.Add(this.bedrijfsnaamLbl);
             this.bedrijfPnl.Controls.Add(this.bedrijfsnaamTxb);
-            this.bedrijfPnl.Location = new System.Drawing.Point(0, 0);
+            this.bedrijfPnl.Location = new System.Drawing.Point(32, 123);
             this.bedrijfPnl.Name = "bedrijfPnl";
             this.bedrijfPnl.Size = new System.Drawing.Size(325, 148);
             this.bedrijfPnl.TabIndex = 22;
@@ -272,7 +272,6 @@
             // persoonPnl
             // 
             this.persoonPnl.BackColor = System.Drawing.SystemColors.Window;
-            this.persoonPnl.Controls.Add(this.bedrijfPnl);
             this.persoonPnl.Controls.Add(this.label5);
             this.persoonPnl.Controls.Add(this.emailLbl);
             this.persoonPnl.Controls.Add(this.tbEmail);
@@ -424,7 +423,6 @@
             // pnOptioneel
             // 
             this.pnOptioneel.BackColor = System.Drawing.SystemColors.Window;
-            this.pnOptioneel.Controls.Add(this.pnbedrijf2);
             this.pnOptioneel.Controls.Add(this.label1);
             this.pnOptioneel.Controls.Add(this.tbPriveMail);
             this.pnOptioneel.Controls.Add(this.label2);
@@ -588,7 +586,7 @@
             this.pnbedrijf2.Controls.Add(this.tbHoofdlocatie);
             this.pnbedrijf2.Controls.Add(this.label11);
             this.pnbedrijf2.Controls.Add(this.tbKwaliteiten);
-            this.pnbedrijf2.Location = new System.Drawing.Point(26, 0);
+            this.pnbedrijf2.Location = new System.Drawing.Point(343, 123);
             this.pnbedrijf2.Name = "pnbedrijf2";
             this.pnbedrijf2.Size = new System.Drawing.Size(351, 268);
             this.pnbedrijf2.TabIndex = 23;
@@ -653,6 +651,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(788, 484);
             this.Controls.Add(this.persoonPnl);
             this.Controls.Add(this.btnDelete);
@@ -670,6 +669,8 @@
             this.Controls.Add(this.pbHome);
             this.Controls.Add(this.lblGebruiker);
             this.Controls.Add(this.pbHeader);
+            this.Controls.Add(this.bedrijfPnl);
+            this.Controls.Add(this.pnbedrijf2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ContactenForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

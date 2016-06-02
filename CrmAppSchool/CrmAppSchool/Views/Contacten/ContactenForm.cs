@@ -84,6 +84,7 @@ namespace CrmAppSchool.Views.Contacten
             {
                 persoonPnl.Visible = false;
                 pnOptioneel.Visible = false;
+                pnbedrijf2.Visible = true;
                 bedrijfPnl.Visible = true;
             }
             else if (invoerKeuze == "Stagebegeleider")
@@ -91,17 +92,23 @@ namespace CrmAppSchool.Views.Contacten
                 bedrijfPnl.Visible = false;
                 persoonPnl.Visible = true;
                 pnOptioneel.Visible = true;
+                pnbedrijf2.Visible = false;
+                bedrijfPnl.Visible = false;
             }
             else if (invoerKeuze == "Gastdocent")
             {
                 bedrijfPnl.Visible = false;
                 pnOptioneel.Visible = true;
+                pnbedrijf2.Visible = false;
+                bedrijfPnl.Visible = false;
                 persoonPnl.Visible = true;
             }
             else if (invoerKeuze == "Gastspreker")
             {
                 bedrijfPnl.Visible = false;
                 pnOptioneel.Visible = true;
+                pnbedrijf2.Visible = false;
+                bedrijfPnl.Visible = false;
                 persoonPnl.Visible = true;
             }
         }
@@ -115,6 +122,7 @@ namespace CrmAppSchool.Views.Contacten
                 lblSoort.Visible = true;
                 btnVoegtoe.Visible = false;
                 btnAnnuleer.Visible = true;
+                btnZoeken.Visible = false;
                 btnOpslaan.Visible = true;
                 contactSoortCbx.Visible = true;
                 btnWijzig.Visible = false;
@@ -127,6 +135,7 @@ namespace CrmAppSchool.Views.Contacten
                 btnVoegtoe.Visible = true;
                 btnAnnuleer.Visible = false;
                 btnOpslaan.Visible = false;
+                btnZoeken.Visible = true;
                 contactSoortCbx.Visible = false;
                 btnWijzig.Visible = true;
                 btnDelete.Visible = true;
@@ -146,8 +155,13 @@ namespace CrmAppSchool.Views.Contacten
             newcontact.Privemail = tbPriveMail.Text;*/
             lvContacten.Items.Add(persoon.Voornaam + " " + persoon.Achternaam);
         }
+        private void SaveBedrijf(Bedrijfcontact bedrijf)
+        {
+            lvContacten.Items.Add(bedrijf.Bedrijfnaam);
+        }
         private void btnAnnuleer_Click(object sender, EventArgs e)
         {
+            btnZoeken.Visible = true;
             btnVoegtoe.Visible = true;
             btnWijzig.Visible = true;
             btnDelete.Visible = true;
@@ -163,7 +177,7 @@ namespace CrmAppSchool.Views.Contacten
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            if (contactSoortCbx.Text != "bedrijf")
+            if (contactSoortCbx.Text != "Bedrijf")
             {
                 Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Bedrijf = tbBedrijf.Text, Email = tbEmail.Text };
                 string contactSoort = Convert.ToString(contactSoortCbx);
@@ -193,11 +207,15 @@ namespace CrmAppSchool.Views.Contacten
                     i++;
                 }
                 Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tbBedrijf.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = a };
+                SaveBedrijf(bedrijfcontact);
             }
 
             pnOptioneel.Visible = false;
             persoonPnl.Visible = false;
+            pnbedrijf2.Visible = false;
             bedrijfPnl.Visible = false;
+            bedrijfPnl.Visible = false;
+            btnZoeken.Visible = true;
             lblSoort.Visible = false;
             btnVoegtoe.Visible = true;
             btnWijzig.Visible = true;
