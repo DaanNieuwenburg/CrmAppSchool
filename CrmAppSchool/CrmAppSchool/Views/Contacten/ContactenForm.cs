@@ -22,6 +22,13 @@ namespace CrmAppSchool.Views.Contacten
         public ContactenForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
+            var imagelist = new ImageList();
+            imagelist.Images.Add("GS", Properties.Resources.Afbeelding_ContactPersoon_GastSpreker);
+            imagelist.Images.Add("GD", Properties.Resources.Afbeelding_ContactPersoon_GastDocent);
+            imagelist.Images.Add("BD", Properties.Resources.Afbeelding_ContactPersoon_Bedrijf);
+            imagelist.Images.Add("SB", Properties.Resources.Afbeelding_ContactPersoon_StageBegeleider);
+            imagelist.ImageSize = new Size(50, 50);
+            lvContacten.LargeImageList = imagelist;
             ShowMenu = false;
             ShowZoeken = false;
             ShowSave = false;
@@ -144,20 +151,30 @@ namespace CrmAppSchool.Views.Contacten
         }
         private void SaveContact(Persooncontact persoon)
         {
-            /*ContactPersoon newcontact = new ContactPersoon();
-            newcontact.Voornaam = tbVoornaam.Text;
-            newcontact.Achternaam = tbAchternaam.Text;
-            newcontact.Bedrijf = tbBedrijf.Text;
-            newcontact.Email = tbEmail.Text;
-            newcontact.Functie = tbFunctie.Text;
-            newcontact.Locatie = tbLocatie.Text;
-            newcontact.Mobiel = tbMobiel.Text;
-            newcontact.Privemail = tbPriveMail.Text;*/
-            lvContacten.Items.Add(persoon.Voornaam + " " + persoon.Achternaam);
+            ListViewItem contact = new ListViewItem(persoon.Voornaam);
+            contact.SubItems.Add(persoon.Achternaam);
+            lvContacten.Items.Add(contact);
+            if (contactSoortCbx.Text == "Gastspreker")
+            {
+                contact.ImageKey = "GS";
+            }               
+            else if (contactSoortCbx.Text == "Gastdocent")
+            {
+                contact.ImageKey = "GD";
+            }              
+            else if (contactSoortCbx.Text == "Stagebegeleider")
+            {
+                contact.ImageKey = "SB";
+            }
+                
+
+
         }
         private void SaveBedrijf(Bedrijfcontact bedrijf)
         {
-            lvContacten.Items.Add(bedrijf.Bedrijfnaam);
+            ListViewItem Company = new ListViewItem(bedrijf.Bedrijfnaam);
+            lvContacten.Items.Add(Company);
+            Company.ImageKey = "BD";
         }
         private void btnAnnuleer_Click(object sender, EventArgs e)
         {
@@ -206,7 +223,7 @@ namespace CrmAppSchool.Views.Contacten
                     a[i] = line;
                     i++;
                 }
-                Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tbBedrijf.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = a };
+                Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = bedrijfsnaamTxb.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = a };
                 SaveBedrijf(bedrijfcontact);
             }
 
