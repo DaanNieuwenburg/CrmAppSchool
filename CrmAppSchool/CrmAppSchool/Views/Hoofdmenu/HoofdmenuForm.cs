@@ -124,7 +124,13 @@ namespace CrmAppSchool.Views.Gebruikers
 
         private void btnUitloggen_Click(object sender, EventArgs e)
         {
-            Close();
+            foreach (Form f in Application.OpenForms)
+                openForms.Add(f);
+            foreach (Form f in openForms)
+            {
+                if (f.Text != "Inloggen")
+                    f.Close();
+            }
             Login.InlogForm login = new Login.InlogForm();
             login.Show();
         }
