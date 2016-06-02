@@ -17,32 +17,13 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"INSERT INTO profiel (gebruikersnaam, voornaam, achternaam, bedrijf, locatie, functie, kwaliteit) VALUES (@gebruikersnaam, @voornaam, @achternaam, @bedrijf, @locatie, @functie, @kwaliteit)";
+                string query = @"INSERT INTO gebruiker_profiel (gebruikersnaam) VALUES (@gebruikersnaam)";
                 MySqlCommand command = new MySqlCommand(query, conn);
 
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
-                MySqlParameter voornaamParam = new MySqlParameter("@voornaam", MySqlDbType.VarChar);
-                MySqlParameter achternaamParam = new MySqlParameter("@achternaam", MySqlDbType.VarChar);
-                MySqlParameter bedrijfParam = new MySqlParameter("@bedrijf", MySqlDbType.VarChar);
-                MySqlParameter locatieParam = new MySqlParameter("@locatie", MySqlDbType.VarChar);
-                MySqlParameter functieParam = new MySqlParameter("@functie", MySqlDbType.VarChar);
-                MySqlParameter kwaliteitParam = new MySqlParameter("@kwaliteit", MySqlDbType.VarChar);
 
                 gebruikersnaamParam.Value = gebruikersnaam;
-                voornaamParam.Value = "-";
-                achternaamParam.Value = "-";
-                bedrijfParam.Value = "-";
-                locatieParam.Value = "-";
-                functieParam.Value = "-";
-                kwaliteitParam.Value = "-";
-
                 command.Parameters.Add(gebruikersnaamParam);
-                command.Parameters.Add(voornaamParam);
-                command.Parameters.Add(achternaamParam);
-                command.Parameters.Add(bedrijfParam);
-                command.Parameters.Add(locatieParam);
-                command.Parameters.Add(functieParam);
-                command.Parameters.Add(kwaliteitParam);
 
                 command.Prepare();
                 command.ExecuteNonQuery();
