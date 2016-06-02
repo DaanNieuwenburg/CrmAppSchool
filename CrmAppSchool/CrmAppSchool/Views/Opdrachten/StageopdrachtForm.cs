@@ -77,7 +77,7 @@ namespace CrmAppSchool.Views.Opdrachten
 
         private void btnWijzig_Click(object sender, EventArgs e)
         {
-            if (lvStage.SelectedItems != null)
+            if (lvStage.SelectedItems.Count != 0)
             {
                 Stageopdracht opdracht = new Stageopdracht();
                 opdracht.Code = Convert.ToInt32(lvStage.SelectedItems[0].SubItems[0].Text);

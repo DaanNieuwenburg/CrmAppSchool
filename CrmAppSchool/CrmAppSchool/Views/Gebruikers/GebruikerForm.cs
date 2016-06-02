@@ -24,9 +24,10 @@ namespace CrmAppSchool.Views.Gebruikers
         public voegGebruikerToeForm(Gebruiker _gebruiker)
         {
             
+
+            InitializeComponent();
             tweedeSelectie = false;
             gebruiker = _gebruiker;
-            InitializeComponent();
             ShowMenu = false;           
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
             vulListView();

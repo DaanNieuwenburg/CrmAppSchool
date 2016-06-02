@@ -74,7 +74,8 @@ namespace CrmAppSchool.Views.Gebruikers
             if(geverifieerd == true)
             {
                 voegGebruikerToeForm voegGebruikerToe = new voegGebruikerToeForm(gebruiker);
-                voegGebruikerToe.ShowDialog();
+                voegGebruikerToe.Show();
+                this.Hide();
             }
             
         }

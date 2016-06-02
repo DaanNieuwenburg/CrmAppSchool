@@ -37,6 +37,7 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lvContacten = new System.Windows.Forms.ListView();
+            this.Contact = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contactSoortCbx = new System.Windows.Forms.ComboBox();
             this.lblSoort = new System.Windows.Forms.Label();
             this.bedrijfPnl = new System.Windows.Forms.Panel();
@@ -65,7 +66,6 @@
             this.tbMobiel = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnWijzig = new System.Windows.Forms.Button();
-            this.Contact = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.bedrijfPnl.SuspendLayout();
@@ -111,7 +111,7 @@
             this.btnVoegtoe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVoegtoe.FlatAppearance.BorderSize = 0;
             this.btnVoegtoe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVoegtoe.Location = new System.Drawing.Point(261, 1);
+            this.btnVoegtoe.Location = new System.Drawing.Point(259, 1);
             this.btnVoegtoe.Name = "btnVoegtoe";
             this.btnVoegtoe.Size = new System.Drawing.Size(59, 50);
             this.btnVoegtoe.TabIndex = 15;
@@ -185,6 +185,10 @@
             this.lvContacten.TabIndex = 19;
             this.lvContacten.UseCompatibleStateImageBehavior = false;
             this.lvContacten.View = System.Windows.Forms.View.List;
+            // 
+            // Contact
+            // 
+            this.Contact.Text = "";
             // 
             // contactSoortCbx
             // 
@@ -496,10 +500,6 @@
             this.btnWijzig.TabIndex = 25;
             this.btnWijzig.UseVisualStyleBackColor = false;
             this.btnWijzig.Click += new System.EventHandler(this.btnWijzig_Click);
-            // 
-            // Contact
-            // 
-            this.Contact.Text = "";
             // 
             // ContactenForm
             // 

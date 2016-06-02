@@ -28,5 +28,19 @@ namespace CrmAppSchool.Views.Gebruikers
         {
             DialogResult = DialogResult.Cancel;
         }
+
+        private void ValidateForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbWachtwoord_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                DialogResult = DialogResult.OK;
+                password = tbWachtwoord.Text;
+            }
+        }
     }
 }
