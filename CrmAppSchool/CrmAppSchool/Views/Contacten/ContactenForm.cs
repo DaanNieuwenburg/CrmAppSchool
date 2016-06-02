@@ -163,7 +163,7 @@ namespace CrmAppSchool.Views.Contacten
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            if(contactSoortCbx.Text != "bedrijf")
+            if (contactSoortCbx.Text != "bedrijf")
             {
                 Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Bedrijf = tbBedrijf.Text, Email = tbEmail.Text };
                 string contactSoort = Convert.ToString(contactSoortCbx);
@@ -185,9 +185,16 @@ namespace CrmAppSchool.Views.Contacten
             }
             else
             {
-               // Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tb}
+                string[] a = new string[tbKwaliteiten.Lines.Count()];
+                int i = 0;
+                foreach (string line in tbKwaliteiten.Lines)
+                {
+                    a[i] = line;
+                    i++;
+                }
+                Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tbBedrijf.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = a };
             }
-            
+
             pnOptioneel.Visible = false;
             persoonPnl.Visible = false;
             bedrijfPnl.Visible = false;
@@ -204,16 +211,16 @@ namespace CrmAppSchool.Views.Contacten
 
         private void btnWijzig_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if(lvContacten.SelectedItems.Count == 1)
+            if (lvContacten.SelectedItems.Count == 1)
             {
                 lvContacten.Items.Remove(lvContacten.SelectedItems[0]);
             }
-            else if(lvContacten.SelectedItems.Count > 1)
+            else if (lvContacten.SelectedItems.Count > 1)
             {
                 foreach (ListViewItem item in lvContacten.SelectedItems)
                 {

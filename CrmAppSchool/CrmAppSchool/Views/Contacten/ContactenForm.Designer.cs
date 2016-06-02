@@ -72,11 +72,19 @@
             this.tbEadres = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tbTelefoon = new System.Windows.Forms.TextBox();
+            this.pnbedrijf2 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tbKwaliteiten = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbHoofdlocatie = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbWebsite = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.bedrijfPnl.SuspendLayout();
             this.persoonPnl.SuspendLayout();
             this.pnOptioneel.SuspendLayout();
+            this.pnbedrijf2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGebruiker
@@ -416,6 +424,7 @@
             // pnOptioneel
             // 
             this.pnOptioneel.BackColor = System.Drawing.SystemColors.Window;
+            this.pnOptioneel.Controls.Add(this.pnbedrijf2);
             this.pnOptioneel.Controls.Add(this.label1);
             this.pnOptioneel.Controls.Add(this.tbPriveMail);
             this.pnOptioneel.Controls.Add(this.label2);
@@ -570,17 +579,87 @@
             this.tbTelefoon.Size = new System.Drawing.Size(149, 23);
             this.tbTelefoon.TabIndex = 6;
             // 
+            // pnbedrijf2
+            // 
+            this.pnbedrijf2.BackColor = System.Drawing.SystemColors.Window;
+            this.pnbedrijf2.Controls.Add(this.label10);
+            this.pnbedrijf2.Controls.Add(this.tbWebsite);
+            this.pnbedrijf2.Controls.Add(this.label9);
+            this.pnbedrijf2.Controls.Add(this.tbHoofdlocatie);
+            this.pnbedrijf2.Controls.Add(this.label11);
+            this.pnbedrijf2.Controls.Add(this.tbKwaliteiten);
+            this.pnbedrijf2.Location = new System.Drawing.Point(26, 0);
+            this.pnbedrijf2.Name = "pnbedrijf2";
+            this.pnbedrijf2.Size = new System.Drawing.Size(351, 268);
+            this.pnbedrijf2.TabIndex = 23;
+            this.pnbedrijf2.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 10F);
+            this.label11.Location = new System.Drawing.Point(15, 119);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(79, 16);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Kwaliteiten:";
+            // 
+            // tbKwaliteiten
+            // 
+            this.tbKwaliteiten.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbKwaliteiten.Location = new System.Drawing.Point(108, 119);
+            this.tbKwaliteiten.Multiline = true;
+            this.tbKwaliteiten.Name = "tbKwaliteiten";
+            this.tbKwaliteiten.Size = new System.Drawing.Size(198, 88);
+            this.tbKwaliteiten.TabIndex = 2;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 10F);
+            this.label9.Location = new System.Drawing.Point(15, 24);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(90, 16);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Hoofdlocatie:";
+            // 
+            // tbHoofdlocatie
+            // 
+            this.tbHoofdlocatie.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbHoofdlocatie.Location = new System.Drawing.Point(108, 21);
+            this.tbHoofdlocatie.Name = "tbHoofdlocatie";
+            this.tbHoofdlocatie.Size = new System.Drawing.Size(198, 23);
+            this.tbHoofdlocatie.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 10F);
+            this.label10.Location = new System.Drawing.Point(15, 53);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(63, 16);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Website:";
+            // 
+            // tbWebsite
+            // 
+            this.tbWebsite.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbWebsite.Location = new System.Drawing.Point(108, 50);
+            this.tbWebsite.Name = "tbWebsite";
+            this.tbWebsite.Size = new System.Drawing.Size(198, 23);
+            this.tbWebsite.TabIndex = 6;
+            // 
             // ContactenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(788, 484);
+            this.Controls.Add(this.persoonPnl);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnWijzig);
             this.Controls.Add(this.pnOptioneel);
             this.Controls.Add(this.btnOpslaan);
             this.Controls.Add(this.btnAnnuleer);
-            this.Controls.Add(this.persoonPnl);
             this.Controls.Add(this.lblSoort);
             this.Controls.Add(this.contactSoortCbx);
             this.Controls.Add(this.lvContacten);
@@ -603,6 +682,8 @@
             this.persoonPnl.PerformLayout();
             this.pnOptioneel.ResumeLayout(false);
             this.pnOptioneel.PerformLayout();
+            this.pnbedrijf2.ResumeLayout(false);
+            this.pnbedrijf2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -653,5 +734,12 @@
         private System.Windows.Forms.TextBox tbContact;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbTelefoon;
+        private System.Windows.Forms.Panel pnbedrijf2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox tbKwaliteiten;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tbWebsite;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tbHoofdlocatie;
     }
 }

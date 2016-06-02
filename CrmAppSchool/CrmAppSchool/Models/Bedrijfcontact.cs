@@ -8,10 +8,13 @@ namespace CrmAppSchool.Models
 {
     class Bedrijfcontact
     {
-        public int Contactcode { get; set; }
+        public int Bedrijfscode { get; set; }
         public string Bedrijfnaam { get; set; }
+        public string Hoofdlocatie { get; set; }
+        public string Website { get; set; }
         public string Contactpersoon { get; set; }
         public string Email { get; set; }
-        public string telefoon { get; set; }
+        public string[] Kwaliteiten { get; set; }
+        public string Telefoonnr { get; set; }
     }
 }
