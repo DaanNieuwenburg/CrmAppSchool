@@ -15,55 +15,25 @@ namespace CrmAppSchool.Controllers
         {
             MySqlTransaction trans = null;
             EncryptieController ecr = new EncryptieController();
-            string wachtwoord = ecr.encrypt(_gebruiker.Wachtwoord);
+            _gebruiker.Wachtwoord = ecr.encrypt(_gebruiker.Wachtwoord);
             try
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = "INSERT INTO gebruiker (gebruikersnaam, wachtwoord, isadmin, isdocent, isstudent) VALUES (@gebruikersnaam, @wachtwoord, @isadmin, @isdocent, @isstudent)";
+                string query = "INSERT INTO gebruiker (gebruikersnaam, wachtwoord, soortgebruiker) VALUES (@gebruikersnaam, @wachtwoord, @soortgebruiker)";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
                 MySqlParameter wachtwoordParam = new MySqlParameter("@wachtwoord", MySqlDbType.VarChar);
-                MySqlParameter isadminParam = new MySqlParameter("@isadmin", MySqlDbType.Bit);
-                MySqlParameter isdocentParam = new MySqlParameter("@isdocent", MySqlDbType.Bit);
-                MySqlParameter isstudentParam = new MySqlParameter("@isstudent", MySqlDbType.Bit);
+                MySqlParameter soortgebruikerParam = new MySqlParameter("@soortgebruiker", MySqlDbType.VarChar);
 
                 gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
-                wachtwoordParam.Value = wachtwoord;
+                wachtwoordParam.Value = _gebruiker.Wachtwoord;
+                soortgebruikerParam.Value = _gebruiker.SoortGebruiker;
 
-
-                if (_gebruiker.SoortGebruiker == "Admin")
-                {
-                    isadminParam.Value = 1;
-                }
-                else
-                {
-                    isadminParam.Value = 0;
-                }
-
-                if (_gebruiker.SoortGebruiker == "Docent")
-                {
-                    isdocentParam.Value = 1;
-                }
-                else
-                {
-                    isdocentParam.Value = 0;
-                }
-
-                if (_gebruiker.SoortGebruiker == "Student")
-                {
-                    isstudentParam.Value = 1;
-                }
-                else
-                {
-                    isstudentParam.Value = 0;
-                }
 
                 command.Parameters.Add(gebruikersnaamParam);
                 command.Parameters.Add(wachtwoordParam);
-                command.Parameters.Add(isadminParam);
-                command.Parameters.Add(isdocentParam);
-                command.Parameters.Add(isstudentParam);
+                command.Parameters.Add(soortgebruikerParam);
 
                 command.Prepare();
                 command.ExecuteNonQuery();
@@ -83,7 +53,7 @@ namespace CrmAppSchool.Controllers
                 {
                     trans.Rollback();
                 }
-                Console.WriteLine("Error in admincontroller - voeggebruikertoe: " + e);
+                Console.WriteLine("Error in gebruikercontroller - voeggebruikertoe: " + e);
             }
             finally
             {

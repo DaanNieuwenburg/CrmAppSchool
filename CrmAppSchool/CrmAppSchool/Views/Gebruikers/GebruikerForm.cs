@@ -71,19 +71,9 @@ namespace CrmAppSchool.Views.Gebruikers
             }
             else
             {
-                Gebruiker gebruiker = null;
-                if (Convert.ToString(soortGebruikerCbx.SelectedItem) == "Docent")
-                {
-                    gebruiker = new Gebruiker();
-                }
-                else if (Convert.ToString(soortGebruikerCbx.SelectedItem) == "Student")
-                {
-                    gebruiker = new Gebruiker();
-                }
-                gebruiker.Wachtwoord = wachtwoordTxb.Text;
-
-                AdminController admincontroller = new AdminController();
-                admincontroller.voegGebruikerToe(gebruiker);
+                Gebruiker gebruiker = new Gebruiker() { Gebruikersnaam = gebruikersnaamTxb.Text, Wachtwoord = wachtwoordTxb.Text, SoortGebruiker = soortGebruikerCbx.Text };
+                GebruikerController gebruikercontroller = new GebruikerController();
+                gebruikercontroller.voegGebruikerToe(gebruiker);
 
                 this.Close();
             }
