@@ -48,7 +48,7 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
-                string query = "SELECT * FROM profiel WHERE gebruikersnaam = @gebruikersnaam";
+                string query = "SELECT * FROM gebruiker_profiel WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
 
                 MySqlParameter UN_PARAM = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
@@ -87,7 +87,7 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
-                string query = "SELECT * FROM profiel WHERE gebruikersnaam = @gebruikersnaam";
+                string query = "SELECT * FROM gebruiker_profiel WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query,conn);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
                 gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
@@ -120,7 +120,7 @@ namespace CrmAppSchool.Controllers
                 conn.Open();
                 trans = conn.BeginTransaction();
 
-                string query = "UPDATE profiel SET voornaam = @Voornaam, achternaam = @Achternaam, bedrijf = @Bedrijf, locatie = @Locatie, functie = @Functie, kwaliteit = @Kwaliteit WHERE gebruikersnaam = @gebruikersnaam";
+                string query = "UPDATE gebruiker_profiel SET voornaam = @Voornaam, achternaam = @Achternaam, bedrijf = @Bedrijf, locatie = @Locatie, functie = @Functie, kwaliteit = @Kwaliteit WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
 
                 MySqlParameter UN_PARAM = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
@@ -174,7 +174,7 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
-                string query = "DELETE FROM profiel WHERE gebruikersnaam = @gebruikersnaam";
+                string query = "DELETE FROM gebruiker_profiel WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
                 gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;

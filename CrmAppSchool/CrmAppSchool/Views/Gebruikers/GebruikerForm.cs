@@ -95,15 +95,15 @@ namespace CrmAppSchool.Views.Gebruikers
                 // Bepaal gebruiker
                 if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Admin")
                 {
-                    nieuweGebruiker = new Gebruiker();
+                    nieuweGebruiker = new Gebruiker() { Gebruikersnaam = gebruikerLvw.SelectedItems[0].Text };
                 }
                 else if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Docent")
                 {
-                    nieuweGebruiker = new Gebruiker();
+                    nieuweGebruiker = new Gebruiker() { Gebruikersnaam = gebruikerLvw.SelectedItems[0].Text };
                 }
                 else if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Student")
                 {
-                    nieuweGebruiker = new Gebruiker();
+                    nieuweGebruiker = new Gebruiker() { Gebruikersnaam = gebruikerLvw.SelectedItems[0].Text };
                 }
 
                 // Open bewerk gebruiker form
