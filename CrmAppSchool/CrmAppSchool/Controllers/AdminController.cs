@@ -70,7 +70,7 @@ namespace CrmAppSchool.Controllers
                 trans.Commit();
 
                 // Voeg profiel toe
-                if (_gebruiker is Docent || _gebruiker is Admin)
+                if (_gebruiker.SoortGebruiker == "Docent" || _gebruiker.SoortGebruiker == "Admin")
                 {
                     ProfielController profielcontroller = new ProfielController();
                     profielcontroller.voegProfielToe(_gebruiker.Gebruikersnaam);
