@@ -18,7 +18,7 @@ namespace CrmAppSchool.Views.Contacten
         private bool ShowSave { get; set; }
         private bool ShowZoeken { get; set; }
         private bool EditMode { get; set; }
-        private Gebruiker gebruiker { get; set; }
+        private Gebruiker _gebruiker { get; set; }
         public ContactenForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
@@ -33,8 +33,8 @@ namespace CrmAppSchool.Views.Contacten
             ShowZoeken = false;
             ShowSave = false;
             EditMode = false;
-            gebruiker = _gebruiker;
-            lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
+            this._gebruiker = _gebruiker;
+            lblGebruiker.Text = lblGebruiker.Text + " " + this._gebruiker.Gebruikersnaam;
         }
 
         private void pbHome_Click(object sender, EventArgs e)
@@ -195,7 +195,7 @@ namespace CrmAppSchool.Views.Contacten
         {
             if (contactSoortCbx.Text != "Bedrijf")
             {
-                Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Bedrijf = tbBedrijf.Text, Email = tbEmail.Text };
+                Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Locatie = tbLocatie.Text, Email = tbEmail.Text, Gebruiker = _gebruiker };
                 string contactSoort = Convert.ToString(contactSoortCbx);
                 switch (contactSoort)
                 {
@@ -204,9 +204,6 @@ namespace CrmAppSchool.Views.Contacten
                         break;
                     case "Gastdocent":
                         persooncontact.Isgastdocent = true;
-                        break;
-                    case "Gastspreker":
-                        persooncontact.Isgastspreker = true;
                         break;
                 }
                 ContactenController contactencontroller = new ContactenController();

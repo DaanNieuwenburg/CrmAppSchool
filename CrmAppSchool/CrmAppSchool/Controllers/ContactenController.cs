@@ -110,39 +110,39 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"INSERT INTO contactpersoon (voornaam, achternaam, bedrijf, email, isgastspreker, isgastdocent, isstagebegeleider, iscontactpersoon, afdelingscode)
-                                 VALUES (@voornaam, @achternaam, @bedrijf, @email, @isgastspreker, @isgastdocent, @isstagebegeleider, @iscontactpersoon, @afdelingscode)";
+                string query = @"INSERT INTO contactpersoon (voornaam, achternaam, locatie, email, afdeling, linkedin, isgastdocent, isstagebegeleider, gebruikersnaam)
+                                 VALUES (@voornaam, @achternaam, @locatie, @email, @afdeling, @linkedin, @isgastdocent, @isstagebegeleider, @gebruikersnaam)";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter voornaamParam = new MySqlParameter("voornaam", MySqlDbType.VarChar);
                 MySqlParameter achternaamParam = new MySqlParameter("achternaam", MySqlDbType.VarChar);
-                MySqlParameter bedrijfParam = new MySqlParameter("bedrijf", MySqlDbType.VarChar);
+                MySqlParameter locatieParam = new MySqlParameter("locatie", MySqlDbType.VarChar);
                 MySqlParameter emailParam = new MySqlParameter("email", MySqlDbType.VarChar);
-                MySqlParameter isgastsprekerParam = new MySqlParameter("isgastspreker", MySqlDbType.Binary);
+                MySqlParameter afdelingParam = new MySqlParameter("afdeling", MySqlDbType.VarChar);
+                MySqlParameter linkedinParam = new MySqlParameter("linkedin", MySqlDbType.VarChar);
                 MySqlParameter isgastdocentParam = new MySqlParameter("isgastdocent", MySqlDbType.Binary);
                 MySqlParameter isstagebegeleiderParam = new MySqlParameter("isstagebegeleider", MySqlDbType.Binary);
-                MySqlParameter iscontactpersoonParam = new MySqlParameter("iscontactpersoon", MySqlDbType.Binary);
-                MySqlParameter afdelingscodeParam = new MySqlParameter("afdelingscode", MySqlDbType.Int32);
+                MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
 
                 voornaamParam.Value = contact.Voornaam;
                 achternaamParam.Value = contact.Achternaam;
-                bedrijfParam.Value = contact.Bedrijf;
+                locatieParam.Value = contact.Locatie;
                 emailParam.Value = contact.Email;
-                isgastsprekerParam.Value = contact.Isgastspreker;
+                afdelingParam.Value = contact.Afdeling;
+                linkedinParam.Value = contact.Linkedin;
                 isgastdocentParam.Value = contact.Isgastdocent;
                 isstagebegeleiderParam.Value = contact.Isstagebegeleider;
-                iscontactpersoonParam.Value = contact.Iscontactpersoon;
-                afdelingscodeParam.Value = contact.Afdelingscode;
+                gebruikersnaamParam.Value = contact.Gebruiker.Gebruikersnaam;
 
                 command.Parameters.Add(voornaamParam);
                 command.Parameters.Add(achternaamParam);
-                command.Parameters.Add(bedrijfParam);
+                command.Parameters.Add(locatieParam);
                 command.Parameters.Add(emailParam);
-                command.Parameters.Add(isgastsprekerParam);
+                command.Parameters.Add(afdelingParam);
+                command.Parameters.Add(linkedinParam);
                 command.Parameters.Add(isgastdocentParam);
                 command.Parameters.Add(isstagebegeleiderParam);
-                command.Parameters.Add(iscontactpersoonParam);
-                command.Parameters.Add(afdelingscodeParam);
+                command.Parameters.Add(gebruikersnaamParam);
 
                 command.Prepare();
                 command.ExecuteNonQuery();
