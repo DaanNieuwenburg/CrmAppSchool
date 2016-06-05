@@ -46,6 +46,13 @@ namespace CrmAppSchool.Controllers
                 command.Prepare();
                 command.ExecuteNonQuery();
                 trans.Commit();
+
+                // Zet de kwaliteiten in de kwaliteiten tabel
+                long primaryKey = command.LastInsertedId;
+                foreach(string kwaliteit in contact.Kwaliteiten)
+                {
+                    voegKwaliteitToe(kwaliteit, primaryKey);
+                }
             }
             catch (MySqlException e)
             {
@@ -61,6 +68,40 @@ namespace CrmAppSchool.Controllers
             }
         }
 
+        public void voegKwaliteitToe(string kwaliteit, long id)
+        {
+            MySqlTransaction trans = null;
+            try
+            {
+                string query = @"INSERT INTO bedrijf_kwaliteiten (bedrijfcode, kwaliteit)
+                                 VALUES (@bedrijfcode, @kwaliteit)";
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter bedrijfcodeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
+                MySqlParameter kwaliteitParam = new MySqlParameter("kwaliteit", MySqlDbType.VarChar);
+
+                bedrijfcodeParam.Value = id;
+                kwaliteitParam.Value = kwaliteit;
+
+
+                command.Parameters.Add(bedrijfcodeParam);
+                command.Parameters.Add(kwaliteitParam);
+
+                command.Prepare();
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
+            {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in contactencontroller - voegkwaliteittoe: " + e);
+            }
+            finally
+            {
+            }
+        }
 
         public void voegPersoonToe(Persooncontact contact)
         {
