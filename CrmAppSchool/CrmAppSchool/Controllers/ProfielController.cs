@@ -17,32 +17,13 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"INSERT INTO profiel (gebruikersnaam, voornaam, achternaam, bedrijf, locatie, functie, kwaliteit) VALUES (@gebruikersnaam, @voornaam, @achternaam, @bedrijf, @locatie, @functie, @kwaliteit)";
+                string query = @"INSERT INTO gebruiker_profiel (gebruikersnaam) VALUES (@gebruikersnaam)";
                 MySqlCommand command = new MySqlCommand(query, conn);
 
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
-                MySqlParameter voornaamParam = new MySqlParameter("@voornaam", MySqlDbType.VarChar);
-                MySqlParameter achternaamParam = new MySqlParameter("@achternaam", MySqlDbType.VarChar);
-                MySqlParameter bedrijfParam = new MySqlParameter("@bedrijf", MySqlDbType.VarChar);
-                MySqlParameter locatieParam = new MySqlParameter("@locatie", MySqlDbType.VarChar);
-                MySqlParameter functieParam = new MySqlParameter("@functie", MySqlDbType.VarChar);
-                MySqlParameter kwaliteitParam = new MySqlParameter("@kwaliteit", MySqlDbType.VarChar);
 
                 gebruikersnaamParam.Value = gebruikersnaam;
-                voornaamParam.Value = "-";
-                achternaamParam.Value = "-";
-                bedrijfParam.Value = "-";
-                locatieParam.Value = "-";
-                functieParam.Value = "-";
-                kwaliteitParam.Value = "-";
-
                 command.Parameters.Add(gebruikersnaamParam);
-                command.Parameters.Add(voornaamParam);
-                command.Parameters.Add(achternaamParam);
-                command.Parameters.Add(bedrijfParam);
-                command.Parameters.Add(locatieParam);
-                command.Parameters.Add(functieParam);
-                command.Parameters.Add(kwaliteitParam);
 
                 command.Prepare();
                 command.ExecuteNonQuery();
@@ -67,7 +48,7 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
-                string query = "SELECT * FROM profiel WHERE gebruikersnaam = @gebruikersnaam";
+                string query = "SELECT * FROM gebruiker_profiel WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
 
                 MySqlParameter UN_PARAM = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
@@ -86,7 +67,7 @@ namespace CrmAppSchool.Controllers
                     profiel.Bedrijf = datalezer.GetString("bedrijf");
                     profiel.Locatie = datalezer.GetString("locatie");
                     profiel.Functie = datalezer.GetString("functie");
-                    profiel.Kwaliteit = datalezer.GetString("kwaliteit");
+                    //profiel.Kwaliteit = datalezer.GetString("kwaliteit");
                 }
                 return profiel;
             }
@@ -106,7 +87,7 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
-                string query = "SELECT * FROM profiel WHERE gebruikersnaam = @gebruikersnaam";
+                string query = "SELECT * FROM gebruiker_profiel WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query,conn);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
                 gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
@@ -139,7 +120,7 @@ namespace CrmAppSchool.Controllers
                 conn.Open();
                 trans = conn.BeginTransaction();
 
-                string query = "UPDATE profiel SET voornaam = @Voornaam, achternaam = @Achternaam, bedrijf = @Bedrijf, locatie = @Locatie, functie = @Functie, kwaliteit = @Kwaliteit WHERE gebruikersnaam = @gebruikersnaam";
+                string query = "UPDATE gebruiker_profiel SET voornaam = @Voornaam, achternaam = @Achternaam, bedrijf = @Bedrijf, locatie = @Locatie, functie = @Functie WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
 
                 MySqlParameter UN_PARAM = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
@@ -148,7 +129,6 @@ namespace CrmAppSchool.Controllers
                 MySqlParameter BD_PARAM = new MySqlParameter("@Bedrijf", MySqlDbType.VarChar);
                 MySqlParameter LO_PARAM = new MySqlParameter("@Locatie", MySqlDbType.VarChar);
                 MySqlParameter FU_PARAM = new MySqlParameter("@Functie", MySqlDbType.VarChar);
-                MySqlParameter KW_PARAM = new MySqlParameter("@Kwaliteit", MySqlDbType.VarChar);
 
 
                 UN_PARAM.Value = _gebruiker.Gebruikersnaam;
@@ -157,7 +137,6 @@ namespace CrmAppSchool.Controllers
                 BD_PARAM.Value = _profiel.Bedrijf;
                 LO_PARAM.Value = _profiel.Locatie;
                 FU_PARAM.Value = _profiel.Functie;
-                KW_PARAM.Value = _profiel.Kwaliteit;
 
                 command.Parameters.Add(UN_PARAM);
                 command.Parameters.Add(VN_PARAM);
@@ -165,7 +144,6 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(BD_PARAM);
                 command.Parameters.Add(LO_PARAM);
                 command.Parameters.Add(FU_PARAM);
-                command.Parameters.Add(KW_PARAM);
 
                 Profiel profiel = new Profiel();
 
@@ -193,7 +171,7 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
-                string query = "DELETE FROM profiel WHERE gebruikersnaam = @gebruikersnaam";
+                string query = "DELETE FROM gebruiker_profiel WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
                 gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
@@ -208,6 +186,6 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Close();
             }
-        }
+        }      
     }
 }

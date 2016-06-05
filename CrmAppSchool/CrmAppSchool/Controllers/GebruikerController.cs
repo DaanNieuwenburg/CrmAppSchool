@@ -10,6 +10,57 @@ namespace CrmAppSchool.Controllers
 {
     class GebruikerController : DatabaseController
     {
+
+        public void voegGebruikerToe(Gebruiker _gebruiker)
+        {
+            MySqlTransaction trans = null;
+            EncryptieController ecr = new EncryptieController();
+            _gebruiker.Wachtwoord = ecr.encrypt(_gebruiker.Wachtwoord);
+            try
+            {
+                conn.Open();
+                trans = conn.BeginTransaction();
+                string query = "INSERT INTO gebruiker (gebruikersnaam, wachtwoord, soortgebruiker) VALUES (@gebruikersnaam, @wachtwoord, @soortgebruiker)";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
+                MySqlParameter wachtwoordParam = new MySqlParameter("@wachtwoord", MySqlDbType.VarChar);
+                MySqlParameter soortgebruikerParam = new MySqlParameter("@soortgebruiker", MySqlDbType.VarChar);
+
+                gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
+                wachtwoordParam.Value = _gebruiker.Wachtwoord;
+                soortgebruikerParam.Value = _gebruiker.SoortGebruiker;
+
+
+                command.Parameters.Add(gebruikersnaamParam);
+                command.Parameters.Add(wachtwoordParam);
+                command.Parameters.Add(soortgebruikerParam);
+
+                command.Prepare();
+                command.ExecuteNonQuery();
+
+                trans.Commit();
+
+                // Voeg profiel toe
+                if (_gebruiker.SoortGebruiker == "Docent" || _gebruiker.SoortGebruiker == "Admin")
+                {
+                    ProfielController profielcontroller = new ProfielController();
+                    profielcontroller.voegProfielToe(_gebruiker.Gebruikersnaam);
+                }
+            }
+            catch (MySqlException e)
+            {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in gebruikercontroller - voeggebruikertoe: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public List<Gebruiker> haalGebruikersOp()
         {
             try
@@ -23,21 +74,9 @@ namespace CrmAppSchool.Controllers
                 while (lezer.Read())
                 {
                     string gebruikersnaam = lezer.GetString("gebruikersnaam");
-                    bool isadmin = lezer.GetBoolean("isadmin");
-                    bool isdocent = lezer.GetBoolean("isdocent");
-                    bool isstudent = lezer.GetBoolean("isstudent");
-                    if (isadmin == true)
-                    {
-                        gebruikersLijst.Add(new Admin(gebruikersnaam));
-                    }
-                    else if (isdocent == true)
-                    {
-                        gebruikersLijst.Add(new Docent(gebruikersnaam));
-                    }
-                    else if (isstudent == true)
-                    {
-                        gebruikersLijst.Add(new Student(gebruikersnaam));
-                    }
+                    string soortgebruiker = lezer.GetString("soortgebruiker");
+                    gebruikersLijst.Add(new Gebruiker() { Gebruikersnaam = gebruikersnaam, SoortGebruiker = soortgebruiker });
+                   
                 }
                 return gebruikersLijst;
             }
@@ -55,6 +94,8 @@ namespace CrmAppSchool.Controllers
         public void veranderWachtwoordGebruiker(Gebruiker _gebruiker)
         {
             MySqlTransaction trans = null;
+            EncryptieController ecr = new EncryptieController();
+            _gebruiker.Wachtwoord = ecr.encrypt(_gebruiker.Wachtwoord);
             try
             {
                 conn.Open();

@@ -12,6 +12,7 @@ namespace CrmAppSchool.Controllers
     {
         public List<Profiel> zoekMetFilter(string zoekquery, string zoekcriteria)
         {
+            List<Profiel> resultatenLijst = new List<Profiel>();
             try
             {
                 conn.Open();
@@ -21,23 +22,21 @@ namespace CrmAppSchool.Controllers
                 zoekParam.Value = zoekcriteria;
                 command.Parameters.Add(zoekParam);
                 MySqlDataReader lezer = command.ExecuteReader();
-                List<Profiel> resultatenLijst = new List<Profiel>();
                 while(lezer.Read())
                 {
                     Profiel profiel = new Profiel();
                     resultatenLijst.Add(new Profiel { Gebruikersnaam = lezer.GetString("gebruikersnaam"), Voornaam = lezer.GetString("voornaam"), Achternaam = lezer.GetString("achternaam"), Bedrijf = lezer.GetString("bedrijf"), Functie = lezer.GetString("functie"), Kwaliteit = lezer.GetString("kwaliteit") });
                 }
-                return resultatenLijst;
             }
             catch(MySqlException e)
             {
                 Console.WriteLine("ERROR! EXCEPTION! ARGHHH! : " + e);
-                return null;
             }
             finally
             {
                 conn.Close();
             }
+            return resultatenLijst;
         }
 
         public string bepaalFilterQuery(string zoekquery)

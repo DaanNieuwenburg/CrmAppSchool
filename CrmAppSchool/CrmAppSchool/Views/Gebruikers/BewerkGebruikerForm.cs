@@ -45,7 +45,7 @@ namespace CrmAppSchool.Views.Gebruikers
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (gebruiker is Admin)
+            if (gebruiker.SoortGebruiker == "Admin")
             {
                 errorLbl.Text = "Het is niet mogelijk om een admin te verwijderen";
                 errorLbl.Visible = true;

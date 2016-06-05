@@ -97,7 +97,6 @@
             this.checkBox1.TabIndex = 7;
             this.checkBox1.Text = "Remember Me";
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // inlogBtn
             // 
@@ -174,6 +173,8 @@
             this.Controls.Add(this.inlogBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(294, 366);
+            this.MinimumSize = new System.Drawing.Size(294, 366);
             this.Name = "InlogForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inloggen";

@@ -37,18 +37,9 @@ namespace CrmAppSchool.Controllers
                 Gebruiker gebruiker = null;
                 while (datalezer.Read())
                 {
-                    if (datalezer.GetBoolean("isadmin") == true)
-                    {
-                        gebruiker = new Admin(datalezer.GetString("gebruikersnaam"));
-                    }
-                    else if (datalezer.GetBoolean("isdocent") == true)
-                    {
-                        gebruiker = new Docent(datalezer.GetString("gebruikersnaam"));
-                    }
-                    else if (datalezer.GetBoolean("isstudent") == true)
-                    {
-                        gebruiker = new Student(datalezer.GetString("gebruikersnaam"));
-                    }
+                    string gebruikersnaam = datalezer.GetString("gebruikersnaam");
+                    string soortgebruiker = datalezer.GetString("soortgebruiker");
+                    gebruiker = new Gebruiker() { Gebruikersnaam = gebruikersnaam, SoortGebruiker = soortgebruiker };
                     isnull = false;
 
                     // Roept het hoofdmenu aan
@@ -57,7 +48,7 @@ namespace CrmAppSchool.Controllers
                 }
 
                 // Null checkt 
-                if(isnull == true)
+                if (isnull == true)
                 {
                     return false;
                 }
