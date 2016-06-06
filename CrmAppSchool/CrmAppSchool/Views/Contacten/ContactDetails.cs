@@ -13,6 +13,7 @@ namespace CrmAppSchool.Views.Contacten
     public partial class ContactDetails : Form
         
     {
+        private string Contactnaam { get; set; }
         private string Voornaam { get; set; }
         private string Achternaam { get; set; }
         private string Bedrijf { get; set; }
@@ -22,9 +23,15 @@ namespace CrmAppSchool.Views.Contacten
         private string Email { get; set; }
         private string Prive_Email { get; set; }
 
-        public ContactDetails()
+        public ContactDetails(string _contact)
         {
             InitializeComponent();
+            Contactnaam = _contact;
+        }
+
+        private void ContactDetails_Load(object sender, EventArgs e)
+        {
+            lblContactnaam.Text = Contactnaam;
         }
     }
 }

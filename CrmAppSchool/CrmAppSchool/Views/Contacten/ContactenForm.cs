@@ -286,7 +286,8 @@ namespace CrmAppSchool.Views.Contacten
 
         private void lvContacten_ItemActivate(object sender, EventArgs e)
         {
-            ContactDetails _details = new ContactDetails();
+            string contactnaam = lvContacten.SelectedItems[0].Text;
+            ContactDetails _details = new ContactDetails(contactnaam);
             _details.ShowDialog();
         }
     }
