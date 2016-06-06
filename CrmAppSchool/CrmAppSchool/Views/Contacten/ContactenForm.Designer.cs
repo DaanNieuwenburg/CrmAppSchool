@@ -189,6 +189,7 @@
             // 
             // lvContacten
             // 
+            this.lvContacten.Activation = System.Windows.Forms.ItemActivation.TwoClick;
             this.lvContacten.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Contact});
             this.lvContacten.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -200,6 +201,8 @@
             this.lvContacten.TabIndex = 19;
             this.lvContacten.UseCompatibleStateImageBehavior = false;
             this.lvContacten.View = System.Windows.Forms.View.Tile;
+            this.lvContacten.ItemActivate += new System.EventHandler(this.lvContacten_ItemActivate);
+            this.lvContacten.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvContacten_MouseDoubleClick);
             // 
             // Contact
             // 
