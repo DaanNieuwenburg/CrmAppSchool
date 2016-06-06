@@ -54,7 +54,6 @@
             this.emailLbl = new System.Windows.Forms.Label();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbBedrijf = new System.Windows.Forms.TextBox();
             this.tbAchternaam = new System.Windows.Forms.TextBox();
             this.achternaamLbl = new System.Windows.Forms.Label();
             this.voornaamLbl = new System.Windows.Forms.Label();
@@ -79,6 +78,7 @@
             this.tbHoofdlocatie = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tbKwaliteiten = new System.Windows.Forms.TextBox();
+            this.bedrijfCbx = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.bedrijfPnl.SuspendLayout();
@@ -328,11 +328,11 @@
             // persoonPnl
             // 
             this.persoonPnl.BackColor = System.Drawing.SystemColors.Window;
+            this.persoonPnl.Controls.Add(this.bedrijfCbx);
             this.persoonPnl.Controls.Add(this.label5);
             this.persoonPnl.Controls.Add(this.emailLbl);
             this.persoonPnl.Controls.Add(this.tbEmail);
             this.persoonPnl.Controls.Add(this.label3);
-            this.persoonPnl.Controls.Add(this.tbBedrijf);
             this.persoonPnl.Controls.Add(this.tbAchternaam);
             this.persoonPnl.Controls.Add(this.achternaamLbl);
             this.persoonPnl.Controls.Add(this.voornaamLbl);
@@ -379,14 +379,6 @@
             this.label3.Size = new System.Drawing.Size(61, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "* Bedrijf:";
-            // 
-            // tbBedrijf
-            // 
-            this.tbBedrijf.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbBedrijf.Location = new System.Drawing.Point(106, 99);
-            this.tbBedrijf.Name = "tbBedrijf";
-            this.tbBedrijf.Size = new System.Drawing.Size(149, 23);
-            this.tbBedrijf.TabIndex = 2;
             // 
             // tbAchternaam
             // 
@@ -649,6 +641,14 @@
             this.tbKwaliteiten.Size = new System.Drawing.Size(198, 88);
             this.tbKwaliteiten.TabIndex = 2;
             // 
+            // bedrijfCbx
+            // 
+            this.bedrijfCbx.FormattingEnabled = true;
+            this.bedrijfCbx.Location = new System.Drawing.Point(106, 99);
+            this.bedrijfCbx.Name = "bedrijfCbx";
+            this.bedrijfCbx.Size = new System.Drawing.Size(149, 21);
+            this.bedrijfCbx.TabIndex = 10;
+            // 
             // ContactenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -724,7 +724,6 @@
         private System.Windows.Forms.TextBox tbPriveMail;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbFunctie;
-        private System.Windows.Forms.TextBox tbBedrijf;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbMobiel;
@@ -744,5 +743,6 @@
         private System.Windows.Forms.TextBox tbWebsite;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbHoofdlocatie;
+        private System.Windows.Forms.ComboBox bedrijfCbx;
     }
 }
