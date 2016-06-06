@@ -202,7 +202,8 @@ namespace CrmAppSchool.Views.Contacten
             if (contactSoortCbx.Text != "Bedrijf")
             {
                 Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Locatie = tbLocatie.Text, Email = tbEmail.Text, Gebruiker = _gebruiker };
-                string contactSoort = Convert.ToString(contactSoortCbx);
+                string contactSoort = Convert.ToString(contactSoortCbx.SelectedItem);
+                Console.WriteLine("Ik ben een " + contactSoort);
                 int bedrijfcode = Convert.ToInt32(bedrijfCbx.SelectedValue);
                 persooncontact.Bedrijf = new Bedrijfcontact() { Bedrijfscode = bedrijfcode };
                 switch (contactSoort)
@@ -212,6 +213,9 @@ namespace CrmAppSchool.Views.Contacten
                         break;
                     case "Gastdocent":
                         persooncontact.Isgastdocent = true;
+                        break;
+                    default:
+                        Console.WriteLine("ERROR");
                         break;
                 }
                 ContactenController contactencontroller = new ContactenController();

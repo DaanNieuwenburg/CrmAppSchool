@@ -162,8 +162,8 @@ namespace CrmAppSchool.Controllers
                 emailParam.Value = contact.Email;
                 afdelingParam.Value = contact.Afdeling;
                 linkedinParam.Value = contact.Linkedin;
-                isgastdocentParam.Value = contact.Isgastdocent;
-                isstagebegeleiderParam.Value = contact.Isstagebegeleider;
+                isgastdocentParam.Value = Convert.ToInt32(contact.Isgastdocent);
+                isstagebegeleiderParam.Value = Convert.ToInt32(contact.Isstagebegeleider);
                 gebruikersnaamParam.Value = contact.Gebruiker.Gebruikersnaam;
                 bedrijfcodeParam.Value = contact.Bedrijf.Bedrijfscode;
 
