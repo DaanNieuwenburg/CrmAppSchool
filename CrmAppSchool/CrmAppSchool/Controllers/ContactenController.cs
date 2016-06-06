@@ -68,6 +68,37 @@ namespace CrmAppSchool.Controllers
             }
         }
 
+        public List<Bedrijfcontact> haalBedrijfLijstOp()
+        {
+            List<Bedrijfcontact> contactenlijst = new List<Bedrijfcontact>();
+            try
+            {
+                conn.Open();
+                string query = @"SELECT bedrijfcode, bedrijfnaam FROM bedrijf";
+                MySqlCommand command = new MySqlCommand(query, conn);
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    Bedrijfcontact contact = new Bedrijfcontact();
+                    contact.Bedrijfscode = dataReader.GetInt32("bedrijfcode");
+                    contact.Bedrijfnaam = dataReader.GetString("bedrijfnaam");
+
+                    contactenlijst.Add(contact);
+                }
+
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Error in contactencontroller - haalbedrijflijstop: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return contactenlijst;
+        }
+
         public void voegKwaliteitToe(string kwaliteit, long id)
         {
             MySqlTransaction trans = null;
@@ -110,8 +141,8 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"INSERT INTO contactpersoon (voornaam, achternaam, locatie, email, afdeling, linkedin, isgastdocent, isstagebegeleider, gebruikersnaam)
-                                 VALUES (@voornaam, @achternaam, @locatie, @email, @afdeling, @linkedin, @isgastdocent, @isstagebegeleider, @gebruikersnaam)";
+                string query = @"INSERT INTO contactpersoon (voornaam, achternaam, locatie, email, afdeling, linkedin, isgastdocent, isstagebegeleider, gebruikersnaam, bedrijfcode)
+                                 VALUES (@voornaam, @achternaam, @locatie, @email, @afdeling, @linkedin, @isgastdocent, @isstagebegeleider, @gebruikersnaam, @bedrijfcode)";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter voornaamParam = new MySqlParameter("voornaam", MySqlDbType.VarChar);
@@ -123,6 +154,7 @@ namespace CrmAppSchool.Controllers
                 MySqlParameter isgastdocentParam = new MySqlParameter("isgastdocent", MySqlDbType.Binary);
                 MySqlParameter isstagebegeleiderParam = new MySqlParameter("isstagebegeleider", MySqlDbType.Binary);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
+                MySqlParameter bedrijfcodeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
 
                 voornaamParam.Value = contact.Voornaam;
                 achternaamParam.Value = contact.Achternaam;
@@ -130,9 +162,10 @@ namespace CrmAppSchool.Controllers
                 emailParam.Value = contact.Email;
                 afdelingParam.Value = contact.Afdeling;
                 linkedinParam.Value = contact.Linkedin;
-                isgastdocentParam.Value = contact.Isgastdocent;
-                isstagebegeleiderParam.Value = contact.Isstagebegeleider;
+                isgastdocentParam.Value = Convert.ToInt32(contact.Isgastdocent);
+                isstagebegeleiderParam.Value = Convert.ToInt32(contact.Isstagebegeleider);
                 gebruikersnaamParam.Value = contact.Gebruiker.Gebruikersnaam;
+                bedrijfcodeParam.Value = contact.Bedrijf.Bedrijfscode;
 
                 command.Parameters.Add(voornaamParam);
                 command.Parameters.Add(achternaamParam);
@@ -143,6 +176,8 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(isgastdocentParam);
                 command.Parameters.Add(isstagebegeleiderParam);
                 command.Parameters.Add(gebruikersnaamParam);
+                command.Parameters.Add(bedrijfcodeParam);
+
 
                 command.Prepare();
                 command.ExecuteNonQuery();

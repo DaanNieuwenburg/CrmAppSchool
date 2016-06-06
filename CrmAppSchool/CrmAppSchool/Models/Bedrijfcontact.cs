@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CrmAppSchool.Models
 {
-    class Bedrijfcontact
+    public class Bedrijfcontact
     {
         public int Bedrijfscode { get; set; }
         public string Bedrijfnaam { get; set; }

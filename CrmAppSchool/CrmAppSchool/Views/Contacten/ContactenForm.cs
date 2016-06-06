@@ -35,6 +35,12 @@ namespace CrmAppSchool.Views.Contacten
             EditMode = false;
             this._gebruiker = _gebruiker;
             lblGebruiker.Text = lblGebruiker.Text + " " + this._gebruiker.Gebruikersnaam;
+
+            // Vul de combobox van bedrijven met bedrijven
+            ContactenController cc = new ContactenController();
+            bedrijfCbx.DataSource = cc.haalBedrijfLijstOp();
+            bedrijfCbx.DisplayMember = "Bedrijfnaam";
+            bedrijfCbx.ValueMember = "Bedrijfscode";
         }
 
         private void pbHome_Click(object sender, EventArgs e)
@@ -196,7 +202,10 @@ namespace CrmAppSchool.Views.Contacten
             if (contactSoortCbx.Text != "Bedrijf")
             {
                 Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Locatie = tbLocatie.Text, Email = tbEmail.Text, Gebruiker = _gebruiker };
-                string contactSoort = Convert.ToString(contactSoortCbx);
+                string contactSoort = Convert.ToString(contactSoortCbx.SelectedItem);
+                Console.WriteLine("Ik ben een " + contactSoort);
+                int bedrijfcode = Convert.ToInt32(bedrijfCbx.SelectedValue);
+                persooncontact.Bedrijf = new Bedrijfcontact() { Bedrijfscode = bedrijfcode };
                 switch (contactSoort)
                 {
                     case "Stagebegeleider":
@@ -204,6 +213,9 @@ namespace CrmAppSchool.Views.Contacten
                         break;
                     case "Gastdocent":
                         persooncontact.Isgastdocent = true;
+                        break;
+                    default:
+                        Console.WriteLine("ERROR");
                         break;
                 }
                 ContactenController contactencontroller = new ContactenController();
@@ -270,7 +282,6 @@ namespace CrmAppSchool.Views.Contacten
             contactSoortCbx.Text = "";
             tbVoornaam.Text = "";
             tbAchternaam.Text = "";
-            tbBedrijf.Text = "";
             tbEmail.Text = "";
             tbFunctie.Text = "";
             tbLocatie.Text = "";

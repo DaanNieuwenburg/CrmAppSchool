@@ -18,5 +18,6 @@ namespace CrmAppSchool.Models
         public bool Isgastdocent { get; set; }
         public bool Isstagebegeleider { get; set; }
         public Gebruiker Gebruiker { get; set; }
+        public Bedrijfcontact Bedrijf { get; set; }
     }
 }
