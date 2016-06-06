@@ -244,7 +244,10 @@ namespace CrmAppSchool.Views.Contacten
 
         private void btnWijzig_Click(object sender, EventArgs e)
         {
-
+            if(lvContacten.SelectedItems.Count == 1) //Om te bewerken moet er minimaal en maximaal 1 contact geselecteerd zijn
+            {
+                
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -261,6 +264,7 @@ namespace CrmAppSchool.Views.Contacten
                 }
             }
         }
+
         private void Makeempty()
         {
             contactSoortCbx.Text = "";
@@ -273,6 +277,17 @@ namespace CrmAppSchool.Views.Contacten
             tbMobiel.Text = "";
             tbPriveMail.Text = "";
 
+        }
+
+        private void lvContacten_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+             
+        }
+
+        private void lvContacten_ItemActivate(object sender, EventArgs e)
+        {
+            ContactDetails _details = new ContactDetails();
+            _details.ShowDialog();
         }
     }
 }
