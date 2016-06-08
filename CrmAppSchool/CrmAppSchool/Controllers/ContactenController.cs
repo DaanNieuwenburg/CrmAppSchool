@@ -449,5 +449,40 @@ namespace CrmAppSchool.Controllers
             {
             }
         }
+
+        public void verwijderContact(Gebruiker gebruiker, string persooncode)
+        {
+            MySqlTransaction trans = null;
+            try
+            {
+                // Verwijder contact in koppeltabel
+                string query = @"DELETE FROM gebruikercontactpersoon WHERE gebruikersnaam = @gebruikersnaam AND contactcode = @contactcode";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
+                MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
+
+                gebruikersnaamParam.Value = gebruiker.Gebruikersnaam;
+                contactcodeParam.Value = persooncode;
+
+
+                command.Parameters.Add(gebruikersnaamParam);
+                command.Parameters.Add(contactcodeParam);
+
+                command.Prepare();
+                command.ExecuteNonQuery();
+
+            }
+            catch (MySqlException e)
+            {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in contactencontroller - verwijdercontact: " + e);
+            }
+            finally
+            {
+            }
+        }
     }
 }
