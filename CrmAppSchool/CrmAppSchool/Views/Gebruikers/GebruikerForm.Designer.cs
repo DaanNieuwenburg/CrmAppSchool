@@ -123,6 +123,7 @@
             // 
             // gebruikerLvw
             // 
+            this.gebruikerLvw.Activation = System.Windows.Forms.ItemActivation.TwoClick;
             this.gebruikerLvw.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gebruikerLvw.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.gebruikersnaamHeader,
@@ -135,7 +136,7 @@
             this.gebruikerLvw.TabIndex = 12;
             this.gebruikerLvw.UseCompatibleStateImageBehavior = false;
             this.gebruikerLvw.View = System.Windows.Forms.View.Details;
-            this.gebruikerLvw.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.gebruikerLvw_ItemSelectionChanged);
+            this.gebruikerLvw.ItemActivate += new System.EventHandler(this.gebruikerLvw_ItemActivate);
             // 
             // gebruikersnaamHeader
             // 
