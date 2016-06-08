@@ -302,8 +302,14 @@ namespace CrmAppSchool.Views.Contacten
 
         private void lvContacten_ItemActivate(object sender, EventArgs e)
         {
-            string contactnaam = lvContacten.SelectedItems[0].Text;
-            ContactDetails _details = new ContactDetails(contactnaam);
+            string contactnaam = lvContacten.SelectedItems[0].Name;
+            
+            ContactenController _controller = new ContactenController();
+            
+            _controller.HaalInfoOp(_gebruiker, lvContacten.SelectedItems[0].ToString());
+            string[] info = new string[4];
+            info = _controller.contactinfo;
+            ContactDetails _details = new ContactDetails(contactnaam, info);
             _details.ShowDialog();
         }
 
@@ -311,9 +317,11 @@ namespace CrmAppSchool.Views.Contacten
         {
             ContactenController _getcontacten = new ContactenController();
             _getcontacten.HaalContactenOp(_gebruiker);
-            foreach(string contact in _getcontacten.Contactenlijst)
+            foreach(var contact in _getcontacten.contactenlijst2)
             {
-                lvContacten.Items.Add(contact);
+                ListViewItem c = new ListViewItem(contact.Key);
+                c.ImageKey = contact.Value;
+                lvContacten.Items.Add(c);
             }
         }
     }

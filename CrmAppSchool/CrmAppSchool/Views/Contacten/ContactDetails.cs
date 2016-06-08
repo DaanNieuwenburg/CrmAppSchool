@@ -22,11 +22,18 @@ namespace CrmAppSchool.Views.Contacten
         private string Mobiel { get; set; }
         private string Email { get; set; }
         private string Prive_Email { get; set; }
+        private string[] _contactinfo { get; set; }
 
-        public ContactDetails(string _contact)
+        public ContactDetails(string _contact, string[] contactinfo)
         {
             InitializeComponent();
+            _contactinfo = new string[4];
+            _contactinfo = contactinfo;
             Contactnaam = _contact;
+            lblVNvalue.Text = _contactinfo[0];
+            lblANvalue.Text = _contactinfo[1];
+            lblLOvalue.Text = _contactinfo[2];
+            lblMvalue.Text = _contactinfo[3];
         }
 
         private void ContactDetails_Load(object sender, EventArgs e)
