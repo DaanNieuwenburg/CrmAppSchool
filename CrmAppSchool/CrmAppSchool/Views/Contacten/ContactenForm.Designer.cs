@@ -64,6 +64,8 @@
             this.btnOpslaan = new System.Windows.Forms.Button();
             this.btnAnnuleer = new System.Windows.Forms.Button();
             this.pnOptioneel = new System.Windows.Forms.Panel();
+            this.afdelingLbl = new System.Windows.Forms.Label();
+            this.afdelingTb = new System.Windows.Forms.TextBox();
             this.kwaliteitLbl = new System.Windows.Forms.Label();
             this.tbKwaliteitenP = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -79,8 +81,6 @@
             this.tbHoofdlocatie = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tbKwaliteiten = new System.Windows.Forms.TextBox();
-            this.afdelingTb = new System.Windows.Forms.TextBox();
-            this.afdelingLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.bedrijfPnl.SuspendLayout();
@@ -499,6 +499,24 @@
             this.pnOptioneel.TabIndex = 24;
             this.pnOptioneel.Visible = false;
             // 
+            // afdelingLbl
+            // 
+            this.afdelingLbl.AutoSize = true;
+            this.afdelingLbl.Font = new System.Drawing.Font("Arial", 10F);
+            this.afdelingLbl.Location = new System.Drawing.Point(15, 131);
+            this.afdelingLbl.Name = "afdelingLbl";
+            this.afdelingLbl.Size = new System.Drawing.Size(63, 16);
+            this.afdelingLbl.TabIndex = 9;
+            this.afdelingLbl.Text = "Afdeling:";
+            // 
+            // afdelingTb
+            // 
+            this.afdelingTb.Font = new System.Drawing.Font("Arial", 10F);
+            this.afdelingTb.Location = new System.Drawing.Point(106, 128);
+            this.afdelingTb.Name = "afdelingTb";
+            this.afdelingTb.Size = new System.Drawing.Size(152, 23);
+            this.afdelingTb.TabIndex = 8;
+            // 
             // kwaliteitLbl
             // 
             this.kwaliteitLbl.AutoSize = true;
@@ -656,24 +674,6 @@
             this.tbKwaliteiten.Size = new System.Drawing.Size(198, 88);
             this.tbKwaliteiten.TabIndex = 2;
             // 
-            // afdelingTb
-            // 
-            this.afdelingTb.Font = new System.Drawing.Font("Arial", 10F);
-            this.afdelingTb.Location = new System.Drawing.Point(106, 128);
-            this.afdelingTb.Name = "afdelingTb";
-            this.afdelingTb.Size = new System.Drawing.Size(152, 23);
-            this.afdelingTb.TabIndex = 8;
-            // 
-            // afdelingLbl
-            // 
-            this.afdelingLbl.AutoSize = true;
-            this.afdelingLbl.Font = new System.Drawing.Font("Arial", 10F);
-            this.afdelingLbl.Location = new System.Drawing.Point(15, 131);
-            this.afdelingLbl.Name = "afdelingLbl";
-            this.afdelingLbl.Size = new System.Drawing.Size(63, 16);
-            this.afdelingLbl.TabIndex = 9;
-            this.afdelingLbl.Text = "Afdeling:";
-            // 
             // ContactenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -701,7 +701,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ContactenForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Contacten";
+            this.Text = "Ik";
+            this.Load += new System.EventHandler(this.ContactenForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             this.bedrijfPnl.ResumeLayout(false);

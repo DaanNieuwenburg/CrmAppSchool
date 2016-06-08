@@ -18,7 +18,7 @@ namespace CrmAppSchool.Views.Contacten
         private bool ShowSave { get; set; }
         private bool ShowZoeken { get; set; }
         private bool EditMode { get; set; }
-        private Gebruiker _gebruiker { get; set; }
+        public Gebruiker _gebruiker { get; set; }
         public ContactenForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
@@ -305,6 +305,16 @@ namespace CrmAppSchool.Views.Contacten
             string contactnaam = lvContacten.SelectedItems[0].Text;
             ContactDetails _details = new ContactDetails(contactnaam);
             _details.ShowDialog();
+        }
+
+        private void ContactenForm_Load(object sender, EventArgs e)
+        {
+            ContactenController _getcontacten = new ContactenController();
+            _getcontacten.HaalContactenOp(_gebruiker);
+            foreach(string contact in _getcontacten.Contactenlijst)
+            {
+                lvContacten.Items.Add(contact);
+            }
         }
     }
 }

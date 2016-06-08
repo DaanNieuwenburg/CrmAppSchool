@@ -86,7 +86,6 @@ namespace CrmAppSchool.Views.Gebruikers
         }
         private void voegGebruikerToeForm_Load(object sender, EventArgs e)
         {
-
         }
 
         private void gebruikerLvw_ItemActivate(object sender, EventArgs e)

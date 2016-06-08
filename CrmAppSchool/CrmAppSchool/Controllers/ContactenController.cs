@@ -5,12 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using CrmAppSchool.Models;
+using System.Data.SqlClient;
 
 namespace CrmAppSchool.Controllers
 {
     class ContactenController : DatabaseController
     {
-
+        public List<string> Contactenlijst { get; set; }
+        public ContactenController()
+        {
+            Contactenlijst = new List<string>();
+        }
         public void voegBedrijfToe(Bedrijfcontact contact)
         {
             MySqlTransaction trans = null;
@@ -200,6 +205,45 @@ namespace CrmAppSchool.Controllers
                     trans.Rollback();
                 }
                 Console.WriteLine("Error in contactencontroller - voegpersoontoe: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void HaalContactenOp(Gebruiker _gebruiker)
+        {
+            MySqlTransaction trans = null;
+            try
+            {
+                conn.Open();
+                trans = conn.BeginTransaction();
+                string query = @"SELECT * From contactpersoon Where gebruikersnaam = @gebruiker";
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter gebruikerParam = new MySqlParameter("gebruiker", MySqlDbType.VarChar);
+
+                gebruikerParam.Value = _gebruiker.Gebruikersnaam;
+
+                command.Parameters.Add(gebruikerParam);
+
+                command.Prepare();
+                MySqlDataReader datalezer = command.ExecuteReader();
+                while (datalezer.Read())
+                {
+                    string contact = (string)datalezer["voornaam"];
+                    Contactenlijst.Add(contact);
+                }
+
+
+            }
+            catch (MySqlException e)
+            {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in contactencontroller - haalcontactenop: " + e);
             }
             finally
             {
