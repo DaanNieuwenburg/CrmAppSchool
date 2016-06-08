@@ -337,7 +337,9 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"SELECT * FROM contactpersoon WHERE contactcode = @contactcode";
+                string query = @"SELECT c.voornaam, c.achternaam, c.locatie, c.email, c.functie, c.afdeling, c.isgastdocent, c.isstagebegeleider, b.bedrijfnaam FROM contactpersoon c 
+                                 INNER JOIN bedrijf b ON c.bedrijfcode = b.bedrijfcode 
+                                 WHERE contactcode = @contactcode";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
@@ -358,6 +360,8 @@ namespace CrmAppSchool.Controllers
                     contact.Afdeling = datalezer["afdeling"] as string;
                     contact.Isgastdocent = datalezer.GetBoolean("Isgastdocent");
                     contact.Isstagebegeleider = datalezer.GetBoolean("isstagebegeleider");
+                    contact.Bedrijf = new Bedrijfcontact();
+                    contact.Bedrijf.Bedrijfnaam = ((string)datalezer["bedrijfnaam"]);
                 }
 
             }

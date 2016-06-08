@@ -30,7 +30,7 @@ namespace CrmAppSchool.Views.Contacten
         public ContactDetails(Persooncontact _contact)
         {
             InitializeComponent();
-
+            contact = _contact;
             /*_contactinfo = new string[4];
             _contactinfo = contactinfo;
             Contactnaam = _contact;
@@ -39,12 +39,15 @@ namespace CrmAppSchool.Views.Contacten
             lblLOvalue.Text = _contactinfo[2];
             lblMvalue.Text = _contactinfo[3];*/
 
-            lblVNvalue.Text = _contact.Voornaam;
-            lblANvalue.Text = _contact.Achternaam;
-            lblLOvalue.Text = _contact.Locatie;
-            lblMvalue.Text = _contact.Email;
-
-            contact = _contact;
+            lblVNvalue.Text = contact.Voornaam;
+            lblANvalue.Text = contact.Achternaam;
+            lblLOvalue.Text = contact.Locatie;
+            lblMvalue.Text = contact.Email;
+            if(contact.Functie != null)
+            {
+                lblFUvalue.Text = contact.Functie;
+            }
+            lblBDvalue.Text = contact.Bedrijf.Bedrijfnaam;
         }
 
         private void ContactDetails_Load(object sender, EventArgs e)
