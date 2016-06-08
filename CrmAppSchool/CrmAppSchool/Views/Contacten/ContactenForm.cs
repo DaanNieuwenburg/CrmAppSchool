@@ -228,7 +228,7 @@ namespace CrmAppSchool.Views.Contacten
                         break;
                 }
                 ContactenController contactencontroller = new ContactenController();
-                contactencontroller.voegPersoonToe(persooncontact);
+                contactencontroller.voegPersoonToe(_gebruiker, persooncontact);
                 SaveContact(persooncontact);
             }
             else
@@ -311,12 +311,9 @@ namespace CrmAppSchool.Views.Contacten
         {
             ContactenController _getcontacten = new ContactenController();
             _getcontacten.HaalContactenOp(_gebruiker);
-            foreach(var contact in _getcontacten.contactenlijst2)
+            foreach(string contact in _getcontacten.Contactenlijst)
             {
-                ListViewItem c = new ListViewItem(contact.Key);
-                c.ImageKey = contact.Value;
-                lvContacten.Items.Add(c);
-                Console.WriteLine("Add: " + contact.Key + "," + contact.Value);
+                lvContacten.Items.Add(contact);
             }
         }
     }

@@ -141,7 +141,7 @@ namespace CrmAppSchool.Controllers
             }
         }
 
-        public void voegPersoonToe(Persooncontact contact)
+        public void voegPersoonToe(Gebruiker gebruiker, Persooncontact contact)
         {
             MySqlTransaction trans = null;
             try
@@ -163,7 +163,6 @@ namespace CrmAppSchool.Controllers
                 MySqlParameter isstagebegeleiderParam = new MySqlParameter("isstagebegeleider", MySqlDbType.Binary);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
                 MySqlParameter bedrijfcodeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
-                Console.WriteLine(contact.Functie);
 
                 voornaamParam.Value = contact.Voornaam;
                 achternaamParam.Value = contact.Achternaam;
@@ -199,6 +198,9 @@ namespace CrmAppSchool.Controllers
                 {
                     voegContactPersoonKwaliteitToe(kwaliteit, primaryKey);
                 }
+
+                // Zet de contact in de gebruikercontactpersoon koppeltabel
+                voegContactPersoonKoppeltabel(gebruiker.Gebruikersnaam, primaryKey);
             }
             catch (MySqlException e)
             {
@@ -213,6 +215,8 @@ namespace CrmAppSchool.Controllers
                 conn.Close();
             }
         }
+
+
         public void HaalContactenOp(Gebruiker _gebruiker)
         {
             MySqlTransaction trans = null;
@@ -262,6 +266,41 @@ namespace CrmAppSchool.Controllers
             finally
             {
                 conn.Close();
+            }
+        }
+
+        public void voegContactPersoonKoppeltabel(string gebruikersnaam, long contactcode)
+        {
+            MySqlTransaction trans = null;
+            try
+            {
+                string query = @"INSERT INTO gebruikercontactpersoon (gebruikersnaam, contactcode)
+                                 VALUES (@gebruikersnaam, @contactcode)";
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
+                MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
+
+                gebruikersnaamParam.Value = gebruikersnaam;
+                contactcodeParam.Value = contactcode;
+
+
+                command.Parameters.Add(gebruikersnaamParam);
+                command.Parameters.Add(contactcodeParam);
+
+                command.Prepare();
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
+            {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in contactencontroller - voegContactPersoonKoppeltabel: " + e);
+            }
+            finally
+            {
             }
         }
 
