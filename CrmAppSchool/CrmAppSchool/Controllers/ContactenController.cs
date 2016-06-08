@@ -289,10 +289,13 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"SELECT * FROM contactpersoon WHERE gebruikersnaam = @gebruiker";
+                string query = @"SELECT * FROM gebruikercontactpersoon g
+                                 INNER JOIN contactpersoon c on g.contactcode = c.contactcode
+                                 INNER JOIN bedrijf b ON c.bedrijfcode = b.bedrijfcode 
+                                 WHERE g.gebruikersnaam = @gebruikersnaam";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
-                MySqlParameter gebruikerParam = new MySqlParameter("gebruiker", MySqlDbType.VarChar);
+                MySqlParameter gebruikerParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
 
                 gebruikerParam.Value = _gebruiker.Gebruikersnaam;
 
