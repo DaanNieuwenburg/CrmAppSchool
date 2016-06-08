@@ -141,6 +141,66 @@ namespace CrmAppSchool.Controllers
             }
         }
 
+        public void controleerOfContactBestaat(Gebruiker gebruiker, Persooncontact contact)
+        {
+            // Query de database en kijk of contact bestaat
+            MySqlTransaction trans = null;
+            try
+            {
+                conn.Open();
+                trans = conn.BeginTransaction();
+                string query = @"SELECT contactcode FROM contactpersoon 
+                                 WHERE voornaam = @voornaam AND achternaam = @achternaam OR email = @email";
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter voornaamParam = new MySqlParameter("voornaam", MySqlDbType.VarChar);
+                MySqlParameter achternaamParam = new MySqlParameter("achternaam", MySqlDbType.VarChar);
+                MySqlParameter emailParam = new MySqlParameter("email", MySqlDbType.VarChar);
+
+
+                voornaamParam.Value = contact.Voornaam;
+                achternaamParam.Value = contact.Achternaam;
+                emailParam.Value = contact.Email;
+
+                command.Parameters.Add(voornaamParam);
+                command.Parameters.Add(achternaamParam);
+                command.Parameters.Add(emailParam);
+
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+                int? klantcode = null;
+                while (dataReader.Read())
+                {
+                    klantcode = dataReader.GetInt32("bedrijfcode");
+                }
+
+                // Bepaal of contactpersoon bestaat
+                if(klantcode == null)
+                {
+                    // Maakt een nieuwe contactpersoon aan
+                    voegPersoonToe(gebruiker, contact);
+                }
+                else
+                {
+                    // Voert de contactpersoon in db in
+                    voegContactPersoonKoppeltabel(gebruiker.Gebruikersnaam, Convert.ToInt64(klantcode));
+                }
+
+            }
+            catch (MySqlException e)
+            {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in contactencontroller - voegpersoontoe: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
         public void voegPersoonToe(Gebruiker gebruiker, Persooncontact contact)
         {
             MySqlTransaction trans = null;
