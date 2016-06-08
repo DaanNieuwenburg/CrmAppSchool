@@ -316,7 +316,7 @@ namespace CrmAppSchool.Views.Contacten
                 ListViewItem c = new ListViewItem(contact.Key);
                 c.ImageKey = contact.Value;
                 lvContacten.Items.Add(c);
-                
+                Console.WriteLine("Add: " + contact.Key + "," + contact.Value);
             }
         }
     }
