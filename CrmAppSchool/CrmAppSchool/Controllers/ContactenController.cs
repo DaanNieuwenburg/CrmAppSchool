@@ -157,6 +157,7 @@ namespace CrmAppSchool.Controllers
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
                 MySqlParameter bedrijfcodeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
                 Console.WriteLine(contact.Functie);
+
                 voornaamParam.Value = contact.Voornaam;
                 achternaamParam.Value = contact.Achternaam;
                 locatieParam.Value = contact.Locatie;

@@ -79,6 +79,8 @@
             this.tbHoofdlocatie = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tbKwaliteiten = new System.Windows.Forms.TextBox();
+            this.afdelingTb = new System.Windows.Forms.TextBox();
+            this.afdelingLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.bedrijfPnl.SuspendLayout();
@@ -482,6 +484,8 @@
             // pnOptioneel
             // 
             this.pnOptioneel.BackColor = System.Drawing.SystemColors.Window;
+            this.pnOptioneel.Controls.Add(this.afdelingLbl);
+            this.pnOptioneel.Controls.Add(this.afdelingTb);
             this.pnOptioneel.Controls.Add(this.kwaliteitLbl);
             this.pnOptioneel.Controls.Add(this.tbKwaliteitenP);
             this.pnOptioneel.Controls.Add(this.label2);
@@ -500,7 +504,7 @@
             // 
             this.kwaliteitLbl.AutoSize = true;
             this.kwaliteitLbl.Font = new System.Drawing.Font("Arial", 10F);
-            this.kwaliteitLbl.Location = new System.Drawing.Point(15, 128);
+            this.kwaliteitLbl.Location = new System.Drawing.Point(15, 157);
             this.kwaliteitLbl.Name = "kwaliteitLbl";
             this.kwaliteitLbl.Size = new System.Drawing.Size(79, 16);
             this.kwaliteitLbl.TabIndex = 7;
@@ -509,7 +513,7 @@
             // tbKwaliteitenP
             // 
             this.tbKwaliteitenP.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbKwaliteitenP.Location = new System.Drawing.Point(106, 125);
+            this.tbKwaliteitenP.Location = new System.Drawing.Point(106, 157);
             this.tbKwaliteitenP.Multiline = true;
             this.tbKwaliteitenP.Name = "tbKwaliteitenP";
             this.tbKwaliteitenP.Size = new System.Drawing.Size(152, 73);
@@ -653,6 +657,24 @@
             this.tbKwaliteiten.Size = new System.Drawing.Size(198, 88);
             this.tbKwaliteiten.TabIndex = 2;
             // 
+            // afdelingTb
+            // 
+            this.afdelingTb.Font = new System.Drawing.Font("Arial", 10F);
+            this.afdelingTb.Location = new System.Drawing.Point(106, 128);
+            this.afdelingTb.Name = "afdelingTb";
+            this.afdelingTb.Size = new System.Drawing.Size(152, 23);
+            this.afdelingTb.TabIndex = 8;
+            // 
+            // afdelingLbl
+            // 
+            this.afdelingLbl.AutoSize = true;
+            this.afdelingLbl.Font = new System.Drawing.Font("Arial", 10F);
+            this.afdelingLbl.Location = new System.Drawing.Point(15, 131);
+            this.afdelingLbl.Name = "afdelingLbl";
+            this.afdelingLbl.Size = new System.Drawing.Size(63, 16);
+            this.afdelingLbl.TabIndex = 9;
+            this.afdelingLbl.Text = "Afdeling:";
+            // 
             // ContactenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -748,5 +770,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbHoofdlocatie;
         private System.Windows.Forms.ComboBox bedrijfCbx;
+        private System.Windows.Forms.Label afdelingLbl;
+        private System.Windows.Forms.TextBox afdelingTb;
     }
 }
