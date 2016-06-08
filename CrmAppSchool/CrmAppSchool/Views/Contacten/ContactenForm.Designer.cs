@@ -202,7 +202,6 @@
             this.lvContacten.UseCompatibleStateImageBehavior = false;
             this.lvContacten.View = System.Windows.Forms.View.Tile;
             this.lvContacten.ItemActivate += new System.EventHandler(this.lvContacten_ItemActivate);
-            this.lvContacten.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvContacten_MouseDoubleClick);
             // 
             // Contact
             // 
