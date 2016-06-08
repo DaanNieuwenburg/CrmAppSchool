@@ -141,27 +141,28 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"INSERT INTO contactpersoon (voornaam, achternaam, locatie, email, afdeling, linkedin, isgastdocent, isstagebegeleider, gebruikersnaam, bedrijfcode)
-                                 VALUES (@voornaam, @achternaam, @locatie, @email, @afdeling, @linkedin, @isgastdocent, @isstagebegeleider, @gebruikersnaam, @bedrijfcode)";
+                string query = @"INSERT INTO contactpersoon (voornaam, achternaam, locatie, email, functie, afdeling, isgastdocent, isstagebegeleider, gebruikersnaam, bedrijfcode)
+                                 VALUES (@voornaam, @achternaam, @locatie, @email, @functie, @afdeling, @isgastdocent, @isstagebegeleider, @gebruikersnaam, @bedrijfcode)";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter voornaamParam = new MySqlParameter("voornaam", MySqlDbType.VarChar);
                 MySqlParameter achternaamParam = new MySqlParameter("achternaam", MySqlDbType.VarChar);
                 MySqlParameter locatieParam = new MySqlParameter("locatie", MySqlDbType.VarChar);
                 MySqlParameter emailParam = new MySqlParameter("email", MySqlDbType.VarChar);
+                MySqlParameter functieParam = new MySqlParameter("functie", MySqlDbType.VarChar);
                 MySqlParameter afdelingParam = new MySqlParameter("afdeling", MySqlDbType.VarChar);
                 MySqlParameter linkedinParam = new MySqlParameter("linkedin", MySqlDbType.VarChar);
                 MySqlParameter isgastdocentParam = new MySqlParameter("isgastdocent", MySqlDbType.Binary);
                 MySqlParameter isstagebegeleiderParam = new MySqlParameter("isstagebegeleider", MySqlDbType.Binary);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
                 MySqlParameter bedrijfcodeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
-
+                Console.WriteLine(contact.Functie);
                 voornaamParam.Value = contact.Voornaam;
                 achternaamParam.Value = contact.Achternaam;
                 locatieParam.Value = contact.Locatie;
                 emailParam.Value = contact.Email;
+                functieParam.Value = contact.Functie;
                 afdelingParam.Value = contact.Afdeling;
-                linkedinParam.Value = contact.Linkedin;
                 isgastdocentParam.Value = Convert.ToInt32(contact.Isgastdocent);
                 isstagebegeleiderParam.Value = Convert.ToInt32(contact.Isstagebegeleider);
                 gebruikersnaamParam.Value = contact.Gebruiker.Gebruikersnaam;
@@ -171,6 +172,7 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(achternaamParam);
                 command.Parameters.Add(locatieParam);
                 command.Parameters.Add(emailParam);
+                command.Parameters.Add(functieParam);
                 command.Parameters.Add(afdelingParam);
                 command.Parameters.Add(linkedinParam);
                 command.Parameters.Add(isgastdocentParam);
