@@ -299,10 +299,6 @@ namespace CrmAppSchool.Views.Contacten
 
         }
 
-        private void lvContacten_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-             
-        }
 
         private void lvContacten_ItemActivate(object sender, EventArgs e)
         {

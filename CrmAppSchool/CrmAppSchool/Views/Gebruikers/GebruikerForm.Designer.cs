@@ -141,7 +141,7 @@
             // gebruikersnaamHeader
             // 
             this.gebruikersnaamHeader.Text = "Gebruikersnaam";
-            this.gebruikersnaamHeader.Width = 120;
+            this.gebruikersnaamHeader.Width = 223;
             // 
             // soortGebruikerHeader
             // 
