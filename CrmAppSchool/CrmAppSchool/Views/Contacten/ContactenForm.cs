@@ -228,7 +228,7 @@ namespace CrmAppSchool.Views.Contacten
                         break;
                 }
                 ContactenController contactencontroller = new ContactenController();
-                contactencontroller.voegPersoonToe(persooncontact);
+                contactencontroller.voegPersoonToe(_gebruiker, persooncontact);
                 SaveContact(persooncontact);
             }
             else
@@ -322,7 +322,6 @@ namespace CrmAppSchool.Views.Contacten
                 ListViewItem c = new ListViewItem(contact.Key);
                 c.ImageKey = contact.Value;
                 lvContacten.Items.Add(c);
-                Console.WriteLine("Add: " + contact.Key + "," + contact.Value);
             }
         }
     }
