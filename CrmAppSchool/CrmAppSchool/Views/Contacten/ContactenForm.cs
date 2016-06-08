@@ -206,6 +206,17 @@ namespace CrmAppSchool.Views.Contacten
                 Console.WriteLine(tbFunctie.Text);
                 int bedrijfcode = Convert.ToInt32(bedrijfCbx.SelectedValue);
                 persooncontact.Bedrijf = new Bedrijfcontact() { Bedrijfscode = bedrijfcode };
+
+                // Haal kwaliteiten op
+                string[] kwaliteiten = new string[tbKwaliteitenP.Lines.Count()];
+                int i = 0;
+                foreach (string line in tbKwaliteitenP.Lines)
+                {
+                    kwaliteiten[i] = line;
+                    i++;
+                }
+                persooncontact.Kwaliteiten = kwaliteiten;
+
                 switch (contactSoort)
                 {
                     case "Stagebegeleider":
@@ -286,7 +297,7 @@ namespace CrmAppSchool.Views.Contacten
             tbFunctie.Text = "";
             tbLocatie.Text = "";
             tbMobiel.Text = "";
-            tbPriveMail.Text = "";
+            tbKwaliteitenP.Text = "";
 
         }
 
