@@ -201,11 +201,22 @@ namespace CrmAppSchool.Views.Contacten
         {
             if (contactSoortCbx.Text != "Bedrijf")
             {
-                Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Locatie = tbLocatie.Text, Email = tbEmail.Text, Gebruiker = _gebruiker };
+                Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Functie = tbFunctie.Text, Locatie = tbLocatie.Text, Email = tbEmail.Text, Gebruiker = _gebruiker };
                 string contactSoort = Convert.ToString(contactSoortCbx.SelectedItem);
-                Console.WriteLine("Ik ben een " + contactSoort);
+                Console.WriteLine(tbFunctie.Text);
                 int bedrijfcode = Convert.ToInt32(bedrijfCbx.SelectedValue);
                 persooncontact.Bedrijf = new Bedrijfcontact() { Bedrijfscode = bedrijfcode };
+
+                // Haal kwaliteiten op
+                string[] kwaliteiten = new string[tbKwaliteitenP.Lines.Count()];
+                int i = 0;
+                foreach (string line in tbKwaliteitenP.Lines)
+                {
+                    kwaliteiten[i] = line;
+                    i++;
+                }
+                persooncontact.Kwaliteiten = kwaliteiten;
+
                 switch (contactSoort)
                 {
                     case "Stagebegeleider":
@@ -286,7 +297,7 @@ namespace CrmAppSchool.Views.Contacten
             tbFunctie.Text = "";
             tbLocatie.Text = "";
             tbMobiel.Text = "";
-            tbPriveMail.Text = "";
+            tbKwaliteitenP.Text = "";
 
         }
 
