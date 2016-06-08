@@ -228,7 +228,7 @@ namespace CrmAppSchool.Views.Contacten
                         break;
                 }
                 ContactenController contactencontroller = new ContactenController();
-                contactencontroller.voegPersoonToe(_gebruiker, persooncontact);
+                contactencontroller.controleerOfContactBestaat(_gebruiker, persooncontact);
                 SaveContact(persooncontact);
             }
             else

@@ -173,9 +173,10 @@ namespace CrmAppSchool.Controllers
                 int? klantcode = null;
                 while (dataReader.Read())
                 {
-                    klantcode = dataReader.GetInt32("bedrijfcode");
+                    klantcode = dataReader.GetInt32("contactcode");
                 }
 
+                conn.Close();
                 // Bepaal of contactpersoon bestaat
                 if (klantcode == null)
                 {
@@ -205,11 +206,10 @@ namespace CrmAppSchool.Controllers
         }
         public void voegPersoonToe(Gebruiker gebruiker, Persooncontact contact)
         {
+            conn.Open();
             MySqlTransaction trans = null;
             try
             {
-                conn.Open();
-                trans = conn.BeginTransaction();
                 string query = @"INSERT INTO contactpersoon (voornaam, achternaam, locatie, email, functie, afdeling, isgastdocent, isstagebegeleider, gebruikersnaam, bedrijfcode)
                                  VALUES (@voornaam, @achternaam, @locatie, @email, @functie, @afdeling, @isgastdocent, @isstagebegeleider, @gebruikersnaam, @bedrijfcode)";
 
@@ -252,7 +252,7 @@ namespace CrmAppSchool.Controllers
 
                 command.Prepare();
                 command.ExecuteNonQuery();
-                trans.Commit();
+                //trans.Commit();
 
                 // Zet de kwaliteiten in de kwaliteiten tabel
                 long primaryKey = command.LastInsertedId;
@@ -275,6 +275,7 @@ namespace CrmAppSchool.Controllers
             finally
             {
                 conn.Close();
+                // Conn close in Controleer of persoon bestaat
             }
         }
 
@@ -382,6 +383,7 @@ namespace CrmAppSchool.Controllers
         }
         public void voegContactPersoonKoppeltabel(string gebruikersnaam, long contactcode)
         {
+            conn.Open();
             MySqlTransaction trans = null;
             try
             {
@@ -412,6 +414,7 @@ namespace CrmAppSchool.Controllers
             }
             finally
             {
+                conn.Close();
             }
         }
 
