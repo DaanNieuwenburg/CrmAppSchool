@@ -13,10 +13,12 @@ namespace CrmAppSchool.Controllers
     {
         public List<string> Contactenlijst { get; set; }
         public Dictionary<string, string> contactenlijst2{get;set;}
+        public string[] contactinfo { get; set; }
         public ContactenController()
         {
             Contactenlijst = new List<string>();
             contactenlijst2 = new Dictionary<string, string>();
+            contactinfo = new string[4];
         }
         public void voegBedrijfToe(Bedrijfcontact contact)
         {
@@ -264,7 +266,47 @@ namespace CrmAppSchool.Controllers
                 conn.Close();
             }
         }
+        public void HaalInfoOp(Gebruiker _gebruiker, string VN)
+        {
+            MySqlTransaction trans = null;
+            try
+            {
+                conn.Open();
+                trans = conn.BeginTransaction();
+                string query = @"SELECT * From contactpersoon Where gebruikersnaam = @gebruiker and voornaam = @voornaam";
 
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter gebruikerParam = new MySqlParameter("gebruiker", MySqlDbType.VarChar);
+                MySqlParameter voornaamParam = new MySqlParameter("voornaam", MySqlDbType.VarChar);
+
+                gebruikerParam.Value = _gebruiker.Gebruikersnaam;
+                voornaamParam.Value = VN;
+
+                command.Parameters.Add(gebruikerParam);
+                command.Parameters.Add(voornaamParam);
+
+                command.Prepare();
+                MySqlDataReader datalezer = command.ExecuteReader();  
+                    contactinfo[0] = ((string)datalezer["voornaam"]);
+                    contactinfo[1] = ((string)datalezer["achternaam"]);
+                    contactinfo[2] = ((string)datalezer["locatie"]);
+                    contactinfo[3] = ((string)datalezer["email"]);
+
+
+            }
+            catch (MySqlException e)
+            {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in contactencontroller - haalcontactenop: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
         public void voegContactPersoonKwaliteitToe(string kwaliteit, long id)
         {
             MySqlTransaction trans = null;
