@@ -12,9 +12,11 @@ namespace CrmAppSchool.Controllers
     class ContactenController : DatabaseController
     {
         public List<string> Contactenlijst { get; set; }
+        public Dictionary<string, string> contactenlijst2{get;set;}
         public ContactenController()
         {
             Contactenlijst = new List<string>();
+            contactenlijst2 = new Dictionary<string, string>();
         }
         public void voegBedrijfToe(Bedrijfcontact contact)
         {
@@ -231,7 +233,19 @@ namespace CrmAppSchool.Controllers
                 MySqlDataReader datalezer = command.ExecuteReader();
                 while (datalezer.Read())
                 {
+                    
                     string contact = (string)datalezer["voornaam"];
+                    var a = datalezer["isgastdocent"];
+                    string functie = "";
+                    if (Convert.ToInt32(a) == 1)
+                    {
+                        functie = "GD";
+                    }
+                    else
+                    {
+                        functie = "SB";
+                    }
+                    contactenlijst2.Add(contact, functie);
                     Contactenlijst.Add(contact);
                 }
 

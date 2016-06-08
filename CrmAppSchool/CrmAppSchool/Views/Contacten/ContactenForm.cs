@@ -311,9 +311,12 @@ namespace CrmAppSchool.Views.Contacten
         {
             ContactenController _getcontacten = new ContactenController();
             _getcontacten.HaalContactenOp(_gebruiker);
-            foreach(string contact in _getcontacten.Contactenlijst)
+            foreach(var contact in _getcontacten.contactenlijst2)
             {
-                lvContacten.Items.Add(contact);
+                ListViewItem c = new ListViewItem(contact.Key);
+                c.ImageKey = contact.Value;
+                lvContacten.Items.Add(c);
+                
             }
         }
     }
