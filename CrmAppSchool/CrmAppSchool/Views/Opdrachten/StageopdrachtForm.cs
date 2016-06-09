@@ -24,8 +24,10 @@ namespace CrmAppSchool.Views.Opdrachten
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
             ShowMenu = false;
             ShowZoeken = false;
-            setListBox();   
+            setListBox();
+            
         }
+
 
         public void setListBox()
         {
@@ -95,18 +97,10 @@ namespace CrmAppSchool.Views.Opdrachten
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
+            if (lvStage.SelectedItems != null)
             {
-
-                if (lvStage.SelectedItems != null)
-                {
-                    soc.deleteStageopdracht(Convert.ToInt32(lvStage.SelectedItems[0].SubItems[0].Text));
-                    setListBox();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
+                soc.deleteStageopdracht(Convert.ToInt32(lvStage.SelectedItems[0].SubItems[0].Text));
+                setListBox();
             }
         }
 

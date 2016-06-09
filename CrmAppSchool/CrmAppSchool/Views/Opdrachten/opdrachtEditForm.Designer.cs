@@ -39,10 +39,6 @@
             this.btnOpslaan = new System.Windows.Forms.Button();
             this.btnAnnuleer = new System.Windows.Forms.Button();
             this.pbHeader = new System.Windows.Forms.PictureBox();
-            this.lbl_bedrijf = new System.Windows.Forms.Label();
-            this.lbl_contact = new System.Windows.Forms.Label();
-            this.lv_bedrijf = new System.Windows.Forms.ListView();
-            this.lv_contact = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,7 +113,7 @@
             this.lblGebruiker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lblGebruiker.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGebruiker.ForeColor = System.Drawing.Color.White;
-            this.lblGebruiker.Location = new System.Drawing.Point(581, 14);
+            this.lblGebruiker.Location = new System.Drawing.Point(230, 14);
             this.lblGebruiker.Name = "lblGebruiker";
             this.lblGebruiker.Size = new System.Drawing.Size(123, 16);
             this.lblGebruiker.TabIndex = 11;
@@ -132,7 +128,7 @@
             this.btnOpslaan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpslaan.FlatAppearance.BorderSize = 0;
             this.btnOpslaan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpslaan.Location = new System.Drawing.Point(279, -3);
+            this.btnOpslaan.Location = new System.Drawing.Point(104, -3);
             this.btnOpslaan.Name = "btnOpslaan";
             this.btnOpslaan.Size = new System.Drawing.Size(59, 50);
             this.btnOpslaan.TabIndex = 13;
@@ -148,7 +144,7 @@
             this.btnAnnuleer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAnnuleer.FlatAppearance.BorderSize = 0;
             this.btnAnnuleer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnnuleer.Location = new System.Drawing.Point(340, -3);
+            this.btnAnnuleer.Location = new System.Drawing.Point(165, -3);
             this.btnAnnuleer.Name = "btnAnnuleer";
             this.btnAnnuleer.Size = new System.Drawing.Size(59, 50);
             this.btnAnnuleer.TabIndex = 10;
@@ -162,56 +158,16 @@
             this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.pbHeader.Location = new System.Drawing.Point(-74, -3);
             this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(971, 50);
+            this.pbHeader.Size = new System.Drawing.Size(620, 50);
             this.pbHeader.TabIndex = 12;
             this.pbHeader.TabStop = false;
-            // 
-            // lbl_bedrijf
-            // 
-            this.lbl_bedrijf.AutoSize = true;
-            this.lbl_bedrijf.Location = new System.Drawing.Point(425, 62);
-            this.lbl_bedrijf.Name = "lbl_bedrijf";
-            this.lbl_bedrijf.Size = new System.Drawing.Size(36, 13);
-            this.lbl_bedrijf.TabIndex = 14;
-            this.lbl_bedrijf.Text = "Bedrijf";
-            // 
-            // lbl_contact
-            // 
-            this.lbl_contact.AutoSize = true;
-            this.lbl_contact.Location = new System.Drawing.Point(425, 194);
-            this.lbl_contact.Name = "lbl_contact";
-            this.lbl_contact.Size = new System.Drawing.Size(44, 13);
-            this.lbl_contact.TabIndex = 15;
-            this.lbl_contact.Text = "Contact";
-            this.lbl_contact.Click += new System.EventHandler(this.lbl_contact_Click);
-            // 
-            // lv_bedrijf
-            // 
-            this.lv_bedrijf.Location = new System.Drawing.Point(428, 78);
-            this.lv_bedrijf.Name = "lv_bedrijf";
-            this.lv_bedrijf.Size = new System.Drawing.Size(363, 97);
-            this.lv_bedrijf.TabIndex = 16;
-            this.lv_bedrijf.UseCompatibleStateImageBehavior = false;
-            this.lv_bedrijf.View = System.Windows.Forms.View.List;
-            // 
-            // lv_contact
-            // 
-            this.lv_contact.Location = new System.Drawing.Point(428, 210);
-            this.lv_contact.Name = "lv_contact";
-            this.lv_contact.Size = new System.Drawing.Size(363, 97);
-            this.lv_contact.TabIndex = 17;
-            this.lv_contact.UseCompatibleStateImageBehavior = false;
             // 
             // opdrachtEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(803, 332);
-            this.Controls.Add(this.lv_contact);
-            this.Controls.Add(this.lv_bedrijf);
-            this.Controls.Add(this.lbl_contact);
-            this.Controls.Add(this.lbl_bedrijf);
+            this.ClientSize = new System.Drawing.Size(452, 332);
             this.Controls.Add(this.btnOpslaan);
             this.Controls.Add(this.btnAnnuleer);
             this.Controls.Add(this.lblGebruiker);
@@ -244,10 +200,5 @@
         private System.Windows.Forms.Label lblGebruiker;
         private System.Windows.Forms.PictureBox pbHeader;
         private System.Windows.Forms.Button btnOpslaan;
-        private System.Windows.Forms.Label lbl_bedrijf;
-        private System.Windows.Forms.Label lbl_contact;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView lv_bedrijf;
-        private System.Windows.Forms.ListView lv_contact;
     }
 }
