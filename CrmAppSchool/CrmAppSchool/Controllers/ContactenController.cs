@@ -57,6 +57,7 @@ namespace CrmAppSchool.Controllers
                 trans.Commit();
 
                 // Zet de kwaliteiten in de kwaliteiten tabel
+                conn.Close();
                 long primaryKey = command.LastInsertedId;
                 foreach (string kwaliteit in contact.Kwaliteiten)
                 {
@@ -95,7 +96,6 @@ namespace CrmAppSchool.Controllers
 
                     contactenlijst.Add(contact);
                 }
-
             }
             catch (MySqlException e)
             {
@@ -113,6 +113,7 @@ namespace CrmAppSchool.Controllers
             MySqlTransaction trans = null;
             try
             {
+                conn.Open();
                 string query = @"INSERT INTO bedrijf_kwaliteiten (bedrijfcode, kwaliteit)
                                  VALUES (@bedrijfcode, @kwaliteit)";
 
@@ -140,6 +141,7 @@ namespace CrmAppSchool.Controllers
             }
             finally
             {
+                conn.Close();
             }
         }
 
@@ -176,8 +178,8 @@ namespace CrmAppSchool.Controllers
                     klantcode = dataReader.GetInt32("contactcode");
                 }
 
-                conn.Close();
                 // Bepaal of contactpersoon bestaat
+                conn.Close();
                 if (klantcode == null)
                 {
                     // Maakt een nieuwe contactpersoon aan
@@ -205,11 +207,12 @@ namespace CrmAppSchool.Controllers
 
         }
         public void voegPersoonToe(Gebruiker gebruiker, Persooncontact contact)
-        {
-            conn.Open();
+        { 
+
             MySqlTransaction trans = null;
             try
             {
+                conn.Open();
                 string query = @"INSERT INTO contactpersoon (voornaam, achternaam, locatie, email, functie, afdeling, isgastdocent, isstagebegeleider, gebruikersnaam, bedrijfcode)
                                  VALUES (@voornaam, @achternaam, @locatie, @email, @functie, @afdeling, @isgastdocent, @isstagebegeleider, @gebruikersnaam, @bedrijfcode)";
 
@@ -256,12 +259,14 @@ namespace CrmAppSchool.Controllers
 
                 // Zet de kwaliteiten in de kwaliteiten tabel
                 long primaryKey = command.LastInsertedId;
+                conn.Close();
                 foreach (string kwaliteit in contact.Kwaliteiten)
                 {
                     voegContactPersoonKwaliteitToe(kwaliteit, primaryKey);
                 }
 
                 // Zet de contact in de gebruikercontactpersoon koppeltabel
+                conn.Close();
                 voegContactPersoonKoppeltabel(gebruiker.Gebruikersnaam, primaryKey);
             }
             catch (MySqlException e)
@@ -386,10 +391,10 @@ namespace CrmAppSchool.Controllers
         }
         public void voegContactPersoonKoppeltabel(string gebruikersnaam, long contactcode)
         {
-            conn.Open();
             MySqlTransaction trans = null;
             try
             {
+                conn.Open();
                 string query = @"INSERT INTO gebruikercontactpersoon (gebruikersnaam, contactcode)
                                  VALUES (@gebruikersnaam, @contactcode)";
 
@@ -426,6 +431,7 @@ namespace CrmAppSchool.Controllers
             MySqlTransaction trans = null;
             try
             {
+                conn.Open();
                 string query = @"INSERT INTO contactpersoon_kwaliteiten (contactcode, kwaliteit)
                                  VALUES (@contactcode, @kwaliteit)";
 
@@ -453,6 +459,7 @@ namespace CrmAppSchool.Controllers
             }
             finally
             {
+                conn.Close();
             }
         }
 
@@ -461,6 +468,7 @@ namespace CrmAppSchool.Controllers
             MySqlTransaction trans = null;
             try
             {
+                conn.Open();
                 // Verwijder contact in koppeltabel
                 string query = @"DELETE FROM gebruikercontactpersoon WHERE gebruikersnaam = @gebruikersnaam AND contactcode = @contactcode";
                 MySqlCommand command = new MySqlCommand(query, conn);
@@ -488,6 +496,7 @@ namespace CrmAppSchool.Controllers
             }
             finally
             {
+                conn.Close();
             }
         }
     }
