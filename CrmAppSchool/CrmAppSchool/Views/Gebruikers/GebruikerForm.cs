@@ -17,18 +17,18 @@ namespace CrmAppSchool.Views.Gebruikers
     {
         public bool ShowMenu { get; set; }
         public bool tweedeSelectie { get; set; }
-      
+
 
         private Gebruiker gebruiker { get; set; }
-        
+
         public voegGebruikerToeForm(Gebruiker _gebruiker)
         {
-            
+
 
             InitializeComponent();
             tweedeSelectie = false;
             gebruiker = _gebruiker;
-            ShowMenu = false;           
+            ShowMenu = false;
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
             vulListView();
         }
@@ -84,49 +84,36 @@ namespace CrmAppSchool.Views.Gebruikers
             ShowMenu = true;
             this.Hide();
         }
-
-        private void gebruikerLvw_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-
-            Gebruiker nieuweGebruiker = null;
-            // Omdat deselecteren ook deze event uitvoert, is er het if statement en de boolean
-            if (gebruikerLvw.SelectedIndices.Count > 0 && tweedeSelectie == false)
-            {
-                // Bepaal gebruiker
-                if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Admin")
-                {
-                    nieuweGebruiker = new Gebruiker() { Gebruikersnaam = gebruikerLvw.SelectedItems[0].Text };
-                }
-                else if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Docent")
-                {
-                    nieuweGebruiker = new Gebruiker() { Gebruikersnaam = gebruikerLvw.SelectedItems[0].Text };
-                }
-                else if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Student")
-                {
-                    nieuweGebruiker = new Gebruiker() { Gebruikersnaam = gebruikerLvw.SelectedItems[0].Text };
-                }
-
-                // Open bewerk gebruiker form
-                BewerkGebruikerForm bewerkgebruikerform = new BewerkGebruikerForm(nieuweGebruiker);
-                bewerkgebruikerform.ShowDialog();
-
-                // Reset de listview
-                gebruikerLvw.Items.Clear();
-                vulListView();
-
-                // Hierna ziet de app weer een selectie.. daarom is deze boolean er.
-                tweedeSelectie = true;
-            }
-            else
-            {
-                tweedeSelectie = false;
-            }
-            
-        }
-
         private void voegGebruikerToeForm_Load(object sender, EventArgs e)
         {
-
         }
+
+        private void gebruikerLvw_ItemActivate(object sender, EventArgs e)
+        {
+            Gebruiker nieuweGebruiker = null;
+            // Bepaal gebruiker
+            if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Admin")
+            {
+                nieuweGebruiker = new Gebruiker() { Gebruikersnaam = gebruikerLvw.SelectedItems[0].Text };
+            }
+            else if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Docent")
+            {
+                nieuweGebruiker = new Gebruiker() { Gebruikersnaam = gebruikerLvw.SelectedItems[0].Text };
+            }
+            else if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Student")
+            {
+                nieuweGebruiker = new Gebruiker() { Gebruikersnaam = gebruikerLvw.SelectedItems[0].Text };
+            }
+
+            // Open bewerk gebruiker form
+            BewerkGebruikerForm bewerkgebruikerform = new BewerkGebruikerForm(nieuweGebruiker);
+            bewerkgebruikerform.ShowDialog();
+
+            // Reset de listview
+            gebruikerLvw.Items.Clear();
+            vulListView();
+        }
+
     }
 }
+

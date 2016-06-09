@@ -10,7 +10,6 @@ namespace CrmAppSchool.Controllers
 {
     class StageopdrachtController : DatabaseController
     {
-        ContactenController coc = new ContactenController();
         public List<Stageopdracht> getOpdrachten()
         {
             List<Stageopdracht> opdrachten = new List<Stageopdracht>();
@@ -29,9 +28,12 @@ namespace CrmAppSchool.Controllers
                     string status = dataReader.GetString("status");
                     string naam = dataReader.GetString("naam");
                     string omschrijving = dataReader.GetString("omschrijving");
-                    int bedrijf = dataReader.GetInt32("bedrijfscode");
-                    Stageopdracht opdracht = new Stageopdracht { Code = code, Status = status, Naam = naam, Omschrijving = omschrijving};
-
+                    int bedrijfcode = dataReader.GetInt32("bedrijfcode");
+                    Stageopdracht opdracht = new Stageopdracht { Code = code, Status = status, Naam = naam, Omschrijving = omschrijving };
+                    BedrijfController bc = new BedrijfController();
+                    Bedrijfcontact bedrijfcontact = bc.SelecteerBedrijf(bedrijfcode);
+                    Console.WriteLine("de bnaam = " + bedrijfcontact.Bedrijfnaam);
+                    opdracht.Bedrijf = bedrijfcontact;
                     opdrachten.Add(opdracht);
                 }
                 return opdrachten;
@@ -46,7 +48,7 @@ namespace CrmAppSchool.Controllers
                 conn.Close();
             }
 
-            
+
         }
 
         public List<Stageopdracht> ZoekOpdrachten(string tekst)
@@ -65,18 +67,21 @@ namespace CrmAppSchool.Controllers
 
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
+                int bedrijfcode = 0;
                 while (dataReader.Read())
                 {
                     int code = dataReader.GetInt32("opdrachtcode");
                     string status = dataReader.GetString("status");
                     string naam = dataReader.GetString("naam");
                     string omschrijving = dataReader.GetString("omschrijving");
-                    int bedrijf = dataReader.GetInt32("bedrijfscode");
+                    bedrijfcode = dataReader.GetInt32("bedrijfcode");
                     Stageopdracht opdracht = new Stageopdracht { Code = code, Status = status, Naam = naam, Omschrijving = omschrijving };
-
+                    BedrijfController bc = new BedrijfController();
+                    Bedrijfcontact bedrijfcontact = bc.SelecteerBedrijf(bedrijfcode);
+                    Console.WriteLine("de bnaam = " + bedrijfcontact.Bedrijfnaam);
+                    opdracht.Bedrijf = bedrijfcontact;
                     opdrachten.Add(opdracht);
                 }
-
                 return opdrachten;
             }
             catch (Exception e)
@@ -135,7 +140,7 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string insertString = @"INSERT INTO stageopdracht (status,naam, omschrijving, bedrijfscode) VALUES (@status, @naam, @omschrijving, @ bedrijf)";
+                string insertString = @"INSERT INTO stageopdracht (status, naam, omschrijving, bedrijfcode) VALUES (@status, @naam, @omschrijving, @bedrijf)";
 
                 MySqlCommand cmd = new MySqlCommand(insertString, conn);
                 MySqlParameter statusParam = new MySqlParameter("@status", MySqlDbType.VarChar);
@@ -181,7 +186,7 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string insertString = @"UPDATE stageopdracht SET status = @status, naam = @naam, omschrijving = @omschrijving, bedrijfscode = @bedrijf WHERE opdrachtcode= @code";
+                string insertString = @"UPDATE stageopdracht SET status = @status, naam = @naam, omschrijving = @omschrijving, bedrijf = @bedrijf WHERE opdrachtcode= @code";
 
                 MySqlCommand cmd = new MySqlCommand(insertString, conn);
                 MySqlParameter codeParam = new MySqlParameter("@code", MySqlDbType.Bit);

@@ -5,54 +5,62 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using CrmAppSchool.Models;
+using System.Data.SqlClient;
 
 namespace CrmAppSchool.Controllers
 {
     class ContactenController : DatabaseController
     {
-
-        public void voegBedrijfToe(Bedrijfcontact contact)
+        public ContactenController()
         {
+        }
+ 
+        public void controleerOfContactBestaat(Gebruiker gebruiker, Persooncontact contact)
+        {
+            // Query de database en kijk of contact bestaat
             MySqlTransaction trans = null;
             try
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"INSERT INTO bedrijf (bedrijfnaam, hoofdlocatie, website, email, omschrijving)
-                                 VALUES (@bedrijfnaam, @hoofdlocatie, @website, @email, @omschrijving)";
+                string query = @"SELECT contactcode FROM contactpersoon 
+                                 WHERE voornaam = @voornaam AND achternaam = @achternaam OR email = @email";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
-                MySqlParameter bedrijfnaamParam = new MySqlParameter("bedrijfnaam", MySqlDbType.VarChar);
-                MySqlParameter hoofdlocatieParam = new MySqlParameter("hoofdlocatie", MySqlDbType.VarChar);
-                MySqlParameter websiteParam = new MySqlParameter("website", MySqlDbType.VarChar);
+                MySqlParameter voornaamParam = new MySqlParameter("voornaam", MySqlDbType.VarChar);
+                MySqlParameter achternaamParam = new MySqlParameter("achternaam", MySqlDbType.VarChar);
                 MySqlParameter emailParam = new MySqlParameter("email", MySqlDbType.VarChar);
-                MySqlParameter telefoonnrParam = new MySqlParameter("telefoonnr", MySqlDbType.VarChar);
-                MySqlParameter omschrijvingParam = new MySqlParameter("omschrijving", MySqlDbType.VarChar);
 
-                bedrijfnaamParam.Value = contact.Bedrijfnaam;
-                hoofdlocatieParam.Value = contact.Hoofdlocatie;
-                websiteParam.Value = contact.Website;
+
+                voornaamParam.Value = contact.Voornaam;
+                achternaamParam.Value = contact.Achternaam;
                 emailParam.Value = contact.Email;
-                telefoonnrParam.Value = contact.Telefoonnr;
-                omschrijvingParam.Value = contact.Omschrijving;
 
-                command.Parameters.Add(bedrijfnaamParam);
-                command.Parameters.Add(hoofdlocatieParam);
-                command.Parameters.Add(websiteParam);
+                command.Parameters.Add(voornaamParam);
+                command.Parameters.Add(achternaamParam);
                 command.Parameters.Add(emailParam);
-                command.Parameters.Add(telefoonnrParam);
-                command.Parameters.Add(omschrijvingParam);
 
-                command.Prepare();
-                command.ExecuteNonQuery();
-                trans.Commit();
 
-                // Zet de kwaliteiten in de kwaliteiten tabel
-                long primaryKey = command.LastInsertedId;
-                foreach(string kwaliteit in contact.Kwaliteiten)
+                MySqlDataReader dataReader = command.ExecuteReader();
+                int? klantcode = null;
+                while (dataReader.Read())
                 {
-                    voegKwaliteitToe(kwaliteit, primaryKey);
+                    klantcode = dataReader.GetInt32("contactcode");
                 }
+
+                // Bepaal of contactpersoon bestaat
+                conn.Close();
+                if (klantcode == null)
+                {
+                    // Maakt een nieuwe contactpersoon aan
+                    voegPersoonToe(gebruiker, contact);
+                }
+                else
+                {
+                    // Voert de contactpersoon in db in
+                    voegContactPersoonKoppeltabel(gebruiker.Gebruikersnaam, Convert.ToInt64(klantcode));
+                }
+
             }
             catch (MySqlException e)
             {
@@ -66,89 +74,24 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Close();
             }
+
         }
+        public void voegPersoonToe(Gebruiker gebruiker, Persooncontact contact)
+        { 
 
-        public List<Bedrijfcontact> haalBedrijfLijstOp()
-        {
-            List<Bedrijfcontact> contactenlijst = new List<Bedrijfcontact>();
-            try
-            {
-                conn.Open();
-                string query = @"SELECT bedrijfcode, bedrijfnaam FROM bedrijf";
-                MySqlCommand command = new MySqlCommand(query, conn);
-
-                MySqlDataReader dataReader = command.ExecuteReader();
-                while (dataReader.Read())
-                {
-                    Bedrijfcontact contact = new Bedrijfcontact();
-                    contact.Bedrijfscode = dataReader.GetInt32("bedrijfcode");
-                    contact.Bedrijfnaam = dataReader.GetString("bedrijfnaam");
-
-                    contactenlijst.Add(contact);
-                }
-
-            }
-            catch (MySqlException e)
-            {
-                Console.WriteLine("Error in contactencontroller - haalbedrijflijstop: " + e);
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return contactenlijst;
-        }
-
-        public void voegKwaliteitToe(string kwaliteit, long id)
-        {
-            MySqlTransaction trans = null;
-            try
-            {
-                string query = @"INSERT INTO bedrijf_kwaliteiten (bedrijfcode, kwaliteit)
-                                 VALUES (@bedrijfcode, @kwaliteit)";
-
-                MySqlCommand command = new MySqlCommand(query, conn);
-                MySqlParameter bedrijfcodeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
-                MySqlParameter kwaliteitParam = new MySqlParameter("kwaliteit", MySqlDbType.VarChar);
-
-                bedrijfcodeParam.Value = id;
-                kwaliteitParam.Value = kwaliteit;
-
-
-                command.Parameters.Add(bedrijfcodeParam);
-                command.Parameters.Add(kwaliteitParam);
-
-                command.Prepare();
-                command.ExecuteNonQuery();
-            }
-            catch (MySqlException e)
-            {
-                if (trans != null)
-                {
-                    trans.Rollback();
-                }
-                Console.WriteLine("Error in contactencontroller - voegkwaliteittoe: " + e);
-            }
-            finally
-            {
-            }
-        }
-
-        public void voegPersoonToe(Persooncontact contact)
-        {
             MySqlTransaction trans = null;
             try
             {
                 conn.Open();
-                trans = conn.BeginTransaction();
-                string query = @"INSERT INTO contactpersoon (voornaam, achternaam, locatie, email, afdeling, linkedin, isgastdocent, isstagebegeleider, gebruikersnaam, bedrijfcode)
-                                 VALUES (@voornaam, @achternaam, @locatie, @email, @afdeling, @linkedin, @isgastdocent, @isstagebegeleider, @gebruikersnaam, @bedrijfcode)";
+                string query = @"INSERT INTO contactpersoon (voornaam, achternaam, locatie, email, functie, afdeling, isgastdocent, isstagebegeleider, gebruikersnaam, bedrijfcode)
+                                 VALUES (@voornaam, @achternaam, @locatie, @email, @functie, @afdeling, @isgastdocent, @isstagebegeleider, @gebruikersnaam, @bedrijfcode)";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter voornaamParam = new MySqlParameter("voornaam", MySqlDbType.VarChar);
                 MySqlParameter achternaamParam = new MySqlParameter("achternaam", MySqlDbType.VarChar);
                 MySqlParameter locatieParam = new MySqlParameter("locatie", MySqlDbType.VarChar);
                 MySqlParameter emailParam = new MySqlParameter("email", MySqlDbType.VarChar);
+                MySqlParameter functieParam = new MySqlParameter("functie", MySqlDbType.VarChar);
                 MySqlParameter afdelingParam = new MySqlParameter("afdeling", MySqlDbType.VarChar);
                 MySqlParameter linkedinParam = new MySqlParameter("linkedin", MySqlDbType.VarChar);
                 MySqlParameter isgastdocentParam = new MySqlParameter("isgastdocent", MySqlDbType.Binary);
@@ -160,8 +103,8 @@ namespace CrmAppSchool.Controllers
                 achternaamParam.Value = contact.Achternaam;
                 locatieParam.Value = contact.Locatie;
                 emailParam.Value = contact.Email;
+                functieParam.Value = contact.Functie;
                 afdelingParam.Value = contact.Afdeling;
-                linkedinParam.Value = contact.Linkedin;
                 isgastdocentParam.Value = Convert.ToInt32(contact.Isgastdocent);
                 isstagebegeleiderParam.Value = Convert.ToInt32(contact.Isstagebegeleider);
                 gebruikersnaamParam.Value = contact.Gebruiker.Gebruikersnaam;
@@ -171,6 +114,7 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(achternaamParam);
                 command.Parameters.Add(locatieParam);
                 command.Parameters.Add(emailParam);
+                command.Parameters.Add(functieParam);
                 command.Parameters.Add(afdelingParam);
                 command.Parameters.Add(linkedinParam);
                 command.Parameters.Add(isgastdocentParam);
@@ -181,15 +125,244 @@ namespace CrmAppSchool.Controllers
 
                 command.Prepare();
                 command.ExecuteNonQuery();
-                trans.Commit();
+                //trans.Commit();
+
+                // Zet de kwaliteiten in de kwaliteiten tabel
+                long primaryKey = command.LastInsertedId;
+                conn.Close();
+                foreach (string kwaliteit in contact.Kwaliteiten)
+                {
+                    voegContactPersoonKwaliteitToe(kwaliteit, primaryKey);
+                }
+
+                // Zet de contact in de gebruikercontactpersoon koppeltabel
+                conn.Close();
+                voegContactPersoonKoppeltabel(gebruiker.Gebruikersnaam, primaryKey);
             }
-            catch(MySqlException e)
+            catch (MySqlException e)
             {
                 if (trans != null)
                 {
                     trans.Rollback();
                 }
                 Console.WriteLine("Error in contactencontroller - voegpersoontoe: " + e);
+            }
+            finally
+            {
+                conn.Close();
+                // Conn close in Controleer of persoon bestaat
+            }
+        }
+
+
+        public List<Persooncontact> HaalContactenOp(Gebruiker _gebruiker)
+        {
+            List<Persooncontact> contactenlijst = new List<Persooncontact>();
+            MySqlTransaction trans = null;
+
+            try
+            {
+                conn.Open();
+                trans = conn.BeginTransaction();
+                string query = @"SELECT * FROM gebruikercontactpersoon g
+                                 INNER JOIN contactpersoon c on g.contactcode = c.contactcode
+                                 INNER JOIN bedrijf b ON c.bedrijfcode = b.bedrijfcode 
+                                 WHERE g.gebruikersnaam = @gebruikersnaam";
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter gebruikerParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
+
+                gebruikerParam.Value = _gebruiker.Gebruikersnaam;
+
+                command.Parameters.Add(gebruikerParam);
+
+                command.Prepare();
+                MySqlDataReader datalezer = command.ExecuteReader();
+                while (datalezer.Read())
+                {
+                    Persooncontact contact = new Persooncontact();
+                    contact.Contactcode = datalezer.GetInt32("contactcode");
+                    contact.Voornaam = datalezer.GetString("voornaam");
+                    contact.Achternaam = datalezer.GetString("achternaam");
+                    contact.Locatie = datalezer.GetString("locatie");
+                    contact.Email = datalezer.GetString("email");
+                    contact.Functie = datalezer["functie"] as string;
+                    contact.Afdeling = datalezer["afdeling"] as string;
+                    contact.Isgastdocent = datalezer.GetBoolean("isgastdocent");
+                    contact.Isstagebegeleider = datalezer.GetBoolean("isstagebegeleider");
+                    contactenlijst.Add(contact);
+                    }
+                    }
+            catch (MySqlException e)
+            {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in contactencontroller - haalcontactenop: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return contactenlijst;
+        }
+        public Persooncontact HaalInfoOp(string contactcode)
+        {
+            Console.WriteLine("T" + contactcode);
+            MySqlTransaction trans = null;
+            Persooncontact contact = new Persooncontact();
+            try
+            {
+                conn.Open();
+                trans = conn.BeginTransaction();
+                string query = @"SELECT c.voornaam, c.achternaam, c.locatie, c.email, c.functie, c.afdeling, c.isgastdocent, c.isstagebegeleider, b.bedrijfnaam FROM contactpersoon c 
+                                 INNER JOIN bedrijf b ON c.bedrijfcode = b.bedrijfcode 
+                                 WHERE contactcode = @contactcode";
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
+
+                contactcodeParam.Value = contactcode;
+                command.Parameters.Add(contactcodeParam);
+
+                command.Prepare();
+                MySqlDataReader datalezer = command.ExecuteReader();  
+                while (datalezer.Read())
+                {
+                    contact.Voornaam = ((string)datalezer["voornaam"]);
+                    contact.Achternaam = ((string)datalezer["achternaam"]);
+                    contact.Locatie = ((string)datalezer["locatie"]);
+                    contact.Email = ((string)datalezer["email"]);
+                    contact.Functie = datalezer["functie"] as string;
+                    //contact.Kwaliteiten = datalezer.Get["kwaliteiten"]);
+                    contact.Afdeling = datalezer["afdeling"] as string;
+                    contact.Isgastdocent = datalezer.GetBoolean("Isgastdocent");
+                    contact.Isstagebegeleider = datalezer.GetBoolean("isstagebegeleider");
+                    contact.Bedrijf = new Bedrijfcontact();
+                    contact.Bedrijf.Bedrijfnaam = ((string)datalezer["bedrijfnaam"]);
+                }
+
+            }
+            catch (MySqlException e)
+            {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in contactencontroller - haalcontactenop: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return contact;
+        }
+        public void voegContactPersoonKoppeltabel(string gebruikersnaam, long contactcode)
+        {
+            MySqlTransaction trans = null;
+            try
+            {
+                conn.Open();
+                string query = @"INSERT INTO gebruikercontactpersoon (gebruikersnaam, contactcode)
+                                 VALUES (@gebruikersnaam, @contactcode)";
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
+                MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
+
+                gebruikersnaamParam.Value = gebruikersnaam;
+                contactcodeParam.Value = contactcode;
+
+
+                command.Parameters.Add(gebruikersnaamParam);
+                command.Parameters.Add(contactcodeParam);
+
+                command.Prepare();
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
+            {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in contactencontroller - voegContactPersoonKoppeltabel: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void voegContactPersoonKwaliteitToe(string kwaliteit, long id)
+        {
+            MySqlTransaction trans = null;
+            try
+            {
+                conn.Open();
+                string query = @"INSERT INTO contactpersoon_kwaliteiten (contactcode, kwaliteit)
+                                 VALUES (@contactcode, @kwaliteit)";
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
+                MySqlParameter kwaliteitParam = new MySqlParameter("kwaliteit", MySqlDbType.VarChar);
+
+                contactcodeParam.Value = id;
+                kwaliteitParam.Value = kwaliteit;
+
+
+                command.Parameters.Add(contactcodeParam);
+                command.Parameters.Add(kwaliteitParam);
+
+                command.Prepare();
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
+            {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in contactencontroller - voegcontactpersoonkwaliteittoe: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void verwijderContact(Gebruiker gebruiker, string persooncode)
+        {
+            MySqlTransaction trans = null;
+            try
+            {
+                conn.Open();
+                // Verwijder contact in koppeltabel
+                string query = @"DELETE FROM gebruikercontactpersoon WHERE gebruikersnaam = @gebruikersnaam AND contactcode = @contactcode";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
+                MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
+
+                gebruikersnaamParam.Value = gebruiker.Gebruikersnaam;
+                contactcodeParam.Value = persooncode;
+
+
+                command.Parameters.Add(gebruikersnaamParam);
+                command.Parameters.Add(contactcodeParam);
+
+                command.Prepare();
+                command.ExecuteNonQuery();
+
+            }
+            catch (MySqlException e)
+            {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in contactencontroller - verwijdercontact: " + e);
             }
             finally
             {

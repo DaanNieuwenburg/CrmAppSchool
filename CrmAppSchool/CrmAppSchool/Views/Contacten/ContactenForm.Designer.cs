@@ -50,6 +50,7 @@
             this.bedrijfsnaamLbl = new System.Windows.Forms.Label();
             this.bedrijfsnaamTxb = new System.Windows.Forms.TextBox();
             this.persoonPnl = new System.Windows.Forms.Panel();
+            this.bedrijfCbx = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.emailLbl = new System.Windows.Forms.Label();
             this.tbEmail = new System.Windows.Forms.TextBox();
@@ -63,8 +64,10 @@
             this.btnOpslaan = new System.Windows.Forms.Button();
             this.btnAnnuleer = new System.Windows.Forms.Button();
             this.pnOptioneel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbPriveMail = new System.Windows.Forms.TextBox();
+            this.afdelingLbl = new System.Windows.Forms.Label();
+            this.afdelingTb = new System.Windows.Forms.TextBox();
+            this.kwaliteitLbl = new System.Windows.Forms.Label();
+            this.tbKwaliteitenP = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbFunctie = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -78,7 +81,6 @@
             this.tbHoofdlocatie = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tbKwaliteiten = new System.Windows.Forms.TextBox();
-            this.bedrijfCbx = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.bedrijfPnl.SuspendLayout();
@@ -202,7 +204,6 @@
             this.lvContacten.UseCompatibleStateImageBehavior = false;
             this.lvContacten.View = System.Windows.Forms.View.Tile;
             this.lvContacten.ItemActivate += new System.EventHandler(this.lvContacten_ItemActivate);
-            this.lvContacten.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvContacten_MouseDoubleClick);
             // 
             // Contact
             // 
@@ -346,6 +347,14 @@
             this.persoonPnl.TabIndex = 23;
             this.persoonPnl.Visible = false;
             // 
+            // bedrijfCbx
+            // 
+            this.bedrijfCbx.FormattingEnabled = true;
+            this.bedrijfCbx.Location = new System.Drawing.Point(106, 99);
+            this.bedrijfCbx.Name = "bedrijfCbx";
+            this.bedrijfCbx.Size = new System.Drawing.Size(149, 21);
+            this.bedrijfCbx.TabIndex = 10;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -474,8 +483,10 @@
             // pnOptioneel
             // 
             this.pnOptioneel.BackColor = System.Drawing.SystemColors.Window;
-            this.pnOptioneel.Controls.Add(this.label1);
-            this.pnOptioneel.Controls.Add(this.tbPriveMail);
+            this.pnOptioneel.Controls.Add(this.afdelingLbl);
+            this.pnOptioneel.Controls.Add(this.afdelingTb);
+            this.pnOptioneel.Controls.Add(this.kwaliteitLbl);
+            this.pnOptioneel.Controls.Add(this.tbKwaliteitenP);
             this.pnOptioneel.Controls.Add(this.label2);
             this.pnOptioneel.Controls.Add(this.locatieLbl);
             this.pnOptioneel.Controls.Add(this.tbFunctie);
@@ -488,23 +499,42 @@
             this.pnOptioneel.TabIndex = 24;
             this.pnOptioneel.Visible = false;
             // 
-            // label1
+            // afdelingLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 10F);
-            this.label1.Location = new System.Drawing.Point(15, 128);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 16);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Privé mail:";
+            this.afdelingLbl.AutoSize = true;
+            this.afdelingLbl.Font = new System.Drawing.Font("Arial", 10F);
+            this.afdelingLbl.Location = new System.Drawing.Point(15, 131);
+            this.afdelingLbl.Name = "afdelingLbl";
+            this.afdelingLbl.Size = new System.Drawing.Size(63, 16);
+            this.afdelingLbl.TabIndex = 9;
+            this.afdelingLbl.Text = "Afdeling:";
             // 
-            // tbPriveMail
+            // afdelingTb
             // 
-            this.tbPriveMail.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbPriveMail.Location = new System.Drawing.Point(106, 125);
-            this.tbPriveMail.Name = "tbPriveMail";
-            this.tbPriveMail.Size = new System.Drawing.Size(152, 23);
-            this.tbPriveMail.TabIndex = 7;
+            this.afdelingTb.Font = new System.Drawing.Font("Arial", 10F);
+            this.afdelingTb.Location = new System.Drawing.Point(106, 128);
+            this.afdelingTb.Name = "afdelingTb";
+            this.afdelingTb.Size = new System.Drawing.Size(152, 23);
+            this.afdelingTb.TabIndex = 8;
+            // 
+            // kwaliteitLbl
+            // 
+            this.kwaliteitLbl.AutoSize = true;
+            this.kwaliteitLbl.Font = new System.Drawing.Font("Arial", 10F);
+            this.kwaliteitLbl.Location = new System.Drawing.Point(15, 157);
+            this.kwaliteitLbl.Name = "kwaliteitLbl";
+            this.kwaliteitLbl.Size = new System.Drawing.Size(79, 16);
+            this.kwaliteitLbl.TabIndex = 7;
+            this.kwaliteitLbl.Text = "Kwaliteiten:";
+            // 
+            // tbKwaliteitenP
+            // 
+            this.tbKwaliteitenP.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbKwaliteitenP.Location = new System.Drawing.Point(106, 157);
+            this.tbKwaliteitenP.Multiline = true;
+            this.tbKwaliteitenP.Name = "tbKwaliteitenP";
+            this.tbKwaliteitenP.Size = new System.Drawing.Size(152, 73);
+            this.tbKwaliteitenP.TabIndex = 7;
             // 
             // label2
             // 
@@ -644,14 +674,6 @@
             this.tbKwaliteiten.Size = new System.Drawing.Size(198, 88);
             this.tbKwaliteiten.TabIndex = 2;
             // 
-            // bedrijfCbx
-            // 
-            this.bedrijfCbx.FormattingEnabled = true;
-            this.bedrijfCbx.Location = new System.Drawing.Point(106, 99);
-            this.bedrijfCbx.Name = "bedrijfCbx";
-            this.bedrijfCbx.Size = new System.Drawing.Size(149, 21);
-            this.bedrijfCbx.TabIndex = 10;
-            // 
             // ContactenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -679,7 +701,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ContactenForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Contacten";
+            this.Text = "Ik";
+            this.Load += new System.EventHandler(this.ContactenForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             this.bedrijfPnl.ResumeLayout(false);
@@ -723,8 +746,8 @@
         private System.Windows.Forms.Button btnAnnuleer;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel pnOptioneel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbPriveMail;
+        private System.Windows.Forms.Label kwaliteitLbl;
+        private System.Windows.Forms.TextBox tbKwaliteitenP;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbFunctie;
         private System.Windows.Forms.Label label3;
@@ -747,5 +770,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbHoofdlocatie;
         private System.Windows.Forms.ComboBox bedrijfCbx;
+        private System.Windows.Forms.Label afdelingLbl;
+        private System.Windows.Forms.TextBox afdelingTb;
     }
 }

@@ -10,9 +10,9 @@ namespace CrmAppSchool.Controllers
 {
     public class ZoekController : DatabaseController
     {
-        public List<Profiel> zoekMetFilter(string zoekquery, string zoekcriteria)
+        public List<Persooncontact> zoekMetFilter(string zoekquery, string zoekcriteria)
         {
-            List<Profiel> resultatenLijst = new List<Profiel>();
+            List<Persooncontact> resultatenLijst = new List<Persooncontact>();
             try
             {
                 conn.Open();
@@ -24,8 +24,8 @@ namespace CrmAppSchool.Controllers
                 MySqlDataReader lezer = command.ExecuteReader();
                 while(lezer.Read())
                 {
-                    Profiel profiel = new Profiel();
-                    resultatenLijst.Add(new Profiel { Gebruikersnaam = lezer.GetString("gebruikersnaam"), Voornaam = lezer.GetString("voornaam"), Achternaam = lezer.GetString("achternaam"), Bedrijf = lezer.GetString("bedrijf"), Functie = lezer.GetString("functie"), Kwaliteit = lezer.GetString("kwaliteit") });
+                    Persooncontact contact = new Persooncontact();
+                    resultatenLijst.Add(new Persooncontact { Voornaam = lezer.GetString("voornaam"), Achternaam = lezer.GetString("achternaam"), Locatie = lezer.GetString("locatie"), Email = lezer.GetString("email"), Functie = lezer["functie"] as string, Afdeling = lezer["afdeling"] as string });
                 }
             }
             catch(MySqlException e)
@@ -43,31 +43,31 @@ namespace CrmAppSchool.Controllers
         {
             if(zoekquery == "Voornaam")
             {
-                return "SELECT * FROM profiel WHERE (voornaam LIKE '%' @zoekParam '%')";
+                return "SELECT * FROM contactpersoon WHERE (voornaam LIKE '%' @zoekParam '%')";
             }
             else if(zoekquery == "Achternaam")
             {
-                return "SELECT * FROM profiel WHERE (achternaam LIKE '%' @zoekParam '%')";
+                return "SELECT * FROM contactpersoon WHERE (achternaam LIKE '%' @zoekParam '%')";
             }
             else if(zoekquery == "Kwaliteit")
             {
-                return "SELECT * FROM profiel WHERE (kwaliteit LIKE '%' @zoekParam '%')";
+                return "SELECT * FROM contactpersoon WHERE (kwaliteit LIKE '%' @zoekParam '%')";
             }
             else if (zoekquery == "Organisatie")
             {
-                return "SELECT * FROM profiel WHERE (bedrijf LIKE '%' @zoekParam '%')";
+                return "SELECT * FROM contactpersoon WHERE (bedrijf LIKE '%' @zoekParam '%')";
             }
             else if (zoekquery == "Locatie")
             {
-                return "SELECT * FROM profiel WHERE (locatie LIKE '%' @zoekParam '%')";
+                return "SELECT * FROM contactpersoon WHERE (locatie LIKE '%' @zoekParam '%')";
             }
             else if (zoekquery == "Functie")
             {
-                return "SELECT * FROM profiel WHERE (functie LIKE '%' @zoekParam '%')";
+                return "SELECT * FROM contactpersoon WHERE (functie LIKE '%' @zoekParam '%')";
             }
             else
             {
-                return "SELECT * FROM profiel";
+                return "SELECT * FROM contactpersoon";
             }
         }
     }

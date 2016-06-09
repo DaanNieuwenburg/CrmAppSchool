@@ -18,7 +18,7 @@ namespace CrmAppSchool.Views.Contacten
         private bool ShowSave { get; set; }
         private bool ShowZoeken { get; set; }
         private bool EditMode { get; set; }
-        private Gebruiker _gebruiker { get; set; }
+        public Gebruiker _gebruiker { get; set; }
         public ContactenForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
@@ -37,8 +37,8 @@ namespace CrmAppSchool.Views.Contacten
             lblGebruiker.Text = lblGebruiker.Text + " " + this._gebruiker.Gebruikersnaam;
 
             // Vul de combobox van bedrijven met bedrijven
-            ContactenController cc = new ContactenController();
-            bedrijfCbx.DataSource = cc.haalBedrijfLijstOp();
+            BedrijfController bc = new BedrijfController();
+            bedrijfCbx.DataSource = bc.haalBedrijfLijstOp();
             bedrijfCbx.DisplayMember = "Bedrijfnaam";
             bedrijfCbx.ValueMember = "Bedrijfscode";
         }
@@ -172,8 +172,6 @@ namespace CrmAppSchool.Views.Contacten
             {
                 contact.ImageKey = "SB";
             }
-                
-
 
         }
         private void SaveBedrijf(Bedrijfcontact bedrijf)
@@ -201,11 +199,22 @@ namespace CrmAppSchool.Views.Contacten
         {
             if (contactSoortCbx.Text != "Bedrijf")
             {
-                Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Locatie = tbLocatie.Text, Email = tbEmail.Text, Gebruiker = _gebruiker };
+                Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Functie = tbFunctie.Text, Afdeling = afdelingTb.Text, Locatie = tbLocatie.Text, Email = tbEmail.Text, Gebruiker = _gebruiker };
                 string contactSoort = Convert.ToString(contactSoortCbx.SelectedItem);
-                Console.WriteLine("Ik ben een " + contactSoort);
+                Console.WriteLine(tbFunctie.Text);
                 int bedrijfcode = Convert.ToInt32(bedrijfCbx.SelectedValue);
                 persooncontact.Bedrijf = new Bedrijfcontact() { Bedrijfscode = bedrijfcode };
+
+                // Haal kwaliteiten op
+                string[] kwaliteiten = new string[tbKwaliteitenP.Lines.Count()];
+                int i = 0;
+                foreach (string line in tbKwaliteitenP.Lines)
+                {
+                    kwaliteiten[i] = line;
+                    i++;
+                }
+                persooncontact.Kwaliteiten = kwaliteiten;
+
                 switch (contactSoort)
                 {
                     case "Stagebegeleider":
@@ -219,7 +228,7 @@ namespace CrmAppSchool.Views.Contacten
                         break;
                 }
                 ContactenController contactencontroller = new ContactenController();
-                contactencontroller.voegPersoonToe(persooncontact);
+                contactencontroller.controleerOfContactBestaat(_gebruiker, persooncontact);
                 SaveContact(persooncontact);
             }
             else
@@ -232,8 +241,8 @@ namespace CrmAppSchool.Views.Contacten
                     i++;
                 }
                 Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = bedrijfsnaamTxb.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = a };
-                ContactenController contactencontroller = new ContactenController();
-                contactencontroller.voegBedrijfToe(bedrijfcontact);
+                BedrijfController bc = new BedrijfController();
+                bc.voegBedrijfToe(bedrijfcontact);
                 SaveBedrijf(bedrijfcontact);
             }
 
@@ -266,6 +275,10 @@ namespace CrmAppSchool.Views.Contacten
         {
             if (lvContacten.SelectedItems.Count == 1)
             {
+                Console.WriteLine("HOIII1");
+                string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
+                ContactenController cc = new ContactenController();
+                cc.verwijderContact(_gebruiker, contactcode);
                 lvContacten.Items.Remove(lvContacten.SelectedItems[0]);
             }
             else if (lvContacten.SelectedItems.Count > 1)
@@ -273,6 +286,7 @@ namespace CrmAppSchool.Views.Contacten
                 foreach (ListViewItem item in lvContacten.SelectedItems)
                 {
                     lvContacten.Items.Remove(item);
+                    Console.WriteLine("HOIII2");
                 }
             }
         }
@@ -286,20 +300,39 @@ namespace CrmAppSchool.Views.Contacten
             tbFunctie.Text = "";
             tbLocatie.Text = "";
             tbMobiel.Text = "";
-            tbPriveMail.Text = "";
+            tbKwaliteitenP.Text = "";
 
         }
 
-        private void lvContacten_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-             
-        }
 
         private void lvContacten_ItemActivate(object sender, EventArgs e)
         {
-            string contactnaam = lvContacten.SelectedItems[0].Text;
-            ContactDetails _details = new ContactDetails(contactnaam);
+            string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
+            ContactenController _controller = new ContactenController();
+            
+            Persooncontact contact = _controller.HaalInfoOp(contactcode);
+            ContactDetails _details = new ContactDetails(contact);
             _details.ShowDialog();
+        }
+
+        private void ContactenForm_Load(object sender, EventArgs e)
+        {
+            ContactenController _getcontacten = new ContactenController();
+            List<Persooncontact> contactenlijst = _getcontacten.HaalContactenOp(_gebruiker);
+            foreach(Persooncontact contact in contactenlijst)
+            {
+                ListViewItem c = new ListViewItem(contact.Voornaam + contact.Achternaam);
+                c.SubItems.Add(Convert.ToString(contact.Contactcode));
+                if (contact.Isstagebegeleider == true)
+                {
+                    c.ImageKey = "SB";
+                }
+                else
+            {
+                    c.ImageKey = "GD";
+                }
+                lvContacten.Items.Add(c);
+            }
         }
     }
 }
