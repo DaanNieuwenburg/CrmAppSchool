@@ -24,7 +24,7 @@ namespace CrmAppSchool.Controllers
 
                 while (dataReader.Read())
                 {
-                    int code = dataReader.GetInt32("code");
+                    int code = dataReader.GetInt32("opdrachtcode");
                     string status = dataReader.GetString("status");
                     string naam = dataReader.GetString("naam");
                     string omschrijving = dataReader.GetString("omschrijving");
@@ -65,7 +65,7 @@ namespace CrmAppSchool.Controllers
 
                 while (dataReader.Read())
                 {
-                    int code = dataReader.GetInt32("code");
+                    int code = dataReader.GetInt32("opdrachtcode");
                     string status = dataReader.GetString("status");
                     string naam = dataReader.GetString("naam");
                     string omschrijving = dataReader.GetString("omschrijving");
@@ -95,7 +95,7 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string insertString = @"DELETE FROM stageopdracht WHERE code = @code";
+                string insertString = @"DELETE FROM stageopdracht WHERE opdrachtcode = @code";
 
                 MySqlCommand cmd = new MySqlCommand(insertString, conn);
                 MySqlParameter opdrachtcodeParam = new MySqlParameter("@code", MySqlDbType.Int32);
@@ -175,7 +175,7 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string insertString = @"UPDATE stageopdracht SET status = @status, naam = @naam, omschrijving = @omschrijving WHERE code= @code";
+                string insertString = @"UPDATE stageopdracht SET status = @status, naam = @naam, omschrijving = @omschrijving WHERE opdrachtcode= @code";
 
                 MySqlCommand cmd = new MySqlCommand(insertString, conn);
                 MySqlParameter codeParam = new MySqlParameter("@code", MySqlDbType.Bit);
