@@ -302,7 +302,7 @@ namespace CrmAppSchool.Views.Contacten
 
         private void lvContacten_ItemActivate(object sender, EventArgs e)
         {
-            string contactnaam = lvContacten.SelectedItems[0].Name;
+            string contactnaam = lvContacten.SelectedItems[0].Text;
             
             ContactenController _controller = new ContactenController();
             

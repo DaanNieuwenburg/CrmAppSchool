@@ -18,7 +18,7 @@ namespace CrmAppSchool.Controllers
         {
             Contactenlijst = new List<string>();
             contactenlijst2 = new Dictionary<string, string>();
-            contactinfo = new string[4];
+            contactinfo = new string[4] {"","","","" };
         }
         public void voegBedrijfToe(Bedrijfcontact contact)
         {
@@ -350,11 +350,15 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(voornaamParam);
 
                 command.Prepare();
-                MySqlDataReader datalezer = command.ExecuteReader();  
+                MySqlDataReader datalezer = command.ExecuteReader();
+                while (datalezer.Read())
+                {
                     contactinfo[0] = ((string)datalezer["voornaam"]);
                     contactinfo[1] = ((string)datalezer["achternaam"]);
                     contactinfo[2] = ((string)datalezer["locatie"]);
                     contactinfo[3] = ((string)datalezer["email"]);
+                }
+                    
 
 
             }
