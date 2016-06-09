@@ -28,8 +28,12 @@ namespace CrmAppSchool.Controllers
                     string status = dataReader.GetString("status");
                     string naam = dataReader.GetString("naam");
                     string omschrijving = dataReader.GetString("omschrijving");
+                    int bedrijfcode = dataReader.GetInt32("bedrijfcode");
                     Stageopdracht opdracht = new Stageopdracht { Code = code, Status = status, Naam = naam, Omschrijving = omschrijving };
-
+                    BedrijfController bc = new BedrijfController();
+                    Bedrijfcontact bedrijfcontact = bc.SelecteerBedrijf(bedrijfcode);
+                    Console.WriteLine("de bnaam = " + bedrijfcontact.Bedrijfnaam);
+                    opdracht.Bedrijf = bedrijfcontact;
                     opdrachten.Add(opdracht);
                 }
                 return opdrachten;
@@ -44,7 +48,7 @@ namespace CrmAppSchool.Controllers
                 conn.Close();
             }
 
-            
+
         }
 
         public List<Stageopdracht> ZoekOpdrachten(string tekst)
@@ -63,17 +67,21 @@ namespace CrmAppSchool.Controllers
 
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
+                int bedrijfcode = 0;
                 while (dataReader.Read())
                 {
                     int code = dataReader.GetInt32("opdrachtcode");
                     string status = dataReader.GetString("status");
                     string naam = dataReader.GetString("naam");
                     string omschrijving = dataReader.GetString("omschrijving");
+                    bedrijfcode = dataReader.GetInt32("bedrijfcode");
                     Stageopdracht opdracht = new Stageopdracht { Code = code, Status = status, Naam = naam, Omschrijving = omschrijving };
-
+                    BedrijfController bc = new BedrijfController();
+                    Bedrijfcontact bedrijfcontact = bc.SelecteerBedrijf(bedrijfcode);
+                    Console.WriteLine("de bnaam = " + bedrijfcontact.Bedrijfnaam);
+                    opdracht.Bedrijf = bedrijfcontact;
                     opdrachten.Add(opdracht);
                 }
-
                 return opdrachten;
             }
             catch (Exception e)

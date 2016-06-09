@@ -39,9 +39,10 @@ namespace CrmAppSchool.Views.Opdrachten
                 lvi.SubItems.Add(opdracht.Naam);
                 lvi.SubItems.Add(opdracht.Omschrijving);
                 lvi.SubItems.Add(opdracht.Status);
+                Bedrijfcontact bcontact = opdracht.Bedrijf;
                 if (opdracht.Bedrijf != null)
                 {
-                    lvi.SubItems.Add(opdracht.Bedrijf.Bedrijfnaam);
+                    lvi.SubItems.Add(bcontact.Bedrijfnaam);
                 }
                 lvStage.Items.Add(lvi);
             }
@@ -65,7 +66,7 @@ namespace CrmAppSchool.Views.Opdrachten
                 lvi.SubItems.Add(opdracht.Naam);
                 lvi.SubItems.Add(opdracht.Omschrijving);
                 lvi.SubItems.Add(opdracht.Status);
-                lvi.SubItems.Add(opdracht.Bedrijf.ToString());
+                lvi.SubItems.Add(opdracht.Bedrijf.Bedrijfnaam);
                 lvStage.Items.Add(lvi);
             }
         }

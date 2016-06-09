@@ -37,8 +37,8 @@ namespace CrmAppSchool.Views.Contacten
             lblGebruiker.Text = lblGebruiker.Text + " " + this._gebruiker.Gebruikersnaam;
 
             // Vul de combobox van bedrijven met bedrijven
-            ContactenController cc = new ContactenController();
-            bedrijfCbx.DataSource = cc.haalBedrijfLijstOp();
+            BedrijfController bc = new BedrijfController();
+            bedrijfCbx.DataSource = bc.haalBedrijfLijstOp();
             bedrijfCbx.DisplayMember = "Bedrijfnaam";
             bedrijfCbx.ValueMember = "Bedrijfscode";
         }
@@ -241,8 +241,8 @@ namespace CrmAppSchool.Views.Contacten
                     i++;
                 }
                 Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = bedrijfsnaamTxb.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = a };
-                ContactenController contactencontroller = new ContactenController();
-                contactencontroller.voegBedrijfToe(bedrijfcontact);
+                BedrijfController bc = new BedrijfController();
+                bc.voegBedrijfToe(bedrijfcontact);
                 SaveBedrijf(bedrijfcontact);
             }
 

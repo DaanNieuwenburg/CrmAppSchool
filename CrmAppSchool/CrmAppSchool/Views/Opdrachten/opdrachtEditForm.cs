@@ -20,8 +20,8 @@ namespace CrmAppSchool.Views.Opdrachten
         {
             InitializeComponent();
             getStatus();
-            ContactenController cc = new ContactenController();
-            bedrijfCbx.DataSource = cc.haalBedrijfLijstOp();
+            BedrijfController bc = new BedrijfController();
+            bedrijfCbx.DataSource = bc.haalBedrijfLijstOp();
             bedrijfCbx.DisplayMember = "Bedrijfnaam";
             bedrijfCbx.ValueMember = "Bedrijfscode";
         }
