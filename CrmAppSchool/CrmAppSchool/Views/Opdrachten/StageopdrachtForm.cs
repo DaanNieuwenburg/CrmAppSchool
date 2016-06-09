@@ -39,6 +39,10 @@ namespace CrmAppSchool.Views.Opdrachten
                 lvi.SubItems.Add(opdracht.Naam);
                 lvi.SubItems.Add(opdracht.Omschrijving);
                 lvi.SubItems.Add(opdracht.Status);
+                if (opdracht.Bedrijf != null)
+                {
+                    lvi.SubItems.Add(opdracht.Bedrijf.Bedrijfnaam);
+                }
                 lvStage.Items.Add(lvi);
             }
 
@@ -61,6 +65,7 @@ namespace CrmAppSchool.Views.Opdrachten
                 lvi.SubItems.Add(opdracht.Naam);
                 lvi.SubItems.Add(opdracht.Omschrijving);
                 lvi.SubItems.Add(opdracht.Status);
+                lvi.SubItems.Add(opdracht.Bedrijf.ToString());
                 lvStage.Items.Add(lvi);
             }
         }
@@ -84,6 +89,7 @@ namespace CrmAppSchool.Views.Opdrachten
                 opdracht.Naam = lvStage.SelectedItems[0].SubItems[1].Text;
                 opdracht.Omschrijving = lvStage.SelectedItems[0].SubItems[2].Text;
                 opdracht.Status = lvStage.SelectedItems[0].SubItems[3].Text;
+                opdracht.Bedrijf.Bedrijfnaam = lvStage.SelectedItems[0].SubItems[4].Text;
 
                 opdrachtEditForm OEF = new opdrachtEditForm();
                 OEF.Editopdracht(opdracht);

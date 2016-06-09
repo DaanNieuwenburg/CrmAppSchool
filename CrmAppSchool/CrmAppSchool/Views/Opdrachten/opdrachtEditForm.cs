@@ -20,6 +20,10 @@ namespace CrmAppSchool.Views.Opdrachten
         {
             InitializeComponent();
             getStatus();
+            ContactenController cc = new ContactenController();
+            bedrijfCbx.DataSource = cc.haalBedrijfLijstOp();
+            bedrijfCbx.DisplayMember = "Bedrijfnaam";
+            bedrijfCbx.ValueMember = "Bedrijfscode";
         }
 
         public void getStatus()
@@ -39,6 +43,7 @@ namespace CrmAppSchool.Views.Opdrachten
             opdracht.Status = (string)cbStatus.SelectedItem.ToString();
             opdracht.Naam = tbNaam.Text;
             opdracht.Omschrijving = tbOmschrijving.Text;
+            opdracht.Bedrijf = (Bedrijfcontact)bedrijfCbx.SelectedItem;
             soc.InsertStageopdracht(opdracht);
             DialogResult = DialogResult.OK;
         }
@@ -49,6 +54,7 @@ namespace CrmAppSchool.Views.Opdrachten
             tbNaam.Text = opdracht.Naam;
             tbOmschrijving.Text = opdracht.Omschrijving;
             cbStatus.Text = opdracht.Status;
+            bedrijfCbx.Text = opdracht.Bedrijf.Bedrijfnaam;
 
         }
 
@@ -62,7 +68,7 @@ namespace CrmAppSchool.Views.Opdrachten
                 }
                 else
                 {
-                    soc.updateStageopdracht(opdracht.Code, cbStatus.Text, tbNaam.Text, tbOmschrijving.Text);
+                    soc.updateStageopdracht(opdracht.Code, cbStatus.Text, tbNaam.Text, tbOmschrijving.Text, ((Bedrijfcontact)bedrijfCbx.SelectedValue).Bedrijfscode);
                     DialogResult = DialogResult.OK;
                 }
             }

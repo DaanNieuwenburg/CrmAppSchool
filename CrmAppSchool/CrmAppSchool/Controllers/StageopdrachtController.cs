@@ -10,6 +10,7 @@ namespace CrmAppSchool.Controllers
 {
     class StageopdrachtController : DatabaseController
     {
+        ContactenController coc = new ContactenController();
         public List<Stageopdracht> getOpdrachten()
         {
             List<Stageopdracht> opdrachten = new List<Stageopdracht>();
@@ -28,7 +29,8 @@ namespace CrmAppSchool.Controllers
                     string status = dataReader.GetString("status");
                     string naam = dataReader.GetString("naam");
                     string omschrijving = dataReader.GetString("omschrijving");
-                    Stageopdracht opdracht = new Stageopdracht { Code = code, Status = status, Naam = naam, Omschrijving = omschrijving };
+                    int bedrijf = dataReader.GetInt32("bedrijfscode");
+                    Stageopdracht opdracht = new Stageopdracht { Code = code, Status = status, Naam = naam, Omschrijving = omschrijving};
 
                     opdrachten.Add(opdracht);
                 }
@@ -69,6 +71,7 @@ namespace CrmAppSchool.Controllers
                     string status = dataReader.GetString("status");
                     string naam = dataReader.GetString("naam");
                     string omschrijving = dataReader.GetString("omschrijving");
+                    int bedrijf = dataReader.GetInt32("bedrijfscode");
                     Stageopdracht opdracht = new Stageopdracht { Code = code, Status = status, Naam = naam, Omschrijving = omschrijving };
 
                     opdrachten.Add(opdracht);
@@ -132,20 +135,23 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string insertString = @"INSERT INTO stageopdracht (status,naam, omschrijving) VALUES (@status, @naam, @omschrijving)";
+                string insertString = @"INSERT INTO stageopdracht (status,naam, omschrijving, bedrijfscode) VALUES (@status, @naam, @omschrijving, @ bedrijf)";
 
                 MySqlCommand cmd = new MySqlCommand(insertString, conn);
                 MySqlParameter statusParam = new MySqlParameter("@status", MySqlDbType.VarChar);
                 MySqlParameter naamParam = new MySqlParameter("@naam", MySqlDbType.VarChar);
                 MySqlParameter omschrijvingParam = new MySqlParameter("@omschrijving", MySqlDbType.VarChar);
+                MySqlParameter bedrijfParam = new MySqlParameter("@bedrijf", MySqlDbType.Int32);
 
                 statusParam.Value = opdracht.Status;
                 naamParam.Value = opdracht.Naam;
                 omschrijvingParam.Value = opdracht.Omschrijving;
+                bedrijfParam.Value = opdracht.Bedrijf.Bedrijfscode;
 
                 cmd.Parameters.Add(statusParam);
                 cmd.Parameters.Add(naamParam);
                 cmd.Parameters.Add(omschrijvingParam);
+                cmd.Parameters.Add(bedrijfParam);
 
                 cmd.Prepare();
 
@@ -167,7 +173,7 @@ namespace CrmAppSchool.Controllers
             }
         }
 
-        public void updateStageopdracht(int code, string status, string naam, string omschrijving)
+        public void updateStageopdracht(int code, string status, string naam, string omschrijving, int bedrijf)
         {
 
             MySqlTransaction trans = null;
@@ -175,23 +181,25 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string insertString = @"UPDATE stageopdracht SET status = @status, naam = @naam, omschrijving = @omschrijving WHERE opdrachtcode= @code";
+                string insertString = @"UPDATE stageopdracht SET status = @status, naam = @naam, omschrijving = @omschrijving, bedrijfscode = @bedrijf WHERE opdrachtcode= @code";
 
                 MySqlCommand cmd = new MySqlCommand(insertString, conn);
                 MySqlParameter codeParam = new MySqlParameter("@code", MySqlDbType.Bit);
                 MySqlParameter statusParam = new MySqlParameter("@status", MySqlDbType.VarChar);
                 MySqlParameter naamParam = new MySqlParameter("@naam", MySqlDbType.VarChar);
                 MySqlParameter omschrijvingParam = new MySqlParameter("@omschrijving", MySqlDbType.VarChar);
+                MySqlParameter bedrijfParam = new MySqlParameter("@bedrijf", MySqlDbType.Int32);
 
                 statusParam.Value = status;
                 naamParam.Value = naam;
                 omschrijvingParam.Value = omschrijving;
                 codeParam.Value = code;
+                bedrijfParam.Value = bedrijf;
 
                 cmd.Parameters.Add(codeParam);
                 cmd.Parameters.Add(statusParam);
                 cmd.Parameters.Add(naamParam);
-                cmd.Parameters.Add(omschrijvingParam);
+                cmd.Parameters.Add(bedrijfParam);
 
 
                 cmd.Prepare();
