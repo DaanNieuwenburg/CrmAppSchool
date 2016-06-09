@@ -10,9 +10,9 @@ namespace CrmAppSchool.Controllers
 {
     public class ZoekController : DatabaseController
     {
-        public List<Profiel> zoekMetFilter(string zoekquery, string zoekcriteria)
+        public List<Persooncontact> zoekMetFilter(string zoekquery, string zoekcriteria)
         {
-            List<Profiel> resultatenLijst = new List<Profiel>();
+            List<Persooncontact> resultatenLijst = new List<Persooncontact>();
             try
             {
                 conn.Open();
@@ -24,8 +24,8 @@ namespace CrmAppSchool.Controllers
                 MySqlDataReader lezer = command.ExecuteReader();
                 while(lezer.Read())
                 {
-                    Profiel profiel = new Profiel();
-                    resultatenLijst.Add(new Profiel { Gebruikersnaam = lezer.GetString("gebruikersnaam"), Voornaam = lezer.GetString("voornaam"), Achternaam = lezer.GetString("achternaam"), Bedrijf = lezer.GetString("bedrijf"), Functie = lezer.GetString("functie"), Kwaliteit = lezer.GetString("kwaliteit") });
+                    Persooncontact contact = new Persooncontact();
+                    resultatenLijst.Add(new Persooncontact { Voornaam = lezer.GetString("voornaam"), Achternaam = lezer.GetString("achternaam"), Locatie = lezer.GetString("locatie"), Email = lezer.GetString("email"), Functie = lezer["functie"] as string, Afdeling = lezer["afdeling"] as string });
                 }
             }
             catch(MySqlException e)

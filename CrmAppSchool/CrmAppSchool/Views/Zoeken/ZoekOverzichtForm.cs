@@ -18,7 +18,7 @@ namespace CrmAppSchool.Views.Zoeken
     {
         public bool ShowMenu { get; set; }
         private bool Sorteermenu { get; set; }
-        public ZoekOverzichtForm(List<Models.Profiel> resultaatLijst)
+        public ZoekOverzichtForm(List<Models.Persooncontact> resultaatLijst)
         {
 
             
@@ -40,14 +40,14 @@ namespace CrmAppSchool.Views.Zoeken
 
             //if (resultaatLijst != null && resultaatLijst.Count() > 0)
             //{
-            foreach (Models.Profiel profiel in resultaatLijst)
+            foreach (Models.Persooncontact contact in resultaatLijst)
                 {
-                    ListViewItem lvw = new ListViewItem(profiel.Voornaam);
-                    lvw.SubItems.Add(profiel.Achternaam);
-                    lvw.SubItems.Add(profiel.Bedrijf);
-                    lvw.SubItems.Add(profiel.Functie);
-                    lvw.SubItems.Add(profiel.Locatie);
-                    lvw.SubItems.Add(profiel.Kwaliteit);        
+                    ListViewItem lvw = new ListViewItem(contact.Voornaam);
+                    lvw.SubItems.Add(contact.Achternaam);
+                    //lvw.SubItems.Add(contact.Bedrijf.Bedrijfnaam);
+                    lvw.SubItems.Add(contact.Functie);
+                    lvw.SubItems.Add(contact.Locatie);
+                    //lvw.SubItems.Add(contact.Kwaliteit);        
                     resultatenLvw.Items.Add(lvw);
                     imagelist.ImageSize = new Size(50, 50);
                     lvw.ImageKey = "GS";        // Stel de afbeelding voor de persoon in
