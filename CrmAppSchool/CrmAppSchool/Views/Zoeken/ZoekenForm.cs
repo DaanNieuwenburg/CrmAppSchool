@@ -42,7 +42,7 @@ namespace CrmAppSchool.Views.Zoeken
             else
             {
                 ZoekController zoekController = new ZoekController();
-                List<Models.Profiel> resultaatLijst = zoekController.zoekMetFilter(zoekquery, zoekcriteriaTxb.Text);
+                List<Models.Persooncontact> resultaatLijst = zoekController.zoekMetFilter(zoekquery, zoekcriteriaTxb.Text);
                 if (resultaatLijst.Count > 0)
                 {
                     ZoekOverzichtForm zoekOverzichtForm = new ZoekOverzichtForm(resultaatLijst);
