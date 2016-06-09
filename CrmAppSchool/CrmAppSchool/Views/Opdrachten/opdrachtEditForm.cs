@@ -27,6 +27,23 @@ namespace CrmAppSchool.Views.Opdrachten
                 cbStatus.Items.Add("Open");
                 cbStatus.Items.Add("In uitvoering");
                 cbStatus.Items.Add("Voldaan");
+
+            ContactenController bedrijfcontroller = new ContactenController();
+            List<Bedrijfcontact> Bedrijven = new List<Bedrijfcontact>();
+            Bedrijven = bedrijfcontroller.haalBedrijfLijstOp();
+            foreach(Bedrijfcontact a in Bedrijven)
+            {
+                lv_bedrijf.Items.Add(a.Bedrijfnaam);
+            }
+
+            ContactenController contactpersoon = new ContactenController();
+            List<> contacten = new List<>();
+            Bedrijven = bedrijfcontroller.haalBedrijfLijstOp();
+            foreach (Bedrijfcontact a in Bedrijven)
+            {
+                lv_bedrijf.Items.Add(a.Bedrijfnaam);
+            }
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -77,5 +94,9 @@ namespace CrmAppSchool.Views.Opdrachten
             this.Close();
         }
 
+        private void lbl_contact_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
