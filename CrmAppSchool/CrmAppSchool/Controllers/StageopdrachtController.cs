@@ -140,7 +140,7 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string insertString = @"INSERT INTO stageopdracht (status,naam, omschrijving, bedrijf) VALUES (@status, @naam, @omschrijving, @ bedrijf)";
+                string insertString = @"INSERT INTO stageopdracht (status, naam, omschrijving, bedrijfcode) VALUES (@status, @naam, @omschrijving, @bedrijf)";
 
                 MySqlCommand cmd = new MySqlCommand(insertString, conn);
                 MySqlParameter statusParam = new MySqlParameter("@status", MySqlDbType.VarChar);

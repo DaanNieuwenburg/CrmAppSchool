@@ -43,6 +43,7 @@ namespace CrmAppSchool.Views.Opdrachten
                 if (opdracht.Bedrijf != null)
                 {
                     lvi.SubItems.Add(bcontact.Bedrijfnaam);
+                    lvi.SubItems.Add(Convert.ToString(bcontact.Bedrijfscode));
                 }
                 lvStage.Items.Add(lvi);
             }
@@ -67,6 +68,7 @@ namespace CrmAppSchool.Views.Opdrachten
                 lvi.SubItems.Add(opdracht.Omschrijving);
                 lvi.SubItems.Add(opdracht.Status);
                 lvi.SubItems.Add(opdracht.Bedrijf.Bedrijfnaam);
+                lvi.SubItems.Add(Convert.ToString(opdracht.Bedrijf.Bedrijfscode));
                 lvStage.Items.Add(lvi);
             }
         }
@@ -86,12 +88,16 @@ namespace CrmAppSchool.Views.Opdrachten
             if (lvStage.SelectedItems.Count != 0)
             {
                 Stageopdracht opdracht = new Stageopdracht();
+                int bedrijfcode = Convert.ToInt32(lvStage.SelectedItems[0].SubItems[5].Text);   // bedrijfcode
                 opdracht.Code = Convert.ToInt32(lvStage.SelectedItems[0].SubItems[0].Text);
                 opdracht.Naam = lvStage.SelectedItems[0].SubItems[1].Text;
                 opdracht.Omschrijving = lvStage.SelectedItems[0].SubItems[2].Text;
                 opdracht.Status = lvStage.SelectedItems[0].SubItems[3].Text;
-                opdracht.Bedrijf.Bedrijfnaam = lvStage.SelectedItems[0].SubItems[4].Text;
 
+                // Haal bedrijfinfo op
+                BedrijfController bc = new BedrijfController();
+                Bedrijfcontact bedrijf = bc.SelecteerBedrijf(bedrijfcode);
+                opdracht.Bedrijf = bedrijf;
                 opdrachtEditForm OEF = new opdrachtEditForm();
                 OEF.Editopdracht(opdracht);
                 OEF.ShowDialog();
