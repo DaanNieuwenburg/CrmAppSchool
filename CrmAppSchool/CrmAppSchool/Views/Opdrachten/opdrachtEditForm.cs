@@ -24,9 +24,9 @@ namespace CrmAppSchool.Views.Opdrachten
 
         public void getStatus()
         {
-                cbStatus.Items.Add("test");
-                cbStatus.Items.Add("beschikbaar");
-                cbStatus.Items.Add("afgerond");
+                cbStatus.Items.Add("Open");
+                cbStatus.Items.Add("In uitvoering");
+                cbStatus.Items.Add("Voldaan");
         }
 
         private void label1_Click(object sender, EventArgs e)
