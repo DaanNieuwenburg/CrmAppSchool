@@ -228,7 +228,7 @@ namespace CrmAppSchool.Views.Contacten
                         break;
                 }
                 ContactenController contactencontroller = new ContactenController();
-                contactencontroller.voegPersoonToe(_gebruiker, persooncontact);
+                contactencontroller.controleerOfContactBestaat(_gebruiker, persooncontact);
                 SaveContact(persooncontact);
             }
             else
@@ -275,6 +275,10 @@ namespace CrmAppSchool.Views.Contacten
         {
             if (lvContacten.SelectedItems.Count == 1)
             {
+                Console.WriteLine("HOIII1");
+                string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
+                ContactenController cc = new ContactenController();
+                cc.verwijderContact(_gebruiker, contactcode);
                 lvContacten.Items.Remove(lvContacten.SelectedItems[0]);
             }
             else if (lvContacten.SelectedItems.Count > 1)
@@ -282,6 +286,7 @@ namespace CrmAppSchool.Views.Contacten
                 foreach (ListViewItem item in lvContacten.SelectedItems)
                 {
                     lvContacten.Items.Remove(item);
+                    Console.WriteLine("HOIII2");
                 }
             }
         }
@@ -302,25 +307,30 @@ namespace CrmAppSchool.Views.Contacten
 
         private void lvContacten_ItemActivate(object sender, EventArgs e)
         {
-            string contactnaam = lvContacten.SelectedItems[0].Text;
-            
+            string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
             ContactenController _controller = new ContactenController();
             
-            _controller.HaalInfoOp(_gebruiker, lvContacten.SelectedItems[0].ToString());
-            string[] info = new string[4];
-            info = _controller.contactinfo;
-            ContactDetails _details = new ContactDetails(contactnaam, info);
+            Persooncontact contact = _controller.HaalInfoOp(contactcode);
+            ContactDetails _details = new ContactDetails(contact);
             _details.ShowDialog();
         }
 
         private void ContactenForm_Load(object sender, EventArgs e)
         {
             ContactenController _getcontacten = new ContactenController();
-            _getcontacten.HaalContactenOp(_gebruiker);
-            foreach(var contact in _getcontacten.contactenlijst2)
+            List<Persooncontact> contactenlijst = _getcontacten.HaalContactenOp(_gebruiker);
+            foreach(Persooncontact contact in contactenlijst)
             {
-                ListViewItem c = new ListViewItem(contact.Key);
-                c.ImageKey = contact.Value;
+                ListViewItem c = new ListViewItem(contact.Voornaam + contact.Achternaam);
+                c.SubItems.Add(Convert.ToString(contact.Contactcode));
+                if (contact.Isstagebegeleider == true)
+                {
+                    c.ImageKey = "SB";
+                }
+                else
+            {
+                    c.ImageKey = "GD";
+                }
                 lvContacten.Items.Add(c);
             }
         }
