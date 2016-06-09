@@ -11,14 +11,8 @@ namespace CrmAppSchool.Controllers
 {
     class ContactenController : DatabaseController
     {
-        public List<string> Contactenlijst { get; set; }
-        public Dictionary<string, string> contactenlijst2 { get; set; }
-        public string[] contactinfo { get; set; }
         public ContactenController()
         {
-            Contactenlijst = new List<string>();
-            contactenlijst2 = new Dictionary<string, string>();
-            contactinfo = new string[4] {"","","","" };
         }
         public void voegBedrijfToe(Bedrijfcontact contact)
         {
