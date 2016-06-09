@@ -33,13 +33,7 @@ namespace CrmAppSchool.Views.Zoeken
         private void btnZoek_Click(object sender, EventArgs e)
         {
             string zoekquery = Convert.ToString(zoekfilterCbx.SelectedItem);
-            if (zoekcriteriaTxb.Text == "")
-            {
-                //errorLbl.Text = "Geef a.ub. een zoekcriteria op";
-                MessageBox.Show("Geef a.u.b. een zoekcriteria op");
-                //errorLbl.Visible = true;
-            }
-            else if (Convert.ToString(zoekfilterCbx.SelectedItem) == "")
+            if (Convert.ToString(zoekfilterCbx.SelectedItem) == "")
             {
                 MessageBox.Show("Geef a.u.b. een zoekfilter op");
                 //errorLbl.Text = "Geef a.u.b. een zoekfilter op";
