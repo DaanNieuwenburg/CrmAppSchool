@@ -18,7 +18,7 @@ namespace CrmAppSchool.Controllers
         {
             Contactenlijst = new List<string>();
             contactenlijst2 = new Dictionary<string, string>();
-            contactinfo = new string[4];
+            contactinfo = new string[4] {"","","","" };
         }
         public void voegBedrijfToe(Bedrijfcontact contact)
         {
@@ -321,8 +321,8 @@ namespace CrmAppSchool.Controllers
                     contact.Isgastdocent = datalezer.GetBoolean("isgastdocent");
                     contact.Isstagebegeleider = datalezer.GetBoolean("isstagebegeleider");
                     contactenlijst.Add(contact);
-                }
-            }
+                    }
+                    }
             catch (MySqlException e)
             {
                 if (trans != null)
@@ -357,7 +357,7 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(contactcodeParam);
 
                 command.Prepare();
-                MySqlDataReader datalezer = command.ExecuteReader();
+                MySqlDataReader datalezer = command.ExecuteReader();  
                 while (datalezer.Read())
                 {
                     contact.Voornaam = ((string)datalezer["voornaam"]);

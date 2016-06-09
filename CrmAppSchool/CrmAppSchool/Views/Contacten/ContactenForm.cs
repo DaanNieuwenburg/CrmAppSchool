@@ -328,7 +328,7 @@ namespace CrmAppSchool.Views.Contacten
                     c.ImageKey = "SB";
                 }
                 else
-                {
+            {
                     c.ImageKey = "GD";
                 }
                 lvContacten.Items.Add(c);
