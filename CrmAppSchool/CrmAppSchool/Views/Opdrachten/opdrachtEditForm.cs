@@ -45,6 +45,7 @@ namespace CrmAppSchool.Views.Opdrachten
             opdracht.Naam = tbNaam.Text;
             opdracht.Omschrijving = tbOmschrijving.Text;
             opdracht.Bedrijf = (Bedrijfcontact)bedrijfCbx.SelectedItem;
+            opdracht.Contact = (Persooncontact)cbx_contact.SelectedItem;
             soc.InsertStageopdracht(opdracht);
             DialogResult = DialogResult.OK;
         }
@@ -56,6 +57,8 @@ namespace CrmAppSchool.Views.Opdrachten
             tbOmschrijving.Text = opdracht.Omschrijving;
             cbStatus.Text = opdracht.Status;
             bedrijfCbx.Text = opdracht.Bedrijf.Bedrijfnaam;
+            string naam = opdracht.Contact.Voornaam + " " + opdracht.Contact.Achternaam;
+            cbx_contact.Text = naam;
 
         }
 
