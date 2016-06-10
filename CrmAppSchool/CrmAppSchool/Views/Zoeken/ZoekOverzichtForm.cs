@@ -65,15 +65,14 @@ namespace CrmAppSchool.Views.Zoeken
                 // Sorteer met behulp van input van comboboxen
                 if (cbSorteerVolgorde.Text == "A→Z")
                 {                    
-                    resultatenLvw.Sorting = SortOrder.Ascending;
-                    resultatenLvw.Sort();
+                    resultatenLvw.Sorting = SortOrder.Ascending;               
                 }
-                else if (cbSorteerVolgorde.Text == "Z→A")
-                {
-                    
+                else
+                {             
                     resultatenLvw.Sorting = SortOrder.Descending;
-                    resultatenLvw.Sort();
+                    //resultatenLvw.Sort();
                 }
+                resultatenLvw.Sort();
             }
             UpdateSorteerMenu();
         }
