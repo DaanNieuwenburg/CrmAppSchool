@@ -197,7 +197,11 @@ namespace CrmAppSchool.Views.Contacten
         }
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            if(tbVoornaam.Text.Count() <= 0 || tbAchternaam.Text.Count() <= 0 || tbEmail.Text.Count() <= 0|| bedrijfCbx.Text.Count() <= 0)
+            if(contactSoortCbx.Text != "Bedrijf" && (tbVoornaam.Text.Count() <= 0 || tbAchternaam.Text.Count() <= 0 || tbEmail.Text.Count() <= 0|| bedrijfCbx.Text.Count() <= 0))
+            {
+                MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
+            }
+            else if(contactSoortCbx.Text == "Bedrijf" && (tbHoofdlocatie.Text.Count() <= 0 || tbBedrijfsnaam.Text.Count() <= 0) || (tbEadres.Text.Count() <= 0 && tbTelefoon.Text.Count() <= 0))
             {
                 MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
             }
@@ -205,7 +209,7 @@ namespace CrmAppSchool.Views.Contacten
             {
                 if (contactSoortCbx.Text != "Bedrijf")
                 {
-                    Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Functie = tbFunctie.Text, Afdeling = afdelingTb.Text, Locatie = tbLocatie.Text, Email = tbEmail.Text, Gebruiker = _gebruiker };
+                    Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Functie = tbFunctie.Text, Afdeling = tbAfdeling.Text, Locatie = tbLocatie.Text, Email = tbEmail.Text, Gebruiker = _gebruiker };
                     string contactSoort = Convert.ToString(contactSoortCbx.SelectedItem);
                     Console.WriteLine(tbFunctie.Text);
                     int bedrijfcode = Convert.ToInt32(bedrijfCbx.SelectedValue);
@@ -246,7 +250,7 @@ namespace CrmAppSchool.Views.Contacten
                         a[i] = line;
                         i++;
                     }
-                    Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = bedrijfsnaamTxb.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = a };
+                    Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tbBedrijfsnaam.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = a };
                     BedrijfController bc = new BedrijfController();
                     bc.voegBedrijfToe(bedrijfcontact);
                     SaveBedrijf(bedrijfcontact);
