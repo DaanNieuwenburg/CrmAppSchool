@@ -197,6 +197,12 @@ namespace CrmAppSchool.Views.Contacten
         }
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
+            if(tbVoornaam.Text.Count() <= 0 || tbAchternaam.Text.Count() <= 0 || tbEmail.Text.Count() <= 0|| bedrijfCbx.Text.Count() <= 0)
+            {
+                MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
+            }
+            else
+            {
             if (contactSoortCbx.Text != "Bedrijf")
             {
                 Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Functie = tbFunctie.Text, Afdeling = afdelingTb.Text, Locatie = tbLocatie.Text, Email = tbEmail.Text, Gebruiker = _gebruiker };
@@ -265,6 +271,8 @@ namespace CrmAppSchool.Views.Contacten
             ShowSave = false;
         }
 
+        }
+
         private void btnWijzig_Click(object sender, EventArgs e)
         {
             if(lvContacten.SelectedItems.Count == 1) //Om te bewerken moet er minimaal en maximaal 1 contact geselecteerd zijn
@@ -330,7 +338,7 @@ namespace CrmAppSchool.Views.Contacten
                     c.ImageKey = "SB";
                 }
                 else
-                {
+            {
                     c.ImageKey = "GD";
                 }
                 lvContacten.Items.Add(c);
@@ -339,6 +347,14 @@ namespace CrmAppSchool.Views.Contacten
         private void ContactenForm_Load(object sender, EventArgs e)
         {
             vulContacten();
+        }
+
+        private void tbMobiel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

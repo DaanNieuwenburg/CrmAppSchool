@@ -197,6 +197,7 @@ namespace CrmAppSchool.Views.Gebruikers
                     lblProfiel.Visible = true;
                     lblUitloggen.Visible = true;
                     lblZoeken.Visible = true;
+                    ShowHelp = true;
                 }
                 else if (gebruiker.SoortGebruiker == "Student")
                 {
@@ -208,6 +209,7 @@ namespace CrmAppSchool.Views.Gebruikers
                     lblOpdrachten.Text = "Uitloggen";
                     lblOpdrachten.Location = new Point(258, 374);
                     lblOpdrachten.Visible = true;
+                    ShowHelp = true;
                 }
             }
             else
