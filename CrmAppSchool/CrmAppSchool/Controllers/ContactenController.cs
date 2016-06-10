@@ -136,7 +136,6 @@ namespace CrmAppSchool.Controllers
                 }
 
                 // Zet de contact in de gebruikercontactpersoon koppeltabel
-                conn.Close();
                 voegContactPersoonKoppeltabel(gebruiker.Gebruikersnaam, primaryKey);
             }
             catch (MySqlException e)

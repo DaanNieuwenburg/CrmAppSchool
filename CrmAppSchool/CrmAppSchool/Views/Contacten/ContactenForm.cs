@@ -281,7 +281,11 @@ namespace CrmAppSchool.Views.Contacten
         {
             if(lvContacten.SelectedItems.Count == 1) //Om te bewerken moet er minimaal en maximaal 1 contact geselecteerd zijn
             {
-                
+                string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
+                ContactenController cc = new ContactenController();
+                Persooncontact contact = cc.HaalInfoOp(contactcode);
+                ContactBewerk bewerk = new ContactBewerk(contact);
+                bewerk.ShowDialog();
             }
         }
 
