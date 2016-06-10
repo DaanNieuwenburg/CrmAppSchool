@@ -19,6 +19,9 @@ namespace CrmAppSchool.Views.Contacten
         private bool ShowSave { get; set; }
         private bool ShowZoeken { get; set; }
         private bool EditMode { get; set; }
+        private bool validemail { get; set; }
+        private bool validmobiel { get; set; }
+        private bool validbedrijfemail { get; set; }
         public Gebruiker _gebruiker { get; set; }
         public ContactenForm(Gebruiker _gebruiker)
         {
@@ -129,7 +132,7 @@ namespace CrmAppSchool.Views.Contacten
 
         private void btnVoegtoe_Click(object sender, EventArgs e)
         {
-
+            validmobiel = true;
             if (ShowSave == false)
             {
                 lvContacten.Visible = false;
@@ -198,15 +201,52 @@ namespace CrmAppSchool.Views.Contacten
         }
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            if(contactSoortCbx.Text != "Bedrijf" && (tbVoornaam.Text.Count() <= 0 || tbAchternaam.Text.Count() <= 0 || tbEmail.Text.Count() <= 0|| bedrijfCbx.Text.Count() <= 0))
+            bool opslaan = false;
+            if(contactSoortCbx.Text != "Bedrijf")
             {
-                MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
-            }
-            else if(contactSoortCbx.Text == "Bedrijf" && (tbHoofdlocatie.Text.Count() <= 0 || tbBedrijfsnaam.Text.Count() <= 0) || (tbEadres.Text.Count() <= 0 && tbTelefoon.Text.Count() <= 0))
-            {
-                MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
+                bool a = false;
+                bool b = false;
+                if((tbVoornaam.Text.Count() <= 0 || tbAchternaam.Text.Count() <= 0 || tbEmail.Text.Count() <= 0 || bedrijfCbx.Text.Count() <= 0))
+                {
+                    a = false;
+                    MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
+                }
+                else
+                {
+                    a = true;
+                }
+                if(validemail == true && validmobiel == true)
+                {
+                    b = true;
+                }
+                else
+                {
+                    MessageBox.Show("Het ingevoerde emailadres of mobiel nr. is onjuist", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                if (a == true && b == true)
+                    opslaan = true;
             }
             else
+            {
+                bool a = false;
+                bool b = false;
+                if((tbHoofdlocatie.Text.Count() <= 0 || tbBedrijfsnaam.Text.Count() <= 0) || (tbEadres.Text.Count() <= 0 && tbTelefoon.Text.Count() <= 0))
+                {
+                    a = false;
+                    MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
+                }
+                else
+                {
+                    a = true;
+                }
+                if (validbedrijfemail == true)
+                {
+                    b = true;
+                }
+                if (a == true && b == true)
+                    opslaan = true;
+            }
+            if(opslaan == true)
             {
                 if (contactSoortCbx.Text != "Bedrijf")
                 {
@@ -388,6 +428,7 @@ namespace CrmAppSchool.Views.Contacten
                 {
                     // wrong e-mail address
                     tbEmail.ForeColor = Color.Red;
+                    validemail = false;
                 }
             }       
         }
@@ -395,6 +436,7 @@ namespace CrmAppSchool.Views.Contacten
         private void tbEmail_Enter(object sender, EventArgs e)
         {
             tbEmail.ForeColor = Color.Black;
+            validemail = true;
         }
         private void tbEadres_Leave(object sender, EventArgs e)
         {
@@ -408,6 +450,7 @@ namespace CrmAppSchool.Views.Contacten
                 {
                     // wrong e-mail address
                     tbEadres.ForeColor = Color.Red;
+                    validbedrijfemail = false;
                 }
             }
         }
@@ -415,6 +458,7 @@ namespace CrmAppSchool.Views.Contacten
         private void tbEadres_Enter(object sender, EventArgs e)
         {
             tbEadres.ForeColor = Color.Black;
+            validbedrijfemail = true;
         }
 
         private void tbTelefoon_KeyPress(object sender, KeyPressEventArgs e)
@@ -428,12 +472,18 @@ namespace CrmAppSchool.Views.Contacten
         private void tbMobiel_Enter(object sender, EventArgs e)
         {
             tbMobiel.ForeColor = Color.Black;
+            validmobiel = true;
         }
 
         private void tbMobiel_Leave(object sender, EventArgs e)
         {
             if(tbMobiel.Text.Count() < 10)
+            {
                 tbMobiel.ForeColor = Color.Red;
+                validmobiel = false;
+            }
+                
+                
         }
     }
 }
