@@ -215,7 +215,7 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"SELECT c.voornaam, c.achternaam, c.locatie, c.email, c.functie, c.afdeling, c.isgastdocent, c.isstagebegeleider, b.bedrijfnaam FROM contactpersoon c 
+                string query = @"SELECT c.contactcode, c.voornaam, c.achternaam, c.locatie, c.email, c.functie, c.afdeling, c.isgastdocent, c.isstagebegeleider, b.bedrijfnaam FROM contactpersoon c 
                                  INNER JOIN bedrijf b ON c.bedrijfcode = b.bedrijfcode 
                                  WHERE contactcode = @contactcode";
 
@@ -229,7 +229,7 @@ namespace CrmAppSchool.Controllers
                 MySqlDataReader datalezer = command.ExecuteReader();
                 while (datalezer.Read())
                 {
-                    contact.Contactcode = Convert.ToInt32(contactcode);
+                    contact.Contactcode = Int32.Parse(contactcode);
                     contact.Voornaam = ((string)datalezer["voornaam"]);
                     contact.Achternaam = ((string)datalezer["achternaam"]);
                     contact.Locatie = ((string)datalezer["locatie"]);

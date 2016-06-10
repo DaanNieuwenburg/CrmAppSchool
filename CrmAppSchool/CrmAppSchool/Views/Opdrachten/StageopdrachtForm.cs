@@ -43,7 +43,20 @@ namespace CrmAppSchool.Views.Opdrachten
                 if (opdracht.Bedrijf != null)
                 {
                     lvi.SubItems.Add(bcontact.Bedrijfnaam);
+                }
+                Persooncontact pcontact = opdracht.Contact;
+                if (opdracht.Contact != null)
+                {
+                    pcontact.volnaam = pcontact.Voornaam + " " + pcontact.Achternaam;
+                    lvi.SubItems.Add(pcontact.volnaam);
+                }
+                if (opdracht.Bedrijf != null)
+                {
                     lvi.SubItems.Add(Convert.ToString(bcontact.Bedrijfscode));
+                }
+                if (opdracht.Contact != null)
+                {
+                    lvi.SubItems.Add(Convert.ToString(pcontact.Contactcode));
                 }
                 lvStage.Items.Add(lvi);
             }
@@ -88,7 +101,8 @@ namespace CrmAppSchool.Views.Opdrachten
             if (lvStage.SelectedItems.Count != 0)
             {
                 Stageopdracht opdracht = new Stageopdracht();
-                int bedrijfcode = Convert.ToInt32(lvStage.SelectedItems[0].SubItems[5].Text);   // bedrijfcode
+                int bedrijfcode = Convert.ToInt32(lvStage.SelectedItems[0].SubItems[6].Text);   // bedrijfcode
+                int contactcode = Convert.ToInt32(lvStage.SelectedItems[0].SubItems[7].Text);   // contactcode
                 opdracht.Code = Convert.ToInt32(lvStage.SelectedItems[0].SubItems[0].Text);
                 opdracht.Naam = lvStage.SelectedItems[0].SubItems[1].Text;
                 opdracht.Omschrijving = lvStage.SelectedItems[0].SubItems[2].Text;
@@ -98,6 +112,12 @@ namespace CrmAppSchool.Views.Opdrachten
                 BedrijfController bc = new BedrijfController();
                 Bedrijfcontact bedrijf = bc.SelecteerBedrijf(bedrijfcode);
                 opdracht.Bedrijf = bedrijf;
+
+                //Haal contactinfo op
+                ContactenController cc = new ContactenController();
+                Persooncontact contact = cc.HaalInfoOp(contactcode.ToString());
+                opdracht.Contact = contact;
+
                 opdrachtEditForm OEF = new opdrachtEditForm();
                 OEF.Editopdracht(opdracht);
                 OEF.ShowDialog();
