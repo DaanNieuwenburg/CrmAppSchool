@@ -229,6 +229,7 @@ namespace CrmAppSchool.Controllers
                 MySqlDataReader datalezer = command.ExecuteReader();
                 while (datalezer.Read())
                 {
+                    contact.Contactcode = Convert.ToInt32(contactcode);
                     contact.Voornaam = ((string)datalezer["voornaam"]);
                     contact.Achternaam = ((string)datalezer["achternaam"]);
                     contact.Locatie = ((string)datalezer["locatie"]);
@@ -336,9 +337,7 @@ namespace CrmAppSchool.Controllers
         {
             try
             {
-                MySqlTransaction trans = null;
                 conn.Open();
-                // Verwijder contact in koppeltabel of als die maar een gebruiker kent, ook in de gebruikertabel
                 string query = @"UPDATE contactpersoon SET voornaam = @voornaam, achternaam = @achternaam, locatie = @locatie, email = @email, functie = @functie, afdeling = @afdeling 
                                      WHERE contactcode = @contactcode";
                 MySqlCommand command = new MySqlCommand(query, conn);
@@ -351,11 +350,13 @@ namespace CrmAppSchool.Controllers
                 MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
 
                 voornaamParam.Value = contact.Voornaam;
+                Console.WriteLine("Voornaam in view = " + contact.Voornaam);
                 achternaamParam.Value = contact.Achternaam;
                 locatieParam.Value = contact.Locatie;
                 emailParam.Value = contact.Email;
                 functieParam.Value = contact.Functie;
                 afdelingParam.Value = contact.Afdeling;
+                Console.WriteLine("Voornaam in view = " + contact.Contactcode);
                 contactcodeParam.Value = contact.Contactcode;
 
 

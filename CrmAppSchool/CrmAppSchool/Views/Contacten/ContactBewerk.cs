@@ -14,6 +14,7 @@ namespace CrmAppSchool.Views.Contacten
 {
     public partial class ContactBewerk : Form
     {
+        public int contactcode { get; set;}
         public ContactBewerk(Persooncontact contact)
         {
             InitializeComponent();
@@ -23,21 +24,24 @@ namespace CrmAppSchool.Views.Contacten
             functieTb.Text = contact.Functie;
             locatieTb.Text = contact.Locatie;
             emailTb.Text = contact.Email;
+            contactcode = contact.Contactcode;
         }
 
         private void bewerkBtn_Click(object sender, EventArgs e)
         {
             Persooncontact bewerktContact = new Persooncontact();
+            bewerktContact.Contactcode = contactcode;
             bewerktContact.Voornaam = voornaamTb.Text;
             bewerktContact.Achternaam = achternaamTb.Text;
             //bewerktContact.Bedrijf = bedrijfTb.Text;
             bewerktContact.Functie = functieTb.Text;
             bewerktContact.Locatie = locatieTb.Text;
             bewerktContact.Email = emailTb.Text;
-
+            
             // Contactencontroller
             ContactenController cc = new ContactenController();
             cc.bewerkContact(bewerktContact);
+            this.Close();
         }
     }
 }
