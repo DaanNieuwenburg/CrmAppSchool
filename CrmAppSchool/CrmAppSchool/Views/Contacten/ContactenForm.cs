@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrmAppSchool.Controllers;
 using CrmAppSchool.Models;
+using System.Net.Mail;
 
 namespace CrmAppSchool.Views.Contacten
 {
@@ -329,6 +330,7 @@ namespace CrmAppSchool.Views.Contacten
 
         private void ContactenForm_Load(object sender, EventArgs e)
         {
+            settooltips();
             ContactenController _getcontacten = new ContactenController();
             List<Persooncontact> contactenlijst = _getcontacten.HaalContactenOp(_gebruiker);
             foreach(Persooncontact contact in contactenlijst)
@@ -346,13 +348,86 @@ namespace CrmAppSchool.Views.Contacten
                 lvContacten.Items.Add(c);
             }
         }
-
+        private void settooltips()
+        {
+            ToolTip TP = new ToolTip();
+            TP.ShowAlways = true;
+            TP.SetToolTip(tbEmail, "Voer een geldig email adres in.\nExample: harry@hotmail.com");
+            ToolTip TP1 = new ToolTip();
+            TP1.ShowAlways = true;
+            TP1.SetToolTip(tbMobiel, "Voer een geldig mobiel nummer in.\nExample: 0612345678");
+        }
         private void tbMobiel_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
+        }
+
+        private void tbVoornaam_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void tbEmail_Leave(object sender, EventArgs e)
+        {
+            if(tbEmail.Text.Count() > 0)
+            {
+                try
+                {
+                    var eMailValidator = new System.Net.Mail.MailAddress(tbEmail.Text);
+                }
+                catch (FormatException ex)
+                {
+                    // wrong e-mail address
+                    tbEmail.ForeColor = Color.Red;
+                }
+            }       
+        }
+
+        private void tbEmail_Enter(object sender, EventArgs e)
+        {
+            tbEmail.ForeColor = Color.Black;
+        }
+        private void tbEadres_Leave(object sender, EventArgs e)
+        {
+            if (tbEadres.Text.Count() > 0)
+            {
+                try
+                {
+                    var eMailValidator = new MailAddress(tbEadres.Text);
+                }
+                catch (FormatException ex)
+                {
+                    // wrong e-mail address
+                    tbEadres.ForeColor = Color.Red;
+                }
+            }
+        }
+
+        private void tbEadres_Enter(object sender, EventArgs e)
+        {
+            tbEadres.ForeColor = Color.Black;
+        }
+
+        private void tbTelefoon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbMobiel_Enter(object sender, EventArgs e)
+        {
+            tbMobiel.ForeColor = Color.Black;
+        }
+
+        private void tbMobiel_Leave(object sender, EventArgs e)
+        {
+            if(tbMobiel.Text.Count() < 10)
+                tbMobiel.ForeColor = Color.Red;
         }
     }
 }
