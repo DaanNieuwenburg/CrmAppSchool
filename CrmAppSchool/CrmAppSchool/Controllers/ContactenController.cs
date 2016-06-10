@@ -14,7 +14,7 @@ namespace CrmAppSchool.Controllers
         public ContactenController()
         {
         }
- 
+
         public void controleerOfContactBestaat(Gebruiker gebruiker, Persooncontact contact)
         {
             // Query de database en kijk of contact bestaat
@@ -77,7 +77,7 @@ namespace CrmAppSchool.Controllers
 
         }
         public void voegPersoonToe(Gebruiker gebruiker, Persooncontact contact)
-        { 
+        {
 
             MySqlTransaction trans = null;
             try
@@ -190,8 +190,8 @@ namespace CrmAppSchool.Controllers
                     contact.Isgastdocent = datalezer.GetBoolean("isgastdocent");
                     contact.Isstagebegeleider = datalezer.GetBoolean("isstagebegeleider");
                     contactenlijst.Add(contact);
-                    }
-                    }
+                }
+            }
             catch (MySqlException e)
             {
                 if (trans != null)
@@ -226,7 +226,7 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(contactcodeParam);
 
                 command.Prepare();
-                MySqlDataReader datalezer = command.ExecuteReader();  
+                MySqlDataReader datalezer = command.ExecuteReader();
                 while (datalezer.Read())
                 {
                     contact.Voornaam = ((string)datalezer["voornaam"]);
@@ -332,6 +332,56 @@ namespace CrmAppSchool.Controllers
             }
         }
 
+        public void bewerkContact(Persooncontact contact)
+        {
+            try
+            {
+                MySqlTransaction trans = null;
+                conn.Open();
+                // Verwijder contact in koppeltabel of als die maar een gebruiker kent, ook in de gebruikertabel
+                string query = @"UPDATE contactpersoon SET voornaam = @voornaam, achternaam = @achternaam, locatie = @locatie, email = @email, functie = @functie, afdeling = @afdeling 
+                                     WHERE contactcode = @contactcode";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter voornaamParam = new MySqlParameter("voornaam", MySqlDbType.VarChar);
+                MySqlParameter achternaamParam = new MySqlParameter("achternaam", MySqlDbType.VarChar);
+                MySqlParameter locatieParam = new MySqlParameter("locatie", MySqlDbType.VarChar);
+                MySqlParameter emailParam = new MySqlParameter("email", MySqlDbType.VarChar);
+                MySqlParameter functieParam = new MySqlParameter("functie", MySqlDbType.VarChar);
+                MySqlParameter afdelingParam = new MySqlParameter("afdeling", MySqlDbType.VarChar);
+                MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
+
+                voornaamParam.Value = contact.Voornaam;
+                achternaamParam.Value = contact.Achternaam;
+                locatieParam.Value = contact.Locatie;
+                emailParam.Value = contact.Email;
+                functieParam.Value = contact.Functie;
+                afdelingParam.Value = contact.Afdeling;
+                contactcodeParam.Value = contact.Contactcode;
+
+
+                command.Parameters.Add(voornaamParam);
+                command.Parameters.Add(achternaamParam);
+                command.Parameters.Add(locatieParam);
+                command.Parameters.Add(emailParam);
+                command.Parameters.Add(functieParam);
+                command.Parameters.Add(afdelingParam);
+                command.Parameters.Add(contactcodeParam);
+
+                command.Prepare();
+                command.ExecuteNonQuery();
+            }
+
+
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Error in contactencontroller - bewerkContact: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public void verwijderContact(Gebruiker gebruiker, string persooncode)
         {
 
@@ -355,7 +405,7 @@ namespace CrmAppSchool.Controllers
                     aantalkeer = Convert.ToInt32(datalezer["aantalcontacten"]);
                 }
             }
-            catch(MySqlException e)
+            catch (MySqlException e)
             {
                 Console.WriteLine("Error in contactencontroller - voegcontactpersoonkwaliteittoe: " + e);
             }
@@ -425,7 +475,7 @@ namespace CrmAppSchool.Controllers
                                  WHERE b.bedrijfcode = @bedrijfcode";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
-                MySqlParameter bedrijfParam = new MySqlParameter("bedrijfcode" , MySqlDbType.VarChar);
+                MySqlParameter bedrijfParam = new MySqlParameter("bedrijfcode", MySqlDbType.VarChar);
 
                 bedrijfParam.Value = bedrijf.Bedrijfscode;
 
