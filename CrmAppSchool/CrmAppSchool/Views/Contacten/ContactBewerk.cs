@@ -14,26 +14,40 @@ namespace CrmAppSchool.Views.Contacten
 {
     public partial class ContactBewerk : Form
     {
-        public int contactcode { get; set;}
+        private int contactcode { get; set;}
+        private int bedrijfcode { get; set; }
         public ContactBewerk(Persooncontact contact)
         {
             InitializeComponent();
+
+            // Vult de bedrijven combobox met bedrijven
+            BedrijfController bc = new BedrijfController();
+            bedrijfCbx.DataSource = bc.haalBedrijfLijstOp();
+            bedrijfCbx.DisplayMember = "Bedrijfnaam";
+            bedrijfCbx.ValueMember = "Bedrijfscode";
+
+            // Zet de combobox selectie naar het huidige bedrijf
+            bedrijfCbx.SelectedIndex = bedrijfCbx.FindStringExact(contact.Bedrijf.Bedrijfnaam);
+
+            // Koppelt alle contact data aan de texboxes 
             voornaamTb.Text = contact.Voornaam;
             achternaamTb.Text = contact.Achternaam;
-            bedrijfTb.Text = contact.Bedrijf.Bedrijfnaam;
             functieTb.Text = contact.Functie;
             locatieTb.Text = contact.Locatie;
             emailTb.Text = contact.Email;
             contactcode = contact.Contactcode;
+            bedrijfcode = contact.Bedrijf.Bedrijfscode;
         }
 
         private void bewerkBtn_Click(object sender, EventArgs e)
         {
+            // Zet alle waardes van de textboxes in het nieuwe contact
             Persooncontact bewerktContact = new Persooncontact();
             bewerktContact.Contactcode = contactcode;
             bewerktContact.Voornaam = voornaamTb.Text;
             bewerktContact.Achternaam = achternaamTb.Text;
-            //bewerktContact.Bedrijf = bedrijfTb.Text;
+            bewerktContact.Bedrijf = new Bedrijfcontact();
+            bewerktContact.Bedrijf.Bedrijfscode = Convert.ToInt32(bedrijfCbx.SelectedValue);
             bewerktContact.Functie = functieTb.Text;
             bewerktContact.Locatie = locatieTb.Text;
             bewerktContact.Email = emailTb.Text;

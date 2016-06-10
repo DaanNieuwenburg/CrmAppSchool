@@ -215,7 +215,7 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"SELECT c.contactcode, c.voornaam, c.achternaam, c.locatie, c.email, c.functie, c.afdeling, c.isgastdocent, c.isstagebegeleider, b.bedrijfnaam FROM contactpersoon c 
+                string query = @"SELECT c.contactcode, c.voornaam, c.achternaam, c.locatie, c.email, c.functie, c.afdeling, c.isgastdocent, c.isstagebegeleider, b.bedrijfcode, b.bedrijfnaam FROM contactpersoon c 
                                  INNER JOIN bedrijf b ON c.bedrijfcode = b.bedrijfcode 
                                  WHERE contactcode = @contactcode";
 
@@ -240,6 +240,7 @@ namespace CrmAppSchool.Controllers
                     contact.Isgastdocent = datalezer.GetBoolean("Isgastdocent");
                     contact.Isstagebegeleider = datalezer.GetBoolean("isstagebegeleider");
                     contact.Bedrijf = new Bedrijfcontact();
+                    contact.Bedrijf.Bedrijfscode = ((Int32)datalezer["bedrijfcode"]);
                     contact.Bedrijf.Bedrijfnaam = ((string)datalezer["bedrijfnaam"]);
                 }
 
@@ -338,7 +339,7 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
-                string query = @"UPDATE contactpersoon SET voornaam = @voornaam, achternaam = @achternaam, locatie = @locatie, email = @email, functie = @functie, afdeling = @afdeling 
+                string query = @"UPDATE contactpersoon SET voornaam = @voornaam, achternaam = @achternaam, locatie = @locatie, email = @email, functie = @functie, afdeling = @afdeling, bedrijfcode = @bedrijfcode 
                                      WHERE contactcode = @contactcode";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter voornaamParam = new MySqlParameter("voornaam", MySqlDbType.VarChar);
@@ -347,16 +348,16 @@ namespace CrmAppSchool.Controllers
                 MySqlParameter emailParam = new MySqlParameter("email", MySqlDbType.VarChar);
                 MySqlParameter functieParam = new MySqlParameter("functie", MySqlDbType.VarChar);
                 MySqlParameter afdelingParam = new MySqlParameter("afdeling", MySqlDbType.VarChar);
+                MySqlParameter bedrijfcodeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
                 MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
 
                 voornaamParam.Value = contact.Voornaam;
-                Console.WriteLine("Voornaam in view = " + contact.Voornaam);
                 achternaamParam.Value = contact.Achternaam;
                 locatieParam.Value = contact.Locatie;
                 emailParam.Value = contact.Email;
                 functieParam.Value = contact.Functie;
                 afdelingParam.Value = contact.Afdeling;
-                Console.WriteLine("Voornaam in view = " + contact.Contactcode);
+                bedrijfcodeParam.Value = contact.Bedrijf.Bedrijfscode;
                 contactcodeParam.Value = contact.Contactcode;
 
 
@@ -366,6 +367,7 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(emailParam);
                 command.Parameters.Add(functieParam);
                 command.Parameters.Add(afdelingParam);
+                command.Parameters.Add(bedrijfcodeParam);
                 command.Parameters.Add(contactcodeParam);
 
                 command.Prepare();
