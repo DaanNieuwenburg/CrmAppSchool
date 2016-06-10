@@ -568,9 +568,11 @@
             // 
             this.tbMobiel.Font = new System.Drawing.Font("Arial", 10F);
             this.tbMobiel.Location = new System.Drawing.Point(106, 46);
+            this.tbMobiel.MaxLength = 10;
             this.tbMobiel.Name = "tbMobiel";
             this.tbMobiel.Size = new System.Drawing.Size(152, 23);
             this.tbMobiel.TabIndex = 4;
+            this.tbMobiel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMobiel_KeyPress);
             // 
             // btnDelete
             // 
