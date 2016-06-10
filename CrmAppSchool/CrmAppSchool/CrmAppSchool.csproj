@@ -37,7 +37,9 @@
       <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\..\Downloads\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -70,6 +72,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contacten\ContactBewerk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Contacten\ContactBewerk.Designer.cs">
+      <DependentUpon>ContactBewerk.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Contacten\ContactDetails.cs">
       <SubType>Form</SubType>
@@ -146,6 +154,9 @@
     <Compile Include="Views\Zoeken\ZoekOverzichtForm.Designer.cs">
       <DependentUpon>ZoekOverzichtForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Contacten\ContactBewerk.resx">
+      <DependentUpon>ContactBewerk.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Contacten\ContactDetails.resx">
       <DependentUpon>ContactDetails.cs</DependentUpon>
     </EmbeddedResource>
