@@ -241,6 +241,8 @@ namespace CrmAppSchool.Views.Contacten
                     ContactenController contactencontroller = new ContactenController();
                     contactencontroller.controleerOfContactBestaat(_gebruiker, persooncontact);
                     SaveContact(persooncontact);
+                lvContacten.Clear();
+                vulContacten();
                 }
                 else
                 {
@@ -328,12 +330,12 @@ namespace CrmAppSchool.Views.Contacten
             _details.ShowDialog();
         }
 
-        private void ContactenForm_Load(object sender, EventArgs e)
+        private void vulContacten()
         {
             settooltips();
             ContactenController _getcontacten = new ContactenController();
             List<Persooncontact> contactenlijst = _getcontacten.HaalContactenOp(_gebruiker);
-            foreach(Persooncontact contact in contactenlijst)
+            foreach (Persooncontact contact in contactenlijst)
             {
                 ListViewItem c = new ListViewItem(contact.Voornaam + contact.Achternaam);
                 c.SubItems.Add(Convert.ToString(contact.Contactcode));
@@ -347,6 +349,10 @@ namespace CrmAppSchool.Views.Contacten
                 }
                 lvContacten.Items.Add(c);
             }
+        }
+        private void ContactenForm_Load(object sender, EventArgs e)
+        {
+            vulContacten();
         }
         private void settooltips()
         {
