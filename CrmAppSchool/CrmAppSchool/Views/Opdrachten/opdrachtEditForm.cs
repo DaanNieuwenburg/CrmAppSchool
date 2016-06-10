@@ -24,6 +24,7 @@ namespace CrmAppSchool.Views.Opdrachten
             bedrijfCbx.DataSource = bc.haalBedrijfLijstOp();
             bedrijfCbx.DisplayMember = "Bedrijfnaam";
             bedrijfCbx.ValueMember = "Bedrijfscode";
+
         }
 
         public void getStatus()
@@ -83,5 +84,16 @@ namespace CrmAppSchool.Views.Opdrachten
             this.Close();
         }
 
+        private void bedrijfCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Bedrijfcontact bedrijf = bedrijfCbx.SelectedItem as Bedrijfcontact;
+            ContactenController cc = new ContactenController();
+            cbx_contact.Text = "";
+            cbx_contact.DataSource = cc.ContactenBijBedrijf(bedrijf);
+            cbx_contact.DisplayMember = "volnaam";
+            cbx_contact.ValueMember = "contactcode";
+
+
+        }
     }
 }

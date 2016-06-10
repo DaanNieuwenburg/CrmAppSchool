@@ -410,5 +410,59 @@ namespace CrmAppSchool.Controllers
                 conn.Close();
             }
         }
+
+        public List<Persooncontact> ContactenBijBedrijf(Bedrijfcontact bedrijf)
+        {
+            List<Persooncontact> contactenlijst = new List<Persooncontact>();
+            MySqlTransaction trans = null;
+
+            try
+            {
+                conn.Open();
+                trans = conn.BeginTransaction();
+                string query = @"SELECT *
+                                 FROM contactpersoon c JOIN bedrijf b
+                                 ON c.bedrijfcode = b.bedrijfcode
+                                 WHERE b.bedrijfcode = @bedrijfcode";
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter bedrijfParam = new MySqlParameter("bedrijfcode" , MySqlDbType.VarChar);
+
+                bedrijfParam.Value = bedrijf.Bedrijfscode;
+
+                command.Parameters.Add(bedrijfParam);
+                command.Prepare();
+                MySqlDataReader datalezer = command.ExecuteReader();
+
+                while (datalezer.Read())
+                {
+                    Persooncontact contact = new Persooncontact();
+                    contact.Contactcode = datalezer.GetInt32("contactcode");
+                    contact.Voornaam = datalezer.GetString("voornaam");
+                    contact.Achternaam = datalezer.GetString("achternaam");
+                    contact.Locatie = datalezer.GetString("locatie");
+                    contact.Email = datalezer.GetString("email");
+                    contact.Functie = datalezer["functie"] as string;
+                    contact.Afdeling = datalezer["afdeling"] as string;
+                    contact.Isgastdocent = datalezer.GetBoolean("isgastdocent");
+                    contact.Isstagebegeleider = datalezer.GetBoolean("isstagebegeleider");
+                    contact.volnaam = contact.Voornaam + " " + contact.Achternaam;
+                    contactenlijst.Add(contact);
+                }
+            }
+            catch (MySqlException e)
+            {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in contactencontroller - ContactenBijBedrijf: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return contactenlijst;
+        }
     }
 }
