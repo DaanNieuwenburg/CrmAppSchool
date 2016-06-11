@@ -106,9 +106,13 @@
             this.mobielTb.Font = new System.Drawing.Font("Arial", 10F);
             this.mobielTb.Location = new System.Drawing.Point(390, 14);
             this.mobielTb.Margin = new System.Windows.Forms.Padding(2);
+            this.mobielTb.MaxLength = 10;
             this.mobielTb.Name = "mobielTb";
             this.mobielTb.Size = new System.Drawing.Size(178, 23);
             this.mobielTb.TabIndex = 39;
+            this.mobielTb.Enter += new System.EventHandler(this.mobielTb_Enter);
+            this.mobielTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mobielTb_KeyPress);
+            this.mobielTb.Leave += new System.EventHandler(this.mobielTb_Leave);
             // 
             // emailTb
             // 
@@ -118,6 +122,8 @@
             this.emailTb.Name = "emailTb";
             this.emailTb.Size = new System.Drawing.Size(178, 23);
             this.emailTb.TabIndex = 38;
+            this.emailTb.Enter += new System.EventHandler(this.emailTb_Enter);
+            this.emailTb.Leave += new System.EventHandler(this.emailTb_Leave);
             // 
             // pmailTb
             // 
