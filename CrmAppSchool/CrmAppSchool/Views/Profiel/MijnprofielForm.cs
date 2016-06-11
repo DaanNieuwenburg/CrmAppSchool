@@ -50,11 +50,17 @@ namespace CrmAppSchool.Views.Profiel
         {
             // Zet de informatie van het profiel naar de labels
             lblVoornaamWaarde.Text = profiel.Voornaam;
+            cbPriveVN.Checked = profiel.VoornaamIsZichtbaar;
             lblAchternaamWaarde.Text = profiel.Achternaam;
+            cbPriveAN.Checked = profiel.AchternaamIsZichtbaar;
             lblBedrijfWaarde.Text = profiel.Bedrijf;
+            cbPriveBD.Checked = profiel.BedrijfIsZichtbaar;
             lblLocatieWaarde.Text = profiel.Locatie;
+            cbPriveLO.Checked = profiel.LocatieIsZichtbaar;
             lblKwaliteitWaarde.Text = profiel.Kwaliteit;
+            cbPriveKW.Checked = profiel.KwaliteitIsZichtbaar;
             lblFunctieWaarde.Text = profiel.Functie;
+            cbPriveFU.Checked = profiel.FunctieIsZichtbaar;
         }
 
         private void btnBewerk_Click(object sender, EventArgs e)
@@ -166,9 +172,19 @@ namespace CrmAppSchool.Views.Profiel
                     }
                 }
 
+
                 // Schrijf de nieuwe profiel informatie over naar de database
                 Controllers.ProfielController profielController = new Controllers.ProfielController();
                 Models.Profiel profiel = new Models.Profiel() { Voornaam = lblVoornaamWaarde.Text, Achternaam = lblAchternaamWaarde.Text, Bedrijf = lblBedrijfWaarde.Text, Locatie = lblLocatieWaarde.Text, Functie = lblFunctieWaarde.Text, Kwaliteit = lblKwaliteitWaarde.Text };
+
+                // Zet de checkboxes in het profiel
+                profiel.VoornaamIsZichtbaar = cbPriveVN.Checked;
+                profiel.AchternaamIsZichtbaar = cbPriveAN.Checked;
+                profiel.BedrijfIsZichtbaar = cbPriveBD.Checked;
+                profiel.LocatieIsZichtbaar = cbPriveLO.Checked;
+                profiel.FunctieIsZichtbaar = cbPriveFU.Checked;
+                profiel.KwaliteitIsZichtbaar = cbPriveKW.Checked;
+
                 profielController.Update_Profiel(gebruiker, profiel);
                 
                 // Zet de bewerk of prive mode weer uit
