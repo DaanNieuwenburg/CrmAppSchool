@@ -57,5 +57,29 @@ namespace CrmAppSchool.Views.Contacten
             cc.bewerkContact(bewerktContact);
             this.Close();
         }
+
+        private void btnOpslaan_Click(object sender, EventArgs e)
+        {
+            // Zet alle waardes van de textboxes in het nieuwe contact
+            Persooncontact bewerktContact = new Persooncontact();
+            bewerktContact.Contactcode = contactcode;
+            bewerktContact.Voornaam = voornaamTb.Text;
+            bewerktContact.Achternaam = achternaamTb.Text;
+            bewerktContact.Bedrijf = new Bedrijfcontact();
+            bewerktContact.Bedrijf.Bedrijfscode = Convert.ToInt32(bedrijfCbx.SelectedValue);
+            bewerktContact.Functie = functieTb.Text;
+            bewerktContact.Locatie = locatieTb.Text;
+            bewerktContact.Email = emailTb.Text;
+
+            // Contactencontroller
+            ContactenController cc = new ContactenController();
+            cc.bewerkContact(bewerktContact);
+            this.Close();
+        }
+
+        private void btnAnnuleer_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
