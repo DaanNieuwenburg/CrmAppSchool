@@ -42,7 +42,7 @@ namespace CrmAppSchool.Views.Contacten
             lblVNvalue.Text = contact.Voornaam;
             lblANvalue.Text = contact.Achternaam;
             lblLOvalue.Text = contact.Locatie;
-            lblMvalue.Text = contact.Email;
+            llbMValue.Text = contact.Email;
             if(contact.Functie != null)
             {
                 lblFUvalue.Text = contact.Functie;
@@ -53,6 +53,11 @@ namespace CrmAppSchool.Views.Contacten
         private void ContactDetails_Load(object sender, EventArgs e)
         {
             lblContactnaam.Text = contact.Voornaam + contact.Achternaam;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("mailto:" + llbMValue.Text);
         }
     }
 }

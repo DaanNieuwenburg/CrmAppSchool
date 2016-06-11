@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactDetails));
             this.pbHeader = new System.Windows.Forms.PictureBox();
-            this.lblMvalue = new System.Windows.Forms.Label();
             this.lblBDvalue = new System.Windows.Forms.Label();
             this.lblANvalue = new System.Windows.Forms.Label();
             this.lblVNvalue = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.locatieLbl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblContactnaam = new System.Windows.Forms.Label();
+            this.llbMValue = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,18 +59,6 @@
             this.pbHeader.Size = new System.Drawing.Size(550, 54);
             this.pbHeader.TabIndex = 14;
             this.pbHeader.TabStop = false;
-            // 
-            // lblMvalue
-            // 
-            this.lblMvalue.AutoSize = true;
-            this.lblMvalue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblMvalue.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblMvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblMvalue.Location = new System.Drawing.Point(386, 134);
-            this.lblMvalue.Name = "lblMvalue";
-            this.lblMvalue.Size = new System.Drawing.Size(15, 18);
-            this.lblMvalue.TabIndex = 27;
-            this.lblMvalue.Text = "x";
             // 
             // lblBDvalue
             // 
@@ -264,14 +252,25 @@
             this.lblContactnaam.TabIndex = 32;
             this.lblContactnaam.Text = "Contactnaam";
             // 
+            // llbMValue
+            // 
+            this.llbMValue.AutoSize = true;
+            this.llbMValue.Location = new System.Drawing.Point(388, 138);
+            this.llbMValue.Name = "llbMValue";
+            this.llbMValue.Size = new System.Drawing.Size(13, 14);
+            this.llbMValue.TabIndex = 33;
+            this.llbMValue.TabStop = true;
+            this.llbMValue.Text = "E";
+            this.llbMValue.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // ContactDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(550, 342);
+            this.Controls.Add(this.llbMValue);
             this.Controls.Add(this.lblContactnaam);
-            this.Controls.Add(this.lblMvalue);
             this.Controls.Add(this.lblBDvalue);
             this.Controls.Add(this.lblANvalue);
             this.Controls.Add(this.lblVNvalue);
@@ -302,7 +301,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pbHeader;
-        private System.Windows.Forms.Label lblMvalue;
         private System.Windows.Forms.Label lblBDvalue;
         private System.Windows.Forms.Label lblANvalue;
         private System.Windows.Forms.Label lblVNvalue;
@@ -319,5 +317,6 @@
         private System.Windows.Forms.Label locatieLbl;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblContactnaam;
+        private System.Windows.Forms.LinkLabel llbMValue;
     }
 }

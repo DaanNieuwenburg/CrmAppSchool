@@ -135,7 +135,7 @@ namespace CrmAppSchool.Views.Contacten
                 }
                 catch (FormatException ex)
                 {
-                    // wrong e-mail address
+                    // verkeerd e-mail address
                     emailTb.ForeColor = Color.Red;
                     validemail = false;
                 }
