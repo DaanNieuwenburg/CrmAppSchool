@@ -34,7 +34,6 @@
             this.bedrijfCbx = new System.Windows.Forms.ComboBox();
             this.mobielTb = new System.Windows.Forms.TextBox();
             this.emailTb = new System.Windows.Forms.TextBox();
-            this.pmailTb = new System.Windows.Forms.TextBox();
             this.locatieTb = new System.Windows.Forms.TextBox();
             this.functieTb = new System.Windows.Forms.TextBox();
             this.achternaamTb = new System.Windows.Forms.TextBox();
@@ -43,7 +42,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.achternaamLbl = new System.Windows.Forms.Label();
             this.voornaamLbl = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.locatieLbl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -72,7 +70,6 @@
             this.persoonPnl.Controls.Add(this.bedrijfCbx);
             this.persoonPnl.Controls.Add(this.mobielTb);
             this.persoonPnl.Controls.Add(this.emailTb);
-            this.persoonPnl.Controls.Add(this.pmailTb);
             this.persoonPnl.Controls.Add(this.locatieTb);
             this.persoonPnl.Controls.Add(this.functieTb);
             this.persoonPnl.Controls.Add(this.achternaamTb);
@@ -81,7 +78,6 @@
             this.persoonPnl.Controls.Add(this.label3);
             this.persoonPnl.Controls.Add(this.achternaamLbl);
             this.persoonPnl.Controls.Add(this.voornaamLbl);
-            this.persoonPnl.Controls.Add(this.label1);
             this.persoonPnl.Controls.Add(this.label2);
             this.persoonPnl.Controls.Add(this.locatieLbl);
             this.persoonPnl.Controls.Add(this.label4);
@@ -124,15 +120,6 @@
             this.emailTb.TabIndex = 38;
             this.emailTb.Enter += new System.EventHandler(this.emailTb_Enter);
             this.emailTb.Leave += new System.EventHandler(this.emailTb_Leave);
-            // 
-            // pmailTb
-            // 
-            this.pmailTb.Font = new System.Drawing.Font("Arial", 10F);
-            this.pmailTb.Location = new System.Drawing.Point(390, 78);
-            this.pmailTb.Margin = new System.Windows.Forms.Padding(2);
-            this.pmailTb.Name = "pmailTb";
-            this.pmailTb.Size = new System.Drawing.Size(178, 23);
-            this.pmailTb.TabIndex = 37;
             // 
             // locatieTb
             // 
@@ -221,19 +208,6 @@
             this.voornaamLbl.Size = new System.Drawing.Size(76, 16);
             this.voornaamLbl.TabIndex = 24;
             this.voornaamLbl.Text = "Voornaam:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Arial", 10F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.label1.Location = new System.Drawing.Point(296, 78);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 16);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Privé mail:";
             // 
             // label2
             // 
@@ -350,7 +324,6 @@
         private System.Windows.Forms.Panel persoonPnl;
         private System.Windows.Forms.TextBox mobielTb;
         private System.Windows.Forms.TextBox emailTb;
-        private System.Windows.Forms.TextBox pmailTb;
         private System.Windows.Forms.TextBox locatieTb;
         private System.Windows.Forms.TextBox functieTb;
         private System.Windows.Forms.TextBox achternaamTb;
@@ -359,7 +332,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label achternaamLbl;
         private System.Windows.Forms.Label voornaamLbl;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label locatieLbl;
         private System.Windows.Forms.Label label4;
