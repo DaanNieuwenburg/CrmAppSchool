@@ -338,7 +338,6 @@ namespace CrmAppSchool.Views.Contacten
         {
             if (lvContacten.SelectedItems.Count == 1)
             {
-                Console.WriteLine("HOIII1");
                 string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
                 ContactenController cc = new ContactenController();
                 cc.verwijderContact(_gebruiker, contactcode);
@@ -349,7 +348,9 @@ namespace CrmAppSchool.Views.Contacten
                 foreach (ListViewItem item in lvContacten.SelectedItems)
                 {
                     lvContacten.Items.Remove(item);
-                    Console.WriteLine("HOIII2");
+                    string contactcode = item.SubItems[1].Text;
+                    ContactenController cc = new ContactenController();
+                    cc.verwijderContact(_gebruiker, contactcode);
                 }
             }
         }
