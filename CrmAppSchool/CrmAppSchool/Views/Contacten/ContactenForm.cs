@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrmAppSchool.Controllers;
 using CrmAppSchool.Models;
+using System.Net.Mail;
 
 namespace CrmAppSchool.Views.Contacten
 {
@@ -18,6 +19,9 @@ namespace CrmAppSchool.Views.Contacten
         private bool ShowSave { get; set; }
         private bool ShowZoeken { get; set; }
         private bool EditMode { get; set; }
+        private bool validemail { get; set; }
+        private bool validmobiel { get; set; }
+        private bool validbedrijfemail { get; set; }
         public Gebruiker _gebruiker { get; set; }
         public ContactenForm(Gebruiker _gebruiker)
         {
@@ -128,7 +132,7 @@ namespace CrmAppSchool.Views.Contacten
 
         private void btnVoegtoe_Click(object sender, EventArgs e)
         {
-
+            validmobiel = true;
             if (ShowSave == false)
             {
                 lvContacten.Visible = false;
@@ -163,11 +167,11 @@ namespace CrmAppSchool.Views.Contacten
             if (contactSoortCbx.Text == "Gastspreker")
             {
                 contact.ImageKey = "GS";
-            }               
+            }
             else if (contactSoortCbx.Text == "Gastdocent")
             {
                 contact.ImageKey = "GD";
-            }              
+            }
             else if (contactSoortCbx.Text == "Stagebegeleider")
             {
                 contact.ImageKey = "SB";
@@ -197,77 +201,136 @@ namespace CrmAppSchool.Views.Contacten
         }
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
+            bool opslaan = false;
             if (contactSoortCbx.Text != "Bedrijf")
             {
-                Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Functie = tbFunctie.Text, Afdeling = afdelingTb.Text, Locatie = tbLocatie.Text, Email = tbEmail.Text, Gebruiker = _gebruiker };
-                string contactSoort = Convert.ToString(contactSoortCbx.SelectedItem);
-                Console.WriteLine(tbFunctie.Text);
-                int bedrijfcode = Convert.ToInt32(bedrijfCbx.SelectedValue);
-                persooncontact.Bedrijf = new Bedrijfcontact() { Bedrijfscode = bedrijfcode };
-
-                // Haal kwaliteiten op
-                string[] kwaliteiten = new string[tbKwaliteitenP.Lines.Count()];
-                int i = 0;
-                foreach (string line in tbKwaliteitenP.Lines)
+                bool a = false;
+                bool b = false;
+                if ((tbVoornaam.Text.Count() <= 0 || tbAchternaam.Text.Count() <= 0 || tbEmail.Text.Count() <= 0 || bedrijfCbx.Text.Count() <= 0))
                 {
-                    kwaliteiten[i] = line;
-                    i++;
+                    a = false;
+                    MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
                 }
-                persooncontact.Kwaliteiten = kwaliteiten;
-
-                switch (contactSoort)
+                else
                 {
-                    case "Stagebegeleider":
-                        persooncontact.Isstagebegeleider = true;
-                        break;
-                    case "Gastdocent":
-                        persooncontact.Isgastdocent = true;
-                        break;
-                    default:
-                        Console.WriteLine("ERROR");
-                        break;
+                    a = true;
                 }
-                ContactenController contactencontroller = new ContactenController();
-                contactencontroller.controleerOfContactBestaat(_gebruiker, persooncontact);
-                SaveContact(persooncontact);
+                if (validemail == true && validmobiel == true)
+                {
+                    b = true;
+                }
+                else
+                {
+                    MessageBox.Show("Het ingevoerde emailadres of mobiel nr. is onjuist", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                if (a == true && b == true)
+                    opslaan = true;
             }
             else
             {
-                string[] a = new string[tbKwaliteiten.Lines.Count()];
-                int i = 0;
-                foreach (string line in tbKwaliteiten.Lines)
+                bool a = false;
+                bool b = false;
+                if ((tbHoofdlocatie.Text.Count() <= 0 || tbBedrijfsnaam.Text.Count() <= 0) || (tbEadres.Text.Count() <= 0 && tbTelefoon.Text.Count() <= 0))
                 {
-                    a[i] = line;
-                    i++;
+                    a = false;
+                    MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
                 }
-                Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = bedrijfsnaamTxb.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = a };
-                BedrijfController bc = new BedrijfController();
-                bc.voegBedrijfToe(bedrijfcontact);
-                SaveBedrijf(bedrijfcontact);
+                else
+                {
+                    a = true;
+                }
+                if (validbedrijfemail == true)
+                {
+                    b = true;
+                }
+                if (a == true && b == true)
+                    opslaan = true;
+            }
+            if (opslaan == true)
+            {
+                if (contactSoortCbx.Text != "Bedrijf")
+                {
+                    Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Functie = tbFunctie.Text, Afdeling = tbAfdeling.Text, Locatie = tbLocatie.Text, Email = tbEmail.Text, Gebruiker = _gebruiker };
+                    string contactSoort = Convert.ToString(contactSoortCbx.SelectedItem);
+                    Console.WriteLine(tbFunctie.Text);
+                    int bedrijfcode = Convert.ToInt32(bedrijfCbx.SelectedValue);
+                    persooncontact.Bedrijf = new Bedrijfcontact() { Bedrijfscode = bedrijfcode };
+
+                    // Haal kwaliteiten op
+                    string[] kwaliteiten = new string[tbKwaliteitenP.Lines.Count()];
+                    int i = 0;
+                    foreach (string line in tbKwaliteitenP.Lines)
+                    {
+                        kwaliteiten[i] = line;
+                        i++;
+                    }
+                    persooncontact.Kwaliteiten = kwaliteiten;
+
+                    switch (contactSoort)
+                    {
+                        case "Stagebegeleider":
+                            persooncontact.Isstagebegeleider = true;
+                            break;
+                        case "Gastdocent":
+                            persooncontact.Isgastdocent = true;
+                            break;
+                        default:
+                            Console.WriteLine("ERROR");
+                            break;
+                    }
+                    ContactenController contactencontroller = new ContactenController();
+                    contactencontroller.controleerOfContactBestaat(_gebruiker, persooncontact);
+                    SaveContact(persooncontact);
+                    lvContacten.Clear();
+                    vulContacten();
+                }
+                else
+                {
+                    string[] a = new string[tbKwaliteiten.Lines.Count()];
+                    int i = 0;
+                    foreach (string line in tbKwaliteiten.Lines)
+                    {
+                        a[i] = line;
+                        i++;
+                    }
+                    Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tbBedrijfsnaam.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = a };
+                    BedrijfController bc = new BedrijfController();
+                    bc.voegBedrijfToe(bedrijfcontact);
+                    SaveBedrijf(bedrijfcontact);
+                }
+
+                pnOptioneel.Visible = false;
+                persoonPnl.Visible = false;
+                pnbedrijf2.Visible = false;
+                bedrijfPnl.Visible = false;
+                bedrijfPnl.Visible = false;
+                btnZoeken.Visible = true;
+                lblSoort.Visible = false;
+                btnVoegtoe.Visible = true;
+                btnWijzig.Visible = true;
+                btnDelete.Visible = true;
+                btnAnnuleer.Visible = false;
+                btnOpslaan.Visible = false;
+                contactSoortCbx.Visible = false;
+                lvContacten.Visible = true;
+                ShowSave = false;
             }
 
-            pnOptioneel.Visible = false;
-            persoonPnl.Visible = false;
-            pnbedrijf2.Visible = false;
-            bedrijfPnl.Visible = false;
-            bedrijfPnl.Visible = false;
-            btnZoeken.Visible = true;
-            lblSoort.Visible = false;
-            btnVoegtoe.Visible = true;
-            btnWijzig.Visible = true;
-            btnDelete.Visible = true;
-            btnAnnuleer.Visible = false;
-            btnOpslaan.Visible = false;
-            contactSoortCbx.Visible = false;
-            lvContacten.Visible = true;
-            ShowSave = false;
         }
 
         private void btnWijzig_Click(object sender, EventArgs e)
         {
-            if(lvContacten.SelectedItems.Count == 1) //Om te bewerken moet er minimaal en maximaal 1 contact geselecteerd zijn
+            if (lvContacten.SelectedItems.Count == 1) //Om te bewerken moet er minimaal en maximaal 1 contact geselecteerd zijn
             {
-                
+                string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
+                ContactenController cc = new ContactenController();
+                Persooncontact contact = cc.HaalInfoOp(contactcode);
+                ContactBewerk bewerk = new ContactBewerk(contact);
+                bewerk.ShowDialog();
+
+                // Reset de listview
+                lvContacten.Clear();
+                vulContacten();
             }
         }
 
@@ -275,7 +338,6 @@ namespace CrmAppSchool.Views.Contacten
         {
             if (lvContacten.SelectedItems.Count == 1)
             {
-                Console.WriteLine("HOIII1");
                 string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
                 ContactenController cc = new ContactenController();
                 cc.verwijderContact(_gebruiker, contactcode);
@@ -286,7 +348,9 @@ namespace CrmAppSchool.Views.Contacten
                 foreach (ListViewItem item in lvContacten.SelectedItems)
                 {
                     lvContacten.Items.Remove(item);
-                    Console.WriteLine("HOIII2");
+                    string contactcode = item.SubItems[1].Text;
+                    ContactenController cc = new ContactenController();
+                    cc.verwijderContact(_gebruiker, contactcode);
                 }
             }
         }
@@ -309,17 +373,18 @@ namespace CrmAppSchool.Views.Contacten
         {
             string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
             ContactenController _controller = new ContactenController();
-            
+
             Persooncontact contact = _controller.HaalInfoOp(contactcode);
             ContactDetails _details = new ContactDetails(contact);
             _details.ShowDialog();
         }
 
-        private void ContactenForm_Load(object sender, EventArgs e)
+        private void vulContacten()
         {
+            settooltips();
             ContactenController _getcontacten = new ContactenController();
             List<Persooncontact> contactenlijst = _getcontacten.HaalContactenOp(_gebruiker);
-            foreach(Persooncontact contact in contactenlijst)
+            foreach (Persooncontact contact in contactenlijst)
             {
                 ListViewItem c = new ListViewItem(contact.Voornaam + contact.Achternaam);
                 c.SubItems.Add(Convert.ToString(contact.Contactcode));
@@ -328,11 +393,106 @@ namespace CrmAppSchool.Views.Contacten
                     c.ImageKey = "SB";
                 }
                 else
-            {
+                {
                     c.ImageKey = "GD";
                 }
                 lvContacten.Items.Add(c);
             }
+        }
+        private void ContactenForm_Load(object sender, EventArgs e)
+        {
+            vulContacten();
+        }
+        private void settooltips()
+        {
+            ToolTip TP = new ToolTip();
+            TP.ShowAlways = true;
+            TP.SetToolTip(tbEmail, "Voer een geldig email adres in.\nExample: harry@hotmail.com");
+            ToolTip TP1 = new ToolTip();
+            TP1.ShowAlways = true;
+            TP1.SetToolTip(tbMobiel, "Voer een geldig mobiel nummer in.\nExample: 0612345678");
+        }
+        private void tbMobiel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbVoornaam_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void tbEmail_Leave(object sender, EventArgs e)
+        {
+            if (tbEmail.Text.Count() > 0)
+            {
+                try
+                {
+                    var eMailValidator = new System.Net.Mail.MailAddress(tbEmail.Text);
+                }
+                catch (FormatException ex)
+                {
+                    // wrong e-mail address
+                    tbEmail.ForeColor = Color.Red;
+                    validemail = false;
+                }
+            }
+        }
+
+        private void tbEmail_Enter(object sender, EventArgs e)
+        {
+            tbEmail.ForeColor = Color.Black;
+            validemail = true;
+        }
+        private void tbEadres_Leave(object sender, EventArgs e)
+        {
+            if (tbEadres.Text.Count() > 0)
+            {
+                try
+                {
+                    var eMailValidator = new MailAddress(tbEadres.Text);
+                }
+                catch (FormatException ex)
+                {
+                    // wrong e-mail address
+                    tbEadres.ForeColor = Color.Red;
+                    validbedrijfemail = false;
+                }
+            }
+        }
+
+        private void tbEadres_Enter(object sender, EventArgs e)
+        {
+            tbEadres.ForeColor = Color.Black;
+            validbedrijfemail = true;
+        }
+
+        private void tbTelefoon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbMobiel_Enter(object sender, EventArgs e)
+        {
+            tbMobiel.ForeColor = Color.Black;
+            validmobiel = true;
+        }
+
+        private void tbMobiel_Leave(object sender, EventArgs e)
+        {
+            if (tbMobiel.Text.Count() < 10)
+            {
+                tbMobiel.ForeColor = Color.Red;
+                validmobiel = false;
+            }
+
+
         }
     }
 }

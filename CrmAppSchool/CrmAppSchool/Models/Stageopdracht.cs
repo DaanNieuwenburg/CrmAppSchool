@@ -13,6 +13,7 @@ namespace CrmAppSchool.Models
         public string Naam { get; set; }
         public string Omschrijving { get; set; }
         public Bedrijfcontact Bedrijf { get; set; }
+        public Persooncontact Contact { get; set; }
 
         public override string ToString()
         {

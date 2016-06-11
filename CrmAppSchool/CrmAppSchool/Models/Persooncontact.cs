@@ -11,6 +11,7 @@ namespace CrmAppSchool.Models
         public int Contactcode { get; set; }
         public string Voornaam { get; set; }
         public string Achternaam { get; set; }
+        public string volnaam { get; set; }
         public string Locatie { get; set; }
         public string Email { get; set; }
         public string Functie { get; set; }
@@ -21,4 +22,5 @@ namespace CrmAppSchool.Models
         public Gebruiker Gebruiker { get; set; }
         public Bedrijfcontact Bedrijf { get; set; }
     }
+    
 }

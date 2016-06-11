@@ -61,19 +61,17 @@ namespace CrmAppSchool.Views.Zoeken
             string a = cbSorteerOp.Text;
             if (Sorteermenu == true)
             {
-                resultatenLvw.ListViewItemSorter = new ListViewItemComparer(cbSorteerOp.SelectedIndex, cbSorteerVolgorde.Text);
+                resultatenLvw.ListViewItemSorter = new ListViewItemComparer(cbSorteerOp.SelectedIndex);
                 // Sorteer met behulp van input van comboboxen
-                /*if (cbSorteerVolgorde.Text == "A→Z")
+                if (cbSorteerVolgorde.Text == "A→Z")
                 {                    
-                   resultatenLvw.Sorting = SortOrder.Ascending;
-                    resultatenLvw.Sort();
+                    resultatenLvw.Sorting = SortOrder.Ascending;               
                 }
-                else if (cbSorteerVolgorde.Text == "Z→A")
-                {
-                    
-                   resultatenLvw.Sorting = SortOrder.Descending;
-                    resultatenLvw.Sort();
-                }*/
+                else
+                {             
+                    resultatenLvw.Sorting = SortOrder.Descending;
+                    //resultatenLvw.Sort();
+                }
                 resultatenLvw.Sort();
             }
             UpdateSorteerMenu();
@@ -114,31 +112,17 @@ namespace CrmAppSchool.Views.Zoeken
     class ListViewItemComparer : IComparer
     {
         private int col;
-        private string sort;
         public ListViewItemComparer()
         {
             col = 0;
         }
-        public ListViewItemComparer(int column, string sorteervolgorde)
+        public ListViewItemComparer(int column)
         {
             col = column;
-            sort = sorteervolgorde;
         }
         public int Compare(object x, object y)
         {
-            if (sort == "A→Z")
-            {
-                return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
-            }
-            else if (sort == "Z→A")
-            {
-                return String.Compare(((ListViewItem)y).SubItems[col].Text, ((ListViewItem)x).SubItems[col].Text);
-            }
-            else
-            {
-                return 0;
-            }
-            
+            return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
         }
     }
 }
