@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactBewerk));
             this.lblContactnaam = new System.Windows.Forms.Label();
             this.persoonPnl = new System.Windows.Forms.Panel();
             this.bedrijfCbx = new System.Windows.Forms.ComboBox();
@@ -323,6 +324,7 @@
             this.Controls.Add(this.lblContactnaam);
             this.Controls.Add(this.pbHeader);
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ContactBewerk";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
