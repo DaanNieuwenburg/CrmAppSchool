@@ -13,7 +13,7 @@ using MaterialSkin.Controls;
 
 namespace CrmAppSchool.Views.Zoeken
 {
-    
+
     public partial class ZoekOverzichtForm : Form //MaterialForm
     {
         public bool ShowMenu { get; set; }
@@ -21,9 +21,9 @@ namespace CrmAppSchool.Views.Zoeken
         public ZoekOverzichtForm(List<Models.Persooncontact> resultaatLijst)
         {
 
-            
+
             // add an item
-           // var listViewItem = listView.Items.Add("Item with image");
+            // var listViewItem = listView.Items.Add("Item with image");
             // and tell the item which image to use
             //listViewItem.ImageKey = "itemImageKey";
             InitializeComponent();
@@ -36,24 +36,24 @@ namespace CrmAppSchool.Views.Zoeken
             imagelist.Images.Add("SB", Properties.Resources.Afbeelding_ContactPersoon_StageBegeleider);
             // tell your ListView to use the new image list
             resultatenLvw.LargeImageList = imagelist;
-            
+
 
             //if (resultaatLijst != null && resultaatLijst.Count() > 0)
             //{
             foreach (Models.Persooncontact contact in resultaatLijst)
-                {
-                    ListViewItem lvw = new ListViewItem(contact.Voornaam);
-                    lvw.SubItems.Add(contact.Achternaam);
-                    //lvw.SubItems.Add(contact.Bedrijf.Bedrijfnaam);
-                    lvw.SubItems.Add(contact.Functie);
-                    lvw.SubItems.Add(contact.Locatie);
-                    //lvw.SubItems.Add(contact.Kwaliteit);        
-                    resultatenLvw.Items.Add(lvw);
-                    imagelist.ImageSize = new Size(50, 50);
-                    lvw.ImageKey = "GS";        // Stel de afbeelding voor de persoon in
+            {
+                ListViewItem lvw = new ListViewItem(contact.Voornaam);
+                lvw.SubItems.Add(contact.Achternaam);
+                //lvw.SubItems.Add(contact.Bedrijf.Bedrijfnaam);
+                lvw.SubItems.Add(contact.Functie);
+                lvw.SubItems.Add(contact.Locatie);
+                //lvw.SubItems.Add(contact.Kwaliteit);        
+                resultatenLvw.Items.Add(lvw);
+                imagelist.ImageSize = new Size(50, 50);
+                lvw.ImageKey = "GS";        // Stel de afbeelding voor de persoon in
             }
-           // }
-            
+            // }
+
         }
 
         private void btnSorteer_Click(object sender, EventArgs e)
@@ -61,17 +61,19 @@ namespace CrmAppSchool.Views.Zoeken
             string a = cbSorteerOp.Text;
             if (Sorteermenu == true)
             {
-                resultatenLvw.ListViewItemSorter = new ListViewItemComparer(cbSorteerOp.SelectedIndex);
+                resultatenLvw.ListViewItemSorter = new ListViewItemComparer(cbSorteerOp.SelectedIndex, cbSorteerVolgorde.Text);
                 // Sorteer met behulp van input van comboboxen
-                if (cbSorteerVolgorde.Text == "A→Z")
+                /*if (cbSorteerVolgorde.Text == "A→Z")
                 {                    
-                    resultatenLvw.Sorting = SortOrder.Ascending;               
+                   resultatenLvw.Sorting = SortOrder.Ascending;
+                    resultatenLvw.Sort();
                 }
-                else
-                {             
-                    resultatenLvw.Sorting = SortOrder.Descending;
-                    //resultatenLvw.Sort();
-                }
+                else if (cbSorteerVolgorde.Text == "Z→A")
+                {
+                    
+                   resultatenLvw.Sorting = SortOrder.Descending;
+                    resultatenLvw.Sort();
+                }*/
                 resultatenLvw.Sort();
             }
             UpdateSorteerMenu();
@@ -112,17 +114,31 @@ namespace CrmAppSchool.Views.Zoeken
     class ListViewItemComparer : IComparer
     {
         private int col;
+        private string sort;
         public ListViewItemComparer()
         {
             col = 0;
         }
-        public ListViewItemComparer(int column)
+        public ListViewItemComparer(int column, string sorteervolgorde)
         {
             col = column;
+            sort = sorteervolgorde;
         }
         public int Compare(object x, object y)
         {
-            return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
+            if (sort == "A→Z")
+            {
+                return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
+            }
+            else if (sort == "Z→A")
+            {
+                return String.Compare(((ListViewItem)y).SubItems[col].Text, ((ListViewItem)x).SubItems[col].Text);
+            }
+            else
+            {
+                return 0;
+            }
+
         }
     }
 }
