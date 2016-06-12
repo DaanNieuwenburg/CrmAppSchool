@@ -67,11 +67,10 @@ namespace CrmAppSchool.Views.Contacten
                    
         }
         public void zoek()
-        {
-            
+        {          
             lvContacten.Items.Clear();
             string input = "%" + tbSearch.Text + "%";
-            List<Persooncontact> resultaten = cc.ZoekContacten(input);
+            List<Persooncontact> resultaten = cc.ZoekContacten(input, _gebruiker);
             foreach (Persooncontact contact in resultaten)
             {
                 ListViewItem lvi = new ListViewItem(contact.Voornaam + contact.Achternaam);

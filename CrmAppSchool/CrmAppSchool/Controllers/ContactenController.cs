@@ -334,7 +334,7 @@ namespace CrmAppSchool.Controllers
             }
         }
 
-        public List<Persooncontact> ZoekContacten(string tekst)
+        public List<Persooncontact> ZoekContacten(string tekst, Gebruiker gebruiker)
         {
             List<Persooncontact> resultaten = new List<Persooncontact>();
 
@@ -342,11 +342,14 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
 
-                string selectQuery = @"SELECT * FROM contactpersoon where voornaam like @naam or achternaam like @naam";
+                string selectQuery = @"SELECT * FROM contactpersoon a JOIN gebruikercontactpersoon b on a.contactcode = b.contactcode where b.gebruikersnaam = @gebruiker and (a.voornaam like @naam or a.achternaam like @naam)";
                 MySqlCommand cmd = new MySqlCommand(selectQuery, conn);
                 MySqlParameter naamParam = new MySqlParameter("@naam", MySqlDbType.VarChar);
+                MySqlParameter gebruikerParam = new MySqlParameter("@gebruiker", MySqlDbType.VarChar);
                 naamParam.Value = tekst;
+                gebruikerParam.Value = gebruiker.Gebruikersnaam;
                 cmd.Parameters.Add(naamParam);
+                cmd.Parameters.Add(gebruikerParam);
                 MySqlDataReader datalezer = cmd.ExecuteReader();
 
                 while (datalezer.Read())
