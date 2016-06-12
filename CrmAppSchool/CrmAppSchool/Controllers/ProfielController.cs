@@ -253,18 +253,6 @@ namespace CrmAppSchool.Controllers
             // Kijk of de kwaliteiten gelijk zijn aan elkaar
             bool isGelijk = oudeKwaliteitLijst.SequenceEqual(_profiel.KwaliteitenLijst);
 
-            Console.WriteLine("ISGELIJK" + isGelijk);
-
-            foreach (string test1 in oudeKwaliteitLijst)
-            {
-                Console.WriteLine("TEST1" + test1);
-            }
-
-            foreach (string test2 in _profiel.KwaliteitenLijst)
-            {
-                Console.WriteLine("TEST1" + test2);
-            }
-
             if (isGelijk == false)
             {
                 // Update kwaliteiten
@@ -273,7 +261,7 @@ namespace CrmAppSchool.Controllers
                     int teller = 0;
                     foreach (string nieuwekwaliteit in _profiel.KwaliteitenLijst)
                     {
-                        UpdateKwaliteiten(_gebruiker, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                        UpdateKwaliteit(_gebruiker, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
                         teller++;
                     }
                 }
@@ -285,27 +273,45 @@ namespace CrmAppSchool.Controllers
                         VoerKwaliteitIn(_gebruiker, nieuwekwaliteit);
                     }
                 }
+
                 // Voer nieuwe kwaliteiten in en update bestaande kwaliteiten
                 else if (_profiel.KwaliteitenLijst.Count() > oudeKwaliteitLijst.Count())
                 {
                     int teller = 0;
-                    Console.WriteLine("Oudekwaliteitenlijst = " + oudeKwaliteitLijst.Count());
                     foreach (string nieuwekwaliteit in _profiel.KwaliteitenLijst)
                     {
                         if (teller >= oudeKwaliteitLijst.Count())
                         {
                             // Insert
-                            Console.WriteLine("LOOP1, teller = " + teller);
                             VoerKwaliteitIn(_gebruiker, nieuwekwaliteit);
                             teller++;
                         }
                         else
                         {
                             // Update
-                            Console.WriteLine("LOOP2, teller = " + teller);
-                            UpdateKwaliteiten(_gebruiker, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                            UpdateKwaliteit(_gebruiker, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
                             teller++;
                         }
+                    }
+                }
+
+                // Verwijder kwaliteiten in en update bestaande kwaliteiten
+                else if (_profiel.KwaliteitenLijst.Count() < oudeKwaliteitLijst.Count())
+                {
+                    int teller = 0;
+                    foreach (string nieuwekwaliteit in _profiel.KwaliteitenLijst)
+                    {
+                        // Update
+                        UpdateKwaliteit(_gebruiker, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                        teller++;
+                    }
+
+                    // Verwijder de kwaliteiten
+                    int begintVanaf = _profiel.KwaliteitenLijst.Count();
+                    int verschil = oudeKwaliteitLijst.Count();
+                    for (int i = begintVanaf; i < verschil; i++)
+                    {
+                        VerwijderKwaliteit(_gebruiker, oudeKwaliteitLijst[i]);
                     }
                 }
             }
@@ -339,7 +345,7 @@ namespace CrmAppSchool.Controllers
             }
         }
 
-        public void UpdateKwaliteiten(Gebruiker _gebruiker, string nieuweKwaliteit, string oudeKwaliteit)
+        public void UpdateKwaliteit(Gebruiker _gebruiker, string nieuweKwaliteit, string oudeKwaliteit)
         {
             try
             {
@@ -369,84 +375,33 @@ namespace CrmAppSchool.Controllers
                 conn.Close();
             }
         }
-
-        // Kent de gebruiker nog geen kwaliteiten, voer dan nieuwe kwaliteiten in
-        /*if(kwaliteitLijst.Count() == 0)
+        public void VerwijderKwaliteit(Gebruiker _gebruiker, string oudeKwaliteit)
         {
-            MySqlTransaction trans = null;
-            conn.Open();
             try
             {
-                foreach (string kwaliteit in _profiel.Kwaliteiten)
-                {
-                    Console.WriteLine("KWALITEIT= " + kwaliteit);
-                    string query = @"INSERT INTO gebruiker_profiel_kwaliteiten (gebruikersnaam, kwaliteit) VALUES (@gebruikersnaam, @kwaliteit)";
-                    MySqlCommand command = new MySqlCommand(query, conn);
-                    MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
-                    MySqlParameter kwaliteitParam = new MySqlParameter("@kwaliteit", MySqlDbType.VarChar);
-                    gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
-                    kwaliteitParam.Value = kwaliteit;
-                    command.Parameters.Add(gebruikersnaamParam);
-                    command.Parameters.Add(kwaliteitParam);
-                    command.Prepare();
-                    command.ExecuteNonQuery();
-                }
+                conn.Open();
+                string query = "DELETE FROM gebruiker_profiel_kwaliteiten WHERE gebruikersnaam = @gebruikersnaam AND kwaliteit = @oudekwaliteit";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
+                MySqlParameter oudeKwaliteitParam = new MySqlParameter("oudekwaliteit", MySqlDbType.VarChar);
+
+                gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
+                oudeKwaliteitParam.Value = oudeKwaliteit;
+
+                command.Parameters.Add(gebruikersnaamParam);
+                command.Parameters.Add(oudeKwaliteitParam);
+
+                command.ExecuteNonQuery();
             }
             catch (MySqlException e)
             {
-                if (trans != null)
-                {
-                    trans.Rollback();
-                }
-                Console.WriteLine("Error in profielcontroller - voegprofieltoe: " + e);
+                Console.WriteLine("Error in profielcontroller - verwijderkwaliteiten: " + e);
             }
             finally
             {
                 conn.Close();
             }
         }
-
-        // Zijn het aantal kwaliteiten gelijk gebleven? Update dan de kwaliteiten.
-        else if (kwaliteitLijst.Count() == _profiel.Kwaliteiten.Count())
-        {
-            // Controleer of waardes gelijk zijn aan elkaar, zo nee update de db
-            int teller = 0;
-            foreach(string kwaliteit in kwaliteitLijst)
-            {
-                string oudekwaliteit = _profiel.Kwaliteiten[teller];
-                if(kwaliteit != oudekwaliteit)
-                {
-                    conn.Open();
-                    try
-                    {
-                        foreach (string nieuweKwaliteit in _profiel.Kwaliteiten)
-                        {
-                            string query = @"UPDATE gebruiker_profiel_kwaliteiten (kwaliteit) VALUES (@nieuwekwaliteit) WHERE gebruikersnaam = @gebruikersnaam AND kwaliteit = @oudekwaliteit";
-                            MySqlCommand command = new MySqlCommand(query, conn);
-                            MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
-                            MySqlParameter oudekwaliteitParam = new MySqlParameter("@oudekwaliteit", MySqlDbType.VarChar);
-                            MySqlParameter nieuwekwaliteitParam = new MySqlParameter("@nieuwekwaliteit", MySqlDbType.VarChar);
-                            gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
-                            oudekwaliteitParam.Value = oudekwaliteit;
-                            nieuwekwaliteitParam.Value = kwaliteit;
-                            command.Parameters.Add(gebruikersnaamParam);
-                            command.Parameters.Add(oudekwaliteitParam);
-                            command.Parameters.Add(nieuwekwaliteitParam);
-                            command.Prepare();
-                            command.ExecuteNonQuery();
-                        }
-                    }
-                    catch (MySqlException e)
-                    {
-                        Console.WriteLine("Error in profielcontroller - voegkwaliteittoe: " + e);
-                    }
-                    finally
-                    {
-                        conn.Close();
-                    }
-                }
-            }
-        }*/
 
         public void verwijderProfiel(Gebruiker _gebruiker)
         {

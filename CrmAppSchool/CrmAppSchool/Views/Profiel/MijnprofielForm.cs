@@ -63,8 +63,7 @@ namespace CrmAppSchool.Views.Profiel
                 lblKwaliteitWaarde.Text = "";
                 foreach (string kwaliteit in profiel.KwaliteitenLijst)
                 {
-                    Console.WriteLine("KW" + kwaliteit);
-                    lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + "\n";
+                    lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + Environment.NewLine;
                 }
             }
             cbPriveKW.Checked = profiel.KwaliteitIsZichtbaar;
@@ -83,12 +82,11 @@ namespace CrmAppSchool.Views.Profiel
             tbFunctie.Text = lblFunctieWaarde.Text;
             if (profiel.KwaliteitenLijst != null)
             {
-                Console.WriteLine("HOIOIII");
                 // Reset de txb en voer de kwaliteiten in
                 tbKwaliteit.Text = "";
                 foreach (string kwaliteit in profiel.KwaliteitenLijst)
                 {
-                    tbKwaliteit.AppendText(kwaliteit + Environment.NewLine);
+                    tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit + Environment.NewLine;
                 }
             }
             Updatebuttons();
@@ -186,16 +184,6 @@ namespace CrmAppSchool.Views.Profiel
                     }
                     else if (i == 5)
                     {
-                        /*Console.WriteLine("AAAAAAA");
-                        kwaliteiten = new string[tbKwaliteit.Lines.Count()];
-                        int j = 0;
-                        foreach(string a in tbKwaliteit.Lines)
-                        {
-                            Console.WriteLine(a);
-                            kwaliteiten[j] = a;
-                            lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + "\n" + a;
-                            j++;
-                        }*/
                     }
                 }
             }
@@ -210,10 +198,17 @@ namespace CrmAppSchool.Views.Profiel
             {
                 if (ingevoerdeKwaliteit != "")
                 {
-                    Console.WriteLine("HOI " + ingevoerdeKwaliteit);
                     profiel.KwaliteitenLijst.Add(ingevoerdeKwaliteit);
-                    lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + "\n" + ingevoerdeKwaliteit;
                 }
+            }
+
+            // Zet de kwaliteiten weer in de textbox
+            tbKwaliteit.Text = "";
+            lblKwaliteitWaarde.Text = "";
+            foreach (string kwaliteit in profiel.KwaliteitenLijst)
+            {
+                tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit + Environment.NewLine;
+                lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + Environment.NewLine;
             }
 
             // Zet de checkboxes in het profiel
