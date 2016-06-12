@@ -68,6 +68,8 @@
             this.lblBevestig = new System.Windows.Forms.Label();
             this.tbWachtwoord = new System.Windows.Forms.TextBox();
             this.tbBevestig = new System.Windows.Forms.TextBox();
+            this.lbloldpassword = new System.Windows.Forms.Label();
+            this.tbHuidigwachtwoord = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
@@ -196,11 +198,11 @@
             // 
             this.lblWachtwoordWaarde.AutoSize = true;
             this.lblWachtwoordWaarde.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWachtwoordWaarde.Location = new System.Drawing.Point(96, 107);
+            this.lblWachtwoordWaarde.Location = new System.Drawing.Point(96, 105);
             this.lblWachtwoordWaarde.Name = "lblWachtwoordWaarde";
-            this.lblWachtwoordWaarde.Size = new System.Drawing.Size(22, 16);
+            this.lblWachtwoordWaarde.Size = new System.Drawing.Size(33, 16);
             this.lblWachtwoordWaarde.TabIndex = 16;
-            this.lblWachtwoordWaarde.Text = "xx";
+            this.lblWachtwoordWaarde.Text = "*****";
             // 
             // lblGebruikerWaarde
             // 
@@ -216,11 +218,12 @@
             // 
             this.lblWachtwoord.AutoSize = true;
             this.lblWachtwoord.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWachtwoord.Location = new System.Drawing.Point(12, 107);
+            this.lblWachtwoord.Location = new System.Drawing.Point(12, 131);
             this.lblWachtwoord.Name = "lblWachtwoord";
-            this.lblWachtwoord.Size = new System.Drawing.Size(84, 16);
+            this.lblWachtwoord.Size = new System.Drawing.Size(123, 16);
             this.lblWachtwoord.TabIndex = 14;
-            this.lblWachtwoord.Text = "Wachtwoord:";
+            this.lblWachtwoord.Text = "Nieuw Wachtwoord:";
+            this.lblWachtwoord.Visible = false;
             // 
             // lblGebruikersnaam
             // 
@@ -499,7 +502,7 @@
             // 
             this.lblBevestig.AutoSize = true;
             this.lblBevestig.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBevestig.Location = new System.Drawing.Point(12, 137);
+            this.lblBevestig.Location = new System.Drawing.Point(12, 160);
             this.lblBevestig.Name = "lblBevestig";
             this.lblBevestig.Size = new System.Drawing.Size(61, 16);
             this.lblBevestig.TabIndex = 36;
@@ -509,7 +512,7 @@
             // tbWachtwoord
             // 
             this.tbWachtwoord.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbWachtwoord.Location = new System.Drawing.Point(99, 104);
+            this.tbWachtwoord.Location = new System.Drawing.Point(142, 131);
             this.tbWachtwoord.Name = "tbWachtwoord";
             this.tbWachtwoord.Size = new System.Drawing.Size(126, 22);
             this.tbWachtwoord.TabIndex = 38;
@@ -519,12 +522,32 @@
             // tbBevestig
             // 
             this.tbBevestig.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbBevestig.Location = new System.Drawing.Point(99, 134);
+            this.tbBevestig.Location = new System.Drawing.Point(142, 157);
             this.tbBevestig.Name = "tbBevestig";
             this.tbBevestig.Size = new System.Drawing.Size(126, 22);
             this.tbBevestig.TabIndex = 39;
             this.tbBevestig.UseSystemPasswordChar = true;
             this.tbBevestig.Visible = false;
+            // 
+            // lbloldpassword
+            // 
+            this.lbloldpassword.AutoSize = true;
+            this.lbloldpassword.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbloldpassword.Location = new System.Drawing.Point(12, 106);
+            this.lbloldpassword.Name = "lbloldpassword";
+            this.lbloldpassword.Size = new System.Drawing.Size(84, 16);
+            this.lbloldpassword.TabIndex = 40;
+            this.lbloldpassword.Text = "Wachtwoord:";
+            // 
+            // tbHuidigwachtwoord
+            // 
+            this.tbHuidigwachtwoord.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbHuidigwachtwoord.Location = new System.Drawing.Point(142, 103);
+            this.tbHuidigwachtwoord.Name = "tbHuidigwachtwoord";
+            this.tbHuidigwachtwoord.Size = new System.Drawing.Size(126, 22);
+            this.tbHuidigwachtwoord.TabIndex = 41;
+            this.tbHuidigwachtwoord.UseSystemPasswordChar = true;
+            this.tbHuidigwachtwoord.Visible = false;
             // 
             // MijnprofielForm
             // 
@@ -532,6 +555,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(681, 343);
+            this.Controls.Add(this.tbHuidigwachtwoord);
+            this.Controls.Add(this.lbloldpassword);
             this.Controls.Add(this.tbBevestig);
             this.Controls.Add(this.tbWachtwoord);
             this.Controls.Add(this.lblBevestig);
@@ -624,5 +649,7 @@
         private System.Windows.Forms.Label lblBevestig;
         private System.Windows.Forms.TextBox tbWachtwoord;
         private System.Windows.Forms.TextBox tbBevestig;
+        private System.Windows.Forms.Label lbloldpassword;
+        private System.Windows.Forms.TextBox tbHuidigwachtwoord;
     }
 }

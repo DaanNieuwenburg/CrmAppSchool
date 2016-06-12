@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrmAppSchool.Models;
+using CrmAppSchool.Controllers;
 
 namespace CrmAppSchool.Views.Profiel
 {
@@ -28,7 +29,6 @@ namespace CrmAppSchool.Views.Profiel
             gebruiker = _gebruiker;
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
             lblGebruikerWaarde.Text = gebruiker.Gebruikersnaam;
-            lblWachtwoordWaarde.Text = gebruiker.Wachtwoord;
 
             // Bind model aan form
             profiel = _profiel;
@@ -297,9 +297,13 @@ namespace CrmAppSchool.Views.Profiel
         {
             if(EditWachtwoordMode == false)
             {
+                lblWachtwoord.Visible = true;
+                lbloldpassword.Text = "Huidige Wachtwoord:";
+                tbHuidigwachtwoord.Visible = true;
                 tbWachtwoord.Visible = true;
                 tbBevestig.Visible = true;
                 lblBevestig.Visible = true;
+                lblWachtwoordWaarde.Visible = false;
                 EditWachtwoordMode = true;
             }
             else if(tbWachtwoord.Text != tbBevestig.Text)
@@ -308,11 +312,26 @@ namespace CrmAppSchool.Views.Profiel
             }
             else if(EditWachtwoordMode == true && tbWachtwoord.Text == tbBevestig.Text)
             {
-                tbWachtwoord.Visible = false;
-                lblBevestig.Visible = false;
-                tbBevestig.Visible = false;
-                EditWachtwoordMode = false;
-                // Set nieuw wachtwoord
+                string gebruikersnaam = gebruiker.Gebruikersnaam;
+                string wachtwoord = tbHuidigwachtwoord.Text;
+                LoginController logincontroller = new LoginController();
+                bool resultaat = logincontroller.VerifieerGebruiker(gebruikersnaam, wachtwoord);
+                if(resultaat == true)
+                {
+                    lbloldpassword.Text = "Wachtwoord:";
+                    lblWachtwoordWaarde.Visible = true;
+                    lblWachtwoord.Visible = false;
+                    tbHuidigwachtwoord.Visible = false;
+                    tbWachtwoord.Visible = false;
+                    lblBevestig.Visible = false;
+                    tbBevestig.Visible = false;
+                    EditWachtwoordMode = false;
+                    // Set nieuw wachtwoord
+                }
+                else
+                {
+                    MessageBox.Show("Het huidige wachtwoord is incorrect\nPas deze aan en probeer opnieuw", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
     }
