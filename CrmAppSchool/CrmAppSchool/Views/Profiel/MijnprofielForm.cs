@@ -168,7 +168,14 @@ namespace CrmAppSchool.Views.Profiel
                     }
                     else if (i == 5)
                     {
-                        lblKwaliteitWaarde.Text = tbKwaliteit.Text;
+                        string[] kwaliteiten = new string[tbKwaliteit.Lines.Count()];
+                        int j = 0;
+                        foreach(string a in tbKwaliteit.Lines)
+                        {
+                            kwaliteiten[j] = a;
+                            lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + "\n" + a;
+                            j++;
+                        }
                     }
                 }
 

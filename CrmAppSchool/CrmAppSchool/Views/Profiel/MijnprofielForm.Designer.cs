@@ -250,7 +250,7 @@
             this.tbVoornaam.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbVoornaam.Location = new System.Drawing.Point(361, 75);
             this.tbVoornaam.Name = "tbVoornaam";
-            this.tbVoornaam.Size = new System.Drawing.Size(100, 22);
+            this.tbVoornaam.Size = new System.Drawing.Size(132, 22);
             this.tbVoornaam.TabIndex = 21;
             this.tbVoornaam.Visible = false;
             this.tbVoornaam.TextChanged += new System.EventHandler(this.voornaamTxb_TextChanged);
@@ -260,7 +260,7 @@
             this.tbAchternaam.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbAchternaam.Location = new System.Drawing.Point(361, 106);
             this.tbAchternaam.Name = "tbAchternaam";
-            this.tbAchternaam.Size = new System.Drawing.Size(100, 22);
+            this.tbAchternaam.Size = new System.Drawing.Size(132, 22);
             this.tbAchternaam.TabIndex = 22;
             this.tbAchternaam.Visible = false;
             this.tbAchternaam.TextChanged += new System.EventHandler(this.achternaamTxb_TextChanged);
@@ -270,7 +270,7 @@
             this.tbBedrijf.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbBedrijf.Location = new System.Drawing.Point(361, 139);
             this.tbBedrijf.Name = "tbBedrijf";
-            this.tbBedrijf.Size = new System.Drawing.Size(100, 22);
+            this.tbBedrijf.Size = new System.Drawing.Size(132, 22);
             this.tbBedrijf.TabIndex = 23;
             this.tbBedrijf.Visible = false;
             this.tbBedrijf.TextChanged += new System.EventHandler(this.bedrijfTxb_TextChanged);
@@ -280,7 +280,7 @@
             this.tbLocatie.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbLocatie.Location = new System.Drawing.Point(361, 174);
             this.tbLocatie.Name = "tbLocatie";
-            this.tbLocatie.Size = new System.Drawing.Size(100, 22);
+            this.tbLocatie.Size = new System.Drawing.Size(132, 22);
             this.tbLocatie.TabIndex = 24;
             this.tbLocatie.Visible = false;
             this.tbLocatie.TextChanged += new System.EventHandler(this.locatieTxb_TextChanged);
@@ -290,7 +290,7 @@
             this.tbFunctie.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbFunctie.Location = new System.Drawing.Point(361, 209);
             this.tbFunctie.Name = "tbFunctie";
-            this.tbFunctie.Size = new System.Drawing.Size(100, 22);
+            this.tbFunctie.Size = new System.Drawing.Size(132, 22);
             this.tbFunctie.TabIndex = 25;
             this.tbFunctie.Visible = false;
             this.tbFunctie.TextChanged += new System.EventHandler(this.functieTxb_TextChanged);
@@ -299,8 +299,9 @@
             // 
             this.tbKwaliteit.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbKwaliteit.Location = new System.Drawing.Point(361, 243);
+            this.tbKwaliteit.Multiline = true;
             this.tbKwaliteit.Name = "tbKwaliteit";
-            this.tbKwaliteit.Size = new System.Drawing.Size(100, 22);
+            this.tbKwaliteit.Size = new System.Drawing.Size(132, 88);
             this.tbKwaliteit.TabIndex = 26;
             this.tbKwaliteit.Visible = false;
             this.tbKwaliteit.TextChanged += new System.EventHandler(this.kwaliteitTxb_TextChanged);
@@ -510,7 +511,7 @@
             this.tbWachtwoord.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbWachtwoord.Location = new System.Drawing.Point(99, 104);
             this.tbWachtwoord.Name = "tbWachtwoord";
-            this.tbWachtwoord.Size = new System.Drawing.Size(100, 22);
+            this.tbWachtwoord.Size = new System.Drawing.Size(126, 22);
             this.tbWachtwoord.TabIndex = 38;
             this.tbWachtwoord.UseSystemPasswordChar = true;
             this.tbWachtwoord.Visible = false;
@@ -520,7 +521,7 @@
             this.tbBevestig.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbBevestig.Location = new System.Drawing.Point(99, 134);
             this.tbBevestig.Name = "tbBevestig";
-            this.tbBevestig.Size = new System.Drawing.Size(100, 22);
+            this.tbBevestig.Size = new System.Drawing.Size(126, 22);
             this.tbBevestig.TabIndex = 39;
             this.tbBevestig.UseSystemPasswordChar = true;
             this.tbBevestig.Visible = false;
