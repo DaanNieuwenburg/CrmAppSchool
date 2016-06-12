@@ -251,7 +251,7 @@ namespace CrmAppSchool.Controllers
             }
 
             // Kent de gebruiker nog geen kwaliteiten, voer dan nieuwe kwaliteiten in
-            if(kwaliteitLijst.Count() == 0)
+            /*if(kwaliteitLijst.Count() == 0)
             {
                 MySqlTransaction trans = null;
                 conn.Open();
@@ -326,7 +326,7 @@ namespace CrmAppSchool.Controllers
                         }
                     }
                 }
-            }
+            }*/
         }
 
         public void verwijderProfiel(Gebruiker _gebruiker)

@@ -81,6 +81,16 @@ namespace CrmAppSchool.Views.Profiel
             tbBedrijf.Text = lblBedrijfWaarde.Text;
             tbLocatie.Text = lblLocatieWaarde.Text;
             tbFunctie.Text = lblFunctieWaarde.Text;
+            if (profiel.KwaliteitenLijst != null)
+            {
+                // Reset de txb
+                lblKwaliteitWaarde.Text = "";
+                foreach (string kwaliteit in profiel.KwaliteitenLijst)
+                {
+                    Console.WriteLine("KW" + kwaliteit);
+                    lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + "\n";
+                }
+            }
             tbKwaliteit.Text = lblKwaliteitWaarde.Text;
             Updatebuttons();
         }
@@ -151,7 +161,6 @@ namespace CrmAppSchool.Views.Profiel
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            string[] kwaliteiten = null;
             for (int i = 0; i < 6; i++)
             {
                 if (Bewerkt[i] == true)
@@ -191,22 +200,18 @@ namespace CrmAppSchool.Views.Profiel
                     }
                 }
 
-                // Zet de kwaliteiten in een array........
-                kwaliteiten = new string[tbKwaliteit.Lines.Count()];
-                int j = 0;
-                foreach (string a in tbKwaliteit.Lines)
-                {
-                    Console.WriteLine(a);
-                    kwaliteiten[j] = a;
-                    lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + "\n" + a;
-                    j++;
-                }
-
-
                 // Schrijf de nieuwe profiel informatie over naar de database
                 Controllers.ProfielController profielController = new Controllers.ProfielController();
-                Models.Profiel profiel = new Models.Profiel() { Voornaam = lblVoornaamWaarde.Text, Achternaam = lblAchternaamWaarde.Text, Bedrijf = lblBedrijfWaarde.Text, Locatie = lblLocatieWaarde.Text, Functie = lblFunctieWaarde.Text, Kwaliteiten = kwaliteiten };
+                Models.Profiel profiel = new Models.Profiel() { Voornaam = lblVoornaamWaarde.Text, Achternaam = lblAchternaamWaarde.Text, Bedrijf = lblBedrijfWaarde.Text, Locatie = lblLocatieWaarde.Text, Functie = lblFunctieWaarde.Text};
 
+                // Zet de kwaliteiten in de list
+                profiel.KwaliteitenLijst = new List<string>();
+                foreach (string ingevoerdeKwaliteit in tbKwaliteit.Lines)
+                {
+                    Console.WriteLine(ingevoerdeKwaliteit);
+                    profiel.KwaliteitenLijst.Add(ingevoerdeKwaliteit);
+                    lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + "\n" + ingevoerdeKwaliteit;
+                }
                 // Zet de checkboxes in het profiel
                 profiel.VoornaamIsZichtbaar = cbPriveVN.Checked;
                 profiel.AchternaamIsZichtbaar = cbPriveAN.Checked;
