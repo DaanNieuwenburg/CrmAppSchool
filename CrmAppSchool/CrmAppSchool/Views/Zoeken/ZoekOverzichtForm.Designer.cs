@@ -156,6 +156,7 @@
             this.cbSorteerOp.Name = "cbSorteerOp";
             this.cbSorteerOp.Size = new System.Drawing.Size(139, 25);
             this.cbSorteerOp.TabIndex = 22;
+            this.cbSorteerOp.Text = "Voornaam";
             this.cbSorteerOp.Visible = false;
             // 
             // cbSorteerVolgorde
