@@ -58,7 +58,7 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(UN_PARAM);
                 Profiel profiel = new Profiel();
                 MySqlDataReader datalezer = command.ExecuteReader();
-                
+
                 while (datalezer.Read())
                 {
                     profiel.Gebruikersnaam = datalezer.GetString("gebruikersnaam");
@@ -126,20 +126,20 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 string query = "SELECT * FROM gebruiker_profiel WHERE gebruikersnaam = @gebruikersnaam";
-                MySqlCommand command = new MySqlCommand(query,conn);
+                MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
                 gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
                 command.Parameters.Add(gebruikersnaamParam);
                 MySqlDataReader lezer = command.ExecuteReader();
 
                 bool bestaatProfiel = false;
-                while(lezer.Read())
+                while (lezer.Read())
                 {
                     bestaatProfiel = true;
                 }
                 return bestaatProfiel;
             }
-            catch(MySqlException e)
+            catch (MySqlException e)
             {
                 Console.WriteLine("Error in profielcontroller - bestaatprofiel: " + e);
                 return false;
@@ -205,7 +205,7 @@ namespace CrmAppSchool.Controllers
                 command.ExecuteNonQuery();
                 trans.Commit();
                 conn.Close();
-                updateKwaliteiten(_gebruiker, _profiel);
+                bepaalUpdateKwaliteiten(_gebruiker, _profiel);
             }
 
             catch (MySqlException e)
@@ -222,10 +222,10 @@ namespace CrmAppSchool.Controllers
             }
         }
 
-        public void updateKwaliteiten(Gebruiker _gebruiker, Profiel _profiel)
+        public void bepaalUpdateKwaliteiten(Gebruiker _gebruiker, Profiel _profiel)
         {
             // Bepaal eerst het aantal huidige kwaliteiten van het profiel
-            List<string> kwaliteitLijst = new List<string>();
+            List<string> oudeKwaliteitLijst = new List<string>();
             try
             {
                 conn.Open();
@@ -238,10 +238,10 @@ namespace CrmAppSchool.Controllers
 
                 while (lezer.Read())
                 {
-                    kwaliteitLijst.Add(lezer.GetString("kwaliteit"));
+                    oudeKwaliteitLijst.Add(lezer.GetString("kwaliteit"));
                 }
             }
-            catch(MySqlException e)
+            catch (MySqlException e)
             {
                 Console.WriteLine("Error in profielcontroller - updatekwaliteiten: " + e);
             }
@@ -250,84 +250,203 @@ namespace CrmAppSchool.Controllers
                 conn.Close();
             }
 
-            // Kent de gebruiker nog geen kwaliteiten, voer dan nieuwe kwaliteiten in
-            /*if(kwaliteitLijst.Count() == 0)
+            // Kijk of de kwaliteiten gelijk zijn aan elkaar
+            bool isGelijk = oudeKwaliteitLijst.SequenceEqual(_profiel.KwaliteitenLijst);
+
+            Console.WriteLine("ISGELIJK" + isGelijk);
+
+            foreach (string test1 in oudeKwaliteitLijst)
             {
-                MySqlTransaction trans = null;
-                conn.Open();
-                try
-                {
-                    foreach (string kwaliteit in _profiel.Kwaliteiten)
-                    {
-                        Console.WriteLine("KWALITEIT= " + kwaliteit);
-                        string query = @"INSERT INTO gebruiker_profiel_kwaliteiten (gebruikersnaam, kwaliteit) VALUES (@gebruikersnaam, @kwaliteit)";
-                        MySqlCommand command = new MySqlCommand(query, conn);
-                        MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
-                        MySqlParameter kwaliteitParam = new MySqlParameter("@kwaliteit", MySqlDbType.VarChar);
-                        gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
-                        kwaliteitParam.Value = kwaliteit;
-                        command.Parameters.Add(gebruikersnaamParam);
-                        command.Parameters.Add(kwaliteitParam);
-                        command.Prepare();
-                        command.ExecuteNonQuery();
-                    }
-                }
-                catch (MySqlException e)
-                {
-                    if (trans != null)
-                    {
-                        trans.Rollback();
-                    }
-                    Console.WriteLine("Error in profielcontroller - voegprofieltoe: " + e);
-                }
-                finally
-                {
-                    conn.Close();
-                }
+                Console.WriteLine("TEST1" + test1);
             }
 
-            // Zijn het aantal kwaliteiten gelijk gebleven? Update dan de kwaliteiten.
-            else if (kwaliteitLijst.Count() == _profiel.Kwaliteiten.Count())
+            foreach (string test2 in _profiel.KwaliteitenLijst)
             {
-                // Controleer of waardes gelijk zijn aan elkaar, zo nee update de db
-                int teller = 0;
-                foreach(string kwaliteit in kwaliteitLijst)
+                Console.WriteLine("TEST1" + test2);
+            }
+
+            if (isGelijk == false)
+            {
+                // Update kwaliteiten
+                if (_profiel.KwaliteitenLijst.Count() == oudeKwaliteitLijst.Count())
                 {
-                    string oudekwaliteit = _profiel.Kwaliteiten[teller];
-                    if(kwaliteit != oudekwaliteit)
+                    int teller = 0;
+                    foreach (string nieuwekwaliteit in _profiel.KwaliteitenLijst)
                     {
-                        conn.Open();
-                        try
+                        UpdateKwaliteiten(_gebruiker, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                        teller++;
+                    }
+                }
+                // Voer nieuwe kwaliteiten in als er nog geen kwaliteiten bestaan
+                else if (oudeKwaliteitLijst.Count() == 0)
+                {
+                    foreach (string nieuwekwaliteit in _profiel.KwaliteitenLijst)
+                    {
+                        VoerKwaliteitIn(_gebruiker, nieuwekwaliteit);
+                    }
+                }
+                // Voer nieuwe kwaliteiten in en update bestaande kwaliteiten
+                else if (_profiel.KwaliteitenLijst.Count() > oudeKwaliteitLijst.Count())
+                {
+                    int teller = 0;
+                    Console.WriteLine("Oudekwaliteitenlijst = " + oudeKwaliteitLijst.Count());
+                    foreach (string nieuwekwaliteit in _profiel.KwaliteitenLijst)
+                    {
+                        if (teller >= oudeKwaliteitLijst.Count())
                         {
-                            foreach (string nieuweKwaliteit in _profiel.Kwaliteiten)
-                            {
-                                string query = @"UPDATE gebruiker_profiel_kwaliteiten (kwaliteit) VALUES (@nieuwekwaliteit) WHERE gebruikersnaam = @gebruikersnaam AND kwaliteit = @oudekwaliteit";
-                                MySqlCommand command = new MySqlCommand(query, conn);
-                                MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
-                                MySqlParameter oudekwaliteitParam = new MySqlParameter("@oudekwaliteit", MySqlDbType.VarChar);
-                                MySqlParameter nieuwekwaliteitParam = new MySqlParameter("@nieuwekwaliteit", MySqlDbType.VarChar);
-                                gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
-                                oudekwaliteitParam.Value = oudekwaliteit;
-                                nieuwekwaliteitParam.Value = kwaliteit;
-                                command.Parameters.Add(gebruikersnaamParam);
-                                command.Parameters.Add(oudekwaliteitParam);
-                                command.Parameters.Add(nieuwekwaliteitParam);
-                                command.Prepare();
-                                command.ExecuteNonQuery();
-                            }
+                            // Insert
+                            Console.WriteLine("LOOP1, teller = " + teller);
+                            VoerKwaliteitIn(_gebruiker, nieuwekwaliteit);
+                            teller++;
                         }
-                        catch (MySqlException e)
+                        else
                         {
-                            Console.WriteLine("Error in profielcontroller - voegkwaliteittoe: " + e);
-                        }
-                        finally
-                        {
-                            conn.Close();
+                            // Update
+                            Console.WriteLine("LOOP2, teller = " + teller);
+                            UpdateKwaliteiten(_gebruiker, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                            teller++;
                         }
                     }
                 }
-            }*/
+            }
         }
+
+        public void VoerKwaliteitIn(Gebruiker _gebruiker, string kwaliteit)
+        {
+            try
+            {
+                conn.Open();
+                string query = "INSERT INTO gebruiker_profiel_kwaliteiten (gebruikersnaam, kwaliteit) VALUES (@gebruikersnaam, @kwaliteit)";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
+                MySqlParameter kwaliteitParam = new MySqlParameter("kwaliteit", MySqlDbType.VarChar);
+
+                gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
+                kwaliteitParam.Value = kwaliteit;
+
+                command.Parameters.Add(gebruikersnaamParam);
+                command.Parameters.Add(kwaliteitParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Error in profielcontroller - VoerKwaliteitIn: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void UpdateKwaliteiten(Gebruiker _gebruiker, string nieuweKwaliteit, string oudeKwaliteit)
+        {
+            try
+            {
+                conn.Open();
+                string query = "UPDATE gebruiker_profiel_kwaliteiten SET kwaliteit = @nieuwekwaliteit WHERE gebruikersnaam = @gebruikersnaam AND kwaliteit = @oudekwaliteit";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
+                MySqlParameter oudeKwaliteitParam = new MySqlParameter("oudekwaliteit", MySqlDbType.VarChar);
+                MySqlParameter nieuweKwaliteitParam = new MySqlParameter("nieuwekwaliteit", MySqlDbType.VarChar);
+
+                gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
+                oudeKwaliteitParam.Value = oudeKwaliteit;
+                nieuweKwaliteitParam.Value = nieuweKwaliteit;
+
+                command.Parameters.Add(gebruikersnaamParam);
+                command.Parameters.Add(oudeKwaliteitParam);
+                command.Parameters.Add(nieuweKwaliteitParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Error in profielcontroller - updatekwaliteiten: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        // Kent de gebruiker nog geen kwaliteiten, voer dan nieuwe kwaliteiten in
+        /*if(kwaliteitLijst.Count() == 0)
+        {
+            MySqlTransaction trans = null;
+            conn.Open();
+            try
+            {
+                foreach (string kwaliteit in _profiel.Kwaliteiten)
+                {
+                    Console.WriteLine("KWALITEIT= " + kwaliteit);
+                    string query = @"INSERT INTO gebruiker_profiel_kwaliteiten (gebruikersnaam, kwaliteit) VALUES (@gebruikersnaam, @kwaliteit)";
+                    MySqlCommand command = new MySqlCommand(query, conn);
+                    MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
+                    MySqlParameter kwaliteitParam = new MySqlParameter("@kwaliteit", MySqlDbType.VarChar);
+                    gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
+                    kwaliteitParam.Value = kwaliteit;
+                    command.Parameters.Add(gebruikersnaamParam);
+                    command.Parameters.Add(kwaliteitParam);
+                    command.Prepare();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (MySqlException e)
+            {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in profielcontroller - voegprofieltoe: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        // Zijn het aantal kwaliteiten gelijk gebleven? Update dan de kwaliteiten.
+        else if (kwaliteitLijst.Count() == _profiel.Kwaliteiten.Count())
+        {
+            // Controleer of waardes gelijk zijn aan elkaar, zo nee update de db
+            int teller = 0;
+            foreach(string kwaliteit in kwaliteitLijst)
+            {
+                string oudekwaliteit = _profiel.Kwaliteiten[teller];
+                if(kwaliteit != oudekwaliteit)
+                {
+                    conn.Open();
+                    try
+                    {
+                        foreach (string nieuweKwaliteit in _profiel.Kwaliteiten)
+                        {
+                            string query = @"UPDATE gebruiker_profiel_kwaliteiten (kwaliteit) VALUES (@nieuwekwaliteit) WHERE gebruikersnaam = @gebruikersnaam AND kwaliteit = @oudekwaliteit";
+                            MySqlCommand command = new MySqlCommand(query, conn);
+                            MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
+                            MySqlParameter oudekwaliteitParam = new MySqlParameter("@oudekwaliteit", MySqlDbType.VarChar);
+                            MySqlParameter nieuwekwaliteitParam = new MySqlParameter("@nieuwekwaliteit", MySqlDbType.VarChar);
+                            gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
+                            oudekwaliteitParam.Value = oudekwaliteit;
+                            nieuwekwaliteitParam.Value = kwaliteit;
+                            command.Parameters.Add(gebruikersnaamParam);
+                            command.Parameters.Add(oudekwaliteitParam);
+                            command.Parameters.Add(nieuwekwaliteitParam);
+                            command.Prepare();
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                    catch (MySqlException e)
+                    {
+                        Console.WriteLine("Error in profielcontroller - voegkwaliteittoe: " + e);
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+        }*/
 
         public void verwijderProfiel(Gebruiker _gebruiker)
         {
@@ -349,6 +468,6 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Close();
             }
-        }      
+        }
     }
 }
