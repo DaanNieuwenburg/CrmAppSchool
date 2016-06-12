@@ -334,6 +334,47 @@ namespace CrmAppSchool.Controllers
             }
         }
 
+        public List<Persooncontact> ZoekContacten(string tekst)
+        {
+            List<Persooncontact> resultaten = new List<Persooncontact>();
+
+            try
+            {
+                conn.Open();
+
+                string selectQuery = @"SELECT * FROM contactpersoon where voornaam like @naam or achternaam like @naam";
+                MySqlCommand cmd = new MySqlCommand(selectQuery, conn);
+                MySqlParameter naamParam = new MySqlParameter("@naam", MySqlDbType.VarChar);
+                naamParam.Value = tekst;
+                cmd.Parameters.Add(naamParam);
+                MySqlDataReader datalezer = cmd.ExecuteReader();
+
+                while (datalezer.Read())
+                {
+                    Persooncontact contact = new Persooncontact();
+                    contact.Contactcode = datalezer.GetInt32("contactcode");
+                    contact.Voornaam = datalezer.GetString("voornaam");
+                    contact.Achternaam = datalezer.GetString("achternaam");
+                    contact.Locatie = datalezer.GetString("locatie");
+                    contact.Email = datalezer.GetString("email");
+                    contact.Functie = datalezer["functie"] as string;
+                    contact.Afdeling = datalezer["afdeling"] as string;
+                    contact.Isgastdocent = datalezer.GetBoolean("isgastdocent");
+                    contact.Isstagebegeleider = datalezer.GetBoolean("isstagebegeleider");
+                    resultaten.Add(contact);
+                }
+                return resultaten;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error in stageopdrachtcontroller - zoekopdrachten: " + e);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
         public void bewerkContact(Persooncontact contact)
         {
             try
