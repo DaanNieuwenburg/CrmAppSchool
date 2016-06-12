@@ -52,7 +52,7 @@ namespace CrmAppSchool.Views.Contacten
 
         private void ContactDetails_Load(object sender, EventArgs e)
         {
-            lblContactnaam.Text = contact.Voornaam + contact.Achternaam;
+            lblContactnaam.Text = contact.Voornaam + " " + contact.Achternaam;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

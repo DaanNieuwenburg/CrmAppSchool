@@ -416,7 +416,7 @@ namespace CrmAppSchool.Views.Contacten
             List<Persooncontact> contactenlijst = _getcontacten.HaalContactenOp(_gebruiker);
             foreach (Persooncontact contact in contactenlijst)
             {
-                ListViewItem c = new ListViewItem(contact.Voornaam + contact.Achternaam);
+                ListViewItem c = new ListViewItem(contact.Voornaam + " " + contact.Achternaam);
                 c.SubItems.Add(Convert.ToString(contact.Contactcode));
                 if (contact.Isstagebegeleider == true)
                 {
