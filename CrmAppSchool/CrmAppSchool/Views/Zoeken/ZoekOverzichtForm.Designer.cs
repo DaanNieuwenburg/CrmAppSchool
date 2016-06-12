@@ -34,6 +34,8 @@
             this.achternaamHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bedrijfHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.functieHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.locatieHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.kwaliteitHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblGebruiker = new System.Windows.Forms.Label();
             this.btnSorteer = new System.Windows.Forms.Button();
             this.pbHome = new System.Windows.Forms.PictureBox();
@@ -41,8 +43,6 @@
             this.cbSorteerOp = new System.Windows.Forms.ComboBox();
             this.cbSorteerVolgorde = new System.Windows.Forms.ComboBox();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.locatieHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.kwaliteitHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
@@ -156,7 +156,6 @@
             this.cbSorteerOp.Name = "cbSorteerOp";
             this.cbSorteerOp.Size = new System.Drawing.Size(139, 25);
             this.cbSorteerOp.TabIndex = 22;
-            this.cbSorteerOp.Text = "Voornaam";
             this.cbSorteerOp.Visible = false;
             // 
             // cbSorteerVolgorde
