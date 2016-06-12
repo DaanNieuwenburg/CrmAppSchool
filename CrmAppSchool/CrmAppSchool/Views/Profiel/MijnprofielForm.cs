@@ -59,7 +59,7 @@ namespace CrmAppSchool.Views.Profiel
             cbPriveLO.Checked = profiel.LocatieIsZichtbaar;
             if (profiel.KwaliteitenLijst != null)
             {
-                // Reset de txb
+                // Reset de txb en voer de kwaliteiten in
                 lblKwaliteitWaarde.Text = "";
                 foreach (string kwaliteit in profiel.KwaliteitenLijst)
                 {
@@ -83,15 +83,14 @@ namespace CrmAppSchool.Views.Profiel
             tbFunctie.Text = lblFunctieWaarde.Text;
             if (profiel.KwaliteitenLijst != null)
             {
-                // Reset de txb
-                lblKwaliteitWaarde.Text = "";
+                Console.WriteLine("HOIOIII");
+                // Reset de txb en voer de kwaliteiten in
+                tbKwaliteit.Text = "";
                 foreach (string kwaliteit in profiel.KwaliteitenLijst)
                 {
-                    Console.WriteLine("KW" + kwaliteit);
-                    lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + "\n";
+                    tbKwaliteit.AppendText(kwaliteit + Environment.NewLine);
                 }
             }
-            tbKwaliteit.Text = lblKwaliteitWaarde.Text;
             Updatebuttons();
         }
         private void Updatebuttons()
@@ -199,42 +198,44 @@ namespace CrmAppSchool.Views.Profiel
                         }*/
                     }
                 }
+            }
 
-                // Schrijf de nieuwe profiel informatie over naar de database
-                Controllers.ProfielController profielController = new Controllers.ProfielController();
-                Models.Profiel profiel = new Models.Profiel() { Voornaam = lblVoornaamWaarde.Text, Achternaam = lblAchternaamWaarde.Text, Bedrijf = lblBedrijfWaarde.Text, Locatie = lblLocatieWaarde.Text, Functie = lblFunctieWaarde.Text};
+            // Schrijf de nieuwe profiel informatie over naar de database
+            Controllers.ProfielController profielController = new Controllers.ProfielController();
+            Models.Profiel profiel = new Models.Profiel() { Voornaam = lblVoornaamWaarde.Text, Achternaam = lblAchternaamWaarde.Text, Bedrijf = lblBedrijfWaarde.Text, Locatie = lblLocatieWaarde.Text, Functie = lblFunctieWaarde.Text };
 
-                // Zet de kwaliteiten in de list
-                profiel.KwaliteitenLijst = new List<string>();
-                foreach (string ingevoerdeKwaliteit in tbKwaliteit.Lines)
+            // Zet de kwaliteiten in de list
+            profiel.KwaliteitenLijst = new List<string>();
+            foreach (string ingevoerdeKwaliteit in tbKwaliteit.Lines)
+            {
+                if (ingevoerdeKwaliteit != "")
                 {
-                    Console.WriteLine(ingevoerdeKwaliteit);
+                    Console.WriteLine("HOI " + ingevoerdeKwaliteit);
                     profiel.KwaliteitenLijst.Add(ingevoerdeKwaliteit);
                     lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + "\n" + ingevoerdeKwaliteit;
                 }
-                // Zet de checkboxes in het profiel
-                profiel.VoornaamIsZichtbaar = cbPriveVN.Checked;
-                profiel.AchternaamIsZichtbaar = cbPriveAN.Checked;
-                profiel.BedrijfIsZichtbaar = cbPriveBD.Checked;
-                profiel.LocatieIsZichtbaar = cbPriveLO.Checked;
-                profiel.FunctieIsZichtbaar = cbPriveFU.Checked;
-                profiel.KwaliteitIsZichtbaar = cbPriveKW.Checked;
+            }
 
-                profielController.Update_Profiel(gebruiker, profiel);
+            // Zet de checkboxes in het profiel
+            profiel.VoornaamIsZichtbaar = cbPriveVN.Checked;
+            profiel.AchternaamIsZichtbaar = cbPriveAN.Checked;
+            profiel.BedrijfIsZichtbaar = cbPriveBD.Checked;
+            profiel.LocatieIsZichtbaar = cbPriveLO.Checked;
+            profiel.FunctieIsZichtbaar = cbPriveFU.Checked;
+            profiel.KwaliteitIsZichtbaar = cbPriveKW.Checked;
 
-                // Zet de bewerk of prive mode weer uit
-                if (EditMode == true)
-                {
-                    EditMode = false;
-                    Updatebuttons();
-                }
-                else if (PriveMode == true)
-                {
-                    PriveMode = false;
-                    UpdatePrive();
-                }
+            profielController.Update_Profiel(gebruiker, profiel);
 
-
+            // Zet de bewerk of prive mode weer uit
+            if (EditMode == true)
+            {
+                EditMode = false;
+                Updatebuttons();
+            }
+            else if (PriveMode == true)
+            {
+                PriveMode = false;
+                UpdatePrive();
             }
         }
 
@@ -344,7 +345,7 @@ namespace CrmAppSchool.Views.Profiel
                 string wachtwoord = tbHuidigwachtwoord.Text;
                 LoginController logincontroller = new LoginController();
                 bool resultaat = logincontroller.VerifieerGebruiker(gebruikersnaam, wachtwoord);
-                if(resultaat == true)
+                if (resultaat == true)
                 {
                     lbloldpassword.Text = "Wachtwoord:";
                     lblWachtwoordWaarde.Visible = true;
