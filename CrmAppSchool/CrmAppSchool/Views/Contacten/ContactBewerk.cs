@@ -112,7 +112,7 @@ namespace CrmAppSchool.Views.Contacten
 
         private void mobielTb_Leave(object sender, EventArgs e)
         {
-            if (mobielTb.Text.Count() < 10)
+            if (mobielTb.Text.Count() < 10 && mobielTb.Text.Count() > 0)
             {
                 mobielTb.ForeColor = Color.Red;
                 validmobiel = false;

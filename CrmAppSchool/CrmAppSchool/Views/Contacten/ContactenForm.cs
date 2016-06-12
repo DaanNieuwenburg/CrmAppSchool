@@ -452,7 +452,7 @@ namespace CrmAppSchool.Views.Contacten
 
         private void tbVoornaam_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
         }
 
         private void tbEmail_Leave(object sender, EventArgs e)
@@ -516,7 +516,7 @@ namespace CrmAppSchool.Views.Contacten
 
         private void tbMobiel_Leave(object sender, EventArgs e)
         {
-            if (tbMobiel.Text.Count() < 10)
+            if (tbMobiel.Text.Count() < 10 && tbMobiel.Text.Count() > 0)
             {
                 tbMobiel.ForeColor = Color.Red;
                 validmobiel = false;
