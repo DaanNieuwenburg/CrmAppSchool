@@ -19,7 +19,7 @@ namespace CrmAppSchool.Models
         public bool LocatieIsZichtbaar { get; set; }
         public string Functie { get; set; }
         public bool FunctieIsZichtbaar { get; set; }
-        public string Kwaliteit { get; set; }
+        public List<string> KwaliteitenLijst { get; set; }
         public bool KwaliteitIsZichtbaar { get; set; }
     }
 }
