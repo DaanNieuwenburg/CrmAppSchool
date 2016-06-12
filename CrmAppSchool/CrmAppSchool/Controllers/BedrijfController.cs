@@ -111,7 +111,7 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
-                string query = @"SELECT bedrijfcode, bedrijfnaam FROM bedrijf";
+                string query = @"SELECT bedrijfcode, bedrijfnaam FROM bedrijf ORDER BY bedrijfnaam asc";
                 MySqlCommand command = new MySqlCommand(query, conn);
 
                 MySqlDataReader dataReader = command.ExecuteReader();
