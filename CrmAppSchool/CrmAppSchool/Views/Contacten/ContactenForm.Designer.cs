@@ -385,6 +385,7 @@
             this.bedrijfCbx.Location = new System.Drawing.Point(106, 99);
             this.bedrijfCbx.Name = "bedrijfCbx";
             this.bedrijfCbx.Size = new System.Drawing.Size(149, 21);
+            this.bedrijfCbx.Sorted = true;
             this.bedrijfCbx.TabIndex = 10;
             // 
             // label5

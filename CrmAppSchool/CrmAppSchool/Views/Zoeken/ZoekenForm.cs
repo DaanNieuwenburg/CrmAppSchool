@@ -42,17 +42,33 @@ namespace CrmAppSchool.Views.Zoeken
             else
             {
                 ZoekController zoekController = new ZoekController();
-                List<Models.Persooncontact> resultaatLijst = zoekController.zoekMetFilter(zoekquery, zoekcriteriaTxb.Text);
-                if (resultaatLijst.Count > 0)
+                if(zoekfilterCbx.Text != "Organisatie")
                 {
-                    ZoekOverzichtForm zoekOverzichtForm = new ZoekOverzichtForm(resultaatLijst);
-                    this.Hide();
-                    zoekOverzichtForm.ShowDialog();
+                    List<Models.Persooncontact> resultaatLijst = zoekController.zoekMetFilter(zoekquery, zoekcriteriaTxb.Text);
+                    if (resultaatLijst.Count > 0)
+                    {
+                        ZoekOverzichtForm zoekOverzichtForm = new ZoekOverzichtForm();
+                        zoekOverzichtForm.VulListviewPersoon(resultaatLijst);
+                        this.Hide();
+                        zoekOverzichtForm.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Geen Resultaten gevonden");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Geen Resultaten gevonden");
+                    List<Models.Bedrijfcontact> bedrijfresultaten = zoekController.Zoekbedrijf(zoekquery, zoekcriteriaTxb.Text);
+                    if(bedrijfresultaten.Count > 0)
+                    {
+                        ZoekOverzichtForm zoekOverzichtForm = new ZoekOverzichtForm();
+                        zoekOverzichtForm.VulListviewBedrijf(bedrijfresultaten);
+                        this.Hide();
+                        zoekOverzichtForm.ShowDialog();
+                    }
                 }
+                
             }
         }
     }

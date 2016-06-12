@@ -18,7 +18,11 @@ namespace CrmAppSchool.Views.Zoeken
     {
         public bool ShowMenu { get; set; }
         private bool Sorteermenu { get; set; }
-        public ZoekOverzichtForm(List<Models.Persooncontact> resultaatLijst)
+        private ImageList imagelist
+        {
+            get; set;
+        }
+        public ZoekOverzichtForm()
         {
 
 
@@ -29,18 +33,19 @@ namespace CrmAppSchool.Views.Zoeken
             InitializeComponent();
             ShowMenu = false;
             // create image list and fill it 
-            var imagelist = new ImageList();
+            imagelist = new ImageList();
             imagelist.Images.Add("GS", Properties.Resources.Afbeelding_ContactPersoon_GastSpreker);
             imagelist.Images.Add("GD", Properties.Resources.Afbeelding_ContactPersoon_GastDocent);
             imagelist.Images.Add("BD", Properties.Resources.Afbeelding_ContactPersoon_Bedrijf);
             imagelist.Images.Add("SB", Properties.Resources.Afbeelding_ContactPersoon_StageBegeleider);
             // tell your ListView to use the new image list
             resultatenLvw.LargeImageList = imagelist;
-
-
+        }
+        public void VulListviewPersoon(List<Models.Persooncontact> resultatenlijst)
+        {
             //if (resultaatLijst != null && resultaatLijst.Count() > 0)
             //{
-            foreach (Models.Persooncontact contact in resultaatLijst)
+            foreach (Models.Persooncontact contact in resultatenlijst)
             {
                 ListViewItem lvw = new ListViewItem(contact.Voornaam);
                 lvw.SubItems.Add(contact.Achternaam);
@@ -52,9 +57,28 @@ namespace CrmAppSchool.Views.Zoeken
                 imagelist.ImageSize = new Size(50, 50);
                 lvw.ImageKey = "GS";        // Stel de afbeelding voor de persoon in
             }
-            // }
-
         }
+        public void VulListviewBedrijf(List<Models.Bedrijfcontact> resultatenlijst)
+        {
+            //if (resultaatLijst != null && resultaatLijst.Count() > 0)
+            //{
+            foreach (Models.Bedrijfcontact contact in resultatenlijst)
+            {
+                ListViewItem lvw = new ListViewItem(contact.Bedrijfnaam);
+                lvw.SubItems.Add(contact.Hoofdlocatie);
+                //lvw.SubItems.Add(contact.Bedrijf.Bedrijfnaam);
+                lvw.SubItems.Add(contact.Email);
+                lvw.SubItems.Add(contact.Website);
+                //lvw.SubItems.Add(contact.Kwaliteit);        
+                resultatenLvw.Items.Add(lvw);
+                imagelist.ImageSize = new Size(50, 50);
+                lvw.ImageKey = "BD";        // Stel de afbeelding voor de persoon in
+            }
+        }
+
+        // }
+
+
 
         private void btnSorteer_Click(object sender, EventArgs e)
         {

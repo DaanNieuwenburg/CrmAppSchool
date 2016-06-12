@@ -24,8 +24,11 @@ namespace CrmAppSchool.Controllers
                 MySqlDataReader lezer = command.ExecuteReader();
                 while(lezer.Read())
                 {
-                    Persooncontact contact = new Persooncontact();
-                    resultatenLijst.Add(new Persooncontact { Voornaam = lezer.GetString("voornaam"), Achternaam = lezer.GetString("achternaam"), Locatie = lezer.GetString("locatie"), Email = lezer.GetString("email"), Functie = lezer["functie"] as string, Afdeling = lezer["afdeling"] as string });
+                    if(zoekquery != "Organisatie")
+                    {
+                        Persooncontact contact = new Persooncontact();
+                        resultatenLijst.Add(new Persooncontact { Voornaam = lezer.GetString("voornaam"), Achternaam = lezer.GetString("achternaam"), Locatie = lezer.GetString("locatie"), Email = lezer.GetString("email"), Functie = lezer["functie"] as string, Afdeling = lezer["afdeling"] as string });
+                    }
                 }
             }
             catch(MySqlException e)
@@ -36,9 +39,37 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Close();
             }
-            return resultatenLijst;
+                return resultatenLijst;
         }
+        public List<Bedrijfcontact> Zoekbedrijf(string zoekquery, string zoekcriteria)
+        {
+            List<Bedrijfcontact> bedrijfresultlijst = new List<Bedrijfcontact>();
+            try
+            {
+                conn.Open();
+                string query = bepaalFilterQuery(zoekquery);
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter zoekParam = new MySqlParameter("@zoekParam", MySqlDbType.VarChar);
+                zoekParam.Value = zoekcriteria;
+                command.Parameters.Add(zoekParam);
+                MySqlDataReader lezer = command.ExecuteReader();
+                while (lezer.Read())
+                {
 
+                        Bedrijfcontact contact = new Bedrijfcontact();
+                        bedrijfresultlijst.Add(new Bedrijfcontact { Bedrijfnaam = lezer.GetString("bedrijfnaam"), Hoofdlocatie = lezer.GetString("hoofdlocatie"), Website = lezer.GetString("website")/*, Email = lezer.GetString("email"), Telefoonnr = lezer.GetString("telefoonnr"), Omschrijving = lezer.GetString("omschrijving") */});
+                }
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("ERROR! EXCEPTION! ARGHHH! : " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+                return bedrijfresultlijst;
+        }
         public string bepaalFilterQuery(string zoekquery)
         {
             if(zoekquery == "Voornaam")
@@ -55,7 +86,7 @@ namespace CrmAppSchool.Controllers
             }
             else if (zoekquery == "Organisatie")
             {
-                return "SELECT * FROM contactpersoon WHERE (bedrijf LIKE '%' @zoekParam '%')";
+                return "SELECT * FROM bedrijf WHERE (bedrijfnaam LIKE '%' @zoekParam '%')";
             }
             else if (zoekquery == "Locatie")
             {
