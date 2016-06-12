@@ -57,7 +57,16 @@ namespace CrmAppSchool.Views.Profiel
             cbPriveBD.Checked = profiel.BedrijfIsZichtbaar;
             lblLocatieWaarde.Text = profiel.Locatie;
             cbPriveLO.Checked = profiel.LocatieIsZichtbaar;
-            lblKwaliteitWaarde.Text = profiel.Kwaliteit;
+            if (profiel.KwaliteitenLijst != null)
+            {
+                // Reset de txb
+                lblKwaliteitWaarde.Text = "";
+                foreach (string kwaliteit in profiel.KwaliteitenLijst)
+                {
+                    Console.WriteLine("KW" + kwaliteit);
+                    lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + "\n";
+                }
+            }
             cbPriveKW.Checked = profiel.KwaliteitIsZichtbaar;
             lblFunctieWaarde.Text = profiel.Functie;
             cbPriveFU.Checked = profiel.FunctieIsZichtbaar;
@@ -142,6 +151,7 @@ namespace CrmAppSchool.Views.Profiel
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
+            string[] kwaliteiten = null;
             for (int i = 0; i < 6; i++)
             {
                 if (Bewerkt[i] == true)
@@ -168,21 +178,34 @@ namespace CrmAppSchool.Views.Profiel
                     }
                     else if (i == 5)
                     {
-                        string[] kwaliteiten = new string[tbKwaliteit.Lines.Count()];
+                        /*Console.WriteLine("AAAAAAA");
+                        kwaliteiten = new string[tbKwaliteit.Lines.Count()];
                         int j = 0;
                         foreach(string a in tbKwaliteit.Lines)
                         {
+                            Console.WriteLine(a);
                             kwaliteiten[j] = a;
                             lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + "\n" + a;
                             j++;
-                        }
+                        }*/
                     }
+                }
+
+                // Zet de kwaliteiten in een array........
+                kwaliteiten = new string[tbKwaliteit.Lines.Count()];
+                int j = 0;
+                foreach (string a in tbKwaliteit.Lines)
+                {
+                    Console.WriteLine(a);
+                    kwaliteiten[j] = a;
+                    lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + "\n" + a;
+                    j++;
                 }
 
 
                 // Schrijf de nieuwe profiel informatie over naar de database
                 Controllers.ProfielController profielController = new Controllers.ProfielController();
-                Models.Profiel profiel = new Models.Profiel() { Voornaam = lblVoornaamWaarde.Text, Achternaam = lblAchternaamWaarde.Text, Bedrijf = lblBedrijfWaarde.Text, Locatie = lblLocatieWaarde.Text, Functie = lblFunctieWaarde.Text, Kwaliteit = lblKwaliteitWaarde.Text };
+                Models.Profiel profiel = new Models.Profiel() { Voornaam = lblVoornaamWaarde.Text, Achternaam = lblAchternaamWaarde.Text, Bedrijf = lblBedrijfWaarde.Text, Locatie = lblLocatieWaarde.Text, Functie = lblFunctieWaarde.Text, Kwaliteiten = kwaliteiten };
 
                 // Zet de checkboxes in het profiel
                 profiel.VoornaamIsZichtbaar = cbPriveVN.Checked;
@@ -193,7 +216,7 @@ namespace CrmAppSchool.Views.Profiel
                 profiel.KwaliteitIsZichtbaar = cbPriveKW.Checked;
 
                 profielController.Update_Profiel(gebruiker, profiel);
-                
+
                 // Zet de bewerk of prive mode weer uit
                 if (EditMode == true)
                 {
@@ -295,7 +318,7 @@ namespace CrmAppSchool.Views.Profiel
 
         private void btnBewerkLogin_Click(object sender, EventArgs e)
         {
-            if(EditWachtwoordMode == false)
+            if (EditWachtwoordMode == false)
             {
                 lblWachtwoord.Visible = true;
                 lbloldpassword.Text = "Huidige Wachtwoord:";
@@ -306,11 +329,11 @@ namespace CrmAppSchool.Views.Profiel
                 lblWachtwoordWaarde.Visible = false;
                 EditWachtwoordMode = true;
             }
-            else if(tbWachtwoord.Text != tbBevestig.Text)
+            else if (tbWachtwoord.Text != tbBevestig.Text)
             {
                 MessageBox.Show("De wachtwoorden komen niet overeen", "Waarschuwing");
             }
-            else if(EditWachtwoordMode == true && tbWachtwoord.Text == tbBevestig.Text)
+            else if (EditWachtwoordMode == true && tbWachtwoord.Text == tbBevestig.Text)
             {
                 string gebruikersnaam = gebruiker.Gebruikersnaam;
                 string wachtwoord = tbHuidigwachtwoord.Text;
