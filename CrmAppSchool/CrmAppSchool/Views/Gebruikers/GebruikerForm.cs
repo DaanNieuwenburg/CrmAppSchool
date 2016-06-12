@@ -74,6 +74,8 @@ namespace CrmAppSchool.Views.Gebruikers
                 Gebruiker gebruiker = new Gebruiker() { Gebruikersnaam = gebruikersnaamTxb.Text, Wachtwoord = wachtwoordTxb.Text, SoortGebruiker = soortGebruikerCbx.Text };
                 GebruikerController gebruikercontroller = new GebruikerController();
                 gebruikercontroller.voegGebruikerToe(gebruiker);
+                if(gebruiker.SoortGebruiker == "Admin" || gebruiker.SoortGebruiker == "Docent")
+                    gebruikercontroller.CreeërProfiel(gebruiker);
 
                 this.Close();
             }

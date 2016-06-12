@@ -60,7 +60,38 @@ namespace CrmAppSchool.Controllers
                 conn.Close();
             }
         }
+        public void CreeërProfiel(Gebruiker gebruiker)
+        {
+            MySqlTransaction trans = null;
+            try
+            {
+                conn.Open();
+                string query = "INSERT INTO gebruiker_profiel (gebruikersnaam) VALUES (@gebruiker)";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter gebruikerParam = new MySqlParameter("@gebruiker", MySqlDbType.VarChar);
 
+                gebruikerParam.Value = gebruiker.Gebruikersnaam;
+
+                command.Parameters.Add(gebruikerParam);
+
+                command.Prepare();
+
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
+            {
+                if(trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in het aanmaken van het gebruikersprofiel");
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
         public List<Gebruiker> haalGebruikersOp()
         {
             try
