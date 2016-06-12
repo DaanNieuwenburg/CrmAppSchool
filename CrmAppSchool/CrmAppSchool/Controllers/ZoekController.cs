@@ -55,9 +55,8 @@ namespace CrmAppSchool.Controllers
                 MySqlDataReader lezer = command.ExecuteReader();
                 while (lezer.Read())
                 {
-
                         Bedrijfcontact contact = new Bedrijfcontact();
-                        bedrijfresultlijst.Add(new Bedrijfcontact { Bedrijfnaam = lezer.GetString("bedrijfnaam"), Hoofdlocatie = lezer.GetString("hoofdlocatie"), Website = lezer.GetString("website")/*, Email = lezer.GetString("email"), Telefoonnr = lezer.GetString("telefoonnr"), Omschrijving = lezer.GetString("omschrijving") */});
+                        bedrijfresultlijst.Add(new Bedrijfcontact { Bedrijfnaam = lezer.GetString("bedrijfnaam"), Hoofdlocatie = lezer.GetString("hoofdlocatie"), Website = lezer.GetString("website"), Email = lezer["email"] as string, Telefoonnr = lezer["telefoonnr"] as string, Omschrijving = lezer["omschrijving"] as string });
                 }
             }
             catch (MySqlException e)
