@@ -210,6 +210,7 @@
             this.Name = "ZoekOverzichtForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gevonde resultaten";
+            this.Load += new System.EventHandler(this.ZoekOverzichtForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             this.ResumeLayout(false);

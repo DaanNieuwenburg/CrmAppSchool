@@ -441,6 +441,15 @@ namespace CrmAppSchool.Views.Contacten
             ToolTip TP1 = new ToolTip();
             TP1.ShowAlways = true;
             TP1.SetToolTip(tbMobiel, "Voer een geldig mobiel nummer in.\nExample: 0612345678");
+            ToolTip TPnieuw = new ToolTip();
+            TPnieuw.ShowAlways = false;
+            TPnieuw.SetToolTip(btnVoegtoe, "Voeg een nieuw contact toe");
+            ToolTip TPbewerk = new ToolTip();
+            TPbewerk.ShowAlways = false;
+            TPbewerk.SetToolTip(btnWijzig, "Bewerk het geselecteerde contact");
+            ToolTip TPdelete = new ToolTip();
+            TPdelete.ShowAlways = false;
+            TPdelete.SetToolTip(btnDelete, "Verwijder het geselecteerde contact");
         }
         private void tbMobiel_KeyPress(object sender, KeyPressEventArgs e)
         {

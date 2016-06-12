@@ -24,8 +24,7 @@ namespace CrmAppSchool.Views.Zoeken
         }
         public ZoekOverzichtForm()
         {
-
-
+            
             // add an item
             // var listViewItem = listView.Items.Add("Item with image");
             // and tell the item which image to use
@@ -133,6 +132,13 @@ namespace CrmAppSchool.Views.Zoeken
         {
             ShowMenu = true;
             this.Close();
+        }
+
+        private void ZoekOverzichtForm_Load(object sender, EventArgs e)
+        {
+            ToolTip TPsort = new ToolTip();
+            TPsort.ShowAlways = false;
+            TPsort.SetToolTip(btnSorteer, "Sorteer de zoekresultaten");
         }
     }
     class ListViewItemComparer : IComparer
