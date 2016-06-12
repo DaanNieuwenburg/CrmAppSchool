@@ -23,6 +23,7 @@ namespace CrmAppSchool.Views.Contacten
         private bool validmobiel { get; set; }
         private bool validbedrijfemail { get; set; }
         public Gebruiker _gebruiker { get; set; }
+        ContactenController cc = new ContactenController();
         public ContactenForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
@@ -55,8 +56,35 @@ namespace CrmAppSchool.Views.Contacten
 
         private void btnZoeken_Click(object sender, EventArgs e)
         {
-            ActiveerZoeken();
-
+            if (ShowZoeken == true)
+            {
+                zoek();
+            }
+            else
+            {
+                ActiveerZoeken();
+            }
+                   
+        }
+        public void zoek()
+        {          
+            lvContacten.Items.Clear();
+            string input = "%" + tbSearch.Text + "%";
+            List<Persooncontact> resultaten = cc.ZoekContacten(input, _gebruiker);
+            foreach (Persooncontact contact in resultaten)
+            {
+                ListViewItem lvi = new ListViewItem(contact.Voornaam + contact.Achternaam);
+                lvContacten.Items.Add(lvi);
+                if (contact.Isgastdocent == true)
+                {
+                    lvi.ImageKey = "GD";
+                }
+                if(contact.Isstagebegeleider == true)
+                {
+                    lvi.ImageKey = "GS";
+                }
+                
+            }
         }
         private void ActiveerZoeken()
         {
@@ -73,6 +101,7 @@ namespace CrmAppSchool.Views.Contacten
         }
         private void AnnuleerZoeken()
         {
+            vulContacten();
             ShowZoeken = false;
             btnVoegtoe.Visible = true;
             btnZoeken.Location = new Point(527, 1);
@@ -382,6 +411,7 @@ namespace CrmAppSchool.Views.Contacten
         private void vulContacten()
         {
             settooltips();
+            lvContacten.Clear();
             ContactenController _getcontacten = new ContactenController();
             List<Persooncontact> contactenlijst = _getcontacten.HaalContactenOp(_gebruiker);
             foreach (Persooncontact contact in contactenlijst)
