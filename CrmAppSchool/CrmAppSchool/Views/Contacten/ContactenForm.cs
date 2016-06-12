@@ -412,6 +412,7 @@ namespace CrmAppSchool.Views.Contacten
         private void vulContacten()
         {
             settooltips();
+            lvContacten.Clear();
             ContactenController _getcontacten = new ContactenController();
             List<Persooncontact> contactenlijst = _getcontacten.HaalContactenOp(_gebruiker);
             foreach (Persooncontact contact in contactenlijst)
