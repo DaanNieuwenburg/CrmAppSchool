@@ -25,6 +25,12 @@ namespace CrmAppSchool.Views.Opdrachten
             ShowMenu = false;
             ShowZoeken = false;
             setListBox();
+            if (gebruiker.SoortGebruiker == "Student")
+            {
+                btnDelete.Visible = false;
+                btnVoegtoe.Visible = false;
+                btnWijzig.Visible = false;
+            }
             
         }
 
@@ -132,8 +138,13 @@ namespace CrmAppSchool.Views.Opdrachten
         {
             if (lvStage.SelectedItems != null)
             {
-                soc.deleteStageopdracht(Convert.ToInt32(lvStage.SelectedItems[0].SubItems[0].Text));
-                setListBox();
+                DialogResult dialoogResultaat = MessageBox.Show("Wilt u deze stageopdracht echt verwijderen?", "Verwijderen stageopdracht", MessageBoxButtons.YesNo);
+                if (dialoogResultaat == DialogResult.Yes)
+                {
+
+                    soc.deleteStageopdracht(Convert.ToInt32(lvStage.SelectedItems[0].SubItems[0].Text));
+                    setListBox();
+                }
             }
         }
 
