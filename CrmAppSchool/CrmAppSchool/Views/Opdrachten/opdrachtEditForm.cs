@@ -95,8 +95,6 @@ namespace CrmAppSchool.Views.Opdrachten
             cbx_contact.DataSource = cc.ContactenBijBedrijf(bedrijf);
             cbx_contact.DisplayMember = "volnaam";
             cbx_contact.ValueMember = "contactcode";
-
-
         }
     }
 }
