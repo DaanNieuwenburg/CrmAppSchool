@@ -19,11 +19,12 @@ namespace CrmAppSchool.Views.Zoeken
         public bool ShowMenu { get; set; }
         private bool Sorteermenu { get; set; }
         private ComboBox cb { get; set; } 
+        private Gebruiker _gebruiker { get; set; }
         private ImageList imagelist
         {
             get; set;
         }
-        public ZoekOverzichtForm(ComboBox cb)
+        public ZoekOverzichtForm(ComboBox cb, Gebruiker gebruiker)
         {
             
             // add an item
@@ -31,6 +32,8 @@ namespace CrmAppSchool.Views.Zoeken
             // and tell the item which image to use
             //listViewItem.ImageKey = "itemImageKey";
             InitializeComponent();
+            _gebruiker = gebruiker;
+            lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
             ShowMenu = false;
             // create image list and fill it 
             imagelist = new ImageList();
