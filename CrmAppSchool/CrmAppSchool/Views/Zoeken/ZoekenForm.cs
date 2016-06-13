@@ -75,6 +75,8 @@ namespace CrmAppSchool.Views.Zoeken
 
         private void cbZoeknaar_SelectedIndexChanged(object sender, EventArgs e)
         {
+            filterLbl.Visible = true;
+            zoekfilterCbx.Visible = true;
             if(cbZoeknaar.SelectedItem.ToString() == "Bedrijf")
             {
                 zoekfilterCbx.Items.Clear();

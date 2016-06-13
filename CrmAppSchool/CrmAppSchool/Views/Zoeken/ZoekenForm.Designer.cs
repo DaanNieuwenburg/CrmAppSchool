@@ -32,12 +32,12 @@
             this.zoekcriteriaTxb = new System.Windows.Forms.TextBox();
             this.filterLbl = new System.Windows.Forms.Label();
             this.zoekfilterCbx = new System.Windows.Forms.ComboBox();
-            this.btnZoek = new System.Windows.Forms.Button();
-            this.pbHome = new System.Windows.Forms.PictureBox();
             this.lblgebruiker = new System.Windows.Forms.Label();
-            this.pbHeader = new System.Windows.Forms.PictureBox();
             this.cbZoeknaar = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pbHome = new System.Windows.Forms.PictureBox();
+            this.pbHeader = new System.Windows.Forms.PictureBox();
+            this.btnZoek = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +60,7 @@
             this.filterLbl.Size = new System.Drawing.Size(54, 15);
             this.filterLbl.TabIndex = 2;
             this.filterLbl.Text = "Zoek op:";
+            this.filterLbl.Visible = false;
             // 
             // zoekfilterCbx
             // 
@@ -78,33 +79,7 @@
             this.zoekfilterCbx.Name = "zoekfilterCbx";
             this.zoekfilterCbx.Size = new System.Drawing.Size(121, 24);
             this.zoekfilterCbx.TabIndex = 3;
-            // 
-            // btnZoek
-            // 
-            this.btnZoek.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Zoeken2;
-            this.btnZoek.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnZoek.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnZoek.FlatAppearance.BorderSize = 0;
-            this.btnZoek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnZoek.Location = new System.Drawing.Point(341, 80);
-            this.btnZoek.Name = "btnZoek";
-            this.btnZoek.Size = new System.Drawing.Size(75, 57);
-            this.btnZoek.TabIndex = 0;
-            this.btnZoek.UseVisualStyleBackColor = true;
-            this.btnZoek.Click += new System.EventHandler(this.btnZoek_Click);
-            // 
-            // pbHome
-            // 
-            this.pbHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.pbHome.BackgroundImage = global::CrmAppSchool.Properties.Resources.picture_Home;
-            this.pbHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHome.Location = new System.Drawing.Point(2, 2);
-            this.pbHome.Name = "pbHome";
-            this.pbHome.Size = new System.Drawing.Size(64, 50);
-            this.pbHome.TabIndex = 14;
-            this.pbHome.TabStop = false;
-            this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
+            this.zoekfilterCbx.Visible = false;
             // 
             // lblgebruiker
             // 
@@ -117,15 +92,6 @@
             this.lblgebruiker.Size = new System.Drawing.Size(123, 16);
             this.lblgebruiker.TabIndex = 12;
             this.lblgebruiker.Text = "U bent ingelogd als:";
-            // 
-            // pbHeader
-            // 
-            this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.pbHeader.Location = new System.Drawing.Point(-27, -8);
-            this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(519, 60);
-            this.pbHeader.TabIndex = 13;
-            this.pbHeader.TabStop = false;
             // 
             // cbZoeknaar
             // 
@@ -153,6 +119,42 @@
             this.label1.Size = new System.Drawing.Size(65, 15);
             this.label1.TabIndex = 15;
             this.label1.Text = "Zoek naar:";
+            // 
+            // pbHome
+            // 
+            this.pbHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.pbHome.BackgroundImage = global::CrmAppSchool.Properties.Resources.picture_Home;
+            this.pbHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbHome.Location = new System.Drawing.Point(2, 2);
+            this.pbHome.Name = "pbHome";
+            this.pbHome.Size = new System.Drawing.Size(64, 50);
+            this.pbHome.TabIndex = 14;
+            this.pbHome.TabStop = false;
+            this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
+            // 
+            // pbHeader
+            // 
+            this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.pbHeader.Location = new System.Drawing.Point(-27, -8);
+            this.pbHeader.Name = "pbHeader";
+            this.pbHeader.Size = new System.Drawing.Size(519, 60);
+            this.pbHeader.TabIndex = 13;
+            this.pbHeader.TabStop = false;
+            // 
+            // btnZoek
+            // 
+            this.btnZoek.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Zoeken2;
+            this.btnZoek.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnZoek.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnZoek.FlatAppearance.BorderSize = 0;
+            this.btnZoek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZoek.Location = new System.Drawing.Point(341, 80);
+            this.btnZoek.Name = "btnZoek";
+            this.btnZoek.Size = new System.Drawing.Size(75, 57);
+            this.btnZoek.TabIndex = 0;
+            this.btnZoek.UseVisualStyleBackColor = true;
+            this.btnZoek.Click += new System.EventHandler(this.btnZoek_Click);
             // 
             // ZoekenForm
             // 
