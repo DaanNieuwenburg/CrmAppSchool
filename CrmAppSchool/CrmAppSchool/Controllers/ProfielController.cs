@@ -157,7 +157,7 @@ namespace CrmAppSchool.Controllers
                 conn.Open();
                 trans = conn.BeginTransaction();
 
-                string query = @"UPDATE gebruiker_profiel SET voornaam = @Voornaam, voornaam_iszichtbaar = @Voornaam_iszichtbaar, achternaam = @Achternaam, achternaam_iszichtbaar = @Achternaam_iszichtbaar, bedrijf = @Bedrijf, bedrijf_iszichtbaar = @Bedrijf_iszichtbaar, locatie = @Locatie, locatie_iszichtbaar = @Locatie_iszichtbaar, functie = @Functie, functie_iszichtbaar = @Functie_iszichtbaar
+                string query = @"UPDATE gebruiker_profiel SET voornaam = @Voornaam, voornaam_iszichtbaar = @Voornaam_iszichtbaar, achternaam = @Achternaam, achternaam_iszichtbaar = @Achternaam_iszichtbaar, locatie = @Locatie, locatie_iszichtbaar = @Locatie_iszichtbaar, functie = @Functie, functie_iszichtbaar = @Functie_iszichtbaar
                                 WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
 
@@ -166,8 +166,6 @@ namespace CrmAppSchool.Controllers
                 MySqlParameter VN_iszichtbaar = new MySqlParameter("@Voornaam_iszichtbaar", MySqlDbType.Int32);
                 MySqlParameter AN_PARAM = new MySqlParameter("@Achternaam", MySqlDbType.VarChar);
                 MySqlParameter AN_iszichtbaar = new MySqlParameter("@Achternaam_iszichtbaar", MySqlDbType.Int32);
-                MySqlParameter BD_PARAM = new MySqlParameter("@Bedrijf", MySqlDbType.VarChar);
-                MySqlParameter BD_iszichtbaar = new MySqlParameter("@Bedrijf_iszichtbaar", MySqlDbType.Int32);
                 MySqlParameter LO_PARAM = new MySqlParameter("@Locatie", MySqlDbType.VarChar);
                 MySqlParameter LO_iszichtbaar = new MySqlParameter("@Locatie_iszichtbaar", MySqlDbType.Int32);
                 MySqlParameter FU_PARAM = new MySqlParameter("@Functie", MySqlDbType.VarChar);
@@ -178,8 +176,6 @@ namespace CrmAppSchool.Controllers
                 VN_iszichtbaar.Value = _profiel.VoornaamIsZichtbaar;
                 AN_PARAM.Value = _profiel.Achternaam;
                 AN_iszichtbaar.Value = _profiel.AchternaamIsZichtbaar;
-                BD_PARAM.Value = _profiel.Bedrijf;
-                BD_iszichtbaar.Value = _profiel.BedrijfIsZichtbaar;
                 LO_PARAM.Value = _profiel.Locatie;
                 LO_iszichtbaar.Value = _profiel.LocatieIsZichtbaar;
                 FU_PARAM.Value = _profiel.Functie;
@@ -190,8 +186,6 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(VN_iszichtbaar);
                 command.Parameters.Add(AN_PARAM);
                 command.Parameters.Add(AN_iszichtbaar);
-                command.Parameters.Add(BD_PARAM);
-                command.Parameters.Add(BD_iszichtbaar);
                 command.Parameters.Add(LO_PARAM);
                 command.Parameters.Add(LO_iszichtbaar);
                 command.Parameters.Add(FU_PARAM);
