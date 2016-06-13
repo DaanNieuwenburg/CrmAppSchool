@@ -48,6 +48,7 @@
             this.lblProfiel = new System.Windows.Forms.Label();
             this.lblOpdrachten = new System.Windows.Forms.Label();
             this.lblUitloggen = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
@@ -305,12 +306,27 @@
             this.lblUitloggen.Text = "Uitloggen";
             this.lblUitloggen.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Bedrijf;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(397, 73);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(168, 139);
+            this.button1.TabIndex = 19;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // HoofdmenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(840, 428);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblUitloggen);
             this.Controls.Add(this.lblOpdrachten);
             this.Controls.Add(this.lblProfiel);
@@ -366,5 +382,6 @@
         private System.Windows.Forms.Label lblProfiel;
         private System.Windows.Forms.Label lblOpdrachten;
         private System.Windows.Forms.Label lblUitloggen;
+        private System.Windows.Forms.Button button1;
     }
 }
