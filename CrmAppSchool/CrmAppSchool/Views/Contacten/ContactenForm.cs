@@ -313,8 +313,8 @@ namespace CrmAppSchool.Views.Bedrijven
                 string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
                 ContactenController cc = new ContactenController();
                 Persooncontact contact = cc.HaalInfoOp(contactcode);
-                //ContactBewerk bewerk = new ContactBewerk(_gebruiker, contact);
-                //bewerk.ShowDialog();
+                ContactBewerk bewerk = new ContactBewerk(contact, _gebruiker);
+                bewerk.ShowDialog();
 
                 // Reset de listview
                 lvContacten.Clear();
@@ -368,7 +368,7 @@ namespace CrmAppSchool.Views.Bedrijven
             ContactenController _controller = new ContactenController();
 
             Persooncontact contact = _controller.HaalInfoOp(contactcode);
-            ContactDetails _details = new ContactDetails(contact);
+            ContactDetails _details = new ContactDetails(_gebruiker, contact);
             _details.ShowDialog();
         }
 

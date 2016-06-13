@@ -155,7 +155,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 ShowSave = false;
             }
         }
-
+        
         private void SaveBedrijf(Bedrijfcontact bedrijf)
         {
             ListViewItem Company = new ListViewItem(bedrijf.Bedrijfnaam);
@@ -178,15 +178,15 @@ namespace CrmAppSchool.Views.Bedrijven
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
             bool opslaan = true;
-
+            
             if ((tbHoofdlocatie.Text.Count() <= 0 || tbBedrijfsnaam.Text.Count() <= 0))
-            {
+                {
                 opslaan = false;
-                MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
-            }
+                    MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
+                }
 
             if (tbTelefoon.Text.Count() <= 0)
-            {
+                {
                 if (tbEadres.Text.Count() > 0)
                 {
                     if (validbedrijfemail == false)
@@ -194,32 +194,32 @@ namespace CrmAppSchool.Views.Bedrijven
                         opslaan = false;
                     }
                 }
-            }
+                }
 
             else if (tbEadres.Text.Count() <= 0)
-            {
+                {
                 opslaan = false;
-            }
+                }
             
            
-
+            
             if (opslaan == true)
             {
 
-                string[] z = new string[tbKwaliteiten.Lines.Count()];
-int i = 0;
-                foreach (string line in tbKwaliteiten.Lines)
-                {
-                    z[i] = line;
-                    i++;
-                }
-                Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tbBedrijfsnaam.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = z };
-BedrijfController bc = new BedrijfController();
-bc.voegBedrijfToe(bedrijfcontact);
-                SaveBedrijf(bedrijfcontact);
+                    string[] z = new string[tbKwaliteiten.Lines.Count()];
+                    int i = 0;
+                    foreach (string line in tbKwaliteiten.Lines)
+                    {
+                        z[i] = line;
+                        i++;
+                    }
+                    Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tbBedrijfsnaam.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = z };
+                    BedrijfController bc = new BedrijfController();
+                    bc.voegBedrijfToe(bedrijfcontact);
+                    SaveBedrijf(bedrijfcontact);
+                
 
-
-pnbedrijf2.Visible = false;
+                pnbedrijf2.Visible = false;
                 bedrijfPnl.Visible = false;
                 bedrijfPnl.Visible = false;
                 btnZoeken.Visible = true;
@@ -235,131 +235,131 @@ pnbedrijf2.Visible = false;
         }
 
         private void btnWijzig_Click(object sender, EventArgs e)
-{
-    if (lvContacten.SelectedItems.Count == 1) //Om te bewerken moet er minimaal en maximaal 1 contact geselecteerd zijn
-    {
-        string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
-        ContactenController cc = new ContactenController();
-        Persooncontact contact = cc.HaalInfoOp(contactcode);
-        ContactBewerk bewerk = new ContactBewerk(contact, _gebruiker);
-        bewerk.ShowDialog();
-
-        // Reset de listview
-        lvContacten.Clear();
-        vulContacten();
-    }
-}
-
-private void btnDelete_Click(object sender, EventArgs e)
-{
-    DialogResult dialoogResultaat = MessageBox.Show("Wilt u de geselecteerde contacten echt verwijderen?", "Verwijderen contacten", MessageBoxButtons.YesNo);
-    if (dialoogResultaat == DialogResult.Yes)
-    {
-        if (lvContacten.SelectedItems.Count == 1)
         {
-            string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
-            ContactenController cc = new ContactenController();
-            cc.verwijderContact(_gebruiker, contactcode);
-            lvContacten.Items.Remove(lvContacten.SelectedItems[0]);
-        }
-        else if (lvContacten.SelectedItems.Count > 1)
-        {
-            foreach (ListViewItem item in lvContacten.SelectedItems)
+            if (lvContacten.SelectedItems.Count == 1) //Om te bewerken moet er minimaal en maximaal 1 contact geselecteerd zijn
             {
-                lvContacten.Items.Remove(item);
-                string contactcode = item.SubItems[1].Text;
+                string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
                 ContactenController cc = new ContactenController();
-                cc.verwijderContact(_gebruiker, contactcode);
+                Persooncontact contact = cc.HaalInfoOp(contactcode);
+                ContactBewerk bewerk = new ContactBewerk(contact, _gebruiker);
+                bewerk.ShowDialog();
+
+                // Reset de listview
+                lvContacten.Clear();
+                vulContacten();
             }
         }
-    }
 
-}
-
-
-private void lvContacten_ItemActivate(object sender, EventArgs e)
-{
-    string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
-    ContactenController _controller = new ContactenController();
-
-    Persooncontact contact = _controller.HaalInfoOp(contactcode);
-    ContactDetails _details = new ContactDetails(contact);
-    _details.ShowDialog();
-}
-
-private void vulContacten()
-{
-    settooltips();
-    lvContacten.Clear();
-    BedrijfController _getcontacten = new BedrijfController();
-    List<Bedrijfcontact> contactenlijst = _getcontacten.haalBedrijfLijstOp();
-    foreach (Bedrijfcontact contact in contactenlijst)
-    {
-        ListViewItem c = new ListViewItem(contact.Bedrijfnaam);
-        c.SubItems.Add(Convert.ToString(contact.Hoofdlocatie));
-        c.ImageKey = "BD";
-        lvContacten.Items.Add(c);
-    }
-}
-private void ContactenForm_Load(object sender, EventArgs e)
-{
-    vulContacten();
-
-}
-private void settooltips()
-{
-    ToolTip TPnieuw = new ToolTip();
-    TPnieuw.ShowAlways = false;
-    TPnieuw.SetToolTip(btnVoegtoe, "Voeg een nieuw contact toe");
-    ToolTip TPbewerk = new ToolTip();
-    TPbewerk.ShowAlways = false;
-    TPbewerk.SetToolTip(btnWijzig, "Bewerk het geselecteerde contact");
-    ToolTip TPdelete = new ToolTip();
-    TPdelete.ShowAlways = false;
-    TPdelete.SetToolTip(btnDelete, "Verwijder het geselecteerde contact");
-}
-private void tbMobiel_KeyPress(object sender, KeyPressEventArgs e)
-{
-    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-    {
-        e.Handled = true;
-    }
-}
-
-private void tbVoornaam_KeyPress(object sender, KeyPressEventArgs e)
-{
-    e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
-}
-
-private void tbEadres_Leave(object sender, EventArgs e)
-{
-    if (tbEadres.Text.Count() > 0)
-    {
-        try
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            var eMailValidator = new MailAddress(tbEadres.Text);
+            DialogResult dialoogResultaat = MessageBox.Show("Wilt u de geselecteerde contacten echt verwijderen?", "Verwijderen contacten", MessageBoxButtons.YesNo);
+            if (dialoogResultaat == DialogResult.Yes)
+            {
+                if (lvContacten.SelectedItems.Count == 1)
+                {
+                    string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
+                    ContactenController cc = new ContactenController();
+                    cc.verwijderContact(_gebruiker, contactcode);
+                    lvContacten.Items.Remove(lvContacten.SelectedItems[0]);
+                }
+                else if (lvContacten.SelectedItems.Count > 1)
+                {
+                    foreach (ListViewItem item in lvContacten.SelectedItems)
+                    {
+                        lvContacten.Items.Remove(item);
+                        string contactcode = item.SubItems[1].Text;
+                        ContactenController cc = new ContactenController();
+                        cc.verwijderContact(_gebruiker, contactcode);
+                    }
+                }
+            }
+            
+        }
+
+
+        private void lvContacten_ItemActivate(object sender, EventArgs e)
+        {
+            string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
+            ContactenController _controller = new ContactenController();
+
+            Persooncontact contact = _controller.HaalInfoOp(contactcode);
+            ContactDetails _details = new ContactDetails(_gebruiker, contact);
+            _details.ShowDialog();
+        }
+
+        private void vulContacten()
+        {
+            settooltips();
+            lvContacten.Clear();
+            BedrijfController _getcontacten = new BedrijfController();
+            List<Bedrijfcontact> contactenlijst = _getcontacten.haalBedrijfLijstOp();
+            foreach (Bedrijfcontact contact in contactenlijst)
+            {
+                ListViewItem c = new ListViewItem(contact.Bedrijfnaam);
+                c.SubItems.Add(Convert.ToString(contact.Hoofdlocatie));
+                c.ImageKey = "BD";
+                lvContacten.Items.Add(c);
+            }
+        }
+        private void ContactenForm_Load(object sender, EventArgs e)
+        {
+            vulContacten();
 
         }
+        private void settooltips()
+        {          
+            ToolTip TPnieuw = new ToolTip();
+            TPnieuw.ShowAlways = false;
+            TPnieuw.SetToolTip(btnVoegtoe, "Voeg een nieuw contact toe");
+            ToolTip TPbewerk = new ToolTip();
+            TPbewerk.ShowAlways = false;
+            TPbewerk.SetToolTip(btnWijzig, "Bewerk het geselecteerde contact");
+            ToolTip TPdelete = new ToolTip();
+            TPdelete.ShowAlways = false;
+            TPdelete.SetToolTip(btnDelete, "Verwijder het geselecteerde contact");
+        }
+        private void tbMobiel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbVoornaam_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
+        }
+
+        private void tbEadres_Leave(object sender, EventArgs e)
+        {
+            if (tbEadres.Text.Count() > 0)
+            {
+                try
+                {
+                    var eMailValidator = new MailAddress(tbEadres.Text);
+
+                }
         catch (FormatException)
-        {
-            tbEadres.ForeColor = Color.Red;
-            validbedrijfemail = false;
+                {
+                    tbEadres.ForeColor = Color.Red;
+                    validbedrijfemail = false;
+                }
+            }
         }
-    }
-}
 
-private void tbEadres_Enter(object sender, EventArgs e)
-{
-    tbEadres.ForeColor = Color.Black;
-    validbedrijfemail = true;
-}
+        private void tbEadres_Enter(object sender, EventArgs e)
+        {
+            tbEadres.ForeColor = Color.Black;
+            validbedrijfemail = true;
+        }
 
-private void tbTelefoon_KeyPress(object sender, KeyPressEventArgs e)
-{
+        private void tbTelefoon_KeyPress(object sender, KeyPressEventArgs e)
+        {
     if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-    {
-        e.Handled = true;
-    }
-}
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -19,6 +19,7 @@ namespace CrmAppSchool.Views.Bedrijven
         private int beoordeling { get; set; }
         private bool validmobiel { get; set; }
         private bool validemail { get; set; }
+        private bool isinsert { get; set; }
         private Gebruiker gebruiker { get; set; }
         public ContactBewerk(Persooncontact contact, Gebruiker _gebruiker)
         {
@@ -27,11 +28,23 @@ namespace CrmAppSchool.Views.Bedrijven
             validemail = true;
             gebruiker = _gebruiker;
             // Vult de bedrijven combobox met bedrijven
-            BedrijfController bc = new BedrijfController();
-            beoordeling = 0; // AANPASSEN 
+            BedrijfController bc = new BedrijfController(); 
             bedrijfCbx.DataSource = bc.haalBedrijfLijstOp();
             bedrijfCbx.DisplayMember = "Bedrijfnaam";
             bedrijfCbx.ValueMember = "Bedrijfscode";
+
+            // Haal de contacten evaluaties op
+            ContactEvaluatieController ce = new ContactEvaluatieController();
+            contact = ce.HaalInfoOp(gebruiker, contact);
+            tbOmschrijving.Text = contact.Evaluatie;
+            beoordeling = contact.Beoordeling;
+
+            // Kijkt of de omschrijving textbox leeg is, zoja dan is er sprake van een insert, anders update
+            isinsert = false;
+            if (tbOmschrijving.Text == "")
+            {
+                isinsert = true;
+            }
 
             // Zet de combobox selectie naar het huidige bedrijf
             bedrijfCbx.SelectedIndex = bedrijfCbx.FindStringExact(contact.Bedrijf.Bedrijfnaam);
@@ -81,6 +94,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 bewerktContact.Locatie = locatieTb.Text;
                 bewerktContact.Email = emailTb.Text;
                 bewerktContact.Mobielnr = mobielTb.Text;
+
                 string omschr = "";
                 if (tbOmschrijving.Text.Count() > 1)
                 {
@@ -89,16 +103,13 @@ namespace CrmAppSchool.Views.Bedrijven
                         omschr = omschr + "\n" + line;
                     }
                 }
+                bewerktContact.Evaluatie = omschr;
                 // Contactencontroller
                 ContactenController cc = new ContactenController();
                 cc.bewerkContact(bewerktContact);
 
                 // ContactenEvaluatiecontroller
-                bool isinsert = false;
-                if(tbOmschrijving.Text == "")
-                {
-                    isinsert = true;
-                }
+                bewerktContact.Beoordeling = beoordeling;
                 ContactEvaluatieController ce = new ContactEvaluatieController();
                 ce.bepaalWhatToDo(bewerktContact, gebruiker, isinsert);
 
