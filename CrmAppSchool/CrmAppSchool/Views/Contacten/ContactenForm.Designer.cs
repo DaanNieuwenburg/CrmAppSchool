@@ -1,4 +1,4 @@
-﻿namespace CrmAppSchool.Views.Contacten
+﻿namespace CrmAppSchool.Views.Bedrijven
 {
     partial class ContactenForm
     {
@@ -38,8 +38,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.lvContacten = new System.Windows.Forms.ListView();
             this.Contact = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.contactSoortCbx = new System.Windows.Forms.ComboBox();
-            this.lblSoort = new System.Windows.Forms.Label();
             this.bedrijfPnl = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -82,6 +80,8 @@
             this.tbWebsite = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tbKwaliteiten = new System.Windows.Forms.TextBox();
+            this.contactSoortCbx = new System.Windows.Forms.ComboBox();
+            this.lblSoort = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.bedrijfPnl.SuspendLayout();
@@ -210,36 +210,6 @@
             // 
             this.Contact.Text = "";
             this.Contact.Width = this.lvContacten.Width;
-            // 
-            // contactSoortCbx
-            // 
-            this.contactSoortCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.contactSoortCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.contactSoortCbx.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactSoortCbx.FormattingEnabled = true;
-            this.contactSoortCbx.Items.AddRange(new object[] {
-            "Bedrijf",
-            "Stagebegeleider",
-            "Gastdocent",
-            "Gastspreker"});
-            this.contactSoortCbx.Location = new System.Drawing.Point(39, 83);
-            this.contactSoortCbx.Name = "contactSoortCbx";
-            this.contactSoortCbx.Size = new System.Drawing.Size(121, 24);
-            this.contactSoortCbx.TabIndex = 20;
-            this.contactSoortCbx.Visible = false;
-            this.contactSoortCbx.SelectedValueChanged += new System.EventHandler(this.toonContactenInvoer);
-            // 
-            // lblSoort
-            // 
-            this.lblSoort.AutoSize = true;
-            this.lblSoort.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblSoort.Font = new System.Drawing.Font("Arial", 9F);
-            this.lblSoort.Location = new System.Drawing.Point(36, 63);
-            this.lblSoort.Name = "lblSoort";
-            this.lblSoort.Size = new System.Drawing.Size(152, 15);
-            this.lblSoort.TabIndex = 21;
-            this.lblSoort.Text = "Selecteer het soort contact";
-            this.lblSoort.Visible = false;
             // 
             // bedrijfPnl
             // 
@@ -697,6 +667,36 @@
             this.tbKwaliteiten.Size = new System.Drawing.Size(198, 111);
             this.tbKwaliteiten.TabIndex = 2;
             // 
+            // contactSoortCbx
+            // 
+            this.contactSoortCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.contactSoortCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.contactSoortCbx.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactSoortCbx.FormattingEnabled = true;
+            this.contactSoortCbx.Items.AddRange(new object[] {
+            "Bedrijf",
+            "Stagebegeleider",
+            "Gastdocent",
+            "Gastspreker"});
+            this.contactSoortCbx.Location = new System.Drawing.Point(39, 83);
+            this.contactSoortCbx.Name = "contactSoortCbx";
+            this.contactSoortCbx.Size = new System.Drawing.Size(121, 24);
+            this.contactSoortCbx.TabIndex = 20;
+            this.contactSoortCbx.Visible = false;
+            this.contactSoortCbx.SelectedValueChanged += new System.EventHandler(this.toonContactenInvoer);
+            // 
+            // lblSoort
+            // 
+            this.lblSoort.AutoSize = true;
+            this.lblSoort.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblSoort.Font = new System.Drawing.Font("Arial", 9F);
+            this.lblSoort.Location = new System.Drawing.Point(36, 63);
+            this.lblSoort.Name = "lblSoort";
+            this.lblSoort.Size = new System.Drawing.Size(152, 15);
+            this.lblSoort.TabIndex = 21;
+            this.lblSoort.Text = "Selecteer het soort contact";
+            this.lblSoort.Visible = false;
+            // 
             // ContactenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -751,8 +751,6 @@
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ListView lvContacten;
-        private System.Windows.Forms.ComboBox contactSoortCbx;
-        private System.Windows.Forms.Label lblSoort;
         private System.Windows.Forms.Panel bedrijfPnl;
         private System.Windows.Forms.Label bedrijfsnaamLbl;
         private System.Windows.Forms.TextBox tbBedrijfsnaam;
@@ -796,5 +794,7 @@
         private System.Windows.Forms.Label afdelingLbl;
         private System.Windows.Forms.TextBox tbAfdeling;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox contactSoortCbx;
+        private System.Windows.Forms.Label lblSoort;
     }
 }

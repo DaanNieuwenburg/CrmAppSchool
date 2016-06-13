@@ -13,7 +13,7 @@ using System.Net.Mail;
 
 namespace CrmAppSchool.Views.Bedrijven
 {
-    public partial class ContactenForm : Form
+    public partial class BedrijfForm : Form
     {
         public bool ShowMenu { get; set; }
         private bool ShowSave { get; set; }
@@ -24,7 +24,7 @@ namespace CrmAppSchool.Views.Bedrijven
         private bool validbedrijfemail { get; set; }
         public Gebruiker _gebruiker { get; set; }
         ContactenController cc = new ContactenController();
-        public ContactenForm(Gebruiker _gebruiker)
+        public BedrijfForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
             var imagelist = new ImageList();
@@ -41,11 +41,6 @@ namespace CrmAppSchool.Views.Bedrijven
             this._gebruiker = _gebruiker;
             lblGebruiker.Text = lblGebruiker.Text + " " + this._gebruiker.Gebruikersnaam;
 
-            // Vul de combobox van bedrijven met bedrijven
-            BedrijfController bc = new BedrijfController();
-            bedrijfCbx.DataSource = bc.haalBedrijfLijstOp();
-            bedrijfCbx.DisplayMember = "Bedrijfnaam";
-            bedrijfCbx.ValueMember = "Bedrijfscode";
         }
 
         private void pbHome_Click(object sender, EventArgs e)
@@ -122,42 +117,6 @@ namespace CrmAppSchool.Views.Bedrijven
             tbSearch.Text = "";
         }
 
-        private void toonContactenInvoer(object sender, EventArgs e)
-        {
-            // Toont de textboxes a.d.h.v. contactSoortCbx selectie
-            string invoerKeuze = Convert.ToString(contactSoortCbx.SelectedItem);
-            if (invoerKeuze == "Bedrijf")
-            {
-                persoonPnl.Visible = false;
-                pnOptioneel.Visible = false;
-                pnbedrijf2.Visible = true;
-                bedrijfPnl.Visible = true;
-            }
-            else if (invoerKeuze == "Stagebegeleider")
-            {
-                bedrijfPnl.Visible = false;
-                persoonPnl.Visible = true;
-                pnOptioneel.Visible = true;
-                pnbedrijf2.Visible = false;
-                bedrijfPnl.Visible = false;
-            }
-            else if (invoerKeuze == "Gastdocent")
-            {
-                bedrijfPnl.Visible = false;
-                pnOptioneel.Visible = true;
-                pnbedrijf2.Visible = false;
-                bedrijfPnl.Visible = false;
-                persoonPnl.Visible = true;
-            }
-            else if (invoerKeuze == "Gastspreker")
-            {
-                bedrijfPnl.Visible = false;
-                pnOptioneel.Visible = true;
-                pnbedrijf2.Visible = false;
-                bedrijfPnl.Visible = false;
-                persoonPnl.Visible = true;
-            }
-        }
 
         private void btnVoegtoe_Click(object sender, EventArgs e)
         {
@@ -165,15 +124,12 @@ namespace CrmAppSchool.Views.Bedrijven
             if (ShowSave == false)
             {
                 lvContacten.Visible = false;
-                lblSoort.Visible = true;
                 btnVoegtoe.Visible = false;
                 btnAnnuleer.Visible = true;
                 btnZoeken.Visible = false;
                 btnOpslaan.Visible = true;
-                contactSoortCbx.Visible = true;
                 btnWijzig.Visible = false;
                 btnDelete.Visible = false;
-                Makeempty();
                 ShowSave = true;
                 /*List<string> newCBlist = new List<string>();
                 foreach (string a in bedrijfCbx.Items)
@@ -193,31 +149,12 @@ namespace CrmAppSchool.Views.Bedrijven
                 btnAnnuleer.Visible = false;
                 btnOpslaan.Visible = false;
                 btnZoeken.Visible = true;
-                contactSoortCbx.Visible = false;
                 btnWijzig.Visible = true;
                 btnDelete.Visible = true;
                 ShowSave = false;
             }
         }
-        private void SaveContact(Persooncontact persoon)
-        {
-            ListViewItem contact = new ListViewItem(persoon.Voornaam);
-            contact.SubItems.Add(persoon.Achternaam);
-            lvContacten.Items.Add(contact);
-            if (contactSoortCbx.Text == "Gastspreker")
-            {
-                contact.ImageKey = "GS";
-            }
-            else if (contactSoortCbx.Text == "Gastdocent")
-            {
-                contact.ImageKey = "GD";
-            }
-            else if (contactSoortCbx.Text == "Stagebegeleider")
-            {
-                contact.ImageKey = "SB";
-            }
-
-        }
+        
         private void SaveBedrijf(Bedrijfcontact bedrijf)
         {
             ListViewItem Company = new ListViewItem(bedrijf.Bedrijfnaam);
@@ -232,42 +169,13 @@ namespace CrmAppSchool.Views.Bedrijven
             btnDelete.Visible = true;
             btnAnnuleer.Visible = false;
             btnOpslaan.Visible = false;
-            contactSoortCbx.Visible = false;
-            persoonPnl.Visible = false;
-            pnOptioneel.Visible = false;
-            lblSoort.Visible = false;
             lvContacten.Visible = true;
             ShowSave = false;
         }
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
             bool opslaan = false;
-            if (contactSoortCbx.Text != "Bedrijf")
-            {
-                bool a = false;
-                bool b = false;
-                if ((tbVoornaam.Text.Count() <= 0 || tbAchternaam.Text.Count() <= 0 || tbEmail.Text.Count() <= 0 || bedrijfCbx.Text.Count() <= 0))
-                {
-                    a = false;
-                    MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
-                }
-                else
-                {
-                    a = true;
-                }
-                if (validemail == true && validmobiel == true)
-                {
-                    b = true;
-                }
-                else
-                {
-                    MessageBox.Show("Het ingevoerde emailadres of mobiel nr. is onjuist", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                if (a == true && b == true)
-                    opslaan = true;
-            }
-            else
-            {
+            
                 bool a = false;
                 bool b = false;
                 if ((tbHoofdlocatie.Text.Count() <= 0 || tbBedrijfsnaam.Text.Count() <= 0) || (tbEadres.Text.Count() <= 0 && tbTelefoon.Text.Count() <= 0))
@@ -285,73 +193,32 @@ namespace CrmAppSchool.Views.Bedrijven
                 }
                 if (a == true && b == true)
                     opslaan = true;
-            }
+            
             if (opslaan == true)
             {
-                if (contactSoortCbx.Text != "Bedrijf")
-                {
-                    Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Functie = tbFunctie.Text, Afdeling = tbAfdeling.Text, Locatie = tbLocatie.Text, Email = tbEmail.Text, Mobielnr = tbMobiel.Text, Gebruiker = _gebruiker };
-                    string contactSoort = Convert.ToString(contactSoortCbx.SelectedItem);
-                    Console.WriteLine(tbFunctie.Text);
-                    int bedrijfcode = Convert.ToInt32(bedrijfCbx.SelectedValue);
-                    persooncontact.Bedrijf = new Bedrijfcontact() { Bedrijfscode = bedrijfcode };
 
-                    // Haal kwaliteiten op
-                    string[] kwaliteiten = new string[tbKwaliteitenP.Lines.Count()];
-                    int i = 0;
-                    foreach (string line in tbKwaliteitenP.Lines)
-                    {
-                        kwaliteiten[i] = line;
-                        i++;
-                    }
-                    persooncontact.Kwaliteiten = kwaliteiten;
-
-                    switch (contactSoort)
-                    {
-                        case "Stagebegeleider":
-                            persooncontact.Isstagebegeleider = true;
-                            break;
-                        case "Gastdocent":
-                            persooncontact.Isgastdocent = true;
-                            break;
-                        default:
-                            Console.WriteLine("ERROR");
-                            break;
-                    }
-                    ContactenController contactencontroller = new ContactenController();
-                    contactencontroller.controleerOfContactBestaat(_gebruiker, persooncontact);
-                    SaveContact(persooncontact);
-                    lvContacten.Clear();
-                    vulContacten();
-                }
-                else
-                {
-                    string[] a = new string[tbKwaliteiten.Lines.Count()];
+                    string[] z = new string[tbKwaliteiten.Lines.Count()];
                     int i = 0;
                     foreach (string line in tbKwaliteiten.Lines)
                     {
-                        a[i] = line;
+                        z[i] = line;
                         i++;
                     }
-                    Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tbBedrijfsnaam.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = a };
+                    Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tbBedrijfsnaam.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = z };
                     BedrijfController bc = new BedrijfController();
                     bc.voegBedrijfToe(bedrijfcontact);
                     SaveBedrijf(bedrijfcontact);
-                }
+                
 
-                pnOptioneel.Visible = false;
-                persoonPnl.Visible = false;
                 pnbedrijf2.Visible = false;
                 bedrijfPnl.Visible = false;
                 bedrijfPnl.Visible = false;
                 btnZoeken.Visible = true;
-                lblSoort.Visible = false;
                 btnVoegtoe.Visible = true;
                 btnWijzig.Visible = true;
                 btnDelete.Visible = true;
                 btnAnnuleer.Visible = false;
                 btnOpslaan.Visible = false;
-                contactSoortCbx.Visible = false;
                 lvContacten.Visible = true;
                 ShowSave = false;
             }
@@ -365,8 +232,8 @@ namespace CrmAppSchool.Views.Bedrijven
                 string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
                 ContactenController cc = new ContactenController();
                 Persooncontact contact = cc.HaalInfoOp(contactcode);
-                //ContactBewerk bewerk = new ContactBewerk(_gebruiker, contact);
-                //bewerk.ShowDialog();
+                ContactBewerk bewerk = new ContactBewerk(contact, _gebruiker);
+                bewerk.ShowDialog();
 
                 // Reset de listview
                 lvContacten.Clear();
@@ -398,19 +265,6 @@ namespace CrmAppSchool.Views.Bedrijven
                 }
             }
             
-        }
-
-        private void Makeempty()
-        {
-            contactSoortCbx.Text = "";
-            tbVoornaam.Text = "";
-            tbAchternaam.Text = "";
-            tbEmail.Text = "";
-            tbFunctie.Text = "";
-            tbLocatie.Text = "";
-            tbMobiel.Text = "";
-            tbKwaliteitenP.Text = "";
-
         }
 
 
@@ -451,13 +305,7 @@ namespace CrmAppSchool.Views.Bedrijven
 
         }
         private void settooltips()
-        {
-            ToolTip TP = new ToolTip();
-            TP.ShowAlways = true;
-            TP.SetToolTip(tbEmail, "Voer een geldig email adres in.\nExample: harry@hotmail.com");
-            ToolTip TP1 = new ToolTip();
-            TP1.ShowAlways = true;
-            TP1.SetToolTip(tbMobiel, "Voer een geldig mobiel nummer in.\nExample: 0612345678");
+        {          
             ToolTip TPnieuw = new ToolTip();
             TPnieuw.ShowAlways = false;
             TPnieuw.SetToolTip(btnVoegtoe, "Voeg een nieuw contact toe");
@@ -479,76 +327,6 @@ namespace CrmAppSchool.Views.Bedrijven
         private void tbVoornaam_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
-        }
-
-        private void tbEmail_Leave(object sender, EventArgs e)
-        {
-            if (tbEmail.Text.Count() > 0)
-            {
-                try
-                {
-                    var eMailValidator = new System.Net.Mail.MailAddress(tbEmail.Text);
-                }
-                catch (FormatException ex)
-                {
-                    // wrong e-mail address
-                    tbEmail.ForeColor = Color.Red;
-                    validemail = false;
-                }
-            }
-        }
-
-        private void tbEmail_Enter(object sender, EventArgs e)
-        {
-            tbEmail.ForeColor = Color.Black;
-            validemail = true;
-        }
-        private void tbEadres_Leave(object sender, EventArgs e)
-        {
-            if (tbEadres.Text.Count() > 0)
-            {
-                try
-                {
-                    var eMailValidator = new MailAddress(tbEadres.Text);
-                }
-                catch (FormatException ex)
-                {
-                    // wrong e-mail address
-                    tbEadres.ForeColor = Color.Red;
-                    validbedrijfemail = false;
-                }
-            }
-        }
-
-        private void tbEadres_Enter(object sender, EventArgs e)
-        {
-            tbEadres.ForeColor = Color.Black;
-            validbedrijfemail = true;
-        }
-
-        private void tbTelefoon_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void tbMobiel_Enter(object sender, EventArgs e)
-        {
-            tbMobiel.ForeColor = Color.Black;
-            validmobiel = true;
-        }
-
-        private void tbMobiel_Leave(object sender, EventArgs e)
-        {
-            if (tbMobiel.Text.Count() < 10 && tbMobiel.Text.Count() > 0)
-            {
-                tbMobiel.ForeColor = Color.Red;
-                validmobiel = false;
-            }
-
-
-        }
+        }       
     }
 }
