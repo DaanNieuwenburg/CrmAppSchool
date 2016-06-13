@@ -36,7 +36,7 @@
             this.pbHome = new System.Windows.Forms.PictureBox();
             this.lblgebruiker = new System.Windows.Forms.Label();
             this.pbHeader = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbZoeknaar = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
@@ -127,20 +127,20 @@
             this.pbHeader.TabIndex = 13;
             this.pbHeader.TabStop = false;
             // 
-            // comboBox1
+            // cbZoeknaar
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Arial", 10F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbZoeknaar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbZoeknaar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbZoeknaar.Font = new System.Drawing.Font("Arial", 10F);
+            this.cbZoeknaar.FormattingEnabled = true;
+            this.cbZoeknaar.Items.AddRange(new object[] {
             "Gebruiker",
             "Bedrijf",
             "Contactpersoon"});
-            this.comboBox1.Location = new System.Drawing.Point(39, 164);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 16;
+            this.cbZoeknaar.Location = new System.Drawing.Point(39, 164);
+            this.cbZoeknaar.Name = "cbZoeknaar";
+            this.cbZoeknaar.Size = new System.Drawing.Size(121, 24);
+            this.cbZoeknaar.TabIndex = 16;
             // 
             // label1
             // 
@@ -159,7 +159,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(459, 208);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbZoeknaar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbHome);
             this.Controls.Add(this.lblgebruiker);
@@ -189,7 +189,7 @@
         private System.Windows.Forms.PictureBox pbHome;
         private System.Windows.Forms.Label lblgebruiker;
         private System.Windows.Forms.PictureBox pbHeader;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbZoeknaar;
         private System.Windows.Forms.Label label1;
     }
 }
