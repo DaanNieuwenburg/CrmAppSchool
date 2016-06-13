@@ -66,8 +66,6 @@
             this.tbBevestig = new System.Windows.Forms.TextBox();
             this.lbloldpassword = new System.Windows.Forms.Label();
             this.tbHuidigwachtwoord = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
@@ -153,7 +151,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(365, 250);
+            this.label2.Location = new System.Drawing.Point(365, 300);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 19);
@@ -266,7 +264,7 @@
             // tbLocatie
             // 
             this.tbLocatie.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbLocatie.Location = new System.Drawing.Point(481, 164);
+            this.tbLocatie.Location = new System.Drawing.Point(481, 214);
             this.tbLocatie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbLocatie.Name = "tbLocatie";
             this.tbLocatie.Size = new System.Drawing.Size(175, 26);
@@ -277,7 +275,7 @@
             // tbFunctie
             // 
             this.tbFunctie.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFunctie.Location = new System.Drawing.Point(481, 207);
+            this.tbFunctie.Location = new System.Drawing.Point(481, 257);
             this.tbFunctie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbFunctie.Name = "tbFunctie";
             this.tbFunctie.Size = new System.Drawing.Size(175, 26);
@@ -288,7 +286,7 @@
             // tbKwaliteit
             // 
             this.tbKwaliteit.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbKwaliteit.Location = new System.Drawing.Point(481, 249);
+            this.tbKwaliteit.Location = new System.Drawing.Point(481, 299);
             this.tbKwaliteit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbKwaliteit.Multiline = true;
             this.tbKwaliteit.Name = "tbKwaliteit";
@@ -428,7 +426,7 @@
             this.cbPriveLO.FlatAppearance.BorderSize = 0;
             this.cbPriveLO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbPriveLO.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPriveLO.Location = new System.Drawing.Point(481, 164);
+            this.cbPriveLO.Location = new System.Drawing.Point(481, 214);
             this.cbPriveLO.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbPriveLO.Name = "cbPriveLO";
             this.cbPriveLO.Size = new System.Drawing.Size(83, 21);
@@ -443,7 +441,7 @@
             this.cbPriveFU.FlatAppearance.BorderSize = 0;
             this.cbPriveFU.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbPriveFU.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPriveFU.Location = new System.Drawing.Point(481, 207);
+            this.cbPriveFU.Location = new System.Drawing.Point(481, 257);
             this.cbPriveFU.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbPriveFU.Name = "cbPriveFU";
             this.cbPriveFU.Size = new System.Drawing.Size(83, 21);
@@ -458,7 +456,7 @@
             this.cbPriveKW.FlatAppearance.BorderSize = 0;
             this.cbPriveKW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbPriveKW.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPriveKW.Location = new System.Drawing.Point(481, 249);
+            this.cbPriveKW.Location = new System.Drawing.Point(481, 299);
             this.cbPriveKW.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbPriveKW.Name = "cbPriveKW";
             this.cbPriveKW.Size = new System.Drawing.Size(83, 21);
@@ -540,28 +538,6 @@
             this.tbHuidigwachtwoord.UseSystemPasswordChar = true;
             this.tbHuidigwachtwoord.Visible = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(364, 164);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 19);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Locatie:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(364, 207);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 19);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Functie:";
-            // 
             // MijnprofielForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -596,14 +572,12 @@
             this.Controls.Add(this.lblWachtwoord);
             this.Controls.Add(this.lblGebruikersnaam);
             this.Controls.Add(this.lblFunctieWaarde);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblKwaliteitWaarde);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblLocatieWaarde);
             this.Controls.Add(this.lblAchternaamWaarde);
             this.Controls.Add(this.lblVoornaamWaarde);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblLocatie);
             this.Controls.Add(this.lblAchternaam);
             this.Controls.Add(this.lblVoornaam);
@@ -659,7 +633,5 @@
         private System.Windows.Forms.TextBox tbBevestig;
         private System.Windows.Forms.Label lbloldpassword;
         private System.Windows.Forms.TextBox tbHuidigwachtwoord;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
     }
 }
