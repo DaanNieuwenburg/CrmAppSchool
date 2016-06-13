@@ -365,8 +365,8 @@ namespace CrmAppSchool.Views.Contacten
                 string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
                 ContactenController cc = new ContactenController();
                 Persooncontact contact = cc.HaalInfoOp(contactcode);
-                ContactBewerk bewerk = new ContactBewerk(contact);
-                bewerk.ShowDialog();
+                //ContactBewerk bewerk = new ContactBewerk(_gebruiker, contact);
+                //bewerk.ShowDialog();
 
                 // Reset de listview
                 lvContacten.Clear();

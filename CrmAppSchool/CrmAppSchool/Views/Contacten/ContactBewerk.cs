@@ -19,6 +19,7 @@ namespace CrmAppSchool.Views.Contacten
         private int beoordeling { get; set; }
         private bool validmobiel { get; set; }
         private bool validemail { get; set; }
+        private Gebruiker gebruiker { get; set; }
         public ContactBewerk(Persooncontact contact)
         {
             InitializeComponent();
@@ -90,6 +91,16 @@ namespace CrmAppSchool.Views.Contacten
                 // Contactencontroller
                 ContactenController cc = new ContactenController();
                 cc.bewerkContact(bewerktContact);
+
+                // ContactenEvaluatiecontroller
+                bool isinsert = false;
+                if(tbOmschrijving.Text == "")
+                {
+                    isinsert = true;
+                }
+                ContactEvaluatieController ce = new ContactEvaluatieController();
+                //ce.bepaalWhatToDo(bewerktContact, _gebruiker, isinsert);
+
                 this.Close();
             }
             else
