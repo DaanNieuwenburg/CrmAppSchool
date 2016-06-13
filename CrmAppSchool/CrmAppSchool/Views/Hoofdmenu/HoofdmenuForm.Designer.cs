@@ -30,6 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HoofdmenuForm));
             this.gebruikerLbl = new System.Windows.Forms.Label();
+            this.lblContacten = new System.Windows.Forms.Label();
+            this.lblZoeken = new System.Windows.Forms.Label();
+            this.lblRegistreer = new System.Windows.Forms.Label();
+            this.lblProfiel = new System.Windows.Forms.Label();
+            this.lblOpdrachten = new System.Windows.Forms.Label();
+            this.lblUitloggen = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnContacten = new System.Windows.Forms.Button();
             this.pbLogo2 = new System.Windows.Forms.PictureBox();
@@ -42,13 +49,6 @@
             this.btnZoeken = new System.Windows.Forms.Button();
             this.voegGebruikerToeBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblContacten = new System.Windows.Forms.Label();
-            this.lblZoeken = new System.Windows.Forms.Label();
-            this.lblRegistreer = new System.Windows.Forms.Label();
-            this.lblProfiel = new System.Windows.Forms.Label();
-            this.lblOpdrachten = new System.Windows.Forms.Label();
-            this.lblUitloggen = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
@@ -68,6 +68,92 @@
             this.gebruikerLbl.Size = new System.Drawing.Size(145, 18);
             this.gebruikerLbl.TabIndex = 0;
             this.gebruikerLbl.Text = "U bent ingelogd als:";
+            // 
+            // lblContacten
+            // 
+            this.lblContacten.AutoSize = true;
+            this.lblContacten.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContacten.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lblContacten.Location = new System.Drawing.Point(76, 215);
+            this.lblContacten.Name = "lblContacten";
+            this.lblContacten.Size = new System.Drawing.Size(67, 16);
+            this.lblContacten.TabIndex = 13;
+            this.lblContacten.Text = "Contacten";
+            this.lblContacten.Visible = false;
+            // 
+            // lblZoeken
+            // 
+            this.lblZoeken.AutoSize = true;
+            this.lblZoeken.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblZoeken.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lblZoeken.Location = new System.Drawing.Point(261, 215);
+            this.lblZoeken.Name = "lblZoeken";
+            this.lblZoeken.Size = new System.Drawing.Size(50, 16);
+            this.lblZoeken.TabIndex = 14;
+            this.lblZoeken.Text = "Zoeken";
+            this.lblZoeken.Visible = false;
+            // 
+            // lblRegistreer
+            // 
+            this.lblRegistreer.AutoSize = true;
+            this.lblRegistreer.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistreer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lblRegistreer.Location = new System.Drawing.Point(422, 215);
+            this.lblRegistreer.Name = "lblRegistreer";
+            this.lblRegistreer.Size = new System.Drawing.Size(124, 16);
+            this.lblRegistreer.TabIndex = 15;
+            this.lblRegistreer.Text = "Registreer gebruiker";
+            this.lblRegistreer.Visible = false;
+            // 
+            // lblProfiel
+            // 
+            this.lblProfiel.AutoSize = true;
+            this.lblProfiel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProfiel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lblProfiel.Location = new System.Drawing.Point(74, 373);
+            this.lblProfiel.Name = "lblProfiel";
+            this.lblProfiel.Size = new System.Drawing.Size(72, 16);
+            this.lblProfiel.TabIndex = 16;
+            this.lblProfiel.Text = "Mijn Profiel";
+            this.lblProfiel.Visible = false;
+            // 
+            // lblOpdrachten
+            // 
+            this.lblOpdrachten.AutoSize = true;
+            this.lblOpdrachten.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOpdrachten.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lblOpdrachten.Location = new System.Drawing.Point(249, 373);
+            this.lblOpdrachten.Name = "lblOpdrachten";
+            this.lblOpdrachten.Size = new System.Drawing.Size(75, 16);
+            this.lblOpdrachten.TabIndex = 17;
+            this.lblOpdrachten.Text = "Opdrachten";
+            this.lblOpdrachten.Visible = false;
+            // 
+            // lblUitloggen
+            // 
+            this.lblUitloggen.AutoSize = true;
+            this.lblUitloggen.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUitloggen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lblUitloggen.Location = new System.Drawing.Point(444, 377);
+            this.lblUitloggen.Name = "lblUitloggen";
+            this.lblUitloggen.Size = new System.Drawing.Size(62, 16);
+            this.lblUitloggen.TabIndex = 18;
+            this.lblUitloggen.Text = "Uitloggen";
+            this.lblUitloggen.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Bedrijf;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(397, 75);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(168, 139);
+            this.button1.TabIndex = 19;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // btnHelp
             // 
@@ -217,7 +303,7 @@
             this.voegGebruikerToeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.voegGebruikerToeBtn.FlatAppearance.BorderSize = 0;
             this.voegGebruikerToeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.voegGebruikerToeBtn.Location = new System.Drawing.Point(395, 75);
+            this.voegGebruikerToeBtn.Location = new System.Drawing.Point(23, 231);
             this.voegGebruikerToeBtn.Name = "voegGebruikerToeBtn";
             this.voegGebruikerToeBtn.Size = new System.Drawing.Size(169, 139);
             this.voegGebruikerToeBtn.TabIndex = 1;
@@ -233,92 +319,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(207, 428);
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
-            // 
-            // lblContacten
-            // 
-            this.lblContacten.AutoSize = true;
-            this.lblContacten.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContacten.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblContacten.Location = new System.Drawing.Point(76, 215);
-            this.lblContacten.Name = "lblContacten";
-            this.lblContacten.Size = new System.Drawing.Size(67, 16);
-            this.lblContacten.TabIndex = 13;
-            this.lblContacten.Text = "Contacten";
-            this.lblContacten.Visible = false;
-            // 
-            // lblZoeken
-            // 
-            this.lblZoeken.AutoSize = true;
-            this.lblZoeken.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblZoeken.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblZoeken.Location = new System.Drawing.Point(261, 215);
-            this.lblZoeken.Name = "lblZoeken";
-            this.lblZoeken.Size = new System.Drawing.Size(50, 16);
-            this.lblZoeken.TabIndex = 14;
-            this.lblZoeken.Text = "Zoeken";
-            this.lblZoeken.Visible = false;
-            // 
-            // lblRegistreer
-            // 
-            this.lblRegistreer.AutoSize = true;
-            this.lblRegistreer.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegistreer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblRegistreer.Location = new System.Drawing.Point(422, 215);
-            this.lblRegistreer.Name = "lblRegistreer";
-            this.lblRegistreer.Size = new System.Drawing.Size(124, 16);
-            this.lblRegistreer.TabIndex = 15;
-            this.lblRegistreer.Text = "Registreer gebruiker";
-            this.lblRegistreer.Visible = false;
-            // 
-            // lblProfiel
-            // 
-            this.lblProfiel.AutoSize = true;
-            this.lblProfiel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProfiel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblProfiel.Location = new System.Drawing.Point(74, 373);
-            this.lblProfiel.Name = "lblProfiel";
-            this.lblProfiel.Size = new System.Drawing.Size(72, 16);
-            this.lblProfiel.TabIndex = 16;
-            this.lblProfiel.Text = "Mijn Profiel";
-            this.lblProfiel.Visible = false;
-            // 
-            // lblOpdrachten
-            // 
-            this.lblOpdrachten.AutoSize = true;
-            this.lblOpdrachten.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOpdrachten.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblOpdrachten.Location = new System.Drawing.Point(249, 373);
-            this.lblOpdrachten.Name = "lblOpdrachten";
-            this.lblOpdrachten.Size = new System.Drawing.Size(75, 16);
-            this.lblOpdrachten.TabIndex = 17;
-            this.lblOpdrachten.Text = "Opdrachten";
-            this.lblOpdrachten.Visible = false;
-            // 
-            // lblUitloggen
-            // 
-            this.lblUitloggen.AutoSize = true;
-            this.lblUitloggen.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUitloggen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblUitloggen.Location = new System.Drawing.Point(444, 377);
-            this.lblUitloggen.Name = "lblUitloggen";
-            this.lblUitloggen.Size = new System.Drawing.Size(62, 16);
-            this.lblUitloggen.TabIndex = 18;
-            this.lblUitloggen.Text = "Uitloggen";
-            this.lblUitloggen.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Bedrijf;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(397, 73);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(168, 139);
-            this.button1.TabIndex = 19;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // HoofdmenuForm
             // 
