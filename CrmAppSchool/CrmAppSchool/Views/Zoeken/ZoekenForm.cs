@@ -80,21 +80,22 @@ namespace CrmAppSchool.Views.Zoeken
             if(cbZoeknaar.SelectedItem.ToString() == "Bedrijf")
             {
                 zoekfilterCbx.Items.Clear();
-                zoekfilterCbx.Text = "Bedrijfnaam";
+                
                 zoekfilterCbx.Items.Add("Bedrijfnaam");
                 zoekfilterCbx.Items.Add("Hoofdlocatie");
                 zoekfilterCbx.Items.Add("Omschrijving");
+                zoekfilterCbx.SelectedItem = zoekfilterCbx.Items[0];
             }
             else
             {
                 zoekfilterCbx.Items.Clear();
-                zoekfilterCbx.Text = "Voornaam";
                 zoekfilterCbx.Items.Add("Voornaam");
                 zoekfilterCbx.Items.Add("Achternaam");
                 zoekfilterCbx.Items.Add("Organisatie");
                 zoekfilterCbx.Items.Add("Locatie");
                 zoekfilterCbx.Items.Add("Functie");
                 zoekfilterCbx.Items.Add("Kwaliteit");
+                zoekfilterCbx.SelectedItem = zoekfilterCbx.Items[0];
             }
         }
     }
