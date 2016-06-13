@@ -24,14 +24,16 @@ namespace CrmAppSchool.Views.Opdrachten
             bedrijfCbx.DataSource = bc.haalBedrijfLijstOp();
             bedrijfCbx.DisplayMember = "Bedrijfnaam";
             bedrijfCbx.ValueMember = "Bedrijfscode";
+            bedrijfCbx.Text = null;
+            cbx_contact.Text = null;
 
         }
 
         public void getStatus()
         {
-                cbStatus.Items.Add("Open");
-                cbStatus.Items.Add("In uitvoering");
-                cbStatus.Items.Add("Voldaan");
+            cbStatus.Items.Add("Open");
+            cbStatus.Items.Add("In uitvoering");
+            cbStatus.Items.Add("Voldaan");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -64,7 +66,26 @@ namespace CrmAppSchool.Views.Opdrachten
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            if (cbStatus.SelectedItem != null)
+            if (((Bedrijfcontact)bedrijfCbx.SelectedItem) == null)
+            {
+                MessageBox.Show("Je hebt geen bedrijf geselecteerd");
+            }
+
+            else if (((Persooncontact)cbx_contact.SelectedItem) == null)
+            {
+                MessageBox.Show("Je hebt geen contact geselecteerd");
+            }
+            else if (tbNaam.Text == "")
+            {
+                MessageBox.Show("Je hebt geen naam ingevoerd");
+            }
+            else if (tbOmschrijving.Text == "")
+            {
+                MessageBox.Show("Je hebt geen omschrijving ingevoerd");
+            }
+
+
+            else if (cbStatus.SelectedItem != null)
             {
                 if (opdracht.Naam == null)
                 {
@@ -72,23 +93,16 @@ namespace CrmAppSchool.Views.Opdrachten
                 }
                 else
                 {
-                    int? contactcode;
-                    if (cbx_contact.SelectedItem != null)
-                    {
-                        contactcode = ((Persooncontact)cbx_contact.SelectedItem).Contactcode;
-                    }
-                    else
-                    {
-                        contactcode = null;
-                    }
-                    
-                    soc.updateStageopdracht(opdracht.Code, cbStatus.Text, tbNaam.Text, tbOmschrijving.Text, ((Bedrijfcontact)bedrijfCbx.SelectedItem).Bedrijfscode, contactcode);
+
+
+
+                    soc.updateStageopdracht(opdracht.Code, cbStatus.Text, tbNaam.Text, tbOmschrijving.Text, ((Bedrijfcontact)bedrijfCbx.SelectedItem).Bedrijfscode, ((Persooncontact)cbx_contact.SelectedItem).Contactcode);
                     DialogResult = DialogResult.OK;
                 }
             }
             else
             {
-                MessageBox.Show("je hebt geen status geslecteerd");
+                MessageBox.Show("Je hebt geen status geselecteerd");
             }
         }
 
@@ -102,6 +116,7 @@ namespace CrmAppSchool.Views.Opdrachten
             Bedrijfcontact bedrijf = bedrijfCbx.SelectedItem as Bedrijfcontact;
             ContactenController cc = new ContactenController();
             cbx_contact.Text = "";
+            if (bedrijf != null)
             cbx_contact.DataSource = cc.ContactenBijBedrijf(bedrijf);
             cbx_contact.DisplayMember = "volnaam";
             cbx_contact.ValueMember = "contactcode";
