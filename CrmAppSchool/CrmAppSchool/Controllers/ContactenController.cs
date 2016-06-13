@@ -383,7 +383,7 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
-                string query = @"UPDATE contactpersoon SET voornaam = @voornaam, achternaam = @achternaam, locatie = @locatie, email = @email, functie = @functie, afdeling = @afdeling, bedrijfcode = @bedrijfcode 
+                string query = @"UPDATE contactpersoon SET voornaam = @voornaam, achternaam = @achternaam, locatie = @locatie, email = @email, functie = @functie, afdeling = @afdeling, bedrijfcode = @bedrijfcode, mobielnr = @mobiel 
                                      WHERE contactcode = @contactcode";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter voornaamParam = new MySqlParameter("voornaam", MySqlDbType.VarChar);
