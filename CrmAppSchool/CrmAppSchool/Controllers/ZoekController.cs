@@ -140,10 +140,6 @@ namespace CrmAppSchool.Controllers
                 {
                     return "SELECT * FROM gebruiker_profiel WHERE (kwaliteit LIKE '%' @zoekParam '%')";
                 }
-                else if (zoekquery == "Organisatie")
-                {
-                    return "SELECT * FROM gebruiker_profiel WHERE (bedrijf LIKE '%' @zoekParam '%')";
-                }
                 else if (zoekquery == "Locatie")
                 {
                     return "SELECT * FROM gebruiker_profiel WHERE (locatie LIKE '%' @zoekParam '%')";
