@@ -92,7 +92,7 @@ namespace CrmAppSchool.Controllers
                 }
                 else if (zoekquery == "Organisatie")
                 {
-                    return "SELECT * FROM bedrijf WHERE (bedrijfnaam LIKE '%' @zoekParam '%')";
+                    return "SELECT * FROM contactpersoon C JOIN bedrijf B ON B.bedrijfcode = C.bedrijfcode WHERE (B.bedrijfnaam LIKE '%' @zoekParam '%')";
                 }
                 else if (zoekquery == "Locatie")
                 {
@@ -142,7 +142,7 @@ namespace CrmAppSchool.Controllers
                 }
                 else if (zoekquery == "Organisatie")
                 {
-                    return "SELECT * FROM gebruiker_profiel WHERE (bedrijfnaam LIKE '%' @zoekParam '%')";
+                    return "SELECT * FROM gebruiker_profiel WHERE (bedrijf LIKE '%' @zoekParam '%')";
                 }
                 else if (zoekquery == "Locatie")
                 {
