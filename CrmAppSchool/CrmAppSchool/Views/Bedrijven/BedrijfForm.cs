@@ -19,7 +19,6 @@ namespace CrmAppSchool.Views.Bedrijven
         private bool ShowSave { get; set; }
         private bool ShowZoeken { get; set; }
         private bool EditMode { get; set; }
-        private bool validemail { get; set; }
         private bool validmobiel { get; set; }
         private bool validbedrijfemail { get; set; }
         public Gebruiker _gebruiker { get; set; }
@@ -123,6 +122,8 @@ namespace CrmAppSchool.Views.Bedrijven
             validmobiel = true;
             if (ShowSave == false)
             {
+                bedrijfPnl.Visible = true;
+                pnbedrijf2.Visible = true;
                 lvContacten.Visible = false;
                 btnVoegtoe.Visible = false;
                 btnAnnuleer.Visible = true;
@@ -163,6 +164,8 @@ namespace CrmAppSchool.Views.Bedrijven
         }
         private void btnAnnuleer_Click(object sender, EventArgs e)
         {
+            bedrijfPnl.Visible = false;
+            pnbedrijf2.Visible = false;
             btnZoeken.Visible = true;
             btnVoegtoe.Visible = true;
             btnWijzig.Visible = true;
@@ -282,20 +285,13 @@ namespace CrmAppSchool.Views.Bedrijven
         {
             settooltips();
             lvContacten.Clear();
-            ContactenController _getcontacten = new ContactenController();
-            List<Persooncontact> contactenlijst = _getcontacten.HaalContactenOp(_gebruiker);
-            foreach (Persooncontact contact in contactenlijst)
+            BedrijfController _getcontacten = new BedrijfController();
+            List<Bedrijfcontact> contactenlijst = _getcontacten.haalBedrijfLijstOp();
+            foreach (Bedrijfcontact contact in contactenlijst)
             {
-                ListViewItem c = new ListViewItem(contact.Voornaam + " " + contact.Achternaam);
-                c.SubItems.Add(Convert.ToString(contact.Contactcode));
-                if (contact.Isstagebegeleider == true)
-                {
-                    c.ImageKey = "SB";
-                }
-                else
-                {
-                    c.ImageKey = "GD";
-                }
+                ListViewItem c = new ListViewItem(contact.Bedrijfnaam);
+                c.SubItems.Add(Convert.ToString(contact.Hoofdlocatie));
+                c.ImageKey = "BD";
                 lvContacten.Items.Add(c);
             }
         }
@@ -327,6 +323,37 @@ namespace CrmAppSchool.Views.Bedrijven
         private void tbVoornaam_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
-        }       
+        }
+
+        private void tbEadres_Leave(object sender, EventArgs e)
+        {
+            if (tbEadres.Text.Count() > 0)
+            {
+                try
+                {
+                    var eMailValidator = new MailAddress(tbEadres.Text);
+
+                }
+                catch(FormatException)
+                {
+                    tbEadres.ForeColor = Color.Red;
+                    validbedrijfemail = false;
+                }
+            }
+        }
+
+        private void tbEadres_Enter(object sender, EventArgs e)
+        {
+            tbEadres.ForeColor = Color.Black;
+            validbedrijfemail = true;
+        }
+
+        private void tbTelefoon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

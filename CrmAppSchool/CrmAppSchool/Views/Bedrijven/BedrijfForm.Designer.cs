@@ -314,6 +314,7 @@
             this.tbTelefoon.Name = "tbTelefoon";
             this.tbTelefoon.Size = new System.Drawing.Size(149, 23);
             this.tbTelefoon.TabIndex = 6;
+            this.tbTelefoon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTelefoon_KeyPress);
             // 
             // label7
             // 
@@ -332,6 +333,8 @@
             this.tbEadres.Name = "tbEadres";
             this.tbEadres.Size = new System.Drawing.Size(149, 23);
             this.tbEadres.TabIndex = 4;
+            this.tbEadres.Enter += new System.EventHandler(this.tbEadres_Enter);
+            this.tbEadres.Leave += new System.EventHandler(this.tbEadres_Leave);
             // 
             // bedrijfsnaamLbl
             // 

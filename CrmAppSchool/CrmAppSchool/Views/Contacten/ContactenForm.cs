@@ -126,35 +126,19 @@ namespace CrmAppSchool.Views.Bedrijven
         {
             // Toont de textboxes a.d.h.v. contactSoortCbx selectie
             string invoerKeuze = Convert.ToString(contactSoortCbx.SelectedItem);
-            if (invoerKeuze == "Bedrijf")
+            if (invoerKeuze == "Stagebegeleider")
             {
-                persoonPnl.Visible = false;
-                pnOptioneel.Visible = false;
-                pnbedrijf2.Visible = true;
-                bedrijfPnl.Visible = true;
-            }
-            else if (invoerKeuze == "Stagebegeleider")
-            {
-                bedrijfPnl.Visible = false;
                 persoonPnl.Visible = true;
                 pnOptioneel.Visible = true;
-                pnbedrijf2.Visible = false;
-                bedrijfPnl.Visible = false;
             }
             else if (invoerKeuze == "Gastdocent")
             {
-                bedrijfPnl.Visible = false;
                 pnOptioneel.Visible = true;
-                pnbedrijf2.Visible = false;
-                bedrijfPnl.Visible = false;
                 persoonPnl.Visible = true;
             }
             else if (invoerKeuze == "Gastspreker")
             {
-                bedrijfPnl.Visible = false;
                 pnOptioneel.Visible = true;
-                pnbedrijf2.Visible = false;
-                bedrijfPnl.Visible = false;
                 persoonPnl.Visible = true;
             }
         }
@@ -266,26 +250,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 if (a == true && b == true)
                     opslaan = true;
             }
-            else
-            {
-                bool a = false;
-                bool b = false;
-                if ((tbHoofdlocatie.Text.Count() <= 0 || tbBedrijfsnaam.Text.Count() <= 0) || (tbEadres.Text.Count() <= 0 && tbTelefoon.Text.Count() <= 0))
-                {
-                    a = false;
-                    MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
-                }
-                else
-                {
-                    a = true;
-                }
-                if (validbedrijfemail == true)
-                {
-                    b = true;
-                }
-                if (a == true && b == true)
-                    opslaan = true;
-            }
+            
             if (opslaan == true)
             {
                 if (contactSoortCbx.Text != "Bedrijf")
@@ -324,26 +289,9 @@ namespace CrmAppSchool.Views.Bedrijven
                     lvContacten.Clear();
                     vulContacten();
                 }
-                else
-                {
-                    string[] a = new string[tbKwaliteiten.Lines.Count()];
-                    int i = 0;
-                    foreach (string line in tbKwaliteiten.Lines)
-                    {
-                        a[i] = line;
-                        i++;
-                    }
-                    Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tbBedrijfsnaam.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = a };
-                    BedrijfController bc = new BedrijfController();
-                    bc.voegBedrijfToe(bedrijfcontact);
-                    SaveBedrijf(bedrijfcontact);
-                }
-
+                
                 pnOptioneel.Visible = false;
                 persoonPnl.Visible = false;
-                pnbedrijf2.Visible = false;
-                bedrijfPnl.Visible = false;
-                bedrijfPnl.Visible = false;
                 btnZoeken.Visible = true;
                 lblSoort.Visible = false;
                 btnVoegtoe.Visible = true;
@@ -503,29 +451,8 @@ namespace CrmAppSchool.Views.Bedrijven
             tbEmail.ForeColor = Color.Black;
             validemail = true;
         }
-        private void tbEadres_Leave(object sender, EventArgs e)
-        {
-            if (tbEadres.Text.Count() > 0)
-            {
-                try
-                {
-                    var eMailValidator = new MailAddress(tbEadres.Text);
-                }
-                catch (FormatException ex)
-                {
-                    // wrong e-mail address
-                    tbEadres.ForeColor = Color.Red;
-                    validbedrijfemail = false;
-                }
-            }
-        }
-
-        private void tbEadres_Enter(object sender, EventArgs e)
-        {
-            tbEadres.ForeColor = Color.Black;
-            validbedrijfemail = true;
-        }
-
+        
+        
         private void tbTelefoon_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
