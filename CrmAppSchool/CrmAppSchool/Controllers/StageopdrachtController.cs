@@ -186,7 +186,7 @@ namespace CrmAppSchool.Controllers
             }
         }
 
-        public void updateStageopdracht(int code, string status, string naam, string omschrijving, int bedrijf, int? contact)
+        public void updateStageopdracht(int code, string status, string naam, string omschrijving, int bedrijf, int contact)
         {
 
             MySqlTransaction trans = null;
