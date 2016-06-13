@@ -16,6 +16,7 @@ namespace CrmAppSchool.Views.Contacten
     {
         private int contactcode { get; set;}
         private int bedrijfcode { get; set; }
+        private int beoordeling { get; set; }
         private bool validmobiel { get; set; }
         private bool validemail { get; set; }
         public ContactBewerk(Persooncontact contact)
@@ -25,6 +26,7 @@ namespace CrmAppSchool.Views.Contacten
             validemail = true;
             // Vult de bedrijven combobox met bedrijven
             BedrijfController bc = new BedrijfController();
+            beoordeling = 0; // AANPASSEN 
             bedrijfCbx.DataSource = bc.haalBedrijfLijstOp();
             bedrijfCbx.DisplayMember = "Bedrijfnaam";
             bedrijfCbx.ValueMember = "Bedrijfscode";
@@ -143,5 +145,137 @@ namespace CrmAppSchool.Views.Contacten
                 }
             }
         }
+        private void setSterren()
+        {
+            if (beoordeling == 0)
+            {
+                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+            }
+            else if (beoordeling == 1)
+            {
+                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+            }
+            else if (beoordeling == 2)
+            {
+                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+            }
+            else if (beoordeling == 3)
+            {
+                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+            }
+            else if (beoordeling == 4)
+            {
+                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+            }
+            else
+            {
+                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+            }
+        }
+        private void pbRate2_MouseEnter(object sender, EventArgs e)
+        {
+            pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+            pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+            pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+            pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+            pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+        }
+
+
+        private void pbRate3_MouseEnter(object sender, EventArgs e)
+        {
+            pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+            pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+            pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+            pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+            pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+        }
+
+        private void pbRate4_MouseEnter(object sender, EventArgs e)
+        {
+            pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+            pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+            pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+            pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+            pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+        }
+
+        private void pbRate5_MouseEnter(object sender, EventArgs e)
+        {
+            pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+            pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+            pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+            pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+            pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+        }
+
+        private void pbRate1_MouseEnter(object sender, EventArgs e)
+        {
+            pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+            pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+            pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+            pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+            pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+        }
+
+        private void pbRate1_Click(object sender, EventArgs e)
+        {
+            beoordeling = 1;
+            setSterren();
+        }
+
+        private void pbRate2_Click(object sender, EventArgs e)
+        {
+            beoordeling = 2;
+            setSterren();
+        }
+
+        private void pbRate3_Click(object sender, EventArgs e)
+        {
+            beoordeling = 3;
+            setSterren();
+        }
+
+        private void pbRate4_Click(object sender, EventArgs e)
+        {
+            beoordeling = 4;
+            setSterren();
+        }
+
+        private void pbRate5_Click(object sender, EventArgs e)
+        {
+            beoordeling = 5;
+            setSterren();
+        }
+
+        private void pbRating_MouseLeave(object sender, EventArgs e)
+        {
+            setSterren();
+        }
     }
 }
+
