@@ -36,7 +36,13 @@ namespace CrmAppSchool.Views.Bedrijven
             // Haal de contacten evaluaties op
             ContactEvaluatieController ce = new ContactEvaluatieController();
             contact = ce.HaalInfoOp(gebruiker, contact);
-            tbOmschrijving.Text = contact.Evaluatie;
+
+            // Zet de string met enters in de txb
+            string[] lijnen = contact.Evaluatie.Split(new string[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            foreach(string regel in lijnen)
+            {
+                tbOmschrijving.Text = tbOmschrijving.Text + regel + "\r\n";
+            }
             beoordeling = contact.Beoordeling;
 
             // Kijkt of de omschrijving textbox leeg is, zoja dan is er sprake van een insert, anders update
