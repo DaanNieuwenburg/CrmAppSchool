@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrmAppSchool.Views.Contacten
+namespace CrmAppSchool.Views.Bedrijven
 {
     class ContactPersoon
     {

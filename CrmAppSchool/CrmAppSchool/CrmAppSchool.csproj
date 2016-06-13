@@ -74,6 +74,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Bedrijven\BedrijfForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Bedrijven\BedrijfForm.Designer.cs">
+      <DependentUpon>BedrijfForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Contacten\ContactBewerk.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     <Compile Include="Views\Zoeken\ZoekOverzichtForm.Designer.cs">
       <DependentUpon>ZoekOverzichtForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Bedrijven\BedrijfForm.resx">
+      <DependentUpon>BedrijfForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Contacten\ContactBewerk.resx">
       <DependentUpon>ContactBewerk.cs</DependentUpon>
     </EmbeddedResource>

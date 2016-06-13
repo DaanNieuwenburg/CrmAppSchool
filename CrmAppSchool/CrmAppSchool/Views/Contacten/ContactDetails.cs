@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using CrmAppSchool.Models;
 using CrmAppSchool.Controllers;
 
-namespace CrmAppSchool.Views.Contacten
+namespace CrmAppSchool.Views.Bedrijven
 {
     public partial class ContactDetails : Form
     {

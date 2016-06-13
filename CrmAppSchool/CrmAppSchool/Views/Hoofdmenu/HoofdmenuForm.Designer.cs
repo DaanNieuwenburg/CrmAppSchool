@@ -36,7 +36,7 @@
             this.lblProfiel = new System.Windows.Forms.Label();
             this.lblOpdrachten = new System.Windows.Forms.Label();
             this.lblUitloggen = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBedrijven = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnContacten = new System.Windows.Forms.Button();
             this.pbLogo2 = new System.Windows.Forms.PictureBox();
@@ -141,19 +141,20 @@
             this.lblUitloggen.Text = "Uitloggen";
             this.lblUitloggen.Visible = false;
             // 
-            // button1
+            // btnBedrijven
             // 
-            this.button1.AutoSize = true;
-            this.button1.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Bedrijf;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(397, 75);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(168, 139);
-            this.button1.TabIndex = 19;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBedrijven.AutoSize = true;
+            this.btnBedrijven.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Bedrijf;
+            this.btnBedrijven.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBedrijven.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBedrijven.FlatAppearance.BorderSize = 0;
+            this.btnBedrijven.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBedrijven.Location = new System.Drawing.Point(397, 75);
+            this.btnBedrijven.Name = "btnBedrijven";
+            this.btnBedrijven.Size = new System.Drawing.Size(168, 139);
+            this.btnBedrijven.TabIndex = 19;
+            this.btnBedrijven.UseVisualStyleBackColor = true;
+            this.btnBedrijven.Click += new System.EventHandler(this.btnBedrijven_Click);
             // 
             // btnHelp
             // 
@@ -326,7 +327,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(840, 428);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBedrijven);
             this.Controls.Add(this.lblUitloggen);
             this.Controls.Add(this.lblOpdrachten);
             this.Controls.Add(this.lblProfiel);
@@ -382,6 +383,6 @@
         private System.Windows.Forms.Label lblProfiel;
         private System.Windows.Forms.Label lblOpdrachten;
         private System.Windows.Forms.Label lblUitloggen;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBedrijven;
     }
 }

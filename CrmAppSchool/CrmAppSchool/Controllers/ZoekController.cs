@@ -24,7 +24,7 @@ namespace CrmAppSchool.Controllers
                 MySqlDataReader lezer = command.ExecuteReader();
                 while(lezer.Read())
                 {
-                    if(Zoeknaar == "Contactpersoon")
+                    if(Zoeknaar == "Stagebegeleider" || Zoeknaar == "Gastspreker" || Zoeknaar == "Gastdocent")
                     {
                         Persooncontact contact = new Persooncontact();
                         resultatenLijst.Add(new Persooncontact { Voornaam = lezer.GetString("voornaam"), Achternaam = lezer.GetString("achternaam"), Locatie = lezer.GetString("locatie"), Email = lezer.GetString("email"), Functie = lezer["functie"] as string, Afdeling = lezer["afdeling"] as string });
@@ -76,35 +76,97 @@ namespace CrmAppSchool.Controllers
         }
         public string bepaalFilterQuery(string zoekquery, string zoeknaar)
         {
-            if (zoeknaar == "Contactpersoon")
+            if (zoeknaar == "Stagebegeleider")
             {
                 if (zoekquery == "Voornaam")
                 {
-                    return "SELECT * FROM contactpersoon WHERE (voornaam LIKE '%' @zoekParam '%')";
+                    return "SELECT * FROM contactpersoon WHERE (voornaam LIKE '%' @zoekParam '%') AND isstagebegeleider = 1";
                 }
                 else if (zoekquery == "Achternaam")
                 {
-                    return "SELECT * FROM contactpersoon WHERE (achternaam LIKE '%' @zoekParam '%')";
+                    return "SELECT * FROM contactpersoon WHERE (achternaam LIKE '%' @zoekParam '%') AND isstagebegeleider = 1";
                 }
                 else if (zoekquery == "Kwaliteit")
                 {
-                    return "SELECT * FROM contactpersoon WHERE (kwaliteit LIKE '%' @zoekParam '%')";
+                    return "SELECT * FROM contactpersoon WHERE (kwaliteit LIKE '%' @zoekParam '%') AND isstagebegeleider = 1";
                 }
                 else if (zoekquery == "Organisatie")
                 {
-                    return "SELECT * FROM contactpersoon C JOIN bedrijf B ON B.bedrijfcode = C.bedrijfcode WHERE (B.bedrijfnaam LIKE '%' @zoekParam '%')";
+                    return "SELECT * FROM contactpersoon C JOIN bedrijf B ON B.bedrijfcode = C.bedrijfcode WHERE (B.bedrijfnaam LIKE '%' @zoekParam '%') AND C.isstagebegeleider = 1";
                 }
                 else if (zoekquery == "Locatie")
                 {
-                    return "SELECT * FROM contactpersoon WHERE (locatie LIKE '%' @zoekParam '%')";
+                    return "SELECT * FROM contactpersoon WHERE (locatie LIKE '%' @zoekParam '%') AND isstagebegeleider = 1";
                 }
                 else if (zoekquery == "Functie")
                 {
-                    return "SELECT * FROM contactpersoon WHERE (functie LIKE '%' @zoekParam '%')";
+                    return "SELECT * FROM contactpersoon WHERE (functie LIKE '%' @zoekParam '%') AND isstagebegeleider = 1";
                 }
                 else
                 {
-                    return "SELECT * FROM contactpersoon";
+                    return "SELECT * FROM contactpersoon WHERE isstagebegeleider = 1";
+                }
+            }
+            else if (zoeknaar == "Gastspreker")
+            {
+                if (zoekquery == "Voornaam")
+                {
+                    return "SELECT * FROM contactpersoon WHERE (voornaam LIKE '%' @zoekParam '%') AND isstagebegeleider = 0 AND isgastdocent = 0";
+                }
+                else if (zoekquery == "Achternaam")
+                {
+                    return "SELECT * FROM contactpersoon WHERE (achternaam LIKE '%' @zoekParam '%') AND isstagebegeleider = 0 AND isgastdocent = 0";
+                }
+                else if (zoekquery == "Kwaliteit")
+                {
+                    return "SELECT * FROM contactpersoon WHERE (kwaliteit LIKE '%' @zoekParam '%') AND isstagebegeleider = 0 AND isgastdocent = 0";
+                }
+                else if (zoekquery == "Organisatie")
+                {
+                    return "SELECT * FROM contactpersoon C JOIN bedrijf B ON B.bedrijfcode = C.bedrijfcode WHERE (B.bedrijfnaam LIKE '%' @zoekParam '%') AND C.isstagebegeleider = 0 AND C.isgastdocent = 0";
+                }
+                else if (zoekquery == "Locatie")
+                {
+                    return "SELECT * FROM contactpersoon WHERE (locatie LIKE '%' @zoekParam '%') AND AND isstagebegeleider = 0 AND isgastdocent = 0";
+                }
+                else if (zoekquery == "Functie")
+                {
+                    return "SELECT * FROM contactpersoon WHERE (functie LIKE '%' @zoekParam '%') AND isstagebegeleider = 0 AND isgastdocent = 0";
+                }
+                else
+                {
+                    return "SELECT * FROM contactpersoon WHERE isstagebegeleider = 0 AND isgastdocent = 0";
+                }
+            }
+            if (zoeknaar == "Gastdocent")
+            {
+                if (zoekquery == "Voornaam")
+                {
+                    return "SELECT * FROM contactpersoon WHERE (voornaam LIKE '%' @zoekParam '%') AND isgastdocent = 1";
+                }
+                else if (zoekquery == "Achternaam")
+                {
+                    return "SELECT * FROM contactpersoon WHERE (achternaam LIKE '%' @zoekParam '%') AND isgastdocent = 1";
+                }
+                else if (zoekquery == "Kwaliteit")
+                {
+                    return "SELECT * FROM contactpersoon WHERE (kwaliteit LIKE '%' @zoekParam '%') AND isgastdocent = 1";
+                }
+                else if (zoekquery == "Organisatie")
+                {
+                    return "SELECT * FROM contactpersoon C JOIN bedrijf B ON B.bedrijfcode = C.bedrijfcode WHERE (B.bedrijfnaam LIKE '%' @zoekParam '%')AND C.isgastdocent = 1";
+                }
+                else if (zoekquery == "Locatie")
+                {
+                    return "SELECT * FROM contactpersoon WHERE (locatie LIKE '%' @zoekParam '%') AND isgastdocent = 1";
+                }
+                else if (zoekquery == "Functie")
+                {
+                    return "SELECT * FROM contactpersoon WHERE (functie LIKE '%' @zoekParam '%') AND isgastdocent = 1";
+                }
+                else
+                {
+                    return "SELECT * FROM contactpersoon WHERE isgastdocent = 1";
                 }
             }
             else if(zoeknaar == "Bedrijf")
@@ -139,10 +201,6 @@ namespace CrmAppSchool.Controllers
                 else if (zoekquery == "Kwaliteit") // Aanpassing
                 {
                     return "SELECT * FROM gebruiker_profiel WHERE (kwaliteit LIKE '%' @zoekParam '%')";
-                }
-                else if (zoekquery == "Organisatie")
-                {
-                    return "SELECT * FROM gebruiker_profiel WHERE (bedrijf LIKE '%' @zoekParam '%')";
                 }
                 else if (zoekquery == "Locatie")
                 {

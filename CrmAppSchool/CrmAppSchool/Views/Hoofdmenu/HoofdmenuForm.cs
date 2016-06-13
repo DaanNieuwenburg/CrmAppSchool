@@ -100,7 +100,7 @@ namespace CrmAppSchool.Views.Gebruikers
         private void btnContacten_Click(object sender, EventArgs e)
         {
             this.btnContacten.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
-            Contacten.ContactenForm Contacten = new Contacten.ContactenForm(gebruiker);
+            Bedrijven.ContactenForm Contacten = new Bedrijven.ContactenForm(gebruiker);
             Contacten.Text = "Contacten";
             Contacten.ShowDialog();
             if (Contacten.ShowMenu == true)
@@ -232,6 +232,12 @@ namespace CrmAppSchool.Views.Gebruikers
         {
             StageopdrachtForm soform = new StageopdrachtForm(gebruiker);
             soform.ShowDialog();
+        }
+
+        private void btnBedrijven_Click(object sender, EventArgs e)
+        {
+            Bedrijven.BedrijfForm bForm = new Bedrijven.BedrijfForm(gebruiker);
+            bForm.ShowDialog();
         }
     }
 }
