@@ -80,6 +80,7 @@ namespace CrmAppSchool.Views.Zoeken
             if(cbZoeknaar.SelectedItem.ToString() == "Bedrijf")
             {
                 zoekfilterCbx.Items.Clear();
+                zoekfilterCbx.Text = "Bedrijfnaam";
                 zoekfilterCbx.Items.Add("Bedrijfnaam");
                 zoekfilterCbx.Items.Add("Hoofdlocatie");
                 zoekfilterCbx.Items.Add("Omschrijving");
@@ -87,6 +88,7 @@ namespace CrmAppSchool.Views.Zoeken
             else
             {
                 zoekfilterCbx.Items.Clear();
+                zoekfilterCbx.Text = "Voornaam";
                 zoekfilterCbx.Items.Add("Voornaam");
                 zoekfilterCbx.Items.Add("Achternaam");
                 zoekfilterCbx.Items.Add("Organisatie");
