@@ -188,7 +188,6 @@ namespace CrmAppSchool.Views.Gebruikers
                 {
                     lblContacten.Visible = true;
                     lblOpdrachten.Visible = true;
-                    lblProfiel.Visible = true;
                     lblRegistreer.Visible = true;
                     lblUitloggen.Visible = true;
                     lblZoeken.Visible = true;
