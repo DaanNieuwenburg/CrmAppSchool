@@ -10,13 +10,13 @@ namespace CrmAppSchool.Controllers
 {
     public class ZoekController : DatabaseController
     {
-        public List<Persooncontact> zoekMetFilter(string zoekquery, string zoekcriteria)
+        public List<Persooncontact> zoekMetFilter(string zoekquery, string zoekcriteria, string Zoeknaar)
         {
             List<Persooncontact> resultatenLijst = new List<Persooncontact>();
             try
             {
                 conn.Open();
-                string query = bepaalFilterQuery(zoekquery);
+                string query = bepaalFilterQuery(zoekquery, Zoeknaar);
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter zoekParam = new MySqlParameter("@zoekParam", MySqlDbType.VarChar);
                 zoekParam.Value = zoekcriteria;
@@ -24,7 +24,7 @@ namespace CrmAppSchool.Controllers
                 MySqlDataReader lezer = command.ExecuteReader();
                 while(lezer.Read())
                 {
-                    if(zoekquery != "Organisatie")
+                    if(Zoeknaar != "Bedrijf")
                     {
                         Persooncontact contact = new Persooncontact();
                         resultatenLijst.Add(new Persooncontact { Voornaam = lezer.GetString("voornaam"), Achternaam = lezer.GetString("achternaam"), Locatie = lezer.GetString("locatie"), Email = lezer.GetString("email"), Functie = lezer["functie"] as string, Afdeling = lezer["afdeling"] as string });
@@ -41,13 +41,13 @@ namespace CrmAppSchool.Controllers
             }
                 return resultatenLijst;
         }
-        public List<Bedrijfcontact> Zoekbedrijf(string zoekquery, string zoekcriteria)
+        public List<Bedrijfcontact> Zoekbedrijf(string zoekquery, string zoekcriteria, string Zoeknaar)
         {
             List<Bedrijfcontact> bedrijfresultlijst = new List<Bedrijfcontact>();
             try
             {
                 conn.Open();
-                string query = bepaalFilterQuery(zoekquery);
+                string query = bepaalFilterQuery(zoekquery, Zoeknaar);
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter zoekParam = new MySqlParameter("@zoekParam", MySqlDbType.VarChar);
                 zoekParam.Value = zoekcriteria;
@@ -69,35 +69,73 @@ namespace CrmAppSchool.Controllers
             }
                 return bedrijfresultlijst;
         }
-        public string bepaalFilterQuery(string zoekquery)
+        public string bepaalFilterQuery(string zoekquery, string zoeknaar)
         {
-            if(zoekquery == "Voornaam")
+            if (zoeknaar == "Contactpersoon")
             {
-                return "SELECT * FROM contactpersoon WHERE (voornaam LIKE '%' @zoekParam '%')";
+                if (zoekquery == "Voornaam")
+                {
+                    return "SELECT * FROM contactpersoon WHERE (voornaam LIKE '%' @zoekParam '%')";
+                }
+                else if (zoekquery == "Achternaam")
+                {
+                    return "SELECT * FROM contactpersoon WHERE (achternaam LIKE '%' @zoekParam '%')";
+                }
+                else if (zoekquery == "Kwaliteit")
+                {
+                    return "SELECT * FROM contactpersoon WHERE (kwaliteit LIKE '%' @zoekParam '%')";
+                }
+                else if (zoekquery == "Organisatie")
+                {
+                    return "SELECT * FROM bedrijf WHERE (bedrijfnaam LIKE '%' @zoekParam '%')";
+                }
+                else if (zoekquery == "Locatie")
+                {
+                    return "SELECT * FROM contactpersoon WHERE (locatie LIKE '%' @zoekParam '%')";
+                }
+                else if (zoekquery == "Functie")
+                {
+                    return "SELECT * FROM contactpersoon WHERE (functie LIKE '%' @zoekParam '%')";
+                }
+                else
+                {
+                    return "SELECT * FROM contactpersoon";
+                }
             }
-            else if(zoekquery == "Achternaam")
-            {
-                return "SELECT * FROM contactpersoon WHERE (achternaam LIKE '%' @zoekParam '%')";
-            }
-            else if(zoekquery == "Kwaliteit")
-            {
-                return "SELECT * FROM contactpersoon WHERE (kwaliteit LIKE '%' @zoekParam '%')";
-            }
-            else if (zoekquery == "Organisatie")
+            else if(zoeknaar == "Bedrijf")
             {
                 return "SELECT * FROM bedrijf WHERE (bedrijfnaam LIKE '%' @zoekParam '%')";
             }
-            else if (zoekquery == "Locatie")
-            {
-                return "SELECT * FROM contactpersoon WHERE (locatie LIKE '%' @zoekParam '%')";
-            }
-            else if (zoekquery == "Functie")
-            {
-                return "SELECT * FROM contactpersoon WHERE (functie LIKE '%' @zoekParam '%')";
-            }
             else
             {
-                return "SELECT * FROM contactpersoon";
+                if (zoekquery == "Voornaam")
+                {
+                    return "SELECT * FROM gebruiker_profiel WHERE (voornaam LIKE '%' @zoekParam '%')";
+                }
+                else if (zoekquery == "Achternaam")
+                {
+                    return "SELECT * FROM gebruiker_profiel WHERE (achternaam LIKE '%' @zoekParam '%')";
+                }
+                else if (zoekquery == "Kwaliteit")
+                {
+                    return "SELECT * FROM gebruiker_profiel WHERE (kwaliteit LIKE '%' @zoekParam '%')";
+                }
+                else if (zoekquery == "Organisatie")
+                {
+                    return "SELECT * FROM gebruiker_profiel WHERE (bedrijfnaam LIKE '%' @zoekParam '%')";
+                }
+                else if (zoekquery == "Locatie")
+                {
+                    return "SELECT * FROM gebruiker_profiel WHERE (locatie LIKE '%' @zoekParam '%')";
+                }
+                else if (zoekquery == "Functie")
+                {
+                    return "SELECT * FROM gebruiker_profiel WHERE (functie LIKE '%' @zoekParam '%')";
+                }
+                else
+                {
+                    return "SELECT * FROM gebruiker_profiel";
+                }
             }
         }
     }

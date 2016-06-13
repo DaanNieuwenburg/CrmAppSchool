@@ -36,6 +36,8 @@
             this.pbHome = new System.Windows.Forms.PictureBox();
             this.lblgebruiker = new System.Windows.Forms.Label();
             this.pbHeader = new System.Windows.Forms.PictureBox();
+            this.cbZoeknaar = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +55,7 @@
             this.filterLbl.AutoSize = true;
             this.filterLbl.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filterLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.filterLbl.Location = new System.Drawing.Point(36, 136);
+            this.filterLbl.Location = new System.Drawing.Point(207, 138);
             this.filterLbl.Name = "filterLbl";
             this.filterLbl.Size = new System.Drawing.Size(54, 15);
             this.filterLbl.TabIndex = 2;
@@ -72,7 +74,7 @@
             "Organisatie",
             "Locatie",
             "Functie"});
-            this.zoekfilterCbx.Location = new System.Drawing.Point(36, 162);
+            this.zoekfilterCbx.Location = new System.Drawing.Point(207, 164);
             this.zoekfilterCbx.Name = "zoekfilterCbx";
             this.zoekfilterCbx.Size = new System.Drawing.Size(121, 24);
             this.zoekfilterCbx.TabIndex = 3;
@@ -125,12 +127,40 @@
             this.pbHeader.TabIndex = 13;
             this.pbHeader.TabStop = false;
             // 
+            // cbZoeknaar
+            // 
+            this.cbZoeknaar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbZoeknaar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbZoeknaar.Font = new System.Drawing.Font("Arial", 10F);
+            this.cbZoeknaar.FormattingEnabled = true;
+            this.cbZoeknaar.Items.AddRange(new object[] {
+            "Gebruiker",
+            "Bedrijf",
+            "Contactpersoon"});
+            this.cbZoeknaar.Location = new System.Drawing.Point(39, 164);
+            this.cbZoeknaar.Name = "cbZoeknaar";
+            this.cbZoeknaar.Size = new System.Drawing.Size(121, 24);
+            this.cbZoeknaar.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.label1.Location = new System.Drawing.Point(39, 138);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 15);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Zoek naar:";
+            // 
             // ZoekenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(459, 208);
+            this.Controls.Add(this.cbZoeknaar);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pbHome);
             this.Controls.Add(this.lblgebruiker);
             this.Controls.Add(this.pbHeader);
@@ -159,5 +189,7 @@
         private System.Windows.Forms.PictureBox pbHome;
         private System.Windows.Forms.Label lblgebruiker;
         private System.Windows.Forms.PictureBox pbHeader;
+        private System.Windows.Forms.ComboBox cbZoeknaar;
+        private System.Windows.Forms.Label label1;
     }
 }

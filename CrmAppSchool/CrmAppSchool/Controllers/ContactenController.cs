@@ -383,7 +383,6 @@ namespace CrmAppSchool.Controllers
         {
             try
             {
-                Console.WriteLine("Contactmnr " + contact.Mobielnr);
                 conn.Open();
                 string query = @"UPDATE contactpersoon SET voornaam = @voornaam, achternaam = @achternaam, locatie = @locatie, email = @email, functie = @functie, afdeling = @afdeling, bedrijfcode = @bedrijfcode, mobielnr = @mobielnr 
                                      WHERE contactcode = @contactcode";
