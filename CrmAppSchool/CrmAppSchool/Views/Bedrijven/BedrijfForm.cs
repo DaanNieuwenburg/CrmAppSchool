@@ -155,7 +155,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 ShowSave = false;
             }
         }
-        
+
         private void SaveBedrijf(Bedrijfcontact bedrijf)
         {
             ListViewItem Company = new ListViewItem(bedrijf.Bedrijfnaam);
@@ -178,46 +178,43 @@ namespace CrmAppSchool.Views.Bedrijven
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
             bool opslaan = true;
-            
+
             if ((tbHoofdlocatie.Text.Count() <= 0 || tbBedrijfsnaam.Text.Count() <= 0))
-                {
+            {
                 opslaan = false;
-                    MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
-                }
+                MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
+            }
 
-            if (tbTelefoon.Text.Count() <= 0)
-                {
-                if (tbEadres.Text.Count() > 0)
-                {
-                    if (validbedrijfemail == false)
-                    {
-                        opslaan = false;
-                    }
-                }
-                }
-
-            else if (tbEadres.Text.Count() <= 0)
-                {
+            if (tbTelefoon.Text.Count() <= 0 && tbEadres.Text.Count() <= 0)
+            {
                 opslaan = false;
-                }
-            
-           
-            
+            }
+
+            if (tbEadres.Text.Count() > 0)
+            {
+                if (validbedrijfemail == false)
+                {
+                    opslaan = false;
+                }                
+            }
+
+
+
             if (opslaan == true)
             {
 
-                    string[] z = new string[tbKwaliteiten.Lines.Count()];
-                    int i = 0;
-                    foreach (string line in tbKwaliteiten.Lines)
-                    {
-                        z[i] = line;
-                        i++;
-                    }
-                    Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tbBedrijfsnaam.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = z };
-                    BedrijfController bc = new BedrijfController();
-                    bc.voegBedrijfToe(bedrijfcontact);
-                    SaveBedrijf(bedrijfcontact);
-                
+                string[] z = new string[tbKwaliteiten.Lines.Count()];
+                int i = 0;
+                foreach (string line in tbKwaliteiten.Lines)
+                {
+                    z[i] = line;
+                    i++;
+                }
+                Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tbBedrijfsnaam.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = z };
+                BedrijfController bc = new BedrijfController();
+                bc.voegBedrijfToe(bedrijfcontact);
+                SaveBedrijf(bedrijfcontact);
+
 
                 pnbedrijf2.Visible = false;
                 bedrijfPnl.Visible = false;
@@ -273,7 +270,7 @@ namespace CrmAppSchool.Views.Bedrijven
                     }
                 }
             }
-            
+
         }
 
 
@@ -307,7 +304,7 @@ namespace CrmAppSchool.Views.Bedrijven
 
         }
         private void settooltips()
-        {          
+        {
             ToolTip TPnieuw = new ToolTip();
             TPnieuw.ShowAlways = false;
             TPnieuw.SetToolTip(btnVoegtoe, "Voeg een nieuw contact toe");
@@ -340,7 +337,7 @@ namespace CrmAppSchool.Views.Bedrijven
                     var eMailValidator = new MailAddress(tbEadres.Text);
 
                 }
-        catch (FormatException)
+                catch (FormatException)
                 {
                     tbEadres.ForeColor = Color.Red;
                     validbedrijfemail = false;
@@ -356,7 +353,7 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void tbTelefoon_KeyPress(object sender, KeyPressEventArgs e)
         {
-    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
