@@ -376,23 +376,28 @@ namespace CrmAppSchool.Views.Contacten
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (lvContacten.SelectedItems.Count == 1)
+            DialogResult dialoogResultaat = MessageBox.Show("Wilt u de geselecteerde contacten echt verwijderen?", "Verwijderen contacten", MessageBoxButtons.YesNo);
+            if (dialoogResultaat == DialogResult.Yes)
             {
-                string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
-                ContactenController cc = new ContactenController();
-                cc.verwijderContact(_gebruiker, contactcode);
-                lvContacten.Items.Remove(lvContacten.SelectedItems[0]);
-            }
-            else if (lvContacten.SelectedItems.Count > 1)
-            {
-                foreach (ListViewItem item in lvContacten.SelectedItems)
+                if (lvContacten.SelectedItems.Count == 1)
                 {
-                    lvContacten.Items.Remove(item);
-                    string contactcode = item.SubItems[1].Text;
+                    string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
                     ContactenController cc = new ContactenController();
                     cc.verwijderContact(_gebruiker, contactcode);
+                    lvContacten.Items.Remove(lvContacten.SelectedItems[0]);
+                }
+                else if (lvContacten.SelectedItems.Count > 1)
+                {
+                    foreach (ListViewItem item in lvContacten.SelectedItems)
+                    {
+                        lvContacten.Items.Remove(item);
+                        string contactcode = item.SubItems[1].Text;
+                        ContactenController cc = new ContactenController();
+                        cc.verwijderContact(_gebruiker, contactcode);
+                    }
                 }
             }
+            
         }
 
         private void Makeempty()

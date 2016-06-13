@@ -106,6 +106,7 @@ namespace CrmAppSchool.Views.Gebruikers
             if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Admin")
             {
                 nieuweGebruiker = new Gebruiker() { Gebruikersnaam = gebruikerLvw.SelectedItems[0].Text };
+                nieuweGebruiker.SoortGebruiker = "Admin";
             }
             else if (gebruikerLvw.SelectedItems[0].SubItems[1].Text == "Docent")
             {

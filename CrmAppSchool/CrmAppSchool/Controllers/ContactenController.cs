@@ -471,6 +471,7 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 // Verwijder contact in koppeltabel of als die maar een gebruiker kent, ook in de gebruikertabel
                 string query = "";
                 if (aantalkeer == 1)
@@ -496,6 +497,7 @@ namespace CrmAppSchool.Controllers
 
                 command.Prepare();
                 command.ExecuteNonQuery();
+                trans.Commit();
 
             }
             catch (MySqlException e)
