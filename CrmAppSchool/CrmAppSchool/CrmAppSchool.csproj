@@ -308,6 +308,15 @@
   <ItemGroup>
     <None Include="Resources\Afbeelding_SecurityWarning.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Afbeelding_Ster_leeg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Afbeelding_Ster_vol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Afbeelding_Ster_leeg1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

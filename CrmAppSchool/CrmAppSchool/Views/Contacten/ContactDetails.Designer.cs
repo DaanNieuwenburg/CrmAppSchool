@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactDetails));
-            this.pbHeader = new System.Windows.Forms.PictureBox();
             this.lblBDvalue = new System.Windows.Forms.Label();
             this.lblANvalue = new System.Windows.Forms.Label();
             this.lblVNvalue = new System.Windows.Forms.Label();
@@ -47,20 +46,21 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblContactnaam = new System.Windows.Forms.Label();
             this.llbMValue = new System.Windows.Forms.LinkLabel();
+            this.pbRate5 = new System.Windows.Forms.PictureBox();
+            this.pbRate4 = new System.Windows.Forms.PictureBox();
+            this.pbRate3 = new System.Windows.Forms.PictureBox();
+            this.pbRate2 = new System.Windows.Forms.PictureBox();
+            this.pbRate1 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
+            this.pbHeader = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRate5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRate4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRate3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRate2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRate1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pbHeader
-            // 
-            this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.pbHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pbHeader.Location = new System.Drawing.Point(0, 0);
-            this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(550, 54);
-            this.pbHeader.TabIndex = 14;
-            this.pbHeader.TabStop = false;
             // 
             // lblBDvalue
             // 
@@ -70,7 +70,7 @@
             this.lblBDvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lblBDvalue.Location = new System.Drawing.Point(153, 187);
             this.lblBDvalue.Name = "lblBDvalue";
-            this.lblBDvalue.Size = new System.Drawing.Size(19, 23);
+            this.lblBDvalue.Size = new System.Drawing.Size(15, 18);
             this.lblBDvalue.TabIndex = 25;
             this.lblBDvalue.Text = "x";
             // 
@@ -82,7 +82,7 @@
             this.lblANvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lblANvalue.Location = new System.Drawing.Point(153, 134);
             this.lblANvalue.Name = "lblANvalue";
-            this.lblANvalue.Size = new System.Drawing.Size(19, 23);
+            this.lblANvalue.Size = new System.Drawing.Size(15, 18);
             this.lblANvalue.TabIndex = 26;
             this.lblANvalue.Text = "x";
             // 
@@ -94,7 +94,7 @@
             this.lblVNvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lblVNvalue.Location = new System.Drawing.Point(153, 102);
             this.lblVNvalue.Name = "lblVNvalue";
-            this.lblVNvalue.Size = new System.Drawing.Size(19, 23);
+            this.lblVNvalue.Size = new System.Drawing.Size(15, 18);
             this.lblVNvalue.TabIndex = 24;
             this.lblVNvalue.Text = "x";
             // 
@@ -106,7 +106,7 @@
             this.emailLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.emailLbl.Location = new System.Drawing.Point(303, 134);
             this.emailLbl.Name = "emailLbl";
-            this.emailLbl.Size = new System.Drawing.Size(54, 19);
+            this.emailLbl.Size = new System.Drawing.Size(46, 16);
             this.emailLbl.TabIndex = 22;
             this.emailLbl.Text = "Email:";
             // 
@@ -118,7 +118,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.label3.Location = new System.Drawing.Point(32, 187);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 19);
+            this.label3.Size = new System.Drawing.Size(52, 16);
             this.label3.TabIndex = 18;
             this.label3.Text = "Bedrijf:";
             // 
@@ -130,7 +130,7 @@
             this.achternaamLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.achternaamLbl.Location = new System.Drawing.Point(32, 134);
             this.achternaamLbl.Name = "achternaamLbl";
-            this.achternaamLbl.Size = new System.Drawing.Size(102, 19);
+            this.achternaamLbl.Size = new System.Drawing.Size(88, 16);
             this.achternaamLbl.TabIndex = 19;
             this.achternaamLbl.Text = "Achternaam:";
             // 
@@ -142,7 +142,7 @@
             this.voornaamLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.voornaamLbl.Location = new System.Drawing.Point(31, 102);
             this.voornaamLbl.Name = "voornaamLbl";
-            this.voornaamLbl.Size = new System.Drawing.Size(88, 19);
+            this.voornaamLbl.Size = new System.Drawing.Size(76, 16);
             this.voornaamLbl.TabIndex = 16;
             this.voornaamLbl.Text = "Voornaam:";
             // 
@@ -154,7 +154,7 @@
             this.lblPMvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lblPMvalue.Location = new System.Drawing.Point(386, 165);
             this.lblPMvalue.Name = "lblPMvalue";
-            this.lblPMvalue.Size = new System.Drawing.Size(19, 23);
+            this.lblPMvalue.Size = new System.Drawing.Size(15, 18);
             this.lblPMvalue.TabIndex = 31;
             this.lblPMvalue.Text = "x";
             // 
@@ -166,7 +166,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.label1.Location = new System.Drawing.Point(303, 165);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 19);
+            this.label1.Size = new System.Drawing.Size(73, 16);
             this.label1.TabIndex = 23;
             this.label1.Text = "Privé mail:";
             // 
@@ -178,7 +178,7 @@
             this.lblFUvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lblFUvalue.Location = new System.Drawing.Point(153, 218);
             this.lblFUvalue.Name = "lblFUvalue";
-            this.lblFUvalue.Size = new System.Drawing.Size(19, 23);
+            this.lblFUvalue.Size = new System.Drawing.Size(15, 18);
             this.lblFUvalue.TabIndex = 29;
             this.lblFUvalue.Text = "x";
             // 
@@ -190,7 +190,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.label2.Location = new System.Drawing.Point(31, 218);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 19);
+            this.label2.Size = new System.Drawing.Size(59, 16);
             this.label2.TabIndex = 20;
             this.label2.Text = "Functie:";
             // 
@@ -202,7 +202,7 @@
             this.lblLOvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lblLOvalue.Location = new System.Drawing.Point(153, 248);
             this.lblLOvalue.Name = "lblLOvalue";
-            this.lblLOvalue.Size = new System.Drawing.Size(19, 23);
+            this.lblLOvalue.Size = new System.Drawing.Size(15, 18);
             this.lblLOvalue.TabIndex = 30;
             this.lblLOvalue.Text = "x";
             // 
@@ -214,7 +214,7 @@
             this.lblMOvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lblMOvalue.Location = new System.Drawing.Point(386, 102);
             this.lblMOvalue.Name = "lblMOvalue";
-            this.lblMOvalue.Size = new System.Drawing.Size(19, 23);
+            this.lblMOvalue.Size = new System.Drawing.Size(15, 18);
             this.lblMOvalue.TabIndex = 28;
             this.lblMOvalue.Text = "x";
             // 
@@ -226,7 +226,7 @@
             this.locatieLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.locatieLbl.Location = new System.Drawing.Point(32, 248);
             this.locatieLbl.Name = "locatieLbl";
-            this.locatieLbl.Size = new System.Drawing.Size(67, 19);
+            this.locatieLbl.Size = new System.Drawing.Size(58, 16);
             this.locatieLbl.TabIndex = 21;
             this.locatieLbl.Text = "Locatie:";
             // 
@@ -238,7 +238,7 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.label4.Location = new System.Drawing.Point(303, 102);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 19);
+            this.label4.Size = new System.Drawing.Size(53, 16);
             this.label4.TabIndex = 17;
             this.label4.Text = "Mobiel:";
             // 
@@ -250,7 +250,7 @@
             this.lblContactnaam.ForeColor = System.Drawing.Color.White;
             this.lblContactnaam.Location = new System.Drawing.Point(12, 10);
             this.lblContactnaam.Name = "lblContactnaam";
-            this.lblContactnaam.Size = new System.Drawing.Size(233, 39);
+            this.lblContactnaam.Size = new System.Drawing.Size(185, 32);
             this.lblContactnaam.TabIndex = 32;
             this.lblContactnaam.Text = "Contactnaam";
             // 
@@ -259,11 +259,76 @@
             this.llbMValue.AutoSize = true;
             this.llbMValue.Location = new System.Drawing.Point(388, 138);
             this.llbMValue.Name = "llbMValue";
-            this.llbMValue.Size = new System.Drawing.Size(17, 16);
+            this.llbMValue.Size = new System.Drawing.Size(13, 14);
             this.llbMValue.TabIndex = 33;
             this.llbMValue.TabStop = true;
             this.llbMValue.Text = "E";
             this.llbMValue.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // pbRate5
+            // 
+            this.pbRate5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbRate5.BackgroundImage")));
+            this.pbRate5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbRate5.Location = new System.Drawing.Point(450, 205);
+            this.pbRate5.Name = "pbRate5";
+            this.pbRate5.Size = new System.Drawing.Size(30, 29);
+            this.pbRate5.TabIndex = 39;
+            this.pbRate5.TabStop = false;
+            this.pbRate5.Click += new System.EventHandler(this.pbRate5_Click);
+            this.pbRate5.MouseEnter += new System.EventHandler(this.pbRate5_MouseEnter);
+            this.pbRate5.MouseLeave += new System.EventHandler(this.pbRating_MouseLeave);
+            // 
+            // pbRate4
+            // 
+            this.pbRate4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbRate4.BackgroundImage")));
+            this.pbRate4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbRate4.Location = new System.Drawing.Point(414, 205);
+            this.pbRate4.Name = "pbRate4";
+            this.pbRate4.Size = new System.Drawing.Size(30, 29);
+            this.pbRate4.TabIndex = 38;
+            this.pbRate4.TabStop = false;
+            this.pbRate4.Click += new System.EventHandler(this.pbRate4_Click);
+            this.pbRate4.MouseEnter += new System.EventHandler(this.pbRate4_MouseEnter);
+            this.pbRate4.MouseLeave += new System.EventHandler(this.pbRating_MouseLeave);
+            // 
+            // pbRate3
+            // 
+            this.pbRate3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbRate3.BackgroundImage")));
+            this.pbRate3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbRate3.Location = new System.Drawing.Point(378, 205);
+            this.pbRate3.Name = "pbRate3";
+            this.pbRate3.Size = new System.Drawing.Size(30, 29);
+            this.pbRate3.TabIndex = 37;
+            this.pbRate3.TabStop = false;
+            this.pbRate3.Click += new System.EventHandler(this.pbRate3_Click);
+            this.pbRate3.MouseEnter += new System.EventHandler(this.pbRate3_MouseEnter);
+            this.pbRate3.MouseLeave += new System.EventHandler(this.pbRating_MouseLeave);
+            // 
+            // pbRate2
+            // 
+            this.pbRate2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbRate2.BackgroundImage")));
+            this.pbRate2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbRate2.Location = new System.Drawing.Point(342, 205);
+            this.pbRate2.Name = "pbRate2";
+            this.pbRate2.Size = new System.Drawing.Size(30, 29);
+            this.pbRate2.TabIndex = 36;
+            this.pbRate2.TabStop = false;
+            this.pbRate2.Click += new System.EventHandler(this.pbRate2_Click);
+            this.pbRate2.MouseEnter += new System.EventHandler(this.pbRate2_MouseEnter);
+            this.pbRate2.MouseLeave += new System.EventHandler(this.pbRating_MouseLeave);
+            // 
+            // pbRate1
+            // 
+            this.pbRate1.BackgroundImage = global::CrmAppSchool.Properties.Resources.Afbeelding_Ster_vol;
+            this.pbRate1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbRate1.Location = new System.Drawing.Point(306, 205);
+            this.pbRate1.Name = "pbRate1";
+            this.pbRate1.Size = new System.Drawing.Size(30, 29);
+            this.pbRate1.TabIndex = 35;
+            this.pbRate1.TabStop = false;
+            this.pbRate1.Click += new System.EventHandler(this.pbRate1_Click);
+            this.pbRate1.MouseEnter += new System.EventHandler(this.pbRate1_MouseEnter);
+            this.pbRate1.MouseLeave += new System.EventHandler(this.pbRating_MouseLeave);
             // 
             // pictureBox1
             // 
@@ -274,12 +339,27 @@
             this.pictureBox1.TabIndex = 34;
             this.pictureBox1.TabStop = false;
             // 
+            // pbHeader
+            // 
+            this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.pbHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pbHeader.Location = new System.Drawing.Point(0, 0);
+            this.pbHeader.Name = "pbHeader";
+            this.pbHeader.Size = new System.Drawing.Size(550, 54);
+            this.pbHeader.TabIndex = 14;
+            this.pbHeader.TabStop = false;
+            // 
             // ContactDetails
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(550, 570);
+            this.Controls.Add(this.pbRate5);
+            this.Controls.Add(this.pbRate4);
+            this.Controls.Add(this.pbRate3);
+            this.Controls.Add(this.pbRate2);
+            this.Controls.Add(this.pbRate1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.llbMValue);
             this.Controls.Add(this.lblContactnaam);
@@ -305,8 +385,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Details";
             this.Load += new System.EventHandler(this.ContactDetails_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRate5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRate4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRate3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRate2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRate1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,5 +418,10 @@
         private System.Windows.Forms.Label lblContactnaam;
         private System.Windows.Forms.LinkLabel llbMValue;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbRate1;
+        private System.Windows.Forms.PictureBox pbRate2;
+        private System.Windows.Forms.PictureBox pbRate3;
+        private System.Windows.Forms.PictureBox pbRate4;
+        private System.Windows.Forms.PictureBox pbRate5;
     }
 }
