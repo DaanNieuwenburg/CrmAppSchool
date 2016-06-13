@@ -350,6 +350,9 @@ namespace CrmAppSchool.Views.Profiel
                     lblBevestig.Visible = false;
                     tbBevestig.Visible = false;
                     EditWachtwoordMode = false;
+                    gebruiker.Wachtwoord = tbWachtwoord.Text;
+                    GebruikerController gebruikercontroller = new GebruikerController();
+                    gebruikercontroller.veranderWachtwoordGebruiker(gebruiker);
                     // Set nieuw wachtwoord
                 }
                 else
