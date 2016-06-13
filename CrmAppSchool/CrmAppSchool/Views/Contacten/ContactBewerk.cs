@@ -79,7 +79,14 @@ namespace CrmAppSchool.Views.Contacten
                 bewerktContact.Locatie = locatieTb.Text;
                 bewerktContact.Email = emailTb.Text;
                 bewerktContact.Mobielnr = mobielTb.Text;
-
+                string omschr = "";
+                if (tbOmschrijving.Text.Count() > 1)
+                {
+                    foreach(string line in tbOmschrijving.Lines)
+                    {
+                        omschr = omschr + "\n" + line;
+                    }
+                }
                 // Contactencontroller
                 ContactenController cc = new ContactenController();
                 cc.bewerkContact(bewerktContact);
