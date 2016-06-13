@@ -66,8 +66,6 @@ namespace CrmAppSchool.Controllers
                     profiel.VoornaamIsZichtbaar = datalezer.GetBoolean("voornaam_iszichtbaar");
                     profiel.Achternaam = datalezer.GetString("Achternaam");
                     profiel.AchternaamIsZichtbaar = datalezer.GetBoolean("achternaam_iszichtbaar");
-                    profiel.Bedrijf = datalezer.GetString("bedrijf");
-                    profiel.BedrijfIsZichtbaar = datalezer.GetBoolean("bedrijf_iszichtbaar");
                     profiel.Locatie = datalezer.GetString("locatie");
                     profiel.LocatieIsZichtbaar = datalezer.GetBoolean("locatie_iszichtbaar");
                     profiel.Functie = datalezer.GetString("functie");

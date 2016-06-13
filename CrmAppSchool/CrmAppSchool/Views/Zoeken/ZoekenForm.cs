@@ -48,7 +48,7 @@ namespace CrmAppSchool.Views.Zoeken
                     List<Models.Persooncontact> resultaatLijst = zoekController.zoekMetFilter(zoekquery, zoekcriteriaTxb.Text, zoeknaar);
                     if (resultaatLijst.Count > 0)
                     {
-                        ZoekOverzichtForm zoekOverzichtForm = new ZoekOverzichtForm();
+                        ZoekOverzichtForm zoekOverzichtForm = new ZoekOverzichtForm(zoekfilterCbx, gebruiker);
                         zoekOverzichtForm.VulListviewPersoon(resultaatLijst);
                         this.Hide();
                         zoekOverzichtForm.ShowDialog();
@@ -63,7 +63,7 @@ namespace CrmAppSchool.Views.Zoeken
                     List<Models.Bedrijfcontact> bedrijfresultaten = zoekController.Zoekbedrijf(zoekquery, zoekcriteriaTxb.Text, zoeknaar);
                     if(bedrijfresultaten.Count > 0)
                     {
-                        ZoekOverzichtForm zoekOverzichtForm = new ZoekOverzichtForm();
+                        ZoekOverzichtForm zoekOverzichtForm = new ZoekOverzichtForm(zoekfilterCbx, gebruiker);
                         zoekOverzichtForm.VulListviewBedrijf(bedrijfresultaten);
                         this.Hide();
                         zoekOverzichtForm.ShowDialog();
@@ -80,9 +80,11 @@ namespace CrmAppSchool.Views.Zoeken
             if(cbZoeknaar.SelectedItem.ToString() == "Bedrijf")
             {
                 zoekfilterCbx.Items.Clear();
+                
                 zoekfilterCbx.Items.Add("Bedrijfnaam");
                 zoekfilterCbx.Items.Add("Hoofdlocatie");
                 zoekfilterCbx.Items.Add("Omschrijving");
+                zoekfilterCbx.SelectedItem = zoekfilterCbx.Items[0];
             }
             else
             {
@@ -93,6 +95,7 @@ namespace CrmAppSchool.Views.Zoeken
                 zoekfilterCbx.Items.Add("Locatie");
                 zoekfilterCbx.Items.Add("Functie");
                 zoekfilterCbx.Items.Add("Kwaliteit");
+                zoekfilterCbx.SelectedItem = zoekfilterCbx.Items[0];
             }
         }
     }

@@ -54,8 +54,6 @@ namespace CrmAppSchool.Views.Profiel
             cbPriveVN.Checked = profiel.VoornaamIsZichtbaar;
             lblAchternaamWaarde.Text = profiel.Achternaam;
             cbPriveAN.Checked = profiel.AchternaamIsZichtbaar;
-            lblBedrijfWaarde.Text = profiel.Bedrijf;
-            cbPriveBD.Checked = profiel.BedrijfIsZichtbaar;
             lblLocatieWaarde.Text = profiel.Locatie;
             cbPriveLO.Checked = profiel.LocatieIsZichtbaar;
             if (profiel.KwaliteitenLijst != null)
@@ -77,7 +75,6 @@ namespace CrmAppSchool.Views.Profiel
             EditMode = true; //Kijkt of het bewerken aan of uit staat
             tbVoornaam.Text = lblVoornaamWaarde.Text;
             tbAchternaam.Text = lblAchternaamWaarde.Text;
-            tbBedrijf.Text = lblBedrijfWaarde.Text;
             tbLocatie.Text = lblLocatieWaarde.Text;
             tbFunctie.Text = lblFunctieWaarde.Text;
             if (profiel.KwaliteitenLijst != null)
@@ -103,14 +100,12 @@ namespace CrmAppSchool.Views.Profiel
 
                 tbVoornaam.Visible = true;
                 tbAchternaam.Visible = true;
-                tbBedrijf.Visible = true;
                 tbLocatie.Visible = true;
                 tbFunctie.Visible = true;
                 tbKwaliteit.Visible = true;
 
                 lblVoornaamWaarde.Visible = false;
                 lblAchternaamWaarde.Visible = false;
-                lblBedrijfWaarde.Visible = false;
                 lblKwaliteitWaarde.Visible = false;
                 lblLocatieWaarde.Visible = false;
                 lblFunctieWaarde.Visible = false;
@@ -126,14 +121,12 @@ namespace CrmAppSchool.Views.Profiel
 
                 tbVoornaam.Visible = false;
                 tbAchternaam.Visible = false;
-                tbBedrijf.Visible = false;
                 tbLocatie.Visible = false;
                 tbFunctie.Visible = false;
                 tbKwaliteit.Visible = false;
 
                 lblVoornaamWaarde.Visible = true;
                 lblAchternaamWaarde.Visible = true;
-                lblBedrijfWaarde.Visible = true;
                 lblKwaliteitWaarde.Visible = true;
                 lblLocatieWaarde.Visible = true;
                 lblFunctieWaarde.Visible = true;
@@ -170,10 +163,6 @@ namespace CrmAppSchool.Views.Profiel
                     {
                         lblAchternaamWaarde.Text = tbAchternaam.Text;
                     }
-                    else if (i == 2)
-                    {
-                        lblBedrijfWaarde.Text = tbBedrijf.Text;
-                    }
                     else if (i == 3)
                     {
                         lblLocatieWaarde.Text = tbLocatie.Text;
@@ -190,7 +179,7 @@ namespace CrmAppSchool.Views.Profiel
 
             // Schrijf de nieuwe profiel informatie over naar de database
             Controllers.ProfielController profielController = new Controllers.ProfielController();
-            Models.Profiel profiel = new Models.Profiel() { Voornaam = lblVoornaamWaarde.Text, Achternaam = lblAchternaamWaarde.Text, Bedrijf = lblBedrijfWaarde.Text, Locatie = lblLocatieWaarde.Text, Functie = lblFunctieWaarde.Text };
+            Models.Profiel profiel = new Models.Profiel() { Voornaam = lblVoornaamWaarde.Text, Achternaam = lblAchternaamWaarde.Text, Locatie = lblLocatieWaarde.Text, Functie = lblFunctieWaarde.Text };
 
             // Zet de kwaliteiten in de list
             profiel.KwaliteitenLijst = new List<string>();
@@ -214,7 +203,6 @@ namespace CrmAppSchool.Views.Profiel
             // Zet de checkboxes in het profiel
             profiel.VoornaamIsZichtbaar = cbPriveVN.Checked;
             profiel.AchternaamIsZichtbaar = cbPriveAN.Checked;
-            profiel.BedrijfIsZichtbaar = cbPriveBD.Checked;
             profiel.LocatieIsZichtbaar = cbPriveLO.Checked;
             profiel.FunctieIsZichtbaar = cbPriveFU.Checked;
             profiel.KwaliteitIsZichtbaar = cbPriveKW.Checked;
@@ -249,7 +237,6 @@ namespace CrmAppSchool.Views.Profiel
                 btnAnnuleer.Visible = true;
 
                 cbPriveAN.Visible = true;
-                cbPriveBD.Visible = true;
                 cbPriveFU.Visible = true;
                 cbPriveKW.Visible = true;
                 cbPriveLO.Visible = true;
@@ -260,7 +247,6 @@ namespace CrmAppSchool.Views.Profiel
                 lblLocatieWaarde.Visible = false;
                 lblKwaliteitWaarde.Visible = false;
                 lblFunctieWaarde.Visible = false;
-                lblBedrijfWaarde.Visible = false;
             }
             else
             {
@@ -272,7 +258,6 @@ namespace CrmAppSchool.Views.Profiel
                 btnAnnuleer.Visible = false;
 
                 cbPriveAN.Visible = false;
-                cbPriveBD.Visible = false;
                 cbPriveFU.Visible = false;
                 cbPriveKW.Visible = false;
                 cbPriveLO.Visible = false;
@@ -283,7 +268,6 @@ namespace CrmAppSchool.Views.Profiel
                 lblLocatieWaarde.Visible = true;
                 lblKwaliteitWaarde.Visible = true;
                 lblFunctieWaarde.Visible = true;
-                lblBedrijfWaarde.Visible = true;
             }
         }
 

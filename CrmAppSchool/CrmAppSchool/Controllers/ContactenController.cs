@@ -381,6 +381,7 @@ namespace CrmAppSchool.Controllers
         }
         public void bewerkContact(Persooncontact contact)
         {
+            Console.WriteLine("BEOORDELING IS " + contact.Beoordeling);
             try
             {
                 conn.Open();

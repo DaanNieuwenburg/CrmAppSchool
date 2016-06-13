@@ -18,11 +18,13 @@ namespace CrmAppSchool.Views.Zoeken
     {
         public bool ShowMenu { get; set; }
         private bool Sorteermenu { get; set; }
+        private ComboBox cb { get; set; } 
+        private Gebruiker _gebruiker { get; set; }
         private ImageList imagelist
         {
             get; set;
         }
-        public ZoekOverzichtForm()
+        public ZoekOverzichtForm(ComboBox cb, Gebruiker gebruiker)
         {
             
             // add an item
@@ -30,6 +32,8 @@ namespace CrmAppSchool.Views.Zoeken
             // and tell the item which image to use
             //listViewItem.ImageKey = "itemImageKey";
             InitializeComponent();
+            _gebruiker = gebruiker;
+            lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
             ShowMenu = false;
             // create image list and fill it 
             imagelist = new ImageList();
@@ -39,6 +43,19 @@ namespace CrmAppSchool.Views.Zoeken
             imagelist.Images.Add("SB", Properties.Resources.Afbeelding_ContactPersoon_StageBegeleider);
             // tell your ListView to use the new image list
             resultatenLvw.LargeImageList = imagelist;
+            this.cb = cb;
+            cbSorteerOp.Items.Clear();
+            foreach(string item in cb.Items)
+            {
+                cbSorteerOp.Items.Add(item);
+            }
+            cbSorteerOp.Text = cb.Items[0].ToString();
+        
+        }
+
+        public void VulCombobox()
+        {
+
         }
         public void VulListviewPersoon(List<Models.Persooncontact> resultatenlijst)
         {

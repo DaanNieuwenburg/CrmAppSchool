@@ -36,8 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.achternaamLbl = new System.Windows.Forms.Label();
             this.voornaamLbl = new System.Windows.Forms.Label();
-            this.lblPMvalue = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblFUvalue = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblLOvalue = new System.Windows.Forms.Label();
@@ -51,14 +49,16 @@
             this.pbRate3 = new System.Windows.Forms.PictureBox();
             this.pbRate2 = new System.Windows.Forms.PictureBox();
             this.pbRate1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbHeader = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbOmschrijvingValue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,30 +145,6 @@
             this.voornaamLbl.Size = new System.Drawing.Size(76, 16);
             this.voornaamLbl.TabIndex = 16;
             this.voornaamLbl.Text = "Voornaam:";
-            // 
-            // lblPMvalue
-            // 
-            this.lblPMvalue.AutoSize = true;
-            this.lblPMvalue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblPMvalue.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblPMvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblPMvalue.Location = new System.Drawing.Point(386, 165);
-            this.lblPMvalue.Name = "lblPMvalue";
-            this.lblPMvalue.Size = new System.Drawing.Size(15, 18);
-            this.lblPMvalue.TabIndex = 31;
-            this.lblPMvalue.Text = "x";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Arial", 10F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.label1.Location = new System.Drawing.Point(303, 165);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 16);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Privé mail:";
             // 
             // lblFUvalue
             // 
@@ -269,75 +245,51 @@
             // 
             this.pbRate5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbRate5.BackgroundImage")));
             this.pbRate5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbRate5.Location = new System.Drawing.Point(450, 205);
+            this.pbRate5.Location = new System.Drawing.Point(143, 347);
             this.pbRate5.Name = "pbRate5";
             this.pbRate5.Size = new System.Drawing.Size(30, 29);
             this.pbRate5.TabIndex = 39;
             this.pbRate5.TabStop = false;
-            this.pbRate5.Click += new System.EventHandler(this.pbRate5_Click);
-            this.pbRate5.MouseEnter += new System.EventHandler(this.pbRate5_MouseEnter);
-            this.pbRate5.MouseLeave += new System.EventHandler(this.pbRating_MouseLeave);
             // 
             // pbRate4
             // 
             this.pbRate4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbRate4.BackgroundImage")));
             this.pbRate4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbRate4.Location = new System.Drawing.Point(414, 205);
+            this.pbRate4.Location = new System.Drawing.Point(112, 347);
             this.pbRate4.Name = "pbRate4";
             this.pbRate4.Size = new System.Drawing.Size(30, 29);
             this.pbRate4.TabIndex = 38;
             this.pbRate4.TabStop = false;
-            this.pbRate4.Click += new System.EventHandler(this.pbRate4_Click);
-            this.pbRate4.MouseEnter += new System.EventHandler(this.pbRate4_MouseEnter);
-            this.pbRate4.MouseLeave += new System.EventHandler(this.pbRating_MouseLeave);
             // 
             // pbRate3
             // 
             this.pbRate3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbRate3.BackgroundImage")));
             this.pbRate3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbRate3.Location = new System.Drawing.Point(378, 205);
+            this.pbRate3.Location = new System.Drawing.Point(81, 347);
             this.pbRate3.Name = "pbRate3";
             this.pbRate3.Size = new System.Drawing.Size(30, 29);
             this.pbRate3.TabIndex = 37;
             this.pbRate3.TabStop = false;
-            this.pbRate3.Click += new System.EventHandler(this.pbRate3_Click);
-            this.pbRate3.MouseEnter += new System.EventHandler(this.pbRate3_MouseEnter);
-            this.pbRate3.MouseLeave += new System.EventHandler(this.pbRating_MouseLeave);
             // 
             // pbRate2
             // 
             this.pbRate2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbRate2.BackgroundImage")));
             this.pbRate2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbRate2.Location = new System.Drawing.Point(342, 205);
+            this.pbRate2.Location = new System.Drawing.Point(49, 347);
             this.pbRate2.Name = "pbRate2";
             this.pbRate2.Size = new System.Drawing.Size(30, 29);
             this.pbRate2.TabIndex = 36;
             this.pbRate2.TabStop = false;
-            this.pbRate2.Click += new System.EventHandler(this.pbRate2_Click);
-            this.pbRate2.MouseEnter += new System.EventHandler(this.pbRate2_MouseEnter);
-            this.pbRate2.MouseLeave += new System.EventHandler(this.pbRating_MouseLeave);
             // 
             // pbRate1
             // 
             this.pbRate1.BackgroundImage = global::CrmAppSchool.Properties.Resources.Afbeelding_Ster_vol;
             this.pbRate1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbRate1.Location = new System.Drawing.Point(306, 205);
+            this.pbRate1.Location = new System.Drawing.Point(18, 347);
             this.pbRate1.Name = "pbRate1";
             this.pbRate1.Size = new System.Drawing.Size(30, 29);
             this.pbRate1.TabIndex = 35;
             this.pbRate1.TabStop = false;
-            this.pbRate1.Click += new System.EventHandler(this.pbRate1_Click);
-            this.pbRate1.MouseEnter += new System.EventHandler(this.pbRate1_MouseEnter);
-            this.pbRate1.MouseLeave += new System.EventHandler(this.pbRating_MouseLeave);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 340);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(571, 10);
-            this.pictureBox1.TabIndex = 34;
-            this.pictureBox1.TabStop = false;
             // 
             // pbHeader
             // 
@@ -349,18 +301,69 @@
             this.pbHeader.TabIndex = 14;
             this.pbHeader.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Arial", 10F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.label1.Location = new System.Drawing.Point(15, 389);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 16);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Omschrijving:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.label5.Location = new System.Drawing.Point(12, 306);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(124, 22);
+            this.label5.TabIndex = 41;
+            this.label5.Text = "Beoordeling";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.label6.Location = new System.Drawing.Point(29, 59);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(117, 22);
+            this.label6.TabIndex = 42;
+            this.label6.Text = "Contactinfo";
+            // 
+            // lbOmschrijvingValue
+            // 
+            this.lbOmschrijvingValue.AutoSize = true;
+            this.lbOmschrijvingValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbOmschrijvingValue.Font = new System.Drawing.Font("Arial", 10F);
+            this.lbOmschrijvingValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lbOmschrijvingValue.Location = new System.Drawing.Point(15, 414);
+            this.lbOmschrijvingValue.Name = "lbOmschrijvingValue";
+            this.lbOmschrijvingValue.Size = new System.Drawing.Size(14, 16);
+            this.lbOmschrijvingValue.TabIndex = 43;
+            this.lbOmschrijvingValue.Text = "x";
+            // 
             // ContactDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(550, 570);
+            this.ClientSize = new System.Drawing.Size(550, 513);
+            this.Controls.Add(this.lbOmschrijvingValue);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pbRate5);
             this.Controls.Add(this.pbRate4);
             this.Controls.Add(this.pbRate3);
             this.Controls.Add(this.pbRate2);
             this.Controls.Add(this.pbRate1);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.llbMValue);
             this.Controls.Add(this.lblContactnaam);
             this.Controls.Add(this.lblBDvalue);
@@ -370,8 +373,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.achternaamLbl);
             this.Controls.Add(this.voornaamLbl);
-            this.Controls.Add(this.lblPMvalue);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblFUvalue);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblLOvalue);
@@ -390,7 +391,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbRate3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -407,8 +407,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label achternaamLbl;
         private System.Windows.Forms.Label voornaamLbl;
-        private System.Windows.Forms.Label lblPMvalue;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblFUvalue;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblLOvalue;
@@ -417,11 +415,14 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblContactnaam;
         private System.Windows.Forms.LinkLabel llbMValue;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pbRate1;
         private System.Windows.Forms.PictureBox pbRate2;
         private System.Windows.Forms.PictureBox pbRate3;
         private System.Windows.Forms.PictureBox pbRate4;
         private System.Windows.Forms.PictureBox pbRate5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbOmschrijvingValue;
     }
 }
