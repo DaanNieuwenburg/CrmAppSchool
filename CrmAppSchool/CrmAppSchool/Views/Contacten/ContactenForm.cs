@@ -64,26 +64,26 @@ namespace CrmAppSchool.Views.Contacten
             {
                 ActiveerZoeken();
             }
-                   
+
         }
         public void zoek()
-        {          
+        {
             lvContacten.Items.Clear();
             string input = "%" + tbSearch.Text + "%";
             List<Persooncontact> resultaten = cc.ZoekContacten(input, _gebruiker);
             foreach (Persooncontact contact in resultaten)
             {
-                ListViewItem lvi = new ListViewItem(contact.Voornaam + contact.Achternaam);
+                ListViewItem lvi = new ListViewItem(contact.Voornaam + " " + contact.Achternaam);
                 lvContacten.Items.Add(lvi);
                 if (contact.Isgastdocent == true)
                 {
                     lvi.ImageKey = "GD";
                 }
-                if(contact.Isstagebegeleider == true)
+                if (contact.Isstagebegeleider == true)
                 {
                     lvi.ImageKey = "GS";
                 }
-                
+
             }
         }
         private void ActiveerZoeken()
@@ -175,6 +175,17 @@ namespace CrmAppSchool.Views.Contacten
                 btnDelete.Visible = false;
                 Makeempty();
                 ShowSave = true;
+                /*List<string> newCBlist = new List<string>();
+                foreach (string a in bedrijfCbx.Items)
+                {
+                    if (!(newCBlist.Contains(a)))
+                        newCBlist.Add(a);
+
+                }
+                foreach (string a in newCBlist)
+                {
+                    bedrijfCbx.Items.Add(a);
+                }*/
             }
             else
             {
@@ -432,6 +443,7 @@ namespace CrmAppSchool.Views.Contacten
         private void ContactenForm_Load(object sender, EventArgs e)
         {
             vulContacten();
+
         }
         private void settooltips()
         {

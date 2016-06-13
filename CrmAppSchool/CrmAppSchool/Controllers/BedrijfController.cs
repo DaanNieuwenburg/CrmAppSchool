@@ -111,7 +111,7 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
-                string query = @"SELECT bedrijfcode, bedrijfnaam FROM bedrijf ORDER BY bedrijfnaam asc";
+                string query = @"SELECT bedrijfcode, bedrijfnaam FROM bedrijf ORDER BY bedrijfnaam asc"; // AANGEPAST
                 MySqlCommand command = new MySqlCommand(query, conn);
 
                 MySqlDataReader dataReader = command.ExecuteReader();
@@ -120,8 +120,10 @@ namespace CrmAppSchool.Controllers
                     Bedrijfcontact contact = new Bedrijfcontact();
                     contact.Bedrijfscode = dataReader.GetInt32("bedrijfcode");
                     contact.Bedrijfnaam = dataReader.GetString("bedrijfnaam");
-
+                    /*if (contactenlijst.Contains(contact))*/
                     contactenlijst.Add(contact);
+        
+                        
                 }
             }
             catch (MySqlException e)

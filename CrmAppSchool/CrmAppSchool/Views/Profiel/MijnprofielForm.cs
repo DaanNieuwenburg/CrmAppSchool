@@ -42,6 +42,7 @@ namespace CrmAppSchool.Views.Profiel
 
         private void pbHome_Click(object sender, EventArgs e)
         {
+            //Brengt je terug naar het hoofdmenu
             ShowMenu = true;
             this.Hide();
         }
@@ -73,8 +74,7 @@ namespace CrmAppSchool.Views.Profiel
 
         private void btnBewerk_Click(object sender, EventArgs e)
         {
-            EditMode = true;
-
+            EditMode = true; //Kijkt of het bewerken aan of uit staat
             tbVoornaam.Text = lblVoornaamWaarde.Text;
             tbAchternaam.Text = lblAchternaamWaarde.Text;
             tbBedrijf.Text = lblBedrijfWaarde.Text;
@@ -264,7 +264,7 @@ namespace CrmAppSchool.Views.Profiel
             }
             else
             {
-                //Hier moet de code komen voor het prive zetten in de database
+                
 
                 btnBewerk.Visible = true;
                 btnPrive.Visible = true;
@@ -330,12 +330,14 @@ namespace CrmAppSchool.Views.Profiel
                 lblWachtwoordWaarde.Visible = false;
                 EditWachtwoordMode = true;
             }
+            // Kijk of het nieuwe wachtwoord en de bevestiging overeen komen
             else if (tbWachtwoord.Text != tbBevestig.Text)
             {
                 MessageBox.Show("De wachtwoorden komen niet overeen", "Waarschuwing");
             }
             else if (EditWachtwoordMode == true && tbWachtwoord.Text == tbBevestig.Text)
             {
+                // Kijk of het oude wachtwoord klopt met die in de database
                 string gebruikersnaam = gebruiker.Gebruikersnaam;
                 string wachtwoord = tbHuidigwachtwoord.Text;
                 LoginController logincontroller = new LoginController();
@@ -350,6 +352,9 @@ namespace CrmAppSchool.Views.Profiel
                     lblBevestig.Visible = false;
                     tbBevestig.Visible = false;
                     EditWachtwoordMode = false;
+                    gebruiker.Wachtwoord = tbWachtwoord.Text;
+                    GebruikerController gebruikercontroller = new GebruikerController();
+                    gebruikercontroller.veranderWachtwoordGebruiker(gebruiker);
                     // Set nieuw wachtwoord
                 }
                 else
