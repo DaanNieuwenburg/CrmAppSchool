@@ -186,7 +186,7 @@ namespace CrmAppSchool.Controllers
             }
         }
 
-        public void updateStageopdracht(int code, string status, string naam, string omschrijving, int bedrijf)
+        public void updateStageopdracht(int code, string status, string naam, string omschrijving, int bedrijf, int? contact)
         {
 
             MySqlTransaction trans = null;
@@ -194,7 +194,7 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string insertString = @"UPDATE stageopdracht SET status = @status, naam = @naam, omschrijving = @omschrijving, bedrijfcode = @bedrijf WHERE opdrachtcode= @code";
+                string insertString = @"UPDATE stageopdracht SET status = @status, naam = @naam, omschrijving = @omschrijving, bedrijfcode = @bedrijf, contactcode = @contact WHERE opdrachtcode= @code";
 
                 MySqlCommand cmd = new MySqlCommand(insertString, conn);
                 MySqlParameter codeParam = new MySqlParameter("@code", MySqlDbType.Bit);
@@ -202,19 +202,21 @@ namespace CrmAppSchool.Controllers
                 MySqlParameter naamParam = new MySqlParameter("@naam", MySqlDbType.VarChar);
                 MySqlParameter omschrijvingParam = new MySqlParameter("@omschrijving", MySqlDbType.VarChar);
                 MySqlParameter bedrijfParam = new MySqlParameter("@bedrijf", MySqlDbType.Int32);
+                MySqlParameter contactParam = new MySqlParameter("@contact", MySqlDbType.Int32);
 
                 statusParam.Value = status;
                 naamParam.Value = naam;
                 omschrijvingParam.Value = omschrijving;
                 codeParam.Value = code;
                 bedrijfParam.Value = bedrijf;
+                contactParam.Value = contact;
 
                 cmd.Parameters.Add(codeParam);
                 cmd.Parameters.Add(statusParam);
                 cmd.Parameters.Add(omschrijvingParam);
                 cmd.Parameters.Add(naamParam);
                 cmd.Parameters.Add(bedrijfParam);
-
+                cmd.Parameters.Add(contactParam);
 
                 cmd.Prepare();
 

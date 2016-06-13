@@ -72,7 +72,17 @@ namespace CrmAppSchool.Views.Opdrachten
                 }
                 else
                 {
-                    soc.updateStageopdracht(opdracht.Code, cbStatus.Text, tbNaam.Text, tbOmschrijving.Text, ((Bedrijfcontact)bedrijfCbx.SelectedItem).Bedrijfscode);
+                    int? contactcode;
+                    if (cbx_contact.SelectedItem != null)
+                    {
+                        contactcode = ((Persooncontact)cbx_contact.SelectedItem).Contactcode;
+                    }
+                    else
+                    {
+                        contactcode = null;
+                    }
+                    
+                    soc.updateStageopdracht(opdracht.Code, cbStatus.Text, tbNaam.Text, tbOmschrijving.Text, ((Bedrijfcontact)bedrijfCbx.SelectedItem).Bedrijfscode, contactcode);
                     DialogResult = DialogResult.OK;
                 }
             }

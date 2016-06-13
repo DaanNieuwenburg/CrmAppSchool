@@ -54,6 +54,7 @@ namespace CrmAppSchool.Views.Contacten
             bewerktContact.Functie = functieTb.Text;
             bewerktContact.Locatie = locatieTb.Text;
             bewerktContact.Email = emailTb.Text;
+            bewerktContact.Mobielnr = mobielTb.Text;
             
             // Contactencontroller
             ContactenController cc = new ContactenController();
@@ -75,6 +76,7 @@ namespace CrmAppSchool.Views.Contacten
                 bewerktContact.Functie = functieTb.Text;
                 bewerktContact.Locatie = locatieTb.Text;
                 bewerktContact.Email = emailTb.Text;
+                bewerktContact.Mobielnr = mobielTb.Text;
 
                 // Contactencontroller
                 ContactenController cc = new ContactenController();
