@@ -20,11 +20,12 @@ namespace CrmAppSchool.Views.Contacten
         private bool validmobiel { get; set; }
         private bool validemail { get; set; }
         private Gebruiker gebruiker { get; set; }
-        public ContactBewerk(Persooncontact contact)
+        public ContactBewerk(Persooncontact contact, Gebruiker _gebruiker)
         {
             InitializeComponent();
             validmobiel = true;
             validemail = true;
+            gebruiker = _gebruiker;
             // Vult de bedrijven combobox met bedrijven
             BedrijfController bc = new BedrijfController();
             beoordeling = 0; // AANPASSEN 
@@ -99,7 +100,7 @@ namespace CrmAppSchool.Views.Contacten
                     isinsert = true;
                 }
                 ContactEvaluatieController ce = new ContactEvaluatieController();
-                //ce.bepaalWhatToDo(bewerktContact, _gebruiker, isinsert);
+                ce.bepaalWhatToDo(bewerktContact, gebruiker, isinsert);
 
                 this.Close();
             }
