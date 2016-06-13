@@ -50,6 +50,10 @@
             this.pbRate2 = new System.Windows.Forms.PictureBox();
             this.pbRate1 = new System.Windows.Forms.PictureBox();
             this.pbHeader = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbOmschrijvingValue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate3)).BeginInit();
@@ -297,12 +301,64 @@
             this.pbHeader.TabIndex = 14;
             this.pbHeader.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Arial", 10F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.label1.Location = new System.Drawing.Point(15, 389);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 16);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Omschrijving:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.label5.Location = new System.Drawing.Point(12, 306);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(124, 22);
+            this.label5.TabIndex = 41;
+            this.label5.Text = "Beoordeling";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.label6.Location = new System.Drawing.Point(29, 59);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(117, 22);
+            this.label6.TabIndex = 42;
+            this.label6.Text = "Contactinfo";
+            // 
+            // lbOmschrijvingValue
+            // 
+            this.lbOmschrijvingValue.AutoSize = true;
+            this.lbOmschrijvingValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbOmschrijvingValue.Font = new System.Drawing.Font("Arial", 10F);
+            this.lbOmschrijvingValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lbOmschrijvingValue.Location = new System.Drawing.Point(15, 414);
+            this.lbOmschrijvingValue.Name = "lbOmschrijvingValue";
+            this.lbOmschrijvingValue.Size = new System.Drawing.Size(14, 16);
+            this.lbOmschrijvingValue.TabIndex = 43;
+            this.lbOmschrijvingValue.Text = "x";
+            // 
             // ContactDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(550, 502);
+            this.ClientSize = new System.Drawing.Size(550, 513);
+            this.Controls.Add(this.lbOmschrijvingValue);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pbRate5);
             this.Controls.Add(this.pbRate4);
             this.Controls.Add(this.pbRate3);
@@ -364,5 +420,9 @@
         private System.Windows.Forms.PictureBox pbRate3;
         private System.Windows.Forms.PictureBox pbRate4;
         private System.Windows.Forms.PictureBox pbRate5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbOmschrijvingValue;
     }
 }

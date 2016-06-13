@@ -53,6 +53,7 @@
             this.pbRate3 = new System.Windows.Forms.PictureBox();
             this.pbRate2 = new System.Windows.Forms.PictureBox();
             this.pbRate1 = new System.Windows.Forms.PictureBox();
+            this.tbOmschrijving = new System.Windows.Forms.TextBox();
             this.persoonPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate5)).BeginInit();
@@ -368,11 +369,23 @@
             this.pbRate1.MouseEnter += new System.EventHandler(this.pbRate1_MouseEnter);
             this.pbRate1.MouseLeave += new System.EventHandler(this.pbRating_MouseLeave);
             // 
+            // tbOmschrijving
+            // 
+            this.tbOmschrijving.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbOmschrijving.Location = new System.Drawing.Point(16, 359);
+            this.tbOmschrijving.Margin = new System.Windows.Forms.Padding(2);
+            this.tbOmschrijving.MaxLength = 400;
+            this.tbOmschrijving.Multiline = true;
+            this.tbOmschrijving.Name = "tbOmschrijving";
+            this.tbOmschrijving.Size = new System.Drawing.Size(573, 120);
+            this.tbOmschrijving.TabIndex = 42;
+            // 
             // ContactBewerk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 490);
+            this.Controls.Add(this.tbOmschrijving);
             this.Controls.Add(this.pbRate5);
             this.Controls.Add(this.pbRate4);
             this.Controls.Add(this.pbRate3);
@@ -428,5 +441,6 @@
         private System.Windows.Forms.PictureBox pbRate3;
         private System.Windows.Forms.PictureBox pbRate2;
         private System.Windows.Forms.PictureBox pbRate1;
+        private System.Windows.Forms.TextBox tbOmschrijving;
     }
 }
