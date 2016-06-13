@@ -80,6 +80,9 @@ namespace CrmAppSchool.Views.Contacten
                 bewerktContact.Email = emailTb.Text;
                 bewerktContact.Mobielnr = mobielTb.Text;
 
+                // Haal beoordeling op
+                bewerktContact.Beoordeling = beoordeling;
+
                 // Contactencontroller
                 ContactenController cc = new ContactenController();
                 cc.bewerkContact(bewerktContact);
