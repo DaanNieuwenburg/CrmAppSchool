@@ -141,6 +141,7 @@
             this.cbZoeknaar.Name = "cbZoeknaar";
             this.cbZoeknaar.Size = new System.Drawing.Size(121, 24);
             this.cbZoeknaar.TabIndex = 16;
+            this.cbZoeknaar.SelectedIndexChanged += new System.EventHandler(this.cbZoeknaar_SelectedIndexChanged);
             // 
             // label1
             // 
