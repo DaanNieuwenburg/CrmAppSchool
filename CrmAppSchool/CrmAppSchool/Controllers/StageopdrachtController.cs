@@ -25,7 +25,7 @@ namespace CrmAppSchool.Controllers
                 while (dataReader.Read())
                 {
                     int code = dataReader.GetInt32("opdrachtcode");
-                    
+
                     string status = dataReader.GetString("status");
                     string naam = dataReader.GetString("naam");
                     string omschrijving = dataReader.GetString("omschrijving");
@@ -211,8 +211,8 @@ namespace CrmAppSchool.Controllers
 
                 cmd.Parameters.Add(codeParam);
                 cmd.Parameters.Add(statusParam);
-                cmd.Parameters.Add(naamParam);
                 cmd.Parameters.Add(omschrijvingParam);
+                cmd.Parameters.Add(naamParam);
                 cmd.Parameters.Add(bedrijfParam);
 
 

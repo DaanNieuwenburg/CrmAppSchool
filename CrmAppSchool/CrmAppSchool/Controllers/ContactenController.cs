@@ -233,7 +233,7 @@ namespace CrmAppSchool.Controllers
                     contact.Achternaam = ((string)datalezer["achternaam"]);
                     contact.Locatie = ((string)datalezer["locatie"]);
                     contact.Email = ((string)datalezer["email"]);
-                    contact.Mobielnr = datalezer["Mobielnr"] as string;
+                    //contact.Mobielnr = datalezer["Mobielnr"] as string;
                     contact.Functie = datalezer["functie"] as string;
                     //contact.Kwaliteiten = datalezer.Get["kwaliteiten"]);
                     contact.Afdeling = datalezer["afdeling"] as string;
