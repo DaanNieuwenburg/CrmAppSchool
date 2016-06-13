@@ -25,6 +25,7 @@ namespace CrmAppSchool.Views.Contacten
             lblANvalue.Text = contact.Achternaam;
             lblLOvalue.Text = contact.Locatie;
             llbMValue.Text = contact.Email;
+            lblMOvalue.Text = contact.Mobielnr;
             if(contact.Functie != null)
             {
                 lblFUvalue.Text = contact.Functie;

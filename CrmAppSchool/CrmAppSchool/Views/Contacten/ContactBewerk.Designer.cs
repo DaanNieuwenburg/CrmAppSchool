@@ -61,7 +61,7 @@
             this.lblContactnaam.Location = new System.Drawing.Point(10, 9);
             this.lblContactnaam.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblContactnaam.Name = "lblContactnaam";
-            this.lblContactnaam.Size = new System.Drawing.Size(185, 32);
+            this.lblContactnaam.Size = new System.Drawing.Size(233, 39);
             this.lblContactnaam.TabIndex = 33;
             this.lblContactnaam.Text = "Contactnaam";
             // 
@@ -94,7 +94,7 @@
             this.bedrijfCbx.Location = new System.Drawing.Point(113, 98);
             this.bedrijfCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bedrijfCbx.Name = "bedrijfCbx";
-            this.bedrijfCbx.Size = new System.Drawing.Size(165, 24);
+            this.bedrijfCbx.Size = new System.Drawing.Size(165, 27);
             this.bedrijfCbx.TabIndex = 41;
             // 
             // mobielTb
@@ -104,7 +104,7 @@
             this.mobielTb.Margin = new System.Windows.Forms.Padding(2);
             this.mobielTb.MaxLength = 10;
             this.mobielTb.Name = "mobielTb";
-            this.mobielTb.Size = new System.Drawing.Size(178, 23);
+            this.mobielTb.Size = new System.Drawing.Size(178, 27);
             this.mobielTb.TabIndex = 39;
             this.mobielTb.Enter += new System.EventHandler(this.mobielTb_Enter);
             this.mobielTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mobielTb_KeyPress);
@@ -116,7 +116,7 @@
             this.emailTb.Location = new System.Drawing.Point(390, 46);
             this.emailTb.Margin = new System.Windows.Forms.Padding(2);
             this.emailTb.Name = "emailTb";
-            this.emailTb.Size = new System.Drawing.Size(178, 23);
+            this.emailTb.Size = new System.Drawing.Size(178, 27);
             this.emailTb.TabIndex = 38;
             this.emailTb.Enter += new System.EventHandler(this.emailTb_Enter);
             this.emailTb.Leave += new System.EventHandler(this.emailTb_Leave);
@@ -127,7 +127,7 @@
             this.locatieTb.Location = new System.Drawing.Point(113, 158);
             this.locatieTb.Margin = new System.Windows.Forms.Padding(2);
             this.locatieTb.Name = "locatieTb";
-            this.locatieTb.Size = new System.Drawing.Size(165, 23);
+            this.locatieTb.Size = new System.Drawing.Size(165, 27);
             this.locatieTb.TabIndex = 36;
             // 
             // functieTb
@@ -136,7 +136,7 @@
             this.functieTb.Location = new System.Drawing.Point(113, 130);
             this.functieTb.Margin = new System.Windows.Forms.Padding(2);
             this.functieTb.Name = "functieTb";
-            this.functieTb.Size = new System.Drawing.Size(165, 23);
+            this.functieTb.Size = new System.Drawing.Size(165, 27);
             this.functieTb.TabIndex = 35;
             // 
             // achternaamTb
@@ -145,7 +145,7 @@
             this.achternaamTb.Location = new System.Drawing.Point(113, 46);
             this.achternaamTb.Margin = new System.Windows.Forms.Padding(2);
             this.achternaamTb.Name = "achternaamTb";
-            this.achternaamTb.Size = new System.Drawing.Size(165, 23);
+            this.achternaamTb.Size = new System.Drawing.Size(165, 27);
             this.achternaamTb.TabIndex = 33;
             // 
             // voornaamTb
@@ -154,7 +154,7 @@
             this.voornaamTb.Location = new System.Drawing.Point(113, 15);
             this.voornaamTb.Margin = new System.Windows.Forms.Padding(2);
             this.voornaamTb.Name = "voornaamTb";
-            this.voornaamTb.Size = new System.Drawing.Size(165, 23);
+            this.voornaamTb.Size = new System.Drawing.Size(165, 27);
             this.voornaamTb.TabIndex = 32;
             // 
             // emailLbl
@@ -166,7 +166,7 @@
             this.emailLbl.Location = new System.Drawing.Point(296, 47);
             this.emailLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emailLbl.Name = "emailLbl";
-            this.emailLbl.Size = new System.Drawing.Size(46, 16);
+            this.emailLbl.Size = new System.Drawing.Size(54, 19);
             this.emailLbl.TabIndex = 30;
             this.emailLbl.Text = "Email:";
             // 
@@ -179,7 +179,7 @@
             this.label3.Location = new System.Drawing.Point(12, 100);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 16);
+            this.label3.Size = new System.Drawing.Size(61, 19);
             this.label3.TabIndex = 26;
             this.label3.Text = "Bedrijf:";
             // 
@@ -192,7 +192,7 @@
             this.achternaamLbl.Location = new System.Drawing.Point(12, 47);
             this.achternaamLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.achternaamLbl.Name = "achternaamLbl";
-            this.achternaamLbl.Size = new System.Drawing.Size(88, 16);
+            this.achternaamLbl.Size = new System.Drawing.Size(102, 19);
             this.achternaamLbl.TabIndex = 27;
             this.achternaamLbl.Text = "Achternaam:";
             // 
@@ -205,7 +205,7 @@
             this.voornaamLbl.Location = new System.Drawing.Point(12, 15);
             this.voornaamLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.voornaamLbl.Name = "voornaamLbl";
-            this.voornaamLbl.Size = new System.Drawing.Size(76, 16);
+            this.voornaamLbl.Size = new System.Drawing.Size(88, 19);
             this.voornaamLbl.TabIndex = 24;
             this.voornaamLbl.Text = "Voornaam:";
             // 
@@ -218,7 +218,7 @@
             this.label2.Location = new System.Drawing.Point(12, 130);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 16);
+            this.label2.Size = new System.Drawing.Size(68, 19);
             this.label2.TabIndex = 28;
             this.label2.Text = "Functie:";
             // 
@@ -231,7 +231,7 @@
             this.locatieLbl.Location = new System.Drawing.Point(12, 161);
             this.locatieLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.locatieLbl.Name = "locatieLbl";
-            this.locatieLbl.Size = new System.Drawing.Size(58, 16);
+            this.locatieLbl.Size = new System.Drawing.Size(67, 19);
             this.locatieLbl.TabIndex = 29;
             this.locatieLbl.Text = "Locatie:";
             // 
@@ -244,7 +244,7 @@
             this.label4.Location = new System.Drawing.Point(296, 15);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 16);
+            this.label4.Size = new System.Drawing.Size(61, 19);
             this.label4.TabIndex = 25;
             this.label4.Text = "Mobiel:";
             // 
@@ -295,7 +295,7 @@
             // 
             // ContactBewerk
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 342);
             this.Controls.Add(this.btnOpslaan);
@@ -308,7 +308,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ContactBewerk";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bewerk een contact";
+            this.Text = " ";
             this.persoonPnl.ResumeLayout(false);
             this.persoonPnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();

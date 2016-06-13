@@ -194,7 +194,7 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string insertString = @"UPDATE stageopdracht SET status = @status, naam = @naam, omschrijving = @omschrijving, bedrijf = @bedrijf WHERE opdrachtcode= @code";
+                string insertString = @"UPDATE stageopdracht SET status = @status, naam = @naam, omschrijving = @omschrijving, bedrijfcode = @bedrijf WHERE opdrachtcode= @code";
 
                 MySqlCommand cmd = new MySqlCommand(insertString, conn);
                 MySqlParameter codeParam = new MySqlParameter("@code", MySqlDbType.Bit);
@@ -212,6 +212,7 @@ namespace CrmAppSchool.Controllers
                 cmd.Parameters.Add(codeParam);
                 cmd.Parameters.Add(statusParam);
                 cmd.Parameters.Add(naamParam);
+                cmd.Parameters.Add(omschrijvingParam);
                 cmd.Parameters.Add(bedrijfParam);
 
 

@@ -208,7 +208,6 @@ namespace CrmAppSchool.Controllers
         }
         public Persooncontact HaalInfoOp(string contactcode)
         {
-            Console.WriteLine("T" + contactcode);
             MySqlTransaction trans = null;
             Persooncontact contact = new Persooncontact();
             try
@@ -234,6 +233,7 @@ namespace CrmAppSchool.Controllers
                     contact.Achternaam = ((string)datalezer["achternaam"]);
                     contact.Locatie = ((string)datalezer["locatie"]);
                     contact.Email = ((string)datalezer["email"]);
+                    contact.Mobielnr = datalezer["Mobielnr"] as string;
                     contact.Functie = datalezer["functie"] as string;
                     //contact.Kwaliteiten = datalezer.Get["kwaliteiten"]);
                     contact.Afdeling = datalezer["afdeling"] as string;
