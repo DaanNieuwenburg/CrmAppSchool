@@ -64,6 +64,10 @@ namespace CrmAppSchool.Views.Gebruikers
                 btnOpdrachten.Location = new Point(28, 231);
                 btnUitloggen.Location = new Point(203, 231);
             }
+            else if(gebruiker.SoortGebruiker == "Admin")
+            {
+                btnProfiel.Visible = false;
+            }
         }
 
         private void voegGebruikerToeBtn_Click(object sender, EventArgs e)
