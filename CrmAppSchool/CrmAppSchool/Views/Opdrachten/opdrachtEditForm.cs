@@ -72,7 +72,7 @@ namespace CrmAppSchool.Views.Opdrachten
                 }
                 else
                 {
-                    soc.updateStageopdracht(opdracht.Code, cbStatus.Text, tbNaam.Text, tbOmschrijving.Text, ((Bedrijfcontact)bedrijfCbx.SelectedValue).Bedrijfscode);
+                    soc.updateStageopdracht(opdracht.Code, cbStatus.Text, tbNaam.Text, tbOmschrijving.Text, ((Bedrijfcontact)bedrijfCbx.SelectedItem).Bedrijfscode);
                     DialogResult = DialogResult.OK;
                 }
             }
