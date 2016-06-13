@@ -43,7 +43,7 @@ namespace CrmAppSchool.Views.Zoeken
             else
             {
                 ZoekController zoekController = new ZoekController();
-                if(zoekfilterCbx.Text != "Organisatie")
+                if(cbZoeknaar.Text != "Bedrijf")
                 {
                     List<Models.Persooncontact> resultaatLijst = zoekController.zoekMetFilter(zoekquery, zoekcriteriaTxb.Text, zoeknaar);
                     if (resultaatLijst.Count > 0)
@@ -70,6 +70,27 @@ namespace CrmAppSchool.Views.Zoeken
                     }
                 }
                 
+            }
+        }
+
+        private void cbZoeknaar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbZoeknaar.SelectedItem.ToString() == "Bedrijf")
+            {
+                zoekfilterCbx.Items.Clear();
+                zoekfilterCbx.Items.Add("Bedrijfnaam");
+                zoekfilterCbx.Items.Add("Hoofdlocatie");
+                zoekfilterCbx.Items.Add("Omschrijving");
+            }
+            else
+            {
+                zoekfilterCbx.Items.Clear();
+                zoekfilterCbx.Items.Add("Voornaam");
+                zoekfilterCbx.Items.Add("Achternaam");
+                zoekfilterCbx.Items.Add("Organisatie");
+                zoekfilterCbx.Items.Add("Locatie");
+                zoekfilterCbx.Items.Add("Functie");
+                zoekfilterCbx.Items.Add("Kwaliteit");
             }
         }
     }

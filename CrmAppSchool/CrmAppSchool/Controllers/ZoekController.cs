@@ -24,10 +24,15 @@ namespace CrmAppSchool.Controllers
                 MySqlDataReader lezer = command.ExecuteReader();
                 while(lezer.Read())
                 {
-                    if(Zoeknaar != "Bedrijf")
+                    if(Zoeknaar == "Contactpersoon")
                     {
                         Persooncontact contact = new Persooncontact();
                         resultatenLijst.Add(new Persooncontact { Voornaam = lezer.GetString("voornaam"), Achternaam = lezer.GetString("achternaam"), Locatie = lezer.GetString("locatie"), Email = lezer.GetString("email"), Functie = lezer["functie"] as string, Afdeling = lezer["afdeling"] as string });
+                    }
+                    else if(Zoeknaar == "Gebruiker")
+                    {
+                        Persooncontact contact = new Persooncontact();
+                        resultatenLijst.Add(new Persooncontact { Voornaam = lezer.GetString("voornaam"), Achternaam = lezer.GetString("achternaam"), Locatie = lezer.GetString("locatie"),  Functie = lezer["functie"] as string});
                     }
                 }
             }
@@ -104,7 +109,22 @@ namespace CrmAppSchool.Controllers
             }
             else if(zoeknaar == "Bedrijf")
             {
-                return "SELECT * FROM bedrijf WHERE (bedrijfnaam LIKE '%' @zoekParam '%')";
+                if(zoekquery == "Bedrijfnaam")
+                {
+                    return "SELECT * FROM bedrijf WHERE (bedrijfnaam LIKE '%' @zoekParam '%')";
+                }
+                else if(zoekquery == "Hoofdlocatie")
+                {
+                    return "Select * FROM bedrijf WHERE (hoofdlocatie LIKE '%' @zoekParam '%')";
+                }
+                else if(zoekquery == "Omschrijving")
+                {
+                    return "SELECT * FROM bedrijf WHERE (omschrijving LIKE '%' @zoekParam '%'";
+                }
+                else
+                {
+                    return "SELECT * FROM bedrijf";
+                }
             }
             else
             {
@@ -116,7 +136,7 @@ namespace CrmAppSchool.Controllers
                 {
                     return "SELECT * FROM gebruiker_profiel WHERE (achternaam LIKE '%' @zoekParam '%')";
                 }
-                else if (zoekquery == "Kwaliteit")
+                else if (zoekquery == "Kwaliteit") // Aanpassing
                 {
                     return "SELECT * FROM gebruiker_profiel WHERE (kwaliteit LIKE '%' @zoekParam '%')";
                 }
