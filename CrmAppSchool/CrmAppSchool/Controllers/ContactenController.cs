@@ -83,8 +83,8 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
-                string query = @"INSERT INTO contactpersoon (voornaam, achternaam, locatie, email, functie, afdeling, isgastdocent, isstagebegeleider, gebruikersnaam, bedrijfcode)
-                                 VALUES (@voornaam, @achternaam, @locatie, @email, @functie, @afdeling, @isgastdocent, @isstagebegeleider, @gebruikersnaam, @bedrijfcode)";
+                string query = @"INSERT INTO contactpersoon (voornaam, achternaam, locatie, email, functie, afdeling, isgastdocent, isstagebegeleider, gebruikersnaam, bedrijfcode, mobielnr)
+                                 VALUES (@voornaam, @achternaam, @locatie, @email, @functie, @afdeling, @isgastdocent, @isstagebegeleider, @gebruikersnaam, @bedrijfcode, @mobielnr)";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter voornaamParam = new MySqlParameter("voornaam", MySqlDbType.VarChar);
@@ -98,6 +98,7 @@ namespace CrmAppSchool.Controllers
                 MySqlParameter isstagebegeleiderParam = new MySqlParameter("isstagebegeleider", MySqlDbType.Binary);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
                 MySqlParameter bedrijfcodeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
+                MySqlParameter mobielnrParam = new MySqlParameter("mobielnr", MySqlDbType.Text); ;
 
                 voornaamParam.Value = contact.Voornaam;
                 achternaamParam.Value = contact.Achternaam;
@@ -109,6 +110,7 @@ namespace CrmAppSchool.Controllers
                 isstagebegeleiderParam.Value = Convert.ToInt32(contact.Isstagebegeleider);
                 gebruikersnaamParam.Value = contact.Gebruiker.Gebruikersnaam;
                 bedrijfcodeParam.Value = contact.Bedrijf.Bedrijfscode;
+                mobielnrParam.Value = contact.Mobielnr;
 
                 command.Parameters.Add(voornaamParam);
                 command.Parameters.Add(achternaamParam);
@@ -121,7 +123,7 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(isstagebegeleiderParam);
                 command.Parameters.Add(gebruikersnaamParam);
                 command.Parameters.Add(bedrijfcodeParam);
-
+                command.Parameters.Add(mobielnrParam);
 
                 command.Prepare();
                 command.ExecuteNonQuery();
@@ -214,7 +216,7 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"SELECT c.contactcode, c.voornaam, c.achternaam, c.locatie, c.email, c.functie, c.afdeling, c.isgastdocent, c.isstagebegeleider, b.bedrijfcode, b.bedrijfnaam FROM contactpersoon c 
+                string query = @"SELECT c.contactcode, c.voornaam, c.achternaam, c.locatie, c.email, c.functie, c.afdeling, c.isgastdocent, c.isstagebegeleider, b.bedrijfcode, b.bedrijfnaam, c.mobielnr FROM contactpersoon c 
                                  INNER JOIN bedrijf b ON c.bedrijfcode = b.bedrijfcode 
                                  WHERE contactcode = @contactcode";
 
@@ -233,9 +235,8 @@ namespace CrmAppSchool.Controllers
                     contact.Achternaam = ((string)datalezer["achternaam"]);
                     contact.Locatie = ((string)datalezer["locatie"]);
                     contact.Email = ((string)datalezer["email"]);
-                    //contact.Mobielnr = datalezer["Mobielnr"] as string;
+                    contact.Mobielnr = datalezer["mobielnr"] as string;
                     contact.Functie = datalezer["functie"] as string;
-                    //contact.Kwaliteiten = datalezer.Get["kwaliteiten"]);
                     contact.Afdeling = datalezer["afdeling"] as string;
                     contact.Isgastdocent = datalezer.GetBoolean("Isgastdocent");
                     contact.Isstagebegeleider = datalezer.GetBoolean("isstagebegeleider");
@@ -382,8 +383,9 @@ namespace CrmAppSchool.Controllers
         {
             try
             {
+                Console.WriteLine("Contactmnr " + contact.Mobielnr);
                 conn.Open();
-                string query = @"UPDATE contactpersoon SET voornaam = @voornaam, achternaam = @achternaam, locatie = @locatie, email = @email, functie = @functie, afdeling = @afdeling, bedrijfcode = @bedrijfcode 
+                string query = @"UPDATE contactpersoon SET voornaam = @voornaam, achternaam = @achternaam, locatie = @locatie, email = @email, functie = @functie, afdeling = @afdeling, bedrijfcode = @bedrijfcode, mobielnr = @mobielnr 
                                      WHERE contactcode = @contactcode";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter voornaamParam = new MySqlParameter("voornaam", MySqlDbType.VarChar);
@@ -394,6 +396,7 @@ namespace CrmAppSchool.Controllers
                 MySqlParameter afdelingParam = new MySqlParameter("afdeling", MySqlDbType.VarChar);
                 MySqlParameter bedrijfcodeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
                 MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
+                MySqlParameter mobielnrParam = new MySqlParameter("mobielnr", MySqlDbType.Text);
 
                 voornaamParam.Value = contact.Voornaam;
                 achternaamParam.Value = contact.Achternaam;
@@ -403,6 +406,7 @@ namespace CrmAppSchool.Controllers
                 afdelingParam.Value = contact.Afdeling;
                 bedrijfcodeParam.Value = contact.Bedrijf.Bedrijfscode;
                 contactcodeParam.Value = contact.Contactcode;
+                mobielnrParam.Value = contact.Mobielnr;
 
 
                 command.Parameters.Add(voornaamParam);
@@ -413,6 +417,7 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(afdelingParam);
                 command.Parameters.Add(bedrijfcodeParam);
                 command.Parameters.Add(contactcodeParam);
+                command.Parameters.Add(mobielnrParam);
 
                 command.Prepare();
                 command.ExecuteNonQuery();
