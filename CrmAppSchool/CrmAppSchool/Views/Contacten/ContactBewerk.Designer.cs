@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactBewerk));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BedrijfBewerk));
             this.lblContactnaam = new System.Windows.Forms.Label();
             this.persoonPnl = new System.Windows.Forms.Panel();
             this.bedrijfCbx = new System.Windows.Forms.ComboBox();

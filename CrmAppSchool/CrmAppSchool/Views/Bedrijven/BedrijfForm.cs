@@ -237,10 +237,10 @@ namespace CrmAppSchool.Views.Bedrijven
         {
             if (lvBedrijven.SelectedItems.Count == 1) //Om te bewerken moet er minimaal en maximaal 1 contact geselecteerd zijn
             {
-                string contactcode = lvBedrijven.SelectedItems[0].SubItems[1].Text;
-                ContactenController cc = new ContactenController();
-                Persooncontact contact = cc.HaalInfoOp(contactcode);
-                ContactBewerk bewerk = new ContactBewerk(contact, _gebruiker);
+                string contactcode = lvBedrijven.SelectedItems[0].SubItems[2].Text;
+                BedrijfController bc = new BedrijfController();
+                Bedrijfcontact contact = bc.SelecteerBedrijf(Convert.ToInt32(contactcode));
+                BedrijfBewerk bewerk = new BedrijfBewerk(contact, _gebruiker);
                 bewerk.ShowDialog();
 
                 // Reset de listview
