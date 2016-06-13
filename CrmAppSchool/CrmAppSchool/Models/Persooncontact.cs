@@ -20,6 +20,7 @@ namespace CrmAppSchool.Models
         public string Afdeling { get; set; }
         public bool Isgastdocent { get; set; }
         public bool Isstagebegeleider { get; set; }
+        public string Evaluatie { get; set; }
         public int Beoordeling { get; set; }
         public Gebruiker Gebruiker { get; set; }
         public Bedrijfcontact Bedrijf { get; set; }
