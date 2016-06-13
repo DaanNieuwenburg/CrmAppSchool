@@ -177,25 +177,31 @@ namespace CrmAppSchool.Views.Bedrijven
         }
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            bool opslaan = false;
+            bool opslaan = true;
             
-                bool a = false;
-                bool b = false;
-                if ((tbHoofdlocatie.Text.Count() <= 0 || tbBedrijfsnaam.Text.Count() <= 0) || (tbEadres.Text.Count() <= 0 && tbTelefoon.Text.Count() <= 0))
+            if ((tbHoofdlocatie.Text.Count() <= 0 || tbBedrijfsnaam.Text.Count() <= 0))
                 {
-                    a = false;
+                opslaan = false;
                     MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
                 }
-                else
+
+            if (tbTelefoon.Text.Count() <= 0)
                 {
-                    a = true;
-                }
-                if (validbedrijfemail == true)
+                if (tbEadres.Text.Count() > 0)
                 {
-                    b = true;
+                    if (validbedrijfemail == false)
+                    {
+                        opslaan = false;
+                    }
                 }
-                if (a == true && b == true)
-                    opslaan = true;
+                }
+
+            else if (tbEadres.Text.Count() <= 0)
+                {
+                opslaan = false;
+                }
+            
+           
             
             if (opslaan == true)
             {
@@ -334,7 +340,7 @@ namespace CrmAppSchool.Views.Bedrijven
                     var eMailValidator = new MailAddress(tbEadres.Text);
 
                 }
-                catch(FormatException)
+        catch (FormatException)
                 {
                     tbEadres.ForeColor = Color.Red;
                     validbedrijfemail = false;
@@ -350,7 +356,7 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void tbTelefoon_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
