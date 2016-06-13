@@ -68,6 +68,39 @@ namespace CrmAppSchool.Controllers
             }
         }
 
+        public void verwijderBedrijf(int bedrijfcode)
+        {
+            MySqlTransaction trans = null;
+            try
+            {
+                conn.Open();
+                string query = @"DELETE FROM bedrijf WHERE bedrijfcode = @bedrijfcode";
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter codeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
+
+                codeParam.Value = bedrijfcode;
+
+                command.Parameters.Add(codeParam);
+                command.Prepare();
+
+                command.ExecuteNonQuery();
+
+
+            }
+            catch(MySqlException e)
+            {
+                if(trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in bedrijfcontroller - verwijderbedrijf: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
         public void voegBedrijfKwaliteitToe(string kwaliteit, long id)
         {
             MySqlTransaction trans = null;
@@ -97,7 +130,7 @@ namespace CrmAppSchool.Controllers
                 {
                     trans.Rollback();
                 }
-                Console.WriteLine("Error in contactencontroller - voegbedrijfkwaliteittoe: " + e);
+                Console.WriteLine("Error in bedrijfcontroller - voegbedrijfkwaliteittoe: " + e);
             }
             finally
             {

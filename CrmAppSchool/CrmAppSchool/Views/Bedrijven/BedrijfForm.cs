@@ -26,13 +26,15 @@ namespace CrmAppSchool.Views.Bedrijven
         public BedrijfForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
+            if (_gebruiker.SoortGebruiker == "Admin")
+                btnDelete.Visible = true;
             var imagelist = new ImageList();
             imagelist.Images.Add("GS", Properties.Resources.Afbeelding_ContactPersoon_GastSpreker);
             imagelist.Images.Add("GD", Properties.Resources.Afbeelding_ContactPersoon_GastDocent);
             imagelist.Images.Add("BD", Properties.Resources.Afbeelding_ContactPersoon_Bedrijf);
             imagelist.Images.Add("SB", Properties.Resources.Afbeelding_ContactPersoon_StageBegeleider);
             imagelist.ImageSize = new Size(50, 50);
-            lvContacten.LargeImageList = imagelist;
+            lvBedrijven.LargeImageList = imagelist;
             ShowMenu = false;
             ShowZoeken = false;
             ShowSave = false;
@@ -62,13 +64,13 @@ namespace CrmAppSchool.Views.Bedrijven
         }
         public void zoek()
         {
-            lvContacten.Items.Clear();
+            lvBedrijven.Items.Clear();
             string input = "%" + tbSearch.Text + "%";
             List<Persooncontact> resultaten = cc.ZoekContacten(input, _gebruiker);
             foreach (Persooncontact contact in resultaten)
             {
                 ListViewItem lvi = new ListViewItem(contact.Voornaam + " " + contact.Achternaam);
-                lvContacten.Items.Add(lvi);
+                lvBedrijven.Items.Add(lvi);
                 if (contact.Isgastdocent == true)
                 {
                     lvi.ImageKey = "GD";
@@ -124,7 +126,7 @@ namespace CrmAppSchool.Views.Bedrijven
             {
                 bedrijfPnl.Visible = true;
                 pnbedrijf2.Visible = true;
-                lvContacten.Visible = false;
+                lvBedrijven.Visible = false;
                 btnVoegtoe.Visible = false;
                 btnAnnuleer.Visible = true;
                 btnZoeken.Visible = false;
@@ -159,7 +161,7 @@ namespace CrmAppSchool.Views.Bedrijven
         private void SaveBedrijf(Bedrijfcontact bedrijf)
         {
             ListViewItem Company = new ListViewItem(bedrijf.Bedrijfnaam);
-            lvContacten.Items.Add(Company);
+            lvBedrijven.Items.Add(Company);
             Company.ImageKey = "BD";
         }
         private void btnAnnuleer_Click(object sender, EventArgs e)
@@ -172,7 +174,7 @@ namespace CrmAppSchool.Views.Bedrijven
             btnDelete.Visible = true;
             btnAnnuleer.Visible = false;
             btnOpslaan.Visible = false;
-            lvContacten.Visible = true;
+            lvBedrijven.Visible = true;
             ShowSave = false;
         }
         private void btnOpslaan_Click(object sender, EventArgs e)
@@ -225,7 +227,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 btnDelete.Visible = true;
                 btnAnnuleer.Visible = false;
                 btnOpslaan.Visible = false;
-                lvContacten.Visible = true;
+                lvBedrijven.Visible = true;
                 ShowSave = false;
             }
 
@@ -233,16 +235,16 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void btnWijzig_Click(object sender, EventArgs e)
         {
-            if (lvContacten.SelectedItems.Count == 1) //Om te bewerken moet er minimaal en maximaal 1 contact geselecteerd zijn
+            if (lvBedrijven.SelectedItems.Count == 1) //Om te bewerken moet er minimaal en maximaal 1 contact geselecteerd zijn
             {
-                string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
+                string contactcode = lvBedrijven.SelectedItems[0].SubItems[1].Text;
                 ContactenController cc = new ContactenController();
                 Persooncontact contact = cc.HaalInfoOp(contactcode);
                 ContactBewerk bewerk = new ContactBewerk(contact, _gebruiker);
                 bewerk.ShowDialog();
 
                 // Reset de listview
-                lvContacten.Clear();
+                lvBedrijven.Clear();
                 vulContacten();
             }
         }
@@ -252,21 +254,21 @@ namespace CrmAppSchool.Views.Bedrijven
             DialogResult dialoogResultaat = MessageBox.Show("Wilt u de geselecteerde contacten echt verwijderen?", "Verwijderen contacten", MessageBoxButtons.YesNo);
             if (dialoogResultaat == DialogResult.Yes)
             {
-                if (lvContacten.SelectedItems.Count == 1)
+                if (lvBedrijven.SelectedItems.Count == 1)
                 {
-                    string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
-                    ContactenController cc = new ContactenController();
-                    cc.verwijderContact(_gebruiker, contactcode);
-                    lvContacten.Items.Remove(lvContacten.SelectedItems[0]);
+                    string contactcode = lvBedrijven.SelectedItems[0].SubItems[2].Text;
+                    BedrijfController cc = new BedrijfController();
+                    cc.verwijderBedrijf(Convert.ToInt32(contactcode));
+                    lvBedrijven.Items.Remove(lvBedrijven.SelectedItems[0]);
                 }
-                else if (lvContacten.SelectedItems.Count > 1)
+                else if (lvBedrijven.SelectedItems.Count > 1)
                 {
-                    foreach (ListViewItem item in lvContacten.SelectedItems)
+                    foreach (ListViewItem item in lvBedrijven.SelectedItems)
                     {
-                        lvContacten.Items.Remove(item);
-                        string contactcode = item.SubItems[1].Text;
-                        ContactenController cc = new ContactenController();
-                        cc.verwijderContact(_gebruiker, contactcode);
+                        lvBedrijven.Items.Remove(item);
+                        string contactcode = item.SubItems[2].Text;
+                        BedrijfController cc = new BedrijfController();
+                        cc.verwijderBedrijf(Convert.ToInt32(contactcode));
                     }
                 }
             }
@@ -276,7 +278,7 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void lvContacten_ItemActivate(object sender, EventArgs e)
         {
-            string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
+            string contactcode = lvBedrijven.SelectedItems[0].SubItems[1].Text;
             ContactenController _controller = new ContactenController();
 
             Persooncontact contact = _controller.HaalInfoOp(contactcode);
@@ -287,15 +289,16 @@ namespace CrmAppSchool.Views.Bedrijven
         private void vulContacten()
         {
             settooltips();
-            lvContacten.Clear();
+            lvBedrijven.Clear();
             BedrijfController _getcontacten = new BedrijfController();
             List<Bedrijfcontact> contactenlijst = _getcontacten.haalBedrijfLijstOp();
             foreach (Bedrijfcontact contact in contactenlijst)
             {
                 ListViewItem c = new ListViewItem(contact.Bedrijfnaam);
                 c.SubItems.Add(Convert.ToString(contact.Hoofdlocatie));
+                c.SubItems.Add(Convert.ToString(contact.Bedrijfscode));
                 c.ImageKey = "BD";
-                lvContacten.Items.Add(c);
+                lvBedrijven.Items.Add(c);
             }
         }
         private void ContactenForm_Load(object sender, EventArgs e)

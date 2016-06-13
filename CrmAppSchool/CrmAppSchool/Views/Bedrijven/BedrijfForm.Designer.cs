@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BedrijfForm));
             this.lblGebruiker = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.lvContacten = new System.Windows.Forms.ListView();
+            this.lvBedrijven = new System.Windows.Forms.ListView();
             this.Contact = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnWijzig = new System.Windows.Forms.Button();
@@ -93,26 +93,26 @@
             this.tbSearch.Visible = false;
             this.tbSearch.Click += new System.EventHandler(this.tbSearch_Click);
             // 
-            // lvContacten
+            // lvBedrijven
             // 
-            this.lvContacten.Activation = System.Windows.Forms.ItemActivation.TwoClick;
-            this.lvContacten.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvBedrijven.Activation = System.Windows.Forms.ItemActivation.TwoClick;
+            this.lvBedrijven.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Contact});
-            this.lvContacten.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvContacten.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvContacten.Location = new System.Drawing.Point(0, 50);
-            this.lvContacten.Name = "lvContacten";
-            this.lvContacten.Size = new System.Drawing.Size(788, 434);
-            this.lvContacten.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            this.lvContacten.TabIndex = 19;
-            this.lvContacten.UseCompatibleStateImageBehavior = false;
-            this.lvContacten.View = System.Windows.Forms.View.Tile;
-            this.lvContacten.ItemActivate += new System.EventHandler(this.lvContacten_ItemActivate);
+            this.lvBedrijven.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvBedrijven.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvBedrijven.Location = new System.Drawing.Point(0, 50);
+            this.lvBedrijven.Name = "lvBedrijven";
+            this.lvBedrijven.Size = new System.Drawing.Size(788, 434);
+            this.lvBedrijven.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.lvBedrijven.TabIndex = 19;
+            this.lvBedrijven.UseCompatibleStateImageBehavior = false;
+            this.lvBedrijven.View = System.Windows.Forms.View.Tile;
+            this.lvBedrijven.ItemActivate += new System.EventHandler(this.lvContacten_ItemActivate);
             // 
             // Contact
             // 
             this.Contact.Text = "";
-            this.Contact.Width = this.lvContacten.Width;
+            this.Contact.Width = this.lvBedrijven.Width;
             // 
             // btnDelete
             // 
@@ -128,6 +128,7 @@
             this.btnDelete.Size = new System.Drawing.Size(59, 50);
             this.btnDelete.TabIndex = 26;
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnWijzig
@@ -436,7 +437,7 @@
             this.Controls.Add(this.btnWijzig);
             this.Controls.Add(this.btnOpslaan);
             this.Controls.Add(this.btnAnnuleer);
-            this.Controls.Add(this.lvContacten);
+            this.Controls.Add(this.lvBedrijven);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.btnZoeken);
@@ -469,7 +470,7 @@
         private System.Windows.Forms.Button btnZoeken;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.ListView lvContacten;
+        private System.Windows.Forms.ListView lvBedrijven;
         private System.Windows.Forms.Button btnOpslaan;
         private System.Windows.Forms.Button btnAnnuleer;
         private System.Windows.Forms.Button btnDelete;
