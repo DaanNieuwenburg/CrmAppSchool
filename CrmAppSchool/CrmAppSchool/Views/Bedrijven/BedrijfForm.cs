@@ -22,7 +22,7 @@ namespace CrmAppSchool.Views.Bedrijven
         private bool validmobiel { get; set; }
         private bool validbedrijfemail { get; set; }
         public Gebruiker _gebruiker { get; set; }
-        ContactenController cc = new ContactenController();
+        BedrijfController cc = new BedrijfController();
         public BedrijfForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
@@ -66,19 +66,13 @@ namespace CrmAppSchool.Views.Bedrijven
         {
             lvBedrijven.Items.Clear();
             string input = "%" + tbSearch.Text + "%";
-            List<Persooncontact> resultaten = cc.ZoekContacten(input, _gebruiker);
-            foreach (Persooncontact contact in resultaten)
+            List<Bedrijfcontact> resultaten = cc.ZoekBedrijven(input, _gebruiker);
+            foreach (Bedrijfcontact contact in resultaten)
             {
-                ListViewItem lvi = new ListViewItem(contact.Voornaam + " " + contact.Achternaam);
+                ListViewItem lvi = new ListViewItem(contact.Bedrijfnaam);
+                lvi.SubItems.Add(contact.Hoofdlocatie);
                 lvBedrijven.Items.Add(lvi);
-                if (contact.Isgastdocent == true)
-                {
-                    lvi.ImageKey = "GD";
-                }
-                if (contact.Isstagebegeleider == true)
-                {
-                    lvi.ImageKey = "GS";
-                }
+                lvi.ImageKey = "BD";
 
             }
         }
