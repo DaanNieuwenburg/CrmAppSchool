@@ -368,7 +368,7 @@ namespace CrmAppSchool.Views.Bedrijven
             ContactenController _controller = new ContactenController();
 
             Persooncontact contact = _controller.HaalInfoOp(contactcode);
-            ContactDetails _details = new ContactDetails(_gebruiker, contact);
+            Contacten.ContactDetails _details = new Contacten.ContactDetails(_gebruiker, contact);
             _details.ShowDialog();
         }
 

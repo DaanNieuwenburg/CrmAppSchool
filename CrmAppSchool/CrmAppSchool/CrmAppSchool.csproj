@@ -86,6 +86,12 @@
     <Compile Include="Views\Bedrijven\BedrijfBewerk.Designer.cs">
       <DependentUpon>BedrijfBewerk.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Bedrijven\BedrijfDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Bedrijven\BedrijfDetails.Designer.cs">
+      <DependentUpon>BedrijfDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Contacten\ContactBewerk.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Bedrijven\BedrijfBewerk.resx">
       <DependentUpon>BedrijfBewerk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Bedrijven\BedrijfDetails.resx">
+      <DependentUpon>BedrijfDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Contacten\ContactBewerk.resx">
       <DependentUpon>ContactBewerk.cs</DependentUpon>

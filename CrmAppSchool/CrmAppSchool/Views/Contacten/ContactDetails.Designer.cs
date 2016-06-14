@@ -1,4 +1,4 @@
-﻿namespace CrmAppSchool.Views.Bedrijven
+﻿namespace CrmAppSchool.Views.Contacten
 {
     partial class ContactDetails
     {
