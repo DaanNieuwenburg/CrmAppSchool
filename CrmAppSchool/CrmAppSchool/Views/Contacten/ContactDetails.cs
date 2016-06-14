@@ -16,19 +16,33 @@ namespace CrmAppSchool.Views.Contacten
     {
         
         private Persooncontact contact { get; set; }
+        private Gebruiker gebruiker { get; set; }
         private int beoordeling { get; set; }
 
         public ContactDetails(Gebruiker _gebruiker, Persooncontact _contact)
         {
             InitializeComponent();
             contact = _contact;
+            gebruiker = _gebruiker;
 
             // Haal de contacten evaluaties op
             ContactEvaluatieController ce = new ContactEvaluatieController();
             contact = ce.HaalInfoOp(_gebruiker, contact);
             lbOmschrijvingValue.Text = contact.Evaluatie;
             beoordeling = contact.Beoordeling;
-           
+
+            // Is de contact een eigen contact, laat dan niet de button zien
+            ContactenController cc = new ContactenController();
+            bool bestaat = cc.heeftGebruikerContact(gebruiker, Convert.ToString(contact.Contactcode));
+            if(bestaat == true)
+            {
+                btnVoegtoe.Visible = false;
+            }
+            else
+            {
+                btnVoegtoe.Visible = true;
+            }
+
             lblVNvalue.Text = contact.Voornaam;
             lblANvalue.Text = contact.Achternaam;
             lblLOvalue.Text = contact.Locatie;
@@ -103,6 +117,11 @@ namespace CrmAppSchool.Views.Contacten
                 pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
             }
         }
-        
+
+        private void btnVoegtoe_Click(object sender, EventArgs e)
+        {
+            ContactenController cc = new ContactenController();
+            cc.voegContactPersoonKoppeltabel(gebruiker.Gebruikersnaam, contact.Contactcode);
+        }
     }
 }
