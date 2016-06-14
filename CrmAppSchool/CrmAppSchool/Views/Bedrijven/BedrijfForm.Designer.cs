@@ -313,10 +313,13 @@
             // 
             this.tbTelefoon.Font = new System.Drawing.Font("Arial", 10F);
             this.tbTelefoon.Location = new System.Drawing.Point(128, 111);
+            this.tbTelefoon.MaxLength = 10;
             this.tbTelefoon.Name = "tbTelefoon";
             this.tbTelefoon.Size = new System.Drawing.Size(149, 23);
             this.tbTelefoon.TabIndex = 6;
+            this.tbTelefoon.Enter += new System.EventHandler(this.tbTelefoon_Enter);
             this.tbTelefoon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTelefoon_KeyPress);
+            this.tbTelefoon.Leave += new System.EventHandler(this.tbTelefoon_Leave);
             // 
             // label7
             // 

@@ -19,7 +19,7 @@ namespace CrmAppSchool.Views.Bedrijven
         private bool ShowSave { get; set; }
         private bool ShowZoeken { get; set; }
         private bool EditMode { get; set; }
-        private bool validmobiel { get; set; }
+        private bool validtelefoon { get; set; }
         private bool validbedrijfemail { get; set; }
         public Gebruiker _gebruiker { get; set; }
         BedrijfController cc = new BedrijfController();
@@ -116,7 +116,7 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void btnVoegtoe_Click(object sender, EventArgs e)
         {
-            validmobiel = true;
+            validtelefoon = true;
             if (ShowSave == false)
             {
                 bedrijfPnl.Visible = true;
@@ -193,6 +193,10 @@ namespace CrmAppSchool.Views.Bedrijven
                 {
                     opslaan = false;
                 }                
+            }
+            if (validtelefoon == false)
+            {
+                opslaan = false;
             }
 
 
@@ -355,6 +359,26 @@ namespace CrmAppSchool.Views.Bedrijven
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void tbTelefoon_Enter(object sender, EventArgs e)
+        {
+            tbTelefoon.ForeColor = Color.Black;
+            validtelefoon = false;
+        }
+
+        private void tbTelefoon_Leave(object sender, EventArgs e)
+        {
+            if(tbTelefoon.Text.Count() < 10 && tbTelefoon.Text.Count() > 0)
+            {
+                tbTelefoon.ForeColor = Color.Red;
+                validtelefoon = false;
+            }
+            else
+            {
+                tbTelefoon.ForeColor = Color.Black;
+                validtelefoon = true;
             }
         }
     }

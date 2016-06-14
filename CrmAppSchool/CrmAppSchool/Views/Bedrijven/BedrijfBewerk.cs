@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrmAppSchool.Models;
 using CrmAppSchool.Controllers;
+using System.Net.Mail;
 
 namespace CrmAppSchool.Views.Bedrijven
 {
@@ -20,6 +21,7 @@ namespace CrmAppSchool.Views.Bedrijven
         private bool validmobiel { get; set; }
         private bool validemail { get; set; }
         private bool isinsert { get; set; }
+        private bool validtelefoon { get; set; }
         private Gebruiker gebruiker { get; set; }
         public BedrijfBewerk(Bedrijfcontact contact, Gebruiker _gebruiker)
         {
@@ -44,28 +46,18 @@ namespace CrmAppSchool.Views.Bedrijven
 
         }
 
-        /*private void bewerkBtn_Click(object sender, EventArgs e)
-        {
-            // Zet alle waardes van de textboxes in het nieuwe contact
-            Persooncontact bewerktContact = new Persooncontact();
-            bewerktContact.Contactcode = contactcode;
-            bewerktContact.Voornaam = voornaamTb.Text;
-            bewerktContact.Achternaam = achternaamTb.Text;
-            bewerktContact.Bedrijf = new Bedrijfcontact();
-            bewerktContact.Bedrijf.Bedrijfscode = Convert.ToInt32(bedrijfCbx.SelectedValue);
-            bewerktContact.Functie = functieTb.Text;
-            bewerktContact.Locatie = locatieTb.Text;
-            bewerktContact.Email = emailTb.Text;
-            bewerktContact.Mobielnr = mobielTb.Text;
-            
-            // Contactencontroller
-            ContactenController cc = new ContactenController();
-            cc.bewerkContact(bewerktContact);
-            this.Close();
-        }*/
+       
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
+            bool opslaan = true;
+            if (validtelefoon == false)
+            {
+                opslaan = false;
+                MessageBox.Show("Er is geen geldig telefoonnummer ingevoerd");
+            }
+            if (opslaan == true)
+            {
                 // Zet alle waardes van de textboxes in het nieuwe contact
                 Bedrijfcontact bewerktContact = new Bedrijfcontact();
                 bewerktContact.Bedrijfscode = contactcode;
@@ -89,6 +81,8 @@ namespace CrmAppSchool.Views.Bedrijven
 
 
                 this.Close();
+            }
+            
             
 
         }
@@ -98,7 +92,28 @@ namespace CrmAppSchool.Views.Bedrijven
             this.Close();
         }
 
-        private void mobielTb_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void tbTelefoon_Leave(object sender, EventArgs e)
+        {
+            if (tbTelefoon.Text.Count() < 10 && tbTelefoon.Text.Count() > 0)
+            {
+                tbTelefoon.ForeColor = Color.Red;
+                validtelefoon = false;
+            }
+            else
+            {
+                tbTelefoon.ForeColor = Color.Black;
+                validtelefoon = true;
+            }
+        }
+
+        private void tbTelefoon_Enter(object sender, EventArgs e)
+        {
+            tbTelefoon.ForeColor = Color.Black;
+            validtelefoon = false;
+        }
+
+        private void tbTelefoon_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
@@ -106,7 +121,28 @@ namespace CrmAppSchool.Views.Bedrijven
             }
         }
 
+        private void tbEadres_Leave(object sender, EventArgs e)
+        {
+            if (tbEadres.Text.Count() > 0)
+            {
+                try
+                {
+                    var eMailValidator = new MailAddress(tbEadres.Text);
 
+                }
+                catch (FormatException)
+                {
+                    tbEadres.ForeColor = Color.Red;
+                    validemail = false;
+                }
+            }
+        }
+
+        private void tbEadres_Enter(object sender, EventArgs e)
+        {
+            tbEadres.ForeColor = Color.Black;
+            validemail = true;
+        }
     }
 }
 
