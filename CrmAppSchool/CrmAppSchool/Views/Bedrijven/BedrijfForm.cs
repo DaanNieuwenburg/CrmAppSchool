@@ -71,6 +71,7 @@ namespace CrmAppSchool.Views.Bedrijven
             {
                 ListViewItem lvi = new ListViewItem(contact.Bedrijfnaam);
                 lvi.SubItems.Add(contact.Hoofdlocatie);
+                lvi.SubItems.Add(contact.Bedrijfscode.ToString());
                 lvBedrijven.Items.Add(lvi);
                 lvi.ImageKey = "BD";
 
