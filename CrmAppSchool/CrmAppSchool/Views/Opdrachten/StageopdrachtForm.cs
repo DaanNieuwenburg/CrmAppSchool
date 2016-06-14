@@ -84,12 +84,38 @@ namespace CrmAppSchool.Views.Opdrachten
             List<Stageopdracht> opdrachten = soc.ZoekOpdrachten(input);
             foreach (Stageopdracht opdracht in opdrachten)
             {
+                /*  Er is maar een btnwijzig.click methode, LVI moeten dan wel exact aan elkaar gelijk zijn.
+                    
                 ListViewItem lvi = new ListViewItem(opdracht.Code.ToString());
                 lvi.SubItems.Add(opdracht.Naam);
                 lvi.SubItems.Add(opdracht.Omschrijving);
                 lvi.SubItems.Add(opdracht.Status);
-                lvi.SubItems.Add(opdracht.Bedrijf.Bedrijfnaam);
+                lvi.SubItems.Add(Convert.ToString(opdracht.Bedrijf.Bedrijfscode));
                 lvi.SubItems.Add(opdracht.Bedrijf.Contactpersoon);
+                lvStage.Items.Add(lvi); */
+                ListViewItem lvi = new ListViewItem(opdracht.Code.ToString());
+                lvi.SubItems.Add(opdracht.Naam);
+                lvi.SubItems.Add(opdracht.Omschrijving);
+                lvi.SubItems.Add(opdracht.Status);
+                Bedrijfcontact bcontact = opdracht.Bedrijf;
+                if (opdracht.Bedrijf != null)
+                {
+                    lvi.SubItems.Add(bcontact.Bedrijfnaam);
+                }
+                Persooncontact pcontact = opdracht.Contact;
+                if (opdracht.Contact != null)
+                {
+                    pcontact.volnaam = pcontact.Voornaam + " " + pcontact.Achternaam;
+                    lvi.SubItems.Add(pcontact.volnaam);
+                }
+                if (opdracht.Bedrijf != null)
+                {
+                    lvi.SubItems.Add(Convert.ToString(bcontact.Bedrijfscode));
+                }
+                if (opdracht.Contact != null)
+                {
+                    lvi.SubItems.Add(Convert.ToString(pcontact.Contactcode));
+                }
                 lvStage.Items.Add(lvi);
             }
         }
