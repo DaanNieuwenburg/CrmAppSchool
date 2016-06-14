@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using CrmAppSchool.Models;
+using System.Windows.Forms;
 
 namespace CrmAppSchool.Controllers
 {
@@ -95,6 +96,11 @@ namespace CrmAppSchool.Controllers
                     trans.Rollback();
                 }
                 Console.WriteLine("Error in bedrijfcontroller - verwijderbedrijf: " + e);
+                if((uint)e.ErrorCode == 0x80004005)
+                {
+                    MessageBox.Show("Dit bedrijf kan niet verwijderd worden: er zijn nog contacten voor dit bedrijf");
+                }
+                
             }
             finally
             {

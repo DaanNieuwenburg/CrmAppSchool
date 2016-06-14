@@ -27,7 +27,7 @@ namespace CrmAppSchool.Controllers
                     if(Zoeknaar == "Stagebegeleider" || Zoeknaar == "Gastspreker" || Zoeknaar == "Gastdocent")
                     {
                         Persooncontact contact = new Persooncontact();
-                        resultatenLijst.Add(new Persooncontact { Voornaam = lezer.GetString("voornaam"), Achternaam = lezer.GetString("achternaam"), Locatie = lezer.GetString("locatie"), Email = lezer.GetString("email"), Functie = lezer["functie"] as string, Afdeling = lezer["afdeling"] as string });
+                        resultatenLijst.Add(new Persooncontact { Contactcode = lezer.GetInt32("contactcode"), Voornaam = lezer.GetString("voornaam"), Achternaam = lezer.GetString("achternaam"), Locatie = lezer.GetString("locatie"), Email = lezer.GetString("email"), Functie = lezer["functie"] as string, Afdeling = lezer["afdeling"] as string });
                     }
                     else if(Zoeknaar == "Gebruiker")
                     {

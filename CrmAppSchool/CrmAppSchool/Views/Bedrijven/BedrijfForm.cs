@@ -253,7 +253,7 @@ namespace CrmAppSchool.Views.Bedrijven
                     string contactcode = lvBedrijven.SelectedItems[0].SubItems[2].Text;
                     BedrijfController cc = new BedrijfController();
                     cc.verwijderBedrijf(Convert.ToInt32(contactcode));
-                    lvBedrijven.Items.Remove(lvBedrijven.SelectedItems[0]);
+                    vulContacten();
                 }
                 else if (lvBedrijven.SelectedItems.Count > 1)
                 {
