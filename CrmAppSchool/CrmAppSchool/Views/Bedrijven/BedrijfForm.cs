@@ -183,7 +183,7 @@ namespace CrmAppSchool.Views.Bedrijven
             }
             int j = 0;
             string a = tbBedrijfsnaam.Text;
-            foreach(var contact in lvBedrijven.Items)
+            foreach (var contact in lvBedrijven.Items[j].Text.ToString())
             {
                 string b = contact.ToString();
                 if (a == b)
