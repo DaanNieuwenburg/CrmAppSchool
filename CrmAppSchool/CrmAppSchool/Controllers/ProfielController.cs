@@ -8,7 +8,7 @@ using CrmAppSchool.Models;
 
 namespace CrmAppSchool.Controllers
 {
-    class ProfielController : DatabaseController
+    public class ProfielController : DatabaseController
     {
         public void voegProfielToe(string gebruikersnaam)
         {

@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace CrmAppSchool.Controllers
 {
-    class ContactenController : DatabaseController
+    public class ContactenController : DatabaseController
     {
         public ContactenController()
         {

@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace CrmAppSchool.Controllers
 {
-    class GebruikerController : DatabaseController
+    public class GebruikerController : DatabaseController
     {
 
         public void voegGebruikerToe(Gebruiker _gebruiker)

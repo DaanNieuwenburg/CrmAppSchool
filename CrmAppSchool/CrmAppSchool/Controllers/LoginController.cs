@@ -9,7 +9,7 @@ using CrmAppSchool.Views.Gebruikers;
 
 namespace CrmAppSchool.Controllers
 {
-    class LoginController : DatabaseController
+    public class LoginController : DatabaseController
     {
         public bool relogin { get; set; }
 
