@@ -278,12 +278,13 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void lvContacten_ItemActivate(object sender, EventArgs e)
         {
-            string contactcode = lvBedrijven.SelectedItems[0].SubItems[1].Text;
-            ContactenController _controller = new ContactenController();
+            string contactcode = lvBedrijven.SelectedItems[0].SubItems[2].Text;
+            BedrijfController bc = new BedrijfController();
+            Bedrijfcontact contact = bc.SelecteerBedrijf(Convert.ToInt32(contactcode));
 
-            Persooncontact contact = _controller.HaalInfoOp(contactcode);
-            ContactDetails _details = new ContactDetails(_gebruiker, contact);
-            _details.ShowDialog();
+            BedrijfDetails details = new BedrijfDetails(_gebruiker, contact);
+            details.ShowDialog();
+
         }
 
         private void vulContacten()
