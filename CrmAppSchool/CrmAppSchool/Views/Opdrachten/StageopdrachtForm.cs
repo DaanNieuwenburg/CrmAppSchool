@@ -182,5 +182,14 @@ namespace CrmAppSchool.Views.Opdrachten
                 btnWijzig.Visible = true;
             }
         }
+
+        private void lvStage_ItemActivate(object sender, EventArgs e)
+        {
+            StageopdrachtController controller = new StageopdrachtController();
+            string opdrachtcode = lvStage.SelectedItems[0].Text;
+            Stageopdracht opdracht = controller.HaalInfoOp(opdrachtcode);
+            OpdrachtDetails details = new OpdrachtDetails(opdracht);
+            details.ShowDialog();
+        }
     }
 }

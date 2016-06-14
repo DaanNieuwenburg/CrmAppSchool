@@ -53,9 +53,53 @@ namespace CrmAppSchool.Controllers
                 conn.Close();
             }
 
-
         }
+        public Stageopdracht HaalInfoOp(string opdrachtcode)
+        {
+            Stageopdracht opdracht = new Stageopdracht();
+            try
+            {
+                conn.Open();
+                string query = @"SELECT * FROM stageopdracht
+                                JOIN bedrijf on stageopdracht.bedrijfcode = bedrijf.bedrijfcode
+                                JOIN contactpersoon on stageopdracht.contactcode = contactpersoon.contactcode
+                                WHERE opdrachtcode = @opdrachtcode";
 
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter opdrachtcodeParam = new MySqlParameter("@opdrachtcode", MySqlDbType.Int32);
+
+                opdrachtcodeParam.Value = opdrachtcode;
+                command.Parameters.Add(opdrachtcodeParam);
+
+                command.Prepare();
+                MySqlDataReader datalezer = command.ExecuteReader();
+
+                while (datalezer.Read())
+                {
+                    opdracht.Naam = datalezer.GetString("naam");
+                    opdracht.Omschrijving = datalezer.GetString("omschrijving");
+                    opdracht.Bedrijf = new Bedrijfcontact();
+                    opdracht.Bedrijf.Bedrijfnaam = datalezer.GetString("bedrijfnaam");
+                    Console.WriteLine("Test: " + datalezer.GetString("bedrijfnaam"));
+                    opdracht.Contact = new Persooncontact();
+                    opdracht.Contact.Voornaam = datalezer.GetString("voornaam");
+                    opdracht.Contact.Achternaam = datalezer.GetString("achternaam");
+                    opdracht.Status = datalezer.GetString("status");
+                }
+
+            }
+            catch (MySqlException e)
+            {
+                
+                Console.WriteLine("Error in stageopdrachtcontroller - haalinfoop: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return opdracht;
+        }
         public List<Stageopdracht> ZoekOpdrachten(string tekst)
         {
             List<Stageopdracht> opdrachten = new List<Stageopdracht>();
