@@ -14,52 +14,57 @@ namespace CrmAppSchool.Controllers
         public void voegGebruikerToe(Gebruiker _gebruiker)
         {
             MySqlTransaction trans = null;
-            EncryptieController ecr = new EncryptieController();
-            _gebruiker.Wachtwoord = ecr.encrypt(_gebruiker.Wachtwoord);
-            try
+            // Encrypt het ingevoerde wachtwoord van de gebruiker
+            if (_gebruiker != null)
             {
-                conn.Open();
-                trans = conn.BeginTransaction();
-                string query = "INSERT INTO gebruiker (gebruikersnaam, wachtwoord, soortgebruiker) VALUES (@gebruikersnaam, @wachtwoord, @soortgebruiker)";
-                MySqlCommand command = new MySqlCommand(query, conn);
-                MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
-                MySqlParameter wachtwoordParam = new MySqlParameter("@wachtwoord", MySqlDbType.VarChar);
-                MySqlParameter soortgebruikerParam = new MySqlParameter("@soortgebruiker", MySqlDbType.VarChar);
-
-                gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
-                wachtwoordParam.Value = _gebruiker.Wachtwoord;
-                soortgebruikerParam.Value = _gebruiker.SoortGebruiker;
-
-
-                command.Parameters.Add(gebruikersnaamParam);
-                command.Parameters.Add(wachtwoordParam);
-                command.Parameters.Add(soortgebruikerParam);
-
-                command.Prepare();
-                command.ExecuteNonQuery();
-
-                trans.Commit();
-
-                // Voeg profiel toe
-                if (_gebruiker.SoortGebruiker == "Docent" || _gebruiker.SoortGebruiker == "Admin")
+                EncryptieController ecr = new EncryptieController();
+                _gebruiker.Wachtwoord = ecr.encrypt(_gebruiker.Wachtwoord);
+                try
                 {
-                    ProfielController profielcontroller = new ProfielController();
-                    profielcontroller.voegProfielToe(_gebruiker.Gebruikersnaam);
+                    conn.Open();
+                    trans = conn.BeginTransaction();
+                    string query = "INSERT INTO gebruiker (gebruikersnaam, wachtwoord, soortgebruiker) VALUES (@gebruikersnaam, @wachtwoord, @soortgebruiker)";
+                    MySqlCommand command = new MySqlCommand(query, conn);
+                    MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
+                    MySqlParameter wachtwoordParam = new MySqlParameter("@wachtwoord", MySqlDbType.VarChar);
+                    MySqlParameter soortgebruikerParam = new MySqlParameter("@soortgebruiker", MySqlDbType.VarChar);
+
+                    gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
+                    wachtwoordParam.Value = _gebruiker.Wachtwoord;
+                    soortgebruikerParam.Value = _gebruiker.SoortGebruiker;
+
+
+                    command.Parameters.Add(gebruikersnaamParam);
+                    command.Parameters.Add(wachtwoordParam);
+                    command.Parameters.Add(soortgebruikerParam);
+
+                    command.Prepare();
+                    command.ExecuteNonQuery();
+
+                    trans.Commit();
+
+                    // Voeg profiel toe
+                    if (_gebruiker.SoortGebruiker == "Docent" || _gebruiker.SoortGebruiker == "Admin")
+                    {
+                        ProfielController profielcontroller = new ProfielController();
+                        profielcontroller.voegProfielToe(_gebruiker.Gebruikersnaam);
+                    }
                 }
-            }
-            catch (MySqlException e)
-            {
-                if (trans != null)
+                catch (MySqlException e)
                 {
-                    trans.Rollback();
+                    if (trans != null)
+                    {
+                        trans.Rollback();
+                    }
+                    Console.WriteLine("Error in gebruikercontroller - voeggebruikertoe: " + e);
                 }
-                Console.WriteLine("Error in gebruikercontroller - voeggebruikertoe: " + e);
-            }
-            finally
-            {
-                conn.Close();
+                finally
+                {
+                    conn.Close();
+                }
             }
         }
+
         public void CreeërProfiel(Gebruiker gebruiker)
         {
             MySqlTransaction trans = null;
