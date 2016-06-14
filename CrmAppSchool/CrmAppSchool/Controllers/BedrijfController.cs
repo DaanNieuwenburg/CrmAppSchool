@@ -68,6 +68,39 @@ namespace CrmAppSchool.Controllers
             }
         }
 
+        public void verwijderBedrijf(int bedrijfcode)
+        {
+            MySqlTransaction trans = null;
+            try
+            {
+                conn.Open();
+                string query = @"DELETE FROM bedrijf WHERE bedrijfcode = @bedrijfcode";
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter codeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
+
+                codeParam.Value = bedrijfcode;
+
+                command.Parameters.Add(codeParam);
+                command.Prepare();
+
+                command.ExecuteNonQuery();
+
+
+            }
+            catch(MySqlException e)
+            {
+                if(trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in bedrijfcontroller - verwijderbedrijf: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
         public void voegBedrijfKwaliteitToe(string kwaliteit, long id)
         {
             MySqlTransaction trans = null;
@@ -97,7 +130,7 @@ namespace CrmAppSchool.Controllers
                 {
                     trans.Rollback();
                 }
-                Console.WriteLine("Error in contactencontroller - voegbedrijfkwaliteittoe: " + e);
+                Console.WriteLine("Error in bedrijfcontroller - voegbedrijfkwaliteittoe: " + e);
             }
             finally
             {
@@ -136,7 +169,50 @@ namespace CrmAppSchool.Controllers
             }
             return contactenlijst;
         }
+        public void bewerkContact(Bedrijfcontact contact)
+        {
+            try
+            {
+                conn.Open();
+                string query = @"UPDATE bedrijf SET bedrijfnaam = @bedrijfnaam, hoofdlocatie = @hoofdlocatie, website = @website, email = @email, telefoonnr = @telefoonnr WHERE bedrijfcode = @code";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter bedrijfnaamParam = new MySqlParameter("bedrijfnaam", MySqlDbType.VarChar);
+                MySqlParameter hoofdlocatieParam = new MySqlParameter("hoofdlocatie", MySqlDbType.VarChar);
+                MySqlParameter websiteParam = new MySqlParameter("website", MySqlDbType.VarChar);
+                MySqlParameter emailParam = new MySqlParameter("email", MySqlDbType.VarChar);
+                MySqlParameter telefoonnrParam = new MySqlParameter("telefoonnr", MySqlDbType.VarChar);
+                MySqlParameter bedrijfcodeParam = new MySqlParameter("code", MySqlDbType.Int32);
 
+
+                bedrijfnaamParam.Value = contact.Bedrijfnaam;
+                hoofdlocatieParam.Value = contact.Hoofdlocatie;
+                websiteParam.Value = contact.Website;
+                emailParam.Value = contact.Email;
+                telefoonnrParam.Value = contact.Telefoonnr;
+                bedrijfcodeParam.Value = contact.Bedrijfscode;
+
+
+                command.Parameters.Add(bedrijfnaamParam);
+                command.Parameters.Add(hoofdlocatieParam);
+                command.Parameters.Add(websiteParam);
+                command.Parameters.Add(emailParam);
+                command.Parameters.Add(telefoonnrParam);
+                command.Parameters.Add(bedrijfcodeParam);
+
+                command.Prepare();
+                command.ExecuteNonQuery();
+            }
+
+
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Error in Bedrijfcontroller - bewerkContact: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
         public Bedrijfcontact SelecteerBedrijf(int bedrijfcode)
         {
             Bedrijfcontact contact = new Bedrijfcontact();
