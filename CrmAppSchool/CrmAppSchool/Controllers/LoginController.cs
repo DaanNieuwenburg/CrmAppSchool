@@ -11,6 +11,7 @@ namespace CrmAppSchool.Controllers
 {
     class LoginController : DatabaseController
     {
+        public bool relogin { get; set; }
 
         public bool VerifieerGebruiker(string _gebruikersnaam, string _wachtwoord)
         {
@@ -43,8 +44,11 @@ namespace CrmAppSchool.Controllers
                     isnull = false;
 
                     // Roept het hoofdmenu aan
-                    HoofdmenuForm hoofdmenu = new HoofdmenuForm(gebruiker);
-                    hoofdmenu.Show();
+                    if (relogin == false)
+                    {
+                        HoofdmenuForm hoofdmenu = new HoofdmenuForm(gebruiker);
+                        hoofdmenu.Show();
+                    }
                 }
 
                 // Null checkt 

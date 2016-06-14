@@ -448,7 +448,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BedrijfForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ik";
+            this.Text = "Bedrijven";
             this.Load += new System.EventHandler(this.ContactenForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();

@@ -79,6 +79,13 @@ namespace CrmAppSchool.Views.Gebruikers
             {
                 voegGebruikerToeForm voegGebruikerToe = new voegGebruikerToeForm(gebruiker);
                 voegGebruikerToe.Show();
+
+                if (voegGebruikerToe.ShowMenu == true)
+                {
+                    Show();
+                    voegGebruikerToe.ShowMenu = false;
+                }
+
                 this.Hide();
             }
             
@@ -151,6 +158,7 @@ namespace CrmAppSchool.Views.Gebruikers
                     wachtwoord = _popup.password;
                 }
                 LoginController logincontroller = new LoginController();
+                logincontroller.relogin = true;
                 bool resultaat = logincontroller.VerifieerGebruiker(gebruikersnaam, wachtwoord);
                 if (resultaat == false)
                 {
