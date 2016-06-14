@@ -60,6 +60,7 @@ namespace CrmAppSchool.Views.Gebruikers
                 voegGebruikerToeBtn.Visible = false;
                 btnProfiel.Visible = false;
                 btnContacten.Visible = false;
+                btnBedrijven.Visible = false;
                 btnZoeken.Location = new Point(24, 75);
                 btnOpdrachten.Location = new Point(28, 231);
                 btnUitloggen.Location = new Point(203, 231);
@@ -190,6 +191,7 @@ namespace CrmAppSchool.Views.Gebruikers
                     lblOpdrachten.Visible = true;
                     lblRegistreer.Visible = true;
                     lblUitloggen.Visible = true;
+                    BedrijvenLbl.Visible = true;
                     lblZoeken.Visible = true;
                     ShowHelp = true;
                 }
@@ -200,6 +202,7 @@ namespace CrmAppSchool.Views.Gebruikers
                     lblProfiel.Visible = true;
                     lblUitloggen.Visible = true;
                     lblZoeken.Visible = true;
+                    BedrijvenLbl.Visible = true;
                     ShowHelp = true;
                 }
                 else if (gebruiker.SoortGebruiker == "Student")
@@ -223,6 +226,7 @@ namespace CrmAppSchool.Views.Gebruikers
                 lblRegistreer.Visible = false;
                 lblUitloggen.Visible = false;
                 lblZoeken.Visible = false;
+                BedrijvenLbl.Visible = false;
                 ShowHelp = false;
             }
 
