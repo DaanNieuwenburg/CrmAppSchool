@@ -31,12 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StageopdrachtForm));
             this.tbZoek = new System.Windows.Forms.TextBox();
             this.lblGebruiker = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnWijzig = new System.Windows.Forms.Button();
-            this.btnVoegtoe = new System.Windows.Forms.Button();
-            this.pbHome = new System.Windows.Forms.PictureBox();
-            this.pbHeader = new System.Windows.Forms.PictureBox();
-            this.btnZoeken = new System.Windows.Forms.Button();
             this.lvStage = new System.Windows.Forms.ListView();
             this.Hcode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Hnaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -44,6 +38,12 @@
             this.Hstatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Hbedrijf = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Hcontact = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnZoeken = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnWijzig = new System.Windows.Forms.Button();
+            this.btnVoegtoe = new System.Windows.Forms.Button();
+            this.pbHome = new System.Windows.Forms.PictureBox();
+            this.pbHeader = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
@@ -73,6 +73,70 @@
             this.lblGebruiker.Size = new System.Drawing.Size(123, 16);
             this.lblGebruiker.TabIndex = 12;
             this.lblGebruiker.Text = "U bent ingelogd als:";
+            // 
+            // lvStage
+            // 
+            this.lvStage.Activation = System.Windows.Forms.ItemActivation.TwoClick;
+            this.lvStage.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Hcode,
+            this.Hnaam,
+            this.Homschrijving,
+            this.Hstatus,
+            this.Hbedrijf,
+            this.Hcontact});
+            this.lvStage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvStage.FullRowSelect = true;
+            this.lvStage.Location = new System.Drawing.Point(0, 50);
+            this.lvStage.Margin = new System.Windows.Forms.Padding(2);
+            this.lvStage.Name = "lvStage";
+            this.lvStage.Size = new System.Drawing.Size(896, 459);
+            this.lvStage.TabIndex = 18;
+            this.lvStage.UseCompatibleStateImageBehavior = false;
+            this.lvStage.View = System.Windows.Forms.View.Details;
+            this.lvStage.ItemActivate += new System.EventHandler(this.lvStage_ItemActivate);
+            // 
+            // Hcode
+            // 
+            this.Hcode.Text = "Code";
+            this.Hcode.Width = 69;
+            // 
+            // Hnaam
+            // 
+            this.Hnaam.Text = "Naam";
+            this.Hnaam.Width = 216;
+            // 
+            // Homschrijving
+            // 
+            this.Homschrijving.Text = "Omschrijving";
+            this.Homschrijving.Width = 332;
+            // 
+            // Hstatus
+            // 
+            this.Hstatus.Text = "Status";
+            // 
+            // Hbedrijf
+            // 
+            this.Hbedrijf.Text = "Bedrijf";
+            // 
+            // Hcontact
+            // 
+            this.Hcontact.Text = "Contact";
+            // 
+            // btnZoeken
+            // 
+            this.btnZoeken.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnZoeken.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.btnZoeken.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Zoeken_Wit;
+            this.btnZoeken.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnZoeken.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnZoeken.FlatAppearance.BorderSize = 0;
+            this.btnZoeken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZoeken.Location = new System.Drawing.Point(503, -1);
+            this.btnZoeken.Name = "btnZoeken";
+            this.btnZoeken.Size = new System.Drawing.Size(59, 50);
+            this.btnZoeken.TabIndex = 17;
+            this.btnZoeken.UseVisualStyleBackColor = false;
+            this.btnZoeken.Click += new System.EventHandler(this.btnZoeken_Click);
             // 
             // btnDelete
             // 
@@ -144,68 +208,6 @@
             this.pbHeader.Size = new System.Drawing.Size(896, 50);
             this.pbHeader.TabIndex = 13;
             this.pbHeader.TabStop = false;
-            // 
-            // btnZoeken
-            // 
-            this.btnZoeken.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnZoeken.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.btnZoeken.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Zoeken_Wit;
-            this.btnZoeken.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnZoeken.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnZoeken.FlatAppearance.BorderSize = 0;
-            this.btnZoeken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnZoeken.Location = new System.Drawing.Point(503, -1);
-            this.btnZoeken.Name = "btnZoeken";
-            this.btnZoeken.Size = new System.Drawing.Size(59, 50);
-            this.btnZoeken.TabIndex = 17;
-            this.btnZoeken.UseVisualStyleBackColor = false;
-            this.btnZoeken.Click += new System.EventHandler(this.btnZoeken_Click);
-            // 
-            // lvStage
-            // 
-            this.lvStage.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Hcode,
-            this.Hnaam,
-            this.Homschrijving,
-            this.Hstatus,
-            this.Hbedrijf,
-            this.Hcontact});
-            this.lvStage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvStage.FullRowSelect = true;
-            this.lvStage.Location = new System.Drawing.Point(0, 50);
-            this.lvStage.Margin = new System.Windows.Forms.Padding(2);
-            this.lvStage.Name = "lvStage";
-            this.lvStage.Size = new System.Drawing.Size(896, 459);
-            this.lvStage.TabIndex = 18;
-            this.lvStage.UseCompatibleStateImageBehavior = false;
-            this.lvStage.View = System.Windows.Forms.View.Details;
-            // 
-            // Hcode
-            // 
-            this.Hcode.Text = "Code";
-            this.Hcode.Width = 69;
-            // 
-            // Hnaam
-            // 
-            this.Hnaam.Text = "Naam";
-            this.Hnaam.Width = 216;
-            // 
-            // Homschrijving
-            // 
-            this.Homschrijving.Text = "Omschrijving";
-            this.Homschrijving.Width = 332;
-            // 
-            // Hstatus
-            // 
-            this.Hstatus.Text = "Status";
-            // 
-            // Hbedrijf
-            // 
-            this.Hbedrijf.Text = "Bedrijf";
-            // 
-            // Hcontact
-            // 
-            this.Hcontact.Text = "Contact";
             // 
             // StageopdrachtForm
             // 

@@ -143,6 +143,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Opdrachten\OpdrachtDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Opdrachten\OpdrachtDetails.Designer.cs">
+      <DependentUpon>OpdrachtDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Opdrachten\opdrachtEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +216,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Opdrachten\OpdrachtDetails.resx">
+      <DependentUpon>OpdrachtDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Opdrachten\opdrachtEditForm.resx">
       <DependentUpon>opdrachtEditForm.cs</DependentUpon>

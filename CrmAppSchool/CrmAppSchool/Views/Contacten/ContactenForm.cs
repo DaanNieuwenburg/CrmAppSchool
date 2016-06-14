@@ -393,7 +393,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 lvContacten.Items.Add(c);
             }
         }
-        private void ContactenForm_Load(object sender, EventArgs e)
+        private void ContactenForm_Load(object sender, EventArgs e) //
         {
             vulContacten();
 
