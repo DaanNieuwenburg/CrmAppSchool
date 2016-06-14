@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OpdrachtDetails));
-            this.lblGebruiker = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,24 +38,11 @@
             this.lbOpdrachtBedrijf = new System.Windows.Forms.Label();
             this.lbOpdrachtContact = new System.Windows.Forms.Label();
             this.lbOpdrachtnaam = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbNaam = new System.Windows.Forms.Label();
             this.lbOpdrachtStatus = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblGebruiker
-            // 
-            this.lblGebruiker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblGebruiker.AutoSize = true;
-            this.lblGebruiker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblGebruiker.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGebruiker.ForeColor = System.Drawing.Color.White;
-            this.lblGebruiker.Location = new System.Drawing.Point(237, 19);
-            this.lblGebruiker.Name = "lblGebruiker";
-            this.lblGebruiker.Size = new System.Drawing.Size(123, 16);
-            this.lblGebruiker.TabIndex = 13;
-            this.lblGebruiker.Text = "U bent ingelogd als:";
             // 
             // label1
             // 
@@ -149,15 +135,18 @@
             this.lbOpdrachtnaam.TabIndex = 20;
             this.lbOpdrachtnaam.Text = "x";
             // 
-            // label5
+            // lbNaam
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 10F);
-            this.label5.Location = new System.Drawing.Point(12, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 16);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "Naam:";
+            this.lbNaam.AutoSize = true;
+            this.lbNaam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lbNaam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbNaam.Font = new System.Drawing.Font("Arial", 15F);
+            this.lbNaam.ForeColor = System.Drawing.Color.White;
+            this.lbNaam.Location = new System.Drawing.Point(10, 13);
+            this.lbNaam.Name = "lbNaam";
+            this.lbNaam.Size = new System.Drawing.Size(67, 23);
+            this.lbNaam.TabIndex = 25;
+            this.lbNaam.Text = "Naam:";
             // 
             // lbOpdrachtStatus
             // 
@@ -186,7 +175,7 @@
             this.ClientSize = new System.Drawing.Size(463, 387);
             this.Controls.Add(this.lbOpdrachtStatus);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lbNaam);
             this.Controls.Add(this.lbOpdrachtBedrijf);
             this.Controls.Add(this.lbOpdrachtContact);
             this.Controls.Add(this.lbOpdrachtnaam);
@@ -195,7 +184,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblGebruiker);
             this.Controls.Add(this.pbHeader);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OpdrachtDetails";
@@ -209,8 +197,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblGebruiker;
         private System.Windows.Forms.PictureBox pbHeader;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -220,7 +206,7 @@
         private System.Windows.Forms.Label lbOpdrachtBedrijf;
         private System.Windows.Forms.Label lbOpdrachtContact;
         private System.Windows.Forms.Label lbOpdrachtnaam;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbNaam;
         private System.Windows.Forms.Label lbOpdrachtStatus;
         private System.Windows.Forms.Label label7;
     }

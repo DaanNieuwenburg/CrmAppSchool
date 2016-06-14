@@ -20,11 +20,11 @@ namespace CrmAppSchool.Views.Opdrachten
             lbOpdrachtnaam.Text = opdracht.Naam;
             lbOpdrachtOmschrijving.Text = opdracht.Omschrijving;
             lbOpdrachtStatus.Text = opdracht.Status;
+            lbNaam.Text = opdracht.Naam;
         }
 
         private void OpdrachtDetails_Load(object sender, EventArgs e)
         {
-            
         }
     }
 }

@@ -8,7 +8,7 @@ using CrmAppSchool.Models;
 
 namespace CrmAppSchool.Controllers
 {
-    class AdminController : DatabaseController
+    public class AdminController : DatabaseController
     {
         public void voegGebruikerToe(Gebruiker _gebruiker)
         {

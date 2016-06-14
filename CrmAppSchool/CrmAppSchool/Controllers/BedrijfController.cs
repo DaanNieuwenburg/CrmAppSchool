@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace CrmAppSchool.Controllers
 {
-    class BedrijfController : DatabaseController
+    public class BedrijfController : DatabaseController
     {
         public void voegBedrijfToe(Bedrijfcontact contact)
         {

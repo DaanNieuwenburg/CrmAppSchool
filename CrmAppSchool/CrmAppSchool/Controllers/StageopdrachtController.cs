@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CrmAppSchool.Controllers
 {
-    class StageopdrachtController : DatabaseController
+    public class StageopdrachtController : DatabaseController
     {
         public List<Stageopdracht> getOpdrachten()
         {

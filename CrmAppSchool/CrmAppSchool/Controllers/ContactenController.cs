@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace CrmAppSchool.Controllers
 {
-    class ContactenController : DatabaseController
+    public class ContactenController : DatabaseController
     {
         public ContactenController()
         {
@@ -74,8 +74,8 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Close();
             }
-
         }
+
         public void voegPersoonToe(Gebruiker gebruiker, Persooncontact contact)
         {
 
@@ -261,6 +261,52 @@ namespace CrmAppSchool.Controllers
 
             return contact;
         }
+
+        public bool heeftGebruikerContact(Gebruiker _gebruiker, string contactcode)
+        {
+            MySqlTransaction trans = null;
+            Persooncontact contact = new Persooncontact();
+            bool waardeterug = false;
+            try
+            {
+                conn.Open();
+                trans = conn.BeginTransaction();
+                string query = @"SELECT * FROM gebruikercontactpersoon";
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
+                MySqlParameter gebruikercodeParam = new MySqlParameter("gebruikercode", MySqlDbType.VarChar);
+
+                contactcodeParam.Value = contactcode;
+                gebruikercodeParam.Value = _gebruiker.Gebruikersnaam;
+
+                command.Parameters.Add(contactcodeParam);
+                command.Parameters.Add(gebruikercodeParam);
+
+                command.Prepare();
+                MySqlDataReader datalezer = command.ExecuteReader();
+                while (datalezer.Read())
+                {
+                    waardeterug = true;
+                }
+
+            }
+            catch (MySqlException e)
+            {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
+                Console.WriteLine("Error in contactencontroller - heeftGebruikerContact: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return waardeterug;
+        }
+
         public void voegContactPersoonKoppeltabel(string gebruikersnaam, long contactcode)
         {
             MySqlTransaction trans = null;
