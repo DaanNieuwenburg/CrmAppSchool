@@ -16,11 +16,13 @@ namespace CrmAppSchool.Views.Opdrachten
     {
         public bool ShowMenu { get; set; }                 // Boolean voor het zichtbaar maken van de mainmenu
         public bool ShowZoeken { get; set; }
+        private Gebruiker gebruiker { get; set; }
 
         StageopdrachtController soc = new StageopdrachtController();
-        public StageopdrachtForm(Gebruiker gebruiker)
+        public StageopdrachtForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
+            gebruiker = _gebruiker;
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
             ShowMenu = false;
             ShowZoeken = false;
@@ -166,6 +168,7 @@ namespace CrmAppSchool.Views.Opdrachten
             }
             else
             {
+
                 tbZoek.Visible = false;
                 ShowZoeken = false;
 
@@ -177,9 +180,14 @@ namespace CrmAppSchool.Views.Opdrachten
                 {
                     zoek();
                 }
-                btnDelete.Visible = true;
-                btnVoegtoe.Visible = true;
-                btnWijzig.Visible = true;
+
+                // Laat de buttons niet zien als het een student is
+                if (gebruiker.SoortGebruiker != "Student")
+                {
+                    btnDelete.Visible = true;
+                    btnVoegtoe.Visible = true;
+                    btnWijzig.Visible = true;
+                }
             }
         }
 
