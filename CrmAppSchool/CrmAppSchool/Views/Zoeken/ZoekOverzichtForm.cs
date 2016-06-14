@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrmAppSchool.Models;
+using CrmAppSchool.Controllers;
 using MaterialSkin.Controls;
 
 namespace CrmAppSchool.Views.Zoeken
@@ -65,7 +66,9 @@ namespace CrmAppSchool.Views.Zoeken
             {
                 ListViewItem lvw = new ListViewItem(contact.Voornaam);
                 lvw.SubItems.Add(contact.Achternaam);
+                lvw.SubItems.Add(Convert.ToString(contact.Contactcode));
                 //lvw.SubItems.Add(contact.Bedrijf.Bedrijfnaam);
+                Console.WriteLine("IN LVW cc=" + contact.Contactcode);
                 lvw.SubItems.Add(contact.Functie);
                 lvw.SubItems.Add(contact.Locatie);
                 //lvw.SubItems.Add(contact.Kwaliteit);        
@@ -156,6 +159,16 @@ namespace CrmAppSchool.Views.Zoeken
             ToolTip TPsort = new ToolTip();
             TPsort.ShowAlways = false;
             TPsort.SetToolTip(btnSorteer, "Sorteer de zoekresultaten");
+        }
+
+        private void resultatenLvw_ItemActivate(object sender, EventArgs e)
+        {
+            string contactcode = resultatenLvw.SelectedItems[0].SubItems[2].Text;
+            Console.WriteLine("Contactcode= " + contactcode);
+            ContactenController _controller = new ContactenController();
+            Persooncontact contact = _controller.HaalInfoOp(contactcode);
+            Views.Bedrijven.ContactDetails _details = new Views.Bedrijven.ContactDetails(_gebruiker, contact);
+            _details.ShowDialog();
         }
     }
     class ListViewItemComparer : IComparer

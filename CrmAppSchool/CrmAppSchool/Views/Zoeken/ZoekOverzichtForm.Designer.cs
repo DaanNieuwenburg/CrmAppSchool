@@ -59,12 +59,14 @@
             this.kwaliteitHeader});
             this.resultatenLvw.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resultatenLvw.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultatenLvw.Location = new System.Drawing.Point(0, 50);
+            this.resultatenLvw.Location = new System.Drawing.Point(0, 62);
+            this.resultatenLvw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.resultatenLvw.Name = "resultatenLvw";
-            this.resultatenLvw.Size = new System.Drawing.Size(632, 379);
+            this.resultatenLvw.Size = new System.Drawing.Size(843, 466);
             this.resultatenLvw.TabIndex = 15;
             this.resultatenLvw.UseCompatibleStateImageBehavior = false;
             this.resultatenLvw.View = System.Windows.Forms.View.Tile;
+            this.resultatenLvw.ItemActivate += new System.EventHandler(this.resultatenLvw_ItemActivate);
             // 
             // voornaamHeader
             // 
@@ -93,9 +95,10 @@
             this.lblGebruiker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lblGebruiker.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGebruiker.ForeColor = System.Drawing.Color.White;
-            this.lblGebruiker.Location = new System.Drawing.Point(431, 16);
+            this.lblGebruiker.Location = new System.Drawing.Point(575, 20);
+            this.lblGebruiker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGebruiker.Name = "lblGebruiker";
-            this.lblGebruiker.Size = new System.Drawing.Size(123, 16);
+            this.lblGebruiker.Size = new System.Drawing.Size(152, 19);
             this.lblGebruiker.TabIndex = 19;
             this.lblGebruiker.Text = "U bent ingelogd als:";
             // 
@@ -108,9 +111,10 @@
             this.btnSorteer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSorteer.FlatAppearance.BorderSize = 0;
             this.btnSorteer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSorteer.Location = new System.Drawing.Point(301, -1);
+            this.btnSorteer.Location = new System.Drawing.Point(401, -1);
+            this.btnSorteer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSorteer.Name = "btnSorteer";
-            this.btnSorteer.Size = new System.Drawing.Size(59, 50);
+            this.btnSorteer.Size = new System.Drawing.Size(79, 62);
             this.btnSorteer.TabIndex = 21;
             this.btnSorteer.UseVisualStyleBackColor = false;
             this.btnSorteer.Click += new System.EventHandler(this.btnSorteer_Click);
@@ -121,9 +125,10 @@
             this.pbHome.BackgroundImage = global::CrmAppSchool.Properties.Resources.picture_Home;
             this.pbHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHome.Location = new System.Drawing.Point(2, -1);
+            this.pbHome.Location = new System.Drawing.Point(3, -1);
+            this.pbHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbHome.Name = "pbHome";
-            this.pbHome.Size = new System.Drawing.Size(61, 50);
+            this.pbHome.Size = new System.Drawing.Size(81, 62);
             this.pbHome.TabIndex = 16;
             this.pbHome.TabStop = false;
             this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
@@ -133,8 +138,9 @@
             this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.pbHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbHeader.Location = new System.Drawing.Point(0, 0);
+            this.pbHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(632, 50);
+            this.pbHeader.Size = new System.Drawing.Size(843, 62);
             this.pbHeader.TabIndex = 14;
             this.pbHeader.TabStop = false;
             // 
@@ -152,9 +158,10 @@
             "Functie",
             "Locatie",
             "Kwaliteit"});
-            this.cbSorteerOp.Location = new System.Drawing.Point(89, 12);
+            this.cbSorteerOp.Location = new System.Drawing.Point(119, 15);
+            this.cbSorteerOp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbSorteerOp.Name = "cbSorteerOp";
-            this.cbSorteerOp.Size = new System.Drawing.Size(139, 25);
+            this.cbSorteerOp.Size = new System.Drawing.Size(184, 30);
             this.cbSorteerOp.TabIndex = 22;
             this.cbSorteerOp.Text = "Voornaam";
             this.cbSorteerOp.Visible = false;
@@ -169,9 +176,10 @@
             this.cbSorteerVolgorde.Items.AddRange(new object[] {
             "A→Z",
             "Z→A"});
-            this.cbSorteerVolgorde.Location = new System.Drawing.Point(234, 12);
+            this.cbSorteerVolgorde.Location = new System.Drawing.Point(312, 15);
+            this.cbSorteerVolgorde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbSorteerVolgorde.Name = "cbSorteerVolgorde";
-            this.cbSorteerVolgorde.Size = new System.Drawing.Size(67, 25);
+            this.cbSorteerVolgorde.Size = new System.Drawing.Size(88, 30);
             this.cbSorteerVolgorde.TabIndex = 23;
             this.cbSorteerVolgorde.Text = "A→Z";
             this.cbSorteerVolgorde.Visible = false;
@@ -185,9 +193,10 @@
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(358, -1);
+            this.btnCancel.Location = new System.Drawing.Point(477, -1);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(59, 50);
+            this.btnCancel.Size = new System.Drawing.Size(79, 62);
             this.btnCancel.TabIndex = 24;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Visible = false;
@@ -195,9 +204,9 @@
             // 
             // ZoekOverzichtForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 429);
+            this.ClientSize = new System.Drawing.Size(843, 528);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.cbSorteerVolgorde);
             this.Controls.Add(this.cbSorteerOp);
@@ -207,6 +216,7 @@
             this.Controls.Add(this.resultatenLvw);
             this.Controls.Add(this.pbHeader);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ZoekOverzichtForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gevonde resultaten";

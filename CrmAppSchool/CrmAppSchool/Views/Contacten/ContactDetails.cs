@@ -38,7 +38,7 @@ namespace CrmAppSchool.Views.Bedrijven
             {
                 lblFUvalue.Text = contact.Functie;
             }
-            lblBDvalue.Text = contact.Bedrijf.Bedrijfnaam;
+            //lblBDvalue.Text = contact.Bedrijf.Bedrijfnaam;
         }
 
         private void ContactDetails_Load(object sender, EventArgs e)
