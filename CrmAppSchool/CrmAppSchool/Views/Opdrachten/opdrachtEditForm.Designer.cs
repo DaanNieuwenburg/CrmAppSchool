@@ -51,7 +51,8 @@
             this.tbNaam.BackColor = System.Drawing.Color.White;
             this.tbNaam.Font = new System.Drawing.Font("Arial", 12F);
             this.tbNaam.Location = new System.Drawing.Point(104, 62);
-            this.tbNaam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbNaam.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNaam.MaxLength = 20;
             this.tbNaam.Name = "tbNaam";
             this.tbNaam.Size = new System.Drawing.Size(280, 26);
             this.tbNaam.TabIndex = 0;
@@ -61,7 +62,7 @@
             this.tbOmschrijving.BackColor = System.Drawing.Color.White;
             this.tbOmschrijving.Font = new System.Drawing.Font("Arial", 10F);
             this.tbOmschrijving.Location = new System.Drawing.Point(104, 118);
-            this.tbOmschrijving.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbOmschrijving.Margin = new System.Windows.Forms.Padding(2);
             this.tbOmschrijving.Multiline = true;
             this.tbOmschrijving.Name = "tbOmschrijving";
             this.tbOmschrijving.Size = new System.Drawing.Size(280, 104);
@@ -74,7 +75,7 @@
             this.cbStatus.Font = new System.Drawing.Font("Arial", 11F);
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(104, 254);
-            this.cbStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbStatus.Margin = new System.Windows.Forms.Padding(2);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(142, 25);
             this.cbStatus.TabIndex = 2;
@@ -170,7 +171,7 @@
             // 
             this.bedrijfCbx.FormattingEnabled = true;
             this.bedrijfCbx.Location = new System.Drawing.Point(104, 314);
-            this.bedrijfCbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bedrijfCbx.Margin = new System.Windows.Forms.Padding(2);
             this.bedrijfCbx.Name = "bedrijfCbx";
             this.bedrijfCbx.Size = new System.Drawing.Size(142, 21);
             this.bedrijfCbx.TabIndex = 14;
@@ -225,7 +226,7 @@
             this.Controls.Add(this.tbOmschrijving);
             this.Controls.Add(this.tbNaam);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "opdrachtEditForm";
             this.Text = "Bewerk Opdracht";
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
