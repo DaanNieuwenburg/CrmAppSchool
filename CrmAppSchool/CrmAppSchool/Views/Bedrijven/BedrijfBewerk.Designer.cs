@@ -34,22 +34,22 @@
             this.btnOpslaan = new System.Windows.Forms.Button();
             this.btnAnnuleer = new System.Windows.Forms.Button();
             this.bedrijfPnl = new System.Windows.Forms.Panel();
-            this.tbBedrijfsnaam = new System.Windows.Forms.TextBox();
-            this.bedrijfsnaamLbl = new System.Windows.Forms.Label();
-            this.tbEadres = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbTelefoon = new System.Windows.Forms.TextBox();
-            this.tbHoofdlocatie = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbHoofdlocatie = new System.Windows.Forms.TextBox();
+            this.tbTelefoon = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbEadres = new System.Windows.Forms.TextBox();
+            this.bedrijfsnaamLbl = new System.Windows.Forms.Label();
+            this.tbBedrijfsnaam = new System.Windows.Forms.TextBox();
             this.pnbedrijf2 = new System.Windows.Forms.Panel();
-            this.tbContact = new System.Windows.Forms.TextBox();
-            this.tbKwaliteiten = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tbWebsite = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.tbWebsite = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbKwaliteiten = new System.Windows.Forms.TextBox();
+            this.tbContact = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.bedrijfPnl.SuspendLayout();
             this.pnbedrijf2.SuspendLayout();
@@ -130,67 +130,14 @@
             this.bedrijfPnl.Size = new System.Drawing.Size(325, 188);
             this.bedrijfPnl.TabIndex = 37;
             // 
-            // tbBedrijfsnaam
+            // label1
             // 
-            this.tbBedrijfsnaam.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbBedrijfsnaam.Location = new System.Drawing.Point(128, 24);
-            this.tbBedrijfsnaam.Name = "tbBedrijfsnaam";
-            this.tbBedrijfsnaam.Size = new System.Drawing.Size(149, 23);
-            this.tbBedrijfsnaam.TabIndex = 0;
-            // 
-            // bedrijfsnaamLbl
-            // 
-            this.bedrijfsnaamLbl.AutoSize = true;
-            this.bedrijfsnaamLbl.Font = new System.Drawing.Font("Arial", 10F);
-            this.bedrijfsnaamLbl.Location = new System.Drawing.Point(15, 27);
-            this.bedrijfsnaamLbl.Name = "bedrijfsnaamLbl";
-            this.bedrijfsnaamLbl.Size = new System.Drawing.Size(103, 16);
-            this.bedrijfsnaamLbl.TabIndex = 1;
-            this.bedrijfsnaamLbl.Text = "* Bedrijfsnaam:";
-            // 
-            // tbEadres
-            // 
-            this.tbEadres.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbEadres.Location = new System.Drawing.Point(128, 82);
-            this.tbEadres.Name = "tbEadres";
-            this.tbEadres.Size = new System.Drawing.Size(149, 23);
-            this.tbEadres.TabIndex = 4;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 10F);
-            this.label7.Location = new System.Drawing.Point(15, 85);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(96, 16);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "** Emailadres:";
-            // 
-            // tbTelefoon
-            // 
-            this.tbTelefoon.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbTelefoon.Location = new System.Drawing.Point(128, 111);
-            this.tbTelefoon.Name = "tbTelefoon";
-            this.tbTelefoon.Size = new System.Drawing.Size(149, 23);
-            this.tbTelefoon.TabIndex = 6;
-            // 
-            // tbHoofdlocatie
-            // 
-            this.tbHoofdlocatie.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbHoofdlocatie.Location = new System.Drawing.Point(128, 52);
-            this.tbHoofdlocatie.Name = "tbHoofdlocatie";
-            this.tbHoofdlocatie.Size = new System.Drawing.Size(149, 23);
-            this.tbHoofdlocatie.TabIndex = 4;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 10F);
-            this.label9.Location = new System.Drawing.Point(15, 55);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 16);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "* Hoofdlocatie:";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 151);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(177, 32);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "*  Verplichte velden\r\n** Een van de velden verplicht";
             // 
             // label8
             // 
@@ -202,14 +149,73 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "** Telefoonnr:";
             // 
-            // label1
+            // label9
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 151);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 32);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "*  Verplichte velden\r\n** Een van de velden verplicht";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 10F);
+            this.label9.Location = new System.Drawing.Point(15, 55);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(99, 16);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "* Hoofdlocatie:";
+            // 
+            // tbHoofdlocatie
+            // 
+            this.tbHoofdlocatie.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbHoofdlocatie.Location = new System.Drawing.Point(128, 52);
+            this.tbHoofdlocatie.Name = "tbHoofdlocatie";
+            this.tbHoofdlocatie.Size = new System.Drawing.Size(149, 23);
+            this.tbHoofdlocatie.TabIndex = 4;
+            // 
+            // tbTelefoon
+            // 
+            this.tbTelefoon.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbTelefoon.Location = new System.Drawing.Point(128, 111);
+            this.tbTelefoon.MaxLength = 10;
+            this.tbTelefoon.Name = "tbTelefoon";
+            this.tbTelefoon.Size = new System.Drawing.Size(149, 23);
+            this.tbTelefoon.TabIndex = 6;
+            this.tbTelefoon.Enter += new System.EventHandler(this.tbTelefoon_Enter);
+            this.tbTelefoon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTelefoon_KeyPress);
+            this.tbTelefoon.Leave += new System.EventHandler(this.tbTelefoon_Leave);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 10F);
+            this.label7.Location = new System.Drawing.Point(15, 85);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(96, 16);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "** Emailadres:";
+            // 
+            // tbEadres
+            // 
+            this.tbEadres.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbEadres.Location = new System.Drawing.Point(128, 82);
+            this.tbEadres.Name = "tbEadres";
+            this.tbEadres.Size = new System.Drawing.Size(149, 23);
+            this.tbEadres.TabIndex = 4;
+            this.tbEadres.Enter += new System.EventHandler(this.tbEadres_Enter);
+            this.tbEadres.Leave += new System.EventHandler(this.tbEadres_Leave);
+            // 
+            // bedrijfsnaamLbl
+            // 
+            this.bedrijfsnaamLbl.AutoSize = true;
+            this.bedrijfsnaamLbl.Font = new System.Drawing.Font("Arial", 10F);
+            this.bedrijfsnaamLbl.Location = new System.Drawing.Point(15, 27);
+            this.bedrijfsnaamLbl.Name = "bedrijfsnaamLbl";
+            this.bedrijfsnaamLbl.Size = new System.Drawing.Size(103, 16);
+            this.bedrijfsnaamLbl.TabIndex = 1;
+            this.bedrijfsnaamLbl.Text = "* Bedrijfsnaam:";
+            // 
+            // tbBedrijfsnaam
+            // 
+            this.tbBedrijfsnaam.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbBedrijfsnaam.Location = new System.Drawing.Point(128, 24);
+            this.tbBedrijfsnaam.Name = "tbBedrijfsnaam";
+            this.tbBedrijfsnaam.Size = new System.Drawing.Size(149, 23);
+            this.tbBedrijfsnaam.TabIndex = 0;
             // 
             // pnbedrijf2
             // 
@@ -225,32 +231,23 @@
             this.pnbedrijf2.Size = new System.Drawing.Size(351, 268);
             this.pnbedrijf2.TabIndex = 38;
             // 
-            // tbContact
+            // label10
             // 
-            this.tbContact.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbContact.Location = new System.Drawing.Point(126, 69);
-            this.tbContact.Name = "tbContact";
-            this.tbContact.Size = new System.Drawing.Size(198, 23);
-            this.tbContact.TabIndex = 2;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 10F);
+            this.label10.Location = new System.Drawing.Point(15, 40);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(63, 16);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Website:";
             // 
-            // tbKwaliteiten
+            // tbWebsite
             // 
-            this.tbKwaliteiten.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbKwaliteiten.Location = new System.Drawing.Point(126, 119);
-            this.tbKwaliteiten.Multiline = true;
-            this.tbKwaliteiten.Name = "tbKwaliteiten";
-            this.tbKwaliteiten.Size = new System.Drawing.Size(198, 111);
-            this.tbKwaliteiten.TabIndex = 2;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 10F);
-            this.label6.Location = new System.Drawing.Point(13, 72);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(113, 16);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Contactpersoon:";
+            this.tbWebsite.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbWebsite.Location = new System.Drawing.Point(126, 37);
+            this.tbWebsite.Name = "tbWebsite";
+            this.tbWebsite.Size = new System.Drawing.Size(198, 23);
+            this.tbWebsite.TabIndex = 6;
             // 
             // label11
             // 
@@ -262,23 +259,32 @@
             this.label11.TabIndex = 3;
             this.label11.Text = "Kwaliteiten:";
             // 
-            // tbWebsite
+            // label6
             // 
-            this.tbWebsite.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbWebsite.Location = new System.Drawing.Point(126, 37);
-            this.tbWebsite.Name = "tbWebsite";
-            this.tbWebsite.Size = new System.Drawing.Size(198, 23);
-            this.tbWebsite.TabIndex = 6;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 10F);
+            this.label6.Location = new System.Drawing.Point(13, 72);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(113, 16);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Contactpersoon:";
             // 
-            // label10
+            // tbKwaliteiten
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 10F);
-            this.label10.Location = new System.Drawing.Point(15, 40);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(63, 16);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Website:";
+            this.tbKwaliteiten.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbKwaliteiten.Location = new System.Drawing.Point(126, 119);
+            this.tbKwaliteiten.Multiline = true;
+            this.tbKwaliteiten.Name = "tbKwaliteiten";
+            this.tbKwaliteiten.Size = new System.Drawing.Size(198, 111);
+            this.tbKwaliteiten.TabIndex = 2;
+            // 
+            // tbContact
+            // 
+            this.tbContact.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbContact.Location = new System.Drawing.Point(126, 69);
+            this.tbContact.Name = "tbContact";
+            this.tbContact.Size = new System.Drawing.Size(198, 23);
+            this.tbContact.TabIndex = 2;
             // 
             // BedrijfBewerk
             // 
