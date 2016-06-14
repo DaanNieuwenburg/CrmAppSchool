@@ -36,7 +36,7 @@ namespace CrmAppSchool.Controllers
                     Bedrijfcontact bedrijfcontact = bc.SelecteerBedrijf(bedrijfcode);
                     ContactenController cc = new ContactenController();
                     Persooncontact persooncontact = cc.HaalInfoOp(contactcode.ToString());
-                    Console.WriteLine("de bnaam = " + bedrijfcontact.Bedrijfnaam);
+                        Console.WriteLine("de bnaam = " + bedrijfcontact.Bedrijfnaam);
                     opdracht.Bedrijf = bedrijfcontact;
                     opdracht.Contact = persooncontact;
                     opdrachten.Add(opdracht);
@@ -108,7 +108,7 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
 
-                string selectQuery = @"SELECT * FROM stageopdracht where naam like @naam";
+                string selectQuery = @"SELECT * FROM stageopdracht where naam like @naam or omschrijving like @naam";
                 MySqlCommand cmd = new MySqlCommand(selectQuery, conn);
                 MySqlParameter naamParam = new MySqlParameter("@naam", MySqlDbType.String);
                 naamParam.Value = tekst;
@@ -117,6 +117,7 @@ namespace CrmAppSchool.Controllers
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
                 int bedrijfcode = 0;
+                int contactcode = 0;
                 while (dataReader.Read())
                 {
                     int code = dataReader.GetInt32("opdrachtcode");
@@ -124,11 +125,16 @@ namespace CrmAppSchool.Controllers
                     string naam = dataReader.GetString("naam");
                     string omschrijving = dataReader.GetString("omschrijving");
                     bedrijfcode = dataReader.GetInt32("bedrijfcode");
+                    contactcode = dataReader.GetInt32("contactcode");
                     Stageopdracht opdracht = new Stageopdracht { Code = code, Status = status, Naam = naam, Omschrijving = omschrijving };
                     BedrijfController bc = new BedrijfController();
                     Bedrijfcontact bedrijfcontact = bc.SelecteerBedrijf(bedrijfcode);
                     Console.WriteLine("de bnaam = " + bedrijfcontact.Bedrijfnaam);
                     opdracht.Bedrijf = bedrijfcontact;
+                    ContactenController cc = new ContactenController();
+                    Persooncontact persooncontact = cc.HaalInfoOp(contactcode.ToString());
+
+                    opdracht.Contact = persooncontact;
                     opdrachten.Add(opdracht);
                 }
                 return opdrachten;

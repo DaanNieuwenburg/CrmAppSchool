@@ -87,7 +87,7 @@ namespace CrmAppSchool.Views.Opdrachten
                 lvi.SubItems.Add(opdracht.Omschrijving);
                 lvi.SubItems.Add(opdracht.Status);
                 lvi.SubItems.Add(opdracht.Bedrijf.Bedrijfnaam);
-                lvi.SubItems.Add(Convert.ToString(opdracht.Bedrijf.Bedrijfscode));
+                lvi.SubItems.Add(opdracht.Bedrijf.Contactpersoon);
                 lvStage.Items.Add(lvi);
             }
         }
