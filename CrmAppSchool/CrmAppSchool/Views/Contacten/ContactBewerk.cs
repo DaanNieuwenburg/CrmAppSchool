@@ -38,6 +38,7 @@ namespace CrmAppSchool.Views.Bedrijven
             contact = ce.HaalInfoOp(gebruiker, contact);
             tbOmschrijving.Text = contact.Evaluatie;
             beoordeling = contact.Beoordeling;
+            mobielTb.Text = contact.Mobielnr;
 
             // Kijkt of de omschrijving textbox leeg is, zoja dan is er sprake van een insert, anders update
             isinsert = false;
