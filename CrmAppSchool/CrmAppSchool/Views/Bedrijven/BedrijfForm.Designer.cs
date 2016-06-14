@@ -96,6 +96,7 @@
             // lvBedrijven
             // 
             this.lvBedrijven.Activation = System.Windows.Forms.ItemActivation.TwoClick;
+            this.lvBedrijven.BackColor = System.Drawing.Color.White;
             this.lvBedrijven.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Contact});
             this.lvBedrijven.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -374,7 +375,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 10F);
-            this.label10.Location = new System.Drawing.Point(15, 40);
+            this.label10.Location = new System.Drawing.Point(15, 27);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(63, 16);
             this.label10.TabIndex = 7;
@@ -383,7 +384,7 @@
             // tbWebsite
             // 
             this.tbWebsite.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbWebsite.Location = new System.Drawing.Point(126, 37);
+            this.tbWebsite.Location = new System.Drawing.Point(126, 24);
             this.tbWebsite.Name = "tbWebsite";
             this.tbWebsite.Size = new System.Drawing.Size(198, 23);
             this.tbWebsite.TabIndex = 6;
@@ -392,7 +393,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 10F);
-            this.label11.Location = new System.Drawing.Point(15, 119);
+            this.label11.Location = new System.Drawing.Point(15, 85);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(79, 16);
             this.label11.TabIndex = 3;
@@ -402,7 +403,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 10F);
-            this.label6.Location = new System.Drawing.Point(13, 72);
+            this.label6.Location = new System.Drawing.Point(13, 55);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 16);
             this.label6.TabIndex = 3;
@@ -411,7 +412,7 @@
             // tbKwaliteiten
             // 
             this.tbKwaliteiten.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbKwaliteiten.Location = new System.Drawing.Point(126, 119);
+            this.tbKwaliteiten.Location = new System.Drawing.Point(126, 85);
             this.tbKwaliteiten.Multiline = true;
             this.tbKwaliteiten.Name = "tbKwaliteiten";
             this.tbKwaliteiten.Size = new System.Drawing.Size(198, 111);
@@ -420,7 +421,7 @@
             // tbContact
             // 
             this.tbContact.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbContact.Location = new System.Drawing.Point(126, 69);
+            this.tbContact.Location = new System.Drawing.Point(126, 52);
             this.tbContact.Name = "tbContact";
             this.tbContact.Size = new System.Drawing.Size(198, 23);
             this.tbContact.TabIndex = 2;

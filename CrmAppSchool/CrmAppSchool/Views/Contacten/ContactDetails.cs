@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using CrmAppSchool.Models;
 using CrmAppSchool.Controllers;
 
-namespace CrmAppSchool.Views.Bedrijven
+namespace CrmAppSchool.Views.Contacten
 {
     public partial class ContactDetails : Form
     {
@@ -38,7 +38,7 @@ namespace CrmAppSchool.Views.Bedrijven
             {
                 lblFUvalue.Text = contact.Functie;
             }
-            lblBDvalue.Text = contact.Bedrijf.Bedrijfnaam;
+            //lblBDvalue.Text = contact.Bedrijf.Bedrijfnaam;
         }
 
         private void ContactDetails_Load(object sender, EventArgs e)

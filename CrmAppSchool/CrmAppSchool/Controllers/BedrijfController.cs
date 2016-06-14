@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using CrmAppSchool.Models;
+using System.Windows.Forms;
 
 namespace CrmAppSchool.Controllers
 {
@@ -95,6 +96,11 @@ namespace CrmAppSchool.Controllers
                     trans.Rollback();
                 }
                 Console.WriteLine("Error in bedrijfcontroller - verwijderbedrijf: " + e);
+                if((uint)e.ErrorCode == 0x80004005)
+                {
+                    MessageBox.Show("Dit bedrijf kan niet verwijderd worden: er zijn nog contacten voor dit bedrijf");
+                }
+                
             }
             finally
             {
@@ -137,7 +143,49 @@ namespace CrmAppSchool.Controllers
                 conn.Close();
             }
         }
+        public List<Bedrijfcontact> ZoekBedrijven(string tekst, Gebruiker gebruiker)
+        {
+            List<Bedrijfcontact> resultaten = new List<Bedrijfcontact>();
 
+            try
+            {
+                conn.Open();
+
+                string selectQuery = @"SELECT * FROM bedrijf where bedrijfnaam LIKE @bedrijfnaam";
+
+                MySqlCommand cmd = new MySqlCommand(selectQuery, conn);
+                MySqlParameter bedrijfParam = new MySqlParameter("@bedrijfnaam", MySqlDbType.VarChar);
+                bedrijfParam.Value = tekst;
+                cmd.Parameters.Add(bedrijfParam);
+                
+                cmd.Prepare();
+                MySqlDataReader datalezer = cmd.ExecuteReader();
+                while (datalezer.Read())
+                {
+                    Bedrijfcontact contact = new Bedrijfcontact();
+                    contact.Bedrijfscode = datalezer.GetInt32("bedrijfcode");
+                    contact.Bedrijfnaam = datalezer.GetString("bedrijfnaam");
+                    contact.Hoofdlocatie = datalezer.GetString("hoofdlocatie");
+                    contact.Telefoonnr = datalezer["telefoonnr"] as string;
+                    contact.Email = datalezer.GetString("email");
+                    contact.Website = datalezer.GetString("website");
+                    contact.Omschrijving = datalezer["omschrijving"] as string;
+                    resultaten.Add(contact);
+                }
+                
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error in Bedrijfcontroller - Zoekbedrijf: " + e);
+            }
+            finally
+            {
+
+                conn.Close();
+
+            }
+            return resultaten;
+        }
         public List<Bedrijfcontact> haalBedrijfLijstOp()
         {
             List<Bedrijfcontact> contactenlijst = new List<Bedrijfcontact>();
