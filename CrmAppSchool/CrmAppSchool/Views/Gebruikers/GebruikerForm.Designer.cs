@@ -42,39 +42,38 @@
             this.voegToeBtn = new System.Windows.Forms.Button();
             this.pbHome = new System.Windows.Forms.PictureBox();
             this.pbHeader = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gebruikersnaamTxb
             // 
             this.gebruikersnaamTxb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gebruikersnaamTxb.Font = new System.Drawing.Font("Arial", 10F);
-            this.gebruikersnaamTxb.Location = new System.Drawing.Point(16, 106);
-            this.gebruikersnaamTxb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gebruikersnaamTxb.Location = new System.Drawing.Point(12, 38);
             this.gebruikersnaamTxb.MaxLength = 25;
             this.gebruikersnaamTxb.Name = "gebruikersnaamTxb";
-            this.gebruikersnaamTxb.Size = new System.Drawing.Size(197, 27);
+            this.gebruikersnaamTxb.Size = new System.Drawing.Size(148, 23);
             this.gebruikersnaamTxb.TabIndex = 1;
             // 
             // wachtwoordTxb
             // 
             this.wachtwoordTxb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.wachtwoordTxb.Font = new System.Drawing.Font("Arial", 10F);
-            this.wachtwoordTxb.Location = new System.Drawing.Point(16, 174);
-            this.wachtwoordTxb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.wachtwoordTxb.Location = new System.Drawing.Point(12, 93);
             this.wachtwoordTxb.Name = "wachtwoordTxb";
-            this.wachtwoordTxb.Size = new System.Drawing.Size(197, 27);
+            this.wachtwoordTxb.Size = new System.Drawing.Size(148, 23);
             this.wachtwoordTxb.TabIndex = 2;
             // 
             // gebruikersnaamLbl
             // 
             this.gebruikersnaamLbl.AutoSize = true;
             this.gebruikersnaamLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gebruikersnaamLbl.Location = new System.Drawing.Point(16, 74);
-            this.gebruikersnaamLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gebruikersnaamLbl.Location = new System.Drawing.Point(12, 12);
             this.gebruikersnaamLbl.Name = "gebruikersnaamLbl";
-            this.gebruikersnaamLbl.Size = new System.Drawing.Size(134, 19);
+            this.gebruikersnaamLbl.Size = new System.Drawing.Size(107, 16);
             this.gebruikersnaamLbl.TabIndex = 3;
             this.gebruikersnaamLbl.Text = "Gebruikersnaam:";
             // 
@@ -82,10 +81,9 @@
             // 
             this.wachtwoordLbl.AutoSize = true;
             this.wachtwoordLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wachtwoordLbl.Location = new System.Drawing.Point(16, 145);
-            this.wachtwoordLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.wachtwoordLbl.Location = new System.Drawing.Point(12, 70);
             this.wachtwoordLbl.Name = "wachtwoordLbl";
-            this.wachtwoordLbl.Size = new System.Drawing.Size(105, 19);
+            this.wachtwoordLbl.Size = new System.Drawing.Size(84, 16);
             this.wachtwoordLbl.TabIndex = 4;
             this.wachtwoordLbl.Text = "Wachtwoord:";
             // 
@@ -98,20 +96,18 @@
             this.soortGebruikerCbx.Items.AddRange(new object[] {
             "Docent",
             "Student"});
-            this.soortGebruikerCbx.Location = new System.Drawing.Point(245, 106);
-            this.soortGebruikerCbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.soortGebruikerCbx.Location = new System.Drawing.Point(184, 38);
             this.soortGebruikerCbx.Name = "soortGebruikerCbx";
-            this.soortGebruikerCbx.Size = new System.Drawing.Size(175, 27);
+            this.soortGebruikerCbx.Size = new System.Drawing.Size(132, 24);
             this.soortGebruikerCbx.TabIndex = 3;
             // 
             // gebruikerLbl
             // 
             this.gebruikerLbl.AutoSize = true;
             this.gebruikerLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gebruikerLbl.Location = new System.Drawing.Point(241, 73);
-            this.gebruikerLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gebruikerLbl.Location = new System.Drawing.Point(181, 11);
             this.gebruikerLbl.Name = "gebruikerLbl";
-            this.gebruikerLbl.Size = new System.Drawing.Size(127, 19);
+            this.gebruikerLbl.Size = new System.Drawing.Size(100, 16);
             this.gebruikerLbl.TabIndex = 7;
             this.gebruikerLbl.Text = "Soort gebruiker:";
             // 
@@ -122,10 +118,9 @@
             this.lblGebruiker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lblGebruiker.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGebruiker.ForeColor = System.Drawing.Color.White;
-            this.lblGebruiker.Location = new System.Drawing.Point(391, 25);
-            this.lblGebruiker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblGebruiker.Location = new System.Drawing.Point(293, 20);
             this.lblGebruiker.Name = "lblGebruiker";
-            this.lblGebruiker.Size = new System.Drawing.Size(152, 19);
+            this.lblGebruiker.Size = new System.Drawing.Size(123, 16);
             this.lblGebruiker.TabIndex = 8;
             this.lblGebruiker.Text = "U bent ingelogd als:";
             // 
@@ -136,12 +131,13 @@
             this.gebruikerLvw.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.gebruikersnaamHeader,
             this.soortGebruikerHeader});
+            this.gebruikerLvw.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gebruikerLvw.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gebruikerLvw.Location = new System.Drawing.Point(16, 246);
-            this.gebruikerLvw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gebruikerLvw.FullRowSelect = true;
+            this.gebruikerLvw.Location = new System.Drawing.Point(0, 187);
             this.gebruikerLvw.MultiSelect = false;
             this.gebruikerLvw.Name = "gebruikerLvw";
-            this.gebruikerLvw.Size = new System.Drawing.Size(671, 340);
+            this.gebruikerLvw.Size = new System.Drawing.Size(515, 289);
             this.gebruikerLvw.TabIndex = 12;
             this.gebruikerLvw.UseCompatibleStateImageBehavior = false;
             this.gebruikerLvw.View = System.Windows.Forms.View.Details;
@@ -166,10 +162,9 @@
             this.voegToeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.voegToeBtn.FlatAppearance.BorderSize = 0;
             this.voegToeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.voegToeBtn.Location = new System.Drawing.Point(265, 0);
-            this.voegToeBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.voegToeBtn.Location = new System.Drawing.Point(199, 0);
             this.voegToeBtn.Name = "voegToeBtn";
-            this.voegToeBtn.Size = new System.Drawing.Size(79, 62);
+            this.voegToeBtn.Size = new System.Drawing.Size(59, 50);
             this.voegToeBtn.TabIndex = 0;
             this.voegToeBtn.UseVisualStyleBackColor = false;
             this.voegToeBtn.Click += new System.EventHandler(this.voegToeBtn_Click);
@@ -180,10 +175,9 @@
             this.pbHome.BackgroundImage = global::CrmAppSchool.Properties.Resources.picture_Home;
             this.pbHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHome.Location = new System.Drawing.Point(-3, -1);
-            this.pbHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbHome.Location = new System.Drawing.Point(-2, -1);
             this.pbHome.Name = "pbHome";
-            this.pbHome.Size = new System.Drawing.Size(81, 62);
+            this.pbHome.Size = new System.Drawing.Size(61, 50);
             this.pbHome.TabIndex = 10;
             this.pbHome.TabStop = false;
             this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
@@ -193,36 +187,45 @@
             this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.pbHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbHeader.Location = new System.Drawing.Point(0, 0);
-            this.pbHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(687, 62);
+            this.pbHeader.Size = new System.Drawing.Size(515, 50);
             this.pbHeader.TabIndex = 9;
             this.pbHeader.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.gebruikersnaamLbl);
+            this.panel1.Controls.Add(this.gebruikersnaamTxb);
+            this.panel1.Controls.Add(this.wachtwoordTxb);
+            this.panel1.Controls.Add(this.wachtwoordLbl);
+            this.panel1.Controls.Add(this.soortGebruikerCbx);
+            this.panel1.Controls.Add(this.gebruikerLbl);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 50);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(515, 139);
+            this.panel1.TabIndex = 13;
+            // 
             // voegGebruikerToeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 586);
+            this.ClientSize = new System.Drawing.Size(515, 476);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.gebruikerLvw);
             this.Controls.Add(this.voegToeBtn);
             this.Controls.Add(this.pbHome);
             this.Controls.Add(this.lblGebruiker);
             this.Controls.Add(this.pbHeader);
-            this.Controls.Add(this.gebruikerLbl);
-            this.Controls.Add(this.soortGebruikerCbx);
-            this.Controls.Add(this.wachtwoordLbl);
-            this.Controls.Add(this.gebruikersnaamLbl);
-            this.Controls.Add(this.wachtwoordTxb);
-            this.Controls.Add(this.gebruikersnaamTxb);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "voegGebruikerToeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gebruikersbeheer";
             this.Load += new System.EventHandler(this.voegGebruikerToeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,5 +246,6 @@
         private System.Windows.Forms.ListView gebruikerLvw;
         private System.Windows.Forms.ColumnHeader gebruikersnaamHeader;
         private System.Windows.Forms.ColumnHeader soortGebruikerHeader;
+        private System.Windows.Forms.Panel panel1;
     }
 }
