@@ -166,6 +166,7 @@ namespace CrmAppSchool.Views.Contacten
         {
             ContactenController cc = new ContactenController();
             cc.voegContactPersoonKoppeltabel(gebruiker.Gebruikersnaam, contact.Contactcode);
+            MessageBox.Show("Contact " + contact.Voornaam + " " + contact.Achternaam + " is toegevoegd");
         }
     }
 }
