@@ -61,7 +61,17 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void llbWSvalue_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(llbWSvalue.Text);
+            try
+            {
+                System.Diagnostics.Process.Start(llbWSvalue.Text);
+            }
+            catch(Win32Exception ex)
+            {
+                if ((uint)ex.ErrorCode == 0x80004005)
+                {
+                    MessageBox.Show("Deze website kan helaas niet geopend worden");
+                }
+            }
         }
     }
 }
