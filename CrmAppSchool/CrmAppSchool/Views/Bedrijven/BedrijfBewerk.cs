@@ -16,6 +16,7 @@ namespace CrmAppSchool.Views.Bedrijven
     public partial class BedrijfBewerk : Form
     {
         //
+        //
         private int contactcode { get; set; }
         private int bedrijfcode { get; set; }
         private int beoordeling { get; set; }
