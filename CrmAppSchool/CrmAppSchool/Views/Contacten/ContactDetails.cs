@@ -34,13 +34,15 @@ namespace CrmAppSchool.Views.Contacten
             // Is de contact een eigen contact, laat dan niet de button zien
             ContactenController cc = new ContactenController();
             bool bestaat = cc.heeftGebruikerContact(gebruiker, Convert.ToString(contact.Contactcode));
-            if(bestaat == true)
+            if(bestaat == false)
             {
-                btnVoegtoe.Visible = false;
+                Console.WriteLine("Bestaat = false");
+                btnVoegtoe.Visible = true;
             }
             else
             {
-                btnVoegtoe.Visible = true;
+                Console.WriteLine("Bestaat = true");
+                btnVoegtoe.Visible = false;
             }
 
             lblVNvalue.Text = contact.Voornaam;
