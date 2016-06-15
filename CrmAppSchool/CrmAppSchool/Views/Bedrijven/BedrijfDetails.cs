@@ -28,7 +28,7 @@ namespace CrmAppSchool.Views.Bedrijven
             llbEValue.Text = contact.Email;
             lblTvalue.Text = contact.Telefoonnr;
             lblCPvalue.Text = contact.Contactpersoon;
-            lblWSvalue.Text = contact.Website;
+            llbWSvalue.Text = contact.Website;
             BedrijfController cc = new BedrijfController();
             List<string> kwalteitenlijst = cc.Get_Kwaliteiten(_gebruiker, contact);
             if (kwalteitenlijst != null)
@@ -57,6 +57,11 @@ namespace CrmAppSchool.Views.Bedrijven
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("mailto:" + llbEValue.Text);
-        }      
+        }
+
+        private void llbWSvalue_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(llbWSvalue.Text);
+        }
     }
 }
