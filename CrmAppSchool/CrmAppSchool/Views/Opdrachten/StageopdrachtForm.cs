@@ -225,5 +225,43 @@ namespace CrmAppSchool.Views.Opdrachten
             OpdrachtDetails details = new OpdrachtDetails(opdracht);
             details.ShowDialog();
         }
+
+        private void tbZoek_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (ShowZoeken == false)
+                {
+                    tbZoek.Visible = true;
+                    ShowZoeken = true;
+                    btnDelete.Visible = false;
+                    btnVoegtoe.Visible = false;
+                    btnWijzig.Visible = false;
+                }
+                else
+                {
+
+                    tbZoek.Visible = false;
+                    ShowZoeken = false;
+
+                    if (tbZoek.Text.Equals(""))
+                    {
+                        setListBox();
+                    }
+                    else
+                    {
+                        zoek();
+                    }
+
+                    // Laat de buttons niet zien als het een student is
+                    if (gebruiker.SoortGebruiker != "Student")
+                    {
+                        btnDelete.Visible = true;
+                        btnVoegtoe.Visible = true;
+                        btnWijzig.Visible = true;
+                    }
+                }
+            }
+        }
     }
 }

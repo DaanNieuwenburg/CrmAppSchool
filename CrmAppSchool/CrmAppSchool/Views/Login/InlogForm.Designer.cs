@@ -60,6 +60,7 @@
             this.wachtwoordTxb.Size = new System.Drawing.Size(184, 29);
             this.wachtwoordTxb.TabIndex = 2;
             this.wachtwoordTxb.UseSystemPasswordChar = true;
+            this.wachtwoordTxb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.wachtwoordTxb_KeyDown);
             // 
             // label1
             // 
