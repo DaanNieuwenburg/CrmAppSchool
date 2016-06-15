@@ -136,10 +136,11 @@
             this.soortGebruikerHeader});
             this.gebruikerLvw.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gebruikerLvw.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gebruikerLvw.Location = new System.Drawing.Point(12, 200);
+            this.gebruikerLvw.FullRowSelect = true;
+            this.gebruikerLvw.Location = new System.Drawing.Point(0, 200);
             this.gebruikerLvw.MultiSelect = false;
             this.gebruikerLvw.Name = "gebruikerLvw";
-            this.gebruikerLvw.Size = new System.Drawing.Size(503, 276);
+            this.gebruikerLvw.Size = new System.Drawing.Size(515, 276);
             this.gebruikerLvw.TabIndex = 12;
             this.gebruikerLvw.UseCompatibleStateImageBehavior = false;
             this.gebruikerLvw.View = System.Windows.Forms.View.Details;

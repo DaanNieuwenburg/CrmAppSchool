@@ -58,6 +58,8 @@
             this.lbKWvalue = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lbl_soort = new System.Windows.Forms.Label();
+            this.lbl_oorsprong = new System.Windows.Forms.Label();
+            this.lbl_ingevoerd = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate3)).BeginInit();
@@ -69,14 +71,16 @@
             // lblBDvalue
             // 
             this.lblBDvalue.AutoSize = true;
+            this.lblBDvalue.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblBDvalue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblBDvalue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBDvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lblBDvalue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBDvalue.ForeColor = System.Drawing.Color.Blue;
             this.lblBDvalue.Location = new System.Drawing.Point(153, 220);
             this.lblBDvalue.Name = "lblBDvalue";
             this.lblBDvalue.Size = new System.Drawing.Size(15, 18);
             this.lblBDvalue.TabIndex = 25;
             this.lblBDvalue.Text = "x";
+            this.lblBDvalue.Click += new System.EventHandler(this.lblBDvalue_Click);
             // 
             // lblANvalue
             // 
@@ -108,7 +112,7 @@
             this.emailLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.emailLbl.Font = new System.Drawing.Font("Arial", 10F);
             this.emailLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.emailLbl.Location = new System.Drawing.Point(303, 167);
+            this.emailLbl.Location = new System.Drawing.Point(303, 194);
             this.emailLbl.Name = "emailLbl";
             this.emailLbl.Size = new System.Drawing.Size(46, 16);
             this.emailLbl.TabIndex = 22;
@@ -192,7 +196,7 @@
             this.lblMOvalue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblMOvalue.Font = new System.Drawing.Font("Arial", 12F);
             this.lblMOvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblMOvalue.Location = new System.Drawing.Point(386, 135);
+            this.lblMOvalue.Location = new System.Drawing.Point(438, 165);
             this.lblMOvalue.Name = "lblMOvalue";
             this.lblMOvalue.Size = new System.Drawing.Size(15, 18);
             this.lblMOvalue.TabIndex = 28;
@@ -216,7 +220,7 @@
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label4.Font = new System.Drawing.Font("Arial", 10F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.label4.Location = new System.Drawing.Point(303, 135);
+            this.label4.Location = new System.Drawing.Point(303, 167);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 16);
             this.label4.TabIndex = 17;
@@ -238,7 +242,7 @@
             // 
             this.llbMValue.AutoSize = true;
             this.llbMValue.Font = new System.Drawing.Font("Arial", 10F);
-            this.llbMValue.Location = new System.Drawing.Point(386, 165);
+            this.llbMValue.Location = new System.Drawing.Point(438, 194);
             this.llbMValue.Name = "llbMValue";
             this.llbMValue.Size = new System.Drawing.Size(17, 16);
             this.llbMValue.TabIndex = 33;
@@ -378,7 +382,7 @@
             this.lbKWvalue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbKWvalue.Font = new System.Drawing.Font("Arial", 12F);
             this.lbKWvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lbKWvalue.Location = new System.Drawing.Point(388, 194);
+            this.lbKWvalue.Location = new System.Drawing.Point(438, 222);
             this.lbKWvalue.Name = "lbKWvalue";
             this.lbKWvalue.Size = new System.Drawing.Size(15, 18);
             this.lbKWvalue.TabIndex = 46;
@@ -390,7 +394,7 @@
             this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label8.Font = new System.Drawing.Font("Arial", 10F);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.label8.Location = new System.Drawing.Point(303, 195);
+            this.label8.Location = new System.Drawing.Point(303, 222);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 16);
             this.label8.TabIndex = 45;
@@ -408,12 +412,40 @@
             this.lbl_soort.TabIndex = 47;
             this.lbl_soort.Text = "Soort_contact";
             // 
+            // lbl_oorsprong
+            // 
+            this.lbl_oorsprong.AutoSize = true;
+            this.lbl_oorsprong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_oorsprong.Font = new System.Drawing.Font("Arial", 10F);
+            this.lbl_oorsprong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lbl_oorsprong.Location = new System.Drawing.Point(303, 137);
+            this.lbl_oorsprong.Name = "lbl_oorsprong";
+            this.lbl_oorsprong.Size = new System.Drawing.Size(108, 16);
+            this.lbl_oorsprong.TabIndex = 48;
+            this.lbl_oorsprong.Text = "Ingevoerd door:";
+            // 
+            // lbl_ingevoerd
+            // 
+            this.lbl_ingevoerd.AutoSize = true;
+            this.lbl_ingevoerd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_ingevoerd.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ingevoerd.ForeColor = System.Drawing.Color.Blue;
+            this.lbl_ingevoerd.Location = new System.Drawing.Point(438, 137);
+            this.lbl_ingevoerd.Name = "lbl_ingevoerd";
+            this.lbl_ingevoerd.Size = new System.Drawing.Size(15, 18);
+            this.lbl_ingevoerd.TabIndex = 49;
+            this.lbl_ingevoerd.Text = "x";
+            this.lbl_ingevoerd.Click += new System.EventHandler(this.lbl_ingevoerd_Click);
+            
+            // 
             // ContactDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(624, 550);
+            this.Controls.Add(this.lbl_ingevoerd);
+            this.Controls.Add(this.lbl_oorsprong);
             this.Controls.Add(this.lbl_soort);
             this.Controls.Add(this.lbKWvalue);
             this.Controls.Add(this.label8);
@@ -492,5 +524,7 @@
         private System.Windows.Forms.Label lbl_soort;
         private System.Windows.Forms.Label lbKWvalue;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbl_oorsprong;
+        private System.Windows.Forms.Label lbl_ingevoerd;
     }
 }

@@ -22,6 +22,7 @@ namespace CrmAppSchool.Views.Contacten
         public ContactDetails(Gebruiker _gebruiker, Persooncontact _contact)
         {
             InitializeComponent();
+            
             contact = _contact;
             gebruiker = _gebruiker;
 
@@ -76,6 +77,21 @@ namespace CrmAppSchool.Views.Contacten
             llbMValue.Text = contact.Email;
             lblMOvalue.Text = contact.Mobielnr;
             lblBDvalue.Text = contact.Bedrijf.Bedrijfnaam;
+            ProfielController pc = new ProfielController();
+            contact.Gebruiker = new Gebruiker();
+            contact.Gebruiker.Gebruikersnaam = contact.ingevoerddoor;
+            Models.Profiel profiel = pc.Get_Pofiel(contact.Gebruiker);
+
+            if (contact.ingevoerddoor != "admin")
+            {
+                string volnaam = profiel.Voornaam + " " + profiel.Achternaam;
+                lbl_ingevoerd.Text = volnaam;
+            }
+            else
+            {
+                lbl_ingevoerd.Text = "admin";
+            }
+
             if (contact.Isgastdocent == false && contact.Isstagebegeleider == false)
             {
                 lbl_soort.Text = "Gastspreker";
@@ -102,7 +118,17 @@ namespace CrmAppSchool.Views.Contacten
             {
                 lblFUvalue.Text = contact.Functie;
             }
-            
+
+            if (lbl_ingevoerd.Text == "admin")
+            {
+                this.lbl_ingevoerd.Font = new System.Drawing.Font("Arial", 10F);
+                this.lbl_ingevoerd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            }
+            else
+            {
+                this.lbl_ingevoerd.Cursor = System.Windows.Forms.Cursors.Hand;
+            }
+
 
         }
 
@@ -174,6 +200,23 @@ namespace CrmAppSchool.Views.Contacten
             ContactenController cc = new ContactenController();
             cc.voegContactPersoonKoppeltabel(gebruiker.Gebruikersnaam, contact.Contactcode);
             MessageBox.Show("Contact " + contact.Voornaam + " " + contact.Achternaam + " is toegevoegd");
+        }
+
+        private void lbl_ingevoerd_Click(object sender, EventArgs e)
+        {
+            if (lbl_ingevoerd.Text != "admin")
+            {
+                //open de form met gebruikersprofiel informatie
+            }
+        }
+
+        private void lblBDvalue_Click(object sender, EventArgs e)
+        {
+            Controllers.BedrijfController bc = new Controllers.BedrijfController();
+            Models.Bedrijfcontact contact = bc.SelecteerBedrijf(Convert.ToInt32(this.contact.Bedrijf.Bedrijfscode));
+            contact.Kwaliteiten = bc.Get_Kwaliteiten(gebruiker, contact);
+            Views.Bedrijven.BedrijfDetails details = new Views.Bedrijven.BedrijfDetails(gebruiker, contact);
+            details.ShowDialog();
         }
     }
 }
