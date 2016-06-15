@@ -95,7 +95,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 {
                     foreach(string line in tbOmschrijving.Lines)
                     {
-                        omschr = omschr + "\n" + line;
+                        omschr = omschr + "\n\r" + line;
                     }
                 }
                 bewerktContact.Evaluatie = omschr;
