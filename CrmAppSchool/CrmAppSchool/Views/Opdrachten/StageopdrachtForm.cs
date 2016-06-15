@@ -33,7 +33,7 @@ namespace CrmAppSchool.Views.Opdrachten
                 btnVoegtoe.Visible = false;
                 btnWijzig.Visible = false;
             }
-            Cursor = Cursors.Default;
+            
         }
 
 
