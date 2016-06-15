@@ -185,6 +185,10 @@ namespace CrmAppSchool.Views.Zoeken
                 Bedrijven.BedrijfDetails details = new Bedrijven.BedrijfDetails(_gebruiker, contact);
                 details.ShowDialog();
             }
+            else
+            {
+                //Hier komt de code voor het openen van een nieuwe form voor het laten zien van de gebruikersdetails
+            }
 
         }
     }
