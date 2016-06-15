@@ -55,7 +55,7 @@
             this.lblWSvalue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblWSvalue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWSvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblWSvalue.Location = new System.Drawing.Point(153, 187);
+            this.lblWSvalue.Location = new System.Drawing.Point(388, 161);
             this.lblWSvalue.Name = "lblWSvalue";
             this.lblWSvalue.Size = new System.Drawing.Size(15, 18);
             this.lblWSvalue.TabIndex = 25;
@@ -91,7 +91,7 @@
             this.emailLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.emailLbl.Font = new System.Drawing.Font("Arial", 10F);
             this.emailLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.emailLbl.Location = new System.Drawing.Point(303, 134);
+            this.emailLbl.Location = new System.Drawing.Point(304, 132);
             this.emailLbl.Name = "emailLbl";
             this.emailLbl.Size = new System.Drawing.Size(46, 16);
             this.emailLbl.TabIndex = 22;
@@ -103,7 +103,7 @@
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Arial", 10F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.label3.Location = new System.Drawing.Point(32, 187);
+            this.label3.Location = new System.Drawing.Point(304, 163);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 16);
             this.label3.TabIndex = 18;
@@ -139,7 +139,7 @@
             this.lblCPvalue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblCPvalue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCPvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblCPvalue.Location = new System.Drawing.Point(153, 218);
+            this.lblCPvalue.Location = new System.Drawing.Point(153, 164);
             this.lblCPvalue.Name = "lblCPvalue";
             this.lblCPvalue.Size = new System.Drawing.Size(15, 18);
             this.lblCPvalue.TabIndex = 29;
@@ -151,7 +151,7 @@
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Arial", 10F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.label2.Location = new System.Drawing.Point(31, 218);
+            this.label2.Location = new System.Drawing.Point(32, 164);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(113, 16);
             this.label2.TabIndex = 20;
@@ -163,7 +163,7 @@
             this.lblKWvalue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblKWvalue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKWvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblKWvalue.Location = new System.Drawing.Point(153, 248);
+            this.lblKWvalue.Location = new System.Drawing.Point(153, 194);
             this.lblKWvalue.Name = "lblKWvalue";
             this.lblKWvalue.Size = new System.Drawing.Size(15, 18);
             this.lblKWvalue.TabIndex = 30;
@@ -187,11 +187,11 @@
             this.locatieLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.locatieLbl.Font = new System.Drawing.Font("Arial", 10F);
             this.locatieLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.locatieLbl.Location = new System.Drawing.Point(32, 248);
+            this.locatieLbl.Location = new System.Drawing.Point(32, 196);
             this.locatieLbl.Name = "locatieLbl";
-            this.locatieLbl.Size = new System.Drawing.Size(63, 16);
+            this.locatieLbl.Size = new System.Drawing.Size(79, 16);
             this.locatieLbl.TabIndex = 21;
-            this.locatieLbl.Text = "Kwaliteit:";
+            this.locatieLbl.Text = "Kwaliteiten:";
             // 
             // label4
             // 
@@ -220,7 +220,7 @@
             // llbEValue
             // 
             this.llbEValue.AutoSize = true;
-            this.llbEValue.Location = new System.Drawing.Point(388, 138);
+            this.llbEValue.Location = new System.Drawing.Point(388, 134);
             this.llbEValue.Name = "llbEValue";
             this.llbEValue.Size = new System.Drawing.Size(13, 14);
             this.llbEValue.TabIndex = 33;
@@ -234,7 +234,7 @@
             this.pbHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbHeader.Location = new System.Drawing.Point(0, 0);
             this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(550, 54);
+            this.pbHeader.Size = new System.Drawing.Size(608, 54);
             this.pbHeader.TabIndex = 14;
             this.pbHeader.TabStop = false;
             // 
@@ -255,7 +255,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(550, 299);
+            this.ClientSize = new System.Drawing.Size(608, 309);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.llbEValue);
             this.Controls.Add(this.lblContactnaam);

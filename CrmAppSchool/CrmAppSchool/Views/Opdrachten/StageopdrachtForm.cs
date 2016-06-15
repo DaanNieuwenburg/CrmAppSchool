@@ -14,7 +14,7 @@ namespace CrmAppSchool.Views.Opdrachten
 {
     public partial class StageopdrachtForm : Form
     {
-        public bool ShowMenu { get; set; }                 // Boolean voor het zichtbaar maken van de mainmenu
+        public bool ShowMenu { get; set; }                 // Boolean voor het zichtbaar maken van de mainmenus
         public bool ShowZoeken { get; set; }
         private Gebruiker gebruiker { get; set; }
 
@@ -33,7 +33,7 @@ namespace CrmAppSchool.Views.Opdrachten
                 btnVoegtoe.Visible = false;
                 btnWijzig.Visible = false;
             }
-            Cursor = Cursors.Default;
+            
         }
 
 
@@ -262,12 +262,6 @@ namespace CrmAppSchool.Views.Opdrachten
                     }
                 }
             }
-        }
-
-        private void StageopdrachtForm_Load(object sender, EventArgs e)
-        {
-            
-            
         }
     }
 }

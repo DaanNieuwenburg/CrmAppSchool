@@ -29,7 +29,23 @@ namespace CrmAppSchool.Views.Bedrijven
             lblTvalue.Text = contact.Telefoonnr;
             lblCPvalue.Text = contact.Contactpersoon;
             lblWSvalue.Text = contact.Website;
-            
+            BedrijfController cc = new BedrijfController();
+            List<string> kwalteitenlijst = cc.Get_Kwaliteiten(_gebruiker, contact);
+            if (kwalteitenlijst != null)
+            {
+                lblKWvalue.Text = "";
+                int j = 0;
+                foreach (string a in kwalteitenlijst)
+                {
+                    if (j == 0)
+                        lblKWvalue.Text = a;
+                    else
+                        lblKWvalue.Text = lblKWvalue.Text + "\n" + a;
+
+                    j++;
+                }
+            }
+
         }
 
         private void ContactDetails_Load(object sender, EventArgs e)
