@@ -217,14 +217,12 @@ namespace CrmAppSchool.Views.Bedrijven
             if (opslaan == true)
             {
 
-                string[] z = new string[tbKwaliteiten.Lines.Count()];
-                int i = 0;
+                List<string> z = new List<string>();
                 foreach (string line in tbKwaliteiten.Lines)
                 {
-                    z[i] = line;
-                    i++;
+                    z.Add(line);
                 }
-                Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tbBedrijfsnaam.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = z };
+                Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tbBedrijfsnaam.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = z};
                 BedrijfController bc = new BedrijfController();
                 bc.voegBedrijfToe(bedrijfcontact);
                 SaveBedrijf(bedrijfcontact);
@@ -292,7 +290,7 @@ namespace CrmAppSchool.Views.Bedrijven
             string contactcode = lvBedrijven.SelectedItems[0].SubItems[2].Text;
             BedrijfController bc = new BedrijfController();
             Bedrijfcontact contact = bc.SelecteerBedrijf(Convert.ToInt32(contactcode));
-
+            contact.Kwaliteiten = bc.Get_Kwaliteiten(_gebruiker, contact);
             BedrijfDetails details = new BedrijfDetails(_gebruiker, contact);
             details.ShowDialog();
 
