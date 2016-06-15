@@ -33,7 +33,7 @@ namespace CrmAppSchool.Views.Opdrachten
                 btnVoegtoe.Visible = false;
                 btnWijzig.Visible = false;
             }
-            Cursor = Cursors.Default;
+            
         }
 
 
@@ -262,12 +262,6 @@ namespace CrmAppSchool.Views.Opdrachten
                     }
                 }
             }
-        }
-
-        private void StageopdrachtForm_Load(object sender, EventArgs e)
-        {
-            
-            
         }
     }
 }
