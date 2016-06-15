@@ -366,7 +366,6 @@ namespace CrmAppSchool.Views.Bedrijven
         {
             string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
             ContactenController _controller = new ContactenController();
-
             Persooncontact contact = _controller.HaalInfoOp(contactcode);
             Contacten.ContactDetails _details = new Contacten.ContactDetails(_gebruiker, contact);
             _details.ShowDialog();

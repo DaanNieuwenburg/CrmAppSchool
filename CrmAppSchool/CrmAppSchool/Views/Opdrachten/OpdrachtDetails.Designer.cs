@@ -121,12 +121,15 @@
             // lbOpdrachtContact
             // 
             this.lbOpdrachtContact.AutoSize = true;
-            this.lbOpdrachtContact.Font = new System.Drawing.Font("Arial", 10F);
+            this.lbOpdrachtContact.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbOpdrachtContact.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOpdrachtContact.ForeColor = System.Drawing.Color.Blue;
             this.lbOpdrachtContact.Location = new System.Drawing.Point(361, 107);
             this.lbOpdrachtContact.Name = "lbOpdrachtContact";
-            this.lbOpdrachtContact.Size = new System.Drawing.Size(14, 16);
+            this.lbOpdrachtContact.Size = new System.Drawing.Size(15, 16);
             this.lbOpdrachtContact.TabIndex = 21;
             this.lbOpdrachtContact.Text = "x";
+            this.lbOpdrachtContact.Click += new System.EventHandler(this.lbOpdrachtContact_Click);
             // 
             // lbOpdrachtnaam
             // 
