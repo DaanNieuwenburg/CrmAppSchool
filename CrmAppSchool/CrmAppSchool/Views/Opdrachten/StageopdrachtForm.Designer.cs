@@ -54,10 +54,10 @@
             this.tbZoek.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbZoek.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbZoek.ForeColor = System.Drawing.Color.White;
-            this.tbZoek.Location = new System.Drawing.Point(248, 11);
-            this.tbZoek.Margin = new System.Windows.Forms.Padding(2);
+            this.tbZoek.Location = new System.Drawing.Point(331, 14);
+            this.tbZoek.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbZoek.Name = "tbZoek";
-            this.tbZoek.Size = new System.Drawing.Size(248, 25);
+            this.tbZoek.Size = new System.Drawing.Size(330, 29);
             this.tbZoek.TabIndex = 1;
             this.tbZoek.Visible = false;
             this.tbZoek.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbZoek_KeyDown);
@@ -69,9 +69,10 @@
             this.lblGebruiker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lblGebruiker.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGebruiker.ForeColor = System.Drawing.Color.White;
-            this.lblGebruiker.Location = new System.Drawing.Point(655, 16);
+            this.lblGebruiker.Location = new System.Drawing.Point(873, 20);
+            this.lblGebruiker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGebruiker.Name = "lblGebruiker";
-            this.lblGebruiker.Size = new System.Drawing.Size(123, 16);
+            this.lblGebruiker.Size = new System.Drawing.Size(152, 19);
             this.lblGebruiker.TabIndex = 12;
             this.lblGebruiker.Text = "U bent ingelogd als:";
             // 
@@ -87,10 +88,10 @@
             this.Hcontact});
             this.lvStage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvStage.FullRowSelect = true;
-            this.lvStage.Location = new System.Drawing.Point(0, 50);
-            this.lvStage.Margin = new System.Windows.Forms.Padding(2);
+            this.lvStage.Location = new System.Drawing.Point(0, 62);
+            this.lvStage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lvStage.Name = "lvStage";
-            this.lvStage.Size = new System.Drawing.Size(896, 459);
+            this.lvStage.Size = new System.Drawing.Size(1195, 564);
             this.lvStage.TabIndex = 18;
             this.lvStage.UseCompatibleStateImageBehavior = false;
             this.lvStage.View = System.Windows.Forms.View.Details;
@@ -132,9 +133,10 @@
             this.btnZoeken.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnZoeken.FlatAppearance.BorderSize = 0;
             this.btnZoeken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnZoeken.Location = new System.Drawing.Point(503, -1);
+            this.btnZoeken.Location = new System.Drawing.Point(671, -1);
+            this.btnZoeken.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnZoeken.Name = "btnZoeken";
-            this.btnZoeken.Size = new System.Drawing.Size(59, 50);
+            this.btnZoeken.Size = new System.Drawing.Size(79, 62);
             this.btnZoeken.TabIndex = 17;
             this.btnZoeken.UseVisualStyleBackColor = false;
             this.btnZoeken.Click += new System.EventHandler(this.btnZoeken_Click);
@@ -148,9 +150,10 @@
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(437, -1);
+            this.btnDelete.Location = new System.Drawing.Point(583, -1);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(59, 50);
+            this.btnDelete.Size = new System.Drawing.Size(79, 62);
             this.btnDelete.TabIndex = 16;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -164,9 +167,10 @@
             this.btnWijzig.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWijzig.FlatAppearance.BorderSize = 0;
             this.btnWijzig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWijzig.Location = new System.Drawing.Point(372, -1);
+            this.btnWijzig.Location = new System.Drawing.Point(496, -1);
+            this.btnWijzig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnWijzig.Name = "btnWijzig";
-            this.btnWijzig.Size = new System.Drawing.Size(59, 50);
+            this.btnWijzig.Size = new System.Drawing.Size(79, 62);
             this.btnWijzig.TabIndex = 15;
             this.btnWijzig.UseVisualStyleBackColor = false;
             this.btnWijzig.Click += new System.EventHandler(this.btnWijzig_Click);
@@ -180,9 +184,10 @@
             this.btnVoegtoe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVoegtoe.FlatAppearance.BorderSize = 0;
             this.btnVoegtoe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVoegtoe.Location = new System.Drawing.Point(303, -1);
+            this.btnVoegtoe.Location = new System.Drawing.Point(404, -1);
+            this.btnVoegtoe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVoegtoe.Name = "btnVoegtoe";
-            this.btnVoegtoe.Size = new System.Drawing.Size(59, 50);
+            this.btnVoegtoe.Size = new System.Drawing.Size(79, 62);
             this.btnVoegtoe.TabIndex = 11;
             this.btnVoegtoe.UseVisualStyleBackColor = false;
             this.btnVoegtoe.Click += new System.EventHandler(this.btnVoegtoe_Click);
@@ -193,9 +198,10 @@
             this.pbHome.BackgroundImage = global::CrmAppSchool.Properties.Resources.picture_Home;
             this.pbHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHome.Location = new System.Drawing.Point(-2, -1);
+            this.pbHome.Location = new System.Drawing.Point(-3, -1);
+            this.pbHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbHome.Name = "pbHome";
-            this.pbHome.Size = new System.Drawing.Size(61, 50);
+            this.pbHome.Size = new System.Drawing.Size(81, 62);
             this.pbHome.TabIndex = 14;
             this.pbHome.TabStop = false;
             this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
@@ -205,16 +211,17 @@
             this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.pbHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbHeader.Location = new System.Drawing.Point(0, 0);
+            this.pbHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(896, 50);
+            this.pbHeader.Size = new System.Drawing.Size(1195, 62);
             this.pbHeader.TabIndex = 13;
             this.pbHeader.TabStop = false;
             // 
             // StageopdrachtForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 509);
+            this.ClientSize = new System.Drawing.Size(1195, 626);
             this.Controls.Add(this.lvStage);
             this.Controls.Add(this.tbZoek);
             this.Controls.Add(this.btnZoeken);
@@ -225,7 +232,7 @@
             this.Controls.Add(this.lblGebruiker);
             this.Controls.Add(this.pbHeader);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "StageopdrachtForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "StageOpdrachten";

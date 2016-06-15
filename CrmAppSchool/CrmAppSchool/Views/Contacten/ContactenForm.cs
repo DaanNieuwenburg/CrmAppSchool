@@ -21,7 +21,6 @@ namespace CrmAppSchool.Views.Bedrijven
         private bool EditMode { get; set; }
         private bool validemail { get; set; }
         private bool validmobiel { get; set; }
-        private bool validbedrijfemail { get; set; }
         public Gebruiker _gebruiker { get; set; }
         ContactenController cc = new ContactenController();
         public ContactenForm(Gebruiker _gebruiker)
