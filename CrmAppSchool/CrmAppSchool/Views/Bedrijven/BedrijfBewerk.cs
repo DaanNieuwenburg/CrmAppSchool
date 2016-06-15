@@ -30,6 +30,7 @@ namespace CrmAppSchool.Views.Bedrijven
             InitializeComponent();
             validmobiel = true;
             validemail = true;
+            validtelefoon = true;
             gebruiker = _gebruiker;
 
 
