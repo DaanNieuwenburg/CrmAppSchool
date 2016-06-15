@@ -32,7 +32,6 @@ namespace CrmAppSchool.Views.Contacten
             beoordeling = contact.Beoordeling;
 
             //Haal de kwaliteiten op
-           
             ContactenController cc = new ContactenController();           
             List<string> kwalteitenlijst = cc.Get_Kwaliteiten(_gebruiker, contact);
             if(kwalteitenlijst != null)
@@ -49,17 +48,25 @@ namespace CrmAppSchool.Views.Contacten
                     j++;
                 }
             }
-            
-            // Is de contact een eigen contact, laat dan niet de button zien
-            bool bestaat = cc.heeftGebruikerContact(gebruiker, Convert.ToString(contact.Contactcode));
-            if(bestaat == false)
+
+            // Niet student kunnen contacten toevoegen
+            if (gebruiker.SoortGebruiker != "Student")
             {
-                Console.WriteLine("Bestaat = false");
-                btnVoegtoe.Visible = true;
+                // Is de contact een eigen contact, laat dan niet de button zien
+                bool bestaat = cc.heeftGebruikerContact(gebruiker, Convert.ToString(contact.Contactcode));
+                if (bestaat == false)
+                {
+                    Console.WriteLine("Bestaat = false");
+                    btnVoegtoe.Visible = true;
+                }
+                else
+                {
+                    Console.WriteLine("Bestaat = true");
+                    btnVoegtoe.Visible = false;
+                }
             }
             else
             {
-                Console.WriteLine("Bestaat = true");
                 btnVoegtoe.Visible = false;
             }
 
