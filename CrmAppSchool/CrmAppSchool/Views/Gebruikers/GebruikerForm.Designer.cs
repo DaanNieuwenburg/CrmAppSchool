@@ -247,6 +247,12 @@
             this.Controls.Add(this.pbHome);
             this.Controls.Add(this.lblGebruiker);
             this.Controls.Add(this.pbHeader);
+            this.Controls.Add(this.wachtwoordLbl);
+            this.Controls.Add(this.wachtwoordTxb);
+            this.Controls.Add(this.gebruikerLbl);
+            this.Controls.Add(this.gebruikersnaamTxb);
+            this.Controls.Add(this.gebruikersnaamLbl);
+            this.Controls.Add(this.soortGebruikerCbx);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "voegGebruikerToeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
