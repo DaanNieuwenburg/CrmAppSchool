@@ -77,7 +77,15 @@ namespace CrmAppSchool.Views.Bedrijven
             contactcode = contact.Contactcode;
             bedrijfcode = contact.Bedrijf.Bedrijfscode;
 
-
+            // Zet de waardes van de cbx om
+            if (contact.Isgastdocent == true)
+            {
+                soortCbx.Text = "Gastdocent";
+            }
+            else
+            {
+                soortCbx.Text = "Stagebegeleider";
+            }
         }
 
         private void bewerkBtn_Click(object sender, EventArgs e)
