@@ -242,6 +242,7 @@ namespace CrmAppSchool.Views.Gebruikers
 
         private void btnOpdrachten_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.AppStarting;
             StageopdrachtForm soform = new StageopdrachtForm(gebruiker);
             soform.ShowDialog();
         }

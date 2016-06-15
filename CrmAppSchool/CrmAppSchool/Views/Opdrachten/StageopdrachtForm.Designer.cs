@@ -229,6 +229,7 @@
             this.Name = "StageopdrachtForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "StageOpdrachten";
+            this.Load += new System.EventHandler(this.StageopdrachtForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             this.ResumeLayout(false);
