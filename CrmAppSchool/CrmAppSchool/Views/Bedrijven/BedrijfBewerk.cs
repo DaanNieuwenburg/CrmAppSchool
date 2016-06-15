@@ -33,6 +33,7 @@ namespace CrmAppSchool.Views.Bedrijven
 
             // Koppelt alle contact data aan de texboxes 
             tbBedrijfsnaam.Text = contact.Bedrijfnaam;
+            lblContactnaam.Text = contact.Bedrijfnaam;
             tbHoofdlocatie.Text = contact.Hoofdlocatie;
             tbWebsite.Text = contact.Website;
             tbTelefoon.Text = contact.Telefoonnr;

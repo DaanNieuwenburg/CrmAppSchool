@@ -55,6 +55,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lbOmschrijvingValue = new System.Windows.Forms.Label();
             this.btnVoegtoe = new System.Windows.Forms.Button();
+            this.lbKWvalue = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.lbl_soort = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate4)).BeginInit();
@@ -368,6 +370,30 @@
             this.btnVoegtoe.UseVisualStyleBackColor = false;
             this.btnVoegtoe.Click += new System.EventHandler(this.btnVoegtoe_Click);
             // 
+            // lbKWvalue
+            // 
+            this.lbKWvalue.AutoSize = true;
+            this.lbKWvalue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbKWvalue.Font = new System.Drawing.Font("Arial", 12F);
+            this.lbKWvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.lbKWvalue.Location = new System.Drawing.Point(388, 184);
+            this.lbKWvalue.Name = "lbKWvalue";
+            this.lbKWvalue.Size = new System.Drawing.Size(15, 18);
+            this.lbKWvalue.TabIndex = 46;
+            this.lbKWvalue.Text = "x";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.Font = new System.Drawing.Font("Arial", 10F);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.label8.Location = new System.Drawing.Point(303, 185);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 16);
+            this.label8.TabIndex = 45;
+            this.label8.Text = "Kwaliteiten:";
+            // 
             // lbl_soort
             // 
             this.lbl_soort.AutoSize = true;
@@ -387,6 +413,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(550, 541);
             this.Controls.Add(this.lbl_soort);
+            
+            this.Controls.Add(this.lbKWvalue);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btnVoegtoe);
             this.Controls.Add(this.lbOmschrijvingValue);
             this.Controls.Add(this.label6);
@@ -459,5 +488,7 @@
         private System.Windows.Forms.Label lbOmschrijvingValue;
         private System.Windows.Forms.Button btnVoegtoe;
         private System.Windows.Forms.Label lbl_soort;
+        private System.Windows.Forms.Label lbKWvalue;
+        private System.Windows.Forms.Label label8;
     }
 }

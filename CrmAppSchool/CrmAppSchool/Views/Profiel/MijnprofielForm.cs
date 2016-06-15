@@ -179,7 +179,10 @@ namespace CrmAppSchool.Views.Profiel
 
             // Schrijf de nieuwe profiel informatie over naar de database
             Controllers.ProfielController profielController = new Controllers.ProfielController();
-            Models.Profiel profiel = new Models.Profiel() { Voornaam = lblVoornaamWaarde.Text, Achternaam = lblAchternaamWaarde.Text, Locatie = lblLocatieWaarde.Text, Functie = lblFunctieWaarde.Text };
+            profiel.Voornaam = lblVoornaamWaarde.Text;
+            profiel.Achternaam = lblAchternaamWaarde.Text;
+            profiel.Locatie = lblLocatieWaarde.Text;
+            profiel.Functie = lblFunctieWaarde.Text;
 
             // Zet de kwaliteiten in de list
             profiel.KwaliteitenLijst = new List<string>();
@@ -196,9 +199,12 @@ namespace CrmAppSchool.Views.Profiel
             lblKwaliteitWaarde.Text = "";
             foreach (string kwaliteit in profiel.KwaliteitenLijst)
             {
+                Console.WriteLine("KW= " + kwaliteit);
                 tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit + Environment.NewLine;
                 lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + Environment.NewLine;
             }
+
+            tbKwaliteit.Text = "";
 
             // Zet de checkboxes in het profiel
             profiel.VoornaamIsZichtbaar = cbPriveVN.Checked;
@@ -250,7 +256,7 @@ namespace CrmAppSchool.Views.Profiel
             }
             else
             {
-                
+
 
                 btnBewerk.Visible = true;
                 btnPrive.Visible = true;
