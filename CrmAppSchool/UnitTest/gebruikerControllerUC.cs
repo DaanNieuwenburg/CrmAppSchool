@@ -38,7 +38,6 @@ namespace UnitTest
             gebruikermodel.Wachtwoord = "unitTest2";
             gebruikermodel.SoortGebruiker = "Docent";
             gc.voegGebruikerToe(gebruikermodel);
-            Assert.Fail();
         }
 
         // Verander wachtwoord gebruiker
@@ -60,7 +59,27 @@ namespace UnitTest
             CrmAppSchool.Models.Gebruiker gebruikermodel = new CrmAppSchool.Models.Gebruiker();
             gebruikermodel.Gebruikersnaam = "badeend1337<3";
             gc.veranderWachtwoordGebruiker(gebruikermodel);
-            Assert.Fail();
+        }
+
+        // Verwijder gebruiker
+        [TestMethod]
+        public void VerwijderGebruikerDieNullIs()
+        {
+            // Probeert een gebruiker te verwijderen die null is
+            CrmAppSchool.Controllers.GebruikerController gc = new GebruikerController();
+            CrmAppSchool.Models.Gebruiker gebruikermodel = new CrmAppSchool.Models.Gebruiker();
+            gebruikermodel.Gebruikersnaam = null;
+            gc.verwijderGebruiker(gebruikermodel);
+        }
+
+        [TestMethod]
+        public void VerwijderGebruikerDieNietBestaat()
+        {
+            // Probeert een gebruiker te verwijderen die null is
+            CrmAppSchool.Controllers.GebruikerController gc = new GebruikerController();
+            CrmAppSchool.Models.Gebruiker gebruikermodel = new CrmAppSchool.Models.Gebruiker();
+            gebruikermodel.Gebruikersnaam = "Doornroosje";
+            gc.verwijderGebruiker(gebruikermodel);
         }
     }
 }
