@@ -150,6 +150,34 @@ namespace CrmAppSchool.Controllers
                 conn.Close();
             }
         }
+        public List<string> Get_Kwaliteiten(Gebruiker _gebruiker, Bedrijfcontact _contact)
+        {
+            List<string> kwaliteitenLijst = new List<string>();
+            try
+            {
+                conn.Open();
+                string query = "SELECT kwaliteit FROM bedrijf_kwaliteiten WHERE bedrijfcode = @bedrijfcode";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter BC_PARAM = new MySqlParameter("@bedrijfcode", MySqlDbType.VarChar);
+                BC_PARAM.Value = contact.Bedrijfcode;
+                command.Parameters.Add(BC_PARAM);
+                MySqlDataReader datalezer = command.ExecuteReader();
+
+                while (datalezer.Read())
+                {
+                    kwaliteitenLijst.Add(datalezer.GetString("kwaliteit"));
+                }
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Error in profielcontroller - Get_Kwaliteiten: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return kwaliteitenLijst;
+        }
         public List<Bedrijfcontact> ZoekBedrijven(string tekst, Gebruiker gebruiker)
         {
             List<Bedrijfcontact> resultaten = new List<Bedrijfcontact>();
