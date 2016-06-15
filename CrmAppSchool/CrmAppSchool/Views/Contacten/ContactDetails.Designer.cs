@@ -302,7 +302,7 @@
             this.pbHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbHeader.Location = new System.Drawing.Point(0, 0);
             this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(550, 73);
+            this.pbHeader.Size = new System.Drawing.Size(624, 73);
             this.pbHeader.TabIndex = 14;
             this.pbHeader.TabStop = false;
             // 
@@ -349,7 +349,7 @@
             this.lbOmschrijvingValue.Font = new System.Drawing.Font("Arial", 10F);
             this.lbOmschrijvingValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lbOmschrijvingValue.Location = new System.Drawing.Point(15, 447);
-            this.lbOmschrijvingValue.MaximumSize = new System.Drawing.Size(500, 150);
+            this.lbOmschrijvingValue.MaximumSize = new System.Drawing.Size(573, 120);
             this.lbOmschrijvingValue.Name = "lbOmschrijvingValue";
             this.lbOmschrijvingValue.Size = new System.Drawing.Size(14, 16);
             this.lbOmschrijvingValue.TabIndex = 43;
@@ -364,7 +364,7 @@
             this.btnVoegtoe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVoegtoe.FlatAppearance.BorderSize = 0;
             this.btnVoegtoe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVoegtoe.Location = new System.Drawing.Point(479, 10);
+            this.btnVoegtoe.Location = new System.Drawing.Point(516, 10);
             this.btnVoegtoe.Margin = new System.Windows.Forms.Padding(4);
             this.btnVoegtoe.Name = "btnVoegtoe";
             this.btnVoegtoe.Size = new System.Drawing.Size(71, 54);
@@ -413,7 +413,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(550, 541);
+            this.ClientSize = new System.Drawing.Size(624, 550);
             this.Controls.Add(this.lbl_soort);
             this.Controls.Add(this.lbKWvalue);
             this.Controls.Add(this.label8);
