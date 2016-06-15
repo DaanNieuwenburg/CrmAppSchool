@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CrmAppSchool.Models;
 using CrmAppSchool.Controllers;
 using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 namespace CrmAppSchool.Views.Bedrijven
 {
@@ -168,7 +169,26 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void tbWebsite_Leave(object sender, EventArgs e)
         {
-            Uri uri = null;
+            string a = "";
+            if (tbWebsite.Text.StartsWith("http"))
+                a = tbWebsite.Text;
+            else
+                a = "http://" + tbWebsite.Text;
+
+            Regex RgxUrl = new Regex(@"^http\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$");
+            if (RgxUrl.IsMatch(a))
+            {
+                tbWebsite.ForeColor = Color.Black;
+                validwebsite = true;
+            }
+            else
+            {            
+                validwebsite = false;
+                tbWebsite.ForeColor = Color.Red;
+                
+            }
+
+            /*Uri uri = null;
 
             if (!Uri.TryCreate(tbWebsite.Text, UriKind.Absolute, out uri) || null == uri)
             {
@@ -180,7 +200,7 @@ namespace CrmAppSchool.Views.Bedrijven
             {
                 tbWebsite.ForeColor = Color.Black;
                 validwebsite = true;
-            }
+            }*/
         }
     }
 }
