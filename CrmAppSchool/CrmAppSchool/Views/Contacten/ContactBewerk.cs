@@ -37,8 +37,9 @@ namespace CrmAppSchool.Views.Bedrijven
             ContactEvaluatieController ce = new ContactEvaluatieController();
             contact = ce.HaalInfoOp(gebruiker, contact);
             tbOmschrijving.Text = contact.Evaluatie;
-            beoordeling = contact.Beoordeling;
+            beoordeling = contact.Beoordeling;          
             mobielTb.Text = contact.Mobielnr;
+            setSterren();
 
             // Kijkt of de omschrijving textbox leeg is, zoja dan is er sprake van een insert, anders update
             isinsert = false;
@@ -52,6 +53,7 @@ namespace CrmAppSchool.Views.Bedrijven
 
             // Koppelt alle contact data aan de texboxes 
             voornaamTb.Text = contact.Voornaam;
+            lblContactnaam.Text = contact.Voornaam + " " + contact.Achternaam;
             achternaamTb.Text = contact.Achternaam;
             functieTb.Text = contact.Functie;
             locatieTb.Text = contact.Locatie;
