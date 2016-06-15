@@ -69,6 +69,20 @@ namespace CrmAppSchool.Views.Contacten
             llbMValue.Text = contact.Email;
             lblMOvalue.Text = contact.Mobielnr;
             lblBDvalue.Text = contact.Bedrijf.Bedrijfnaam;
+            if (contact.Isgastdocent == false && contact.Isstagebegeleider == false)
+            {
+                lbl_soort.Text = "Gastspreker";
+            }
+            else if (contact.Isgastdocent == true)
+            {
+                lbl_soort.Text = "Gastdocent";
+            }
+            else
+            {
+                lbl_soort.Text = "Stagebegeleider";
+            }
+
+            
             if(contact.Kwaliteiten != null)
             {
                 foreach (string kwaliteit in contact.Kwaliteiten)
