@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using CrmAppSchool.Models;
 using MySql.Data.MySqlClient;
 
@@ -52,6 +53,10 @@ namespace CrmAppSchool.Controllers
                 }
                 catch (MySqlException e)
                 {
+                    if ((uint)e.ErrorCode == 0x80004005)
+                    {
+                        MessageBox.Show("Deze gebruiker kan niet toegevoegd worden: dit bedrijf bestaat al");
+                    }
                     if (trans != null)
                     {
                         trans.Rollback();

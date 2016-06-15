@@ -28,7 +28,17 @@ namespace UnitTest
             gc.voegGebruikerToe(gebruikermodel);
         }
 
-        // 
+        [TestMethod]
+        public void TestVoegGebruikerToeMetTeLangeGegevens()
+        {
+            // Probeert een waarde te inserten met een gebruikersnaam > 25
+            CrmAppSchool.Controllers.GebruikerController gc = new GebruikerController();
+            CrmAppSchool.Models.Gebruiker gebruikermodel = new CrmAppSchool.Models.Gebruiker();
+            gebruikermodel.Gebruikersnaam = "UnitTestUnitTestUnitTestUnitTestUnitTestUnitTest"; // 48 karakters lang
+            gebruikermodel.Wachtwoord = "unitTest2";
+            gebruikermodel.SoortGebruiker = "Docent";
+            gc.voegGebruikerToe(gebruikermodel);
+        }
     }
 }
 ;
