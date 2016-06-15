@@ -25,11 +25,11 @@ namespace CrmAppSchool.Views.Bedrijven
             
             lblBNvalue.Text = contact.Bedrijfnaam;
             lblHLvalue.Text = contact.Hoofdlocatie;
-            //lblKWvalue.Text = contact.Kwaliteiten;
             llbEValue.Text = contact.Email;
             lblTvalue.Text = contact.Telefoonnr;
             lblCPvalue.Text = contact.Contactpersoon;
             lblWSvalue.Text = contact.Website;
+            
         }
 
         private void ContactDetails_Load(object sender, EventArgs e)

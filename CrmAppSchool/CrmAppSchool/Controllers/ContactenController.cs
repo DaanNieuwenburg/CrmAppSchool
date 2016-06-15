@@ -14,7 +14,34 @@ namespace CrmAppSchool.Controllers
         public ContactenController()
         {
         }
+        public List<string> Get_Kwaliteiten(Gebruiker _gebruiker, Persooncontact _contact)
+        {
+            List<string> kwaliteitenLijst = new List<string>();
+            try
+            {
+                conn.Open();
+                string query = "SELECT kwaliteit FROM gebruiker_profiel_kwaliteiten WHERE gebruikersnaam = @gebruikersnaam";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter UN_PARAM = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
+                UN_PARAM.Value = _gebruiker.Gebruikersnaam;
+                command.Parameters.Add(UN_PARAM);
+                MySqlDataReader datalezer = command.ExecuteReader();
 
+                while (datalezer.Read())
+                {
+                    kwaliteitenLijst.Add(datalezer.GetString("kwaliteit"));
+                }
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Error in profielcontroller - Get_Kwaliteiten: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return kwaliteitenLijst;
+        }
         public void controleerOfContactBestaat(Gebruiker gebruiker, Persooncontact contact)
         {
             // Query de database en kijk of contact bestaat
