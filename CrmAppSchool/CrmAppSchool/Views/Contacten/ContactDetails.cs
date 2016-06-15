@@ -31,8 +31,26 @@ namespace CrmAppSchool.Views.Contacten
             lbOmschrijvingValue.Text = contact.Evaluatie;
             beoordeling = contact.Beoordeling;
 
+            //Haal de kwaliteiten op
+           
+            ContactenController cc = new ContactenController();           
+            List<string> kwalteitenlijst = cc.Get_Kwaliteiten(_gebruiker, contact);
+            if(kwalteitenlijst != null)
+            {
+                lbKWvalue.Text = "";
+                int j = 0;
+                foreach (string a in kwalteitenlijst)
+                {
+                    if (j == 0)
+                        lbKWvalue.Text = a;
+                    else
+                        lbKWvalue.Text = lbKWvalue.Text + "\n" + a;
+
+                    j++;
+                }
+            }
+            
             // Is de contact een eigen contact, laat dan niet de button zien
-            ContactenController cc = new ContactenController();
             bool bestaat = cc.heeftGebruikerContact(gebruiker, Convert.ToString(contact.Contactcode));
             if(bestaat == false)
             {
@@ -51,11 +69,34 @@ namespace CrmAppSchool.Views.Contacten
             llbMValue.Text = contact.Email;
             lblMOvalue.Text = contact.Mobielnr;
             lblBDvalue.Text = contact.Bedrijf.Bedrijfnaam;
+            if (contact.Isgastdocent == false && contact.Isstagebegeleider == false)
+            {
+                lbl_soort.Text = "Gastspreker";
+            }
+            else if (contact.Isgastdocent == true)
+            {
+                lbl_soort.Text = "Gastdocent";
+            }
+            else
+            {
+                lbl_soort.Text = "Stagebegeleider";
+            }
+
+            
+            if(contact.Kwaliteiten != null)
+            {
+                foreach (string kwaliteit in contact.Kwaliteiten)
+                {
+                    lbKWvalue.Text = lbKWvalue.Text + "\n" + kwaliteit;
+                }
+            }
+            
             if (contact.Functie != null)
             {
                 lblFUvalue.Text = contact.Functie;
             }
             
+
         }
 
         private void ContactDetails_Load(object sender, EventArgs e)
