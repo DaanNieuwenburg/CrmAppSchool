@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CrmAppSchool.Controllers;
 using CrmAppSchool.Models;
 using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 namespace CrmAppSchool.Views.Bedrijven
 {
@@ -18,6 +19,7 @@ namespace CrmAppSchool.Views.Bedrijven
         public bool ShowMenu { get; set; }
         private bool ShowSave { get; set; }
         private bool ShowZoeken { get; set; }
+        private bool validwebsite { get; set; }
         private bool EditMode { get; set; }
         private bool validtelefoon { get; set; }
         private bool validbedrijfemail { get; set; }
@@ -401,6 +403,39 @@ namespace CrmAppSchool.Views.Bedrijven
                     zoek();
                 }
             }
+        }
+
+        private void tbWebsite_Leave(object sender, EventArgs e)
+        {
+            string a = "";
+            if (tbWebsite.Text.StartsWith("http"))
+                a = tbWebsite.Text;
+            else
+                a = "http://" + tbWebsite.Text;
+
+            Regex RgxUrl = new Regex(@"^http\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$");
+
+            if (RgxUrl.IsMatch(a))
+            {
+                if (!tbWebsite.Text.StartsWith("www"))
+                {
+                    tbWebsite.Text = "www." + tbWebsite.Text;
+                }
+                tbWebsite.ForeColor = Color.Black;
+                validwebsite = true;
+            }
+            else
+            {
+                validwebsite = false;
+                tbWebsite.ForeColor = Color.Red;
+
+            }
+        }
+
+        private void tbWebsite_Enter(object sender, EventArgs e)
+        {
+            tbWebsite.ForeColor = Color.Black;
+            validwebsite = false;
         }
     }
 }
