@@ -42,15 +42,17 @@
             this.voegToeBtn = new System.Windows.Forms.Button();
             this.pbHome = new System.Windows.Forms.PictureBox();
             this.pbHeader = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gebruikersnaamTxb
             // 
             this.gebruikersnaamTxb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gebruikersnaamTxb.Font = new System.Drawing.Font("Arial", 10F);
-            this.gebruikersnaamTxb.Location = new System.Drawing.Point(12, 86);
+            this.gebruikersnaamTxb.Location = new System.Drawing.Point(12, 38);
             this.gebruikersnaamTxb.MaxLength = 25;
             this.gebruikersnaamTxb.Name = "gebruikersnaamTxb";
             this.gebruikersnaamTxb.Size = new System.Drawing.Size(148, 23);
@@ -60,7 +62,7 @@
             // 
             this.wachtwoordTxb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.wachtwoordTxb.Font = new System.Drawing.Font("Arial", 10F);
-            this.wachtwoordTxb.Location = new System.Drawing.Point(12, 141);
+            this.wachtwoordTxb.Location = new System.Drawing.Point(12, 93);
             this.wachtwoordTxb.Name = "wachtwoordTxb";
             this.wachtwoordTxb.Size = new System.Drawing.Size(148, 23);
             this.wachtwoordTxb.TabIndex = 2;
@@ -69,7 +71,7 @@
             // 
             this.gebruikersnaamLbl.AutoSize = true;
             this.gebruikersnaamLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gebruikersnaamLbl.Location = new System.Drawing.Point(12, 60);
+            this.gebruikersnaamLbl.Location = new System.Drawing.Point(12, 12);
             this.gebruikersnaamLbl.Name = "gebruikersnaamLbl";
             this.gebruikersnaamLbl.Size = new System.Drawing.Size(107, 16);
             this.gebruikersnaamLbl.TabIndex = 3;
@@ -79,7 +81,7 @@
             // 
             this.wachtwoordLbl.AutoSize = true;
             this.wachtwoordLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wachtwoordLbl.Location = new System.Drawing.Point(12, 118);
+            this.wachtwoordLbl.Location = new System.Drawing.Point(12, 70);
             this.wachtwoordLbl.Name = "wachtwoordLbl";
             this.wachtwoordLbl.Size = new System.Drawing.Size(84, 16);
             this.wachtwoordLbl.TabIndex = 4;
@@ -94,7 +96,7 @@
             this.soortGebruikerCbx.Items.AddRange(new object[] {
             "Docent",
             "Student"});
-            this.soortGebruikerCbx.Location = new System.Drawing.Point(184, 86);
+            this.soortGebruikerCbx.Location = new System.Drawing.Point(184, 38);
             this.soortGebruikerCbx.Name = "soortGebruikerCbx";
             this.soortGebruikerCbx.Size = new System.Drawing.Size(132, 24);
             this.soortGebruikerCbx.TabIndex = 3;
@@ -103,7 +105,7 @@
             // 
             this.gebruikerLbl.AutoSize = true;
             this.gebruikerLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gebruikerLbl.Location = new System.Drawing.Point(181, 59);
+            this.gebruikerLbl.Location = new System.Drawing.Point(181, 11);
             this.gebruikerLbl.Name = "gebruikerLbl";
             this.gebruikerLbl.Size = new System.Drawing.Size(100, 16);
             this.gebruikerLbl.TabIndex = 7;
@@ -129,12 +131,13 @@
             this.gebruikerLvw.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.gebruikersnaamHeader,
             this.soortGebruikerHeader});
+            this.gebruikerLvw.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gebruikerLvw.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gebruikerLvw.FullRowSelect = true;
-            this.gebruikerLvw.Location = new System.Drawing.Point(12, 200);
+            this.gebruikerLvw.Location = new System.Drawing.Point(0, 187);
             this.gebruikerLvw.MultiSelect = false;
             this.gebruikerLvw.Name = "gebruikerLvw";
-            this.gebruikerLvw.Size = new System.Drawing.Size(503, 276);
+            this.gebruikerLvw.Size = new System.Drawing.Size(515, 289);
             this.gebruikerLvw.TabIndex = 12;
             this.gebruikerLvw.UseCompatibleStateImageBehavior = false;
             this.gebruikerLvw.View = System.Windows.Forms.View.Details;
@@ -189,22 +192,31 @@
             this.pbHeader.TabIndex = 9;
             this.pbHeader.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.gebruikersnaamLbl);
+            this.panel1.Controls.Add(this.gebruikersnaamTxb);
+            this.panel1.Controls.Add(this.wachtwoordTxb);
+            this.panel1.Controls.Add(this.wachtwoordLbl);
+            this.panel1.Controls.Add(this.soortGebruikerCbx);
+            this.panel1.Controls.Add(this.gebruikerLbl);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 50);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(515, 139);
+            this.panel1.TabIndex = 13;
+            // 
             // voegGebruikerToeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(515, 476);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.gebruikerLvw);
             this.Controls.Add(this.voegToeBtn);
             this.Controls.Add(this.pbHome);
             this.Controls.Add(this.lblGebruiker);
             this.Controls.Add(this.pbHeader);
-            this.Controls.Add(this.gebruikerLbl);
-            this.Controls.Add(this.soortGebruikerCbx);
-            this.Controls.Add(this.wachtwoordLbl);
-            this.Controls.Add(this.gebruikersnaamLbl);
-            this.Controls.Add(this.wachtwoordTxb);
-            this.Controls.Add(this.gebruikersnaamTxb);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "voegGebruikerToeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -212,6 +224,8 @@
             this.Load += new System.EventHandler(this.voegGebruikerToeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,5 +246,6 @@
         private System.Windows.Forms.ListView gebruikerLvw;
         private System.Windows.Forms.ColumnHeader gebruikersnaamHeader;
         private System.Windows.Forms.ColumnHeader soortGebruikerHeader;
+        private System.Windows.Forms.Panel panel1;
     }
 }
