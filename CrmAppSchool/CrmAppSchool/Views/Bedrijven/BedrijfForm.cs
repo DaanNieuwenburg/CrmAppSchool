@@ -153,12 +153,6 @@ namespace CrmAppSchool.Views.Bedrijven
             }
         }
 
-        private void SaveBedrijf(Bedrijfcontact bedrijf)
-        {
-            ListViewItem Company = new ListViewItem(bedrijf.Bedrijfnaam);
-            lvBedrijven.Items.Add(Company);
-            Company.ImageKey = "BD";
-        }
         private void btnAnnuleer_Click(object sender, EventArgs e)
         {
             bedrijfPnl.Visible = false;
@@ -225,7 +219,10 @@ namespace CrmAppSchool.Views.Bedrijven
                 Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tbBedrijfsnaam.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = z};
                 BedrijfController bc = new BedrijfController();
                 bc.voegBedrijfToe(bedrijfcontact);
-                SaveBedrijf(bedrijfcontact);
+
+                // Reset de listview
+                lvBedrijven.Clear();
+                vulContacten();
 
 
                 pnbedrijf2.Visible = false;
