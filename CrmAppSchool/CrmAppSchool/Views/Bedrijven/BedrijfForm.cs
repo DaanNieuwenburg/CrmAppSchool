@@ -393,5 +393,16 @@ namespace CrmAppSchool.Views.Bedrijven
                 validtelefoon = true;
             }
         }
+
+        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                if (ShowZoeken == true)
+                {
+                    zoek();
+                }
+            }
+        }
     }
 }

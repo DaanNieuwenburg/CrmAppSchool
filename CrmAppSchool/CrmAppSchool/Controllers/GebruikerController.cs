@@ -89,7 +89,7 @@ namespace CrmAppSchool.Controllers
                 {
                     trans.Rollback();
                 }
-                Console.WriteLine("Error in het aanmaken van het gebruikersprofiel");
+                Console.WriteLine("Error in het aanmaken van het gebruikersprofiel" + e);
             }
             finally
             {

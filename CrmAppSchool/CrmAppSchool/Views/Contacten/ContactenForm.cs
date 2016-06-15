@@ -443,6 +443,7 @@ namespace CrmAppSchool.Views.Bedrijven
                     // wrong e-mail address
                     tbEmail.ForeColor = Color.Red;
                     validemail = false;
+                    Console.WriteLine(ex);
                 }
             }
         }
@@ -477,6 +478,17 @@ namespace CrmAppSchool.Views.Bedrijven
             }
 
 
+        }
+
+        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                if (ShowZoeken == true)
+                {
+                    zoek();
+                }
+            }
         }
     }
 }

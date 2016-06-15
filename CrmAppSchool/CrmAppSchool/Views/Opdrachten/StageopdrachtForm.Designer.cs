@@ -60,6 +60,7 @@
             this.tbZoek.Size = new System.Drawing.Size(248, 25);
             this.tbZoek.TabIndex = 1;
             this.tbZoek.Visible = false;
+            this.tbZoek.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbZoek_KeyDown);
             // 
             // lblGebruiker
             // 

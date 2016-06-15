@@ -153,6 +153,7 @@
             this.tbSearch.Text = "Zoeken...";
             this.tbSearch.Visible = false;
             this.tbSearch.Click += new System.EventHandler(this.tbSearch_Click);
+            this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
             // 
             // btnCancel
             // 
