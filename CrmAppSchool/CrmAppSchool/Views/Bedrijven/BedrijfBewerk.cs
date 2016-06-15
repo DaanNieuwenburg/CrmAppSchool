@@ -174,10 +174,15 @@ namespace CrmAppSchool.Views.Bedrijven
                 a = tbWebsite.Text;
             else
                 a = "http://" + tbWebsite.Text;
-
+            
             Regex RgxUrl = new Regex(@"^http\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$");
+           
             if (RgxUrl.IsMatch(a))
             {
+                if (!tbWebsite.Text.StartsWith("www"))
+                {
+                    tbWebsite.Text = "www." + tbWebsite.Text;
+                }
                 tbWebsite.ForeColor = Color.Black;
                 validwebsite = true;
             }

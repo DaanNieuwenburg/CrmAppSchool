@@ -392,6 +392,8 @@
             this.tbWebsite.Name = "tbWebsite";
             this.tbWebsite.Size = new System.Drawing.Size(198, 23);
             this.tbWebsite.TabIndex = 6;
+            this.tbWebsite.Enter += new System.EventHandler(this.tbWebsite_Enter);
+            this.tbWebsite.Leave += new System.EventHandler(this.tbWebsite_Leave);
             // 
             // label11
             // 

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CrmAppSchool.Controllers;
 using CrmAppSchool.Models;
 using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 namespace CrmAppSchool.Views.Bedrijven
 {
@@ -18,6 +19,7 @@ namespace CrmAppSchool.Views.Bedrijven
         public bool ShowMenu { get; set; }
         private bool ShowSave { get; set; }
         private bool ShowZoeken { get; set; }
+        private bool validwebsite { get; set; }
         private bool EditMode { get; set; }
         private bool validtelefoon { get; set; }
         private bool validbedrijfemail { get; set; }
@@ -153,12 +155,6 @@ namespace CrmAppSchool.Views.Bedrijven
             }
         }
 
-        private void SaveBedrijf(Bedrijfcontact bedrijf)
-        {
-            ListViewItem Company = new ListViewItem(bedrijf.Bedrijfnaam);
-            lvBedrijven.Items.Add(Company);
-            Company.ImageKey = "BD";
-        }
         private void btnAnnuleer_Click(object sender, EventArgs e)
         {
             bedrijfPnl.Visible = false;
@@ -179,7 +175,7 @@ namespace CrmAppSchool.Views.Bedrijven
             if ((tbHoofdlocatie.Text.Count() <= 0 || tbBedrijfsnaam.Text.Count() <= 0))
             {
                 opslaan = false;
-                MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
+                MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw", "Warning", MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             
             string a = tbBedrijfsnaam.Text;
@@ -225,7 +221,10 @@ namespace CrmAppSchool.Views.Bedrijven
                 Bedrijfcontact bedrijfcontact = new Bedrijfcontact() { Bedrijfnaam = tbBedrijfsnaam.Text, Contactpersoon = tbContact.Text, Email = tbEadres.Text, Hoofdlocatie = tbHoofdlocatie.Text, Telefoonnr = tbTelefoon.Text, Website = tbWebsite.Text, Kwaliteiten = z};
                 BedrijfController bc = new BedrijfController();
                 bc.voegBedrijfToe(bedrijfcontact);
-                SaveBedrijf(bedrijfcontact);
+
+                // Reset de listview
+                lvBedrijven.Clear();
+                vulContacten();
 
 
                 pnbedrijf2.Visible = false;
@@ -401,6 +400,39 @@ namespace CrmAppSchool.Views.Bedrijven
                     zoek();
                 }
             }
+        }
+
+        private void tbWebsite_Leave(object sender, EventArgs e)
+        {
+            string a = "";
+            if (tbWebsite.Text.StartsWith("http"))
+                a = tbWebsite.Text;
+            else
+                a = "http://" + tbWebsite.Text;
+
+            Regex RgxUrl = new Regex(@"^http\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$");
+
+            if (RgxUrl.IsMatch(a))
+            {
+                if (!tbWebsite.Text.StartsWith("www"))
+                {
+                    tbWebsite.Text = "www." + tbWebsite.Text;
+                }
+                tbWebsite.ForeColor = Color.Black;
+                validwebsite = true;
+            }
+            else
+            {
+                validwebsite = false;
+                tbWebsite.ForeColor = Color.Red;
+
+            }
+        }
+
+        private void tbWebsite_Enter(object sender, EventArgs e)
+        {
+            tbWebsite.ForeColor = Color.Black;
+            validwebsite = false;
         }
     }
 }
