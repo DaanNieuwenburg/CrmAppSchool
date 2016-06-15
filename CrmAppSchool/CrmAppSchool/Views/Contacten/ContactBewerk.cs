@@ -76,6 +76,8 @@ namespace CrmAppSchool.Views.Bedrijven
             emailTb.Text = contact.Email;
             contactcode = contact.Contactcode;
             bedrijfcode = contact.Bedrijf.Bedrijfscode;
+
+
         }
 
         private void bewerkBtn_Click(object sender, EventArgs e)
@@ -91,6 +93,18 @@ namespace CrmAppSchool.Views.Bedrijven
             bewerktContact.Locatie = locatieTb.Text;
             bewerktContact.Email = emailTb.Text;
             bewerktContact.Mobielnr = mobielTb.Text;
+
+            // Zet de waardes van de cbx om
+            if(soortCbx.Text == "Gastdocent")
+            {
+                bewerktContact.Isgastdocent = true;
+                bewerktContact.Isstagebegeleider = false;
+            }
+            else
+            {
+                bewerktContact.Isgastdocent = false;
+                bewerktContact.Isstagebegeleider = true;
+            }
             
             // Contactencontroller
             ContactenController cc = new ContactenController();
@@ -135,6 +149,19 @@ namespace CrmAppSchool.Views.Bedrijven
                         teller++;
                     }
                 }
+
+                // Zet de waardes van de cbx om
+                if (soortCbx.Text == "Gastdocent")
+                {
+                    bewerktContact.Isgastdocent = true;
+                    bewerktContact.Isstagebegeleider = false;
+                }
+                else
+                {
+                    bewerktContact.Isgastdocent = false;
+                    bewerktContact.Isstagebegeleider = true;
+                }
+
                 bewerktContact.Evaluatie = omschr;
                 // Contactencontroller
                 ContactenController cc = new ContactenController();
