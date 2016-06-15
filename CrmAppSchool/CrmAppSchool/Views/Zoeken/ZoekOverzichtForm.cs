@@ -18,6 +18,7 @@ namespace CrmAppSchool.Views.Zoeken
 
     public partial class ZoekOverzichtForm : Form //MaterialForm
     {
+        private int soortresultaat { get; set; }
         public bool ShowMenu { get; set; }
         private bool Sorteermenu { get; set; }
         private ComboBox cb { get; set; } 
@@ -26,7 +27,7 @@ namespace CrmAppSchool.Views.Zoeken
         {
             get; set;
         }
-        public ZoekOverzichtForm(ComboBox cb, Gebruiker gebruiker)
+        public ZoekOverzichtForm(ComboBox cb, Gebruiker gebruiker, int soortresultaat)
         {
             
             // add an item
@@ -35,6 +36,7 @@ namespace CrmAppSchool.Views.Zoeken
             //listViewItem.ImageKey = "itemImageKey";
             InitializeComponent();
             _gebruiker = gebruiker;
+            this.soortresultaat = soortresultaat;
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
             ShowMenu = false;
             // create image list and fill it 
@@ -89,6 +91,7 @@ namespace CrmAppSchool.Views.Zoeken
                 //lvw.SubItems.Add(contact.Bedrijf.Bedrijfnaam);
                 lvw.SubItems.Add(contact.Email);
                 lvw.SubItems.Add(contact.Website);
+                lvw.SubItems.Add(contact.Bedrijfscode.ToString());
                 //lvw.SubItems.Add(contact.Kwaliteit);        
                 resultatenLvw.Items.Add(lvw);
                 imagelist.ImageSize = new Size(50, 50);
@@ -164,12 +167,29 @@ namespace CrmAppSchool.Views.Zoeken
 
         private void resultatenLvw_ItemActivate(object sender, EventArgs e)
         {
-            string contactcode = resultatenLvw.SelectedItems[0].SubItems[2].Text;
-            Console.WriteLine("Contactcode= " + contactcode);
-            ContactenController _controller = new ContactenController();
-            Persooncontact contact = _controller.HaalInfoOp(contactcode);
-            CrmAppSchool.Views.Contacten.ContactDetails _details = new CrmAppSchool.Views.Contacten.ContactDetails(_gebruiker, contact);
-            _details.ShowDialog();
+            
+            if (soortresultaat == 1)
+            {
+                string contactcode = resultatenLvw.SelectedItems[0].SubItems[2].Text;
+                ContactenController _controller = new ContactenController();
+                Persooncontact contact = _controller.HaalInfoOp(contactcode);
+                CrmAppSchool.Views.Contacten.ContactDetails _details = new CrmAppSchool.Views.Contacten.ContactDetails(_gebruiker, contact);
+                _details.ShowDialog();
+            }
+            else if (soortresultaat == 2)
+            {
+                string contactcode = resultatenLvw.SelectedItems[0].SubItems[4].Text;
+                BedrijfController bc = new BedrijfController();
+                Bedrijfcontact contact = bc.SelecteerBedrijf(Convert.ToInt32(contactcode));
+
+                Bedrijven.BedrijfDetails details = new Bedrijven.BedrijfDetails(_gebruiker, contact);
+                details.ShowDialog();
+            }
+            else
+            {
+                //Hier komt de code voor het openen van een nieuwe form voor het laten zien van de gebruikersdetails
+            }
+
         }
     }
     class ListViewItemComparer : IComparer
