@@ -108,12 +108,15 @@
             // lbOpdrachtBedrijf
             // 
             this.lbOpdrachtBedrijf.AutoSize = true;
-            this.lbOpdrachtBedrijf.Font = new System.Drawing.Font("Arial", 10F);
+            this.lbOpdrachtBedrijf.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbOpdrachtBedrijf.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOpdrachtBedrijf.ForeColor = System.Drawing.Color.Blue;
             this.lbOpdrachtBedrijf.Location = new System.Drawing.Point(70, 107);
             this.lbOpdrachtBedrijf.Name = "lbOpdrachtBedrijf";
-            this.lbOpdrachtBedrijf.Size = new System.Drawing.Size(14, 16);
+            this.lbOpdrachtBedrijf.Size = new System.Drawing.Size(15, 16);
             this.lbOpdrachtBedrijf.TabIndex = 24;
             this.lbOpdrachtBedrijf.Text = "x";
+            this.lbOpdrachtBedrijf.Click += new System.EventHandler(this.lbOpdrachtBedrijf_Click);
             // 
             // lbOpdrachtContact
             // 
