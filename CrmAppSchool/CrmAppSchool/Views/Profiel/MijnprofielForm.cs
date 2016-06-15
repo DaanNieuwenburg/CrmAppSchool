@@ -319,6 +319,10 @@ namespace CrmAppSchool.Views.Profiel
             {
                 MessageBox.Show("De wachtwoorden komen niet overeen", "Waarschuwing");
             }
+            else if (tbWachtwoord.Text == "")
+            {
+                MessageBox.Show("Voer een nieuw wachtwoord in.");
+            }
             else if (EditWachtwoordMode == true && tbWachtwoord.Text == tbBevestig.Text)
             {
                 // Kijk of het oude wachtwoord klopt met die in de database
