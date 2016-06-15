@@ -59,7 +59,6 @@
     <Compile Include="Controllers\EncryptieController.cs" />
     <Compile Include="Controllers\GebruikerController.cs" />
     <Compile Include="Controllers\ProfielController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DatabaseController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\StageopdrachtController.cs" />
