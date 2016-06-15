@@ -271,11 +271,11 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"SELECT * FROM gebruikercontactpersoon";
+                string query = @"SELECT count(*) as aantalkeer FROM gebruikercontactpersoon WHERE contactcode = @contactcode AND gebruikersnaam = @gebruikernaam";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
-                MySqlParameter gebruikercodeParam = new MySqlParameter("gebruikercode", MySqlDbType.VarChar);
+                MySqlParameter gebruikercodeParam = new MySqlParameter("gebruikernaam", MySqlDbType.VarChar);
 
                 contactcodeParam.Value = contactcode;
                 gebruikercodeParam.Value = _gebruiker.Gebruikersnaam;
@@ -285,7 +285,14 @@ namespace CrmAppSchool.Controllers
 
                 command.Prepare();
                 MySqlDataReader datalezer = command.ExecuteReader();
+                int aantalkeer = 0;
                 while (datalezer.Read())
+                {
+                    aantalkeer = datalezer.GetInt32("aantalkeer");
+                }
+
+                // Bepaal bool
+                if(aantalkeer > 0)
                 {
                     waardeterug = true;
                 }
