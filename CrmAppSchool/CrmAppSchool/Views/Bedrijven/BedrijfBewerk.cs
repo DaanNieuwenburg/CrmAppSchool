@@ -21,6 +21,7 @@ namespace CrmAppSchool.Views.Bedrijven
         private int bedrijfcode { get; set; }
         private int beoordeling { get; set; }
         private bool validmobiel { get; set; }
+        private bool validwebsite { get; set; }
         private bool validemail { get; set; }
         private bool isinsert { get; set; }
         private bool validtelefoon { get; set; }
@@ -30,6 +31,7 @@ namespace CrmAppSchool.Views.Bedrijven
             InitializeComponent();
             validmobiel = true;
             validemail = true;
+            validwebsite = true;
             validtelefoon = true;
             gebruiker = _gebruiker;
 
@@ -50,14 +52,6 @@ namespace CrmAppSchool.Views.Bedrijven
                 int a = 0;
                 foreach (string line in kwalteitenlijst)
                 {
-                    /*if (a == 0)
-                    {
-                        tbKwaliteiten.Text = line + "\n";
-                    }
-                    else
-                    {
-                        tbKwaliteiten.Text = tbKwaliteiten + "\n" + line;
-                    }  */
                     tbKwaliteiten.Text = tbKwaliteiten.Text + line + Environment.NewLine;
                 }
             }
@@ -72,6 +66,11 @@ namespace CrmAppSchool.Views.Bedrijven
             {
                 opslaan = false;
                 MessageBox.Show("Er is geen geldig telefoonnummer ingevoerd");
+            }
+            if (validwebsite == false)
+            {
+                opslaan = false;
+                MessageBox.Show("Er is geen geldige website ingevoerd", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             if (opslaan == true)
             {
@@ -159,6 +158,29 @@ namespace CrmAppSchool.Views.Bedrijven
         {
             tbEadres.ForeColor = Color.Black;
             validemail = true;
+        }
+
+        private void tbWebsite_Enter(object sender, EventArgs e)
+        {
+            tbWebsite.ForeColor = Color.Black;
+            validwebsite = false;
+        }
+
+        private void tbWebsite_Leave(object sender, EventArgs e)
+        {
+            Uri uri = null;
+
+            if (!Uri.TryCreate(tbWebsite.Text, UriKind.Absolute, out uri) || null == uri)
+            {
+                //Invalid URL
+                validwebsite = false;
+                tbWebsite.ForeColor = Color.Red;
+            }
+            else
+            {
+                tbWebsite.ForeColor = Color.Black;
+                validwebsite = true;
+            }
         }
     }
 }
