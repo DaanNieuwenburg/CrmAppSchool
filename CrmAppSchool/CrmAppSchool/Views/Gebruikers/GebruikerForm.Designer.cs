@@ -6,7 +6,7 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
+        
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -48,7 +48,6 @@
             this.tb_voornaam = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gebruikersnaamTxb
@@ -255,8 +254,6 @@
             this.Load += new System.EventHandler(this.voegGebruikerToeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
