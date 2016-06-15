@@ -181,19 +181,20 @@ namespace CrmAppSchool.Views.Bedrijven
                 opslaan = false;
                 MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
             }
-            int j = 0;
+            
             string a = tbBedrijfsnaam.Text;
-            foreach (var contact in lvBedrijven.Items[j].Text.ToString())
+
+            for (int j = 0; j < lvBedrijven.Items.Count; j++)
             {
-                string b = contact.ToString();
+                string b = lvBedrijven.Items[j].Text;
                 if (a == b)
                 {
                     opslaan = false;
                     MessageBox.Show("Het gekozen bedrijf bestaat al\nProbeer a.u.b. een andere bedrijfnaam");
                     break;
                 }
-                j++;
             }
+            
             if (tbTelefoon.Text.Count() <= 0 && tbEadres.Text.Count() <= 0)
             {
                 opslaan = false;
