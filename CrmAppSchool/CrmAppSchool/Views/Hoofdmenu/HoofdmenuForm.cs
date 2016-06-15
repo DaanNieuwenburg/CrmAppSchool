@@ -250,8 +250,10 @@ namespace CrmAppSchool.Views.Gebruikers
 
         private void btnBedrijven_Click(object sender, EventArgs e)
         {
+            //Cursor = Cursors.AppStarting;
             Bedrijven.BedrijfForm bForm = new Bedrijven.BedrijfForm(gebruiker);
             bForm.ShowDialog();
+            //Cursor = Cursors.Default;
         }
     }
 }

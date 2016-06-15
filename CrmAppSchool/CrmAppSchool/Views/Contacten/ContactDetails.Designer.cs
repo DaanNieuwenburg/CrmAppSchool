@@ -237,9 +237,10 @@
             // llbMValue
             // 
             this.llbMValue.AutoSize = true;
-            this.llbMValue.Location = new System.Drawing.Point(388, 171);
+            this.llbMValue.Font = new System.Drawing.Font("Arial", 10F);
+            this.llbMValue.Location = new System.Drawing.Point(386, 165);
             this.llbMValue.Name = "llbMValue";
-            this.llbMValue.Size = new System.Drawing.Size(13, 14);
+            this.llbMValue.Size = new System.Drawing.Size(17, 16);
             this.llbMValue.TabIndex = 33;
             this.llbMValue.TabStop = true;
             this.llbMValue.Text = "E";
@@ -376,7 +377,7 @@
             this.lbKWvalue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbKWvalue.Font = new System.Drawing.Font("Arial", 12F);
             this.lbKWvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lbKWvalue.Location = new System.Drawing.Point(388, 184);
+            this.lbKWvalue.Location = new System.Drawing.Point(388, 194);
             this.lbKWvalue.Name = "lbKWvalue";
             this.lbKWvalue.Size = new System.Drawing.Size(15, 18);
             this.lbKWvalue.TabIndex = 46;
@@ -388,7 +389,7 @@
             this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label8.Font = new System.Drawing.Font("Arial", 10F);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.label8.Location = new System.Drawing.Point(303, 185);
+            this.label8.Location = new System.Drawing.Point(303, 195);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 16);
             this.label8.TabIndex = 45;
@@ -413,7 +414,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(550, 541);
             this.Controls.Add(this.lbl_soort);
-            
             this.Controls.Add(this.lbKWvalue);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnVoegtoe);
