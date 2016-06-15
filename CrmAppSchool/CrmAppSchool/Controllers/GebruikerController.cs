@@ -43,13 +43,7 @@ namespace CrmAppSchool.Controllers
                     command.ExecuteNonQuery();
 
                     trans.Commit();
-
-                    // Voeg profiel toe
-                    if (_gebruiker.SoortGebruiker == "Docent" || _gebruiker.SoortGebruiker == "Admin")
-                    {
-                        ProfielController profielcontroller = new ProfielController();
-                        profielcontroller.voegProfielToe(_gebruiker.Gebruikersnaam);
-                    }
+                    
                 }
                 catch (MySqlException e)
                 {
@@ -70,38 +64,9 @@ namespace CrmAppSchool.Controllers
             }
         }
 
-        public void CreeërProfiel(Gebruiker gebruiker)
-        {
-            MySqlTransaction trans = null;
-            try
-            {
-                conn.Open();
-                string query = "INSERT INTO gebruiker_profiel (gebruikersnaam) VALUES (@gebruiker)";
-                MySqlCommand command = new MySqlCommand(query, conn);
-                MySqlParameter gebruikerParam = new MySqlParameter("@gebruiker", MySqlDbType.VarChar);
+        
 
-                gebruikerParam.Value = gebruiker.Gebruikersnaam;
-
-                command.Parameters.Add(gebruikerParam);
-
-                command.Prepare();
-
-                command.ExecuteNonQuery();
-            }
-            catch (MySqlException e)
-            {
-                if(trans != null)
-                {
-                    trans.Rollback();
-                }
-                Console.WriteLine("Error in het aanmaken van het gebruikersprofiel" + e);
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-        }
+        
         public List<Gebruiker> haalGebruikersOp()
         {
             try

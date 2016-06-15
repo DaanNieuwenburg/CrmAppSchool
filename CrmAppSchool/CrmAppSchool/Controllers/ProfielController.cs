@@ -10,20 +10,27 @@ namespace CrmAppSchool.Controllers
 {
     public class ProfielController : DatabaseController
     {
-        public void voegProfielToe(string gebruikersnaam)
+        public void voegProfielToe(string gebruikersnaam, string voornaam, string achternaam)
         {
             MySqlTransaction trans = null;
             try
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"INSERT INTO gebruiker_profiel (gebruikersnaam) VALUES (@gebruikersnaam)";
+                string query = @"INSERT INTO gebruiker_profiel (gebruikersnaam, voornaam, achternaam) VALUES (@gebruikersnaam, @voornaam, @achternaam)";
                 MySqlCommand command = new MySqlCommand(query, conn);
 
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
+                MySqlParameter voornaamParam = new MySqlParameter("@voornaam", MySqlDbType.VarChar);
+                MySqlParameter achternaamParam = new MySqlParameter("@achternaam", MySqlDbType.VarChar);
 
                 gebruikersnaamParam.Value = gebruikersnaam;
+                voornaamParam.Value = voornaam;
+                achternaamParam.Value = achternaam;
+
                 command.Parameters.Add(gebruikersnaamParam);
+                command.Parameters.Add(voornaamParam);
+                command.Parameters.Add(achternaamParam);
 
                 command.Prepare();
                 command.ExecuteNonQuery();

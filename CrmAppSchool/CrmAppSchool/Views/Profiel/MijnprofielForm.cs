@@ -151,17 +151,26 @@ namespace CrmAppSchool.Views.Profiel
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
+            bool error = false;
             for (int i = 0; i < 6; i++)
             {
                 if (Bewerkt[i] == true)
                 {
                     if (i == 0)
                     {
-                        lblVoornaamWaarde.Text = tbVoornaam.Text;
+                        if (tbVoornaam.Text != "")
+                            lblVoornaamWaarde.Text = tbVoornaam.Text;
+
+                        else
+                            error = true;
                     }
                     else if (i == 1)
                     {
-                        lblAchternaamWaarde.Text = tbAchternaam.Text;
+                        if (tbAchternaam.Text != "")
+                            lblAchternaamWaarde.Text = tbAchternaam.Text;
+
+                        else
+                            error = true;
                     }
                     else if (i == 3)
                     {
@@ -176,55 +185,60 @@ namespace CrmAppSchool.Views.Profiel
                     }
                 }
             }
-
-            // Schrijf de nieuwe profiel informatie over naar de database
-            Controllers.ProfielController profielController = new Controllers.ProfielController();
-            profiel.Voornaam = lblVoornaamWaarde.Text;
-            profiel.Achternaam = lblAchternaamWaarde.Text;
-            profiel.Locatie = lblLocatieWaarde.Text;
-            profiel.Functie = lblFunctieWaarde.Text;
-
-            // Zet de kwaliteiten in de list
-            profiel.KwaliteitenLijst = new List<string>();
-            foreach (string ingevoerdeKwaliteit in tbKwaliteit.Lines)
+            if (error == true)
             {
-                if (ingevoerdeKwaliteit != "")
+                MessageBox.Show("De velden Voornaam en Achternaam mogen niet leeg zijn.");
+            }
+            else {
+                // Schrijf de nieuwe profiel informatie over naar de database
+                Controllers.ProfielController profielController = new Controllers.ProfielController();
+                profiel.Voornaam = lblVoornaamWaarde.Text;
+                profiel.Achternaam = lblAchternaamWaarde.Text;
+                profiel.Locatie = lblLocatieWaarde.Text;
+                profiel.Functie = lblFunctieWaarde.Text;
+
+                // Zet de kwaliteiten in de list
+                profiel.KwaliteitenLijst = new List<string>();
+                foreach (string ingevoerdeKwaliteit in tbKwaliteit.Lines)
                 {
-                    profiel.KwaliteitenLijst.Add(ingevoerdeKwaliteit);
+                    if (ingevoerdeKwaliteit != "")
+                    {
+                        profiel.KwaliteitenLijst.Add(ingevoerdeKwaliteit);
+                    }
                 }
-            }
 
-            // Zet de kwaliteiten weer in de textbox
-            tbKwaliteit.Text = "";
-            lblKwaliteitWaarde.Text = "";
-            foreach (string kwaliteit in profiel.KwaliteitenLijst)
-            {
-                Console.WriteLine("KW= " + kwaliteit);
-                tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit + Environment.NewLine;
-                lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + Environment.NewLine;
-            }
+                // Zet de kwaliteiten weer in de textbox
+                tbKwaliteit.Text = "";
+                lblKwaliteitWaarde.Text = "";
+                foreach (string kwaliteit in profiel.KwaliteitenLijst)
+                {
+                    Console.WriteLine("KW= " + kwaliteit);
+                    tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit + Environment.NewLine;
+                    lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + Environment.NewLine;
+                }
 
-            tbKwaliteit.Text = "";
+                tbKwaliteit.Text = "";
 
-            // Zet de checkboxes in het profiel
-            profiel.VoornaamIsZichtbaar = cbPriveVN.Checked;
-            profiel.AchternaamIsZichtbaar = cbPriveAN.Checked;
-            profiel.LocatieIsZichtbaar = cbPriveLO.Checked;
-            profiel.FunctieIsZichtbaar = cbPriveFU.Checked;
-            profiel.KwaliteitIsZichtbaar = cbPriveKW.Checked;
+                // Zet de checkboxes in het profiel
+                profiel.VoornaamIsZichtbaar = cbPriveVN.Checked;
+                profiel.AchternaamIsZichtbaar = cbPriveAN.Checked;
+                profiel.LocatieIsZichtbaar = cbPriveLO.Checked;
+                profiel.FunctieIsZichtbaar = cbPriveFU.Checked;
+                profiel.KwaliteitIsZichtbaar = cbPriveKW.Checked;
 
-            profielController.Update_Profiel(gebruiker, profiel);
+                profielController.Update_Profiel(gebruiker, profiel);
 
-            // Zet de bewerk of prive mode weer uit
-            if (EditMode == true)
-            {
-                EditMode = false;
-                Updatebuttons();
-            }
-            else if (PriveMode == true)
-            {
-                PriveMode = false;
-                UpdatePrive();
+                // Zet de bewerk of prive mode weer uit
+                if (EditMode == true)
+                {
+                    EditMode = false;
+                    Updatebuttons();
+                }
+                else if (PriveMode == true)
+                {
+                    PriveMode = false;
+                    UpdatePrive();
+                }
             }
         }
 

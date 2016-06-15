@@ -65,7 +65,16 @@ namespace CrmAppSchool.Views.Gebruikers
         private void voegToeBtn_Click(object sender, EventArgs e)
         {
             // valideert of alle gegevens zijn en ingevuld, zo ja roept de controller aan
-            if (gebruikersnaamTxb.Text == "" || wachtwoordTxb.Text == "" || Convert.ToString(soortGebruikerCbx.SelectedItem) == "")
+
+            if (Convert.ToString(soortGebruikerCbx.SelectedItem) == "")
+            {
+                MessageBox.Show("Voer a.u.b.alle informatie in", "Error");
+            }
+            else if (soortGebruikerCbx.Text == "Student" && (gebruikersnaamTxb.Text == "" || wachtwoordTxb.Text == ""))
+            {
+                MessageBox.Show("Voer a.u.b.alle informatie in", "Error");
+            }
+            else if (soortGebruikerCbx.Text == "Docent" && (gebruikersnaamTxb.Text == "" || wachtwoordTxb.Text == "" || tb_voornaam.Text == "" || tb_achternaam.Text == ""))
             {
                 MessageBox.Show("Voer a.u.b.alle informatie in", "Error");
             }
@@ -76,13 +85,20 @@ namespace CrmAppSchool.Views.Gebruikers
                 gebruikercontroller.voegGebruikerToe(gebruiker);
                 if (gebruiker.SoortGebruiker == "Admin" || gebruiker.SoortGebruiker == "Docent")
                 {
-                    gebruikercontroller.CreeërProfiel(gebruiker);
+                    ProfielController profielcontroller = new ProfielController();
+                    profielcontroller.voegProfielToe(gebruiker.Gebruikersnaam, tb_voornaam.Text, tb_achternaam.Text);
                 }
 
                 // Reset de textboxxes
                 gebruikersnaamTxb.Text = "";
                 wachtwoordTxb.Text = "";
                 soortGebruikerCbx.Text = "";
+                tb_achternaam.Text = "";
+                tb_voornaam.Text = "";
+                tb_achternaam.Visible = true;
+                tb_voornaam.Visible = true;
+                label1.Visible = true;
+                label2.Visible = true;
 
                 // Reset de listview
                 gebruikerLvw.Items.Clear();
@@ -96,7 +112,7 @@ namespace CrmAppSchool.Views.Gebruikers
             this.Hide();
             HoofdmenuForm hoofdmenu = new HoofdmenuForm(gebruiker);
             hoofdmenu.ShowDialog();
-            
+
         }
         private void voegGebruikerToeForm_Load(object sender, EventArgs e)
         {
@@ -129,6 +145,25 @@ namespace CrmAppSchool.Views.Gebruikers
             vulListView();
         }
 
+        private void soortGebruikerCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (soortGebruikerCbx.Text == "Student")
+            {
+                label1.Visible = false;
+                label2.Visible = false;
+                tb_voornaam.Text = "";
+                tb_achternaam.Text = "";
+                tb_achternaam.Visible = false;
+                tb_voornaam.Visible = false;
+            }
+            else
+            {
+                label1.Visible = true;
+                label2.Visible = true;
+                tb_achternaam.Visible = true;
+                tb_voornaam.Visible = true;
+            }
+        }
     }
 }
 
