@@ -173,6 +173,7 @@ namespace CrmAppSchool.Views.Bedrijven
                     // verkeerd e-mail address
                     emailTb.ForeColor = Color.Red;
                     validemail = false;
+                    Console.WriteLine(ex);
                 }
             }
         }
