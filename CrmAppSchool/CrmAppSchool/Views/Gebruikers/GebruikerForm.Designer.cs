@@ -48,6 +48,7 @@
             this.tb_voornaam = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gebruikersnaamTxb
@@ -134,6 +135,7 @@
             this.gebruikerLvw.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.gebruikersnaamHeader,
             this.soortGebruikerHeader});
+            this.gebruikerLvw.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gebruikerLvw.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gebruikerLvw.Location = new System.Drawing.Point(12, 200);
             this.gebruikerLvw.MultiSelect = false;
@@ -246,12 +248,6 @@
             this.Controls.Add(this.pbHome);
             this.Controls.Add(this.lblGebruiker);
             this.Controls.Add(this.pbHeader);
-            this.Controls.Add(this.gebruikerLbl);
-            this.Controls.Add(this.soortGebruikerCbx);
-            this.Controls.Add(this.wachtwoordLbl);
-            this.Controls.Add(this.gebruikersnaamLbl);
-            this.Controls.Add(this.wachtwoordTxb);
-            this.Controls.Add(this.gebruikersnaamTxb);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "voegGebruikerToeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -259,6 +255,8 @@
             this.Load += new System.EventHandler(this.voegGebruikerToeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

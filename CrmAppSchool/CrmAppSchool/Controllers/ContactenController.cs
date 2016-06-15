@@ -461,11 +461,10 @@ namespace CrmAppSchool.Controllers
         }
         public void bewerkContact(Persooncontact contact)
         {
-            Console.WriteLine("BEOORDELING IS " + contact.Beoordeling);
             try
             {
                 conn.Open();
-                string query = @"UPDATE contactpersoon SET voornaam = @voornaam, achternaam = @achternaam, locatie = @locatie, email = @email, functie = @functie, afdeling = @afdeling, bedrijfcode = @bedrijfcode, mobielnr = @mobielnr 
+                string query = @"UPDATE contactpersoon SET voornaam = @voornaam, achternaam = @achternaam, locatie = @locatie, email = @email, functie = @functie, afdeling = @afdeling, isgastdocent = @isgastdocent, isstagebegeleider = @isstagebegeleider, bedrijfcode = @bedrijfcode, mobielnr = @mobielnr 
                                      WHERE contactcode = @contactcode";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter voornaamParam = new MySqlParameter("voornaam", MySqlDbType.VarChar);
@@ -474,6 +473,8 @@ namespace CrmAppSchool.Controllers
                 MySqlParameter emailParam = new MySqlParameter("email", MySqlDbType.VarChar);
                 MySqlParameter functieParam = new MySqlParameter("functie", MySqlDbType.VarChar);
                 MySqlParameter afdelingParam = new MySqlParameter("afdeling", MySqlDbType.VarChar);
+                MySqlParameter isgastdocentParam = new MySqlParameter("isgastdocent", MySqlDbType.Int32);
+                MySqlParameter isstagebegeleiderParam = new MySqlParameter("isstagebegeleider", MySqlDbType.Int32);
                 MySqlParameter bedrijfcodeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
                 MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
                 MySqlParameter mobielnrParam = new MySqlParameter("mobielnr", MySqlDbType.Text);
@@ -484,6 +485,8 @@ namespace CrmAppSchool.Controllers
                 emailParam.Value = contact.Email;
                 functieParam.Value = contact.Functie;
                 afdelingParam.Value = contact.Afdeling;
+                isgastdocentParam.Value = contact.Isgastdocent;
+                isstagebegeleiderParam.Value = contact.Isstagebegeleider;
                 bedrijfcodeParam.Value = contact.Bedrijf.Bedrijfscode;
                 contactcodeParam.Value = contact.Contactcode;
                 mobielnrParam.Value = contact.Mobielnr;
@@ -495,6 +498,8 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(emailParam);
                 command.Parameters.Add(functieParam);
                 command.Parameters.Add(afdelingParam);
+                command.Parameters.Add(isgastdocentParam);
+                command.Parameters.Add(isstagebegeleiderParam);
                 command.Parameters.Add(bedrijfcodeParam);
                 command.Parameters.Add(contactcodeParam);
                 command.Parameters.Add(mobielnrParam);
