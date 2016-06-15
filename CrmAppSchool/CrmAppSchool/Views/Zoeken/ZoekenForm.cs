@@ -43,15 +43,21 @@ namespace CrmAppSchool.Views.Zoeken
             else
             {
                 ZoekController zoekController = new ZoekController();
-                if(cbZoeknaar.Text != "Bedrijf")
+                if (cbZoeknaar.Text != "Bedrijf")
                 {
                     List<Models.Persooncontact> resultaatLijst = zoekController.zoekMetFilter(zoekquery, zoekcriteriaTxb.Text, zoeknaar);
                     if (resultaatLijst.Count > 0)
                     {
-                        ZoekOverzichtForm zoekOverzichtForm = new ZoekOverzichtForm(zoekfilterCbx, gebruiker);
+                        int soort = 1;
+                        if (cbZoeknaar.Text == "Gebruiker")
+                        {
+                            soort = 0;
+                        }
+                        ZoekOverzichtForm zoekOverzichtForm = new ZoekOverzichtForm(zoekfilterCbx, gebruiker, soort);
                         zoekOverzichtForm.VulListviewPersoon(resultaatLijst);
                         this.Hide();
                         zoekOverzichtForm.ShowDialog();
+
                     }
                     else
                     {
@@ -61,15 +67,15 @@ namespace CrmAppSchool.Views.Zoeken
                 else
                 {
                     List<Models.Bedrijfcontact> bedrijfresultaten = zoekController.Zoekbedrijf(zoekquery, zoekcriteriaTxb.Text, zoeknaar);
-                    if(bedrijfresultaten.Count > 0)
+                    if (bedrijfresultaten.Count > 0)
                     {
-                        ZoekOverzichtForm zoekOverzichtForm = new ZoekOverzichtForm(zoekfilterCbx, gebruiker);
+                        ZoekOverzichtForm zoekOverzichtForm = new ZoekOverzichtForm(zoekfilterCbx, gebruiker, 2);
                         zoekOverzichtForm.VulListviewBedrijf(bedrijfresultaten);
                         this.Hide();
                         zoekOverzichtForm.ShowDialog();
                     }
                 }
-                
+
             }
         }
 
@@ -77,16 +83,16 @@ namespace CrmAppSchool.Views.Zoeken
         {
             filterLbl.Visible = true;
             zoekfilterCbx.Visible = true;
-            if(cbZoeknaar.SelectedItem.ToString() == "Bedrijf")
+            if (cbZoeknaar.SelectedItem.ToString() == "Bedrijf")
             {
                 zoekfilterCbx.Items.Clear();
-                
+
                 zoekfilterCbx.Items.Add("Bedrijfnaam");
                 zoekfilterCbx.Items.Add("Hoofdlocatie");
                 zoekfilterCbx.Items.Add("Omschrijving");
                 zoekfilterCbx.SelectedItem = zoekfilterCbx.Items[0];
             }
-            else if(cbZoeknaar.SelectedItem.ToString() == "Gebruiker")
+            else if (cbZoeknaar.SelectedItem.ToString() == "Gebruiker")
             {
                 zoekfilterCbx.Items.Clear();
                 zoekfilterCbx.Items.Add("Voornaam");
