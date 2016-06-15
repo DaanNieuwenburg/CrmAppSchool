@@ -287,7 +287,6 @@ namespace CrmAppSchool.Views.Bedrijven
 
         }
 
-
         private void lvContacten_ItemActivate(object sender, EventArgs e)
         {
             string contactcode = lvBedrijven.SelectedItems[0].SubItems[2].Text;

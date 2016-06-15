@@ -263,11 +263,5 @@ namespace CrmAppSchool.Views.Opdrachten
                 }
             }
         }
-
-        private void StageopdrachtForm_Load(object sender, EventArgs e)
-        {
-            
-            
-        }
     }
 }
