@@ -261,6 +261,10 @@ namespace CrmAppSchool.Controllers
 
             catch (MySqlException e)
             {
+                if((uint)e.ErrorCode == 0x80004005)
+                {
+                    MessageBox.Show("De bedrijfnaam kan niet bewerkt worden: dit bedrijf bestaat al");
+                }
                 Console.WriteLine("Error in Bedrijfcontroller - bewerkContact: " + e);
             }
             finally
