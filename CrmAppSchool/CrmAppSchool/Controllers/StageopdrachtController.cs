@@ -36,7 +36,6 @@ namespace CrmAppSchool.Controllers
                     Bedrijfcontact bedrijfcontact = bc.SelecteerBedrijf(bedrijfcode);
                     ContactenController cc = new ContactenController();
                     Persooncontact persooncontact = cc.HaalInfoOp(contactcode.ToString());
-                        Console.WriteLine("de bnaam = " + bedrijfcontact.Bedrijfnaam);
                     opdracht.Bedrijf = bedrijfcontact;
                     opdracht.Contact = persooncontact;
                     opdrachten.Add(opdracht);
@@ -80,7 +79,6 @@ namespace CrmAppSchool.Controllers
                     opdracht.Omschrijving = datalezer.GetString("omschrijving");
                     opdracht.Bedrijf = new Bedrijfcontact();
                     opdracht.Bedrijf.Bedrijfnaam = datalezer.GetString("bedrijfnaam");
-                    Console.WriteLine("Test: " + datalezer.GetString("bedrijfnaam"));
                     opdracht.Contact = new Persooncontact();
                     opdracht.Contact.Voornaam = datalezer.GetString("voornaam");
                     opdracht.Contact.Achternaam = datalezer.GetString("achternaam");
@@ -129,7 +127,6 @@ namespace CrmAppSchool.Controllers
                     Stageopdracht opdracht = new Stageopdracht { Code = code, Status = status, Naam = naam, Omschrijving = omschrijving };
                     BedrijfController bc = new BedrijfController();
                     Bedrijfcontact bedrijfcontact = bc.SelecteerBedrijf(bedrijfcode);
-                    Console.WriteLine("de bnaam = " + bedrijfcontact.Bedrijfnaam);
                     opdracht.Bedrijf = bedrijfcontact;
                     ContactenController cc = new ContactenController();
                     Persooncontact persooncontact = cc.HaalInfoOp(contactcode.ToString());
