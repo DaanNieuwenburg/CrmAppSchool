@@ -115,6 +115,7 @@
             this.soortCbx.Name = "soortCbx";
             this.soortCbx.Size = new System.Drawing.Size(178, 24);
             this.soortCbx.TabIndex = 43;
+            this.soortCbx.SelectedIndexChanged += new System.EventHandler(this.soortCbx_SelectedIndexChanged);
             // 
             // label1
             // 
