@@ -74,6 +74,10 @@ namespace CrmAppSchool.Views.Zoeken
                         this.Hide();
                         zoekOverzichtForm.ShowDialog();
                     }
+                    else
+                    {
+                        MessageBox.Show("Geen Resultaten gevonden");
+                    }
                 }
 
             }
