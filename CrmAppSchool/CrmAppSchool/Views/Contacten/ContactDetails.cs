@@ -48,11 +48,12 @@ namespace CrmAppSchool.Views.Contacten
             lblLOvalue.Text = contact.Locatie;
             llbMValue.Text = contact.Email;
             lblMOvalue.Text = contact.Mobielnr;
-            if(contact.Functie != null)
+            lblBDvalue.Text = contact.Bedrijf.Bedrijfnaam;
+            if (contact.Functie != null)
             {
                 lblFUvalue.Text = contact.Functie;
             }
-            //lblBDvalue.Text = contact.Bedrijf.Bedrijfnaam;
+            
         }
 
         private void ContactDetails_Load(object sender, EventArgs e)

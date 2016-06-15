@@ -7,6 +7,8 @@ namespace UnitTest
     [TestClass]
     public class gebruikerControllerUC
     {
+
+        // VoegGebruikerToe
         [TestMethod]
         public void TestVoegGebruikerToeNull()
         { 
@@ -20,11 +22,13 @@ namespace UnitTest
             // Probeert een waarde te inserten die niet in de enum soortgebruiker kan
             CrmAppSchool.Controllers.GebruikerController gc = new GebruikerController();
             CrmAppSchool.Models.Gebruiker gebruikermodel = new CrmAppSchool.Models.Gebruiker();
-            gebruikermodel.Gebruikersnaam = "1111";
-            gebruikermodel.Wachtwoord = "1111";
-            gebruikermodel.SoortGebruiker = "111";
+            gebruikermodel.Gebruikersnaam = "UnitTest1";
+            gebruikermodel.Wachtwoord = "unitTest1";
+            gebruikermodel.SoortGebruiker = "UnitTest1";
             gc.voegGebruikerToe(gebruikermodel);
         }
+
+        // 
     }
 }
 ;
