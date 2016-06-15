@@ -479,5 +479,16 @@ namespace CrmAppSchool.Views.Bedrijven
 
 
         }
+
+        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                if (ShowZoeken == true)
+                {
+                    zoek();
+                }
+            }
+        }
     }
 }

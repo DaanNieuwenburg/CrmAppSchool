@@ -20,11 +20,15 @@ namespace CrmAppSchool.Views.Login
 
         private void inlogBtn_Click(object sender, EventArgs e)
         {
+            Login();
+        }
+        private void Login()
+        {
             string gebruikersnaam = gebruikersnaamTxb.Text;
             string wachtwoord = wachtwoordTxb.Text;
             LoginController logincontroller = new LoginController();
             bool resultaat = logincontroller.VerifieerGebruiker(gebruikersnaam, wachtwoord);
-            if(resultaat == false)
+            if (resultaat == false)
             {
                 MessageBox.Show("Inloggen mislukt\nControleer uw gebruikersnaam en of wachtwoord", "Error");
                 wachtwoordTxb.Text = "";
@@ -35,7 +39,6 @@ namespace CrmAppSchool.Views.Login
                 this.Hide();
             }
         }
-
         private void InlogForm_Load(object sender, EventArgs e)
         {
             if(Properties.Settings.Default.Remember == "True")
@@ -63,6 +66,14 @@ namespace CrmAppSchool.Views.Login
                 Properties.Settings.Default.Remember = "False";
             }
             Properties.Settings.Default.Save();
+        }
+
+        private void wachtwoordTxb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Login();
+            }
         }
     }
 }
