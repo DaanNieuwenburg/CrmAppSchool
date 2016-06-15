@@ -16,12 +16,10 @@ namespace CrmAppSchool.Controllers
             bool isinsert = bestaatEvaluatie(contact, gebruiker);
             if (isinsert == true)
             {
-                Console.WriteLine("Het bestaat");
                 bewerkEvaluatie(contact, gebruiker);
             }
             else
             {
-                Console.WriteLine("bestaa niet");
                 voegEvaluatieToe(contact, gebruiker);
             }
         }
