@@ -30,6 +30,7 @@ namespace CrmAppSchool.Views.Bedrijven
             InitializeComponent();
             validmobiel = true;
             validemail = true;
+            validtelefoon = true;
             gebruiker = _gebruiker;
 
 
@@ -42,11 +43,24 @@ namespace CrmAppSchool.Views.Bedrijven
             tbEadres.Text = contact.Email;
             contactcode = contact.Bedrijfscode;
             tbContact.Text = contact.Contactpersoon;
-            /*foreach (string line in contact.Kwaliteiten)
+            BedrijfController cc = new BedrijfController(); 
+            List<string> kwalteitenlijst = cc.Get_Kwaliteiten(_gebruiker, contact);
+            if (kwalteitenlijst != null)
             {
-                tbKwaliteiten.Text = line + "\n";
-            }*/
-
+                int a = 0;
+                foreach (string line in kwalteitenlijst)
+                {
+                    /*if (a == 0)
+                    {
+                        tbKwaliteiten.Text = line + "\n";
+                    }
+                    else
+                    {
+                        tbKwaliteiten.Text = tbKwaliteiten + "\n" + line;
+                    }  */
+                    tbKwaliteiten.Text = tbKwaliteiten.Text + line + Environment.NewLine;
+                }
+            }
         }
 
        
@@ -68,14 +82,14 @@ namespace CrmAppSchool.Views.Bedrijven
                 bewerktContact.Hoofdlocatie = tbHoofdlocatie.Text;
                 bewerktContact.Website = tbWebsite.Text;
                 bewerktContact.Telefoonnr = tbTelefoon.Text;
-                string[] a = new string[tbKwaliteiten.Lines.Count()];
-                int i = 0;
-                foreach (string line in tbKwaliteiten.Lines)
+                bewerktContact.Kwaliteiten = new List<string>();
+                foreach (string ingevoerdeKwaliteit in tbKwaliteiten.Lines)
                 {
-                    a[i] = line;
-                    i++;
+                    if (ingevoerdeKwaliteit != "")
+                    {
+                        bewerktContact.Kwaliteiten.Add(ingevoerdeKwaliteit);
+                    }
                 }
-                bewerktContact.Kwaliteiten = a;
                 bewerktContact.Email = tbEadres.Text;
 
                 // Bedrijfcontroller

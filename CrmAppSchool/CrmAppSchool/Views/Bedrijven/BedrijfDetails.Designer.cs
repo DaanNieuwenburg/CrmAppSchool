@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BedrijfDetails));
-            this.lblWSvalue = new System.Windows.Forms.Label();
             this.lblHLvalue = new System.Windows.Forms.Label();
             this.lblBNvalue = new System.Windows.Forms.Label();
             this.emailLbl = new System.Windows.Forms.Label();
@@ -46,20 +45,9 @@
             this.llbEValue = new System.Windows.Forms.LinkLabel();
             this.pbHeader = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.llbWSvalue = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblWSvalue
-            // 
-            this.lblWSvalue.AutoSize = true;
-            this.lblWSvalue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblWSvalue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWSvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblWSvalue.Location = new System.Drawing.Point(388, 161);
-            this.lblWSvalue.Name = "lblWSvalue";
-            this.lblWSvalue.Size = new System.Drawing.Size(15, 18);
-            this.lblWSvalue.TabIndex = 25;
-            this.lblWSvalue.Text = "x";
             // 
             // lblHLvalue
             // 
@@ -220,12 +208,13 @@
             // llbEValue
             // 
             this.llbEValue.AutoSize = true;
+            this.llbEValue.Font = new System.Drawing.Font("Arial", 10F);
             this.llbEValue.Location = new System.Drawing.Point(388, 134);
             this.llbEValue.Name = "llbEValue";
-            this.llbEValue.Size = new System.Drawing.Size(13, 14);
+            this.llbEValue.Size = new System.Drawing.Size(14, 16);
             this.llbEValue.TabIndex = 33;
             this.llbEValue.TabStop = true;
-            this.llbEValue.Text = "E";
+            this.llbEValue.Text = "x";
             this.llbEValue.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // pbHeader
@@ -250,16 +239,28 @@
             this.label6.TabIndex = 42;
             this.label6.Text = "Bedrijfinfo";
             // 
+            // llbWSvalue
+            // 
+            this.llbWSvalue.AutoSize = true;
+            this.llbWSvalue.Font = new System.Drawing.Font("Arial", 10F);
+            this.llbWSvalue.Location = new System.Drawing.Point(388, 165);
+            this.llbWSvalue.Name = "llbWSvalue";
+            this.llbWSvalue.Size = new System.Drawing.Size(14, 16);
+            this.llbWSvalue.TabIndex = 43;
+            this.llbWSvalue.TabStop = true;
+            this.llbWSvalue.Text = "x";
+            this.llbWSvalue.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbWSvalue_LinkClicked);
+            // 
             // BedrijfDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(608, 309);
+            this.Controls.Add(this.llbWSvalue);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.llbEValue);
             this.Controls.Add(this.lblContactnaam);
-            this.Controls.Add(this.lblWSvalue);
             this.Controls.Add(this.lblHLvalue);
             this.Controls.Add(this.lblBNvalue);
             this.Controls.Add(this.emailLbl);
@@ -288,7 +289,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pbHeader;
-        private System.Windows.Forms.Label lblWSvalue;
         private System.Windows.Forms.Label lblHLvalue;
         private System.Windows.Forms.Label lblBNvalue;
         private System.Windows.Forms.Label emailLbl;
@@ -304,5 +304,6 @@
         private System.Windows.Forms.Label lblContactnaam;
         private System.Windows.Forms.LinkLabel llbEValue;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.LinkLabel llbWSvalue;
     }
 }
