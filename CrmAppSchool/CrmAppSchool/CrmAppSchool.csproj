@@ -110,7 +110,6 @@
     <Compile Include="Views\Contacten\ContactenForm.Designer.cs">
       <DependentUpon>ContactenForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Contacten\ContactPersoon.cs" />
     <Compile Include="Views\Gebruikers\BewerkGebruikerForm.cs">
       <SubType>Form</SubType>
     </Compile>
