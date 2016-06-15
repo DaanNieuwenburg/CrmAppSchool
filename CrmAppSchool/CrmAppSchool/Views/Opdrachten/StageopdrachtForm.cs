@@ -222,7 +222,7 @@ namespace CrmAppSchool.Views.Opdrachten
             StageopdrachtController controller = new StageopdrachtController();
             string opdrachtcode = lvStage.SelectedItems[0].Text;
             Stageopdracht opdracht = controller.HaalInfoOp(opdrachtcode);
-            OpdrachtDetails details = new OpdrachtDetails(opdracht, gebruiker, lvStage.SelectedItems[0].SubItems[6].Text.ToString());
+            OpdrachtDetails details = new OpdrachtDetails(opdracht, gebruiker, lvStage.SelectedItems[0].SubItems[6].Text.ToString(), lvStage.SelectedItems[0].SubItems[7].Text.ToString());
             details.ShowDialog();
         }
 
