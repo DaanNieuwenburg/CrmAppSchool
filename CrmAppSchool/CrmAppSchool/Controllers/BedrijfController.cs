@@ -57,11 +57,18 @@ namespace CrmAppSchool.Controllers
             }
             catch (MySqlException e)
             {
+                if ((uint)e.ErrorCode == 0x80004005)
+                {
+                    MessageBox.Show("Dit bedrijf kan niet toegevoegd worden: dit bedrijf bestaat al");
+                }
+                else
+                {
+                    Console.WriteLine("Error in bedrijfcontroller - voegpersoontoe: " + e);
+                }
                 if (trans != null)
                 {
                     trans.Rollback();
                 }
-                Console.WriteLine("Error in contactencontroller - voegpersoontoe: " + e);
             }
             finally
             {
@@ -89,18 +96,18 @@ namespace CrmAppSchool.Controllers
 
 
             }
-            catch(MySqlException e)
+            catch (MySqlException e)
             {
-                if(trans != null)
+                if (trans != null)
                 {
                     trans.Rollback();
                 }
                 Console.WriteLine("Error in bedrijfcontroller - verwijderbedrijf: " + e);
-                if((uint)e.ErrorCode == 0x80004005)
+                if ((uint)e.ErrorCode == 0x80004005)
                 {
                     MessageBox.Show("Dit bedrijf kan niet verwijderd worden: er zijn nog contacten voor dit bedrijf");
                 }
-                
+
             }
             finally
             {
@@ -157,7 +164,7 @@ namespace CrmAppSchool.Controllers
                 MySqlParameter bedrijfParam = new MySqlParameter("@bedrijfnaam", MySqlDbType.VarChar);
                 bedrijfParam.Value = tekst;
                 cmd.Parameters.Add(bedrijfParam);
-                
+
                 cmd.Prepare();
                 MySqlDataReader datalezer = cmd.ExecuteReader();
                 while (datalezer.Read())
@@ -172,7 +179,7 @@ namespace CrmAppSchool.Controllers
                     contact.Omschrijving = datalezer["omschrijving"] as string;
                     resultaten.Add(contact);
                 }
-                
+
             }
             catch (Exception e)
             {
@@ -203,13 +210,13 @@ namespace CrmAppSchool.Controllers
                     contact.Bedrijfnaam = dataReader.GetString("bedrijfnaam");
                     /*if (contactenlijst.Contains(contact))*/
                     contactenlijst.Add(contact);
-        
-                        
+
+
                 }
             }
             catch (MySqlException e)
             {
-                Console.WriteLine("Error in contactencontroller - haalbedrijflijstop: " + e);
+                Console.WriteLine("Error in bedrijfcontroller - haalbedrijflijstop: " + e);
             }
             finally
             {
@@ -271,7 +278,7 @@ namespace CrmAppSchool.Controllers
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter bedrijfcodeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
 
-                bedrijfcodeParam.Value = bedrijfcode;  
+                bedrijfcodeParam.Value = bedrijfcode;
                 command.Parameters.Add(bedrijfcodeParam);
 
                 MySqlDataReader dataReader = command.ExecuteReader();
@@ -288,7 +295,7 @@ namespace CrmAppSchool.Controllers
             }
             catch (MySqlException e)
             {
-                Console.WriteLine("Error in contactencontroller - haalbedrijflijstop: " + e);
+                Console.WriteLine("Error in bedrijfcontroller - haalbedrijflijstop: " + e);
             }
             finally
             {

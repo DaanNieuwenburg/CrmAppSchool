@@ -443,6 +443,7 @@ namespace CrmAppSchool.Views.Bedrijven
                     // wrong e-mail address
                     tbEmail.ForeColor = Color.Red;
                     validemail = false;
+                    Console.WriteLine(ex);
                 }
             }
         }

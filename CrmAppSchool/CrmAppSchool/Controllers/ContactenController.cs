@@ -572,7 +572,8 @@ namespace CrmAppSchool.Controllers
                 string query = @"SELECT *
                                  FROM contactpersoon c JOIN bedrijf b
                                  ON c.bedrijfcode = b.bedrijfcode
-                                 WHERE b.bedrijfcode = @bedrijfcode";
+                                 WHERE b.bedrijfcode = @bedrijfcode
+                                 AND c.isstagebegeleider = 1";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter bedrijfParam = new MySqlParameter("bedrijfcode", MySqlDbType.VarChar);
