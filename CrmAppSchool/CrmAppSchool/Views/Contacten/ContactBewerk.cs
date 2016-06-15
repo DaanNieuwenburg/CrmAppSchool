@@ -19,7 +19,6 @@ namespace CrmAppSchool.Views.Bedrijven
         private int beoordeling { get; set; }
         private bool validmobiel { get; set; }
         private bool validemail { get; set; }
-        private bool isinsert { get; set; }
         private Gebruiker gebruiker { get; set; }
         public ContactBewerk(Persooncontact contact, Gebruiker _gebruiker)
         {
@@ -40,13 +39,6 @@ namespace CrmAppSchool.Views.Bedrijven
             beoordeling = contact.Beoordeling;          
             mobielTb.Text = contact.Mobielnr;
             setSterren();
-
-            // Kijkt of de omschrijving textbox leeg is, zoja dan is er sprake van een insert, anders update
-            isinsert = false;
-            if (tbOmschrijving.Text == "")
-            {
-                isinsert = true;
-            }
 
             // Zet de combobox selectie naar het huidige bedrijf
             bedrijfCbx.SelectedIndex = bedrijfCbx.FindStringExact(contact.Bedrijf.Bedrijfnaam);
@@ -114,7 +106,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 // ContactenEvaluatiecontroller
                 bewerktContact.Beoordeling = beoordeling;
                 ContactEvaluatieController ce = new ContactEvaluatieController();
-                ce.bepaalWhatToDo(bewerktContact, gebruiker, isinsert);
+                ce.bepaalWhatToDo(bewerktContact, gebruiker);
 
                 this.Close();
             }
