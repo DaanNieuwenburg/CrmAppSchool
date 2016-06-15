@@ -35,11 +35,35 @@ namespace CrmAppSchool.Views.Bedrijven
             // Haal de contacten evaluaties op
             ContactEvaluatieController ce = new ContactEvaluatieController();
             contact = ce.HaalInfoOp(gebruiker, contact);
-            tbOmschrijving.Text = contact.Evaluatie;
+            tbOmschrijving.Text = contact.Evaluatie + "HAI";
             beoordeling = contact.Beoordeling;          
             mobielTb.Text = contact.Mobielnr;
             setSterren();
 
+            // Zet de evaluatie in txb, mits er een evaluatie is
+            tbOmschrijving.Text = "";
+            if(contact.Evaluatie != null)
+            {
+                string[] evaluatieLijnen = contact.Evaluatie.Split(new string[] { "\n", "\n\r" }, StringSplitOptions.None);
+                int teller = 0;
+                int totaal = evaluatieLijnen.Count();
+                foreach (string evaluatie in evaluatieLijnen)
+                {
+                    if (teller == 0)
+                    {
+                        tbOmschrijving.Text = evaluatie + Environment.NewLine;
+                    }
+                    else if (teller + 1 == totaal)
+                    {
+                        tbOmschrijving.Text = tbOmschrijving.Text + evaluatie;
+                    }
+                    else
+                    {
+                        tbOmschrijving.Text = tbOmschrijving.Text + evaluatie + Environment.NewLine;
+                    }
+                    teller++;
+                }
+            }
             // Zet de combobox selectie naar het huidige bedrijf
             bedrijfCbx.SelectedIndex = bedrijfCbx.FindStringExact(contact.Bedrijf.Bedrijfnaam);
 
@@ -93,9 +117,22 @@ namespace CrmAppSchool.Views.Bedrijven
                 string omschr = "";
                 if (tbOmschrijving.Text.Count() > 1)
                 {
-                    foreach(string line in tbOmschrijving.Lines)
+                    int teller = 0;
+                    foreach (string line in tbOmschrijving.Lines)
                     {
-                        omschr = omschr + "\n\r" + line;
+                        if (teller == 0)
+                        {
+                            omschr = line + "\n";
+                        }
+                        else if (teller + 1 == tbOmschrijving.Lines.Count())
+                        {
+                            omschr = omschr + line;
+                        }
+                        else
+                        {
+                            omschr = omschr + line + "\n";
+                        }
+                        teller++;
                     }
                 }
                 bewerktContact.Evaluatie = omschr;

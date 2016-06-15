@@ -55,7 +55,7 @@ namespace CrmAppSchool.Controllers
                 {
                     if ((uint)e.ErrorCode == 0x80004005)
                     {
-                        MessageBox.Show("Deze gebruiker kan niet toegevoegd worden: dit bedrijf bestaat al");
+                        MessageBox.Show("Deze gebruiker kan niet toegevoegd worden: deze gebruiker bestaat al");
                     }
                     if (trans != null)
                     {
