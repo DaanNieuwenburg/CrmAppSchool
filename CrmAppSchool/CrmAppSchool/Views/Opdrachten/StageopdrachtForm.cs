@@ -14,7 +14,7 @@ namespace CrmAppSchool.Views.Opdrachten
 {
     public partial class StageopdrachtForm : Form
     {
-        public bool ShowMenu { get; set; }                 // Boolean voor het zichtbaar maken van de mainmenu
+        public bool ShowMenu { get; set; }                 // Boolean voor het zichtbaar maken van de mainmenus
         public bool ShowZoeken { get; set; }
         private Gebruiker gebruiker { get; set; }
 
