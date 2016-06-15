@@ -164,10 +164,15 @@ namespace CrmAppSchool.Views.Bedrijven
                     bewerktContact.Isgastdocent = true;
                     bewerktContact.Isstagebegeleider = false;
                 }
-                else
+                else if (soortCbx.Text == "Stagebegeleider")
                 {
                     bewerktContact.Isgastdocent = false;
                     bewerktContact.Isstagebegeleider = true;
+                }
+                else
+                {
+                    bewerktContact.Isgastdocent = false;
+                    bewerktContact.Isstagebegeleider = false;
                 }
 
                 bewerktContact.Evaluatie = omschr;
