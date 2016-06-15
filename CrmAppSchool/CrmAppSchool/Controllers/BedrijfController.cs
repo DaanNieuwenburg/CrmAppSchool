@@ -159,7 +159,7 @@ namespace CrmAppSchool.Controllers
                 string query = "SELECT kwaliteit FROM bedrijf_kwaliteiten WHERE bedrijfcode = @bedrijfcode";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter BC_PARAM = new MySqlParameter("@bedrijfcode", MySqlDbType.VarChar);
-                BC_PARAM.Value = contact.Bedrijfcode;
+                BC_PARAM.Value = _contact.Bedrijfscode;
                 command.Parameters.Add(BC_PARAM);
                 MySqlDataReader datalezer = command.ExecuteReader();
 
@@ -170,7 +170,7 @@ namespace CrmAppSchool.Controllers
             }
             catch (MySqlException e)
             {
-                Console.WriteLine("Error in profielcontroller - Get_Kwaliteiten: " + e);
+                Console.WriteLine("Error in Bedrijfcontroller - Get_Kwaliteiten: " + e);
             }
             finally
             {
