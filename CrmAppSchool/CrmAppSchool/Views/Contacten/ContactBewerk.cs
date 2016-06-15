@@ -40,29 +40,30 @@ namespace CrmAppSchool.Views.Bedrijven
             mobielTb.Text = contact.Mobielnr;
             setSterren();
 
-            // Zet de evaluatie in txb
+            // Zet de evaluatie in txb, mits er een evaluatie is
             tbOmschrijving.Text = "";
-            string[] evaluatieLijnen = contact.Evaluatie.Split(new string[]{ "\n", "\n\r" }, StringSplitOptions.None);
-            int teller = 0;
-            int totaal = evaluatieLijnen.Count();
-            foreach(string evaluatie in evaluatieLijnen)
+            if(contact.Evaluatie != null)
             {
-                Console.WriteLine(evaluatie);
-                if(teller == 0)
+                string[] evaluatieLijnen = contact.Evaluatie.Split(new string[] { "\n", "\n\r" }, StringSplitOptions.None);
+                int teller = 0;
+                int totaal = evaluatieLijnen.Count();
+                foreach (string evaluatie in evaluatieLijnen)
                 {
-                    tbOmschrijving.Text = evaluatie + Environment.NewLine;
+                    if (teller == 0)
+                    {
+                        tbOmschrijving.Text = evaluatie + Environment.NewLine;
+                    }
+                    else if (teller + 1 == totaal)
+                    {
+                        tbOmschrijving.Text = tbOmschrijving.Text + evaluatie;
+                    }
+                    else
+                    {
+                        tbOmschrijving.Text = tbOmschrijving.Text + evaluatie + Environment.NewLine;
+                    }
+                    teller++;
                 }
-                else if(teller + 1 == totaal)
-                {
-                    tbOmschrijving.Text = tbOmschrijving.Text + evaluatie;
-                }
-                else
-                {
-                    tbOmschrijving.Text = tbOmschrijving.Text + evaluatie + Environment.NewLine;
-                }
-                teller++;
             }
-
             // Zet de combobox selectie naar het huidige bedrijf
             bedrijfCbx.SelectedIndex = bedrijfCbx.FindStringExact(contact.Bedrijf.Bedrijfnaam);
 
