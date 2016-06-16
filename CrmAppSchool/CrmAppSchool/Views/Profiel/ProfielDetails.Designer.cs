@@ -175,9 +175,9 @@
             this.lbl_ProfielInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lbl_ProfielInfo.Location = new System.Drawing.Point(30, 66);
             this.lbl_ProfielInfo.Name = "lbl_ProfielInfo";
-            this.lbl_ProfielInfo.Size = new System.Drawing.Size(168, 22);
+            this.lbl_ProfielInfo.Size = new System.Drawing.Size(174, 22);
             this.lbl_ProfielInfo.TabIndex = 42;
-            this.lbl_ProfielInfo.Text = "Profiel Informatie";
+            this.lbl_ProfielInfo.Text = "Docent Informatie";
             // 
             // lbl_Functie
             // 
