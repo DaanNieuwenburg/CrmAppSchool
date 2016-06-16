@@ -105,9 +105,9 @@
             this.lblRegistreer.Location = new System.Drawing.Point(67, 459);
             this.lblRegistreer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRegistreer.Name = "lblRegistreer";
-            this.lblRegistreer.Size = new System.Drawing.Size(158, 19);
+            this.lblRegistreer.Size = new System.Drawing.Size(140, 19);
             this.lblRegistreer.TabIndex = 15;
-            this.lblRegistreer.Text = "Registreer gebruiker";
+            this.lblRegistreer.Text = "Gebruikersbeheer";
             this.lblRegistreer.Visible = false;
             // 
             // lblProfiel
@@ -158,7 +158,7 @@
             this.btnBedrijven.FlatAppearance.BorderSize = 0;
             this.btnBedrijven.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBedrijven.Location = new System.Drawing.Point(529, 92);
-            this.btnBedrijven.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBedrijven.Margin = new System.Windows.Forms.Padding(4);
             this.btnBedrijven.Name = "btnBedrijven";
             this.btnBedrijven.Size = new System.Drawing.Size(224, 171);
             this.btnBedrijven.TabIndex = 19;
@@ -174,7 +174,7 @@
             this.btnHelp.FlatAppearance.BorderSize = 0;
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelp.Location = new System.Drawing.Point(761, 70);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(4);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(73, 63);
             this.btnHelp.TabIndex = 12;
@@ -191,7 +191,7 @@
             this.btnContacten.FlatAppearance.BorderSize = 0;
             this.btnContacten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContacten.Location = new System.Drawing.Point(32, 92);
-            this.btnContacten.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnContacten.Margin = new System.Windows.Forms.Padding(4);
             this.btnContacten.Name = "btnContacten";
             this.btnContacten.Size = new System.Drawing.Size(224, 171);
             this.btnContacten.TabIndex = 2;
@@ -205,7 +205,7 @@
             this.pbLogo2.BackgroundImage = global::CrmAppSchool.Properties.Resources.Logo_HHS3;
             this.pbLogo2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbLogo2.Location = new System.Drawing.Point(844, 394);
-            this.pbLogo2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbLogo2.Margin = new System.Windows.Forms.Padding(4);
             this.pbLogo2.Name = "pbLogo2";
             this.pbLogo2.Size = new System.Drawing.Size(276, 133);
             this.pbLogo2.TabIndex = 11;
@@ -218,7 +218,7 @@
             this.pbLogo1.BackgroundImage = global::CrmAppSchool.Properties.Resources.Logo_HHS;
             this.pbLogo1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbLogo1.Location = new System.Drawing.Point(844, 59);
-            this.pbLogo1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbLogo1.Margin = new System.Windows.Forms.Padding(4);
             this.pbLogo1.Name = "pbLogo1";
             this.pbLogo1.Size = new System.Drawing.Size(276, 245);
             this.pbLogo1.TabIndex = 10;
@@ -234,7 +234,7 @@
             this.btnUitloggen.FlatAppearance.BorderSize = 0;
             this.btnUitloggen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUitloggen.Location = new System.Drawing.Point(527, 289);
-            this.btnUitloggen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUitloggen.Margin = new System.Windows.Forms.Padding(4);
             this.btnUitloggen.MinimumSize = new System.Drawing.Size(225, 171);
             this.btnUitloggen.Name = "btnUitloggen";
             this.btnUitloggen.Size = new System.Drawing.Size(225, 171);
@@ -249,7 +249,7 @@
             this.pbHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbHome.Location = new System.Drawing.Point(1, 0);
-            this.pbHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbHome.Margin = new System.Windows.Forms.Padding(4);
             this.pbHome.Name = "pbHome";
             this.pbHome.Size = new System.Drawing.Size(81, 62);
             this.pbHome.TabIndex = 7;
@@ -260,7 +260,7 @@
             this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.pbHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbHeader.Location = new System.Drawing.Point(0, 0);
-            this.pbHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pbHeader.Name = "pbHeader";
             this.pbHeader.Size = new System.Drawing.Size(844, 62);
             this.pbHeader.TabIndex = 6;
@@ -275,7 +275,7 @@
             this.btnOpdrachten.FlatAppearance.BorderSize = 0;
             this.btnOpdrachten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpdrachten.Location = new System.Drawing.Point(271, 284);
-            this.btnOpdrachten.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOpdrachten.Margin = new System.Windows.Forms.Padding(4);
             this.btnOpdrachten.Name = "btnOpdrachten";
             this.btnOpdrachten.Size = new System.Drawing.Size(224, 171);
             this.btnOpdrachten.TabIndex = 5;
@@ -291,7 +291,7 @@
             this.btnProfiel.FlatAppearance.BorderSize = 0;
             this.btnProfiel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProfiel.Location = new System.Drawing.Point(32, 284);
-            this.btnProfiel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProfiel.Margin = new System.Windows.Forms.Padding(4);
             this.btnProfiel.Name = "btnProfiel";
             this.btnProfiel.Size = new System.Drawing.Size(224, 171);
             this.btnProfiel.TabIndex = 4;
@@ -307,7 +307,7 @@
             this.btnZoeken.FlatAppearance.BorderSize = 0;
             this.btnZoeken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZoeken.Location = new System.Drawing.Point(271, 92);
-            this.btnZoeken.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnZoeken.Margin = new System.Windows.Forms.Padding(4);
             this.btnZoeken.Name = "btnZoeken";
             this.btnZoeken.Size = new System.Drawing.Size(224, 171);
             this.btnZoeken.TabIndex = 3;
@@ -324,7 +324,7 @@
             this.voegGebruikerToeBtn.FlatAppearance.BorderSize = 0;
             this.voegGebruikerToeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.voegGebruikerToeBtn.Location = new System.Drawing.Point(31, 284);
-            this.voegGebruikerToeBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.voegGebruikerToeBtn.Margin = new System.Windows.Forms.Padding(4);
             this.voegGebruikerToeBtn.Name = "voegGebruikerToeBtn";
             this.voegGebruikerToeBtn.Size = new System.Drawing.Size(225, 171);
             this.voegGebruikerToeBtn.TabIndex = 1;
@@ -336,7 +336,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox1.Location = new System.Drawing.Point(844, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(276, 527);
             this.pictureBox1.TabIndex = 9;
@@ -383,7 +383,7 @@
             this.Controls.Add(this.voegGebruikerToeBtn);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1134, 563);
             this.Name = "HoofdmenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
