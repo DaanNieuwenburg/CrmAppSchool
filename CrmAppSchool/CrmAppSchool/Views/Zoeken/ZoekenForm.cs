@@ -45,11 +45,15 @@ namespace CrmAppSchool.Views.Zoeken
                 ZoekController zoekController = new ZoekController();
                 if (cbZoeknaar.Text != "Bedrijf")
                 {
+                    if (zoeknaar == "Docent")
+                    {
+                        zoeknaar = "Gebruiker";
+                    }
                     List<Models.Persooncontact> resultaatLijst = zoekController.zoekMetFilter(zoekquery, zoekcriteriaTxb.Text, zoeknaar);
                     if (resultaatLijst.Count > 0)
                     {
                         int soort = 1;
-                        if (cbZoeknaar.Text == "Gebruiker")
+                        if (cbZoeknaar.Text == "Docent")
                         {
                             soort = 0;
                         }
@@ -96,7 +100,7 @@ namespace CrmAppSchool.Views.Zoeken
                 zoekfilterCbx.Items.Add("Omschrijving");
                 zoekfilterCbx.SelectedItem = zoekfilterCbx.Items[0];
             }
-            else if (cbZoeknaar.SelectedItem.ToString() == "Gebruiker")
+            else if (cbZoeknaar.SelectedItem.ToString() == "Docent")
             {
                 zoekfilterCbx.Items.Clear();
                 zoekfilterCbx.Items.Add("Voornaam");

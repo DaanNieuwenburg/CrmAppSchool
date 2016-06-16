@@ -45,10 +45,9 @@
             // zoekcriteriaTxb
             // 
             this.zoekcriteriaTxb.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zoekcriteriaTxb.Location = new System.Drawing.Point(52, 118);
-            this.zoekcriteriaTxb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.zoekcriteriaTxb.Location = new System.Drawing.Point(39, 96);
             this.zoekcriteriaTxb.Name = "zoekcriteriaTxb";
-            this.zoekcriteriaTxb.Size = new System.Drawing.Size(348, 29);
+            this.zoekcriteriaTxb.Size = new System.Drawing.Size(262, 25);
             this.zoekcriteriaTxb.TabIndex = 1;
             // 
             // filterLbl
@@ -56,10 +55,9 @@
             this.filterLbl.AutoSize = true;
             this.filterLbl.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filterLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.filterLbl.Location = new System.Drawing.Point(276, 170);
-            this.filterLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.filterLbl.Location = new System.Drawing.Point(207, 138);
             this.filterLbl.Name = "filterLbl";
-            this.filterLbl.Size = new System.Drawing.Size(63, 17);
+            this.filterLbl.Size = new System.Drawing.Size(54, 15);
             this.filterLbl.TabIndex = 2;
             this.filterLbl.Text = "Zoek op:";
             this.filterLbl.Visible = false;
@@ -77,10 +75,9 @@
             "Organisatie",
             "Locatie",
             "Functie"});
-            this.zoekfilterCbx.Location = new System.Drawing.Point(276, 202);
-            this.zoekfilterCbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.zoekfilterCbx.Location = new System.Drawing.Point(207, 164);
             this.zoekfilterCbx.Name = "zoekfilterCbx";
-            this.zoekfilterCbx.Size = new System.Drawing.Size(160, 27);
+            this.zoekfilterCbx.Size = new System.Drawing.Size(121, 24);
             this.zoekfilterCbx.TabIndex = 3;
             this.zoekfilterCbx.Visible = false;
             // 
@@ -90,10 +87,9 @@
             this.lblgebruiker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lblgebruiker.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblgebruiker.ForeColor = System.Drawing.Color.White;
-            this.lblgebruiker.Location = new System.Drawing.Point(311, 26);
-            this.lblgebruiker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblgebruiker.Location = new System.Drawing.Point(233, 21);
             this.lblgebruiker.Name = "lblgebruiker";
-            this.lblgebruiker.Size = new System.Drawing.Size(152, 19);
+            this.lblgebruiker.Size = new System.Drawing.Size(123, 16);
             this.lblgebruiker.TabIndex = 12;
             this.lblgebruiker.Text = "U bent ingelogd als:";
             // 
@@ -104,15 +100,14 @@
             this.cbZoeknaar.Font = new System.Drawing.Font("Arial", 10F);
             this.cbZoeknaar.FormattingEnabled = true;
             this.cbZoeknaar.Items.AddRange(new object[] {
-            "Gebruiker",
+            "Docent",
             "Bedrijf",
             "Stagebegeleider",
             "Gastdocent",
             "Gastspreker"});
-            this.cbZoeknaar.Location = new System.Drawing.Point(52, 202);
-            this.cbZoeknaar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbZoeknaar.Location = new System.Drawing.Point(39, 164);
             this.cbZoeknaar.Name = "cbZoeknaar";
-            this.cbZoeknaar.Size = new System.Drawing.Size(160, 27);
+            this.cbZoeknaar.Size = new System.Drawing.Size(121, 24);
             this.cbZoeknaar.TabIndex = 16;
             this.cbZoeknaar.SelectedIndexChanged += new System.EventHandler(this.cbZoeknaar_SelectedIndexChanged);
             // 
@@ -121,10 +116,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.label1.Location = new System.Drawing.Point(52, 170);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(39, 138);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 17);
+            this.label1.Size = new System.Drawing.Size(65, 15);
             this.label1.TabIndex = 15;
             this.label1.Text = "Zoek naar:";
             // 
@@ -134,10 +128,9 @@
             this.pbHome.BackgroundImage = global::CrmAppSchool.Properties.Resources.picture_Home;
             this.pbHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHome.Location = new System.Drawing.Point(3, 2);
-            this.pbHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbHome.Location = new System.Drawing.Point(2, 2);
             this.pbHome.Name = "pbHome";
-            this.pbHome.Size = new System.Drawing.Size(85, 62);
+            this.pbHome.Size = new System.Drawing.Size(64, 50);
             this.pbHome.TabIndex = 14;
             this.pbHome.TabStop = false;
             this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
@@ -145,10 +138,9 @@
             // pbHeader
             // 
             this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.pbHeader.Location = new System.Drawing.Point(-36, -10);
-            this.pbHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbHeader.Location = new System.Drawing.Point(-27, -8);
             this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(692, 74);
+            this.pbHeader.Size = new System.Drawing.Size(519, 60);
             this.pbHeader.TabIndex = 13;
             this.pbHeader.TabStop = false;
             // 
@@ -159,20 +151,19 @@
             this.btnZoek.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnZoek.FlatAppearance.BorderSize = 0;
             this.btnZoek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnZoek.Location = new System.Drawing.Point(455, 98);
-            this.btnZoek.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnZoek.Location = new System.Drawing.Point(341, 80);
             this.btnZoek.Name = "btnZoek";
-            this.btnZoek.Size = new System.Drawing.Size(100, 70);
+            this.btnZoek.Size = new System.Drawing.Size(75, 57);
             this.btnZoek.TabIndex = 0;
             this.btnZoek.UseVisualStyleBackColor = true;
             this.btnZoek.Click += new System.EventHandler(this.btnZoek_Click);
             // 
             // ZoekenForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(612, 256);
+            this.ClientSize = new System.Drawing.Size(459, 208);
             this.Controls.Add(this.cbZoeknaar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbHome);
@@ -183,7 +174,6 @@
             this.Controls.Add(this.zoekcriteriaTxb);
             this.Controls.Add(this.btnZoek);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "ZoekenForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
