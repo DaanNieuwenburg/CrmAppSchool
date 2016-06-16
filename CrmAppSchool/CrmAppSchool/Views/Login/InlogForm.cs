@@ -28,10 +28,14 @@ namespace CrmAppSchool.Views.Login
             string wachtwoord = wachtwoordTxb.Text;
             LoginController logincontroller = new LoginController();
             bool resultaat = logincontroller.VerifieerGebruiker(gebruikersnaam, wachtwoord);
-            if (resultaat == false)
+            if (resultaat == false && wachtwoordTxb.Text.Count() > 0)
             {
-                MessageBox.Show("Inloggen mislukt\nControleer uw gebruikersnaam en of wachtwoord", "Error");
+                MessageBox.Show("Inloggen mislukt\nControleer uw gebruikersnaam en of wachtwoord", "Inloggen mislukt", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 wachtwoordTxb.Text = "";
+            }
+            else if(resultaat == false && wachtwoordTxb.Text.Count() == 0)
+            {
+                MessageBox.Show("Het wachtwoord mag niet leeg zijn.\nProbeer het opnieuw", "Inloggen mislukt",MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
