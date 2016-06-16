@@ -73,6 +73,7 @@ namespace CrmAppSchool.Views.Bedrijven
             foreach (Persooncontact contact in resultaten)
             {
                 ListViewItem lvi = new ListViewItem(contact.Voornaam);
+                lvi.SubItems.Add(contact.Achternaam);
                 lvi.SubItems.Add(contact.Contactcode.ToString());
                 lvContacten.Items.Add(lvi);
                 if (contact.Isgastdocent == true)
