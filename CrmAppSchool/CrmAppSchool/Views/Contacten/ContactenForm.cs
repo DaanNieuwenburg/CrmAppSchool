@@ -200,6 +200,8 @@ namespace CrmAppSchool.Views.Bedrijven
             }
 
         }
+
+
         private void btnAnnuleer_Click(object sender, EventArgs e)
         {
             btnZoeken.Visible = true;

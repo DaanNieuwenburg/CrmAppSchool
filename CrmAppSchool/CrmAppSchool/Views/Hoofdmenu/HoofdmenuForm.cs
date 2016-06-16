@@ -168,6 +168,7 @@ namespace CrmAppSchool.Views.Gebruikers
                     Verkeerdwachtwoord++;
                     if (Verkeerdwachtwoord == 5)
                     {
+                        uitloggen = true;
                         MessageBox.Show("U heeft 5 maal het verkeerde wachtwoord ingevoerd\nU wordt uit veiligheidsoverwegingen uitgelogd", "Te veel pogingen", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         DialogResult = DialogResult.Abort;
 
