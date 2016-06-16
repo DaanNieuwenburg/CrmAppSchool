@@ -40,6 +40,13 @@ namespace CrmAppSchool.Views.Bedrijven
             tbOmschrijving.Text = contact.Evaluatie + "HAI";
             beoordeling = contact.Beoordeling;          
             mobielTb.Text = contact.Mobielnr;
+            if(contact.Kwaliteiten != null)
+            {
+                foreach (string a in contact.Kwaliteiten)
+                {
+                    tbKwaliteiten.Text = tbKwaliteiten.Text + a + Environment.NewLine;
+                }
+            }            
             setSterren();
 
             // Zet de evaluatie in txb, mits er een evaluatie is
