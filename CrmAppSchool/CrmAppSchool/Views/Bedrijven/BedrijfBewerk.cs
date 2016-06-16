@@ -59,9 +59,18 @@ namespace CrmAppSchool.Views.Bedrijven
             List<string> kwaliteitenlijst = cc.Get_Kwaliteiten(_gebruiker, contact);
             if (kwaliteitenlijst != null)
             {
+                int teller = 0;
                 foreach (string line in kwaliteitenlijst)
                 {
-                    tbKwaliteiten.Text = tbKwaliteiten.Text + line + Environment.NewLine;
+                    if (teller + 1 == kwaliteitenlijst.Count())
+                    {
+                        tbKwaliteiten.Text = tbKwaliteiten.Text + line;
+                    }
+                    else
+                    {
+                        tbKwaliteiten.Text = tbKwaliteiten.Text + line + Environment.NewLine;
+                    }
+                    teller++;
                 }
             }
         }

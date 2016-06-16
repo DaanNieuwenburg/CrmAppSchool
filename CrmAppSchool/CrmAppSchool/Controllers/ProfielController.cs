@@ -54,6 +54,7 @@ namespace CrmAppSchool.Controllers
         {
             try
             {
+
                 conn.Open();
                 string query = "SELECT * FROM gebruiker_profiel WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
@@ -199,7 +200,7 @@ namespace CrmAppSchool.Controllers
                 command.Prepare();
                 command.ExecuteNonQuery();
                 trans.Commit();
-                conn.Close();
+                
                 bepaalUpdateKwaliteiten(_gebruiker, _profiel);
             }
 
@@ -259,7 +260,10 @@ namespace CrmAppSchool.Controllers
                     int teller = 0;
                     foreach (string nieuwekwaliteit in _profiel.KwaliteitenLijst)
                     {
-                        UpdateKwaliteit(_gebruiker, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                        if (nieuwekwaliteit != "")
+                        {
+                            UpdateKwaliteit(_gebruiker, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                        }
                         teller++;
                     }
                 }
@@ -269,7 +273,10 @@ namespace CrmAppSchool.Controllers
                     Console.WriteLine("KW INVOER NIEUW");
                     foreach (string nieuwekwaliteit in _profiel.KwaliteitenLijst)
                     {
-                        VoerKwaliteitIn(_gebruiker, nieuwekwaliteit);
+                        if (nieuwekwaliteit != "")
+                        {
+                            VoerKwaliteitIn(_gebruiker, nieuwekwaliteit);
+                        }
                     }
                 }
 
@@ -283,13 +290,19 @@ namespace CrmAppSchool.Controllers
                         if (teller >= oudeKwaliteitLijst.Count())
                         {
                             // Insert
-                            VoerKwaliteitIn(_gebruiker, nieuwekwaliteit);
+                            if (nieuwekwaliteit != "")
+                            {
+                                VoerKwaliteitIn(_gebruiker, nieuwekwaliteit);
+                            }
                             teller++;
                         }
                         else
                         {
                             // Update
-                            UpdateKwaliteit(_gebruiker, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                            if (nieuwekwaliteit != "")
+                            {
+                                UpdateKwaliteit(_gebruiker, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                            }
                             teller++;
                         }
                     }
@@ -303,7 +316,10 @@ namespace CrmAppSchool.Controllers
                     foreach (string nieuwekwaliteit in _profiel.KwaliteitenLijst)
                     {
                         // Update
-                        UpdateKwaliteit(_gebruiker, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                        if (nieuwekwaliteit != "")
+                        {
+                            UpdateKwaliteit(_gebruiker, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                        }
                         teller++;
                     }
 
@@ -320,9 +336,11 @@ namespace CrmAppSchool.Controllers
 
         public void VoerKwaliteitIn(Gebruiker _gebruiker, string kwaliteit)
         {
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = "INSERT INTO gebruiker_profiel_kwaliteiten (gebruikersnaam, kwaliteit) VALUES (@gebruikersnaam, @kwaliteit)";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
@@ -335,9 +353,14 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(kwaliteitParam);
 
                 command.ExecuteNonQuery();
+                trans.Commit();
             }
             catch (MySqlException e)
             {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
                 Console.WriteLine("Error in profielcontroller - VoerKwaliteitIn: " + e);
             }
             finally
@@ -348,9 +371,11 @@ namespace CrmAppSchool.Controllers
 
         public void UpdateKwaliteit(Gebruiker _gebruiker, string nieuweKwaliteit, string oudeKwaliteit)
         {
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = "UPDATE gebruiker_profiel_kwaliteiten SET kwaliteit = @nieuwekwaliteit WHERE gebruikersnaam = @gebruikersnaam AND kwaliteit = @oudekwaliteit";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
@@ -366,9 +391,14 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(nieuweKwaliteitParam);
 
                 command.ExecuteNonQuery();
+                trans.Commit();
             }
             catch (MySqlException e)
             {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
                 Console.WriteLine("Error in profielcontroller - updatekwaliteiten: " + e);
             }
             finally
@@ -378,9 +408,11 @@ namespace CrmAppSchool.Controllers
         }
         public void VerwijderKwaliteit(Gebruiker _gebruiker, string oudeKwaliteit)
         {
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = "DELETE FROM gebruiker_profiel_kwaliteiten WHERE gebruikersnaam = @gebruikersnaam AND kwaliteit = @oudekwaliteit";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
@@ -393,9 +425,14 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(oudeKwaliteitParam);
 
                 command.ExecuteNonQuery();
+                trans.Commit();
             }
             catch (MySqlException e)
             {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
                 Console.WriteLine("Error in profielcontroller - verwijderkwaliteiten: " + e);
             }
             finally
@@ -406,18 +443,25 @@ namespace CrmAppSchool.Controllers
 
         public void verwijderProfiel(Gebruiker _gebruiker)
         {
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = "DELETE FROM gebruiker_profiel WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
                 gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
                 command.Parameters.Add(gebruikersnaamParam);
                 command.ExecuteNonQuery();
+                trans.Commit();
             }
             catch (MySqlException e)
             {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
                 Console.WriteLine("Error in profielcontroller - verwijderprofiel: " + e);
             }
             finally

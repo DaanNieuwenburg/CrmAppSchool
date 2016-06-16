@@ -110,6 +110,7 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = @"INSERT INTO contactpersoon (voornaam, achternaam, locatie, email, functie, afdeling, isgastdocent, isstagebegeleider, gebruikersnaam, bedrijfcode, mobielnr)
                                  VALUES (@voornaam, @achternaam, @locatie, @email, @functie, @afdeling, @isgastdocent, @isstagebegeleider, @gebruikersnaam, @bedrijfcode, @mobielnr)";
 
@@ -154,11 +155,11 @@ namespace CrmAppSchool.Controllers
 
                 command.Prepare();
                 command.ExecuteNonQuery();
-                //trans.Commit();
+                trans.Commit();
 
                 // Zet de kwaliteiten in de kwaliteiten tabel
                 long primaryKey = command.LastInsertedId;
-                conn.Close();
+                
                 foreach (string kwaliteit in contact.Kwaliteiten)
                 {
                     voegContactPersoonKwaliteitToe(kwaliteit, primaryKey);
@@ -186,12 +187,11 @@ namespace CrmAppSchool.Controllers
         public List<Persooncontact> HaalContactenOp(Gebruiker _gebruiker)
         {
             List<Persooncontact> contactenlijst = new List<Persooncontact>();
-            MySqlTransaction trans = null;
+           
 
             try
             {
                 conn.Open();
-                trans = conn.BeginTransaction();
                 string query = @"SELECT * FROM gebruikercontactpersoon g
                                  INNER JOIN contactpersoon c on g.contactcode = c.contactcode
                                  INNER JOIN bedrijf b ON c.bedrijfcode = b.bedrijfcode 
@@ -223,10 +223,6 @@ namespace CrmAppSchool.Controllers
             }
             catch (MySqlException e)
             {
-                if (trans != null)
-                {
-                    trans.Rollback();
-                }
                 Console.WriteLine("Error in contactencontroller - haalcontactenop: " + e);
             }
             finally
@@ -237,12 +233,10 @@ namespace CrmAppSchool.Controllers
         }
         public Persooncontact HaalInfoOp(string contactcode)
         {
-            MySqlTransaction trans = null;
             Persooncontact contact = new Persooncontact();
             try
             {
                 conn.Open();
-                trans = conn.BeginTransaction();
                 string query = @"SELECT c.contactcode, c.voornaam, c.achternaam, c.locatie, c.email, c.functie, c.afdeling, c.isgastdocent, c.gebruikersnaam, c.isstagebegeleider, b.bedrijfcode, b.bedrijfnaam, c.mobielnr FROM contactpersoon c 
                                  INNER JOIN bedrijf b ON c.bedrijfcode = b.bedrijfcode 
                                  WHERE contactcode = @contactcode";
@@ -276,10 +270,6 @@ namespace CrmAppSchool.Controllers
             }
             catch (MySqlException e)
             {
-                if (trans != null)
-                {
-                    trans.Rollback();
-                }
                 Console.WriteLine("Error in contactencontroller - haalcontactenop: " + e);
             }
             finally
@@ -292,13 +282,11 @@ namespace CrmAppSchool.Controllers
 
         public bool heeftGebruikerContact(Gebruiker _gebruiker, string contactcode)
         {
-            MySqlTransaction trans = null;
             Persooncontact contact = new Persooncontact();
             bool waardeterug = false;
             try
             {
                 conn.Open();
-                trans = conn.BeginTransaction();
                 string query = @"SELECT count(*) as aantalkeer FROM gebruikercontactpersoon WHERE contactcode = @contactcode AND gebruikersnaam = @gebruikernaam";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
@@ -328,10 +316,6 @@ namespace CrmAppSchool.Controllers
             }
             catch (MySqlException e)
             {
-                if (trans != null)
-                {
-                    trans.Rollback();
-                }
                 Console.WriteLine("Error in contactencontroller - heeftGebruikerContact: " + e);
             }
             finally
@@ -348,6 +332,7 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = @"INSERT INTO gebruikercontactpersoon (gebruikersnaam, contactcode)
                                  VALUES (@gebruikersnaam, @contactcode)";
 
@@ -364,6 +349,7 @@ namespace CrmAppSchool.Controllers
 
                 command.Prepare();
                 command.ExecuteNonQuery();
+                trans.Commit();
             }
             catch (MySqlException e)
             {
@@ -385,6 +371,7 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = @"INSERT INTO contactpersoon_kwaliteiten (contactcode, kwaliteit)
                                  VALUES (@contactcode, @kwaliteit)";
 
@@ -401,6 +388,7 @@ namespace CrmAppSchool.Controllers
 
                 command.Prepare();
                 command.ExecuteNonQuery();
+                trans.Commit();
             }
             catch (MySqlException e)
             {
@@ -462,9 +450,11 @@ namespace CrmAppSchool.Controllers
         }
         public void bewerkContact(Persooncontact contact)
         {
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = @"UPDATE contactpersoon SET voornaam = @voornaam, achternaam = @achternaam, locatie = @locatie, email = @email, functie = @functie, afdeling = @afdeling, isgastdocent = @isgastdocent, isstagebegeleider = @isstagebegeleider, bedrijfcode = @bedrijfcode, mobielnr = @mobielnr 
                                      WHERE contactcode = @contactcode";
                 MySqlCommand command = new MySqlCommand(query, conn);
@@ -507,6 +497,7 @@ namespace CrmAppSchool.Controllers
 
                 command.Prepare();
                 command.ExecuteNonQuery();
+                trans.Commit();
                 conn.Close();
                 bepaalUpdateKwaliteiten(contact);
             }
@@ -514,6 +505,10 @@ namespace CrmAppSchool.Controllers
 
             catch (MySqlException e)
             {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
                 Console.WriteLine("Error in contactencontroller - bewerkContact: " + e);
             }
             finally
@@ -564,7 +559,10 @@ namespace CrmAppSchool.Controllers
                     int teller = 0;
                     foreach (string nieuwekwaliteit in contact.Kwaliteiten)
                     {
-                        UpdateKwaliteit(contact, nieuwekwaliteit, tempcontact.Kwaliteiten[teller]);
+                        if (nieuwekwaliteit != "")
+                        {
+                            UpdateKwaliteit(contact, nieuwekwaliteit, tempcontact.Kwaliteiten[teller]);
+                        }
                         teller++;
                     }
                 }
@@ -574,7 +572,10 @@ namespace CrmAppSchool.Controllers
                     Console.WriteLine("KW INVOER NIEUW");
                     foreach (string nieuwekwaliteit in contact.Kwaliteiten)
                     {
-                        VoerKwaliteitIn(contact, nieuwekwaliteit);
+                        if (nieuwekwaliteit != "")
+                        {
+                            VoerKwaliteitIn(contact, nieuwekwaliteit);
+                        }
                     }
                 }
 
@@ -588,13 +589,19 @@ namespace CrmAppSchool.Controllers
                         if (teller >= oudeKwaliteitLijst.Count())
                         {
                             // Insert
-                            VoerKwaliteitIn(contact, nieuwekwaliteit);
+                            if (nieuwekwaliteit != "")
+                            {
+                                VoerKwaliteitIn(contact, nieuwekwaliteit);
+                            }
                             teller++;
                         }
                         else
                         {
                             // Update
-                            UpdateKwaliteit(contact, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                            if (nieuwekwaliteit != "")
+                            {
+                                UpdateKwaliteit(contact, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                            }
                             teller++;
                         }
                     }
@@ -608,7 +615,10 @@ namespace CrmAppSchool.Controllers
                     foreach (string nieuwekwaliteit in contact.Kwaliteiten)
                     {
                         // Update
-                        UpdateKwaliteit(contact, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                        if (nieuwekwaliteit != "")
+                        {
+                            UpdateKwaliteit(contact, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                        }
                         teller++;
                     }
 
@@ -625,9 +635,11 @@ namespace CrmAppSchool.Controllers
 
         public void VoerKwaliteitIn(Persooncontact contact, string kwaliteit)
         {
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = "INSERT INTO contactpersoon_kwaliteiten (contactcode, kwaliteit) VALUES (@contactcode, @kwaliteit)";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
@@ -640,9 +652,14 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(kwaliteitParam);
 
                 command.ExecuteNonQuery();
+                trans.Commit();
             }
             catch (MySqlException e)
             {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
                 Console.WriteLine("Error in contactencontroller - VoerKwaliteitIn: " + e);
             }
             finally
@@ -653,9 +670,11 @@ namespace CrmAppSchool.Controllers
 
         public void UpdateKwaliteit(Persooncontact contact, string nieuweKwaliteit, string oudeKwaliteit)
         {
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = "UPDATE contactpersoon_kwaliteiten SET kwaliteit = @nieuwekwaliteit WHERE contactcode = @contactcode AND kwaliteit = @oudekwaliteit";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
@@ -671,9 +690,14 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(nieuweKwaliteitParam);
 
                 command.ExecuteNonQuery();
+                trans.Commit();
             }
             catch (MySqlException e)
             {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
                 Console.WriteLine("Error in contactencontroller - updatekwaliteiten: " + e);
             }
             finally
@@ -683,9 +707,11 @@ namespace CrmAppSchool.Controllers
         }
         public void VerwijderKwaliteit(Persooncontact contact, string oudeKwaliteit)
         {
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = "DELETE FROM contactpersoon_kwaliteiten WHERE contactcode = @contactcode AND kwaliteit = @oudekwaliteit";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
@@ -698,9 +724,14 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(oudeKwaliteitParam);
 
                 command.ExecuteNonQuery();
+                trans.Commit();
             }
             catch (MySqlException e)
             {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
                 Console.WriteLine("Error in contactencontroller - verwijderkwaliteiten: " + e);
             }
             finally
@@ -792,12 +823,12 @@ namespace CrmAppSchool.Controllers
         public List<Persooncontact> ContactenBijBedrijf(Bedrijfcontact bedrijf, bool soort)
         {
             List<Persooncontact> contactenlijst = new List<Persooncontact>();
-            MySqlTransaction trans = null;
+            
 
             try
             {
                 conn.Open();
-                trans = conn.BeginTransaction();
+                
                 string query = "";
 
                 if (soort == false)
@@ -843,10 +874,6 @@ namespace CrmAppSchool.Controllers
             }
             catch (MySqlException e)
             {
-                if (trans != null)
-                {
-                    trans.Rollback();
-                }
                 Console.WriteLine("Error in contactencontroller - ContactenBijBedrijf: " + e);
             }
             finally

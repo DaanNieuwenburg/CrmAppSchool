@@ -111,9 +111,11 @@ namespace CrmAppSchool.Controllers
 
         public void bewerkEvaluatie(Persooncontact contact, Gebruiker gebruiker)
         {
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = @"UPDATE contactpersoon_evaluatie SET contactcode = @contactcode, gebruikersnaam = @gebruikersnaam, evaluatie = @evaluatie, waardering = @waardering 
                                      WHERE contactcode = @contactcode AND gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
@@ -134,11 +136,16 @@ namespace CrmAppSchool.Controllers
 
                 command.Prepare();
                 command.ExecuteNonQuery();
+                trans.Commit();
             }
 
 
             catch (MySqlException e)
             {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
                 Console.WriteLine("Error in contactevaluatiecontroller - bewerkevaluatie: " + e);
             }
             finally
@@ -149,11 +156,9 @@ namespace CrmAppSchool.Controllers
 
         public Persooncontact HaalInfoOp(Gebruiker gebruiker, Persooncontact contact)
         {
-            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
-                trans = conn.BeginTransaction();
                 string query = @"SELECT * FROM contactpersoon_evaluatie 
                                  WHERE contactcode = @contactcode AND gebruikersnaam = @gebruikersnaam";
 
@@ -184,10 +189,6 @@ namespace CrmAppSchool.Controllers
             }
             catch (MySqlException e)
             {
-                if (trans != null)
-                {
-                    trans.Rollback();
-                }
                 Console.WriteLine("Error in contactevaluatiecontroller - haalevaluatieop: " + e);
             }
             finally
