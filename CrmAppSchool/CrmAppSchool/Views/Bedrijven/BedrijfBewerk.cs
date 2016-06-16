@@ -47,11 +47,11 @@ namespace CrmAppSchool.Views.Bedrijven
             contactcode = contact.Bedrijfscode;
             tbContact.Text = contact.Contactpersoon;
             BedrijfController cc = new BedrijfController(); 
-            List<string> kwalteitenlijst = cc.Get_Kwaliteiten(_gebruiker, contact);
-            if (kwalteitenlijst != null)
+            List<string> kwaliteitenlijst = cc.Get_Kwaliteiten(_gebruiker, contact);
+            if (kwaliteitenlijst != null)
             {
                 int a = 0;
-                foreach (string line in kwalteitenlijst)
+                foreach (string line in kwaliteitenlijst)
                 {
                     tbKwaliteiten.Text = tbKwaliteiten.Text + line + Environment.NewLine;
                 }
@@ -91,6 +91,8 @@ namespace CrmAppSchool.Views.Bedrijven
                     }
                 }
                 bewerktContact.Email = tbEadres.Text;
+
+                // Zet de kwaliteiten in de list
 
                 // Bedrijfcontroller
                 BedrijfController cc = new BedrijfController();

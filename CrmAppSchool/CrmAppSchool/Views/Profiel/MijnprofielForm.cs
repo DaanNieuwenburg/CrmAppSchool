@@ -211,7 +211,6 @@ namespace CrmAppSchool.Views.Profiel
                 lblKwaliteitWaarde.Text = "";
                 foreach (string kwaliteit in profiel.KwaliteitenLijst)
                 {
-                    Console.WriteLine("KW= " + kwaliteit);
                     tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit + Environment.NewLine;
                     lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + Environment.NewLine;
                 }
@@ -235,6 +234,17 @@ namespace CrmAppSchool.Views.Profiel
                 {
                     PriveMode = false;
                     UpdatePrive();
+                }
+
+                // Zet de kwaliteiten weer terug in de txb
+                // Zet de kwaliteiten weer in de textbox
+                tbKwaliteit.Text = "";
+                lblKwaliteitWaarde.Text = "";
+                foreach (string kwaliteit in profiel.KwaliteitenLijst)
+                {
+                    Console.WriteLine("KW= " + kwaliteit);
+                    tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit + Environment.NewLine;
+                    lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + Environment.NewLine;
                 }
             }
         }
