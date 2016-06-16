@@ -329,6 +329,19 @@ namespace CrmAppSchool.Views.Profiel
                 lblWachtwoordWaarde.Visible = false;
                 EditWachtwoordMode = true;
             }
+            else if (tbHuidigwachtwoord.Text == "")
+            {
+                lblWachtwoord.Visible = false;
+                lbloldpassword.Text = "Wachtwoord:";
+                tbHuidigwachtwoord.Visible = false;
+                tbWachtwoord.Visible = false;
+                tbBevestig.Visible = false;
+                lblBevestig.Visible = false;
+                lblWachtwoordWaarde.Visible = true;
+                EditWachtwoordMode = false;
+                tbWachtwoord.Text = "";
+                tbBevestig.Text = "";
+            }
             // Kijk of het nieuwe wachtwoord en de bevestiging overeen komen
             else if (tbWachtwoord.Text != tbBevestig.Text)
             {
@@ -358,6 +371,7 @@ namespace CrmAppSchool.Views.Profiel
                     gebruiker.Wachtwoord = tbWachtwoord.Text;
                     GebruikerController gebruikercontroller = new GebruikerController();
                     gebruikercontroller.veranderWachtwoordGebruiker(gebruiker);
+                    this.Hide();
                     // Set nieuw wachtwoord
                 }
                 else

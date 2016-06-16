@@ -26,6 +26,7 @@ namespace CrmAppSchool.Views.Opdrachten
             bedrijfCbx.ValueMember = "Bedrijfscode";
             bedrijfCbx.Text = null;
             cbx_contact.Text = null;
+            cbx_contact.DataSource = null;
 
         }
 
