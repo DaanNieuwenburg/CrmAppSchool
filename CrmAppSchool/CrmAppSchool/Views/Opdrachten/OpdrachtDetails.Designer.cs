@@ -79,6 +79,7 @@
             this.lbOpdrachtOmschrijving.AutoSize = true;
             this.lbOpdrachtOmschrijving.Font = new System.Drawing.Font("Arial", 10F);
             this.lbOpdrachtOmschrijving.Location = new System.Drawing.Point(13, 185);
+            this.lbOpdrachtOmschrijving.MaximumSize = new System.Drawing.Size(524, 190);
             this.lbOpdrachtOmschrijving.Name = "lbOpdrachtOmschrijving";
             this.lbOpdrachtOmschrijving.Size = new System.Drawing.Size(14, 16);
             this.lbOpdrachtOmschrijving.TabIndex = 18;
