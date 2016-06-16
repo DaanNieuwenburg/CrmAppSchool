@@ -178,6 +178,11 @@ namespace CrmAppSchool.Controllers
             }
             return kwaliteitenLijst;
         }
+
+
+
+
+
         public List<Bedrijfcontact> ZoekBedrijven(string tekst, Gebruiker gebruiker)
         {
             List<Bedrijfcontact> resultaten = new List<Bedrijfcontact>();
@@ -284,6 +289,8 @@ namespace CrmAppSchool.Controllers
 
                 command.Prepare();
                 command.ExecuteNonQuery();
+                conn.Close();
+                bepaalUpdateKwaliteiten(contact);
             }
 
 
@@ -300,6 +307,195 @@ namespace CrmAppSchool.Controllers
                 conn.Close();
             }
         }
+
+
+        public void bepaalUpdateKwaliteiten(Bedrijfcontact bedrijf)
+        {
+            // Bepaal eerst het aantal huidige kwaliteiten van het profiel
+            List<string> oudeKwaliteitLijst = new List<string>();
+            try
+            {
+                conn.Open();
+                string query = "SELECT kwaliteit FROM bedrijf_kwaliteiten WHERE bedrijfcode = @bedrijfcode";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter bedrijfcodeParam = new MySqlParameter("@bedrijfcode", MySqlDbType.Int32);
+                bedrijfcodeParam.Value = bedrijf.Bedrijfscode;
+                command.Parameters.Add(bedrijfcodeParam);
+                MySqlDataReader lezer = command.ExecuteReader();
+
+                while (lezer.Read())
+                {
+                    oudeKwaliteitLijst.Add(lezer.GetString("kwaliteit"));
+                }
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Error in bedrijfcontroller - bepaalUpdatekwaliteiten: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            // Kijk of de kwaliteiten gelijk zijn aan elkaar
+            Bedrijfcontact tempbedrijf = new Bedrijfcontact();
+            tempbedrijf.Kwaliteiten = oudeKwaliteitLijst;
+            bool isGelijk = tempbedrijf.Kwaliteiten.SequenceEqual(bedrijf.Kwaliteiten);
+
+            if (isGelijk == false)
+            {
+                // Update kwaliteiten
+                if (bedrijf.Kwaliteiten.Count() == tempbedrijf.Kwaliteiten.Count())
+                {
+                    Console.WriteLine("KW UPDATE");
+                    int teller = 0;
+                    foreach (string nieuwekwaliteit in bedrijf.Kwaliteiten)
+                    {
+                        UpdateKwaliteit(bedrijf, nieuwekwaliteit, tempbedrijf.Kwaliteiten[teller]);
+                        teller++;
+                    }
+                }
+                // Voer nieuwe kwaliteiten in als er nog geen kwaliteiten bestaan
+                else if (tempbedrijf.Kwaliteiten.Count() == 0)
+                {
+                    Console.WriteLine("KW INVOER NIEUW");
+                    foreach (string nieuwekwaliteit in bedrijf.Kwaliteiten)
+                    {
+                        VoerKwaliteitIn(bedrijf, nieuwekwaliteit);
+                    }
+                }
+
+                // Voer nieuwe kwaliteiten in en update bestaande kwaliteiten
+                else if (bedrijf.Kwaliteiten.Count() > tempbedrijf.Kwaliteiten.Count())
+                {
+                    Console.WriteLine("KW UPDATE en voer in");
+                    int teller = 0;
+                    foreach (string nieuwekwaliteit in bedrijf.Kwaliteiten)
+                    {
+                        if (teller >= oudeKwaliteitLijst.Count())
+                        {
+                            // Insert
+                            VoerKwaliteitIn(bedrijf, nieuwekwaliteit);
+                            teller++;
+                        }
+                        else
+                        {
+                            // Update
+                            UpdateKwaliteit(bedrijf, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                            teller++;
+                        }
+                    }
+                }
+
+                // Verwijder kwaliteiten in en update bestaande kwaliteiten
+                else if (bedrijf.Kwaliteiten.Count() < oudeKwaliteitLijst.Count())
+                {
+                    Console.WriteLine("KW UPDATE en VERWIJDER");
+                    int teller = 0;
+                    foreach (string nieuwekwaliteit in bedrijf.Kwaliteiten)
+                    {
+                        // Update
+                        UpdateKwaliteit(bedrijf, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                        teller++;
+                    }
+
+                    // Verwijder de kwaliteiten
+                    int begintVanaf = bedrijf.Kwaliteiten.Count();
+                    int verschil = oudeKwaliteitLijst.Count();
+                    for (int i = begintVanaf; i < verschil; i++)
+                    {
+                        VerwijderKwaliteit(bedrijf, oudeKwaliteitLijst[i]);
+                    }
+                }
+            }
+        }
+
+        public void VoerKwaliteitIn(Bedrijfcontact bedrijf, string kwaliteit)
+        {
+            try
+            {
+                conn.Open();
+                string query = "INSERT INTO bedrijf_kwaliteiten (bedrijfcode, kwaliteit) VALUES (@bedrijfcode, @kwaliteit)";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter bedrijfcodeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
+                MySqlParameter kwaliteitParam = new MySqlParameter("kwaliteit", MySqlDbType.VarChar);
+
+                bedrijfcodeParam.Value = bedrijf.Bedrijfscode;
+                kwaliteitParam.Value = kwaliteit;
+
+                command.Parameters.Add(bedrijfcodeParam);
+                command.Parameters.Add(kwaliteitParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Error in bedrijfcontroller - VoerKwaliteitIn: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void UpdateKwaliteit(Bedrijfcontact bedrijf, string nieuweKwaliteit, string oudeKwaliteit)
+        {
+            try
+            {
+                conn.Open();
+                string query = "UPDATE bedrijf_kwaliteiten SET kwaliteit = @nieuwekwaliteit WHERE bedrijfcode = @bedrijfcode AND kwaliteit = @oudekwaliteit";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter bedrijfcodeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
+                MySqlParameter oudeKwaliteitParam = new MySqlParameter("oudekwaliteit", MySqlDbType.VarChar);
+                MySqlParameter nieuweKwaliteitParam = new MySqlParameter("nieuwekwaliteit", MySqlDbType.VarChar);
+
+                bedrijfcodeParam.Value = bedrijf.Bedrijfscode;
+                oudeKwaliteitParam.Value = oudeKwaliteit;
+                nieuweKwaliteitParam.Value = nieuweKwaliteit;
+
+                command.Parameters.Add(bedrijfcodeParam);
+                command.Parameters.Add(oudeKwaliteitParam);
+                command.Parameters.Add(nieuweKwaliteitParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Error in bedrijfcontroller - updatekwaliteiten: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void VerwijderKwaliteit(Bedrijfcontact bedrijf, string oudeKwaliteit)
+        {
+            try
+            {
+                conn.Open();
+                string query = "DELETE FROM bedrijf_kwaliteiten WHERE bedrijfcode = @bedrijfcode AND kwaliteit = @oudekwaliteit";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter bedrijfcodeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
+                MySqlParameter oudeKwaliteitParam = new MySqlParameter("oudekwaliteit", MySqlDbType.VarChar);
+
+                bedrijfcodeParam.Value = bedrijf.Bedrijfscode;
+                oudeKwaliteitParam.Value = oudeKwaliteit;
+
+                command.Parameters.Add(bedrijfcodeParam);
+                command.Parameters.Add(oudeKwaliteitParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Error in bedrijfcontroller - verwijderkwaliteiten: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public Bedrijfcontact SelecteerBedrijf(int bedrijfcode)
         {
             Bedrijfcontact contact = new Bedrijfcontact();
