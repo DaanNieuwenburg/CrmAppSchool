@@ -294,7 +294,7 @@ namespace CrmAppSchool.Views.Bedrijven
                     ContactenController contactencontroller = new ContactenController();
                     contactencontroller.controleerOfContactBestaat(_gebruiker, persooncontact);
                     SaveContact(persooncontact);
-                    lvContacten.Clear();
+                    //lvContacten.Clear();
                     vulContacten();
                 }
                 
@@ -325,7 +325,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 bewerk.ShowDialog();
 
                 // Reset de listview
-                lvContacten.Clear();
+                //lvContacten.Items.Clear();
                 vulContacten();
             }
         }
@@ -382,12 +382,12 @@ namespace CrmAppSchool.Views.Bedrijven
         private void vulContacten()
         {           
             settooltips();
-            //lvContacten.Clear();
+            lvContacten.Items.Clear();
             ContactenController _getcontacten = new ContactenController();
             List<Persooncontact> contactenlijst = _getcontacten.HaalContactenOp(_gebruiker);
             foreach (Persooncontact contact in contactenlijst)
             {
-                ListViewItem c = new ListViewItem(contact.Voornaam + " " + contact.Achternaam);
+                ListViewItem c = new ListViewItem(contact.Voornaam);
                 c.SubItems.Add(contact.Achternaam);
                 c.SubItems.Add(Convert.ToString(contact.Contactcode));
                 if (contact.Isstagebegeleider == true)
