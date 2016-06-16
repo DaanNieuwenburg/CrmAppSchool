@@ -243,7 +243,7 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"SELECT c.contactcode, c.voornaam, c.achternaam, c.locatie, c.email, c.functie, c.afdeling, c.isgastdocent, c.isstagebegeleider, b.bedrijfcode, b.bedrijfnaam, c.mobielnr FROM contactpersoon c 
+                string query = @"SELECT c.contactcode, c.voornaam, c.achternaam, c.locatie, c.email, c.functie, c.afdeling, c.isgastdocent, c.gebruikersnaam, c.isstagebegeleider, b.bedrijfcode, b.bedrijfnaam, c.mobielnr FROM contactpersoon c 
                                  INNER JOIN bedrijf b ON c.bedrijfcode = b.bedrijfcode 
                                  WHERE contactcode = @contactcode";
 
@@ -267,6 +267,7 @@ namespace CrmAppSchool.Controllers
                     contact.Afdeling = datalezer["afdeling"] as string;
                     contact.Isgastdocent = datalezer.GetBoolean("Isgastdocent");
                     contact.Isstagebegeleider = datalezer.GetBoolean("isstagebegeleider");
+                    contact.ingevoerddoor = datalezer["gebruikersnaam"] as string;
                     contact.Bedrijf = new Bedrijfcontact();
                     contact.Bedrijf.Bedrijfscode = ((Int32)datalezer["bedrijfcode"]);
                     contact.Bedrijf.Bedrijfnaam = ((string)datalezer["bedrijfnaam"]);

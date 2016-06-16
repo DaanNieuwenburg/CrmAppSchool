@@ -17,6 +17,7 @@ namespace CrmAppSchool.Views.Bedrijven
         private int contactcode { get; set;}
         private int bedrijfcode { get; set; }
         private int beoordeling { get; set; }
+        private bool isstagebegeleider { get; set; }
         private bool validmobiel { get; set; }
         private bool validemail { get; set; }
         private Gebruiker gebruiker { get; set; }
@@ -26,6 +27,7 @@ namespace CrmAppSchool.Views.Bedrijven
             validmobiel = true;
             validemail = true;
             gebruiker = _gebruiker;
+            this.isstagebegeleider = contact.Isstagebegeleider;
             // Vult de bedrijven combobox met bedrijven
             BedrijfController bc = new BedrijfController(); 
             bedrijfCbx.DataSource = bc.haalBedrijfLijstOp();
@@ -164,10 +166,15 @@ namespace CrmAppSchool.Views.Bedrijven
                     bewerktContact.Isgastdocent = true;
                     bewerktContact.Isstagebegeleider = false;
                 }
-                else
+                else if (soortCbx.Text == "Stagebegeleider")
                 {
                     bewerktContact.Isgastdocent = false;
                     bewerktContact.Isstagebegeleider = true;
+                }
+                else
+                {
+                    bewerktContact.Isgastdocent = false;
+                    bewerktContact.Isstagebegeleider = false;
                 }
 
                 bewerktContact.Evaluatie = omschr;
@@ -373,6 +380,29 @@ namespace CrmAppSchool.Views.Bedrijven
         private void pbRating_MouseLeave(object sender, EventArgs e)
         {
             setSterren();
+        }
+
+        private void soortCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isstagebegeleider == true && soortCbx.Text != "Stagebegeleider")
+            {
+                StageopdrachtController soc = new StageopdrachtController();
+                List<Stageopdracht> opdrachten = soc.getOpdrachten();
+                bool gevonden = false;
+                foreach (Stageopdracht a in opdrachten)
+                {
+                    if (a.Contact.Contactcode == this.contactcode)
+                    {
+                        gevonden = true;
+                        break;
+                    }
+                }
+                if (gevonden == true)
+                {
+                    MessageBox.Show("Deze contactpersoon staat als stagebegeleider ingesteld bij een stageopdracht. \nHierdoor kan deze instelling niet worden aangepast");
+                    soortCbx.Text = "Stagebegeleider";
+                }
+            }
         }
     }
 }

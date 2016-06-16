@@ -51,9 +51,7 @@ namespace CrmAppSchool.Views.Profiel
         {
             // Zet de informatie van het profiel naar de labels
             lblVoornaamWaarde.Text = profiel.Voornaam;
-            cbPriveVN.Checked = profiel.VoornaamIsZichtbaar;
             lblAchternaamWaarde.Text = profiel.Achternaam;
-            cbPriveAN.Checked = profiel.AchternaamIsZichtbaar;
             lblLocatieWaarde.Text = profiel.Locatie;
             cbPriveLO.Checked = profiel.LocatieIsZichtbaar;
             if (profiel.KwaliteitenLijst != null)
@@ -220,8 +218,6 @@ namespace CrmAppSchool.Views.Profiel
                 tbKwaliteit.Text = "";
 
                 // Zet de checkboxes in het profiel
-                profiel.VoornaamIsZichtbaar = cbPriveVN.Checked;
-                profiel.AchternaamIsZichtbaar = cbPriveAN.Checked;
                 profiel.LocatieIsZichtbaar = cbPriveLO.Checked;
                 profiel.FunctieIsZichtbaar = cbPriveFU.Checked;
                 profiel.KwaliteitIsZichtbaar = cbPriveKW.Checked;
@@ -255,12 +251,12 @@ namespace CrmAppSchool.Views.Profiel
                 btnPrive.Visible = false;
                 btnOpslaan.Visible = true;
                 btnAnnuleer.Visible = true;
+                lblVoornaam.Visible = false;
+                lblAchternaam.Visible = false;
 
-                cbPriveAN.Visible = true;
                 cbPriveFU.Visible = true;
                 cbPriveKW.Visible = true;
                 cbPriveLO.Visible = true;
-                cbPriveVN.Visible = true;
 
                 lblAchternaamWaarde.Visible = false;
                 lblVoornaamWaarde.Visible = false;
@@ -270,18 +266,17 @@ namespace CrmAppSchool.Views.Profiel
             }
             else
             {
-
-
                 btnBewerk.Visible = true;
                 btnPrive.Visible = true;
                 btnOpslaan.Visible = false;
                 btnAnnuleer.Visible = false;
 
-                cbPriveAN.Visible = false;
+                lblVoornaam.Visible = true;
+                lblAchternaam.Visible = true;
+
                 cbPriveFU.Visible = false;
                 cbPriveKW.Visible = false;
                 cbPriveLO.Visible = false;
-                cbPriveVN.Visible = false;
 
                 lblAchternaamWaarde.Visible = true;
                 lblVoornaamWaarde.Visible = true;

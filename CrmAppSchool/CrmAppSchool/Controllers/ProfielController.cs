@@ -70,9 +70,7 @@ namespace CrmAppSchool.Controllers
                 {
                     profiel.Gebruikersnaam = datalezer.GetString("gebruikersnaam");
                     profiel.Voornaam = datalezer.GetString("voornaam");
-                    profiel.VoornaamIsZichtbaar = datalezer.GetBoolean("voornaam_iszichtbaar");
                     profiel.Achternaam = datalezer.GetString("Achternaam");
-                    profiel.AchternaamIsZichtbaar = datalezer.GetBoolean("achternaam_iszichtbaar");
                     profiel.Locatie = datalezer.GetString("locatie");
                     profiel.LocatieIsZichtbaar = datalezer.GetBoolean("locatie_iszichtbaar");
                     profiel.Functie = datalezer.GetString("functie");
@@ -164,15 +162,13 @@ namespace CrmAppSchool.Controllers
                 conn.Open();
                 trans = conn.BeginTransaction();
 
-                string query = @"UPDATE gebruiker_profiel SET voornaam = @Voornaam, voornaam_iszichtbaar = @Voornaam_iszichtbaar, achternaam = @Achternaam, achternaam_iszichtbaar = @Achternaam_iszichtbaar, locatie = @Locatie, locatie_iszichtbaar = @Locatie_iszichtbaar, functie = @Functie, functie_iszichtbaar = @Functie_iszichtbaar
+                string query = @"UPDATE gebruiker_profiel SET voornaam = @Voornaam, achternaam = @Achternaam, locatie = @Locatie, locatie_iszichtbaar = @Locatie_iszichtbaar, functie = @Functie, functie_iszichtbaar = @Functie_iszichtbaar
                                 WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
 
                 MySqlParameter UN_PARAM = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
                 MySqlParameter VN_PARAM = new MySqlParameter("@Voornaam", MySqlDbType.VarChar);
-                MySqlParameter VN_iszichtbaar = new MySqlParameter("@Voornaam_iszichtbaar", MySqlDbType.Int32);
                 MySqlParameter AN_PARAM = new MySqlParameter("@Achternaam", MySqlDbType.VarChar);
-                MySqlParameter AN_iszichtbaar = new MySqlParameter("@Achternaam_iszichtbaar", MySqlDbType.Int32);
                 MySqlParameter LO_PARAM = new MySqlParameter("@Locatie", MySqlDbType.VarChar);
                 MySqlParameter LO_iszichtbaar = new MySqlParameter("@Locatie_iszichtbaar", MySqlDbType.Int32);
                 MySqlParameter FU_PARAM = new MySqlParameter("@Functie", MySqlDbType.VarChar);
@@ -180,9 +176,7 @@ namespace CrmAppSchool.Controllers
 
                 UN_PARAM.Value = _gebruiker.Gebruikersnaam;
                 VN_PARAM.Value = _profiel.Voornaam;
-                VN_iszichtbaar.Value = _profiel.VoornaamIsZichtbaar;
                 AN_PARAM.Value = _profiel.Achternaam;
-                AN_iszichtbaar.Value = _profiel.AchternaamIsZichtbaar;
                 LO_PARAM.Value = _profiel.Locatie;
                 LO_iszichtbaar.Value = _profiel.LocatieIsZichtbaar;
                 FU_PARAM.Value = _profiel.Functie;
@@ -190,9 +184,7 @@ namespace CrmAppSchool.Controllers
 
                 command.Parameters.Add(UN_PARAM);
                 command.Parameters.Add(VN_PARAM);
-                command.Parameters.Add(VN_iszichtbaar);
                 command.Parameters.Add(AN_PARAM);
-                command.Parameters.Add(AN_iszichtbaar);
                 command.Parameters.Add(LO_PARAM);
                 command.Parameters.Add(LO_iszichtbaar);
                 command.Parameters.Add(FU_PARAM);

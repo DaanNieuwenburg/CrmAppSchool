@@ -24,6 +24,7 @@ namespace CrmAppSchool.Models
         public int Beoordeling { get; set; }
         public Gebruiker Gebruiker { get; set; }
         public Bedrijfcontact Bedrijf { get; set; }
+        public string ingevoerddoor { get; set; }
     }
     
 }

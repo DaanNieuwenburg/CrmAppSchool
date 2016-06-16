@@ -55,8 +55,6 @@
             this.btnPrive = new System.Windows.Forms.Button();
             this.pbHome = new System.Windows.Forms.PictureBox();
             this.pbHeader = new System.Windows.Forms.PictureBox();
-            this.cbPriveVN = new System.Windows.Forms.CheckBox();
-            this.cbPriveAN = new System.Windows.Forms.CheckBox();
             this.cbPriveLO = new System.Windows.Forms.CheckBox();
             this.cbPriveFU = new System.Windows.Forms.CheckBox();
             this.cbPriveKW = new System.Windows.Forms.CheckBox();
@@ -364,34 +362,6 @@
             this.pbHeader.TabIndex = 19;
             this.pbHeader.TabStop = false;
             // 
-            // cbPriveVN
-            // 
-            this.cbPriveVN.AutoSize = true;
-            this.cbPriveVN.FlatAppearance.BorderSize = 0;
-            this.cbPriveVN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbPriveVN.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPriveVN.Location = new System.Drawing.Point(361, 77);
-            this.cbPriveVN.Name = "cbPriveVN";
-            this.cbPriveVN.Size = new System.Drawing.Size(70, 19);
-            this.cbPriveVN.TabIndex = 29;
-            this.cbPriveVN.Text = "Zet Privé";
-            this.cbPriveVN.UseVisualStyleBackColor = true;
-            this.cbPriveVN.Visible = false;
-            // 
-            // cbPriveAN
-            // 
-            this.cbPriveAN.AutoSize = true;
-            this.cbPriveAN.FlatAppearance.BorderSize = 0;
-            this.cbPriveAN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbPriveAN.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPriveAN.Location = new System.Drawing.Point(361, 109);
-            this.cbPriveAN.Name = "cbPriveAN";
-            this.cbPriveAN.Size = new System.Drawing.Size(70, 19);
-            this.cbPriveAN.TabIndex = 30;
-            this.cbPriveAN.Text = "Zet Privé";
-            this.cbPriveAN.UseVisualStyleBackColor = true;
-            this.cbPriveAN.Visible = false;
-            // 
             // cbPriveLO
             // 
             this.cbPriveLO.AutoSize = true;
@@ -517,8 +487,6 @@
             this.Controls.Add(this.cbPriveKW);
             this.Controls.Add(this.cbPriveFU);
             this.Controls.Add(this.cbPriveLO);
-            this.Controls.Add(this.cbPriveAN);
-            this.Controls.Add(this.cbPriveVN);
             this.Controls.Add(this.btnAnnuleer);
             this.Controls.Add(this.tbKwaliteit);
             this.Controls.Add(this.tbFunctie);
@@ -584,8 +552,6 @@
         private System.Windows.Forms.TextBox tbKwaliteit;
         private System.Windows.Forms.Button btnAnnuleer;
         private System.Windows.Forms.Button btnOpslaan;
-        private System.Windows.Forms.CheckBox cbPriveVN;
-        private System.Windows.Forms.CheckBox cbPriveAN;
         private System.Windows.Forms.CheckBox cbPriveLO;
         private System.Windows.Forms.CheckBox cbPriveFU;
         private System.Windows.Forms.CheckBox cbPriveKW;
