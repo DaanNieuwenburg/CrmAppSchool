@@ -507,12 +507,201 @@ namespace CrmAppSchool.Controllers
 
                 command.Prepare();
                 command.ExecuteNonQuery();
+                conn.Close();
+                bepaalUpdateKwaliteiten(contact);
             }
 
 
             catch (MySqlException e)
             {
                 Console.WriteLine("Error in contactencontroller - bewerkContact: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void bepaalUpdateKwaliteiten(Persooncontact contact)
+        {
+            // Bepaal eerst het aantal huidige kwaliteiten van het profiel
+            List<string> oudeKwaliteitLijst = new List<string>();
+            try
+            {
+                conn.Open();
+                string query = "SELECT kwaliteit FROM contactpersoon_kwaliteiten WHERE contactcode = @contactcode";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter contactcodeParam = new MySqlParameter("@contactcode", MySqlDbType.Int32);
+                contactcodeParam.Value = contact.Contactcode;
+                command.Parameters.Add(contactcodeParam);
+                MySqlDataReader lezer = command.ExecuteReader();
+
+                while (lezer.Read())
+                {
+                    oudeKwaliteitLijst.Add(lezer.GetString("kwaliteit"));
+                }
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Error in contactencontroller - bepaalUpdatekwaliteiten: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            // Kijk of de kwaliteiten gelijk zijn aan elkaar
+            Persooncontact tempcontact = new Persooncontact();
+            tempcontact.Kwaliteiten = oudeKwaliteitLijst;
+            bool isGelijk = tempcontact.Kwaliteiten.SequenceEqual(contact.Kwaliteiten);
+
+            if (isGelijk == false)
+            {
+                // Update kwaliteiten
+                if (contact.Kwaliteiten.Count() == tempcontact.Kwaliteiten.Count())
+                {
+                    Console.WriteLine("KW UPDATE");
+                    int teller = 0;
+                    foreach (string nieuwekwaliteit in contact.Kwaliteiten)
+                    {
+                        UpdateKwaliteit(contact, nieuwekwaliteit, tempcontact.Kwaliteiten[teller]);
+                        teller++;
+                    }
+                }
+                // Voer nieuwe kwaliteiten in als er nog geen kwaliteiten bestaan
+                else if (tempcontact.Kwaliteiten.Count() == 0)
+                {
+                    Console.WriteLine("KW INVOER NIEUW");
+                    foreach (string nieuwekwaliteit in contact.Kwaliteiten)
+                    {
+                        VoerKwaliteitIn(contact, nieuwekwaliteit);
+                    }
+                }
+
+                // Voer nieuwe kwaliteiten in en update bestaande kwaliteiten
+                else if (contact.Kwaliteiten.Count() > tempcontact.Kwaliteiten.Count())
+                {
+                    Console.WriteLine("KW UPDATE en voer in");
+                    int teller = 0;
+                    foreach (string nieuwekwaliteit in contact.Kwaliteiten)
+                    {
+                        if (teller >= oudeKwaliteitLijst.Count())
+                        {
+                            // Insert
+                            VoerKwaliteitIn(contact, nieuwekwaliteit);
+                            teller++;
+                        }
+                        else
+                        {
+                            // Update
+                            UpdateKwaliteit(contact, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                            teller++;
+                        }
+                    }
+                }
+
+                // Verwijder kwaliteiten in en update bestaande kwaliteiten
+                else if (contact.Kwaliteiten.Count() < oudeKwaliteitLijst.Count())
+                {
+                    Console.WriteLine("KW UPDATE en VERWIJDER");
+                    int teller = 0;
+                    foreach (string nieuwekwaliteit in contact.Kwaliteiten)
+                    {
+                        // Update
+                        UpdateKwaliteit(contact, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                        teller++;
+                    }
+
+                    // Verwijder de kwaliteiten
+                    int begintVanaf = contact.Kwaliteiten.Count();
+                    int verschil = oudeKwaliteitLijst.Count();
+                    for (int i = begintVanaf; i < verschil; i++)
+                    {
+                        VerwijderKwaliteit(contact, oudeKwaliteitLijst[i]);
+                    }
+                }
+            }
+        }
+
+        public void VoerKwaliteitIn(Persooncontact contact, string kwaliteit)
+        {
+            try
+            {
+                conn.Open();
+                string query = "INSERT INTO contactpersoon_kwaliteiten (contactcode, kwaliteit) VALUES (@contactcode, @kwaliteit)";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
+                MySqlParameter kwaliteitParam = new MySqlParameter("kwaliteit", MySqlDbType.VarChar);
+
+                contactcodeParam.Value = contact.Contactcode;
+                kwaliteitParam.Value = kwaliteit;
+
+                command.Parameters.Add(contactcodeParam);
+                command.Parameters.Add(kwaliteitParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Error in contactencontroller - VoerKwaliteitIn: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void UpdateKwaliteit(Persooncontact contact, string nieuweKwaliteit, string oudeKwaliteit)
+        {
+            try
+            {
+                conn.Open();
+                string query = "UPDATE contactpersoon_kwaliteiten SET kwaliteit = @nieuwekwaliteit WHERE contactcode = @contactcode AND kwaliteit = @oudekwaliteit";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
+                MySqlParameter oudeKwaliteitParam = new MySqlParameter("oudekwaliteit", MySqlDbType.VarChar);
+                MySqlParameter nieuweKwaliteitParam = new MySqlParameter("nieuwekwaliteit", MySqlDbType.VarChar);
+
+                contactcodeParam.Value = contact.Contactcode;
+                oudeKwaliteitParam.Value = oudeKwaliteit;
+                nieuweKwaliteitParam.Value = nieuweKwaliteit;
+
+                command.Parameters.Add(contactcodeParam);
+                command.Parameters.Add(oudeKwaliteitParam);
+                command.Parameters.Add(nieuweKwaliteitParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Error in contactencontroller - updatekwaliteiten: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void VerwijderKwaliteit(Persooncontact contact, string oudeKwaliteit)
+        {
+            try
+            {
+                conn.Open();
+                string query = "DELETE FROM contactpersoon_kwaliteiten WHERE contactcode = @contactcode AND kwaliteit = @oudekwaliteit";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter contactcodeParam = new MySqlParameter("contactcode", MySqlDbType.Int32);
+                MySqlParameter oudeKwaliteitParam = new MySqlParameter("oudekwaliteit", MySqlDbType.VarChar);
+
+                contactcodeParam.Value = contact.Contactcode;
+                oudeKwaliteitParam.Value = oudeKwaliteit;
+
+                command.Parameters.Add(contactcodeParam);
+                command.Parameters.Add(oudeKwaliteitParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Error in contactencontroller - verwijderkwaliteiten: " + e);
             }
             finally
             {

@@ -42,14 +42,14 @@ namespace CrmAppSchool.Views.Bedrijven
             mobielTb.Text = contact.Mobielnr;
             //Haal de kwaliteiten op
             ContactenController cc = new ContactenController();
-            List<string> kwalteitenlijst = cc.Get_Kwaliteiten(_gebruiker, contact);
-            if (kwalteitenlijst != null)
+            List<string> kwaliteitenlijst = cc.Get_Kwaliteiten(_gebruiker, contact);
+            if (kwaliteitenlijst != null)
             {
-                foreach (string a in kwalteitenlijst)
+                foreach (string line in kwaliteitenlijst)
                 {
-                    tbKwaliteiten.Text = tbKwaliteiten.Text + a + Environment.NewLine;
+                    tbKwaliteiten.Text = tbKwaliteiten.Text + line + Environment.NewLine;
                 }
-            }            
+            }
             setSterren();
 
             // Zet de evaluatie in txb, mits er een evaluatie is
@@ -125,7 +125,16 @@ namespace CrmAppSchool.Views.Bedrijven
                 bewerktContact.Isgastdocent = false;
                 bewerktContact.Isstagebegeleider = true;
             }
-            
+
+            // Zet de kwaliteiten in de list
+            foreach (string ingevoerdeKwaliteit in tbKwaliteiten.Lines)
+            {
+                if (ingevoerdeKwaliteit != "")
+                {
+                    bewerktContact.Kwaliteiten.Add(ingevoerdeKwaliteit);
+                }
+            }
+
             // Contactencontroller
             ContactenController cc = new ContactenController();
             cc.bewerkContact(bewerktContact);

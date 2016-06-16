@@ -235,8 +235,7 @@ namespace CrmAppSchool.Views.Profiel
                     PriveMode = false;
                     UpdatePrive();
                 }
-
-                // Zet de kwaliteiten weer terug in de txb
+                
                 // Zet de kwaliteiten weer in de textbox
                 tbKwaliteit.Text = "";
                 lblKwaliteitWaarde.Text = "";
