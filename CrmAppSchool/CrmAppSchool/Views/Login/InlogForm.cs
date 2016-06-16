@@ -27,7 +27,7 @@ namespace CrmAppSchool.Views.Login
             string gebruikersnaam = gebruikersnaamTxb.Text;
             string wachtwoord = wachtwoordTxb.Text;
             LoginController logincontroller = new LoginController();
-            bool resultaat = logincontroller.VerifieerGebruiker(gebruikersnaam, wachtwoord);
+            bool resultaat = logincontroller.VerifieerGebruiker(gebruikersnaam, wachtwoord, true);
             if (resultaat == false && wachtwoordTxb.Text.Count() > 0)
             {
                 MessageBox.Show("Inloggen mislukt\nControleer uw gebruikersnaam en of wachtwoord", "Inloggen mislukt", MessageBoxButtons.OK, MessageBoxIcon.Warning);

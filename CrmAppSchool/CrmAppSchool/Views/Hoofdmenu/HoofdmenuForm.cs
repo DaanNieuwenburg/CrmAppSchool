@@ -161,7 +161,7 @@ namespace CrmAppSchool.Views.Gebruikers
                 }
                 LoginController logincontroller = new LoginController();
                 logincontroller.relogin = true;
-                bool resultaat = logincontroller.VerifieerGebruiker(gebruikersnaam, wachtwoord);
+                bool resultaat = logincontroller.VerifieerGebruiker(gebruikersnaam, wachtwoord, true);
                 if (resultaat == false)
                 {
                     MessageBox.Show("Het wachtwoord is incorrect\nProbeer het opnieuw", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -406,7 +406,7 @@ namespace CrmAppSchool.Views.Profiel
                 string gebruikersnaam = gebruiker.Gebruikersnaam;
                 string wachtwoord = tbHuidigwachtwoord.Text;
                 LoginController logincontroller = new LoginController();
-                bool resultaat = logincontroller.VerifieerGebruiker(gebruikersnaam, wachtwoord);
+                bool resultaat = logincontroller.VerifieerGebruiker(gebruikersnaam, wachtwoord, false);
                 if (resultaat == true)
                 {
                     lbloldpassword.Text = "Wachtwoord:";
@@ -420,7 +420,11 @@ namespace CrmAppSchool.Views.Profiel
                     gebruiker.Wachtwoord = tbWachtwoord.Text;
                     GebruikerController gebruikercontroller = new GebruikerController();
                     gebruikercontroller.veranderWachtwoordGebruiker(gebruiker);
-                    this.Hide();
+                    tbWachtwoord.Text = "";
+                    tbHuidigwachtwoord.Text = "";
+                    tbBevestig.Text = "";
+
+                    
                     // Set nieuw wachtwoord
                 }
                 else

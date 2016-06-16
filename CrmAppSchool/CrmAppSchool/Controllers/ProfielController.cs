@@ -200,7 +200,7 @@ namespace CrmAppSchool.Controllers
                 command.Prepare();
                 command.ExecuteNonQuery();
                 trans.Commit();
-                
+                conn.Close();
                 bepaalUpdateKwaliteiten(_gebruiker, _profiel);
             }
 
