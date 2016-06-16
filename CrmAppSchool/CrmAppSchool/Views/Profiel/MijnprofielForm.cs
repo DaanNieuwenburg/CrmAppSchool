@@ -58,9 +58,20 @@ namespace CrmAppSchool.Views.Profiel
             {
                 // Reset de txb en voer de kwaliteiten in
                 lblKwaliteitWaarde.Text = "";
+
+                int teller = 0;
                 foreach (string kwaliteit in profiel.KwaliteitenLijst)
                 {
-                    lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + Environment.NewLine;
+                    if (teller + 1 == profiel.KwaliteitenLijst.Count())
+                    {
+                        tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit;
+                        lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit;
+                    }
+                    else
+                    {
+                        tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit + Environment.NewLine;
+                        lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + Environment.NewLine;
+                    }
                 }
             }
             cbPriveKW.Checked = profiel.KwaliteitIsZichtbaar;
@@ -80,9 +91,18 @@ namespace CrmAppSchool.Views.Profiel
             {
                 // Reset de txb en voer de kwaliteiten in
                 tbKwaliteit.Text = "";
+                int teller = 0;
                 foreach (string kwaliteit in profiel.KwaliteitenLijst)
                 {
-                    tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit + Environment.NewLine;
+                    if (teller + 1 == profiel.KwaliteitenLijst.Count())
+                    {
+                        tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit;
+                    }
+                    else
+                    {
+                        tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit + Environment.NewLine;
+                    }
+                    teller++;
                 }
             }
             Updatebuttons();
@@ -209,10 +229,20 @@ namespace CrmAppSchool.Views.Profiel
                 // Zet de kwaliteiten weer in de textbox
                 tbKwaliteit.Text = "";
                 lblKwaliteitWaarde.Text = "";
+                int teller = 0;
                 foreach (string kwaliteit in profiel.KwaliteitenLijst)
                 {
-                    tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit + Environment.NewLine;
-                    lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + Environment.NewLine;
+                    if (teller + 1 == profiel.KwaliteitenLijst.Count())
+                    {
+                        tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit;
+                        lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit;
+                    }
+                    else
+                    {
+                        tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit + Environment.NewLine;
+                        lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + Environment.NewLine;
+                    }
+                    teller++;
                 }
 
                 tbKwaliteit.Text = "";
@@ -239,11 +269,20 @@ namespace CrmAppSchool.Views.Profiel
                 // Zet de kwaliteiten weer in de textbox
                 tbKwaliteit.Text = "";
                 lblKwaliteitWaarde.Text = "";
+                int tellerr = 0;
                 foreach (string kwaliteit in profiel.KwaliteitenLijst)
                 {
-                    Console.WriteLine("KW= " + kwaliteit);
-                    tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit + Environment.NewLine;
-                    lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + Environment.NewLine;
+                    if (tellerr + 1 == profiel.KwaliteitenLijst.Count())
+                    {
+                        tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit;
+                        lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit;
+                    }
+                    else
+                    {
+                        tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit + Environment.NewLine;
+                        lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + Environment.NewLine;
+                    }
+                    tellerr++;
                 }
             }
         }

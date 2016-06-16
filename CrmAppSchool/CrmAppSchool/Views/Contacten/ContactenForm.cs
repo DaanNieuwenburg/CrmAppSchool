@@ -395,8 +395,16 @@ namespace CrmAppSchool.Views.Bedrijven
                 }
                 else
                 {
-                    c.ImageKey = "GD";
+                    if (contact.Isgastdocent == true)
+                    {
+                        c.ImageKey = "GD";
+                    }
+                    else
+                    {
+                        c.ImageKey = "GS";
+                    }
                 }
+                
                 lvContacten.Items.Add(c);
             }
         }
