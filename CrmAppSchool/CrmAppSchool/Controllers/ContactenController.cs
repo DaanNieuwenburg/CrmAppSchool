@@ -498,6 +498,7 @@ namespace CrmAppSchool.Controllers
                 command.Prepare();
                 command.ExecuteNonQuery();
                 trans.Commit();
+                conn.Close();
                 bepaalUpdateKwaliteiten(contact);
             }
 
