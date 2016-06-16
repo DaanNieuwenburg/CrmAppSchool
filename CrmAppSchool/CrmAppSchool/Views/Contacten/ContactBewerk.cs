@@ -40,9 +40,12 @@ namespace CrmAppSchool.Views.Bedrijven
             tbOmschrijving.Text = contact.Evaluatie + "HAI";
             beoordeling = contact.Beoordeling;          
             mobielTb.Text = contact.Mobielnr;
-            if(contact.Kwaliteiten != null)
+            //Haal de kwaliteiten op
+            ContactenController cc = new ContactenController();
+            List<string> kwalteitenlijst = cc.Get_Kwaliteiten(_gebruiker, contact);
+            if (kwalteitenlijst != null)
             {
-                foreach (string a in contact.Kwaliteiten)
+                foreach (string a in kwalteitenlijst)
                 {
                     tbKwaliteiten.Text = tbKwaliteiten.Text + a + Environment.NewLine;
                 }
