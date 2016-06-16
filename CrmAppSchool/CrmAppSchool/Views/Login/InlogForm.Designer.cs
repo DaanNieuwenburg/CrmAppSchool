@@ -179,6 +179,7 @@
             this.Name = "InlogForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inloggen";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InlogForm_FormClosed);
             this.Load += new System.EventHandler(this.InlogForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
