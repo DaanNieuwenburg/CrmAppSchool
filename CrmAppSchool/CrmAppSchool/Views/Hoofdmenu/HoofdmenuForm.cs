@@ -80,7 +80,8 @@ namespace CrmAppSchool.Views.Gebruikers
             if(geverifieerd == true)
             {
                 voegGebruikerToeForm voegGebruikerToe = new voegGebruikerToeForm(gebruiker);
-                voegGebruikerToe.Show();
+                voegGebruikerToe.ShowDialog();
+                geverifieerd = false;
 
                 if (voegGebruikerToe.ShowMenu == true)
                 {
@@ -88,7 +89,7 @@ namespace CrmAppSchool.Views.Gebruikers
                     voegGebruikerToe.ShowMenu = false;
                 }
 
-                this.Hide();
+                //this.Hide();
             }
             
         }

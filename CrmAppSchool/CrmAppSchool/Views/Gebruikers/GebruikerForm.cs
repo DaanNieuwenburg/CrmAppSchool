@@ -110,8 +110,6 @@ namespace CrmAppSchool.Views.Gebruikers
         {
             ShowMenu = true;
             this.Hide();
-            HoofdmenuForm hoofdmenu = new HoofdmenuForm(gebruiker);
-            hoofdmenu.ShowDialog();
 
         }
         private void voegGebruikerToeForm_Load(object sender, EventArgs e)
