@@ -97,10 +97,10 @@
     <Compile Include="Views\Contacten\ContactBewerk.Designer.cs">
       <DependentUpon>ContactBewerk.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Contacten\ContactDetails.cs">
+    <Compile Include="Views\Gebruikers\ContactDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Contacten\ContactDetails.Designer.cs">
+    <Compile Include="Views\Gebruikers\ContactDetails.Designer.cs">
       <DependentUpon>ContactDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Contacten\ContactenForm.cs">
@@ -189,7 +189,7 @@
     <EmbeddedResource Include="Views\Contacten\ContactBewerk.resx">
       <DependentUpon>ContactBewerk.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Contacten\ContactDetails.resx">
+    <EmbeddedResource Include="Views\Gebruikers\ContactDetails.resx">
       <DependentUpon>ContactDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Contacten\ContactenForm.resx">

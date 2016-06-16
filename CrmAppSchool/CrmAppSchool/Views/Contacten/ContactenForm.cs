@@ -310,7 +310,7 @@ namespace CrmAppSchool.Views.Bedrijven
         {
             if (lvContacten.SelectedItems.Count == 1) //Om te bewerken moet er minimaal en maximaal 1 contact geselecteerd zijn
             {
-                string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
+                string contactcode = lvContacten.SelectedItems[0].SubItems[2].Text;
                 ContactenController cc = new ContactenController();
                 Persooncontact contact = cc.HaalInfoOp(contactcode);
                 ContactBewerk bewerk = new ContactBewerk(contact, _gebruiker);
@@ -329,7 +329,7 @@ namespace CrmAppSchool.Views.Bedrijven
             {
                 if (lvContacten.SelectedItems.Count == 1)
                 {
-                    string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
+                    string contactcode = lvContacten.SelectedItems[0].SubItems[2].Text;
                     ContactenController cc = new ContactenController();
                     cc.verwijderContact(_gebruiker, contactcode);
                     lvContacten.Items.Remove(lvContacten.SelectedItems[0]);
@@ -339,7 +339,7 @@ namespace CrmAppSchool.Views.Bedrijven
                     foreach (ListViewItem item in lvContacten.SelectedItems)
                     {
                         lvContacten.Items.Remove(item);
-                        string contactcode = item.SubItems[1].Text;
+                        string contactcode = item.SubItems[2].Text;
                         ContactenController cc = new ContactenController();
                         cc.verwijderContact(_gebruiker, contactcode);
                     }
@@ -364,7 +364,7 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void lvContacten_ItemActivate(object sender, EventArgs e)
         {
-            string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
+            string contactcode = lvContacten.SelectedItems[0].SubItems[2].Text;
             ContactenController _controller = new ContactenController();
             Persooncontact contact = _controller.HaalInfoOp(contactcode);
             Contacten.ContactDetails _details = new Contacten.ContactDetails(_gebruiker, contact);
@@ -372,14 +372,15 @@ namespace CrmAppSchool.Views.Bedrijven
         }
 
         private void vulContacten()
-        {
+        {           
             settooltips();
-            lvContacten.Clear();
+            //lvContacten.Clear();
             ContactenController _getcontacten = new ContactenController();
             List<Persooncontact> contactenlijst = _getcontacten.HaalContactenOp(_gebruiker);
             foreach (Persooncontact contact in contactenlijst)
             {
                 ListViewItem c = new ListViewItem(contact.Voornaam + " " + contact.Achternaam);
+                c.SubItems.Add(contact.Achternaam);
                 c.SubItems.Add(Convert.ToString(contact.Contactcode));
                 if (contact.Isstagebegeleider == true)
                 {
