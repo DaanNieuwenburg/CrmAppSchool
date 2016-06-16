@@ -14,12 +14,13 @@ namespace CrmAppSchool.Controllers
 
         public void voegGebruikerToe(Gebruiker _gebruiker)
         {
-            MySqlTransaction trans = null;
+            
             // Encrypt het ingevoerde wachtwoord van de gebruiker
             if (_gebruiker != null)
             {
                 EncryptieController ecr = new EncryptieController();
                 _gebruiker.Wachtwoord = ecr.encrypt(_gebruiker.Wachtwoord);
+                MySqlTransaction trans = null;
                 try
                 {
                     conn.Open();
