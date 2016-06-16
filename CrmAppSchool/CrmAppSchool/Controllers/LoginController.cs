@@ -13,7 +13,7 @@ namespace CrmAppSchool.Controllers
     {
         public bool relogin { get; set; }
 
-        public bool VerifieerGebruiker(string _gebruikersnaam, string _wachtwoord)
+        public bool VerifieerGebruiker(string _gebruikersnaam, string _wachtwoord, bool nieuwscherm)
         {
             EncryptieController ecr = new EncryptieController();
             string sha512Wachtwoord = ecr.encrypt(_wachtwoord);
@@ -44,7 +44,7 @@ namespace CrmAppSchool.Controllers
                     isnull = false;
 
                     // Roept het hoofdmenu aan
-                    if (relogin == false)
+                    if (relogin == false && nieuwscherm == true)
                     {
                         HoofdmenuForm hoofdmenu = new HoofdmenuForm(gebruiker);
                         hoofdmenu.Show();

@@ -357,7 +357,6 @@ namespace CrmAppSchool.Controllers
                 // Update kwaliteiten
                 if (bedrijf.Kwaliteiten.Count() == tempbedrijf.Kwaliteiten.Count())
                 {
-                    Console.WriteLine("KW UPDATE");
                     int teller = 0;
                     foreach (string nieuwekwaliteit in bedrijf.Kwaliteiten)
                     {
@@ -371,7 +370,6 @@ namespace CrmAppSchool.Controllers
                 // Voer nieuwe kwaliteiten in als er nog geen kwaliteiten bestaan
                 else if (tempbedrijf.Kwaliteiten.Count() == 0)
                 {
-                    Console.WriteLine("KW INVOER NIEUW");
                     foreach (string nieuwekwaliteit in bedrijf.Kwaliteiten)
                     {
                         if (nieuwekwaliteit != "")
@@ -384,7 +382,6 @@ namespace CrmAppSchool.Controllers
                 // Voer nieuwe kwaliteiten in en update bestaande kwaliteiten
                 else if (bedrijf.Kwaliteiten.Count() > tempbedrijf.Kwaliteiten.Count())
                 {
-                    Console.WriteLine("KW UPDATE en voer in");
                     int teller = 0;
                     foreach (string nieuwekwaliteit in bedrijf.Kwaliteiten)
                     {
@@ -412,7 +409,6 @@ namespace CrmAppSchool.Controllers
                 // Verwijder kwaliteiten in en update bestaande kwaliteiten
                 else if (bedrijf.Kwaliteiten.Count() < oudeKwaliteitLijst.Count())
                 {
-                    Console.WriteLine("KW UPDATE en VERWIJDER");
                     int teller = 0;
                     foreach (string nieuwekwaliteit in bedrijf.Kwaliteiten)
                     {
