@@ -351,7 +351,10 @@ namespace CrmAppSchool.Controllers
                     int teller = 0;
                     foreach (string nieuwekwaliteit in bedrijf.Kwaliteiten)
                     {
-                        UpdateKwaliteit(bedrijf, nieuwekwaliteit, tempbedrijf.Kwaliteiten[teller]);
+                        if (nieuwekwaliteit != "")
+                        {
+                            UpdateKwaliteit(bedrijf, nieuwekwaliteit, tempbedrijf.Kwaliteiten[teller]);
+                        }
                         teller++;
                     }
                 }
@@ -361,7 +364,10 @@ namespace CrmAppSchool.Controllers
                     Console.WriteLine("KW INVOER NIEUW");
                     foreach (string nieuwekwaliteit in bedrijf.Kwaliteiten)
                     {
-                        VoerKwaliteitIn(bedrijf, nieuwekwaliteit);
+                        if (nieuwekwaliteit != "")
+                        {
+                            VoerKwaliteitIn(bedrijf, nieuwekwaliteit);
+                        }
                     }
                 }
 
@@ -375,13 +381,19 @@ namespace CrmAppSchool.Controllers
                         if (teller >= oudeKwaliteitLijst.Count())
                         {
                             // Insert
-                            VoerKwaliteitIn(bedrijf, nieuwekwaliteit);
+                            if (nieuwekwaliteit != "")
+                            {
+                                VoerKwaliteitIn(bedrijf, nieuwekwaliteit);
+                            }
                             teller++;
                         }
                         else
                         {
                             // Update
-                            UpdateKwaliteit(bedrijf, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                            if (nieuwekwaliteit != "")
+                            {
+                                UpdateKwaliteit(bedrijf, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                            }
                             teller++;
                         }
                     }
@@ -395,7 +407,10 @@ namespace CrmAppSchool.Controllers
                     foreach (string nieuwekwaliteit in bedrijf.Kwaliteiten)
                     {
                         // Update
-                        UpdateKwaliteit(bedrijf, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                        if (nieuwekwaliteit != "")
+                        {
+                            UpdateKwaliteit(bedrijf, nieuwekwaliteit, oudeKwaliteitLijst[teller]);
+                        }
                         teller++;
                     }
 
