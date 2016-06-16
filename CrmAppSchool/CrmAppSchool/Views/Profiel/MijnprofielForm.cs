@@ -60,6 +60,7 @@ namespace CrmAppSchool.Views.Profiel
                 lblKwaliteitWaarde.Text = "";
                 foreach (string kwaliteit in profiel.KwaliteitenLijst)
                 {
+                    tbKwaliteit.Text = tbKwaliteit.Text + kwaliteit + Environment.NewLine;
                     lblKwaliteitWaarde.Text = lblKwaliteitWaarde.Text + kwaliteit + Environment.NewLine;
                 }
             }
