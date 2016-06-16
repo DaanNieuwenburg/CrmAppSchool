@@ -246,7 +246,7 @@ namespace CrmAppSchool.Controllers
             }
 
             // Kijk of de kwaliteiten gelijk zijn aan elkaar
-            Profiel tempprofiel = _profiel;
+            Profiel tempprofiel = new Profiel();
             tempprofiel.KwaliteitenLijst = oudeKwaliteitLijst;
             bool isGelijk = tempprofiel.KwaliteitenLijst.SequenceEqual(_profiel.KwaliteitenLijst);
 
