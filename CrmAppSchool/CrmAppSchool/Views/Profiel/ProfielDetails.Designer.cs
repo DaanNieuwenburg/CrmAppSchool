@@ -127,7 +127,7 @@
             this.lbl_Kwaliteitwaarde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbl_Kwaliteitwaarde.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Kwaliteitwaarde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lbl_Kwaliteitwaarde.Location = new System.Drawing.Point(153, 193);
+            this.lbl_Kwaliteitwaarde.Location = new System.Drawing.Point(32, 195);
             this.lbl_Kwaliteitwaarde.Name = "lbl_Kwaliteitwaarde";
             this.lbl_Kwaliteitwaarde.Size = new System.Drawing.Size(15, 18);
             this.lbl_Kwaliteitwaarde.TabIndex = 30;
@@ -139,7 +139,7 @@
             this.lbl_Kwaliteiten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbl_Kwaliteiten.Font = new System.Drawing.Font("Arial", 10F);
             this.lbl_Kwaliteiten.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lbl_Kwaliteiten.Location = new System.Drawing.Point(32, 195);
+            this.lbl_Kwaliteiten.Location = new System.Drawing.Point(32, 164);
             this.lbl_Kwaliteiten.Name = "lbl_Kwaliteiten";
             this.lbl_Kwaliteiten.Size = new System.Drawing.Size(79, 16);
             this.lbl_Kwaliteiten.TabIndex = 21;

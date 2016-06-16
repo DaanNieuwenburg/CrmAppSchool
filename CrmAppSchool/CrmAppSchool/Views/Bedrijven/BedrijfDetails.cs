@@ -16,11 +16,13 @@ namespace CrmAppSchool.Views.Bedrijven
     {
         
         private Bedrijfcontact contact { get; set; }
+        private Gebruiker gebruiker { get; set; }
 
         public BedrijfDetails(Gebruiker _gebruiker, Bedrijfcontact _contact)
         {
             InitializeComponent();
             contact = _contact;
+            this.gebruiker = _gebruiker;
 
             
             lblBNvalue.Text = contact.Bedrijfnaam;
@@ -45,6 +47,29 @@ namespace CrmAppSchool.Views.Bedrijven
                     j++;
                 }
             }
+
+            ContactenController cc2 = new ContactenController();
+            List<Persooncontact> list = cc2.ContactenBijBedrijf(_contact, true);
+            foreach (Persooncontact a in list)
+            {
+                a.volnaam = a.Voornaam + " " + a.Achternaam;
+                ListViewItem item = new ListViewItem(a.volnaam);
+                if (a.Isgastdocent == true)
+                {
+                    item.SubItems.Add("Gastdocent");
+                }
+                else if (a.Isstagebegeleider == true)
+                {
+                    item.SubItems.Add("Stagebegeleider");
+                }
+                else
+                {
+                    item.SubItems.Add("Gastspreker");
+                }
+                item.SubItems.Add(a.Contactcode.ToString());
+                lv_contacten.Items.Add(item);
+            }
+
 
         }
 
@@ -72,6 +97,15 @@ namespace CrmAppSchool.Views.Bedrijven
                     MessageBox.Show("Deze website kan helaas niet geopend worden");
                 }
             }
+        }
+
+        private void lv_contacten_ItemActivate(object sender, EventArgs e)
+        {
+            string contactcode = lv_contacten.SelectedItems[0].SubItems[2].Text;
+            ContactenController _controller = new ContactenController();
+            Persooncontact contact = _controller.HaalInfoOp(contactcode);
+            CrmAppSchool.Views.Contacten.ContactDetails _details = new CrmAppSchool.Views.Contacten.ContactDetails(gebruiker, contact);
+            _details.ShowDialog();
         }
     }
 }

@@ -46,6 +46,10 @@
             this.pbHeader = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.llbWSvalue = new System.Windows.Forms.LinkLabel();
+            this.lv_contacten = new System.Windows.Forms.ListView();
+            this.columnHeader0 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,7 +155,7 @@
             this.lblKWvalue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblKWvalue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKWvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblKWvalue.Location = new System.Drawing.Point(153, 194);
+            this.lblKWvalue.Location = new System.Drawing.Point(32, 224);
             this.lblKWvalue.Name = "lblKWvalue";
             this.lblKWvalue.Size = new System.Drawing.Size(15, 18);
             this.lblKWvalue.TabIndex = 30;
@@ -251,12 +255,52 @@
             this.llbWSvalue.Text = "x";
             this.llbWSvalue.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbWSvalue_LinkClicked);
             // 
+            // lv_contacten
+            // 
+            this.lv_contacten.Activation = System.Windows.Forms.ItemActivation.TwoClick;
+            this.lv_contacten.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader0,
+            this.columnHeader1});
+            this.lv_contacten.FullRowSelect = true;
+            this.lv_contacten.Location = new System.Drawing.Point(306, 224);
+            this.lv_contacten.MultiSelect = false;
+            this.lv_contacten.Name = "lv_contacten";
+            this.lv_contacten.Size = new System.Drawing.Size(290, 168);
+            this.lv_contacten.TabIndex = 47;
+            this.lv_contacten.UseCompatibleStateImageBehavior = false;
+            this.lv_contacten.View = System.Windows.Forms.View.Details;
+            this.lv_contacten.ItemActivate += new System.EventHandler(this.lv_contacten_ItemActivate);
+            // 
+            // columnHeader0
+            // 
+            this.columnHeader0.Text = "Naam";
+            this.columnHeader0.Width = 167;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Soort Contact";
+            this.columnHeader1.Width = 94;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Arial", 10F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.label1.Location = new System.Drawing.Point(303, 194);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(229, 16);
+            this.label1.TabIndex = 48;
+            this.label1.Text = "Contacten die bij dit bedrijf werken:";
+            // 
             // BedrijfDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(608, 309);
+            this.ClientSize = new System.Drawing.Size(608, 404);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lv_contacten);
             this.Controls.Add(this.llbWSvalue);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.llbEValue);
@@ -306,5 +350,9 @@
         private System.Windows.Forms.LinkLabel llbEValue;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.LinkLabel llbWSvalue;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader0;
+        private System.Windows.Forms.ListView lv_contacten;
+        private System.Windows.Forms.Label label1;
     }
 }
