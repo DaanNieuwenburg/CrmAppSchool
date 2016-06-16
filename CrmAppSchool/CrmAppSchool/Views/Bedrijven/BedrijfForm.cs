@@ -28,8 +28,11 @@ namespace CrmAppSchool.Views.Bedrijven
         public BedrijfForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
+            // Alleen de admin mag bedrijven verwijderen
             if (_gebruiker.SoortGebruiker == "Admin")
                 btnDelete.Visible = true;
+            
+            // Aanmaken imagelist voor de resultaten
             var imagelist = new ImageList();
             imagelist.Images.Add("GS", Properties.Resources.Afbeelding_ContactPersoon_GastSpreker);
             imagelist.Images.Add("GD", Properties.Resources.Afbeelding_ContactPersoon_GastDocent);
@@ -37,6 +40,7 @@ namespace CrmAppSchool.Views.Bedrijven
             imagelist.Images.Add("SB", Properties.Resources.Afbeelding_ContactPersoon_StageBegeleider);
             imagelist.ImageSize = new Size(50, 50);
             lvBedrijven.LargeImageList = imagelist;
+
             ShowMenu = false;
             ShowZoeken = false;
             ShowSave = false;
@@ -131,17 +135,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 btnWijzig.Visible = false;
                 btnDelete.Visible = false;
                 ShowSave = true;
-                /*List<string> newCBlist = new List<string>();
-                foreach (string a in bedrijfCbx.Items)
-                {
-                    if (!(newCBlist.Contains(a)))
-                        newCBlist.Add(a);
 
-                }
-                foreach (string a in newCBlist)
-                {
-                    bedrijfCbx.Items.Add(a);
-                }*/
             }
             else
             {
@@ -243,7 +237,8 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void btnWijzig_Click(object sender, EventArgs e)
         {
-            if (lvBedrijven.SelectedItems.Count == 1) //Om te bewerken moet er minimaal en maximaal 1 contact geselecteerd zijn
+            //Om te bewerken moet er minimaal en maximaal 1 contact geselecteerd zijn
+            if (lvBedrijven.SelectedItems.Count == 1) 
             {
                 string contactcode = lvBedrijven.SelectedItems[0].SubItems[2].Text;
                 BedrijfController bc = new BedrijfController();
@@ -251,7 +246,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 BedrijfBewerk bewerk = new BedrijfBewerk(contact, _gebruiker);
                 bewerk.ShowDialog();
 
-                // Reset de listview
+                // Refresh de listview
                 vulContacten();
             }
         }
@@ -315,6 +310,10 @@ namespace CrmAppSchool.Views.Bedrijven
         }
         private void settooltips()
         {
+            // Maakt de tooltips aan
+            ToolTip TP = new ToolTip();
+            TP.ShowAlways = true;
+            TP.SetToolTip(tbWebsite, "Voer een geldige website in.\nExample: (www.)google.nl");
             ToolTip TPnieuw = new ToolTip();
             TPnieuw.ShowAlways = false;
             TPnieuw.SetToolTip(btnVoegtoe, "Voeg een nieuw bedrijf toe");
@@ -325,21 +324,10 @@ namespace CrmAppSchool.Views.Bedrijven
             TPdelete.ShowAlways = false;
             TPdelete.SetToolTip(btnDelete, "Verwijder het geselecteerde bedrijf");
         }
-        private void tbMobiel_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void tbVoornaam_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
-        }
 
         private void tbEadres_Leave(object sender, EventArgs e)
         {
+            // Controleert of er een geldig email adres in ingevult
             if (tbEadres.Text.Count() > 0)
             {
                 try
@@ -363,6 +351,7 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void tbTelefoon_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // Er mag alleen getallen worden ingevoerd
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
@@ -377,6 +366,8 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void tbTelefoon_Leave(object sender, EventArgs e)
         {
+            // Controleer of er een geldig telefoonnummer is ingevult
+            // of dat deze leeg is
             if(tbTelefoon.Text.Count() < 10 && tbTelefoon.Text.Count() > 0)
             {
                 tbTelefoon.ForeColor = Color.Red;
@@ -402,6 +393,7 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void tbWebsite_Leave(object sender, EventArgs e)
         {
+            // Controleert met Regex of er een geldige website is ingevult
             string a = "";
             if (tbWebsite.Text.StartsWith("http"))
                 a = tbWebsite.Text;

@@ -30,12 +30,21 @@ namespace CrmAppSchool.Views.Bedrijven
         public BedrijfBewerk(Bedrijfcontact contact, Gebruiker _gebruiker)
         {
             InitializeComponent();
+            //deze waardes zijn true, omdat er geen ongeldige waarde kan worden opgeslagen bij het aanmaken
             validmobiel = true;
             validemail = true;
             validwebsite = true;
             validtelefoon = true;
             gebruiker = _gebruiker;
 
+            // Maak de tooltips aan
+            ToolTip TP = new ToolTip();
+            TP.ShowAlways = true;
+            TP.SetToolTip(tbWebsite, "Voer een geldige website in.\nExample: (www.)google.nl");
+
+            ToolTip TP1 = new ToolTip();
+            TP1.ShowAlways = true;
+            TP1.SetToolTip(tbEadres, "Voer een geldig email adres in.\nExample: harry1998@hotmail.com");
 
             // Koppelt alle contact data aan de texboxes 
             tbBedrijfsnaam.Text = contact.Bedrijfnaam;
@@ -122,6 +131,7 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void tbTelefoon_Leave(object sender, EventArgs e)
         {
+            // Kijkt of er een geldig telefoonnummer is ingevoerd
             if (tbTelefoon.Text.Count() < 10 && tbTelefoon.Text.Count() > 0)
             {
                 tbTelefoon.ForeColor = Color.Red;
@@ -142,6 +152,7 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void tbTelefoon_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // Zorgt ervoor dat er alleen cijfers ingevoerd mag worden
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
@@ -150,6 +161,7 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void tbEadres_Leave(object sender, EventArgs e)
         {
+            // Controleerd of er een geldig email adres is ingevoerd
             if (tbEadres.Text.Count() > 0)
             {
                 try
@@ -179,6 +191,7 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void tbWebsite_Leave(object sender, EventArgs e)
         {
+            // Controleerd m.b.v. Regex of het ingevoerde adres geldig is
             string a = "";
             if (tbWebsite.Text.StartsWith("http"))
                 a = tbWebsite.Text;
@@ -203,19 +216,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 
             }
 
-            /*Uri uri = null;
-
-            if (!Uri.TryCreate(tbWebsite.Text, UriKind.Absolute, out uri) || null == uri)
-            {
-                //Invalid URL
-                validwebsite = false;
-                tbWebsite.ForeColor = Color.Red;
-            }
-            else
-            {
-                tbWebsite.ForeColor = Color.Black;
-                validwebsite = true;
-            }*/
+           
         }
     }
 }

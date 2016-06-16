@@ -168,17 +168,6 @@ namespace CrmAppSchool.Views.Bedrijven
                 btnDelete.Visible = false;
                 Makeempty();
                 ShowSave = true;
-                /*List<string> newCBlist = new List<string>();
-                foreach (string a in bedrijfCbx.Items)
-                {
-                    if (!(newCBlist.Contains(a)))
-                        newCBlist.Add(a);
-
-                }
-                foreach (string a in newCBlist)
-                {
-                    bedrijfCbx.Items.Add(a);
-                }*/
             }
             else
             {
@@ -210,12 +199,6 @@ namespace CrmAppSchool.Views.Bedrijven
                 contact.ImageKey = "SB";
             }
 
-        }
-        private void SaveBedrijf(Bedrijfcontact bedrijf)
-        {
-            ListViewItem Company = new ListViewItem(bedrijf.Bedrijfnaam);
-            lvContacten.Items.Add(Company);
-            Company.ImageKey = "BD";
         }
         private void btnAnnuleer_Click(object sender, EventArgs e)
         {
@@ -293,7 +276,6 @@ namespace CrmAppSchool.Views.Bedrijven
                     ContactenController contactencontroller = new ContactenController();
                     contactencontroller.controleerOfContactBestaat(_gebruiker, persooncontact);
                     SaveContact(persooncontact);
-                    //lvContacten.Clear();
                     vulContacten();
                 }
                 
@@ -315,7 +297,8 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void btnWijzig_Click(object sender, EventArgs e)
         {
-            if (lvContacten.SelectedItems.Count == 1) //Om te bewerken moet er minimaal en maximaal 1 contact geselecteerd zijn
+            //Om te bewerken moet er minimaal en maximaal 1 contact geselecteerd zijn
+            if (lvContacten.SelectedItems.Count == 1) 
             {
                 string contactcode = lvContacten.SelectedItems[0].SubItems[2].Text;
                 ContactenController cc = new ContactenController();
@@ -324,7 +307,6 @@ namespace CrmAppSchool.Views.Bedrijven
                 bewerk.ShowDialog();
 
                 // Reset de listview
-                //lvContacten.Items.Clear();
                 vulContacten();
             }
         }
@@ -408,7 +390,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 lvContacten.Items.Add(c);
             }
         }
-        private void ContactenForm_Load(object sender, EventArgs e) //
+        private void ContactenForm_Load(object sender, EventArgs e) 
         {
             vulContacten();
 
@@ -433,6 +415,7 @@ namespace CrmAppSchool.Views.Bedrijven
         }
         private void tbMobiel_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // Het mobiele nummer mag alleen uit cijfers bestaan
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
@@ -441,11 +424,13 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void tbVoornaam_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // De voornaam en achternaam mogen enkel uit letters en spaties bestaan
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
         }
 
         private void tbEmail_Leave(object sender, EventArgs e)
         {
+            // Controleer of er een geldig email adres is ingevult
             if (tbEmail.Text.Count() > 0)
             {
                 try
@@ -454,7 +439,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 }
                 catch (FormatException ex)
                 {
-                    // wrong e-mail address
+                    // verkeerd e-mail address
                     tbEmail.ForeColor = Color.Red;
                     validemail = false;
                     Console.WriteLine(ex);
@@ -468,14 +453,6 @@ namespace CrmAppSchool.Views.Bedrijven
             validemail = true;
         }
         
-        
-        private void tbTelefoon_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
 
         private void tbMobiel_Enter(object sender, EventArgs e)
         {
@@ -485,13 +462,13 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void tbMobiel_Leave(object sender, EventArgs e)
         {
+            // Controleer of er een geldig nummer is ingevoerd
+            // of dat deze leeg is
             if (tbMobiel.Text.Count() < 10 && tbMobiel.Text.Count() > 0)
             {
                 tbMobiel.ForeColor = Color.Red;
                 validmobiel = false;
             }
-
-
         }
 
         private void tbSearch_KeyDown(object sender, KeyEventArgs e)
