@@ -40,6 +40,16 @@ namespace CrmAppSchool.Views.Bedrijven
             tbOmschrijving.Text = contact.Evaluatie + "HAI";
             beoordeling = contact.Beoordeling;          
             mobielTb.Text = contact.Mobielnr;
+            //Haal de kwaliteiten op
+            ContactenController cc = new ContactenController();
+            List<string> kwalteitenlijst = cc.Get_Kwaliteiten(_gebruiker, contact);
+            if (kwalteitenlijst != null)
+            {
+                foreach (string a in kwalteitenlijst)
+                {
+                    tbKwaliteiten.Text = tbKwaliteiten.Text + a + Environment.NewLine;
+                }
+            }            
             setSterren();
 
             // Zet de evaluatie in txb, mits er een evaluatie is
@@ -137,7 +147,12 @@ namespace CrmAppSchool.Views.Bedrijven
                 bewerktContact.Locatie = locatieTb.Text;
                 bewerktContact.Email = emailTb.Text;
                 bewerktContact.Mobielnr = mobielTb.Text;
-
+                List<string> kwalteitenlijst = new List<string>(); 
+                foreach (string regel in tbKwaliteiten.Lines)
+                {
+                    kwalteitenlijst.Add(regel);
+                }
+                bewerktContact.Kwaliteiten = kwalteitenlijst;
                 string omschr = "";
                 if (tbOmschrijving.Text.Count() > 1)
                 {

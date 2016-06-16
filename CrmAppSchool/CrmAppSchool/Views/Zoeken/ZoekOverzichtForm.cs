@@ -81,8 +81,23 @@ namespace CrmAppSchool.Views.Zoeken
                 if (contact.ingevoerddoor != null)
                 {
                     lvw.SubItems.Add(contact.ingevoerddoor);
+                if (contact.Isgastdocent == true)
+                {
+                    lvw.ImageKey = "GD";            // Stel de afbeelding in voor een gastdocent
+                }
+                else
+                {
+                    if (contact.Isstagebegeleider == true)
+                    {
+                        lvw.ImageKey = "SB";        // Stel de afbeelding in voor een stagebegeleider
+                    }
+                    else
+                    {
+                        lvw.ImageKey = "GS";        // Stel de afbeelding in voor een Gastspreker
+                    }
                 }
             }
+        }
         }
         public void VulListviewBedrijf(List<Models.Bedrijfcontact> resultatenlijst)
         {

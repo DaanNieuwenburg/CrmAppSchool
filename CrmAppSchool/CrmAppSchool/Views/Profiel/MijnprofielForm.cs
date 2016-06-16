@@ -66,6 +66,7 @@ namespace CrmAppSchool.Views.Profiel
             cbPriveKW.Checked = profiel.KwaliteitIsZichtbaar;
             lblFunctieWaarde.Text = profiel.Functie;
             cbPriveFU.Checked = profiel.FunctieIsZichtbaar;
+            cbPriveKW.Checked = profiel.KwaliteitIsZichtbaar;
         }
 
         private void btnBewerk_Click(object sender, EventArgs e)

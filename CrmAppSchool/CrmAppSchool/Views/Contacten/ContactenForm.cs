@@ -72,17 +72,25 @@ namespace CrmAppSchool.Views.Bedrijven
             List<Persooncontact> resultaten = cc.ZoekContacten(input, _gebruiker);
             foreach (Persooncontact contact in resultaten)
             {
-                ListViewItem lvi = new ListViewItem(contact.Voornaam + " " + contact.Achternaam);
+                ListViewItem lvi = new ListViewItem(contact.Voornaam);
                 lvi.SubItems.Add(contact.Contactcode.ToString());
                 lvContacten.Items.Add(lvi);
                 if (contact.Isgastdocent == true)
                 {
-                    lvi.ImageKey = "GD";
+                    lvi.ImageKey = "GD";            // Stel de afbeelding in voor een gastdocent
                 }
-                if (contact.Isstagebegeleider == true)
+                else
                 {
-                    lvi.ImageKey = "GS";
+                    if (contact.Isstagebegeleider == true)
+                    {
+                        lvi.ImageKey = "SB";        // Stel de afbeelding in voor een stagebegeleider
+                    }
+                    else
+                    {
+                        lvi.ImageKey = "GS";        // Stel de afbeelding in voor een Gastspreker
+                    }
                 }
+
 
             }
         }
@@ -262,12 +270,11 @@ namespace CrmAppSchool.Views.Bedrijven
                     persooncontact.Bedrijf = new Bedrijfcontact() { Bedrijfscode = bedrijfcode };
 
                     // Haal kwaliteiten op
-                    string[] kwaliteiten = new string[tbKwaliteitenP.Lines.Count()];
+                    List<string> kwaliteiten = new List<string>();
                     int i = 0;
                     foreach (string line in tbKwaliteitenP.Lines)
                     {
-                        kwaliteiten[i] = line;
-                        i++;
+                        kwaliteiten.Add(line);
                     }
                     persooncontact.Kwaliteiten = kwaliteiten;
 
@@ -286,7 +293,7 @@ namespace CrmAppSchool.Views.Bedrijven
                     ContactenController contactencontroller = new ContactenController();
                     contactencontroller.controleerOfContactBestaat(_gebruiker, persooncontact);
                     SaveContact(persooncontact);
-                    lvContacten.Clear();
+                    //lvContacten.Clear();
                     vulContacten();
                 }
                 
@@ -310,14 +317,14 @@ namespace CrmAppSchool.Views.Bedrijven
         {
             if (lvContacten.SelectedItems.Count == 1) //Om te bewerken moet er minimaal en maximaal 1 contact geselecteerd zijn
             {
-                string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
+                string contactcode = lvContacten.SelectedItems[0].SubItems[2].Text;
                 ContactenController cc = new ContactenController();
                 Persooncontact contact = cc.HaalInfoOp(contactcode);
                 ContactBewerk bewerk = new ContactBewerk(contact, _gebruiker);
                 bewerk.ShowDialog();
 
                 // Reset de listview
-                lvContacten.Clear();
+                //lvContacten.Items.Clear();
                 vulContacten();
             }
         }
@@ -329,7 +336,7 @@ namespace CrmAppSchool.Views.Bedrijven
             {
                 if (lvContacten.SelectedItems.Count == 1)
                 {
-                    string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
+                    string contactcode = lvContacten.SelectedItems[0].SubItems[2].Text;
                     ContactenController cc = new ContactenController();
                     cc.verwijderContact(_gebruiker, contactcode);
                     lvContacten.Items.Remove(lvContacten.SelectedItems[0]);
@@ -339,7 +346,7 @@ namespace CrmAppSchool.Views.Bedrijven
                     foreach (ListViewItem item in lvContacten.SelectedItems)
                     {
                         lvContacten.Items.Remove(item);
-                        string contactcode = item.SubItems[1].Text;
+                        string contactcode = item.SubItems[2].Text;
                         ContactenController cc = new ContactenController();
                         cc.verwijderContact(_gebruiker, contactcode);
                     }
@@ -364,7 +371,7 @@ namespace CrmAppSchool.Views.Bedrijven
 
         private void lvContacten_ItemActivate(object sender, EventArgs e)
         {
-            string contactcode = lvContacten.SelectedItems[0].SubItems[1].Text;
+            string contactcode = lvContacten.SelectedItems[0].SubItems[2].Text;
             ContactenController _controller = new ContactenController();
             Persooncontact contact = _controller.HaalInfoOp(contactcode);
             Contacten.ContactDetails _details = new Contacten.ContactDetails(_gebruiker, contact);
@@ -372,14 +379,15 @@ namespace CrmAppSchool.Views.Bedrijven
         }
 
         private void vulContacten()
-        {
+        {           
             settooltips();
-            lvContacten.Clear();
+            lvContacten.Items.Clear();
             ContactenController _getcontacten = new ContactenController();
             List<Persooncontact> contactenlijst = _getcontacten.HaalContactenOp(_gebruiker);
             foreach (Persooncontact contact in contactenlijst)
             {
-                ListViewItem c = new ListViewItem(contact.Voornaam + " " + contact.Achternaam);
+                ListViewItem c = new ListViewItem(contact.Voornaam);
+                c.SubItems.Add(contact.Achternaam);
                 c.SubItems.Add(Convert.ToString(contact.Contactcode));
                 if (contact.Isstagebegeleider == true)
                 {

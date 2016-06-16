@@ -16,7 +16,7 @@ namespace CrmAppSchool.Models
         public string Email { get; set; }
         public string Mobielnr { get; set; }
         public string Functie { get; set; }
-        public string[] Kwaliteiten { get; set; }
+        public List<string> Kwaliteiten { get; set; }
         public string Afdeling { get; set; }
         public bool Isgastdocent { get; set; }
         public bool Isstagebegeleider { get; set; }
