@@ -64,10 +64,9 @@
             this.gebruikerLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.gebruikerLbl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gebruikerLbl.ForeColor = System.Drawing.Color.White;
-            this.gebruikerLbl.Location = new System.Drawing.Point(784, 22);
-            this.gebruikerLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gebruikerLbl.Location = new System.Drawing.Point(588, 18);
             this.gebruikerLbl.Name = "gebruikerLbl";
-            this.gebruikerLbl.Size = new System.Drawing.Size(183, 23);
+            this.gebruikerLbl.Size = new System.Drawing.Size(145, 18);
             this.gebruikerLbl.TabIndex = 0;
             this.gebruikerLbl.Text = "U bent ingelogd als:";
             // 
@@ -76,10 +75,9 @@
             this.lblContacten.AutoSize = true;
             this.lblContacten.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContacten.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblContacten.Location = new System.Drawing.Point(101, 265);
-            this.lblContacten.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblContacten.Location = new System.Drawing.Point(76, 215);
             this.lblContacten.Name = "lblContacten";
-            this.lblContacten.Size = new System.Drawing.Size(83, 19);
+            this.lblContacten.Size = new System.Drawing.Size(67, 16);
             this.lblContacten.TabIndex = 13;
             this.lblContacten.Text = "Contacten";
             this.lblContacten.Visible = false;
@@ -89,10 +87,9 @@
             this.lblZoeken.AutoSize = true;
             this.lblZoeken.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblZoeken.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblZoeken.Location = new System.Drawing.Point(348, 265);
-            this.lblZoeken.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblZoeken.Location = new System.Drawing.Point(261, 215);
             this.lblZoeken.Name = "lblZoeken";
-            this.lblZoeken.Size = new System.Drawing.Size(62, 19);
+            this.lblZoeken.Size = new System.Drawing.Size(50, 16);
             this.lblZoeken.TabIndex = 14;
             this.lblZoeken.Text = "Zoeken";
             this.lblZoeken.Visible = false;
@@ -102,10 +99,9 @@
             this.lblRegistreer.AutoSize = true;
             this.lblRegistreer.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegistreer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblRegistreer.Location = new System.Drawing.Point(67, 459);
-            this.lblRegistreer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRegistreer.Location = new System.Drawing.Point(50, 373);
             this.lblRegistreer.Name = "lblRegistreer";
-            this.lblRegistreer.Size = new System.Drawing.Size(140, 19);
+            this.lblRegistreer.Size = new System.Drawing.Size(110, 16);
             this.lblRegistreer.TabIndex = 15;
             this.lblRegistreer.Text = "Gebruikersbeheer";
             this.lblRegistreer.Visible = false;
@@ -115,10 +111,9 @@
             this.lblProfiel.AutoSize = true;
             this.lblProfiel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProfiel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblProfiel.Location = new System.Drawing.Point(99, 459);
-            this.lblProfiel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProfiel.Location = new System.Drawing.Point(74, 373);
             this.lblProfiel.Name = "lblProfiel";
-            this.lblProfiel.Size = new System.Drawing.Size(90, 19);
+            this.lblProfiel.Size = new System.Drawing.Size(72, 16);
             this.lblProfiel.TabIndex = 16;
             this.lblProfiel.Text = "Mijn Profiel";
             this.lblProfiel.Visible = false;
@@ -128,10 +123,9 @@
             this.lblOpdrachten.AutoSize = true;
             this.lblOpdrachten.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOpdrachten.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblOpdrachten.Location = new System.Drawing.Point(332, 459);
-            this.lblOpdrachten.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblOpdrachten.Location = new System.Drawing.Point(249, 373);
             this.lblOpdrachten.Name = "lblOpdrachten";
-            this.lblOpdrachten.Size = new System.Drawing.Size(94, 19);
+            this.lblOpdrachten.Size = new System.Drawing.Size(75, 16);
             this.lblOpdrachten.TabIndex = 17;
             this.lblOpdrachten.Text = "Opdrachten";
             this.lblOpdrachten.Visible = false;
@@ -141,10 +135,9 @@
             this.lblUitloggen.AutoSize = true;
             this.lblUitloggen.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUitloggen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lblUitloggen.Location = new System.Drawing.Point(592, 464);
-            this.lblUitloggen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUitloggen.Location = new System.Drawing.Point(444, 377);
             this.lblUitloggen.Name = "lblUitloggen";
-            this.lblUitloggen.Size = new System.Drawing.Size(76, 19);
+            this.lblUitloggen.Size = new System.Drawing.Size(62, 16);
             this.lblUitloggen.TabIndex = 18;
             this.lblUitloggen.Text = "Uitloggen";
             this.lblUitloggen.Visible = false;
@@ -157,10 +150,9 @@
             this.btnBedrijven.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBedrijven.FlatAppearance.BorderSize = 0;
             this.btnBedrijven.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBedrijven.Location = new System.Drawing.Point(529, 92);
-            this.btnBedrijven.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBedrijven.Location = new System.Drawing.Point(397, 75);
             this.btnBedrijven.Name = "btnBedrijven";
-            this.btnBedrijven.Size = new System.Drawing.Size(224, 171);
+            this.btnBedrijven.Size = new System.Drawing.Size(168, 139);
             this.btnBedrijven.TabIndex = 19;
             this.btnBedrijven.UseVisualStyleBackColor = true;
             this.btnBedrijven.Click += new System.EventHandler(this.btnBedrijven_Click);
@@ -173,10 +165,9 @@
             this.btnHelp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHelp.FlatAppearance.BorderSize = 0;
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHelp.Location = new System.Drawing.Point(761, 70);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHelp.Location = new System.Drawing.Point(571, 57);
             this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(73, 63);
+            this.btnHelp.Size = new System.Drawing.Size(55, 51);
             this.btnHelp.TabIndex = 12;
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
@@ -190,10 +181,9 @@
             this.btnContacten.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnContacten.FlatAppearance.BorderSize = 0;
             this.btnContacten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContacten.Location = new System.Drawing.Point(32, 92);
-            this.btnContacten.Margin = new System.Windows.Forms.Padding(4);
+            this.btnContacten.Location = new System.Drawing.Point(24, 75);
             this.btnContacten.Name = "btnContacten";
-            this.btnContacten.Size = new System.Drawing.Size(224, 171);
+            this.btnContacten.Size = new System.Drawing.Size(168, 139);
             this.btnContacten.TabIndex = 2;
             this.btnContacten.UseVisualStyleBackColor = false;
             this.btnContacten.Click += new System.EventHandler(this.btnContacten_Click);
@@ -204,10 +194,9 @@
             this.pbLogo2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.pbLogo2.BackgroundImage = global::CrmAppSchool.Properties.Resources.Logo_HHS3;
             this.pbLogo2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbLogo2.Location = new System.Drawing.Point(844, 394);
-            this.pbLogo2.Margin = new System.Windows.Forms.Padding(4);
+            this.pbLogo2.Location = new System.Drawing.Point(633, 320);
             this.pbLogo2.Name = "pbLogo2";
-            this.pbLogo2.Size = new System.Drawing.Size(276, 133);
+            this.pbLogo2.Size = new System.Drawing.Size(207, 108);
             this.pbLogo2.TabIndex = 11;
             this.pbLogo2.TabStop = false;
             // 
@@ -217,10 +206,9 @@
             this.pbLogo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.pbLogo1.BackgroundImage = global::CrmAppSchool.Properties.Resources.Logo_HHS;
             this.pbLogo1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbLogo1.Location = new System.Drawing.Point(844, 59);
-            this.pbLogo1.Margin = new System.Windows.Forms.Padding(4);
+            this.pbLogo1.Location = new System.Drawing.Point(633, 48);
             this.pbLogo1.Name = "pbLogo1";
-            this.pbLogo1.Size = new System.Drawing.Size(276, 245);
+            this.pbLogo1.Size = new System.Drawing.Size(207, 199);
             this.pbLogo1.TabIndex = 10;
             this.pbLogo1.TabStop = false;
             // 
@@ -233,11 +221,10 @@
             this.btnUitloggen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUitloggen.FlatAppearance.BorderSize = 0;
             this.btnUitloggen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUitloggen.Location = new System.Drawing.Point(527, 289);
-            this.btnUitloggen.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUitloggen.MinimumSize = new System.Drawing.Size(225, 171);
+            this.btnUitloggen.Location = new System.Drawing.Point(395, 235);
+            this.btnUitloggen.MinimumSize = new System.Drawing.Size(169, 139);
             this.btnUitloggen.Name = "btnUitloggen";
-            this.btnUitloggen.Size = new System.Drawing.Size(225, 171);
+            this.btnUitloggen.Size = new System.Drawing.Size(169, 139);
             this.btnUitloggen.TabIndex = 8;
             this.btnUitloggen.UseVisualStyleBackColor = false;
             this.btnUitloggen.Click += new System.EventHandler(this.btnUitloggen_Click);
@@ -249,9 +236,8 @@
             this.pbHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbHome.Location = new System.Drawing.Point(1, 0);
-            this.pbHome.Margin = new System.Windows.Forms.Padding(4);
             this.pbHome.Name = "pbHome";
-            this.pbHome.Size = new System.Drawing.Size(81, 62);
+            this.pbHome.Size = new System.Drawing.Size(61, 50);
             this.pbHome.TabIndex = 7;
             this.pbHome.TabStop = false;
             // 
@@ -260,9 +246,8 @@
             this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.pbHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbHeader.Location = new System.Drawing.Point(0, 0);
-            this.pbHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(844, 62);
+            this.pbHeader.Size = new System.Drawing.Size(633, 50);
             this.pbHeader.TabIndex = 6;
             this.pbHeader.TabStop = false;
             // 
@@ -274,10 +259,9 @@
             this.btnOpdrachten.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpdrachten.FlatAppearance.BorderSize = 0;
             this.btnOpdrachten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpdrachten.Location = new System.Drawing.Point(271, 284);
-            this.btnOpdrachten.Margin = new System.Windows.Forms.Padding(4);
+            this.btnOpdrachten.Location = new System.Drawing.Point(203, 231);
             this.btnOpdrachten.Name = "btnOpdrachten";
-            this.btnOpdrachten.Size = new System.Drawing.Size(224, 171);
+            this.btnOpdrachten.Size = new System.Drawing.Size(168, 139);
             this.btnOpdrachten.TabIndex = 5;
             this.btnOpdrachten.UseVisualStyleBackColor = true;
             this.btnOpdrachten.Click += new System.EventHandler(this.btnOpdrachten_Click);
@@ -290,10 +274,9 @@
             this.btnProfiel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProfiel.FlatAppearance.BorderSize = 0;
             this.btnProfiel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProfiel.Location = new System.Drawing.Point(32, 284);
-            this.btnProfiel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnProfiel.Location = new System.Drawing.Point(24, 231);
             this.btnProfiel.Name = "btnProfiel";
-            this.btnProfiel.Size = new System.Drawing.Size(224, 171);
+            this.btnProfiel.Size = new System.Drawing.Size(168, 139);
             this.btnProfiel.TabIndex = 4;
             this.btnProfiel.UseVisualStyleBackColor = true;
             this.btnProfiel.Click += new System.EventHandler(this.btnProfiel_Click);
@@ -306,10 +289,9 @@
             this.btnZoeken.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnZoeken.FlatAppearance.BorderSize = 0;
             this.btnZoeken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnZoeken.Location = new System.Drawing.Point(271, 92);
-            this.btnZoeken.Margin = new System.Windows.Forms.Padding(4);
+            this.btnZoeken.Location = new System.Drawing.Point(203, 75);
             this.btnZoeken.Name = "btnZoeken";
-            this.btnZoeken.Size = new System.Drawing.Size(224, 171);
+            this.btnZoeken.Size = new System.Drawing.Size(168, 139);
             this.btnZoeken.TabIndex = 3;
             this.btnZoeken.UseVisualStyleBackColor = true;
             this.btnZoeken.Click += new System.EventHandler(this.btnZoeken_Click);
@@ -323,10 +305,9 @@
             this.voegGebruikerToeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.voegGebruikerToeBtn.FlatAppearance.BorderSize = 0;
             this.voegGebruikerToeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.voegGebruikerToeBtn.Location = new System.Drawing.Point(31, 284);
-            this.voegGebruikerToeBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.voegGebruikerToeBtn.Location = new System.Drawing.Point(23, 231);
             this.voegGebruikerToeBtn.Name = "voegGebruikerToeBtn";
-            this.voegGebruikerToeBtn.Size = new System.Drawing.Size(225, 171);
+            this.voegGebruikerToeBtn.Size = new System.Drawing.Size(169, 139);
             this.voegGebruikerToeBtn.TabIndex = 1;
             this.voegGebruikerToeBtn.UseVisualStyleBackColor = false;
             this.voegGebruikerToeBtn.Click += new System.EventHandler(this.voegGebruikerToeBtn_Click);
@@ -335,10 +316,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Location = new System.Drawing.Point(844, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(633, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(276, 527);
+            this.pictureBox1.Size = new System.Drawing.Size(207, 428);
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
@@ -347,20 +327,19 @@
             this.BedrijvenLbl.AutoSize = true;
             this.BedrijvenLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BedrijvenLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.BedrijvenLbl.Location = new System.Drawing.Point(601, 265);
-            this.BedrijvenLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.BedrijvenLbl.Location = new System.Drawing.Point(451, 215);
             this.BedrijvenLbl.Name = "BedrijvenLbl";
-            this.BedrijvenLbl.Size = new System.Drawing.Size(76, 19);
+            this.BedrijvenLbl.Size = new System.Drawing.Size(60, 16);
             this.BedrijvenLbl.TabIndex = 20;
             this.BedrijvenLbl.Text = "Bedrijven";
             this.BedrijvenLbl.Visible = false;
             // 
             // HoofdmenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1120, 527);
+            this.ClientSize = new System.Drawing.Size(840, 428);
             this.Controls.Add(this.BedrijvenLbl);
             this.Controls.Add(this.btnBedrijven);
             this.Controls.Add(this.lblUitloggen);
@@ -383,11 +362,11 @@
             this.Controls.Add(this.voegGebruikerToeBtn);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(1134, 563);
+            this.MinimumSize = new System.Drawing.Size(854, 465);
             this.Name = "HoofdmenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hoofdmenu";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HoofdmenuForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).EndInit();

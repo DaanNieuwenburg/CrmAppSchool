@@ -272,7 +272,6 @@ namespace CrmAppSchool.Views.Bedrijven
 
                     // Haal kwaliteiten op
                     List<string> kwaliteiten = new List<string>();
-                    int i = 0;
                     foreach (string line in tbKwaliteitenP.Lines)
                     {
                         kwaliteiten.Add(line);

@@ -17,14 +17,15 @@ namespace CrmAppSchool.Views.Gebruikers
     {
         private bool geverifieerd { get; set; }
         public int Verkeerdwachtwoord { get; set; }
+        private bool uitloggen { get; set; }
         public Gebruiker gebruiker;
         private bool ShowHelp { get; set; }
         private List<Form> openForms { get; set; }
         public HoofdmenuForm(Gebruiker _gebruiker)
         {
             openForms = new List<Form>();
-            
 
+            uitloggen = false;
             gebruiker = _gebruiker;
             InitializeComponent();
             toonGebruikersnaam();
@@ -124,7 +125,6 @@ namespace CrmAppSchool.Views.Gebruikers
             Controllers.ProfielController profiel = new Controllers.ProfielController();
             Models.Profiel profielModel = profiel.Get_Pofiel(gebruiker);
             Profiel.MijnprofielForm Profiel = new Profiel.MijnprofielForm(gebruiker, profielModel);
-            this.Hide();
             Profiel.Text = "Profiel";
             Profiel.ShowDialog();
             if(Profiel.ShowMenu == true)
@@ -136,6 +136,7 @@ namespace CrmAppSchool.Views.Gebruikers
 
         private void btnUitloggen_Click(object sender, EventArgs e)
         {
+            uitloggen = true;
             foreach (Form f in Application.OpenForms)
                 openForms.Add(f);
             foreach (Form f in openForms)
@@ -255,5 +256,12 @@ namespace CrmAppSchool.Views.Gebruikers
             bForm.ShowDialog();
             //Cursor = Cursors.Default;
         }
+
+        private void HoofdmenuForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (uitloggen == false)
+                Environment.Exit(0);
+        }
     }
 }
+

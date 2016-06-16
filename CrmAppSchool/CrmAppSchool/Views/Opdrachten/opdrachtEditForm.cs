@@ -118,7 +118,7 @@ namespace CrmAppSchool.Views.Opdrachten
             ContactenController cc = new ContactenController();
             cbx_contact.Text = "";
             if (bedrijf != null)
-            cbx_contact.DataSource = cc.ContactenBijBedrijf(bedrijf);
+            cbx_contact.DataSource = cc.ContactenBijBedrijf(bedrijf, false);
             cbx_contact.DisplayMember = "volnaam";
             cbx_contact.ValueMember = "contactcode";
         }

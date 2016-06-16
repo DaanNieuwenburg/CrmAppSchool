@@ -789,7 +789,7 @@ namespace CrmAppSchool.Controllers
             }
         }
 
-        public List<Persooncontact> ContactenBijBedrijf(Bedrijfcontact bedrijf)
+        public List<Persooncontact> ContactenBijBedrijf(Bedrijfcontact bedrijf, bool soort)
         {
             List<Persooncontact> contactenlijst = new List<Persooncontact>();
             MySqlTransaction trans = null;
@@ -798,11 +798,23 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"SELECT *
+                string query = "";
+
+                if (soort == false)
+                {
+                    query = @"SELECT *
                                  FROM contactpersoon c JOIN bedrijf b
                                  ON c.bedrijfcode = b.bedrijfcode
                                  WHERE b.bedrijfcode = @bedrijfcode
                                  AND c.isstagebegeleider = 1";
+                }
+                else
+                {
+                    query = @"SELECT *
+                                 FROM contactpersoon c JOIN bedrijf b
+                                 ON c.bedrijfcode = b.bedrijfcode
+                                 WHERE b.bedrijfcode = @bedrijfcode ";
+                }
 
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter bedrijfParam = new MySqlParameter("bedrijfcode", MySqlDbType.VarChar);

@@ -75,5 +75,10 @@ namespace CrmAppSchool.Views.Login
                 Login();
             }
         }
+
+        private void InlogForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
