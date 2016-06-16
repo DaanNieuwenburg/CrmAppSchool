@@ -206,7 +206,12 @@ namespace CrmAppSchool.Views.Contacten
         {
             if (lbl_ingevoerd.Text != "admin")
             {
-                //open de form met gebruikersprofiel informatie
+                Gebruiker gebruiker = new Gebruiker();
+                gebruiker.Gebruikersnaam = contact.ingevoerddoor;
+                ProfielController pc = new ProfielController();
+                Models.Profiel profiel = pc.Get_Pofiel(gebruiker);
+                Profiel.ProfielDetails details = new Profiel.ProfielDetails(gebruiker, profiel);
+                details.ShowDialog();
             }
         }
 

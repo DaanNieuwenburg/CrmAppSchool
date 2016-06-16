@@ -32,7 +32,7 @@ namespace CrmAppSchool.Controllers
                     else if(Zoeknaar == "Gebruiker")
                     {
                         Persooncontact contact = new Persooncontact();
-                        resultatenLijst.Add(new Persooncontact { Voornaam = lezer.GetString("voornaam"), Achternaam = lezer.GetString("achternaam"), Locatie = lezer.GetString("locatie"),  Functie = lezer["functie"] as string});
+                        resultatenLijst.Add(new Persooncontact { Voornaam = lezer.GetString("voornaam"), Achternaam = lezer.GetString("achternaam"), Locatie = lezer.GetString("locatie"),  Functie = lezer["functie"] as string, ingevoerddoor = lezer.GetString("gebruikersnaam")});
                     }
                 }
             }

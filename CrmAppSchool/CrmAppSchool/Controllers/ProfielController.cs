@@ -180,10 +180,10 @@ namespace CrmAppSchool.Controllers
                 VN_PARAM.Value = _profiel.Voornaam;
                 AN_PARAM.Value = _profiel.Achternaam;
                 LO_PARAM.Value = _profiel.Locatie;
-                LO_iszichtbaar.Value = _profiel.LocatieIsZichtbaar;
+                LO_iszichtbaar.Value = Convert.ToInt32(_profiel.LocatieIsZichtbaar);
                 FU_PARAM.Value = _profiel.Functie;
-                FU_iszichtbaar.Value = _profiel.FunctieIsZichtbaar;
-                KW_iszichtbaar.Value = _profiel.KwaliteitIsZichtbaar;
+                FU_iszichtbaar.Value = Convert.ToInt32(_profiel.FunctieIsZichtbaar);
+                KW_iszichtbaar.Value = Convert.ToInt32(_profiel.KwaliteitIsZichtbaar);
 
                 command.Parameters.Add(UN_PARAM);
                 command.Parameters.Add(VN_PARAM);
@@ -246,13 +246,16 @@ namespace CrmAppSchool.Controllers
             }
 
             // Kijk of de kwaliteiten gelijk zijn aan elkaar
-            bool isGelijk = oudeKwaliteitLijst.SequenceEqual(_profiel.KwaliteitenLijst);
+            Profiel tempprofiel = _profiel;
+            tempprofiel.KwaliteitenLijst = oudeKwaliteitLijst;
+            bool isGelijk = tempprofiel.KwaliteitenLijst.SequenceEqual(_profiel.KwaliteitenLijst);
 
             if (isGelijk == false)
             {
                 // Update kwaliteiten
                 if (_profiel.KwaliteitenLijst.Count() == oudeKwaliteitLijst.Count())
                 {
+                    Console.WriteLine("KW UPDATE");
                     int teller = 0;
                     foreach (string nieuwekwaliteit in _profiel.KwaliteitenLijst)
                     {
@@ -263,6 +266,7 @@ namespace CrmAppSchool.Controllers
                 // Voer nieuwe kwaliteiten in als er nog geen kwaliteiten bestaan
                 else if (oudeKwaliteitLijst.Count() == 0)
                 {
+                    Console.WriteLine("KW INVOER NIEUW");
                     foreach (string nieuwekwaliteit in _profiel.KwaliteitenLijst)
                     {
                         VoerKwaliteitIn(_gebruiker, nieuwekwaliteit);
@@ -272,6 +276,7 @@ namespace CrmAppSchool.Controllers
                 // Voer nieuwe kwaliteiten in en update bestaande kwaliteiten
                 else if (_profiel.KwaliteitenLijst.Count() > oudeKwaliteitLijst.Count())
                 {
+                    Console.WriteLine("KW UPDATE en voer in");
                     int teller = 0;
                     foreach (string nieuwekwaliteit in _profiel.KwaliteitenLijst)
                     {
@@ -293,6 +298,7 @@ namespace CrmAppSchool.Controllers
                 // Verwijder kwaliteiten in en update bestaande kwaliteiten
                 else if (_profiel.KwaliteitenLijst.Count() < oudeKwaliteitLijst.Count())
                 {
+                    Console.WriteLine("KW UPDATE en VERWIJDER");
                     int teller = 0;
                     foreach (string nieuwekwaliteit in _profiel.KwaliteitenLijst)
                     {
