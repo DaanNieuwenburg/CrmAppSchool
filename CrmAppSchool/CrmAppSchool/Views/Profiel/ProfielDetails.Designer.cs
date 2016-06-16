@@ -43,7 +43,9 @@
             this.lbl_Functie = new System.Windows.Forms.Label();
             this.lbl_Functiewaarde = new System.Windows.Forms.Label();
             this.lbl_contacten = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lv_contacten = new System.Windows.Forms.ListView();
+            this.columnHeader0 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,7 +127,7 @@
             this.lbl_Kwaliteitwaarde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbl_Kwaliteitwaarde.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Kwaliteitwaarde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lbl_Kwaliteitwaarde.Location = new System.Drawing.Point(153, 164);
+            this.lbl_Kwaliteitwaarde.Location = new System.Drawing.Point(153, 193);
             this.lbl_Kwaliteitwaarde.Name = "lbl_Kwaliteitwaarde";
             this.lbl_Kwaliteitwaarde.Size = new System.Drawing.Size(15, 18);
             this.lbl_Kwaliteitwaarde.TabIndex = 30;
@@ -137,7 +139,7 @@
             this.lbl_Kwaliteiten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbl_Kwaliteiten.Font = new System.Drawing.Font("Arial", 10F);
             this.lbl_Kwaliteiten.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.lbl_Kwaliteiten.Location = new System.Drawing.Point(32, 164);
+            this.lbl_Kwaliteiten.Location = new System.Drawing.Point(32, 195);
             this.lbl_Kwaliteiten.Name = "lbl_Kwaliteiten";
             this.lbl_Kwaliteiten.Size = new System.Drawing.Size(79, 16);
             this.lbl_Kwaliteiten.TabIndex = 21;
@@ -213,21 +215,40 @@
             this.lbl_contacten.TabIndex = 45;
             this.lbl_contacten.Text = "Contacten:";
             // 
-            // listView1
+            // lv_contacten
             // 
-            this.listView1.Location = new System.Drawing.Point(330, 195);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(266, 103);
-            this.listView1.TabIndex = 46;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lv_contacten.Activation = System.Windows.Forms.ItemActivation.TwoClick;
+            this.lv_contacten.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader0,
+            this.columnHeader1});
+            this.lv_contacten.FullRowSelect = true;
+            this.lv_contacten.Location = new System.Drawing.Point(330, 195);
+            this.lv_contacten.MultiSelect = false;
+            this.lv_contacten.Name = "lv_contacten";
+            this.lv_contacten.Size = new System.Drawing.Size(266, 168);
+            this.lv_contacten.TabIndex = 46;
+            this.lv_contacten.UseCompatibleStateImageBehavior = false;
+            this.lv_contacten.View = System.Windows.Forms.View.Details;
+            this.lv_contacten.ItemActivate += new System.EventHandler(this.lv_contacten_ItemActivate);
+            this.lv_contacten.SelectedIndexChanged += new System.EventHandler(this.lv_contacten_SelectedIndexChanged);
+            // 
+            // columnHeader0
+            // 
+            this.columnHeader0.Text = "Naam";
+            this.columnHeader0.Width = 147;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Soort Contact";
+            this.columnHeader1.Width = 96;
             // 
             // ProfielDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(608, 310);
-            this.Controls.Add(this.listView1);
+            this.ClientSize = new System.Drawing.Size(608, 375);
+            this.Controls.Add(this.lv_contacten);
             this.Controls.Add(this.lbl_contacten);
             this.Controls.Add(this.lbl_Functiewaarde);
             this.Controls.Add(this.lbl_Functie);
@@ -271,6 +292,8 @@
         private System.Windows.Forms.Label lbl_Functie;
         private System.Windows.Forms.Label lbl_Functiewaarde;
         private System.Windows.Forms.Label lbl_contacten;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lv_contacten;
+        private System.Windows.Forms.ColumnHeader columnHeader0;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

@@ -16,10 +16,12 @@ namespace CrmAppSchool.Views.Profiel
     {
 
         private Models.Profiel profiel { get; set; }
+        private Gebruiker gebruiker { get; set; }
 
         public ProfielDetails(Gebruiker _gebruiker, Models.Profiel _profiel)
         {
             InitializeComponent();
+            this.gebruiker = _gebruiker;
             profiel = _profiel;
 
 
@@ -58,29 +60,50 @@ namespace CrmAppSchool.Views.Profiel
             {
                 lbl_Kwaliteitwaarde.Text = "*privé";
             }
-            /*BedrijfController cc = new BedrijfController();
-            List<string> kwalteitenlijst = cc.Get_Kwaliteiten(_gebruiker, contact);
-            if (kwalteitenlijst != null)
+
+            ContactenController cc = new ContactenController();
+            Gebruiker gebruiker = new Gebruiker();
+            gebruiker.Gebruikersnaam = profiel.Gebruikersnaam;
+            List<Persooncontact> list = cc.HaalContactenOp(gebruiker);
+            foreach(Persooncontact a in list)
             {
-                lbl_Kwaliteitwaarde.Text = "";
-                int j = 0;
-                foreach (string a in kwalteitenlijst)
+                a.volnaam = a.Voornaam + " " + a.Achternaam;
+                ListViewItem item = new ListViewItem(a.volnaam);
+                if (a.Isgastdocent == true)
                 {
-                    if (j == 0)
-                        lbl_Kwaliteitwaarde.Text = a;
-                    else
-                        lbl_Kwaliteitwaarde.Text = lbl_Kwaliteitwaarde.Text + "\n" + a;
-
-                    j++;
+                    item.SubItems.Add("Gastdocent");
                 }
-            }*/
-
+                else if (a.Isstagebegeleider == true)
+                {
+                    item.SubItems.Add("Stagebegeleider");
+                }
+                else
+                {
+                    item.SubItems.Add("Gastspreker");
+                }
+                item.SubItems.Add(a.Contactcode.ToString());
+                lv_contacten.Items.Add(item);
+            }
         }
 
         private void ContactDetails_Load(object sender, EventArgs e)
         {
             lbl_Profielnaam.Text = profiel.Voornaam + " " + profiel.Achternaam;
 
+        }
+
+        private void lv_contacten_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lv_contacten_ItemActivate(object sender, EventArgs e)
+        {
+            string contactcode = lv_contacten.SelectedItems[0].SubItems[2].Text;
+            ContactenController _controller = new ContactenController();
+            Persooncontact contact = _controller.HaalInfoOp(contactcode);
+            CrmAppSchool.Views.Contacten.ContactDetails _details = new CrmAppSchool.Views.Contacten.ContactDetails(gebruiker, contact);
+            _details.ShowDialog();
         }
     }
 }

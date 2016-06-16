@@ -263,5 +263,10 @@ namespace CrmAppSchool.Views.Opdrachten
                 }
             }
         }
+
+        private void lvStage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
