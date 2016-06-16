@@ -82,6 +82,7 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = @"DELETE FROM bedrijf WHERE bedrijfcode = @bedrijfcode";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
@@ -93,7 +94,7 @@ namespace CrmAppSchool.Controllers
                 command.Prepare();
 
                 command.ExecuteNonQuery();
-
+                trans.Commit();
 
             }
             catch (MySqlException e)
@@ -120,6 +121,7 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = @"INSERT INTO bedrijf_kwaliteiten (bedrijfcode, kwaliteit)
                                  VALUES (@bedrijfcode, @kwaliteit)";
 
@@ -136,6 +138,7 @@ namespace CrmAppSchool.Controllers
 
                 command.Prepare();
                 command.ExecuteNonQuery();
+                trans.Commit();
             }
             catch (MySqlException e)
             {
@@ -259,9 +262,11 @@ namespace CrmAppSchool.Controllers
         }
         public void bewerkContact(Bedrijfcontact contact)
         {
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = @"UPDATE bedrijf SET bedrijfnaam = @bedrijfnaam, hoofdlocatie = @hoofdlocatie, website = @website, email = @email, telefoonnr = @telefoonnr WHERE bedrijfcode = @code";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter bedrijfnaamParam = new MySqlParameter("bedrijfnaam", MySqlDbType.VarChar);
@@ -289,7 +294,8 @@ namespace CrmAppSchool.Controllers
 
                 command.Prepare();
                 command.ExecuteNonQuery();
-                conn.Close();
+                trans.Commit();
+                
                 bepaalUpdateKwaliteiten(contact);
             }
 
@@ -299,6 +305,10 @@ namespace CrmAppSchool.Controllers
                 if((uint)e.ErrorCode == 0x80004005)
                 {
                     MessageBox.Show("De bedrijfnaam kan niet bewerkt worden: dit bedrijf bestaat al");
+                }
+                if (trans != null)
+                {
+                    trans.Rollback();
                 }
                 Console.WriteLine("Error in Bedrijfcontroller - bewerkContact: " + e);
             }
@@ -427,9 +437,11 @@ namespace CrmAppSchool.Controllers
 
         public void VoerKwaliteitIn(Bedrijfcontact bedrijf, string kwaliteit)
         {
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = "INSERT INTO bedrijf_kwaliteiten (bedrijfcode, kwaliteit) VALUES (@bedrijfcode, @kwaliteit)";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter bedrijfcodeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
@@ -442,9 +454,14 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(kwaliteitParam);
 
                 command.ExecuteNonQuery();
+                trans.Commit();
             }
             catch (MySqlException e)
             {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
                 Console.WriteLine("Error in bedrijfcontroller - VoerKwaliteitIn: " + e);
             }
             finally
@@ -455,9 +472,11 @@ namespace CrmAppSchool.Controllers
 
         public void UpdateKwaliteit(Bedrijfcontact bedrijf, string nieuweKwaliteit, string oudeKwaliteit)
         {
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = "UPDATE bedrijf_kwaliteiten SET kwaliteit = @nieuwekwaliteit WHERE bedrijfcode = @bedrijfcode AND kwaliteit = @oudekwaliteit";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter bedrijfcodeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
@@ -473,9 +492,14 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(nieuweKwaliteitParam);
 
                 command.ExecuteNonQuery();
+                trans.Commit();
             }
             catch (MySqlException e)
             {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
                 Console.WriteLine("Error in bedrijfcontroller - updatekwaliteiten: " + e);
             }
             finally
@@ -485,9 +509,11 @@ namespace CrmAppSchool.Controllers
         }
         public void VerwijderKwaliteit(Bedrijfcontact bedrijf, string oudeKwaliteit)
         {
+            MySqlTransaction trans = null;
             try
             {
                 conn.Open();
+                trans = conn.BeginTransaction();
                 string query = "DELETE FROM bedrijf_kwaliteiten WHERE bedrijfcode = @bedrijfcode AND kwaliteit = @oudekwaliteit";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter bedrijfcodeParam = new MySqlParameter("bedrijfcode", MySqlDbType.Int32);
@@ -500,9 +526,14 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(oudeKwaliteitParam);
 
                 command.ExecuteNonQuery();
+                trans.Commit();
             }
             catch (MySqlException e)
             {
+                if (trans != null)
+                {
+                    trans.Rollback();
+                }
                 Console.WriteLine("Error in bedrijfcontroller - verwijderkwaliteiten: " + e);
             }
             finally
