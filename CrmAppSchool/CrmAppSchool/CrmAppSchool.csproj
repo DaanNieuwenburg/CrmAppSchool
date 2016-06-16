@@ -97,10 +97,10 @@
     <Compile Include="Views\Contacten\ContactBewerk.Designer.cs">
       <DependentUpon>ContactBewerk.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Gebruikers\ContactDetails.cs">
+    <Compile Include="Views\Contacten\ContactDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Gebruikers\ContactDetails.Designer.cs">
+    <Compile Include="Views\Contacten\ContactDetails.Designer.cs">
       <DependentUpon>ContactDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Contacten\ContactenForm.cs">
@@ -159,6 +159,12 @@
     <Compile Include="Views\Opdrachten\StageopdrachtForm.Designer.cs">
       <DependentUpon>StageopdrachtForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Profiel\ProfielDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Profiel\ProfielDetails.Designer.cs">
+      <DependentUpon>ProfielDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Profiel\MijnprofielForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,7 +195,7 @@
     <EmbeddedResource Include="Views\Contacten\ContactBewerk.resx">
       <DependentUpon>ContactBewerk.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Gebruikers\ContactDetails.resx">
+    <EmbeddedResource Include="Views\Contacten\ContactDetails.resx">
       <DependentUpon>ContactDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Contacten\ContactenForm.resx">
@@ -223,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Opdrachten\StageopdrachtForm.resx">
       <DependentUpon>StageopdrachtForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Profiel\ProfielDetails.resx">
+      <DependentUpon>ProfielDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Profiel\MijnprofielForm.resx">
       <DependentUpon>MijnprofielForm.cs</DependentUpon>

@@ -20,10 +20,10 @@ namespace CrmAppSchool.Controllers
             try
             {
                 conn.Open();
-                string query = "SELECT kwaliteit FROM gebruiker_profiel_kwaliteiten WHERE gebruikersnaam = @gebruikersnaam";
+                string query = "SELECT kwaliteit FROM contactpersoon_kwaliteiten WHERE contactcode = @contactcode";
                 MySqlCommand command = new MySqlCommand(query, conn);
-                MySqlParameter UN_PARAM = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
-                UN_PARAM.Value = _gebruiker.Gebruikersnaam;
+                MySqlParameter UN_PARAM = new MySqlParameter("@contactcode", MySqlDbType.VarChar);
+                UN_PARAM.Value = _contact.Contactcode;
                 command.Parameters.Add(UN_PARAM);
                 MySqlDataReader datalezer = command.ExecuteReader();
 

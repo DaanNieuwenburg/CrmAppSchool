@@ -56,6 +56,8 @@
             this.pbRate2 = new System.Windows.Forms.PictureBox();
             this.pbRate1 = new System.Windows.Forms.PictureBox();
             this.tbOmschrijving = new System.Windows.Forms.TextBox();
+            this.tbKwaliteiten = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.persoonPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate5)).BeginInit();
@@ -80,6 +82,8 @@
             // 
             // persoonPnl
             // 
+            this.persoonPnl.Controls.Add(this.tbKwaliteiten);
+            this.persoonPnl.Controls.Add(this.label5);
             this.persoonPnl.Controls.Add(this.soortCbx);
             this.persoonPnl.Controls.Add(this.label1);
             this.persoonPnl.Controls.Add(this.bedrijfCbx);
@@ -110,7 +114,7 @@
             "Gastdocent",
             "Gastspreker",
             "Stagebegeleider"});
-            this.soortCbx.Location = new System.Drawing.Point(390, 83);
+            this.soortCbx.Location = new System.Drawing.Point(390, 78);
             this.soortCbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.soortCbx.Name = "soortCbx";
             this.soortCbx.Size = new System.Drawing.Size(178, 24);
@@ -123,7 +127,7 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Arial", 10F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.label1.Location = new System.Drawing.Point(296, 86);
+            this.label1.Location = new System.Drawing.Point(296, 81);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 16);
@@ -412,6 +416,29 @@
             this.tbOmschrijving.Size = new System.Drawing.Size(573, 120);
             this.tbOmschrijving.TabIndex = 42;
             // 
+            // tbKwaliteiten
+            // 
+            this.tbKwaliteiten.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbKwaliteiten.Location = new System.Drawing.Point(390, 108);
+            this.tbKwaliteiten.Margin = new System.Windows.Forms.Padding(2);
+            this.tbKwaliteiten.Multiline = true;
+            this.tbKwaliteiten.Name = "tbKwaliteiten";
+            this.tbKwaliteiten.Size = new System.Drawing.Size(178, 84);
+            this.tbKwaliteiten.TabIndex = 45;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label5.Font = new System.Drawing.Font("Arial", 10F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.label5.Location = new System.Drawing.Point(297, 108);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 16);
+            this.label5.TabIndex = 44;
+            this.label5.Text = "Kwaliteiten:";
+            // 
             // ContactBewerk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -476,5 +503,7 @@
         private System.Windows.Forms.TextBox tbOmschrijving;
         private System.Windows.Forms.ComboBox soortCbx;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbKwaliteiten;
+        private System.Windows.Forms.Label label5;
     }
 }

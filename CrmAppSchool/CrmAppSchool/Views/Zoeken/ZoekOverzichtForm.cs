@@ -77,6 +77,10 @@ namespace CrmAppSchool.Views.Zoeken
                 //lvw.SubItems.Add(contact.Kwaliteit);        
                 resultatenLvw.Items.Add(lvw);
                 imagelist.ImageSize = new Size(50, 50);
+                lvw.ImageKey = "GS";        // Stel de afbeelding voor de persoon in
+                if (contact.ingevoerddoor != null)
+                {
+                    lvw.SubItems.Add(contact.ingevoerddoor);
                 if (contact.Isgastdocent == true)
                 {
                     lvw.ImageKey = "GD";            // Stel de afbeelding in voor een gastdocent
@@ -93,6 +97,7 @@ namespace CrmAppSchool.Views.Zoeken
                     }
                 }
             }
+        }
         }
         public void VulListviewBedrijf(List<Models.Bedrijfcontact> resultatenlijst)
         {
@@ -201,7 +206,12 @@ namespace CrmAppSchool.Views.Zoeken
             }
             else
             {
-                //Hier komt de code voor het openen van een nieuwe form voor het laten zien van de gebruikersdetails
+                Gebruiker gebruiker = new Gebruiker();
+                gebruiker.Gebruikersnaam = resultatenLvw.SelectedItems[0].SubItems[5].Text;
+                ProfielController pc = new ProfielController();
+                Models.Profiel profiel = pc.Get_Pofiel(gebruiker);
+                Profiel.ProfielDetails details = new Profiel.ProfielDetails(_gebruiker, profiel);
+                details.ShowDialog();
             }
 
         }
