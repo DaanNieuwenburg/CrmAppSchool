@@ -75,6 +75,7 @@ namespace CrmAppSchool.Controllers
                     profiel.LocatieIsZichtbaar = datalezer.GetBoolean("locatie_iszichtbaar");
                     profiel.Functie = datalezer.GetString("functie");
                     profiel.FunctieIsZichtbaar = datalezer.GetBoolean("functie_iszichtbaar");
+                    profiel.KwaliteitIsZichtbaar = datalezer.GetBoolean("kwaliteit_iszichtbaar");
                 }
 
                 // Haal kwaliteiten op
@@ -162,7 +163,7 @@ namespace CrmAppSchool.Controllers
                 conn.Open();
                 trans = conn.BeginTransaction();
 
-                string query = @"UPDATE gebruiker_profiel SET voornaam = @Voornaam, achternaam = @Achternaam, locatie = @Locatie, locatie_iszichtbaar = @Locatie_iszichtbaar, functie = @Functie, functie_iszichtbaar = @Functie_iszichtbaar
+                string query = @"UPDATE gebruiker_profiel SET voornaam = @Voornaam, achternaam = @Achternaam, locatie = @Locatie, locatie_iszichtbaar = @Locatie_iszichtbaar, functie = @Functie, functie_iszichtbaar = @Functie_iszichtbaar, kwaliteit_iszichtbaar = @Kwaliteit_iszichtbaar
                                 WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
 
@@ -173,6 +174,7 @@ namespace CrmAppSchool.Controllers
                 MySqlParameter LO_iszichtbaar = new MySqlParameter("@Locatie_iszichtbaar", MySqlDbType.Int32);
                 MySqlParameter FU_PARAM = new MySqlParameter("@Functie", MySqlDbType.VarChar);
                 MySqlParameter FU_iszichtbaar = new MySqlParameter("@Functie_iszichtbaar", MySqlDbType.Int32);
+                MySqlParameter KW_iszichtbaar = new MySqlParameter("@Kwaliteit_iszichtbaar", MySqlDbType.Int32);
 
                 UN_PARAM.Value = _gebruiker.Gebruikersnaam;
                 VN_PARAM.Value = _profiel.Voornaam;
@@ -181,6 +183,7 @@ namespace CrmAppSchool.Controllers
                 LO_iszichtbaar.Value = _profiel.LocatieIsZichtbaar;
                 FU_PARAM.Value = _profiel.Functie;
                 FU_iszichtbaar.Value = _profiel.FunctieIsZichtbaar;
+                KW_iszichtbaar.Value = _profiel.KwaliteitIsZichtbaar;
 
                 command.Parameters.Add(UN_PARAM);
                 command.Parameters.Add(VN_PARAM);
@@ -189,6 +192,7 @@ namespace CrmAppSchool.Controllers
                 command.Parameters.Add(LO_iszichtbaar);
                 command.Parameters.Add(FU_PARAM);
                 command.Parameters.Add(FU_iszichtbaar);
+                command.Parameters.Add(KW_iszichtbaar);
 
                 Profiel profiel = new Profiel();
 
