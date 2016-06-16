@@ -223,7 +223,6 @@ namespace CrmAppSchool.Views.Bedrijven
                 bc.voegBedrijfToe(bedrijfcontact);
 
                 // Reset de listview
-                lvBedrijven.Clear();
                 vulContacten();
 
 
@@ -253,7 +252,6 @@ namespace CrmAppSchool.Views.Bedrijven
                 bewerk.ShowDialog();
 
                 // Reset de listview
-                lvBedrijven.Clear();
                 vulContacten();
             }
         }
@@ -298,7 +296,7 @@ namespace CrmAppSchool.Views.Bedrijven
         private void vulContacten()
         {
             settooltips();
-            lvBedrijven.Clear();
+            lvBedrijven.Items.Clear();
             BedrijfController _getcontacten = new BedrijfController();
             List<Bedrijfcontact> contactenlijst = _getcontacten.haalBedrijfLijstOp();
             foreach (Bedrijfcontact contact in contactenlijst)
@@ -319,13 +317,13 @@ namespace CrmAppSchool.Views.Bedrijven
         {
             ToolTip TPnieuw = new ToolTip();
             TPnieuw.ShowAlways = false;
-            TPnieuw.SetToolTip(btnVoegtoe, "Voeg een nieuw contact toe");
+            TPnieuw.SetToolTip(btnVoegtoe, "Voeg een nieuw bedrijf toe");
             ToolTip TPbewerk = new ToolTip();
             TPbewerk.ShowAlways = false;
-            TPbewerk.SetToolTip(btnWijzig, "Bewerk het geselecteerde contact");
+            TPbewerk.SetToolTip(btnWijzig, "Bewerk het geselecteerde bedrijf");
             ToolTip TPdelete = new ToolTip();
             TPdelete.ShowAlways = false;
-            TPdelete.SetToolTip(btnDelete, "Verwijder het geselecteerde contact");
+            TPdelete.SetToolTip(btnDelete, "Verwijder het geselecteerde bedrijf");
         }
         private void tbMobiel_KeyPress(object sender, KeyPressEventArgs e)
         {

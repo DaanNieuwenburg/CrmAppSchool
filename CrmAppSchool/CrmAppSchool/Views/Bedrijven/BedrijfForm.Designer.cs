@@ -59,6 +59,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tbKwaliteiten = new System.Windows.Forms.TextBox();
             this.tbContact = new System.Windows.Forms.TextBox();
+            this.Achternaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.bedrijfPnl.SuspendLayout();
@@ -99,7 +100,8 @@
             this.lvBedrijven.Activation = System.Windows.Forms.ItemActivation.TwoClick;
             this.lvBedrijven.BackColor = System.Drawing.Color.White;
             this.lvBedrijven.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Contact});
+            this.Contact,
+            this.Achternaam});
             this.lvBedrijven.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvBedrijven.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvBedrijven.Location = new System.Drawing.Point(0, 50);
@@ -432,6 +434,10 @@
             this.tbContact.Size = new System.Drawing.Size(198, 23);
             this.tbContact.TabIndex = 2;
             // 
+            // Achternaam
+            // 
+            this.Achternaam.Text = "AchternaamHeader";
+            // 
             // BedrijfForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -500,5 +506,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbKwaliteiten;
         private System.Windows.Forms.TextBox tbContact;
+        private System.Windows.Forms.ColumnHeader Achternaam;
     }
 }
