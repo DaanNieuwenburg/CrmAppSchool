@@ -77,7 +77,21 @@ namespace CrmAppSchool.Views.Zoeken
                 //lvw.SubItems.Add(contact.Kwaliteit);        
                 resultatenLvw.Items.Add(lvw);
                 imagelist.ImageSize = new Size(50, 50);
-                lvw.ImageKey = "GS";        // Stel de afbeelding voor de persoon in
+                if (contact.Isgastdocent == true)
+                {
+                    lvw.ImageKey = "GD";            // Stel de afbeelding in voor een gastdocent
+                }
+                else
+                {
+                    if (contact.Isstagebegeleider == true)
+                    {
+                        lvw.ImageKey = "SB";        // Stel de afbeelding in voor een stagebegeleider
+                    }
+                    else
+                    {
+                        lvw.ImageKey = "GS";        // Stel de afbeelding in voor een Gastspreker
+                    }
+                }
             }
         }
         public void VulListviewBedrijf(List<Models.Bedrijfcontact> resultatenlijst)
