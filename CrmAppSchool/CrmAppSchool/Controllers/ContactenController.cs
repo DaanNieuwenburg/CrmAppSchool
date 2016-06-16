@@ -156,6 +156,7 @@ namespace CrmAppSchool.Controllers
                 command.Prepare();
                 command.ExecuteNonQuery();
                 trans.Commit();
+                conn.Close();
 
                 // Zet de kwaliteiten in de kwaliteiten tabel
                 long primaryKey = command.LastInsertedId;
