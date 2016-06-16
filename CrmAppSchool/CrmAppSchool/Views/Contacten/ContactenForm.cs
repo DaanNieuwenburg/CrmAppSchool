@@ -270,12 +270,11 @@ namespace CrmAppSchool.Views.Bedrijven
                     persooncontact.Bedrijf = new Bedrijfcontact() { Bedrijfscode = bedrijfcode };
 
                     // Haal kwaliteiten op
-                    string[] kwaliteiten = new string[tbKwaliteitenP.Lines.Count()];
+                    List<string> kwaliteiten = new List<string>();
                     int i = 0;
                     foreach (string line in tbKwaliteitenP.Lines)
                     {
-                        kwaliteiten[i] = line;
-                        i++;
+                        kwaliteiten.Add(line);
                     }
                     persooncontact.Kwaliteiten = kwaliteiten;
 

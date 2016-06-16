@@ -147,7 +147,12 @@ namespace CrmAppSchool.Views.Bedrijven
                 bewerktContact.Locatie = locatieTb.Text;
                 bewerktContact.Email = emailTb.Text;
                 bewerktContact.Mobielnr = mobielTb.Text;
-
+                List<string> kwalteitenlijst = new List<string>(); 
+                foreach (string regel in tbKwaliteiten.Lines)
+                {
+                    kwalteitenlijst.Add(regel);
+                }
+                bewerktContact.Kwaliteiten = kwalteitenlijst;
                 string omschr = "";
                 if (tbOmschrijving.Text.Count() > 1)
                 {
