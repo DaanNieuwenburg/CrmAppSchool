@@ -77,12 +77,20 @@ namespace CrmAppSchool.Views.Bedrijven
                 lvContacten.Items.Add(lvi);
                 if (contact.Isgastdocent == true)
                 {
-                    lvi.ImageKey = "GD";
+                    lvi.ImageKey = "GD";            // Stel de afbeelding in voor een gastdocent
                 }
-                if (contact.Isstagebegeleider == true)
+                else
                 {
-                    lvi.ImageKey = "GS";
+                    if (contact.Isstagebegeleider == true)
+                    {
+                        lvi.ImageKey = "SB";        // Stel de afbeelding in voor een stagebegeleider
+                    }
+                    else
+                    {
+                        lvi.ImageKey = "GS";        // Stel de afbeelding in voor een Gastspreker
+                    }
                 }
+
 
             }
         }
