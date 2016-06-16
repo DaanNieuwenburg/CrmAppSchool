@@ -125,7 +125,6 @@ namespace CrmAppSchool.Views.Gebruikers
             Controllers.ProfielController profiel = new Controllers.ProfielController();
             Models.Profiel profielModel = profiel.Get_Pofiel(gebruiker);
             Profiel.MijnprofielForm Profiel = new Profiel.MijnprofielForm(gebruiker, profielModel);
-            this.Hide();
             Profiel.Text = "Profiel";
             Profiel.ShowDialog();
             if(Profiel.ShowMenu == true)
