@@ -43,11 +43,20 @@ namespace CrmAppSchool.Views.Bedrijven
             //Haal de kwaliteiten op
             ContactenController cc = new ContactenController();
             List<string> kwaliteitenlijst = cc.Get_Kwaliteiten(_gebruiker, contact);
+            int tellerr = 0;
             if (kwaliteitenlijst != null)
             {
                 foreach (string line in kwaliteitenlijst)
                 {
-                    tbKwaliteiten.Text = tbKwaliteiten.Text + line + Environment.NewLine;
+                    if (tellerr + 1 == kwaliteitenlijst.Count())
+                    {
+                        tbKwaliteiten.Text = tbKwaliteiten.Text + line;
+                    }
+                    else
+                    {
+                        tbKwaliteiten.Text = tbKwaliteiten.Text + line + Environment.NewLine;
+                    }
+                    tellerr++;
                 }
             }
             setSterren();
