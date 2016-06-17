@@ -306,7 +306,7 @@
             this.pbHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbHeader.Location = new System.Drawing.Point(0, 0);
             this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(624, 73);
+            this.pbHeader.Size = new System.Drawing.Size(693, 73);
             this.pbHeader.TabIndex = 14;
             this.pbHeader.TabStop = false;
             // 
@@ -361,14 +361,14 @@
             // 
             // btnVoegtoe
             // 
-            this.btnVoegtoe.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnVoegtoe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnVoegtoe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.btnVoegtoe.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnVoegtoe.BackgroundImage")));
             this.btnVoegtoe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnVoegtoe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVoegtoe.FlatAppearance.BorderSize = 0;
             this.btnVoegtoe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVoegtoe.Location = new System.Drawing.Point(516, 10);
+            this.btnVoegtoe.Location = new System.Drawing.Point(609, 11);
             this.btnVoegtoe.Margin = new System.Windows.Forms.Padding(4);
             this.btnVoegtoe.Name = "btnVoegtoe";
             this.btnVoegtoe.Size = new System.Drawing.Size(71, 54);
@@ -383,6 +383,7 @@
             this.lbKWvalue.Font = new System.Drawing.Font("Arial", 12F);
             this.lbKWvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lbKWvalue.Location = new System.Drawing.Point(438, 222);
+            this.lbKWvalue.MaximumSize = new System.Drawing.Size(240, 145);
             this.lbKWvalue.Name = "lbKWvalue";
             this.lbKWvalue.Size = new System.Drawing.Size(15, 18);
             this.lbKWvalue.TabIndex = 46;
@@ -436,14 +437,13 @@
             this.lbl_ingevoerd.TabIndex = 49;
             this.lbl_ingevoerd.Text = "x";
             this.lbl_ingevoerd.Click += new System.EventHandler(this.lbl_ingevoerd_Click);
-            
             // 
             // ContactDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(624, 550);
+            this.ClientSize = new System.Drawing.Size(693, 550);
             this.Controls.Add(this.lbl_ingevoerd);
             this.Controls.Add(this.lbl_oorsprong);
             this.Controls.Add(this.lbl_soort);

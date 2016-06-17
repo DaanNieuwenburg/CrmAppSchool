@@ -135,6 +135,9 @@ namespace CrmAppSchool.Views.Contacten
 
         private void ContactDetails_Load(object sender, EventArgs e)
         {
+            ToolTip TP = new ToolTip();
+            TP.ShowAlways = true;
+            TP.SetToolTip(btnVoegtoe, "Voeg deze persoon toe aan je contactenlijst");
             lblContactnaam.Text = contact.Voornaam + " " + contact.Achternaam;
             setSterren();
                 
