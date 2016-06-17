@@ -454,6 +454,7 @@
             this.btnDelete.Size = new System.Drawing.Size(59, 50);
             this.btnDelete.TabIndex = 51;
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnWijzig
             // 

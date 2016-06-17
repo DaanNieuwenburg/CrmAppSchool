@@ -258,6 +258,17 @@ namespace CrmAppSchool.Views.Contacten
             }
         }
 
-        
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult dialoogResultaat = MessageBox.Show("Wilt u deze contactpersoon volledig verwijderen?\nNiemand zal deze persoon meer als contact behouden", "Verwijderen contact", MessageBoxButtons.YesNo);
+            if (dialoogResultaat == DialogResult.Yes)
+            {
+                string contactcode = this.contact.Contactcode.ToString();
+                ContactenController cc = new ContactenController();
+                cc.verwijderContact(this.gebruiker, contactcode);
+                this.Close();
+                
+            }
+        }
     }
 }
