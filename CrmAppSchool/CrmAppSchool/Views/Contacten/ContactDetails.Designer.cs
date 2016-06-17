@@ -60,6 +60,8 @@
             this.lbl_soort = new System.Windows.Forms.Label();
             this.lbl_oorsprong = new System.Windows.Forms.Label();
             this.lbl_ingevoerd = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnWijzig = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate3)).BeginInit();
@@ -438,12 +440,45 @@
             this.lbl_ingevoerd.Text = "x";
             this.lbl_ingevoerd.Click += new System.EventHandler(this.lbl_ingevoerd_Click);
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.btnDelete.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Delete_Wit;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Location = new System.Drawing.Point(543, 11);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(59, 50);
+            this.btnDelete.TabIndex = 51;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // btnWijzig
+            // 
+            this.btnWijzig.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnWijzig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.btnWijzig.BackgroundImage = global::CrmAppSchool.Properties.Resources.button_Bewerken_Wit;
+            this.btnWijzig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnWijzig.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWijzig.FlatAppearance.BorderSize = 0;
+            this.btnWijzig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWijzig.Location = new System.Drawing.Point(478, 11);
+            this.btnWijzig.Name = "btnWijzig";
+            this.btnWijzig.Size = new System.Drawing.Size(59, 50);
+            this.btnWijzig.TabIndex = 50;
+            this.btnWijzig.UseVisualStyleBackColor = false;
+            this.btnWijzig.Click += new System.EventHandler(this.btnWijzig_Click);
+            // 
             // ContactDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(693, 550);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnWijzig);
             this.Controls.Add(this.lbl_ingevoerd);
             this.Controls.Add(this.lbl_oorsprong);
             this.Controls.Add(this.lbl_soort);
@@ -527,5 +562,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lbl_oorsprong;
         private System.Windows.Forms.Label lbl_ingevoerd;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnWijzig;
     }
 }
