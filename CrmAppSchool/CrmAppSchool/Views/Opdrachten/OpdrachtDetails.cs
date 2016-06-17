@@ -30,10 +30,9 @@ namespace CrmAppSchool.Views.Opdrachten
             lbNaam.Text = opdracht.Naam;
         }
 
-        private void OpdrachtDetails_Load(object sender, EventArgs e)
-        {
-        }
-
+        //
+        // Alle button_Click() events van de form
+        //
         private void lbOpdrachtBedrijf_Click(object sender, EventArgs e)
         {
            

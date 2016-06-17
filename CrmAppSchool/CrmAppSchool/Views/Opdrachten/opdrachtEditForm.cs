@@ -30,18 +30,15 @@ namespace CrmAppSchool.Views.Opdrachten
 
         }
 
+        //
+        // Alle eigen methodes van de form
+        //
         public void getStatus()
         {
             cbStatus.Items.Add("Open");
             cbStatus.Items.Add("In uitvoering");
             cbStatus.Items.Add("Voldaan");
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         public void nieuweOpdracht()
         {
             opdracht.Status = (string)cbStatus.SelectedItem.ToString();
@@ -65,6 +62,9 @@ namespace CrmAppSchool.Views.Opdrachten
 
         }
 
+        //
+        // Alle button_Click() events van de form
+        //
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
             if (((Bedrijfcontact)bedrijfCbx.SelectedItem) == null)
@@ -94,9 +94,6 @@ namespace CrmAppSchool.Views.Opdrachten
                 }
                 else
                 {
-
-
-
                     soc.updateStageopdracht(opdracht.Code, cbStatus.Text, tbNaam.Text, tbOmschrijving.Text, ((Bedrijfcontact)bedrijfCbx.SelectedItem).Bedrijfscode, ((Persooncontact)cbx_contact.SelectedItem).Contactcode);
                     DialogResult = DialogResult.OK;
                 }
@@ -112,6 +109,9 @@ namespace CrmAppSchool.Views.Opdrachten
             this.Close();
         }
 
+        //
+        // Alle overige events van de form
+        //
         private void bedrijfCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             Bedrijfcontact bedrijf = bedrijfCbx.SelectedItem as Bedrijfcontact;
