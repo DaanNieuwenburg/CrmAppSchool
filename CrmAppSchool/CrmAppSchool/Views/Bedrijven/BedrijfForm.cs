@@ -61,6 +61,13 @@ namespace CrmAppSchool.Views.Bedrijven
             if (ShowZoeken == true)
             {
                 zoek();
+                ShowZoeken = false;
+                btnVoegtoe.Visible = true;
+                btnZoeken.Location = new Point(527, 1);
+                btnWijzig.Visible = true;
+                btnDelete.Visible = true;
+                tbSearch.Visible = false;
+                btnCancel.Visible = false;
             }
             else
             {

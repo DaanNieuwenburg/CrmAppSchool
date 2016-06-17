@@ -164,6 +164,7 @@ namespace CrmAppSchool.Views.Gebruikers
                 tb_voornaam.Visible = true;
             }
         }
+        
 
         private void gebruikerLvw_ColumnClick(object sender, ColumnClickEventArgs e)
         {
