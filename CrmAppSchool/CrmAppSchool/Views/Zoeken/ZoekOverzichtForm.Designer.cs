@@ -61,6 +61,7 @@
             this.resultatenLvw.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resultatenLvw.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultatenLvw.Location = new System.Drawing.Point(0, 50);
+            this.resultatenLvw.MultiSelect = false;
             this.resultatenLvw.Name = "resultatenLvw";
             this.resultatenLvw.Size = new System.Drawing.Size(632, 379);
             this.resultatenLvw.TabIndex = 15;

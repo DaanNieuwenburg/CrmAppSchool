@@ -12,6 +12,7 @@ namespace CrmAppSchool.Views.Bedrijven
     {
         private int contactcode { get; set;}
         private int bedrijfcode { get; set; }
+        private string bedrijfsnaam { get; set; }
         private int beoordeling { get; set; }
         private bool isstagebegeleider { get; set; }
         private bool validmobiel { get; set; }
@@ -95,6 +96,7 @@ namespace CrmAppSchool.Views.Bedrijven
             emailTb.Text = contact.Email;
             contactcode = contact.Contactcode;
             bedrijfcode = contact.Bedrijf.Bedrijfscode;
+            bedrijfsnaam = contact.Bedrijf.Bedrijfnaam;
 
             // Zet de waardes van de cbx om
             if (contact.Isgastdocent == true)
@@ -105,6 +107,7 @@ namespace CrmAppSchool.Views.Bedrijven
             {
                 soortCbx.Text = "Stagebegeleider";
             }
+
         }
 
         private void bewerkBtn_Click(object sender, EventArgs e)
@@ -442,6 +445,29 @@ namespace CrmAppSchool.Views.Bedrijven
                 {
                     MessageBox.Show("Deze contactpersoon staat als stagebegeleider ingesteld bij een stageopdracht. \nHierdoor kan deze instelling niet worden aangepast");
                     soortCbx.Text = "Stagebegeleider";
+                }
+            }
+        }
+
+        private void bedrijfCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isstagebegeleider == true && bedrijfCbx.Text != bedrijfsnaam)
+            {
+                StageopdrachtController soc = new StageopdrachtController();
+                List<Stageopdracht> opdrachten = soc.getOpdrachten();
+                bool gevonden = false;
+                foreach (Stageopdracht a in opdrachten)
+                {
+                    if (a.Contact.Contactcode == this.contactcode)
+                    {
+                        gevonden = true;
+                        break;
+                    }
+                }
+                if (gevonden == true)
+                {
+                    MessageBox.Show("Deze contactpersoon staat als stagebegeleider ingesteld bij een stageopdracht. \nHierdoor kan deze instelling niet worden aangepast");
+                    bedrijfCbx.Text = bedrijfsnaam;
                 }
             }
         }

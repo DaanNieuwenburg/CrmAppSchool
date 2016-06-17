@@ -33,6 +33,7 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.lvBedrijven = new System.Windows.Forms.ListView();
             this.Contact = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Achternaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnWijzig = new System.Windows.Forms.Button();
             this.btnOpslaan = new System.Windows.Forms.Button();
@@ -59,7 +60,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tbKwaliteiten = new System.Windows.Forms.TextBox();
             this.tbContact = new System.Windows.Forms.TextBox();
-            this.Achternaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.bedrijfPnl.SuspendLayout();
@@ -117,6 +117,10 @@
             // 
             this.Contact.Text = "";
             this.Contact.Width = this.lvBedrijven.Width;
+            // 
+            // Achternaam
+            // 
+            this.Achternaam.Text = "AchternaamHeader";
             // 
             // btnDelete
             // 
@@ -433,10 +437,6 @@
             this.tbContact.Name = "tbContact";
             this.tbContact.Size = new System.Drawing.Size(198, 23);
             this.tbContact.TabIndex = 2;
-            // 
-            // Achternaam
-            // 
-            this.Achternaam.Text = "AchternaamHeader";
             // 
             // BedrijfForm
             // 

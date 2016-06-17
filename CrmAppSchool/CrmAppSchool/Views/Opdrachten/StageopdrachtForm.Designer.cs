@@ -89,6 +89,7 @@
             this.lvStage.FullRowSelect = true;
             this.lvStage.Location = new System.Drawing.Point(0, 50);
             this.lvStage.Margin = new System.Windows.Forms.Padding(2);
+            this.lvStage.MultiSelect = false;
             this.lvStage.Name = "lvStage";
             this.lvStage.Size = new System.Drawing.Size(896, 459);
             this.lvStage.TabIndex = 18;

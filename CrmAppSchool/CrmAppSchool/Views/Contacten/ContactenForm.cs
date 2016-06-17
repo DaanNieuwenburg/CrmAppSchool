@@ -299,7 +299,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 {
                     Persooncontact persooncontact = new Persooncontact() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, Functie = tbFunctie.Text, Afdeling = tbAfdeling.Text, Locatie = tbLocatie.Text, Email = tbEmail.Text, Mobielnr = tbMobiel.Text, Gebruiker = _gebruiker };
                     string contactSoort = Convert.ToString(contactSoortCbx.SelectedItem);
-                    Console.WriteLine(tbFunctie.Text);
+
                     int bedrijfcode = Convert.ToInt32(bedrijfCbx.SelectedValue);
                     persooncontact.Bedrijf = new Bedrijfcontact() { Bedrijfscode = bedrijfcode };
 

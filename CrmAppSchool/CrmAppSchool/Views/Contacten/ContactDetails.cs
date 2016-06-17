@@ -7,7 +7,7 @@ using CrmAppSchool.Controllers;
 namespace CrmAppSchool.Views.Contacten
 {
     public partial class ContactDetails : Form
-    {     
+    {
         private Persooncontact contact { get; set; }
         private Gebruiker gebruiker { get; set; }
         private int beoordeling { get; set; }
@@ -25,7 +25,8 @@ namespace CrmAppSchool.Views.Contacten
         //
         // Alle eigen methodes van de form
         //
-        public void vulin() { 
+        public void vulin()
+        {
             // Haal de contacten evaluaties op
             ContactEvaluatieController ce = new ContactEvaluatieController();
             contact = ce.HaalInfoOp(gebruiker, contact);
@@ -33,9 +34,9 @@ namespace CrmAppSchool.Views.Contacten
             beoordeling = contact.Beoordeling;
 
             //Haal de kwaliteiten op
-            ContactenController cc = new ContactenController();           
+            ContactenController cc = new ContactenController();
             List<string> kwalteitenlijst = cc.Get_Kwaliteiten(gebruiker, contact);
-            if(kwalteitenlijst != null)
+            if (kwalteitenlijst != null)
             {
                 lbKWvalue.Text = "";
                 int j = 0;
@@ -109,15 +110,15 @@ namespace CrmAppSchool.Views.Contacten
                 lbl_soort.Text = "Stagebegeleider";
             }
 
-            
-            if(contact.Kwaliteiten != null)
+
+            if (contact.Kwaliteiten != null)
             {
                 foreach (string kwaliteit in contact.Kwaliteiten)
                 {
                     lbKWvalue.Text = lbKWvalue.Text + "\n" + kwaliteit;
                 }
             }
-            
+
             if (contact.Functie != null)
             {
                 lblFUvalue.Text = contact.Functie;
@@ -199,7 +200,7 @@ namespace CrmAppSchool.Views.Contacten
             TP.SetToolTip(btnDelete, "Verwijder deze contact uit het hele systeem");
             lblContactnaam.Text = contact.Voornaam + " " + contact.Achternaam;
             setSterren();
-                
+
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -224,7 +225,7 @@ namespace CrmAppSchool.Views.Contacten
                 pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
                 pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
             }
-            else if(beoordeling == 2)
+            else if (beoordeling == 2)
             {
                 pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
                 pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
@@ -265,9 +266,10 @@ namespace CrmAppSchool.Views.Contacten
             {
                 string contactcode = this.contact.Contactcode.ToString();
                 ContactenController cc = new ContactenController();
-                cc.verwijderContact(this.gebruiker, contactcode);
-                this.Close();
-                
+                bool verwijderd = cc.verwijderContact(this.gebruiker, contactcode);
+                if (verwijderd == true)
+                    this.Close();
+
             }
         }
     }

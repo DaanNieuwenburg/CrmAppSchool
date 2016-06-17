@@ -38,6 +38,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.lvContacten = new System.Windows.Forms.ListView();
             this.Contact = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Hachternaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.persoonPnl = new System.Windows.Forms.Panel();
             this.bedrijfCbx = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -65,7 +66,6 @@
             this.btnWijzig = new System.Windows.Forms.Button();
             this.contactSoortCbx = new System.Windows.Forms.ComboBox();
             this.lblSoort = new System.Windows.Forms.Label();
-            this.Hachternaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pbHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.persoonPnl.SuspendLayout();
@@ -79,10 +79,9 @@
             this.lblGebruiker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lblGebruiker.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGebruiker.ForeColor = System.Drawing.Color.White;
-            this.lblGebruiker.Location = new System.Drawing.Point(789, 23);
-            this.lblGebruiker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblGebruiker.Location = new System.Drawing.Point(592, 19);
             this.lblGebruiker.Name = "lblGebruiker";
-            this.lblGebruiker.Size = new System.Drawing.Size(152, 19);
+            this.lblGebruiker.Size = new System.Drawing.Size(123, 16);
             this.lblGebruiker.TabIndex = 12;
             this.lblGebruiker.Text = "U bent ingelogd als:";
             // 
@@ -95,10 +94,9 @@
             this.btnZoeken.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnZoeken.FlatAppearance.BorderSize = 0;
             this.btnZoeken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnZoeken.Location = new System.Drawing.Point(704, 1);
-            this.btnZoeken.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnZoeken.Location = new System.Drawing.Point(528, 1);
             this.btnZoeken.Name = "btnZoeken";
-            this.btnZoeken.Size = new System.Drawing.Size(79, 62);
+            this.btnZoeken.Size = new System.Drawing.Size(59, 50);
             this.btnZoeken.TabIndex = 16;
             this.btnZoeken.UseVisualStyleBackColor = false;
             this.btnZoeken.Click += new System.EventHandler(this.btnZoeken_Click);
@@ -112,10 +110,9 @@
             this.btnVoegtoe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVoegtoe.FlatAppearance.BorderSize = 0;
             this.btnVoegtoe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVoegtoe.Location = new System.Drawing.Point(345, 1);
-            this.btnVoegtoe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVoegtoe.Location = new System.Drawing.Point(259, 1);
             this.btnVoegtoe.Name = "btnVoegtoe";
-            this.btnVoegtoe.Size = new System.Drawing.Size(79, 62);
+            this.btnVoegtoe.Size = new System.Drawing.Size(59, 50);
             this.btnVoegtoe.TabIndex = 15;
             this.btnVoegtoe.UseVisualStyleBackColor = false;
             this.btnVoegtoe.Click += new System.EventHandler(this.btnVoegtoe_Click);
@@ -127,9 +124,8 @@
             this.pbHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbHome.Location = new System.Drawing.Point(0, 1);
-            this.pbHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbHome.Name = "pbHome";
-            this.pbHome.Size = new System.Drawing.Size(81, 62);
+            this.pbHome.Size = new System.Drawing.Size(61, 50);
             this.pbHome.TabIndex = 14;
             this.pbHome.TabStop = false;
             this.pbHome.Click += new System.EventHandler(this.pbHome_Click);
@@ -139,9 +135,8 @@
             this.pbHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.pbHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbHeader.Location = new System.Drawing.Point(0, 0);
-            this.pbHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(1051, 62);
+            this.pbHeader.Size = new System.Drawing.Size(788, 50);
             this.pbHeader.TabIndex = 13;
             this.pbHeader.TabStop = false;
             // 
@@ -152,10 +147,9 @@
             this.tbSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbSearch.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.ForeColor = System.Drawing.Color.White;
-            this.tbSearch.Location = new System.Drawing.Point(388, 17);
-            this.tbSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSearch.Location = new System.Drawing.Point(291, 14);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(233, 29);
+            this.tbSearch.Size = new System.Drawing.Size(175, 25);
             this.tbSearch.TabIndex = 17;
             this.tbSearch.Text = "Zoeken...";
             this.tbSearch.Visible = false;
@@ -171,10 +165,9 @@
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(703, 1);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Location = new System.Drawing.Point(527, 1);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(79, 62);
+            this.btnCancel.Size = new System.Drawing.Size(59, 50);
             this.btnCancel.TabIndex = 18;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Visible = false;
@@ -188,10 +181,9 @@
             this.Hachternaam});
             this.lvContacten.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvContacten.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvContacten.Location = new System.Drawing.Point(0, 62);
-            this.lvContacten.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvContacten.Location = new System.Drawing.Point(0, 50);
             this.lvContacten.Name = "lvContacten";
-            this.lvContacten.Size = new System.Drawing.Size(1051, 534);
+            this.lvContacten.Size = new System.Drawing.Size(788, 434);
             this.lvContacten.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.lvContacten.TabIndex = 19;
             this.lvContacten.UseCompatibleStateImageBehavior = false;
@@ -202,6 +194,10 @@
             // 
             this.Contact.Text = "";
             this.Contact.Width = this.lvContacten.Width;
+            // 
+            // Hachternaam
+            // 
+            this.Hachternaam.Text = "Achternaam";
             // 
             // persoonPnl
             // 
@@ -215,30 +211,27 @@
             this.persoonPnl.Controls.Add(this.achternaamLbl);
             this.persoonPnl.Controls.Add(this.voornaamLbl);
             this.persoonPnl.Controls.Add(this.tbVoornaam);
-            this.persoonPnl.Location = new System.Drawing.Point(43, 151);
-            this.persoonPnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.persoonPnl.Location = new System.Drawing.Point(32, 123);
             this.persoonPnl.Name = "persoonPnl";
-            this.persoonPnl.Size = new System.Drawing.Size(364, 359);
+            this.persoonPnl.Size = new System.Drawing.Size(273, 292);
             this.persoonPnl.TabIndex = 23;
             this.persoonPnl.Visible = false;
             // 
             // bedrijfCbx
             // 
             this.bedrijfCbx.FormattingEnabled = true;
-            this.bedrijfCbx.Location = new System.Drawing.Point(141, 122);
-            this.bedrijfCbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bedrijfCbx.Location = new System.Drawing.Point(106, 99);
             this.bedrijfCbx.Name = "bedrijfCbx";
-            this.bedrijfCbx.Size = new System.Drawing.Size(197, 24);
+            this.bedrijfCbx.Size = new System.Drawing.Size(149, 21);
             this.bedrijfCbx.Sorted = true;
             this.bedrijfCbx.TabIndex = 10;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 228);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(15, 185);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 17);
+            this.label5.Size = new System.Drawing.Size(96, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "* Verplichte velden";
             // 
@@ -246,20 +239,18 @@
             // 
             this.emailLbl.AutoSize = true;
             this.emailLbl.Font = new System.Drawing.Font("Arial", 10F);
-            this.emailLbl.Location = new System.Drawing.Point(4, 158);
-            this.emailLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.emailLbl.Location = new System.Drawing.Point(3, 128);
             this.emailLbl.Name = "emailLbl";
-            this.emailLbl.Size = new System.Drawing.Size(66, 19);
+            this.emailLbl.Size = new System.Drawing.Size(55, 16);
             this.emailLbl.TabIndex = 7;
             this.emailLbl.Text = "* Email:";
             // 
             // tbEmail
             // 
             this.tbEmail.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbEmail.Location = new System.Drawing.Point(141, 154);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbEmail.Location = new System.Drawing.Point(106, 125);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(197, 27);
+            this.tbEmail.Size = new System.Drawing.Size(149, 23);
             this.tbEmail.TabIndex = 3;
             this.tbEmail.Enter += new System.EventHandler(this.tbEmail_Enter);
             this.tbEmail.Leave += new System.EventHandler(this.tbEmail_Leave);
@@ -268,20 +259,18 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 10F);
-            this.label3.Location = new System.Drawing.Point(4, 126);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(3, 102);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 19);
+            this.label3.Size = new System.Drawing.Size(61, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "* Bedrijf:";
             // 
             // tbAchternaam
             // 
             this.tbAchternaam.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbAchternaam.Location = new System.Drawing.Point(141, 90);
-            this.tbAchternaam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbAchternaam.Location = new System.Drawing.Point(106, 73);
             this.tbAchternaam.Name = "tbAchternaam";
-            this.tbAchternaam.Size = new System.Drawing.Size(197, 27);
+            this.tbAchternaam.Size = new System.Drawing.Size(149, 23);
             this.tbAchternaam.TabIndex = 1;
             this.tbAchternaam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbVoornaam_KeyPress);
             // 
@@ -289,10 +278,9 @@
             // 
             this.achternaamLbl.AutoSize = true;
             this.achternaamLbl.Font = new System.Drawing.Font("Arial", 10F);
-            this.achternaamLbl.Location = new System.Drawing.Point(4, 94);
-            this.achternaamLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.achternaamLbl.Location = new System.Drawing.Point(3, 76);
             this.achternaamLbl.Name = "achternaamLbl";
-            this.achternaamLbl.Size = new System.Drawing.Size(113, 19);
+            this.achternaamLbl.Size = new System.Drawing.Size(96, 16);
             this.achternaamLbl.TabIndex = 2;
             this.achternaamLbl.Text = "* Achternaam:";
             // 
@@ -300,20 +288,18 @@
             // 
             this.voornaamLbl.AutoSize = true;
             this.voornaamLbl.Font = new System.Drawing.Font("Arial", 10F);
-            this.voornaamLbl.Location = new System.Drawing.Point(4, 60);
-            this.voornaamLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.voornaamLbl.Location = new System.Drawing.Point(3, 49);
             this.voornaamLbl.Name = "voornaamLbl";
-            this.voornaamLbl.Size = new System.Drawing.Size(100, 19);
+            this.voornaamLbl.Size = new System.Drawing.Size(85, 16);
             this.voornaamLbl.TabIndex = 1;
             this.voornaamLbl.Text = "* Voornaam:";
             // 
             // tbVoornaam
             // 
             this.tbVoornaam.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbVoornaam.Location = new System.Drawing.Point(141, 57);
-            this.tbVoornaam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbVoornaam.Location = new System.Drawing.Point(106, 46);
             this.tbVoornaam.Name = "tbVoornaam";
-            this.tbVoornaam.Size = new System.Drawing.Size(197, 27);
+            this.tbVoornaam.Size = new System.Drawing.Size(149, 23);
             this.tbVoornaam.TabIndex = 0;
             this.tbVoornaam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbVoornaam_KeyPress);
             // 
@@ -321,20 +307,18 @@
             // 
             this.locatieLbl.AutoSize = true;
             this.locatieLbl.Font = new System.Drawing.Font("Arial", 10F);
-            this.locatieLbl.Location = new System.Drawing.Point(20, 94);
-            this.locatieLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.locatieLbl.Location = new System.Drawing.Point(15, 76);
             this.locatieLbl.Name = "locatieLbl";
-            this.locatieLbl.Size = new System.Drawing.Size(67, 19);
+            this.locatieLbl.Size = new System.Drawing.Size(58, 16);
             this.locatieLbl.TabIndex = 5;
             this.locatieLbl.Text = "Locatie:";
             // 
             // tbLocatie
             // 
             this.tbLocatie.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbLocatie.Location = new System.Drawing.Point(141, 90);
-            this.tbLocatie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbLocatie.Location = new System.Drawing.Point(106, 73);
             this.tbLocatie.Name = "tbLocatie";
-            this.tbLocatie.Size = new System.Drawing.Size(201, 27);
+            this.tbLocatie.Size = new System.Drawing.Size(152, 23);
             this.tbLocatie.TabIndex = 5;
             // 
             // btnOpslaan
@@ -346,10 +330,9 @@
             this.btnOpslaan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpslaan.FlatAppearance.BorderSize = 0;
             this.btnOpslaan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpslaan.Location = new System.Drawing.Point(575, 1);
-            this.btnOpslaan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOpslaan.Location = new System.Drawing.Point(431, 1);
             this.btnOpslaan.Name = "btnOpslaan";
-            this.btnOpslaan.Size = new System.Drawing.Size(84, 60);
+            this.btnOpslaan.Size = new System.Drawing.Size(63, 49);
             this.btnOpslaan.TabIndex = 8;
             this.btnOpslaan.UseVisualStyleBackColor = false;
             this.btnOpslaan.Visible = false;
@@ -364,10 +347,9 @@
             this.btnAnnuleer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAnnuleer.FlatAppearance.BorderSize = 0;
             this.btnAnnuleer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnnuleer.Location = new System.Drawing.Point(484, 0);
-            this.btnAnnuleer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAnnuleer.Location = new System.Drawing.Point(363, 0);
             this.btnAnnuleer.Name = "btnAnnuleer";
-            this.btnAnnuleer.Size = new System.Drawing.Size(84, 60);
+            this.btnAnnuleer.Size = new System.Drawing.Size(63, 49);
             this.btnAnnuleer.TabIndex = 9;
             this.btnAnnuleer.UseVisualStyleBackColor = false;
             this.btnAnnuleer.Visible = false;
@@ -386,10 +368,9 @@
             this.pnOptioneel.Controls.Add(this.tbLocatie);
             this.pnOptioneel.Controls.Add(this.label4);
             this.pnOptioneel.Controls.Add(this.tbMobiel);
-            this.pnOptioneel.Location = new System.Drawing.Point(408, 151);
-            this.pnOptioneel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnOptioneel.Location = new System.Drawing.Point(306, 123);
             this.pnOptioneel.Name = "pnOptioneel";
-            this.pnOptioneel.Size = new System.Drawing.Size(364, 359);
+            this.pnOptioneel.Size = new System.Drawing.Size(273, 292);
             this.pnOptioneel.TabIndex = 24;
             this.pnOptioneel.Visible = false;
             // 
@@ -397,82 +378,74 @@
             // 
             this.afdelingLbl.AutoSize = true;
             this.afdelingLbl.Font = new System.Drawing.Font("Arial", 10F);
-            this.afdelingLbl.Location = new System.Drawing.Point(20, 161);
-            this.afdelingLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.afdelingLbl.Location = new System.Drawing.Point(15, 131);
             this.afdelingLbl.Name = "afdelingLbl";
-            this.afdelingLbl.Size = new System.Drawing.Size(73, 19);
+            this.afdelingLbl.Size = new System.Drawing.Size(63, 16);
             this.afdelingLbl.TabIndex = 9;
             this.afdelingLbl.Text = "Afdeling:";
             // 
             // tbAfdeling
             // 
             this.tbAfdeling.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbAfdeling.Location = new System.Drawing.Point(141, 158);
-            this.tbAfdeling.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbAfdeling.Location = new System.Drawing.Point(106, 128);
             this.tbAfdeling.Name = "tbAfdeling";
-            this.tbAfdeling.Size = new System.Drawing.Size(201, 27);
+            this.tbAfdeling.Size = new System.Drawing.Size(152, 23);
             this.tbAfdeling.TabIndex = 8;
             // 
             // kwaliteitLbl
             // 
             this.kwaliteitLbl.AutoSize = true;
             this.kwaliteitLbl.Font = new System.Drawing.Font("Arial", 10F);
-            this.kwaliteitLbl.Location = new System.Drawing.Point(20, 193);
-            this.kwaliteitLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.kwaliteitLbl.Location = new System.Drawing.Point(15, 157);
             this.kwaliteitLbl.Name = "kwaliteitLbl";
-            this.kwaliteitLbl.Size = new System.Drawing.Size(91, 19);
+            this.kwaliteitLbl.Size = new System.Drawing.Size(79, 16);
             this.kwaliteitLbl.TabIndex = 7;
             this.kwaliteitLbl.Text = "Kwaliteiten:";
             // 
             // tbKwaliteitenP
             // 
             this.tbKwaliteitenP.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbKwaliteitenP.Location = new System.Drawing.Point(141, 193);
-            this.tbKwaliteitenP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbKwaliteitenP.Location = new System.Drawing.Point(106, 157);
             this.tbKwaliteitenP.Multiline = true;
             this.tbKwaliteitenP.Name = "tbKwaliteitenP";
-            this.tbKwaliteitenP.Size = new System.Drawing.Size(201, 89);
+            this.tbKwaliteitenP.Size = new System.Drawing.Size(152, 73);
             this.tbKwaliteitenP.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 10F);
-            this.label2.Location = new System.Drawing.Point(20, 126);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(15, 102);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 19);
+            this.label2.Size = new System.Drawing.Size(59, 16);
             this.label2.TabIndex = 5;
             this.label2.Text = "Functie:";
             // 
             // tbFunctie
             // 
             this.tbFunctie.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbFunctie.Location = new System.Drawing.Point(141, 122);
-            this.tbFunctie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbFunctie.Location = new System.Drawing.Point(106, 99);
             this.tbFunctie.Name = "tbFunctie";
-            this.tbFunctie.Size = new System.Drawing.Size(201, 27);
+            this.tbFunctie.Size = new System.Drawing.Size(152, 23);
             this.tbFunctie.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 10F);
-            this.label4.Location = new System.Drawing.Point(20, 60);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(15, 49);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 19);
+            this.label4.Size = new System.Drawing.Size(53, 16);
             this.label4.TabIndex = 1;
             this.label4.Text = "Mobiel:";
             // 
             // tbMobiel
             // 
             this.tbMobiel.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbMobiel.Location = new System.Drawing.Point(141, 57);
-            this.tbMobiel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMobiel.Location = new System.Drawing.Point(106, 46);
             this.tbMobiel.MaxLength = 10;
             this.tbMobiel.Name = "tbMobiel";
-            this.tbMobiel.Size = new System.Drawing.Size(201, 27);
+            this.tbMobiel.Size = new System.Drawing.Size(152, 23);
             this.tbMobiel.TabIndex = 4;
             this.tbMobiel.Enter += new System.EventHandler(this.tbMobiel_Enter);
             this.tbMobiel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMobiel_KeyPress);
@@ -487,10 +460,9 @@
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(504, 1);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Location = new System.Drawing.Point(378, 1);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(79, 62);
+            this.btnDelete.Size = new System.Drawing.Size(59, 50);
             this.btnDelete.TabIndex = 26;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -504,10 +476,9 @@
             this.btnWijzig.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWijzig.FlatAppearance.BorderSize = 0;
             this.btnWijzig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWijzig.Location = new System.Drawing.Point(417, 1);
-            this.btnWijzig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnWijzig.Location = new System.Drawing.Point(313, 1);
             this.btnWijzig.Name = "btnWijzig";
-            this.btnWijzig.Size = new System.Drawing.Size(79, 62);
+            this.btnWijzig.Size = new System.Drawing.Size(59, 50);
             this.btnWijzig.TabIndex = 25;
             this.btnWijzig.UseVisualStyleBackColor = false;
             this.btnWijzig.Click += new System.EventHandler(this.btnWijzig_Click);
@@ -522,10 +493,9 @@
             "Stagebegeleider",
             "Gastdocent",
             "Gastspreker"});
-            this.contactSoortCbx.Location = new System.Drawing.Point(52, 102);
-            this.contactSoortCbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.contactSoortCbx.Location = new System.Drawing.Point(39, 83);
             this.contactSoortCbx.Name = "contactSoortCbx";
-            this.contactSoortCbx.Size = new System.Drawing.Size(160, 26);
+            this.contactSoortCbx.Size = new System.Drawing.Size(121, 24);
             this.contactSoortCbx.TabIndex = 20;
             this.contactSoortCbx.Visible = false;
             this.contactSoortCbx.SelectedValueChanged += new System.EventHandler(this.toonContactenInvoer);
@@ -535,24 +505,19 @@
             this.lblSoort.AutoSize = true;
             this.lblSoort.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblSoort.Font = new System.Drawing.Font("Arial", 9F);
-            this.lblSoort.Location = new System.Drawing.Point(48, 78);
-            this.lblSoort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSoort.Location = new System.Drawing.Point(36, 63);
             this.lblSoort.Name = "lblSoort";
-            this.lblSoort.Size = new System.Drawing.Size(183, 17);
+            this.lblSoort.Size = new System.Drawing.Size(152, 15);
             this.lblSoort.TabIndex = 21;
             this.lblSoort.Text = "Selecteer het soort contact";
             this.lblSoort.Visible = false;
             // 
-            // Hachternaam
-            // 
-            this.Hachternaam.Text = "Achternaam";
-            // 
             // ContactenForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1051, 596);
+            this.ClientSize = new System.Drawing.Size(788, 484);
             this.Controls.Add(this.persoonPnl);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnWijzig);
@@ -570,7 +535,6 @@
             this.Controls.Add(this.lblGebruiker);
             this.Controls.Add(this.pbHeader);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ContactenForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ik";

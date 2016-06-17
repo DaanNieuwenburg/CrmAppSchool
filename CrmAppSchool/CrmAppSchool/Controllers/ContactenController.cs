@@ -776,20 +776,28 @@ namespace CrmAppSchool.Controllers
             {
                 if (aantalkeer == 1)
                 {
-                    StageopdrachtController soc = new StageopdrachtController();
-                    List<Stageopdracht> opdrachten = soc.getOpdrachten();
-                    bool gevonden = false;
-                    foreach (Stageopdracht a in opdrachten)
+                    DialogResult dialoogResultaat = MessageBox.Show("Verder heeft niemand deze contactpersoon toegevoegd. Hierdoor wordt het contact volledig uit het systeem verwijderd. Wilt u doorgaan?", "Verwijderen contacten", MessageBoxButtons.YesNo);
+                    if (dialoogResultaat == DialogResult.Yes)
                     {
-                        if (a.Contact.Contactcode == Int32.Parse(persooncode))
+                        StageopdrachtController soc = new StageopdrachtController();
+                        List<Stageopdracht> opdrachten = soc.getOpdrachten();
+                        bool gevonden = false;
+                        foreach (Stageopdracht a in opdrachten)
                         {
-                            gevonden = true;
-                            break;
+                            if (a.Contact.Contactcode == Int32.Parse(persooncode))
+                            {
+                                gevonden = true;
+                                break;
+                            }
+                        }
+                        if (gevonden == true)
+                        {
+                            MessageBox.Show("Deze contactpersoon staat als stagebegeleider ingesteld bij een stageopdracht. \nHierdoor kan deze niet worden verwijderd");
+                            return false;
                         }
                     }
-                    if (gevonden == true)
+                    else
                     {
-                        MessageBox.Show("Deze contactpersoon staat als stagebegeleider ingesteld bij een stageopdracht. \nHierdoor kan deze niet worden verwijderd");
                         return false;
                     }
                 }

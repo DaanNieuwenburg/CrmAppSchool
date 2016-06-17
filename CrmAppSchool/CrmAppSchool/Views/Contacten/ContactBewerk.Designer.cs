@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactBewerk));
             this.lblContactnaam = new System.Windows.Forms.Label();
             this.persoonPnl = new System.Windows.Forms.Panel();
+            this.tbKwaliteiten = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.soortCbx = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.bedrijfCbx = new System.Windows.Forms.ComboBox();
@@ -56,8 +58,6 @@
             this.pbRate2 = new System.Windows.Forms.PictureBox();
             this.pbRate1 = new System.Windows.Forms.PictureBox();
             this.tbOmschrijving = new System.Windows.Forms.TextBox();
-            this.tbKwaliteiten = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.persoonPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRate5)).BeginInit();
@@ -106,6 +106,29 @@
             this.persoonPnl.Size = new System.Drawing.Size(573, 202);
             this.persoonPnl.TabIndex = 34;
             // 
+            // tbKwaliteiten
+            // 
+            this.tbKwaliteiten.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbKwaliteiten.Location = new System.Drawing.Point(390, 108);
+            this.tbKwaliteiten.Margin = new System.Windows.Forms.Padding(2);
+            this.tbKwaliteiten.Multiline = true;
+            this.tbKwaliteiten.Name = "tbKwaliteiten";
+            this.tbKwaliteiten.Size = new System.Drawing.Size(178, 84);
+            this.tbKwaliteiten.TabIndex = 45;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label5.Font = new System.Drawing.Font("Arial", 10F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
+            this.label5.Location = new System.Drawing.Point(297, 108);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 16);
+            this.label5.TabIndex = 44;
+            this.label5.Text = "Kwaliteiten:";
+            // 
             // soortCbx
             // 
             this.soortCbx.Font = new System.Drawing.Font("Arial", 10F);
@@ -143,6 +166,7 @@
             this.bedrijfCbx.Name = "bedrijfCbx";
             this.bedrijfCbx.Size = new System.Drawing.Size(165, 24);
             this.bedrijfCbx.TabIndex = 41;
+            this.bedrijfCbx.SelectedIndexChanged += new System.EventHandler(this.bedrijfCbx_SelectedIndexChanged);
             // 
             // mobielTb
             // 
@@ -415,29 +439,6 @@
             this.tbOmschrijving.Name = "tbOmschrijving";
             this.tbOmschrijving.Size = new System.Drawing.Size(573, 120);
             this.tbOmschrijving.TabIndex = 42;
-            // 
-            // tbKwaliteiten
-            // 
-            this.tbKwaliteiten.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbKwaliteiten.Location = new System.Drawing.Point(390, 108);
-            this.tbKwaliteiten.Margin = new System.Windows.Forms.Padding(2);
-            this.tbKwaliteiten.Multiline = true;
-            this.tbKwaliteiten.Name = "tbKwaliteiten";
-            this.tbKwaliteiten.Size = new System.Drawing.Size(178, 84);
-            this.tbKwaliteiten.TabIndex = 45;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label5.Font = new System.Drawing.Font("Arial", 10F);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
-            this.label5.Location = new System.Drawing.Point(297, 108);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 16);
-            this.label5.TabIndex = 44;
-            this.label5.Text = "Kwaliteiten:";
             // 
             // ContactBewerk
             // 
