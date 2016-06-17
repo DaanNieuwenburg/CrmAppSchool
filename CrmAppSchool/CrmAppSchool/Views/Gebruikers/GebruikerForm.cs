@@ -34,7 +34,9 @@ namespace CrmAppSchool.Views.Gebruikers
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
             vulListView();
         }
-
+        //
+        // Alle eigen methodes van de form
+        //
         private void vulListView()
         {
             // Deze methode vult het listview met alle gebruikers van het systeem
@@ -63,6 +65,10 @@ namespace CrmAppSchool.Views.Gebruikers
                 gebruikerLvw.Items.Add(lvw);
             }
         }
+        
+        //
+        // Alle button_Click() events van de form
+        //
 
         private void voegToeBtn_Click(object sender, EventArgs e)
         {
@@ -114,6 +120,11 @@ namespace CrmAppSchool.Views.Gebruikers
             this.Hide();
 
         }
+        
+        //
+        // Alle overige events van de form
+        //
+
         private void voegGebruikerToeForm_Load(object sender, EventArgs e)
         {
             ToolTip TP = new ToolTip();
