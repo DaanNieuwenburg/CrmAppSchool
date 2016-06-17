@@ -33,6 +33,10 @@ namespace CrmAppSchool.Views.Login
                 MessageBox.Show("Inloggen mislukt\nControleer uw gebruikersnaam en of wachtwoord", "Inloggen mislukt", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 wachtwoordTxb.Text = "";
             }
+            else if (resultaat == false && gebruikersnaamTxb.Text.Count() == 0)
+            {
+                MessageBox.Show("De gebruikersnaam mag niet leeg zijn.\nProbeer het opnieuw", "Inloggen mislukt", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else if(resultaat == false && wachtwoordTxb.Text.Count() == 0)
             {
                 MessageBox.Show("Het wachtwoord mag niet leeg zijn.\nProbeer het opnieuw", "Inloggen mislukt",MessageBoxButtons.OK, MessageBoxIcon.Warning);
