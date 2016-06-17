@@ -23,19 +23,22 @@ namespace CrmAppSchool.Views.Contacten
         public ContactDetails(Gebruiker _gebruiker, Persooncontact _contact)
         {
             InitializeComponent();
-            
+
             contact = _contact;
             gebruiker = _gebruiker;
+            vulin();
 
+        }
+        public void vulin() { 
             // Haal de contacten evaluaties op
             ContactEvaluatieController ce = new ContactEvaluatieController();
-            contact = ce.HaalInfoOp(_gebruiker, contact);
+            contact = ce.HaalInfoOp(gebruiker, contact);
             lbOmschrijvingValue.Text = contact.Evaluatie;
             beoordeling = contact.Beoordeling;
 
             //Haal de kwaliteiten op
             ContactenController cc = new ContactenController();           
-            List<string> kwalteitenlijst = cc.Get_Kwaliteiten(_gebruiker, contact);
+            List<string> kwalteitenlijst = cc.Get_Kwaliteiten(gebruiker, contact);
             if(kwalteitenlijst != null)
             {
                 lbKWvalue.Text = "";
@@ -133,6 +136,12 @@ namespace CrmAppSchool.Views.Contacten
             {
                 this.lbl_ingevoerd.Cursor = System.Windows.Forms.Cursors.Hand;
             }
+            if (gebruiker.SoortGebruiker != "Admin")
+            {
+                btnDelete.Visible = false;
+                btnWijzig.Visible = false;
+
+            }
 
 
         }
@@ -142,6 +151,8 @@ namespace CrmAppSchool.Views.Contacten
             ToolTip TP = new ToolTip();
             TP.ShowAlways = true;
             TP.SetToolTip(btnVoegtoe, "Voeg deze persoon toe aan je contactenlijst");
+            TP.SetToolTip(btnWijzig, "Bewerk dit contact");
+            TP.SetToolTip(btnDelete, "Verwijder deze contact uit het hele systeem");
             lblContactnaam.Text = contact.Voornaam + " " + contact.Achternaam;
             setSterren();
                 
@@ -230,6 +241,19 @@ namespace CrmAppSchool.Views.Contacten
             contact.Kwaliteiten = bc.Get_Kwaliteiten(gebruiker, contact);
             Views.Bedrijven.BedrijfDetails details = new Views.Bedrijven.BedrijfDetails(gebruiker, contact);
             details.ShowDialog();
+        }
+
+        private void btnWijzig_Click(object sender, EventArgs e)
+        {
+            string contactcode = this.contact.Contactcode.ToString();
+            ContactenController cc = new ContactenController();
+            Persooncontact contact = cc.HaalInfoOp(contactcode);
+            Views.Bedrijven.ContactBewerk bewerk = new Views.Bedrijven.ContactBewerk(contact, gebruiker);
+            bewerk.ShowDialog();
+
+
+            this.contact = cc.HaalInfoOp(contactcode);
+            vulin();
         }
     }
 }

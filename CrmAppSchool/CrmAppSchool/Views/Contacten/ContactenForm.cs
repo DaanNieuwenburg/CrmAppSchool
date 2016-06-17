@@ -370,6 +370,8 @@ namespace CrmAppSchool.Views.Bedrijven
             Persooncontact contact = _controller.HaalInfoOp(contactcode);
             Contacten.ContactDetails _details = new Contacten.ContactDetails(_gebruiker, contact);
             _details.ShowDialog();
+            if (_gebruiker.SoortGebruiker == "Admin")
+            vulContacten();
         }
 
         private void vulContacten()
