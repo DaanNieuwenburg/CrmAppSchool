@@ -128,6 +128,7 @@
             this.lbl_Kwaliteitwaarde.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Kwaliteitwaarde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lbl_Kwaliteitwaarde.Location = new System.Drawing.Point(32, 195);
+            this.lbl_Kwaliteitwaarde.MaximumSize = new System.Drawing.Size(284, 168);
             this.lbl_Kwaliteitwaarde.Name = "lbl_Kwaliteitwaarde";
             this.lbl_Kwaliteitwaarde.Size = new System.Drawing.Size(15, 18);
             this.lbl_Kwaliteitwaarde.TabIndex = 30;
