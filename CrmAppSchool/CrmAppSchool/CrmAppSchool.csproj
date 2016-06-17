@@ -159,6 +159,7 @@
     <Compile Include="Views\Opdrachten\StageopdrachtForm.Designer.cs">
       <DependentUpon>StageopdrachtForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Profiel\ListViewColumnSorter.cs" />
     <Compile Include="Views\Profiel\ProfielDetails.cs">
       <SubType>Form</SubType>
     </Compile>

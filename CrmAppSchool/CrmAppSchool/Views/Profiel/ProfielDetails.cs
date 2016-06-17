@@ -17,10 +17,13 @@ namespace CrmAppSchool.Views.Profiel
 
         private Models.Profiel profiel { get; set; }
         private Gebruiker gebruiker { get; set; }
+        private ListViewColumnSorter lvwColumnSorter { get; set; }
 
         public ProfielDetails(Gebruiker _gebruiker, Models.Profiel _profiel)
         {
             InitializeComponent();
+            lvwColumnSorter = new ListViewColumnSorter();
+            this.lv_contacten.ListViewItemSorter = lvwColumnSorter;
             this.gebruiker = _gebruiker;
             profiel = _profiel;
 
@@ -104,6 +107,32 @@ namespace CrmAppSchool.Views.Profiel
             Persooncontact contact = _controller.HaalInfoOp(contactcode);
             CrmAppSchool.Views.Contacten.ContactDetails _details = new CrmAppSchool.Views.Contacten.ContactDetails(gebruiker, contact);
             _details.ShowDialog();
+        }
+
+        private void lv_contacten_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            // Determine if clicked column is already the column that is being sorted.
+            if (e.Column == lvwColumnSorter.SortColumn)
+            {
+                // Reverse the current sort direction for this column.
+                if (lvwColumnSorter.Order == SortOrder.Ascending)
+                {
+                    lvwColumnSorter.Order = SortOrder.Descending;
+                }
+                else
+                {
+                    lvwColumnSorter.Order = SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                // Set the column number that is to be sorted; default to ascending.
+                lvwColumnSorter.SortColumn = e.Column;
+                lvwColumnSorter.Order = SortOrder.Ascending;
+            }
+
+            // Perform the sort with these new sort options.
+            this.lv_contacten.Sort();
         }
     }
 }
