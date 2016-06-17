@@ -116,6 +116,9 @@ namespace CrmAppSchool.Views.Gebruikers
         }
         private void voegGebruikerToeForm_Load(object sender, EventArgs e)
         {
+            ToolTip TP = new ToolTip();
+            TP.ShowAlways = true;
+            TP.SetToolTip(voegToeBtn, "Voeg een nieuwe gebruiker toe");
         }
 
         private void gebruikerLvw_ItemActivate(object sender, EventArgs e)
