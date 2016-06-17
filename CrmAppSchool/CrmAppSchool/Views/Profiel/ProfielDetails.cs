@@ -99,6 +99,53 @@ namespace CrmAppSchool.Views.Profiel
             Persooncontact contact = _controller.HaalInfoOp(contactcode);
             Contacten.ContactDetails _details = new Contacten.ContactDetails(gebruiker, contact);
             _details.ShowDialog();
+            if (gebruiker.SoortGebruiker == "Admin")
+            {
+                
+                lv_contacten.SelectedItems[0].Remove();
+                ContactenController _controller2 = new ContactenController();
+                Persooncontact contact2 = _controller2.HaalInfoOp(contactcode);
+                contact2.volnaam = contact2.Voornaam + " " + contact2.Achternaam;
+                ListViewItem a = new ListViewItem();
+
+                a.Text = contact2.volnaam;
+                string soort;
+                if (contact2.Isgastdocent == true)
+                {
+                    soort = "Gastdocent";
+                }
+                else if (contact2.Isstagebegeleider == true)
+                {
+                    soort = "Stagebegeleider";
+                }
+                else
+                {
+                    soort = "Gastspreker";
+                }
+
+                a.SubItems.Add(soort);
+                a.SubItems.Add(contact2.Contactcode.ToString());
+                lv_contacten.Items.Add(a);
+
+                List<ListViewItem> sorteerlijst = new List<ListViewItem>();
+                int hoogste = 0;
+                foreach (ListViewItem b in lv_contacten.Items)
+                {
+                    sorteerlijst.Add(b);
+                    if (Int32.Parse(b.SubItems[2].Text) > hoogste)
+                        hoogste = Int32.Parse(b.SubItems[2].Text);
+                }
+                lv_contacten.Items.Clear();
+                for (int i = 0; i <= hoogste; i++)
+                {
+                    foreach (ListViewItem c in sorteerlijst)
+                    {
+                        if (Int32.Parse(c.SubItems[2].Text) == i)
+                            lv_contacten.Items.Add(c);
+                    }
+
+                }
+            }
         }
 
         private void lv_contacten_ColumnClick(object sender, ColumnClickEventArgs e)

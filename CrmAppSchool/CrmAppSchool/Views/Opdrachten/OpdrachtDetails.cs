@@ -50,6 +50,13 @@ namespace CrmAppSchool.Views.Opdrachten
             
             Contacten.ContactDetails _details = new Contacten.ContactDetails(gebruiker, contact);
             _details.ShowDialog();
+            if (gebruiker.SoortGebruiker == "Admin")
+            {
+                Controllers.ContactenController cc = new Controllers.ContactenController();
+                Models.Persooncontact contact2 = cc.HaalInfoOp(contactcode);
+                contact2.volnaam = contact2.Voornaam + " " + contact2.Achternaam;
+                lbOpdrachtContact.Text = contact2.volnaam;
+            }
         }
     }
 }

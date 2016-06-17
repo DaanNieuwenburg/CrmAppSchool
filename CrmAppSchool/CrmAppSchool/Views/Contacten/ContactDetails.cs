@@ -183,6 +183,8 @@ namespace CrmAppSchool.Views.Contacten
 
             this.contact = cc.HaalInfoOp(contactcode);
             vulin();
+            lblContactnaam.Text = this.contact.Voornaam + " " + this.contact.Achternaam;
+
         }
 
         //
