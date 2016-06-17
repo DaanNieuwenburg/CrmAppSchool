@@ -184,6 +184,9 @@
     <Compile Include="Views\Zoeken\ZoekOverzichtForm.Designer.cs">
       <DependentUpon>ZoekOverzichtForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Bedrijven\BedrijfDetails.nl-NL.resx">
+      <DependentUpon>BedrijfDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Bedrijven\BedrijfForm.resx">
       <DependentUpon>BedrijfForm.cs</DependentUpon>
     </EmbeddedResource>
