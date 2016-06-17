@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrmAppSchool.Models;
 using CrmAppSchool.Controllers;
@@ -28,6 +24,7 @@ namespace CrmAppSchool.Views.Bedrijven
             validemail = true;
             gebruiker = _gebruiker;
             this.isstagebegeleider = contact.Isstagebegeleider;
+
             // Vult de bedrijven combobox met bedrijven
             BedrijfController bc = new BedrijfController(); 
             bedrijfCbx.DataSource = bc.haalBedrijfLijstOp();
@@ -40,6 +37,7 @@ namespace CrmAppSchool.Views.Bedrijven
             tbOmschrijving.Text = contact.Evaluatie + "HAI";
             beoordeling = contact.Beoordeling;          
             mobielTb.Text = contact.Mobielnr;
+
             //Haal de kwaliteiten op
             ContactenController cc = new ContactenController();
             List<string> kwaliteitenlijst = cc.Get_Kwaliteiten(_gebruiker, contact);
@@ -149,7 +147,64 @@ namespace CrmAppSchool.Views.Bedrijven
             cc.bewerkContact(bewerktContact);
             this.Close();
         }
+        //
+        // Alle eigen methodes van de form
+        //
+        private void setSterren()
+        {
+            if (beoordeling == 0)
+            {
+                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+            }
+            else if (beoordeling == 1)
+            {
+                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+            }
+            else if (beoordeling == 2)
+            {
+                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+            }
+            else if (beoordeling == 3)
+            {
+                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+            }
+            else if (beoordeling == 4)
+            {
+                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
+            }
+            else
+            {
+                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
+            }
+        }
 
+        //
+        // Alle button_Click() events van de form
+        //
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
             if(validmobiel == true && validemail == true)
@@ -231,12 +286,44 @@ namespace CrmAppSchool.Views.Bedrijven
             }
             
         }
+        private void pbRate1_Click(object sender, EventArgs e)
+        {
+            beoordeling = 1;
+            setSterren();
+        }
+
+        private void pbRate2_Click(object sender, EventArgs e)
+        {
+            beoordeling = 2;
+            setSterren();
+        }
+
+        private void pbRate3_Click(object sender, EventArgs e)
+        {
+            beoordeling = 3;
+            setSterren();
+        }
+
+        private void pbRate4_Click(object sender, EventArgs e)
+        {
+            beoordeling = 4;
+            setSterren();
+        }
+
+        private void pbRate5_Click(object sender, EventArgs e)
+        {
+            beoordeling = 5;
+            setSterren();
+        }
 
         private void btnAnnuleer_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //
+        // Alle overige events van de form
+        //
         private void mobielTb_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -283,57 +370,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 }
             }
         }
-        private void setSterren()
-        {
-            if (beoordeling == 0)
-            {
-                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
-                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
-                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
-                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
-                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
-            }
-            else if (beoordeling == 1)
-            {
-                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
-                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
-                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
-                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
-                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
-            }
-            else if (beoordeling == 2)
-            {
-                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
-                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
-                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
-                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
-                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
-            }
-            else if (beoordeling == 3)
-            {
-                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
-                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
-                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
-                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
-                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
-            }
-            else if (beoordeling == 4)
-            {
-                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
-                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
-                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
-                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
-                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
-            }
-            else
-            {
-                pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
-                pbRate2.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
-                pbRate3.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
-                pbRate4.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
-                pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
-            }
-        }
+        
         private void pbRate2_MouseEnter(object sender, EventArgs e)
         {
             pbRate1.BackgroundImage = Properties.Resources.Afbeelding_Ster_vol;
@@ -380,35 +417,6 @@ namespace CrmAppSchool.Views.Bedrijven
             pbRate5.BackgroundImage = Properties.Resources.Afbeelding_Ster_leeg1;
         }
 
-        private void pbRate1_Click(object sender, EventArgs e)
-        {
-            beoordeling = 1;
-            setSterren();
-        }
-
-        private void pbRate2_Click(object sender, EventArgs e)
-        {
-            beoordeling = 2;
-            setSterren();
-        }
-
-        private void pbRate3_Click(object sender, EventArgs e)
-        {
-            beoordeling = 3;
-            setSterren();
-        }
-
-        private void pbRate4_Click(object sender, EventArgs e)
-        {
-            beoordeling = 4;
-            setSterren();
-        }
-
-        private void pbRate5_Click(object sender, EventArgs e)
-        {
-            beoordeling = 5;
-            setSterren();
-        }
 
         private void pbRating_MouseLeave(object sender, EventArgs e)
         {
