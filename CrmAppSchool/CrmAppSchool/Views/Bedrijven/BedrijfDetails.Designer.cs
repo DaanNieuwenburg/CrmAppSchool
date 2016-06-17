@@ -156,6 +156,7 @@
             this.lblKWvalue.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKWvalue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
             this.lblKWvalue.Location = new System.Drawing.Point(32, 224);
+            this.lblKWvalue.MaximumSize = new System.Drawing.Size(280, 168);
             this.lblKWvalue.Name = "lblKWvalue";
             this.lblKWvalue.Size = new System.Drawing.Size(15, 18);
             this.lblKWvalue.TabIndex = 30;
