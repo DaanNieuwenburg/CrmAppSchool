@@ -33,6 +33,10 @@ namespace CrmAppSchool.Views.Gebruikers
             ShowHelp = false;
 
         }
+        
+        //
+        // Alle eigen methodes van de form
+        //
 
         private void toonGebruikersnaam()
         {
@@ -49,9 +53,55 @@ namespace CrmAppSchool.Views.Gebruikers
                 gebruikerLbl.Text = gebruikerLbl.Text + " " + gebruiker.Gebruikersnaam;
             }
         }
+        private void Verifieer_login()
+        {
+            while (geverifieerd == false)
+            {
+                string gebruikersnaam = gebruiker.Gebruikersnaam;
+                string wachtwoord = "";
+                Gebruikers.ValidateForm _popup = new ValidateForm();
+                _popup.ShowDialog();
+                if (_popup.DialogResult == DialogResult.OK)
+                {
+                    wachtwoord = _popup.password;
+                }
+                LoginController logincontroller = new LoginController();
+                logincontroller.relogin = true;
+                bool resultaat = logincontroller.VerifieerGebruiker(gebruikersnaam, wachtwoord, true);
+                if (resultaat == false)
+                {
+                    MessageBox.Show("Het wachtwoord is incorrect\nProbeer het opnieuw", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Verkeerdwachtwoord++;
+                    if (Verkeerdwachtwoord == 5)
+                    {
+                        uitloggen = true;
+                        MessageBox.Show("U heeft 5 maal het verkeerde wachtwoord ingevoerd\nU wordt uit veiligheidsoverwegingen uitgelogd", "Te veel pogingen", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        DialogResult = DialogResult.Abort;
 
+                        Login.InlogForm inlog = new Login.InlogForm();
+                        openForms.Add(inlog);
+
+                        // Zorgt ervoor dat ieder form sluit behalve inloggen
+                        foreach (Form f in Application.OpenForms)
+                            openForms.Add(f);
+                        foreach (Form f in openForms)
+                        {
+                            if (f.Text != "Inloggen")
+                                f.Close();
+                        }
+                        inlog.Show();
+                        break;
+                    }
+                }
+                else
+                {
+                    geverifieerd = true;
+                }
+            }
+        }
         private void bepaalMenu()
         {
+            // Bepaalt welke knoppen er zichtbaar moeten worden voor de ingelogde gebruiker
             if(gebruiker.SoortGebruiker == "Docent")
             {
                 voegGebruikerToeBtn.Visible = false;
@@ -72,6 +122,11 @@ namespace CrmAppSchool.Views.Gebruikers
             }
         }
 
+
+        //
+        // Alle button_Click() events van de form
+        //
+
         private void voegGebruikerToeBtn_Click(object sender, EventArgs e)
         {
             
@@ -88,8 +143,6 @@ namespace CrmAppSchool.Views.Gebruikers
                     Show();
                     voegGebruikerToe.ShowMenu = false;
                 }
-
-                //this.Hide();
             }
             
         }
@@ -148,50 +201,7 @@ namespace CrmAppSchool.Views.Gebruikers
             Login.InlogForm login = new Login.InlogForm();
             login.Show();
         }
-        private void Verifieer_login()
-        {
-            while (geverifieerd == false)
-            {
-                string gebruikersnaam = gebruiker.Gebruikersnaam;
-                string wachtwoord = "";
-                Gebruikers.ValidateForm _popup = new ValidateForm();
-                _popup.ShowDialog();
-                if (_popup.DialogResult == DialogResult.OK)
-                {
-                    wachtwoord = _popup.password;
-                }
-                LoginController logincontroller = new LoginController();
-                logincontroller.relogin = true;
-                bool resultaat = logincontroller.VerifieerGebruiker(gebruikersnaam, wachtwoord, true);
-                if (resultaat == false)
-                {
-                    MessageBox.Show("Het wachtwoord is incorrect\nProbeer het opnieuw", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    Verkeerdwachtwoord++;
-                    if (Verkeerdwachtwoord == 5)
-                    {
-                        uitloggen = true;
-                        MessageBox.Show("U heeft 5 maal het verkeerde wachtwoord ingevoerd\nU wordt uit veiligheidsoverwegingen uitgelogd", "Te veel pogingen", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        DialogResult = DialogResult.Abort;
-
-                        Login.InlogForm inlog = new Login.InlogForm();
-                        openForms.Add(inlog);
-                        foreach (Form f in Application.OpenForms)
-                            openForms.Add(f);
-                        foreach (Form f in openForms)
-                        {
-                            if (f.Text != "Inloggen")
-                                f.Close();
-                        }
-                        inlog.Show();
-                        break;
-                    }
-                }
-                else
-                {
-                    geverifieerd = true;
-                }
-            }
-        }
+        
         private void btnHelp_Click(object sender, EventArgs e)
         {
             if (ShowHelp == false)
@@ -253,26 +263,18 @@ namespace CrmAppSchool.Views.Gebruikers
 
         private void btnBedrijven_Click(object sender, EventArgs e)
         {
-            //Cursor = Cursors.AppStarting;
             Bedrijven.BedrijfForm bForm = new Bedrijven.BedrijfForm(gebruiker);
             bForm.ShowDialog();
-            //Cursor = Cursors.Default;
         }
+
+        //
+        // Alle overige events van de form
+        //
 
         private void HoofdmenuForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (uitloggen == false)
                 Environment.Exit(0);
-        }
-
-        private void HoofdmenuForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
