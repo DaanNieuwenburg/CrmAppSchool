@@ -627,18 +627,6 @@
   <data name="&gt;&gt;llbWSvalue.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="columnHeader0.Text" xml:space="preserve">
-    <value>Naam</value>
-  </data>
-  <data name="columnHeader0.Width" type="System.Int32, mscorlib">
-    <value>167</value>
-  </data>
-  <data name="columnHeader1.Text" xml:space="preserve">
-    <value>Soort Contact</value>
-  </data>
-  <data name="columnHeader1.Width" type="System.Int32, mscorlib">
-    <value>94</value>
-  </data>
   <data name="lv_contacten.Location" type="System.Drawing.Point, System.Drawing">
     <value>306, 224</value>
   </data>
@@ -659,6 +647,18 @@
   </data>
   <data name="&gt;&gt;lv_contacten.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="columnHeader0.Text" xml:space="preserve">
+    <value>Naam</value>
+  </data>
+  <data name="columnHeader0.Width" type="System.Int32, mscorlib">
+    <value>167</value>
+  </data>
+  <data name="columnHeader1.Text" xml:space="preserve">
+    <value>Soort Contact</value>
+  </data>
+  <data name="columnHeader1.Width" type="System.Int32, mscorlib">
+    <value>94</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -6874,8 +6874,11 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>624, 443</value>
+  </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>624, 348</value>
+    <value>624, 443</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

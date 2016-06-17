@@ -49,7 +49,60 @@ namespace CrmAppSchool.Views.Bedrijven
             lblGebruiker.Text = lblGebruiker.Text + " " + this._gebruiker.Gebruikersnaam;
 
         }
+        //
+        // Alle eigen methodes van de form
+        //
+        private void vulContacten()
+        {
+            settooltips();
+            lvBedrijven.Items.Clear();
+            BedrijfController _getcontacten = new BedrijfController();
+            List<Bedrijfcontact> contactenlijst = _getcontacten.haalBedrijfLijstOp();
+            foreach (Bedrijfcontact contact in contactenlijst)
+            {
+                ListViewItem c = new ListViewItem(contact.Bedrijfnaam);
+                c.SubItems.Add(Convert.ToString(contact.Hoofdlocatie));
+                c.SubItems.Add(Convert.ToString(contact.Bedrijfscode));
+                c.ImageKey = "BD";
+                lvBedrijven.Items.Add(c);
+            }
+        }
+        private void settooltips()
+        {
+            // Maakt de tooltips aan
+            ToolTip TP = new ToolTip();
+            TP.ShowAlways = true;
+            TP.SetToolTip(tbWebsite, "Voer een geldige website in.\nExample: (www.)google.nl");
+            ToolTip TPnieuw = new ToolTip();
+            TPnieuw.ShowAlways = false;
+            TPnieuw.SetToolTip(btnVoegtoe, "Voeg een nieuw bedrijf toe");
+            ToolTip TPbewerk = new ToolTip();
+            TPbewerk.ShowAlways = false;
+            TPbewerk.SetToolTip(btnWijzig, "Bewerk het geselecteerde bedrijf");
+            ToolTip TPdelete = new ToolTip();
+            TPdelete.ShowAlways = false;
+            TPdelete.SetToolTip(btnDelete, "Verwijder het geselecteerde bedrijf");
+        }
 
+        
+        public void zoek()
+        {
+            lvBedrijven.Items.Clear();
+            string input = "%" + tbSearch.Text + "%";
+            List<Bedrijfcontact> resultaten = cc.ZoekBedrijven(input, _gebruiker);
+            foreach (Bedrijfcontact contact in resultaten)
+            {
+                ListViewItem lvi = new ListViewItem(contact.Bedrijfnaam);
+                lvi.SubItems.Add(contact.Hoofdlocatie);
+                lvi.SubItems.Add(contact.Bedrijfscode.ToString());
+                lvBedrijven.Items.Add(lvi);
+                lvi.ImageKey = "BD";
+            }
+        }
+
+        //
+        // Alle button_Click events van de form
+        //
         private void pbHome_Click(object sender, EventArgs e)
         {
             ShowMenu = true;
@@ -75,21 +128,7 @@ namespace CrmAppSchool.Views.Bedrijven
             }
 
         }
-        public void zoek()
-        {
-            lvBedrijven.Items.Clear();
-            string input = "%" + tbSearch.Text + "%";
-            List<Bedrijfcontact> resultaten = cc.ZoekBedrijven(input, _gebruiker);
-            foreach (Bedrijfcontact contact in resultaten)
-            {
-                ListViewItem lvi = new ListViewItem(contact.Bedrijfnaam);
-                lvi.SubItems.Add(contact.Hoofdlocatie);
-                lvi.SubItems.Add(contact.Bedrijfscode.ToString());
-                lvBedrijven.Items.Add(lvi);
-                lvi.ImageKey = "BD";
-
-            }
-        }
+        
         private void ActiveerZoeken()
         {
             if (ShowZoeken == false)
@@ -209,8 +248,6 @@ namespace CrmAppSchool.Views.Bedrijven
                 opslaan = false;
             }
 
-
-
             if (opslaan == true)
             {
 
@@ -283,7 +320,9 @@ namespace CrmAppSchool.Views.Bedrijven
             }
 
         }
-
+        //
+        // Alle overige events van de form
+        //
         private void lvContacten_ItemActivate(object sender, EventArgs e)
         {
             string contactcode = lvBedrijven.SelectedItems[0].SubItems[2].Text;
@@ -295,42 +334,12 @@ namespace CrmAppSchool.Views.Bedrijven
 
         }
 
-        private void vulContacten()
-        {
-            settooltips();
-            lvBedrijven.Items.Clear();
-            BedrijfController _getcontacten = new BedrijfController();
-            List<Bedrijfcontact> contactenlijst = _getcontacten.haalBedrijfLijstOp();
-            foreach (Bedrijfcontact contact in contactenlijst)
-            {
-                ListViewItem c = new ListViewItem(contact.Bedrijfnaam);
-                c.SubItems.Add(Convert.ToString(contact.Hoofdlocatie));
-                c.SubItems.Add(Convert.ToString(contact.Bedrijfscode));
-                c.ImageKey = "BD";
-                lvBedrijven.Items.Add(c);
-            }
-        }
+       
         private void ContactenForm_Load(object sender, EventArgs e)
         {
             vulContacten();
-
         }
-        private void settooltips()
-        {
-            // Maakt de tooltips aan
-            ToolTip TP = new ToolTip();
-            TP.ShowAlways = true;
-            TP.SetToolTip(tbWebsite, "Voer een geldige website in.\nExample: (www.)google.nl");
-            ToolTip TPnieuw = new ToolTip();
-            TPnieuw.ShowAlways = false;
-            TPnieuw.SetToolTip(btnVoegtoe, "Voeg een nieuw bedrijf toe");
-            ToolTip TPbewerk = new ToolTip();
-            TPbewerk.ShowAlways = false;
-            TPbewerk.SetToolTip(btnWijzig, "Bewerk het geselecteerde bedrijf");
-            ToolTip TPdelete = new ToolTip();
-            TPdelete.ShowAlways = false;
-            TPdelete.SetToolTip(btnDelete, "Verwijder het geselecteerde bedrijf");
-        }
+        
 
         private void tbEadres_Leave(object sender, EventArgs e)
         {
