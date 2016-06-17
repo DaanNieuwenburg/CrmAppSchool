@@ -26,6 +26,7 @@ namespace CrmAppSchool.Views.Bedrijven
         public ContactenForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
+            // Maakt een imagelist voor de soorten contacten
             var imagelist = new ImageList();
             imagelist.Images.Add("GS", Properties.Resources.Afbeelding_ContactPersoon_GastSpreker);
             imagelist.Images.Add("GD", Properties.Resources.Afbeelding_ContactPersoon_GastDocent);
@@ -33,6 +34,7 @@ namespace CrmAppSchool.Views.Bedrijven
             imagelist.Images.Add("SB", Properties.Resources.Afbeelding_ContactPersoon_StageBegeleider);
             imagelist.ImageSize = new Size(50, 50);
             lvContacten.LargeImageList = imagelist;
+
             ShowMenu = false;
             ShowZoeken = false;
             ShowSave = false;
@@ -47,28 +49,25 @@ namespace CrmAppSchool.Views.Bedrijven
             bedrijfCbx.ValueMember = "Bedrijfscode";
         }
 
-        private void pbHome_Click(object sender, EventArgs e)
+        //
+        // Alle eigen methodes van de form
+        //
+        private void SaveContact(Persooncontact persoon)
         {
-            ShowMenu = true;
-            Close();
-        }
-
-        private void btnZoeken_Click(object sender, EventArgs e)
-        {
-            if (ShowZoeken == true)
+            ListViewItem contact = new ListViewItem(persoon.Voornaam);
+            contact.SubItems.Add(persoon.Achternaam);
+            lvContacten.Items.Add(contact);
+            if (contactSoortCbx.Text == "Gastspreker")
             {
-                zoek();
-                ShowZoeken = false;
-                btnVoegtoe.Visible = true;
-                btnZoeken.Location = new Point(527, 1);
-                btnWijzig.Visible = true;
-                btnDelete.Visible = true;
-                tbSearch.Visible = false;
-                btnCancel.Visible = false;
+                contact.ImageKey = "GS";
             }
-            else
+            else if (contactSoortCbx.Text == "Gastdocent")
             {
-                ActiveerZoeken();
+                contact.ImageKey = "GD";
+            }
+            else if (contactSoortCbx.Text == "Stagebegeleider")
+            {
+                contact.ImageKey = "SB";
             }
 
         }
@@ -98,9 +97,67 @@ namespace CrmAppSchool.Views.Bedrijven
                         lvi.ImageKey = "GS";        // Stel de afbeelding in voor een Gastspreker
                     }
                 }
-
-
             }
+        }
+        private void Makeempty()
+        {
+            contactSoortCbx.Text = "";
+            tbVoornaam.Text = "";
+            tbAchternaam.Text = "";
+            tbEmail.Text = "";
+            tbFunctie.Text = "";
+            tbLocatie.Text = "";
+            tbMobiel.Text = "";
+            tbKwaliteitenP.Text = "";
+
+        }
+        private void vulContacten()
+        {
+            settooltips();
+            lvContacten.Items.Clear();
+            ContactenController _getcontacten = new ContactenController();
+            List<Persooncontact> contactenlijst = _getcontacten.HaalContactenOp(_gebruiker);
+            foreach (Persooncontact contact in contactenlijst)
+            {
+                ListViewItem c = new ListViewItem(contact.Voornaam);
+                c.SubItems.Add(contact.Achternaam);
+                c.SubItems.Add(Convert.ToString(contact.Contactcode));
+                if (contact.Isstagebegeleider == true)
+                {
+                    c.ImageKey = "SB";
+                }
+                else
+                {
+                    if (contact.Isgastdocent == true)
+                    {
+                        c.ImageKey = "GD";
+                    }
+                    else
+                    {
+                        c.ImageKey = "GS";
+                    }
+                }
+
+                lvContacten.Items.Add(c);
+            }
+        }
+        private void settooltips()
+        {
+            ToolTip TP = new ToolTip();
+            TP.ShowAlways = true;
+            TP.SetToolTip(tbEmail, "Voer een geldig email adres in.\nExample: harry@hotmail.com");
+            ToolTip TP1 = new ToolTip();
+            TP1.ShowAlways = true;
+            TP1.SetToolTip(tbMobiel, "Voer een geldig mobiel nummer in.\nExample: 0612345678");
+            ToolTip TPnieuw = new ToolTip();
+            TPnieuw.ShowAlways = false;
+            TPnieuw.SetToolTip(btnVoegtoe, "Voeg een nieuw contact toe");
+            ToolTip TPbewerk = new ToolTip();
+            TPbewerk.ShowAlways = false;
+            TPbewerk.SetToolTip(btnWijzig, "Bewerk het geselecteerde contact");
+            ToolTip TPdelete = new ToolTip();
+            TPdelete.ShowAlways = false;
+            TPdelete.SetToolTip(btnDelete, "Verwijder het geselecteerde contact");
         }
         private void ActiveerZoeken()
         {
@@ -127,6 +184,33 @@ namespace CrmAppSchool.Views.Bedrijven
             btnCancel.Visible = false;
         }
 
+        //
+        // Alle button_Click() events van de form
+        //
+        private void pbHome_Click(object sender, EventArgs e)
+        {
+            ShowMenu = true;
+            Close();
+        }
+
+        private void btnZoeken_Click(object sender, EventArgs e)
+        {
+            if (ShowZoeken == true)
+            {
+                zoek();
+                ShowZoeken = false;
+                btnVoegtoe.Visible = true;
+                btnZoeken.Location = new Point(527, 1);
+                btnWijzig.Visible = true;
+                btnDelete.Visible = true;
+                tbSearch.Visible = false;
+                btnCancel.Visible = false;
+            }
+            else
+            {
+                ActiveerZoeken();
+            }
+        }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             AnnuleerZoeken();
@@ -137,28 +221,6 @@ namespace CrmAppSchool.Views.Bedrijven
         {
             tbSearch.Text = "";
         }
-
-        private void toonContactenInvoer(object sender, EventArgs e)
-        {
-            // Toont de textboxes a.d.h.v. contactSoortCbx selectie
-            string invoerKeuze = Convert.ToString(contactSoortCbx.SelectedItem);
-            if (invoerKeuze == "Stagebegeleider")
-            {
-                persoonPnl.Visible = true;
-                pnOptioneel.Visible = true;
-            }
-            else if (invoerKeuze == "Gastdocent")
-            {
-                pnOptioneel.Visible = true;
-                persoonPnl.Visible = true;
-            }
-            else if (invoerKeuze == "Gastspreker")
-            {
-                pnOptioneel.Visible = true;
-                persoonPnl.Visible = true;
-            }
-        }
-
         private void btnVoegtoe_Click(object sender, EventArgs e)
         {
             validmobiel = true;
@@ -188,27 +250,6 @@ namespace CrmAppSchool.Views.Bedrijven
                 ShowSave = false;
             }
         }
-        private void SaveContact(Persooncontact persoon)
-        {
-            ListViewItem contact = new ListViewItem(persoon.Voornaam);
-            contact.SubItems.Add(persoon.Achternaam);
-            lvContacten.Items.Add(contact);
-            if (contactSoortCbx.Text == "Gastspreker")
-            {
-                contact.ImageKey = "GS";
-            }
-            else if (contactSoortCbx.Text == "Gastdocent")
-            {
-                contact.ImageKey = "GD";
-            }
-            else if (contactSoortCbx.Text == "Stagebegeleider")
-            {
-                contact.ImageKey = "SB";
-            }
-
-        }
-
-
         private void btnAnnuleer_Click(object sender, EventArgs e)
         {
             btnZoeken.Visible = true;
@@ -345,24 +386,12 @@ namespace CrmAppSchool.Views.Bedrijven
                             lvContacten.Items.Remove(item);
                     }
                 }
-            }
-            
+            }   
         }
 
-        private void Makeempty()
-        {
-            contactSoortCbx.Text = "";
-            tbVoornaam.Text = "";
-            tbAchternaam.Text = "";
-            tbEmail.Text = "";
-            tbFunctie.Text = "";
-            tbLocatie.Text = "";
-            tbMobiel.Text = "";
-            tbKwaliteitenP.Text = "";
-
-        }
-
-
+        //
+        // Alle overige events van de form
+        //
         private void lvContacten_ItemActivate(object sender, EventArgs e)
         {
             string contactcode = lvContacten.SelectedItems[0].SubItems[2].Text;
@@ -373,60 +402,32 @@ namespace CrmAppSchool.Views.Bedrijven
             if (_gebruiker.SoortGebruiker == "Admin")
             vulContacten();
         }
-
-        private void vulContacten()
-        {           
-            settooltips();
-            lvContacten.Items.Clear();
-            ContactenController _getcontacten = new ContactenController();
-            List<Persooncontact> contactenlijst = _getcontacten.HaalContactenOp(_gebruiker);
-            foreach (Persooncontact contact in contactenlijst)
+        private void toonContactenInvoer(object sender, EventArgs e)
+        {
+            // Toont de textboxes a.d.h.v. contactSoortCbx selectie
+            string invoerKeuze = Convert.ToString(contactSoortCbx.SelectedItem);
+            if (invoerKeuze == "Stagebegeleider")
             {
-                ListViewItem c = new ListViewItem(contact.Voornaam);
-                c.SubItems.Add(contact.Achternaam);
-                c.SubItems.Add(Convert.ToString(contact.Contactcode));
-                if (contact.Isstagebegeleider == true)
-                {
-                    c.ImageKey = "SB";
-                }
-                else
-                {
-                    if (contact.Isgastdocent == true)
-                    {
-                        c.ImageKey = "GD";
-                    }
-                    else
-                    {
-                        c.ImageKey = "GS";
-                    }
-                }
-                
-                lvContacten.Items.Add(c);
+                persoonPnl.Visible = true;
+                pnOptioneel.Visible = true;
+            }
+            else if (invoerKeuze == "Gastdocent")
+            {
+                pnOptioneel.Visible = true;
+                persoonPnl.Visible = true;
+            }
+            else if (invoerKeuze == "Gastspreker")
+            {
+                pnOptioneel.Visible = true;
+                persoonPnl.Visible = true;
             }
         }
+
         private void ContactenForm_Load(object sender, EventArgs e) 
         {
-            vulContacten();
-
+            vulContacten();         // vul de listview met contacten
         }
-        private void settooltips()
-        {
-            ToolTip TP = new ToolTip();
-            TP.ShowAlways = true;
-            TP.SetToolTip(tbEmail, "Voer een geldig email adres in.\nExample: harry@hotmail.com");
-            ToolTip TP1 = new ToolTip();
-            TP1.ShowAlways = true;
-            TP1.SetToolTip(tbMobiel, "Voer een geldig mobiel nummer in.\nExample: 0612345678");
-            ToolTip TPnieuw = new ToolTip();
-            TPnieuw.ShowAlways = false;
-            TPnieuw.SetToolTip(btnVoegtoe, "Voeg een nieuw contact toe");
-            ToolTip TPbewerk = new ToolTip();
-            TPbewerk.ShowAlways = false;
-            TPbewerk.SetToolTip(btnWijzig, "Bewerk het geselecteerde contact");
-            ToolTip TPdelete = new ToolTip();
-            TPdelete.ShowAlways = false;
-            TPdelete.SetToolTip(btnDelete, "Verwijder het geselecteerde contact");
-        }
+        
         private void tbMobiel_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Het mobiele nummer mag alleen uit cijfers bestaan
