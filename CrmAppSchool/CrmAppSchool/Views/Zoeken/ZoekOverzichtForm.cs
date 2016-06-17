@@ -21,7 +21,7 @@ namespace CrmAppSchool.Views.Zoeken
         private int soortresultaat { get; set; }
         public bool ShowMenu { get; set; }
         private bool Sorteermenu { get; set; }
-        private ComboBox cb { get; set; } 
+        private ComboBox cb { get; set; }
         private Gebruiker _gebruiker { get; set; }
         private ImageList imagelist
         {
@@ -29,7 +29,7 @@ namespace CrmAppSchool.Views.Zoeken
         }
         public ZoekOverzichtForm(ComboBox cb, Gebruiker gebruiker, int soortresultaat)
         {
-            
+
             // add an item
             // var listViewItem = listView.Items.Add("Item with image");
             // and tell the item which image to use
@@ -49,12 +49,12 @@ namespace CrmAppSchool.Views.Zoeken
             resultatenLvw.LargeImageList = imagelist;
             this.cb = cb;
             cbSorteerOp.Items.Clear();
-            foreach(string item in cb.Items)
+            foreach (string item in cb.Items)
             {
                 cbSorteerOp.Items.Add(item);
             }
             cbSorteerOp.Text = cb.Items[0].ToString();
-        
+
         }
 
         public void VulCombobox()
@@ -81,13 +81,11 @@ namespace CrmAppSchool.Views.Zoeken
                 if (contact.ingevoerddoor != null)
                 {
                     lvw.SubItems.Add(contact.ingevoerddoor);
-                if (contact.Isgastdocent == true)
-                {
-                    lvw.ImageKey = "GD";            // Stel de afbeelding in voor een gastdocent
-                }
-                else
-                {
-                    if (contact.Isstagebegeleider == true)
+                    if (contact.Isgastdocent == true)
+                    {
+                        lvw.ImageKey = "GD";            // Stel de afbeelding in voor een gastdocent
+                    }
+                    else if (contact.Isstagebegeleider == true)
                     {
                         lvw.ImageKey = "SB";        // Stel de afbeelding in voor een stagebegeleider
                     }
@@ -95,9 +93,9 @@ namespace CrmAppSchool.Views.Zoeken
                     {
                         lvw.ImageKey = "GS";        // Stel de afbeelding in voor een Gastspreker
                     }
+
                 }
             }
-        }
         }
         public void VulListviewBedrijf(List<Models.Bedrijfcontact> resultatenlijst)
         {
@@ -186,7 +184,7 @@ namespace CrmAppSchool.Views.Zoeken
 
         private void resultatenLvw_ItemActivate(object sender, EventArgs e)
         {
-            
+
             if (soortresultaat == 1)
             {
                 string contactcode = resultatenLvw.SelectedItems[0].SubItems[2].Text;
@@ -194,6 +192,55 @@ namespace CrmAppSchool.Views.Zoeken
                 Persooncontact contact = _controller.HaalInfoOp(contactcode);
                 CrmAppSchool.Views.Contacten.ContactDetails _details = new CrmAppSchool.Views.Contacten.ContactDetails(_gebruiker, contact);
                 _details.ShowDialog();
+                if (_gebruiker.SoortGebruiker == "Admin")
+                {
+                    bool issb = contact.Isstagebegeleider;
+                    bool isgdc = contact.Isgastdocent;
+                    resultatenLvw.SelectedItems[0].Remove();
+                    ContactenController _controller2 = new ContactenController();
+                    Persooncontact contact2 = _controller2.HaalInfoOp(contactcode);
+
+                    ListViewItem a = new ListViewItem();
+                    if (issb == contact2.Isstagebegeleider && isgdc == contact2.Isgastdocent)
+                    {
+                        a.Text = contact2.Voornaam;
+                        a.SubItems.Add(contact2.Achternaam);
+                        a.SubItems.Add(contact2.Contactcode.ToString());
+                        
+
+                        if (contact.Isgastdocent == true)
+                        {
+                            a.ImageKey = "GD";            // Stel de afbeelding in voor een gastdocent
+                        }
+                        else if (contact.Isstagebegeleider == true)
+                        {
+                            a.ImageKey = "SB";        // Stel de afbeelding in voor een stagebegeleider
+                        }
+                        else
+                        {
+                            a.ImageKey = "GS";        // Stel de afbeelding in voor een Gastspreker
+                        }
+                        resultatenLvw.Items.Add(a);
+                        List < ListViewItem > sorteerlijst = new List<ListViewItem>();
+                        int hoogste = 0;
+                        foreach (ListViewItem b in resultatenLvw.Items)
+                        {
+                            sorteerlijst.Add(b);
+                            if (Int32.Parse(b.SubItems[2].Text) > hoogste)
+                                hoogste = Int32.Parse(b.SubItems[2].Text);
+                        }
+                        resultatenLvw.Items.Clear();
+                        for(int i = 0; i <= hoogste; i++)
+                        {
+                            foreach(ListViewItem c in sorteerlijst)
+                            {
+                                if (Int32.Parse(c.SubItems[2].Text) == i)
+                                    resultatenLvw.Items.Add(c);
+                            }
+                            
+                        }
+                    }
+                }
             }
             else if (soortresultaat == 2)
             {
