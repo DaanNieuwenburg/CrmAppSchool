@@ -269,6 +269,7 @@
             this.lv_contacten.TabIndex = 47;
             this.lv_contacten.UseCompatibleStateImageBehavior = false;
             this.lv_contacten.View = System.Windows.Forms.View.Details;
+            this.lv_contacten.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lv_contacten_ColumnClick);
             this.lv_contacten.ItemActivate += new System.EventHandler(this.lv_contacten_ItemActivate);
             // 
             // columnHeader0

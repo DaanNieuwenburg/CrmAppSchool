@@ -23,7 +23,7 @@ namespace CrmAppSchool.Views.Profiel
         {
             InitializeComponent();
             lvwColumnSorter = new ListViewColumnSorter();
-            this.lv_contacten.ListViewItemSorter = lvwColumnSorter;
+            lv_contacten.ListViewItemSorter = lvwColumnSorter;
             this.gebruiker = _gebruiker;
             profiel = _profiel;
 

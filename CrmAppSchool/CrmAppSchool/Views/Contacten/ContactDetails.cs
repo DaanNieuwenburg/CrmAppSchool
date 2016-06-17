@@ -19,6 +19,7 @@ namespace CrmAppSchool.Views.Contacten
         private Gebruiker gebruiker { get; set; }
         private int beoordeling { get; set; }
 
+
         public ContactDetails(Gebruiker _gebruiker, Persooncontact _contact)
         {
             InitializeComponent();
