@@ -232,7 +232,6 @@
             this.lv_contacten.View = System.Windows.Forms.View.Details;
             this.lv_contacten.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lv_contacten_ColumnClick);
             this.lv_contacten.ItemActivate += new System.EventHandler(this.lv_contacten_ItemActivate);
-            this.lv_contacten.SelectedIndexChanged += new System.EventHandler(this.lv_contacten_SelectedIndexChanged);
             // 
             // columnHeader0
             // 
