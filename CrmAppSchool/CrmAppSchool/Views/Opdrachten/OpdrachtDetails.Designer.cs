@@ -197,7 +197,7 @@
             this.Name = "OpdrachtDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OpdrachtDetails";
-            this.Load += new System.EventHandler(this.OpdrachtDetails_Load);
+            //this.Load += new System.EventHandler(this.OpdrachtDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
