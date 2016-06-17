@@ -110,7 +110,7 @@ namespace CrmAppSchool.Views.Bedrijven
             CrmAppSchool.Views.Contacten.ContactDetails _details = new CrmAppSchool.Views.Contacten.ContactDetails(gebruiker, contact);
             _details.ShowDialog();
         }
-
+        
         private void lv_contacten_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             // Determine if clicked column is already the column that is being sorted.

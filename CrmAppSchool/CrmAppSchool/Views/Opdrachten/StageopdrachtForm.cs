@@ -297,5 +297,19 @@ namespace CrmAppSchool.Views.Opdrachten
             // Perform the sort with these new sort options.
             this.lvStage.Sort();
         }
+
+        private void StageopdrachtForm_Load(object sender, EventArgs e)
+        {
+            // Set de tooltips
+            ToolTip TP = new ToolTip();
+            TP.ShowAlways = true;
+            TP.SetToolTip(btnVoegtoe, "Voeg een nieuwe stageopdracht toe");
+            ToolTip TPDelete = new ToolTip();
+            TPDelete.ShowAlways = false;
+            TPDelete.SetToolTip(btnDelete, "Verwijder de geselecteerde opdracht");
+            ToolTip TPbewerk = new ToolTip();
+            TPbewerk.ShowAlways = false;
+            TPbewerk.SetToolTip(btnWijzig, "Bewerk de geselecteerde opdracht");
+        }
     }
 }

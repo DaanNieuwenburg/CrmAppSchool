@@ -264,6 +264,16 @@ namespace CrmAppSchool.Views.Gebruikers
             if (uitloggen == false)
                 Environment.Exit(0);
         }
+
+        private void HoofdmenuForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 

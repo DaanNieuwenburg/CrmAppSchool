@@ -49,6 +49,17 @@ namespace CrmAppSchool.Views.Profiel
 
         private void MijnprofielForm_Load(object sender, EventArgs e)
         {
+            // Set de tooltips
+            ToolTip TP = new ToolTip();
+            TP.ShowAlways = true;
+            TP.SetToolTip(btnBewerkLogin, "Bewerk je inloggegevens");
+            ToolTip TPnieuw = new ToolTip();
+            TPnieuw.ShowAlways = false;
+            TPnieuw.SetToolTip(btnPrive, "Zet bepaalde informatie prive");
+            ToolTip TPbewerk = new ToolTip();
+            TPbewerk.ShowAlways = false;
+            TPbewerk.SetToolTip(btnBewerk, "Bewerk je profielgegevens");
+
             // Zet de informatie van het profiel naar de labels
             lblVoornaamWaarde.Text = profiel.Voornaam;
             lblAchternaamWaarde.Text = profiel.Achternaam;
@@ -433,5 +444,6 @@ namespace CrmAppSchool.Views.Profiel
                 }
             }
         }
+
     }
 }
