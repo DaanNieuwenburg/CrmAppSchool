@@ -18,10 +18,9 @@ namespace CrmAppSchool.Views.Login
             InitializeComponent();
         }
 
-        private void inlogBtn_Click(object sender, EventArgs e)
-        {
-            Login();
-        }
+        //
+        // Alle eigen methodes van de form
+        //
         private void Login()
         {
             string gebruikersnaam = gebruikersnaamTxb.Text;
@@ -32,9 +31,9 @@ namespace CrmAppSchool.Views.Login
             {
                 MessageBox.Show("De gebruikersnaam mag niet leeg zijn.\nProbeer het opnieuw", "Inloggen mislukt", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if(resultaat == false && wachtwoordTxb.Text.Count() == 0)
+            else if (resultaat == false && wachtwoordTxb.Text.Count() == 0)
             {
-                MessageBox.Show("Het wachtwoord mag niet leeg zijn.\nProbeer het opnieuw", "Inloggen mislukt",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Het wachtwoord mag niet leeg zijn.\nProbeer het opnieuw", "Inloggen mislukt", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (resultaat == false && wachtwoordTxb.Text.Count() > 0)
             {
@@ -45,20 +44,6 @@ namespace CrmAppSchool.Views.Login
             {
                 SaveRemember();
                 this.Hide();
-            }
-        }
-        private void InlogForm_Load(object sender, EventArgs e)
-        {
-            if(Properties.Settings.Default.Remember == "True")
-            {
-                checkBox1.CheckState = CheckState.Checked;
-                gebruikersnaamTxb.Text = Properties.Settings.Default.Username;
-                wachtwoordTxb.Text = Properties.Settings.Default.Password;
-            }
-            else if (Properties.Settings.Default.Remember == "False")
-            {         
-                
-                checkBox1.CheckState = CheckState.Unchecked;
             }
         }
         private void SaveRemember()
@@ -76,6 +61,31 @@ namespace CrmAppSchool.Views.Login
             Properties.Settings.Default.Save();
         }
 
+        //
+        // Alle button_Click() events van de form
+        //
+        private void inlogBtn_Click(object sender, EventArgs e)
+        {
+            Login();
+        }
+
+        //
+        // Alle overige events van de form
+        //
+        private void InlogForm_Load(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.Remember == "True")
+            {
+                checkBox1.CheckState = CheckState.Checked;
+                gebruikersnaamTxb.Text = Properties.Settings.Default.Username;
+                wachtwoordTxb.Text = Properties.Settings.Default.Password;
+            }
+            else if (Properties.Settings.Default.Remember == "False")
+            {
+
+                checkBox1.CheckState = CheckState.Unchecked;
+            }
+        }
         private void wachtwoordTxb_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)

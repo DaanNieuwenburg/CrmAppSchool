@@ -34,6 +34,7 @@ namespace CrmAppSchool.Views.Gebruikers
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
             vulListView();
         }
+
         //
         // Alle eigen methodes van de form
         //
