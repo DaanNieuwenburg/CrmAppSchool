@@ -18,7 +18,7 @@ namespace CrmAppSchool.Views.Gebruikers
         public bool ShowMenu { get; set; }
         public bool tweedeSelectie { get; set; }
 
-
+        private ListViewColumnSorter lvwColumnSorter { get; set; }
         private Gebruiker gebruiker { get; set; }
 
         public voegGebruikerToeForm(Gebruiker _gebruiker)
@@ -26,6 +26,8 @@ namespace CrmAppSchool.Views.Gebruikers
 
 
             InitializeComponent();
+            lvwColumnSorter = new ListViewColumnSorter();
+            this.gebruikerLvw.ListViewItemSorter = lvwColumnSorter;
             tweedeSelectie = false;
             gebruiker = _gebruiker;
             ShowMenu = false;
@@ -161,6 +163,32 @@ namespace CrmAppSchool.Views.Gebruikers
                 tb_achternaam.Visible = true;
                 tb_voornaam.Visible = true;
             }
+        }
+
+        private void gebruikerLvw_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            // Determine if clicked column is already the column that is being sorted.
+            if (e.Column == lvwColumnSorter.SortColumn)
+            {
+                // Reverse the current sort direction for this column.
+                if (lvwColumnSorter.Order == SortOrder.Ascending)
+                {
+                    lvwColumnSorter.Order = SortOrder.Descending;
+                }
+                else
+                {
+                    lvwColumnSorter.Order = SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                // Set the column number that is to be sorted; default to ascending.
+                lvwColumnSorter.SortColumn = e.Column;
+                lvwColumnSorter.Order = SortOrder.Ascending;
+            }
+
+            // Perform the sort with these new sort options.
+            this.gebruikerLvw.Sort();
         }
     }
 }

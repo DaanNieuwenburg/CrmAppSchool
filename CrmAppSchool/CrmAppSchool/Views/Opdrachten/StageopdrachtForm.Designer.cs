@@ -55,7 +55,7 @@
             this.tbZoek.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbZoek.ForeColor = System.Drawing.Color.White;
             this.tbZoek.Location = new System.Drawing.Point(248, 11);
-            this.tbZoek.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbZoek.Margin = new System.Windows.Forms.Padding(2);
             this.tbZoek.Name = "tbZoek";
             this.tbZoek.Size = new System.Drawing.Size(248, 25);
             this.tbZoek.TabIndex = 1;
@@ -88,12 +88,13 @@
             this.lvStage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvStage.FullRowSelect = true;
             this.lvStage.Location = new System.Drawing.Point(0, 50);
-            this.lvStage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lvStage.Margin = new System.Windows.Forms.Padding(2);
             this.lvStage.Name = "lvStage";
             this.lvStage.Size = new System.Drawing.Size(896, 459);
             this.lvStage.TabIndex = 18;
             this.lvStage.UseCompatibleStateImageBehavior = false;
             this.lvStage.View = System.Windows.Forms.View.Details;
+            this.lvStage.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvStage_ColumnClick);
             this.lvStage.ItemActivate += new System.EventHandler(this.lvStage_ItemActivate);
             this.lvStage.SelectedIndexChanged += new System.EventHandler(this.lvStage_SelectedIndexChanged);
             // 
@@ -228,7 +229,7 @@
             this.Controls.Add(this.lblGebruiker);
             this.Controls.Add(this.pbHeader);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "StageopdrachtForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "StageOpdrachten";

@@ -17,11 +17,14 @@ namespace CrmAppSchool.Views.Opdrachten
         public bool ShowMenu { get; set; }                 // Boolean voor het zichtbaar maken van de mainmenus
         public bool ShowZoeken { get; set; }
         private Gebruiker gebruiker { get; set; }
+        private ListViewColumnSorter lvwColumnSorter { get; set; }
 
         StageopdrachtController soc = new StageopdrachtController();
         public StageopdrachtForm(Gebruiker _gebruiker)
         {
             InitializeComponent();
+            lvwColumnSorter = new ListViewColumnSorter();
+            this.lvStage.ListViewItemSorter = lvwColumnSorter;
             gebruiker = _gebruiker;
             lblGebruiker.Text = lblGebruiker.Text + " " + gebruiker.Gebruikersnaam;
             ShowMenu = false;
@@ -267,6 +270,32 @@ namespace CrmAppSchool.Views.Opdrachten
         private void lvStage_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void lvStage_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            // Determine if clicked column is already the column that is being sorted.
+            if (e.Column == lvwColumnSorter.SortColumn)
+            {
+                // Reverse the current sort direction for this column.
+                if (lvwColumnSorter.Order == SortOrder.Ascending)
+                {
+                    lvwColumnSorter.Order = SortOrder.Descending;
+                }
+                else
+                {
+                    lvwColumnSorter.Order = SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                // Set the column number that is to be sorted; default to ascending.
+                lvwColumnSorter.SortColumn = e.Column;
+                lvwColumnSorter.Order = SortOrder.Ascending;
+            }
+
+            // Perform the sort with these new sort options.
+            this.lvStage.Sort();
         }
     }
 }

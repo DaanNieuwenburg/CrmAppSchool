@@ -144,6 +144,7 @@
             this.gebruikerLvw.TabIndex = 12;
             this.gebruikerLvw.UseCompatibleStateImageBehavior = false;
             this.gebruikerLvw.View = System.Windows.Forms.View.Details;
+            this.gebruikerLvw.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.gebruikerLvw_ColumnClick);
             this.gebruikerLvw.ItemActivate += new System.EventHandler(this.gebruikerLvw_ItemActivate);
             // 
             // gebruikersnaamHeader
