@@ -87,6 +87,10 @@ namespace CrmAppSchool.Views.Contacten
             {
                 string volnaam = profiel.Voornaam + " " + profiel.Achternaam;
                 lbl_ingevoerd.Text = volnaam;
+                if (lbl_ingevoerd.Text == " ")
+                {
+                    lbl_ingevoerd.Text = "Gebruiker verwijderd";
+                }
             }
             else
             {
@@ -120,7 +124,7 @@ namespace CrmAppSchool.Views.Contacten
                 lblFUvalue.Text = contact.Functie;
             }
 
-            if (lbl_ingevoerd.Text == "admin")
+            if (lbl_ingevoerd.Text == "admin" || lbl_ingevoerd.Text == "Gebruiker verwijderd")
             {
                 this.lbl_ingevoerd.Font = new System.Drawing.Font("Arial", 10F);
                 this.lbl_ingevoerd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(52)))));
@@ -205,7 +209,7 @@ namespace CrmAppSchool.Views.Contacten
 
         private void lbl_ingevoerd_Click(object sender, EventArgs e)
         {
-            if (lbl_ingevoerd.Text != "admin")
+            if (lbl_ingevoerd.Text != "admin" && lbl_ingevoerd.Text != "Gebruiker verwijderd")
             {
                 Gebruiker gebruiker = new Gebruiker();
                 gebruiker.Gebruikersnaam = contact.ingevoerddoor;

@@ -329,17 +329,20 @@ namespace CrmAppSchool.Views.Bedrijven
                 {
                     string contactcode = lvContacten.SelectedItems[0].SubItems[2].Text;
                     ContactenController cc = new ContactenController();
-                    cc.verwijderContact(_gebruiker, contactcode);
-                    lvContacten.Items.Remove(lvContacten.SelectedItems[0]);
+                    bool verwijderd = cc.verwijderContact(_gebruiker, contactcode);
+                    if (verwijderd == true)
+                        lvContacten.Items.Remove(lvContacten.SelectedItems[0]);
                 }
                 else if (lvContacten.SelectedItems.Count > 1)
                 {
                     foreach (ListViewItem item in lvContacten.SelectedItems)
                     {
-                        lvContacten.Items.Remove(item);
+                        
                         string contactcode = item.SubItems[2].Text;
                         ContactenController cc = new ContactenController();
-                        cc.verwijderContact(_gebruiker, contactcode);
+                        bool verwijderd = cc.verwijderContact(_gebruiker, contactcode);
+                        if (verwijderd == true)
+                            lvContacten.Items.Remove(item);
                     }
                 }
             }

@@ -47,8 +47,7 @@ namespace CrmAppSchool.Views.Gebruikers
         {
             if (gebruiker.SoortGebruiker == "Admin")
             {
-                MessageBox.Show("Het is niet mogelijk om een admin te verwijderen");
-                
+                MessageBox.Show("Het is niet mogelijk om een admin te verwijderen");                
             }
             else
             {

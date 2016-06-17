@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using CrmAppSchool.Models;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace CrmAppSchool.Controllers
 {
@@ -160,7 +161,7 @@ namespace CrmAppSchool.Controllers
 
                 // Zet de kwaliteiten in de kwaliteiten tabel
                 long primaryKey = command.LastInsertedId;
-                
+
                 foreach (string kwaliteit in contact.Kwaliteiten)
                 {
                     voegContactPersoonKwaliteitToe(kwaliteit, primaryKey);
@@ -188,7 +189,7 @@ namespace CrmAppSchool.Controllers
         public List<Persooncontact> HaalContactenOp(Gebruiker _gebruiker)
         {
             List<Persooncontact> contactenlijst = new List<Persooncontact>();
-           
+
 
             try
             {
@@ -309,7 +310,7 @@ namespace CrmAppSchool.Controllers
                 }
 
                 // Bepaal bool
-                if(aantalkeer > 0)
+                if (aantalkeer > 0)
                 {
                     waardeterug = true;
                 }
@@ -737,7 +738,7 @@ namespace CrmAppSchool.Controllers
             }
         }
 
-        public void verwijderContact(Gebruiker gebruiker, string persooncode)
+        public bool verwijderContact(Gebruiker gebruiker, string persooncode)
         {
 
             // Kijk of contact meerdere keren voorkomt in koppeltabel
@@ -773,6 +774,26 @@ namespace CrmAppSchool.Controllers
             MySqlTransaction trans = null;
             try
             {
+                if (aantalkeer == 1)
+                {
+                    StageopdrachtController soc = new StageopdrachtController();
+                    List<Stageopdracht> opdrachten = soc.getOpdrachten();
+                    bool gevonden = false;
+                    foreach (Stageopdracht a in opdrachten)
+                    {
+                        if (a.Contact.Contactcode == Int32.Parse(persooncode))
+                        {
+                            gevonden = true;
+                            break;
+                        }
+                    }
+                    if (gevonden == true)
+                    {
+                        MessageBox.Show("Deze contactpersoon staat als stagebegeleider ingesteld bij een stageopdracht. \nHierdoor kan deze niet worden verwijderd");
+                        return false;
+                    }
+                }
+
                 conn.Open();
                 trans = conn.BeginTransaction();
                 // Verwijder contact in koppeltabel of als die maar een gebruiker kent, ook in de gebruikertabel
@@ -815,17 +836,18 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Close();
             }
+            return true;
         }
 
         public List<Persooncontact> ContactenBijBedrijf(Bedrijfcontact bedrijf, bool soort)
         {
             List<Persooncontact> contactenlijst = new List<Persooncontact>();
-            
+
 
             try
             {
                 conn.Open();
-                
+
                 string query = "";
 
                 if (soort == false)
