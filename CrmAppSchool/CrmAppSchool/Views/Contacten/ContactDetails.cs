@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrmAppSchool.Models;
 using CrmAppSchool.Controllers;
@@ -13,8 +7,7 @@ using CrmAppSchool.Controllers;
 namespace CrmAppSchool.Views.Contacten
 {
     public partial class ContactDetails : Form
-    {
-        
+    {     
         private Persooncontact contact { get; set; }
         private Gebruiker gebruiker { get; set; }
         private int beoordeling { get; set; }
@@ -27,8 +20,11 @@ namespace CrmAppSchool.Views.Contacten
             contact = _contact;
             gebruiker = _gebruiker;
             vulin();
-
         }
+
+        //
+        // Alle eigen methodes van de form
+        //
         public void vulin() { 
             // Haal de contacten evaluaties op
             ContactEvaluatieController ce = new ContactEvaluatieController();
@@ -142,10 +138,56 @@ namespace CrmAppSchool.Views.Contacten
                 btnWijzig.Visible = false;
 
             }
-
-
         }
 
+        //
+        // Alle button_Click() events van de form
+        //
+        private void btnVoegtoe_Click(object sender, EventArgs e)
+        {
+            ContactenController cc = new ContactenController();
+            cc.voegContactPersoonKoppeltabel(gebruiker.Gebruikersnaam, contact.Contactcode);
+            MessageBox.Show("Contact " + contact.Voornaam + " " + contact.Achternaam + " is toegevoegd");
+        }
+
+        private void lbl_ingevoerd_Click(object sender, EventArgs e)
+        {
+            if (lbl_ingevoerd.Text != "admin" && lbl_ingevoerd.Text != "Gebruiker verwijderd")
+            {
+                Gebruiker gebruiker = new Gebruiker();
+                gebruiker.Gebruikersnaam = contact.ingevoerddoor;
+                ProfielController pc = new ProfielController();
+                Models.Profiel profiel = pc.Get_Pofiel(gebruiker);
+                Profiel.ProfielDetails details = new Profiel.ProfielDetails(gebruiker, profiel);
+                details.ShowDialog();
+            }
+        }
+
+        private void lblBDvalue_Click(object sender, EventArgs e)
+        {
+            Controllers.BedrijfController bc = new Controllers.BedrijfController();
+            Models.Bedrijfcontact contact = bc.SelecteerBedrijf(Convert.ToInt32(this.contact.Bedrijf.Bedrijfscode));
+            contact.Kwaliteiten = bc.Get_Kwaliteiten(gebruiker, contact);
+            Views.Bedrijven.BedrijfDetails details = new Views.Bedrijven.BedrijfDetails(gebruiker, contact);
+            details.ShowDialog();
+        }
+
+        private void btnWijzig_Click(object sender, EventArgs e)
+        {
+            string contactcode = this.contact.Contactcode.ToString();
+            ContactenController cc = new ContactenController();
+            Persooncontact contact = cc.HaalInfoOp(contactcode);
+            Views.Bedrijven.ContactBewerk bewerk = new Views.Bedrijven.ContactBewerk(contact, gebruiker);
+            bewerk.ShowDialog();
+
+
+            this.contact = cc.HaalInfoOp(contactcode);
+            vulin();
+        }
+
+        //
+        // Alle overige events van de form
+        //
         private void ContactDetails_Load(object sender, EventArgs e)
         {
             ToolTip TP = new ToolTip();
@@ -214,46 +256,6 @@ namespace CrmAppSchool.Views.Contacten
             }
         }
 
-        private void btnVoegtoe_Click(object sender, EventArgs e)
-        {
-            ContactenController cc = new ContactenController();
-            cc.voegContactPersoonKoppeltabel(gebruiker.Gebruikersnaam, contact.Contactcode);
-            MessageBox.Show("Contact " + contact.Voornaam + " " + contact.Achternaam + " is toegevoegd");
-        }
-
-        private void lbl_ingevoerd_Click(object sender, EventArgs e)
-        {
-            if (lbl_ingevoerd.Text != "admin" && lbl_ingevoerd.Text != "Gebruiker verwijderd")
-            {
-                Gebruiker gebruiker = new Gebruiker();
-                gebruiker.Gebruikersnaam = contact.ingevoerddoor;
-                ProfielController pc = new ProfielController();
-                Models.Profiel profiel = pc.Get_Pofiel(gebruiker);
-                Profiel.ProfielDetails details = new Profiel.ProfielDetails(gebruiker, profiel);
-                details.ShowDialog();
-            }
-        }
-
-        private void lblBDvalue_Click(object sender, EventArgs e)
-        {
-            Controllers.BedrijfController bc = new Controllers.BedrijfController();
-            Models.Bedrijfcontact contact = bc.SelecteerBedrijf(Convert.ToInt32(this.contact.Bedrijf.Bedrijfscode));
-            contact.Kwaliteiten = bc.Get_Kwaliteiten(gebruiker, contact);
-            Views.Bedrijven.BedrijfDetails details = new Views.Bedrijven.BedrijfDetails(gebruiker, contact);
-            details.ShowDialog();
-        }
-
-        private void btnWijzig_Click(object sender, EventArgs e)
-        {
-            string contactcode = this.contact.Contactcode.ToString();
-            ContactenController cc = new ContactenController();
-            Persooncontact contact = cc.HaalInfoOp(contactcode);
-            Views.Bedrijven.ContactBewerk bewerk = new Views.Bedrijven.ContactBewerk(contact, gebruiker);
-            bewerk.ShowDialog();
-
-
-            this.contact = cc.HaalInfoOp(contactcode);
-            vulin();
-        }
+        
     }
 }
