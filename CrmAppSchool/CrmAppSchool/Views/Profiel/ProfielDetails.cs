@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrmAppSchool.Models;
 using CrmAppSchool.Controllers;
@@ -89,14 +83,12 @@ namespace CrmAppSchool.Views.Profiel
             }
         }
 
+        //
+        // Alle overige events van de form
+        //
         private void ContactDetails_Load(object sender, EventArgs e)
         {
             lbl_Profielnaam.Text = profiel.Voornaam + " " + profiel.Achternaam;
-
-        }
-
-        private void lv_contacten_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -105,7 +97,7 @@ namespace CrmAppSchool.Views.Profiel
             string contactcode = lv_contacten.SelectedItems[0].SubItems[2].Text;
             ContactenController _controller = new ContactenController();
             Persooncontact contact = _controller.HaalInfoOp(contactcode);
-            CrmAppSchool.Views.Contacten.ContactDetails _details = new CrmAppSchool.Views.Contacten.ContactDetails(gebruiker, contact);
+            Contacten.ContactDetails _details = new Contacten.ContactDetails(gebruiker, contact);
             _details.ShowDialog();
         }
 
