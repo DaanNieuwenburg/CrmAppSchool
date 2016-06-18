@@ -320,7 +320,6 @@ namespace CrmAppSchool.Views.Bedrijven
                             persooncontact.Isgastdocent = true;
                             break;
                         default:
-                            Console.WriteLine("ERROR");
                             break;
                     }
                     ContactenController contactencontroller = new ContactenController();

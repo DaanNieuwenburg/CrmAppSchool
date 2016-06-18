@@ -12,8 +12,10 @@ namespace CrmAppSchool.Controllers
 {
     public class ContactenController : DatabaseController
     {
+        public bool dooradmin { get; set; }
         public ContactenController()
         {
+            dooradmin = false;
         }
         public List<string> Get_Kwaliteiten(Gebruiker _gebruiker, Persooncontact _contact)
         {
@@ -772,12 +774,25 @@ namespace CrmAppSchool.Controllers
 
 
             MySqlTransaction trans = null;
+            bool gadoor = false;
             try
             {
                 if (aantalkeer == 1)
                 {
-                    DialogResult dialoogResultaat = MessageBox.Show("Verder heeft niemand deze contactpersoon toegevoegd. Hierdoor wordt het contact volledig uit het systeem verwijderd. Wilt u doorgaan?", "Verwijderen contacten", MessageBoxButtons.YesNo);
-                    if (dialoogResultaat == DialogResult.Yes)
+                    if (dooradmin == false)
+                    {
+                        DialogResult dialoogResultaat = MessageBox.Show("Verder heeft niemand deze contactpersoon toegevoegd. Hierdoor wordt het contact volledig uit het systeem verwijderd. Wilt u doorgaan?", "Verwijderen contacten", MessageBoxButtons.YesNo);
+                        if (dialoogResultaat == DialogResult.Yes)
+                        {
+                            gadoor = true;
+                        }
+                    }
+                    else
+                    {
+                        gadoor = true;
+                    }
+
+                    if (gadoor == true)
                     {
                         StageopdrachtController soc = new StageopdrachtController();
                         List<Stageopdracht> opdrachten = soc.getOpdrachten();

@@ -103,9 +103,13 @@ namespace CrmAppSchool.Views.Bedrijven
             {
                 soortCbx.Text = "Gastdocent";
             }
-            else
+            else if (contact.Isstagebegeleider == true)
             {
                 soortCbx.Text = "Stagebegeleider";
+            }
+            else
+            {
+                soortCbx.Text = "Gastspreker";
             }
 
         }

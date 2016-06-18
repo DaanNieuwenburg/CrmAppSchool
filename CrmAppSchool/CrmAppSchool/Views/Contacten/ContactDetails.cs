@@ -159,8 +159,18 @@ namespace CrmAppSchool.Views.Contacten
                 gebruiker.Gebruikersnaam = contact.ingevoerddoor;
                 ProfielController pc = new ProfielController();
                 Models.Profiel profiel = pc.Get_Pofiel(gebruiker);
-                Profiel.ProfielDetails details = new Profiel.ProfielDetails(gebruiker, profiel);
+                Profiel.ProfielDetails details = new Profiel.ProfielDetails(this.gebruiker, profiel);
                 details.ShowDialog();
+                if (this.gebruiker.SoortGebruiker == "Admin")
+                {
+                    ContactenController cc = new ContactenController();
+                    Persooncontact checkcontact = cc.HaalInfoOp(this.contact.Contactcode.ToString());
+
+                    if (checkcontact.Bedrijf == null)
+                    {
+                        this.Close();
+                    }
+                }
             }
         }
 
@@ -171,6 +181,17 @@ namespace CrmAppSchool.Views.Contacten
             contact.Kwaliteiten = bc.Get_Kwaliteiten(gebruiker, contact);
             Views.Bedrijven.BedrijfDetails details = new Views.Bedrijven.BedrijfDetails(gebruiker, contact);
             details.ShowDialog();
+
+            if (this.gebruiker.SoortGebruiker == "Admin")
+            {
+                ContactenController cc = new ContactenController();
+                Persooncontact checkcontact = cc.HaalInfoOp(this.contact.Contactcode.ToString());
+
+                if (checkcontact.Bedrijf == null)
+                {
+                    this.Close();
+                }
+            }
         }
 
         private void btnWijzig_Click(object sender, EventArgs e)
@@ -266,6 +287,7 @@ namespace CrmAppSchool.Views.Contacten
             {
                 string contactcode = this.contact.Contactcode.ToString();
                 ContactenController cc = new ContactenController();
+                cc.dooradmin = true;
                 bool verwijderd = cc.verwijderContact(this.gebruiker, contactcode);
                 if (verwijderd == true)
                     this.Close();
