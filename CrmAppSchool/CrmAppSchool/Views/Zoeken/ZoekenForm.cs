@@ -97,7 +97,6 @@ namespace CrmAppSchool.Views.Zoeken
 
                 zoekfilterCbx.Items.Add("Bedrijfnaam");
                 zoekfilterCbx.Items.Add("Hoofdlocatie");
-                zoekfilterCbx.Items.Add("Omschrijving");
                 zoekfilterCbx.SelectedItem = zoekfilterCbx.Items[0];
             }
             else if (cbZoeknaar.SelectedItem.ToString() == "Docent")
@@ -107,7 +106,6 @@ namespace CrmAppSchool.Views.Zoeken
                 zoekfilterCbx.Items.Add("Achternaam");
                 zoekfilterCbx.Items.Add("Locatie");
                 zoekfilterCbx.Items.Add("Functie");
-                zoekfilterCbx.Items.Add("Kwaliteit");
                 zoekfilterCbx.SelectedItem = zoekfilterCbx.Items[0];
             }
             else
@@ -116,9 +114,8 @@ namespace CrmAppSchool.Views.Zoeken
                 zoekfilterCbx.Items.Add("Voornaam");
                 zoekfilterCbx.Items.Add("Achternaam");
                 zoekfilterCbx.Items.Add("Locatie");
-                zoekfilterCbx.Items.Add("Organisatie");
                 zoekfilterCbx.Items.Add("Functie");
-                zoekfilterCbx.Items.Add("Kwaliteit");
+                zoekfilterCbx.Items.Add("Bedrijf");
                 zoekfilterCbx.SelectedItem = zoekfilterCbx.Items[0];
             }
         }

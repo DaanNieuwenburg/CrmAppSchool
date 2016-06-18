@@ -25,6 +25,9 @@ namespace CrmAppSchool.Models
         public Gebruiker Gebruiker { get; set; }
         public Bedrijfcontact Bedrijf { get; set; }
         public string ingevoerddoor { get; set; }
+        public bool locatieprivé { get; set; }
+        public bool functieprivé { get; set; }
+        public string bedrijfnaam { get; set; }
     }
     
 }

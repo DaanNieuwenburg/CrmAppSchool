@@ -23,10 +23,8 @@ namespace CrmAppSchool.Views.Zoeken
         private bool Sorteermenu { get; set; }
         private ComboBox cb { get; set; }
         private Gebruiker _gebruiker { get; set; }
-        private ImageList imagelist
-        {
-            get; set;
-        }
+        private ImageList imagelist { get; set; }
+
         public ZoekOverzichtForm(ComboBox cb, Gebruiker gebruiker, int soortresultaat)
         {
 
@@ -57,10 +55,6 @@ namespace CrmAppSchool.Views.Zoeken
 
         }
 
-        public void VulCombobox()
-        {
-
-        }
         public void VulListviewPersoon(List<Models.Persooncontact> resultatenlijst)
         {
             //if (resultaatLijst != null && resultaatLijst.Count() > 0)
@@ -69,12 +63,38 @@ namespace CrmAppSchool.Views.Zoeken
             {
                 ListViewItem lvw = new ListViewItem(contact.Voornaam);
                 lvw.SubItems.Add(contact.Achternaam);
-                lvw.SubItems.Add(Convert.ToString(contact.Contactcode));
-                //lvw.SubItems.Add(contact.Bedrijf.Bedrijfnaam);
-                Console.WriteLine("IN LVW cc=" + contact.Contactcode);
-                lvw.SubItems.Add(contact.Functie);
-                lvw.SubItems.Add(contact.Locatie);
-                //lvw.SubItems.Add(contact.Kwaliteit);        
+
+                if (contact.Email == null)
+                {
+                    if (contact.locatieprivé == false)
+                    {
+                        lvw.SubItems.Add(contact.Locatie);
+                    }
+                    else
+                    {
+                        lvw.SubItems.Add("*privé");
+                    }
+                    if (contact.functieprivé == false)
+                    {
+
+                        lvw.SubItems.Add(contact.Functie);
+                    }
+                    else
+                    {
+                        lvw.SubItems.Add("*privé");
+                    }
+
+                }
+                else
+                {
+
+                    lvw.SubItems.Add(contact.Locatie);
+                    lvw.SubItems.Add(contact.Functie);
+                    lvw.SubItems.Add(contact.bedrijfnaam);
+                    lvw.SubItems.Add(contact.Contactcode.ToString());
+
+                }
+
                 resultatenLvw.Items.Add(lvw);
                 imagelist.ImageSize = new Size(50, 50);
                 lvw.ImageKey = "GS";        // Stel de afbeelding voor de persoon in
@@ -105,21 +125,15 @@ namespace CrmAppSchool.Views.Zoeken
             {
                 ListViewItem lvw = new ListViewItem(contact.Bedrijfnaam);
                 lvw.SubItems.Add(contact.Hoofdlocatie);
-                //lvw.SubItems.Add(contact.Bedrijf.Bedrijfnaam);
-                lvw.SubItems.Add(contact.Email);
+                lvw.SubItems.Add(contact.Contactpersoon);
                 lvw.SubItems.Add(contact.Website);
                 lvw.SubItems.Add(contact.Bedrijfscode.ToString());
-                //lvw.SubItems.Add(contact.Kwaliteit);        
                 resultatenLvw.Items.Add(lvw);
                 imagelist.ImageSize = new Size(50, 50);
                 lvw.ImageKey = "BD";        // Stel de afbeelding voor de persoon in
             }
         }
-
-        // }
-
-
-
+        
         private void btnSorteer_Click(object sender, EventArgs e)
         {
             string a = cbSorteerOp.Text;
@@ -187,7 +201,7 @@ namespace CrmAppSchool.Views.Zoeken
 
             if (soortresultaat == 1)
             {
-                string contactcode = resultatenLvw.SelectedItems[0].SubItems[2].Text;
+                string contactcode = resultatenLvw.SelectedItems[0].SubItems[5].Text;
                 ContactenController _controller = new ContactenController();
                 Persooncontact contact = _controller.HaalInfoOp(contactcode);
                 CrmAppSchool.Views.Contacten.ContactDetails _details = new CrmAppSchool.Views.Contacten.ContactDetails(_gebruiker, contact);
@@ -196,6 +210,8 @@ namespace CrmAppSchool.Views.Zoeken
                 {
                     bool issb = contact.Isstagebegeleider;
                     bool isgdc = contact.Isgastdocent;
+                    int index = resultatenLvw.SelectedItems[0].Index;
+
                     resultatenLvw.SelectedItems[0].Remove();
                     ContactenController _controller2 = new ContactenController();
                     Persooncontact contact2 = _controller2.HaalInfoOp(contactcode);
@@ -203,8 +219,12 @@ namespace CrmAppSchool.Views.Zoeken
                     ListViewItem a = new ListViewItem();
                     if (issb == contact2.Isstagebegeleider && isgdc == contact2.Isgastdocent)
                     {
+                        
                         a.Text = contact2.Voornaam;
                         a.SubItems.Add(contact2.Achternaam);
+                        a.SubItems.Add(contact2.Locatie);
+                        a.SubItems.Add(contact2.Functie);
+                        a.SubItems.Add(contact2.Bedrijf.Bedrijfnaam);
                         a.SubItems.Add(contact2.Contactcode.ToString());
                         
 
@@ -220,25 +240,19 @@ namespace CrmAppSchool.Views.Zoeken
                         {
                             a.ImageKey = "GS";        // Stel de afbeelding in voor een Gastspreker
                         }
-                        resultatenLvw.Items.Add(a);
-                        List < ListViewItem > sorteerlijst = new List<ListViewItem>();
-                        int hoogste = 0;
-                        foreach (ListViewItem b in resultatenLvw.Items)
+
+                        List<ListViewItem> sorteerlijst = new List<ListViewItem>();
+                        foreach(ListViewItem c in resultatenLvw.Items)
                         {
-                            sorteerlijst.Add(b);
-                            if (Int32.Parse(b.SubItems[2].Text) > hoogste)
-                                hoogste = Int32.Parse(b.SubItems[2].Text);
+                            sorteerlijst.Add(c);
                         }
+                        sorteerlijst.Insert(index, a);
                         resultatenLvw.Items.Clear();
-                        for(int i = 0; i <= hoogste; i++)
+                        foreach (ListViewItem b in sorteerlijst)
                         {
-                            foreach(ListViewItem c in sorteerlijst)
-                            {
-                                if (Int32.Parse(c.SubItems[2].Text) == i)
-                                    resultatenLvw.Items.Add(c);
-                            }
-                            
+                            resultatenLvw.Items.Add(b);
                         }
+                        
                     }
                 }
             }
@@ -254,7 +268,7 @@ namespace CrmAppSchool.Views.Zoeken
             else
             {
                 Gebruiker gebruiker = new Gebruiker();
-                gebruiker.Gebruikersnaam = resultatenLvw.SelectedItems[0].SubItems[5].Text;
+                gebruiker.Gebruikersnaam = resultatenLvw.SelectedItems[0].SubItems[4].Text;
                 ProfielController pc = new ProfielController();
                 Models.Profiel profiel = pc.Get_Pofiel(gebruiker);
                 Profiel.ProfielDetails details = new Profiel.ProfielDetails(_gebruiker, profiel);
