@@ -13,10 +13,13 @@ namespace CrmAppSchool.Controllers
     {
         public bool relogin { get; set; }
 
+
         public bool VerifieerGebruiker(string _gebruikersnaam, string _wachtwoord, bool nieuwscherm)
         {
+            string salt = haalSaltKeyOp(_gebruikersnaam);
             EncryptieController ecr = new EncryptieController();
-            string sha512Wachtwoord = ecr.encrypt(_wachtwoord);
+            string[] wachtwoordInfo = ecr.encrypt(_wachtwoord, salt);
+            string sha512Wachtwoord = wachtwoordInfo[1];
             try
             {
                 conn.Open();
@@ -71,6 +74,36 @@ namespace CrmAppSchool.Controllers
                 conn.Close();
             }
 
+        }
+
+        public string haalSaltKeyOp(string _gebruikersnaam)
+        {
+            string saltSleutel = "";
+            try
+            {
+                conn.Open();
+                string query = "SELECT wachtwoordsalt FROM gebruiker WHERE gebruikersnaam = @gebruikersnaam";
+                MySqlCommand command = new MySqlCommand(query, conn);
+                MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
+                gebruikersnaamParam.Value = _gebruikersnaam;
+                command.Parameters.Add(gebruikersnaamParam);
+
+                MySqlDataReader datalezer = command.ExecuteReader();
+                while (datalezer.Read())
+                {
+                    saltSleutel = datalezer.GetString("wachtwoordsalt");
+                }
+
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Error in logincontroller - haalSaltKeyOp: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return saltSleutel;
         }
     }
 }

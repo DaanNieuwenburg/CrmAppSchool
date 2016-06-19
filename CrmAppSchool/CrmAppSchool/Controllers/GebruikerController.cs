@@ -19,25 +19,30 @@ namespace CrmAppSchool.Controllers
             if (_gebruiker != null)
             {
                 EncryptieController ecr = new EncryptieController();
-                _gebruiker.Wachtwoord = ecr.encrypt(_gebruiker.Wachtwoord);
+                string[] wachtwoordInfo = ecr.encrypt(_gebruiker.Wachtwoord);
+                _gebruiker.Wachtwoord = wachtwoordInfo[0];
+                _gebruiker.WachtwoordSalt = wachtwoordInfo[1];
                 MySqlTransaction trans = null;
                 try
                 {
                     conn.Open();
                     trans = conn.BeginTransaction();
-                    string query = "INSERT INTO gebruiker (gebruikersnaam, wachtwoord, soortgebruiker) VALUES (@gebruikersnaam, @wachtwoord, @soortgebruiker)";
+                    string query = "INSERT INTO gebruiker (gebruikersnaam, wachtwoord, wachtwoordsalt, soortgebruiker) VALUES (@gebruikersnaam, @wachtwoord, @wachtwoordsalt, @soortgebruiker)";
                     MySqlCommand command = new MySqlCommand(query, conn);
                     MySqlParameter gebruikersnaamParam = new MySqlParameter("@gebruikersnaam", MySqlDbType.VarChar);
                     MySqlParameter wachtwoordParam = new MySqlParameter("@wachtwoord", MySqlDbType.VarChar);
+                    MySqlParameter wachtwoordSaltParam = new MySqlParameter("@wachtwoordsalt", MySqlDbType.VarChar);
                     MySqlParameter soortgebruikerParam = new MySqlParameter("@soortgebruiker", MySqlDbType.VarChar);
 
                     gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
                     wachtwoordParam.Value = _gebruiker.Wachtwoord;
+                    wachtwoordSaltParam.Value = _gebruiker.WachtwoordSalt;
                     soortgebruikerParam.Value = _gebruiker.SoortGebruiker;
 
 
                     command.Parameters.Add(gebruikersnaamParam);
                     command.Parameters.Add(wachtwoordParam);
+                    command.Parameters.Add(wachtwoordSaltParam);
                     command.Parameters.Add(soortgebruikerParam);
 
                     command.Prepare();
@@ -102,20 +107,26 @@ namespace CrmAppSchool.Controllers
         {
             MySqlTransaction trans = null;
             EncryptieController ecr = new EncryptieController();
-            _gebruiker.Wachtwoord = ecr.encrypt(_gebruiker.Wachtwoord);
+            string[] wachtwoordInfo = ecr.encrypt(_gebruiker.Wachtwoord);
+            _gebruiker.WachtwoordSalt = wachtwoordInfo[0];
+            _gebruiker.Wachtwoord = wachtwoordInfo[1];
             try
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
 
-                string query = "UPDATE gebruiker SET wachtwoord = @wachtwoord WHERE gebruikersnaam = @gebruikersnaam";
+                string query = "UPDATE gebruiker SET wachtwoord = @wachtwoord, wachtwoordsalt = @wachtwoordsalt WHERE gebruikersnaam = @gebruikersnaam";
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter gebruikersnaamParam = new MySqlParameter("gebruikersnaam", MySqlDbType.VarChar);
                 MySqlParameter wachtwoordParam = new MySqlParameter("wachtwoord", MySqlDbType.VarChar);
+                MySqlParameter wachtwoordSaltParam = new MySqlParameter("wachtwoordsalt", MySqlDbType.VarChar);
                 gebruikersnaamParam.Value = _gebruiker.Gebruikersnaam;
                 wachtwoordParam.Value = _gebruiker.Wachtwoord;
+                wachtwoordSaltParam.Value = _gebruiker.WachtwoordSalt;
+
                 command.Parameters.Add(gebruikersnaamParam);
                 command.Parameters.Add(wachtwoordParam);
+                command.Parameters.Add(wachtwoordSaltParam);
 
                 command.Prepare();
                 command.ExecuteNonQuery();

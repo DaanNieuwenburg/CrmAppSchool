@@ -10,6 +10,7 @@ namespace CrmAppSchool.Models
     {
         public string Gebruikersnaam { get; set; }
         public string Wachtwoord { get; set; }
+        public string WachtwoordSalt { get; set; }
         public string SoortGebruiker { get; set; }
     }
 }
