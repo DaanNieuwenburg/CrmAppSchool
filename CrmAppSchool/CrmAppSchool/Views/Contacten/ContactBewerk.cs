@@ -289,7 +289,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 bewerktContact.Evaluatie = omschr;
 
                 // Valideert of de vereiste informatie wel is ingevoerd
-                if (string.IsNullOrWhiteSpace(voornaamTb.Text) || string.IsNullOrWhiteSpace(achternaamTb.Text))
+                if (string.IsNullOrWhiteSpace(bewerktContact.Voornaam) || string.IsNullOrWhiteSpace(bewerktContact.Achternaam))
                 {
                     MessageBox.Show("Dit contact kan niet bewerkt worden: de voornaam of achternaam is niet ingevuld");
                 }

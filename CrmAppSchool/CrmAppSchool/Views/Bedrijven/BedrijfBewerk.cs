@@ -111,9 +111,16 @@ namespace CrmAppSchool.Views.Bedrijven
 
                 // Zet de kwaliteiten in de list
 
-                // Bedrijfcontroller
-                BedrijfController cc = new BedrijfController();
-                cc.bewerkContact(bewerktContact);
+                // Valideert of de vereiste informatie wel is ingevoerd
+                if (string.IsNullOrWhiteSpace(bewerktContact.Bedrijfnaam))
+                {
+                    MessageBox.Show("Dit bedrijf kan niet bewerkt worden: de bedrijfsnaam is niet ingevuld");
+                }
+                else
+                {
+                    BedrijfController cc = new BedrijfController();
+                    cc.bewerkContact(bewerktContact);
+                }
 
 
                 this.Close();
