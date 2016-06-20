@@ -212,7 +212,7 @@ namespace CrmAppSchool.Views.Bedrijven
         {
             bool opslaan = true;
 
-            if ((tbHoofdlocatie.Text.Count() <= 0 || tbBedrijfsnaam.Text.Count() <= 0))
+            if ((string.IsNullOrWhiteSpace(tbHoofdlocatie.Text) || string.IsNullOrWhiteSpace(tbBedrijfsnaam.Text)))
             {
                 opslaan = false;
                 MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw", "Warning", MessageBoxButtons.OK,MessageBoxIcon.Warning);
@@ -231,7 +231,7 @@ namespace CrmAppSchool.Views.Bedrijven
                 }
             }
             
-            if (tbTelefoon.Text.Count() <= 0 && tbEadres.Text.Count() <= 0)
+            if (string.IsNullOrWhiteSpace(tbTelefoon.Text) && string.IsNullOrWhiteSpace(tbEadres.Text))
             {
                 opslaan = false;
             }

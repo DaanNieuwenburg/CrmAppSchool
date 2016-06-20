@@ -76,11 +76,11 @@ namespace CrmAppSchool.Views.Opdrachten
             {
                 MessageBox.Show("Je hebt geen contact geselecteerd");
             }
-            else if (tbNaam.Text == "")
+            else if (string.IsNullOrWhiteSpace(tbNaam.Text))
             {
                 MessageBox.Show("Je hebt geen naam ingevoerd");
             }
-            else if (tbOmschrijving.Text == "")
+            else if (string.IsNullOrWhiteSpace(tbOmschrijving.Text))
             {
                 MessageBox.Show("Je hebt geen omschrijving ingevoerd");
             }

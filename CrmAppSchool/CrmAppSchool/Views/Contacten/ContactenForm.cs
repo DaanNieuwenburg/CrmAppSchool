@@ -272,7 +272,7 @@ namespace CrmAppSchool.Views.Bedrijven
             {
                 bool a = false;
                 bool b = false;
-                if ((tbVoornaam.Text.Count() <= 0 || tbAchternaam.Text.Count() <= 0 || tbEmail.Text.Count() <= 0 || bedrijfCbx.Text.Count() <= 0))
+                if ((string.IsNullOrWhiteSpace(tbVoornaam.Text) || string.IsNullOrWhiteSpace(tbAchternaam.Text) || string.IsNullOrWhiteSpace(tbEmail.Text) || bedrijfCbx.Text.Count() <= 0))
                 {
                     a = false;
                     MessageBox.Show("Een of meer verplichte velden zijn leeg\nVul deze aan en probeer het opnieuw");
