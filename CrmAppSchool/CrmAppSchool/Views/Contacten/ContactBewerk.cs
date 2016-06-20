@@ -128,6 +128,13 @@ namespace CrmAppSchool.Views.Bedrijven
             bewerktContact.Email = emailTb.Text;
             bewerktContact.Mobielnr = mobielTb.Text;
 
+            // Valideert of de vereiste informatie wel is ingevoerd
+            if(bewerktContact.Voornaam == "" || bewerktContact.Achternaam == "")
+            {
+                MessageBox.Show("Dit contact kan niet bewerkt worden: de voornaam of achternaam is niet ingevuld");
+            }
+
+
             // Zet de waardes van de cbx om
             if(soortCbx.Text == "Gastdocent")
             {
@@ -148,11 +155,18 @@ namespace CrmAppSchool.Views.Bedrijven
                     bewerktContact.Kwaliteiten.Add(ingevoerdeKwaliteit);
                 }
             }
-
-            // Contactencontroller
-            ContactenController cc = new ContactenController();
-            cc.bewerkContact(bewerktContact);
-            this.Close();
+            // Valideert of de vereiste informatie wel is ingevoerd
+            if (voornaamTb.Text == "" || achternaamTb.Text == "")
+            {
+                MessageBox.Show("Dit contact kan niet bewerkt worden: de voornaam of achternaam is niet ingevuld");
+            }
+            else
+            {
+                // Contactencontroller
+                ContactenController cc = new ContactenController();
+                cc.bewerkContact(bewerktContact);
+                this.Close();
+            }
         }
         //
         // Alle eigen methodes van de form
@@ -273,9 +287,18 @@ namespace CrmAppSchool.Views.Bedrijven
                 }
 
                 bewerktContact.Evaluatie = omschr;
-                // Contactencontroller
-                ContactenController cc = new ContactenController();
-                cc.bewerkContact(bewerktContact);
+
+                // Valideert of de vereiste informatie wel is ingevoerd
+                if (string.IsNullOrWhiteSpace(voornaamTb.Text) || string.IsNullOrWhiteSpace(achternaamTb.Text))
+                {
+                    MessageBox.Show("Dit contact kan niet bewerkt worden: de voornaam of achternaam is niet ingevuld");
+                }
+                else
+                {
+                    // Contactencontroller
+                    ContactenController cc = new ContactenController();
+                    cc.bewerkContact(bewerktContact);
+                }
 
                 // ContactenEvaluatiecontroller
                 bewerktContact.Beoordeling = beoordeling;
