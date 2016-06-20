@@ -18,8 +18,8 @@ namespace CrmAppSchool.Controllers
             {
                 conn.Open();
                 trans = conn.BeginTransaction();
-                string query = @"INSERT INTO bedrijf (bedrijfnaam, hoofdlocatie, website, email, omschrijving)
-                                 VALUES (@bedrijfnaam, @hoofdlocatie, @website, @email, @omschrijving)";
+                string query = @"INSERT INTO bedrijf (bedrijfnaam, hoofdlocatie, website, email)
+                                 VALUES (@bedrijfnaam, @hoofdlocatie, @website, @email)";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
                 MySqlParameter bedrijfnaamParam = new MySqlParameter("bedrijfnaam", MySqlDbType.VarChar);
@@ -27,21 +27,18 @@ namespace CrmAppSchool.Controllers
                 MySqlParameter websiteParam = new MySqlParameter("website", MySqlDbType.VarChar);
                 MySqlParameter emailParam = new MySqlParameter("email", MySqlDbType.VarChar);
                 MySqlParameter telefoonnrParam = new MySqlParameter("telefoonnr", MySqlDbType.VarChar);
-                MySqlParameter omschrijvingParam = new MySqlParameter("omschrijving", MySqlDbType.VarChar);
 
                 bedrijfnaamParam.Value = contact.Bedrijfnaam;
                 hoofdlocatieParam.Value = contact.Hoofdlocatie;
                 websiteParam.Value = contact.Website;
                 emailParam.Value = contact.Email;
                 telefoonnrParam.Value = contact.Telefoonnr;
-                omschrijvingParam.Value = contact.Omschrijving;
 
                 command.Parameters.Add(bedrijfnaamParam);
                 command.Parameters.Add(hoofdlocatieParam);
                 command.Parameters.Add(websiteParam);
                 command.Parameters.Add(emailParam);
                 command.Parameters.Add(telefoonnrParam);
-                command.Parameters.Add(omschrijvingParam);
 
                 command.Prepare();
                 command.ExecuteNonQuery();
@@ -212,7 +209,6 @@ namespace CrmAppSchool.Controllers
                     contact.Telefoonnr = datalezer["telefoonnr"] as string;
                     contact.Email = datalezer.GetString("email");
                     contact.Website = datalezer.GetString("website");
-                    contact.Omschrijving = datalezer["omschrijving"] as string;
                     resultaten.Add(contact);
                 }
 
@@ -560,7 +556,6 @@ namespace CrmAppSchool.Controllers
                     contact.Website = dataReader.GetString("website");
                     contact.Email = dataReader.GetString("email");
                     contact.Telefoonnr = dataReader["telefoonnr"] as string;
-                    contact.Omschrijving = dataReader["omschrijving"] as string;
                 }
             }
             catch (MySqlException e)

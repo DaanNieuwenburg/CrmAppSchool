@@ -72,7 +72,7 @@ namespace CrmAppSchool.Controllers
                 while (lezer.Read())
                 {
                     Bedrijfcontact contact = new Bedrijfcontact();
-                    bedrijfresultlijst.Add(new Bedrijfcontact { Bedrijfscode = lezer.GetInt32("bedrijfcode"), Bedrijfnaam = lezer.GetString("bedrijfnaam"), Hoofdlocatie = lezer.GetString("hoofdlocatie"), Website = lezer.GetString("website"), Email = lezer["email"] as string, Telefoonnr = lezer["telefoonnr"] as string, Omschrijving = lezer["omschrijving"] as string });
+                    bedrijfresultlijst.Add(new Bedrijfcontact { Bedrijfscode = lezer.GetInt32("bedrijfcode"), Bedrijfnaam = lezer.GetString("bedrijfnaam"), Hoofdlocatie = lezer.GetString("hoofdlocatie"), Website = lezer.GetString("website"), Email = lezer["email"] as string, Telefoonnr = lezer["telefoonnr"] as string });
                 }
             }
             catch (MySqlException e)
@@ -190,10 +190,7 @@ namespace CrmAppSchool.Controllers
                 {
                     return "Select * FROM bedrijf WHERE (hoofdlocatie LIKE '%' @zoekParam '%')";
                 }
-                else if (zoekquery == "Omschrijving")
-                {
-                    return "SELECT * FROM bedrijf WHERE (omschrijving LIKE '%' @zoekParam '%'";
-                }
+                
                 else
                 {
                     return "SELECT * FROM bedrijf";

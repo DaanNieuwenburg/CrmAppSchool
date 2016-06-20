@@ -777,7 +777,7 @@ namespace CrmAppSchool.Controllers
             bool gadoor = false;
             try
             {
-                if (aantalkeer == 1)
+                if (aantalkeer <= 1)
                 {
                     if (dooradmin == false)
                     {
@@ -821,7 +821,7 @@ namespace CrmAppSchool.Controllers
                 trans = conn.BeginTransaction();
                 // Verwijder contact in koppeltabel of als die maar een gebruiker kent, ook in de gebruikertabel
                 string query = "";
-                if (aantalkeer == 1)
+                if (aantalkeer <= 1)
                 {
                     query = @"DELETE FROM gebruikercontactpersoon WHERE gebruikersnaam = @gebruikersnaam AND contactcode = @contactcode;
                               DELETE FROM contactpersoon_kwaliteiten WHERE contactcode = @contactcode;
