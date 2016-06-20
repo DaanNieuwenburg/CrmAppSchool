@@ -16,7 +16,7 @@ namespace CrmAppSchool.Views.Opdrachten
     {
         Stageopdracht opdracht = new Stageopdracht();
         StageopdrachtController soc = new StageopdrachtController();
-        public opdrachtEditForm()
+        public opdrachtEditForm(string formtitel)
         {
             InitializeComponent();
             getStatus();
@@ -27,6 +27,7 @@ namespace CrmAppSchool.Views.Opdrachten
             bedrijfCbx.Text = null;
             cbx_contact.Text = null;
             cbx_contact.DataSource = null;
+            this.Text = formtitel;
 
         }
 

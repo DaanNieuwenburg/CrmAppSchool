@@ -125,7 +125,7 @@ namespace CrmAppSchool.Views.Opdrachten
 
         private void btnVoegtoe_Click(object sender, EventArgs e)
         {
-            opdrachtEditForm form = new opdrachtEditForm();
+            opdrachtEditForm form = new opdrachtEditForm("Voeg opdracht toe");
             form.ShowDialog();
             if (form.DialogResult == DialogResult.OK)
             {
@@ -155,7 +155,7 @@ namespace CrmAppSchool.Views.Opdrachten
                 Persooncontact contact = cc.HaalInfoOp(contactcode.ToString());
                 opdracht.Contact = contact;
 
-                opdrachtEditForm OEF = new opdrachtEditForm();
+                opdrachtEditForm OEF = new opdrachtEditForm("Bewerk opdracht");
                 OEF.Editopdracht(opdracht);
                 OEF.ShowDialog();
                 if (OEF.DialogResult == DialogResult.OK)

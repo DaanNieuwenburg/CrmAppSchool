@@ -79,11 +79,11 @@ namespace CrmAppSchool.Views.Gebruikers
             {
                 MessageBox.Show("Voer a.u.b.alle informatie in", "Error");
             }
-            else if (soortGebruikerCbx.Text == "Student" && (gebruikersnaamTxb.Text == "" || wachtwoordTxb.Text == ""))
+            else if (soortGebruikerCbx.Text == "Student" && (string.IsNullOrWhiteSpace(gebruikersnaamTxb.Text) || wachtwoordTxb.Text == ""))
             {
                 MessageBox.Show("Voer a.u.b.alle informatie in", "Error");
             }
-            else if (soortGebruikerCbx.Text == "Docent" && (gebruikersnaamTxb.Text == "" || wachtwoordTxb.Text == "" || tb_voornaam.Text == "" || tb_achternaam.Text == ""))
+            else if (soortGebruikerCbx.Text == "Docent" && (string.IsNullOrWhiteSpace(gebruikersnaamTxb.Text) || wachtwoordTxb.Text == "" || string.IsNullOrWhiteSpace(tb_voornaam.Text)|| string.IsNullOrWhiteSpace(tb_achternaam.Text)))
             {
                 MessageBox.Show("Voer a.u.b.alle informatie in", "Error");
             }
